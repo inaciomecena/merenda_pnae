@@ -1,0 +1,92 @@
+import { ProdutosReferenciaService } from '../../application/services/produtos-referencia.service';
+import { CreateProdutoReferenciaDto, UpdateProdutoReferenciaDto } from '../dto/produto-referencia.dto';
+export declare class ProdutosReferenciaController {
+    private readonly service;
+    constructor(service: ProdutosReferenciaService);
+    findAll(query: any): Promise<{
+        items: {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
+            nome: string;
+            ativo: boolean;
+            categoria: string | null;
+            subcategoria: string | null;
+            unidadePadrao: string | null;
+            palavrasChave: string | null;
+            sinonimos: string | null;
+            agriculturaFamiliar: boolean;
+        }[];
+        total: number;
+        page: number;
+        limit: number;
+        totalPages: number;
+    }>;
+    findOne(id: string): Promise<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        deletedAt: Date | null;
+        createdBy: string | null;
+        updatedBy: string | null;
+        nome: string;
+        ativo: boolean;
+        categoria: string | null;
+        subcategoria: string | null;
+        unidadePadrao: string | null;
+        palavrasChave: string | null;
+        sinonimos: string | null;
+        agriculturaFamiliar: boolean;
+    }>;
+    create(dto: CreateProdutoReferenciaDto): Promise<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        deletedAt: Date | null;
+        createdBy: string | null;
+        updatedBy: string | null;
+        nome: string;
+        ativo: boolean;
+        categoria: string | null;
+        subcategoria: string | null;
+        unidadePadrao: string | null;
+        palavrasChave: string | null;
+        sinonimos: string | null;
+        agriculturaFamiliar: boolean;
+    }>;
+    update(id: string, dto: UpdateProdutoReferenciaDto): Promise<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        deletedAt: Date | null;
+        createdBy: string | null;
+        updatedBy: string | null;
+        nome: string;
+        ativo: boolean;
+        categoria: string | null;
+        subcategoria: string | null;
+        unidadePadrao: string | null;
+        palavrasChave: string | null;
+        sinonimos: string | null;
+        agriculturaFamiliar: boolean;
+    }>;
+    remove(id: string): Promise<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        deletedAt: Date | null;
+        createdBy: string | null;
+        updatedBy: string | null;
+        nome: string;
+        ativo: boolean;
+        categoria: string | null;
+        subcategoria: string | null;
+        unidadePadrao: string | null;
+        palavrasChave: string | null;
+        sinonimos: string | null;
+        agriculturaFamiliar: boolean;
+    }>;
+}

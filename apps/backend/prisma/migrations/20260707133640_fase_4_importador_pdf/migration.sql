@@ -1,0 +1,31 @@
+-- AlterTable
+ALTER TABLE `pnae_editais` ADD COLUMN `arquivoFonte` VARCHAR(191) NULL,
+    ADD COLUMN `municipioId` VARCHAR(191) NULL,
+    ADD COLUMN `objeto` VARCHAR(191) NULL,
+    ADD COLUMN `observacoes` VARCHAR(191) NULL;
+
+-- AlterTable
+ALTER TABLE `pnae_edital_itens` ADD COLUMN `importadoAutomaticamente` BOOLEAN NOT NULL DEFAULT false,
+    ADD COLUMN `numeroItem` INTEGER NULL,
+    ADD COLUMN `observacoes` VARCHAR(191) NULL,
+    MODIFY `status` ENUM('PENDENTE', 'IMPORTADO', 'CONFIRMADO', 'PENDENTE_EDICAO', 'PENDENTE_CONFERENCIA') NOT NULL DEFAULT 'PENDENTE';
+
+-- AlterTable
+ALTER TABLE `pnae_import_logs` ADD COLUMN `anoExtraido` INTEGER NULL,
+    ADD COLUMN `arquivoCaminho` VARCHAR(191) NOT NULL,
+    ADD COLUMN `confirmadoEm` DATETIME(3) NULL,
+    ADD COLUMN `escolaNome` VARCHAR(191) NULL,
+    ADD COLUMN `mensagemErro` VARCHAR(191) NULL,
+    ADD COLUMN `municipioNome` VARCHAR(191) NULL,
+    ADD COLUMN `numeroExtraido` VARCHAR(191) NULL,
+    ADD COLUMN `objeto` VARCHAR(191) NULL,
+    ADD COLUMN `origem` VARCHAR(191) NOT NULL,
+    ADD COLUMN `processadoEm` DATETIME(3) NULL,
+    ADD COLUMN `quantidadeItens` INTEGER NOT NULL DEFAULT 0,
+    ADD COLUMN `tempoProcessamentoMs` INTEGER NULL,
+    ADD COLUMN `tituloExtraido` VARCHAR(191) NULL,
+    MODIFY `status` ENUM('AGUARDANDO_PROCESSAMENTO', 'PROCESSANDO', 'PROCESSADO', 'PENDENTE_CONFERENCIA', 'CONFIRMADO', 'ERRO') NOT NULL DEFAULT 'AGUARDANDO_PROCESSAMENTO';
+
+-- AddForeignKey
+ALTER TABLE `pnae_editais` ADD CONSTRAINT `pnae_editais_municipioId_fkey` FOREIGN KEY (`municipioId`) REFERENCES `municipios`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+

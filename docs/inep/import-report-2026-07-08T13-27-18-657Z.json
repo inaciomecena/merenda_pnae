@@ -1,0 +1,18 @@
+{
+  "startedAt": "2026-07-08T13:27:06.068Z",
+  "sourceFile": "C:\\Projetos\\sagae_pnae\\docs\\inep\\microdados_censo_escolar_2024\\microdados_censo_escolar_2024_defeso\\dados\\microdados_ed_basica_2024.csv",
+  "dryRun": true,
+  "municipiosLidos": 141,
+  "municipiosCriados": 3177,
+  "municipiosAtualizados": 4,
+  "municipiosDuplicadosDesativados": 0,
+  "municipiosForaMtSemDependenciasDesativados": 0,
+  "escolasLidas": 3191,
+  "escolasCriadas": 3191,
+  "escolasAtualizadas": 0,
+  "escolasForaDaFonteDesativadas": 0,
+  "vinculosCorrigidos": 0,
+  "linhasIgnoradas": 212354,
+  "inconsistencias": [],
+  "finishedAt": "2026-07-08T13:27:18.657Z"
+}

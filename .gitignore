@@ -1,0 +1,10 @@
+node_modules
+coverage
+.dist
+build
+.env
+.env.*
+!.env.example
+.DS_Store
+docs/inep/microdados_censo_escolar_2024.zip
+docs/inep/microdados_censo_escolar_2024/
