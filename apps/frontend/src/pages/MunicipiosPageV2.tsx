@@ -11,7 +11,7 @@ export default function MunicipiosPageV2() {
         { name: 'uf', label: 'UF' },
         { name: 'codigoIbge', label: 'Codigo IBGE' },
       ]}
-      renderRow={(item: any) => <>{item.nome} - {item.uf} - IBGE {item.codigoIbge || 'sem codigo'}</>}
+      renderRow={(item: any) => <>{item.nome} - {item.uf} - IBGE {item.codigoIbge || 'sem código'}</>}
     />
   );
 }

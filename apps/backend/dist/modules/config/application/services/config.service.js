@@ -52,7 +52,7 @@ let ConfigService = class ConfigService {
     }
     async initDefaults() {
         const defaults = [
-            { chave: 'sistema.nome', valor: 'SAGAE PNAE', descricao: 'Nome do sistema', tipo: 'texto' },
+            { chave: 'sistema.nome', valor: 'SEAF PNAE', descricao: 'Nome do sistema', tipo: 'texto' },
             { chave: 'sistema.versao', valor: '1.0.0', descricao: 'Versão do sistema', tipo: 'texto' },
             { chave: 'orgao.nome', valor: 'Governo do Estado de Mato Grosso', descricao: 'Nome do órgão', tipo: 'texto' },
             { chave: 'orgao.secretaria', valor: 'Secretaria de Estado de Educação', descricao: 'Secretaria responsável', tipo: 'texto' },

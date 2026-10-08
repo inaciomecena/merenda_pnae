@@ -46,7 +46,7 @@ export default function RelatoriosPage() {
     const params = new URLSearchParams();
     if (id) params.append('id', id);
     if (nome) params.append('nome', nome);
-    const token = localStorage.getItem('sagae_token');
+    const token = localStorage.getItem('seaf_token');
     const url = `http://localhost:3000/api/v1/reports/exportar/${tipo}?${params.toString()}`;
     fetch(url, { headers: { Authorization: `Bearer ${token}` } })
       .then(res => res.blob())

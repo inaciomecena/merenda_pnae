@@ -2,6 +2,7 @@ import { Controller, Get, Query, Param, Res } from '@nestjs/common';
 import { ApiOperation, ApiQuery, ApiTags } from '@nestjs/swagger';
 import { Response } from 'express';
 import { ReportsService } from '../../application/services/reports.service';
+import { Roles } from '../../../../common/decorators/roles.decorator';
 
 @ApiTags('reports')
 @Controller({ path: 'reports', version: '1' })
@@ -9,6 +10,7 @@ export class ReportsController {
   constructor(private readonly service: ReportsService) {}
 
   @Get(':tipo')
+  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Gerar relatorio por tipo' })
   @ApiQuery({ name: 'id', required: false })
   @ApiQuery({ name: 'nome', required: false })
@@ -34,6 +36,7 @@ export class ReportsController {
   }
 
   @Get('exportar/:tipo')
+  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Exportar relatorio em CSV' })
   @ApiQuery({ name: 'id', required: false })
   @ApiQuery({ name: 'nome', required: false })

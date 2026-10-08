@@ -14,12 +14,15 @@ const common_1 = require("@nestjs/common");
 const jwt_1 = require("@nestjs/jwt");
 const core_1 = require("@nestjs/core");
 const public_decorator_1 = require("../decorators/public.decorator");
+const prisma_service_1 = require("../../infrastructure/prisma/prisma.service");
 let JwtAuthGuard = class JwtAuthGuard {
     jwtService;
     reflector;
-    constructor(jwtService, reflector) {
+    prisma;
+    constructor(jwtService, reflector, prisma) {
         this.jwtService = jwtService;
         this.reflector = reflector;
+        this.prisma = prisma;
     }
     async canActivate(context) {
         const isPublic = this.reflector.getAllAndOverride(public_decorator_1.PUBLIC_KEY, [
@@ -35,7 +38,10 @@ let JwtAuthGuard = class JwtAuthGuard {
         const token = authHeader.split(' ')[1];
         try {
             const payload = this.jwtService.verify(token, { secret: process.env.JWT_SECRET || 'dev-secret' });
-            req.user = payload;
+            const user = await this.prisma.user.findFirst({ where: { id: payload.sub, deletedAt: null, active: true } });
+            if (!user)
+                return false;
+            req.user = { sub: user.id, email: user.email, role: user.role, escolaId: user.escolaId, municipioId: user.municipioId };
             return true;
         }
         catch {
@@ -47,6 +53,7 @@ exports.JwtAuthGuard = JwtAuthGuard;
 exports.JwtAuthGuard = JwtAuthGuard = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [jwt_1.JwtService,
-        core_1.Reflector])
+        core_1.Reflector,
+        prisma_service_1.PrismaService])
 ], JwtAuthGuard);
 //# sourceMappingURL=jwt-auth.guard.js.map

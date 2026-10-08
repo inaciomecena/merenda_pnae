@@ -6,7 +6,7 @@ import { useAuth } from '../contexts/AuthContext';
 export default function LoginPage() {
   const navigate = useNavigate();
   const { login, isAuthenticated, loading } = useAuth();
-  const [email, setEmail] = useState('admin@sagae.gov.br');
+  const [email, setEmail] = useState('admin@seaf.gov.br');
   const [password, setPassword] = useState('Admin@123');
   const [error, setError] = useState('');
 
@@ -28,7 +28,7 @@ export default function LoginPage() {
       <Card sx={{ width: 420, p: 2 }}>
         <CardContent>
           <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
-            <img src="/logo.png" alt="SAGAE PNAE" style={{ height: 70 }} />
+            <img src="/logo.png" alt="SEAF PNAE" style={{ height: 70 }} />
           </Box>
           <Typography variant="body2" color="text.secondary" gutterBottom>Acesse o sistema PNAE</Typography>
           {error ? <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert> : null}

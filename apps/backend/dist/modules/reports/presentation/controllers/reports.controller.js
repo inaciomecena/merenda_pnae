@@ -16,6 +16,7 @@ exports.ReportsController = void 0;
 const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
 const reports_service_1 = require("../../application/services/reports.service");
+const roles_decorator_1 = require("../../../../common/decorators/roles.decorator");
 let ReportsController = class ReportsController {
     service;
     constructor(service) {
@@ -68,6 +69,7 @@ let ReportsController = class ReportsController {
 exports.ReportsController = ReportsController;
 __decorate([
     (0, common_1.Get)(':tipo'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Gerar relatorio por tipo' }),
     (0, swagger_1.ApiQuery)({ name: 'id', required: false }),
     (0, swagger_1.ApiQuery)({ name: 'nome', required: false }),
@@ -87,6 +89,7 @@ __decorate([
 ], ReportsController.prototype, "getRelatorio", null);
 __decorate([
     (0, common_1.Get)('exportar/:tipo'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Exportar relatorio em CSV' }),
     (0, swagger_1.ApiQuery)({ name: 'id', required: false }),
     (0, swagger_1.ApiQuery)({ name: 'nome', required: false }),

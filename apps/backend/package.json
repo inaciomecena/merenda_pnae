@@ -1,9 +1,9 @@
 {
-  "name": "@sagae-pnae/backend",
+  "name": "@seaf-pnae/backend",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nest start --watch",
+    "dev": "prisma migrate deploy && nest start --watch",
     "build": "nest build",
     "start": "node dist/main",
     "test": "jest --runInBand",
@@ -11,7 +11,8 @@
     "prisma:migrate": "prisma migrate dev --name init",
     "prisma:seed": "prisma db seed",
     "seed:test": "ts-node prisma/seed-test.ts",
-    "import:inep:mt": "ts-node scripts/import-inep-mt.ts"
+    "import:inep:mt": "ts-node scripts/import-inep-mt.ts",
+    "update:ibge": "ts-node scripts/update-ibge-codes.ts"
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"

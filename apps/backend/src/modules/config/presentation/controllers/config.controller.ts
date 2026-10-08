@@ -9,12 +9,14 @@ export class ConfigController {
   constructor(private readonly service: ConfigService) {}
 
   @Get()
+  @Roles('ADMIN')
   @ApiOperation({ summary: 'Listar todas as configurações' })
   findAll() {
     return this.service.findAll();
   }
 
   @Get(':chave')
+  @Roles('ADMIN')
   @ApiOperation({ summary: 'Buscar configuração por chave' })
   get(@Param('chave') chave: string) {
     return this.service.get(chave);

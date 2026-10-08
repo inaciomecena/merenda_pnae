@@ -6,7 +6,7 @@ const api = axios.create({
 });
 
 api.interceptors.request.use((config) => {
-  const token = localStorage.getItem('sagae_token');
+  const token = localStorage.getItem('seaf_token');
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }

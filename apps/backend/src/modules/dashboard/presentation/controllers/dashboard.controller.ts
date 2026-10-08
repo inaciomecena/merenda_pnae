@@ -2,6 +2,7 @@ import { Controller, Get, Query, Param, Res } from '@nestjs/common';
 import { ApiOperation, ApiQuery, ApiTags } from '@nestjs/swagger';
 import { Response } from 'express';
 import { DashboardService } from '../../application/services/dashboard.service';
+import { Roles } from '../../../../common/decorators/roles.decorator';
 
 @ApiTags('dashboard')
 @Controller({ path: 'dashboard', version: '1' })
@@ -9,6 +10,7 @@ export class DashboardController {
   constructor(private readonly service: DashboardService) {}
 
   @Get()
+  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Dashboard principal com KPIs e graficos' })
   @ApiQuery({ name: 'ano', required: false })
   @ApiQuery({ name: 'municipioId', required: false })
@@ -25,6 +27,7 @@ export class DashboardController {
   }
 
   @Get('kpis')
+  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Indicadores KPI do sistema' })
   @ApiQuery({ name: 'ano', required: false })
   @ApiQuery({ name: 'municipioId', required: false })
@@ -36,6 +39,7 @@ export class DashboardController {
   }
 
   @Get('graficos')
+  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Dados para graficos do dashboard' })
   @ApiQuery({ name: 'ano', required: false })
   @ApiQuery({ name: 'municipioId', required: false })
@@ -47,6 +51,7 @@ export class DashboardController {
   }
 
   @Get('ranking/:tipo')
+  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Rankings do sistema' })
   @ApiQuery({ name: 'limit', required: false })
   @ApiQuery({ name: 'municipioId', required: false })
@@ -59,12 +64,14 @@ export class DashboardController {
   }
 
   @Get('mapa')
+  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Dados para mapa do Mato Grosso' })
   getMapaDados() {
     return this.service.getMapaDados();
   }
 
   @Get('produtos')
+  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Produtos mais solicitados' })
   @ApiQuery({ name: 'limit', required: false })
   getProdutos(@Query('limit') limit?: number) {
@@ -72,6 +79,7 @@ export class DashboardController {
   }
 
   @Get('municipios')
+  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Ranking de municipios' })
   @ApiQuery({ name: 'limit', required: false })
   getMunicipios(@Query('limit') limit?: number) {
@@ -79,6 +87,7 @@ export class DashboardController {
   }
 
   @Get('escolas')
+  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Ranking de escolas' })
   @ApiQuery({ name: 'limit', required: false })
   getEscolas(@Query('limit') limit?: number) {
@@ -86,6 +95,7 @@ export class DashboardController {
   }
 
   @Get('produtores')
+  @Roles('ADMIN', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Ranking de produtores' })
   @ApiQuery({ name: 'limit', required: false })
   getProdutores(@Query('limit') limit?: number) {
@@ -93,6 +103,7 @@ export class DashboardController {
   }
 
   @Get('exportar/:tipo')
+  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Exportar dados do dashboard' })
   async exportar(
     @Param('tipo') tipo: string,

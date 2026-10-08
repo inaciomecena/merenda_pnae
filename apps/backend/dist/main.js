@@ -22,7 +22,7 @@ async function bootstrap() {
     const auditService = app.get(audit_service_1.AuditService);
     app.useGlobalInterceptors(new audit_interceptor_1.AuditInterceptor(auditService));
     const config = new swagger_1.DocumentBuilder()
-        .setTitle('SAGAE PNAE API')
+        .setTitle('SEAF PNAE API')
         .setDescription('API para gestão de editais, produtos e propostas do PNAE')
         .setVersion('1.0')
         .addBearerAuth()

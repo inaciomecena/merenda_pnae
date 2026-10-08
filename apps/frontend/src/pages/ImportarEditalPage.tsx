@@ -68,7 +68,7 @@ export default function ImportarEditalPage() {
           <Stack spacing={1}>
             <Typography variant="h6">Pasta automática</Typography>
             <Typography variant="body2" color="text.secondary">
-              Arquivos PDF colocados em `C:\Projetos\sagae_pnae\docs` são sincronizados automaticamente no backend.
+              Arquivos PDF colocados em `C:\Projetos\merenda_pnae\docs` são sincronizados automaticamente no backend.
             </Typography>
           </Stack>
         </CardContent>

@@ -1,4 +1,4 @@
-import { Alert, Button, Card, CardContent, Dialog, DialogActions, DialogContent, DialogTitle, Grid, IconButton, MenuItem, Stack, Table, TableBody, TableCell, TableHead, TableRow, TextField, Typography, CircularProgress, Pagination } from '@mui/material';
+import { Alert, Autocomplete, Button, Card, CardContent, Dialog, DialogActions, DialogContent, DialogTitle, Grid, IconButton, MenuItem, Stack, Table, TableBody, TableCell, TableHead, TableRow, TextField, Typography, CircularProgress, Pagination } from '@mui/material';
 import { Delete, Edit, Add } from '@mui/icons-material';
 import { useEffect, useState } from 'react';
 import api from '../services/api';
@@ -10,7 +10,7 @@ interface CrudPageProps<TItem, TForm> {
   fields: Array<{
     name: keyof TForm;
     label: string;
-    type?: 'text' | 'number' | 'select';
+    type?: 'text' | 'number' | 'select' | 'autocomplete';
     options?: Array<{ label: string; value: string }>;
     fetchOptions?: () => Promise<Array<{ label: string; value: string }>>;
   }>;
@@ -19,9 +19,10 @@ interface CrudPageProps<TItem, TForm> {
   initialValues: TForm;
   mapToPayload?: (values: TForm) => any;
   getItemLabel?: (item: TItem) => string;
+  headerAction?: React.ReactNode;
 }
 
-export function CrudPage<TItem extends { id: string }, TForm extends Record<string, any>>({ title, endpoint, fields, renderRow, emptyLabel = 'Nenhum registro encontrado.', initialValues, mapToPayload }: CrudPageProps<TItem, TForm>) {
+export function CrudPage<TItem extends { id: string }, TForm extends Record<string, any>>({ title, endpoint, fields, renderRow, emptyLabel = 'Nenhum registro encontrado.', initialValues, mapToPayload, headerAction }: CrudPageProps<TItem, TForm>) {
   const [items, setItems] = useState<TItem[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -98,7 +99,7 @@ export function CrudPage<TItem extends { id: string }, TForm extends Record<stri
     <Stack spacing={3}>
       <Stack direction="row" justifyContent="space-between" alignItems="center">
         <Typography variant="h4" fontWeight={700}>{title}</Typography>
-        <Button variant="contained" startIcon={<Add />} onClick={() => { setEditing(null); setForm(initialValues); setOpen(true); }}>Novo</Button>
+        <Stack direction="row" spacing={1}>{headerAction}<Button variant="contained" startIcon={<Add />} onClick={() => { setEditing(null); setForm(initialValues); setOpen(true); }}>Novo</Button></Stack>
       </Stack>
       {error ? <Alert severity="error">{error}</Alert> : null}
       <Card>
@@ -130,13 +131,29 @@ export function CrudPage<TItem extends { id: string }, TForm extends Record<stri
         </CardContent>
       </Card>
 
-      <Dialog open={open} onClose={() => setOpen(false)} maxWidth="sm" fullWidth>
+      <Dialog open={open} onClose={() => setOpen(false)} maxWidth="md" fullWidth>
         <DialogTitle>{editing ? 'Editar' : 'Novo'} {title}</DialogTitle>
         <DialogContent>
           <Grid container spacing={2} sx={{ mt: 0.5 }}>
             {fields.map((field) => (
               <Grid item xs={12} md={6} key={String(field.name)}>
-                {field.type === 'select' || field.fetchOptions ? (
+                {field.type === 'autocomplete' || (field.fetchOptions && field.type !== 'select') ? (
+                  <Autocomplete
+                    options={dynamicOptions[String(field.name)] || field.options || []}
+                    getOptionLabel={(option) => option.label || ''}
+                    isOptionEqualToValue={(option, value) => option.value === value}
+                    value={
+                      (dynamicOptions[String(field.name)] || field.options || []).find(
+                        (opt) => opt.value === form[field.name]
+                      ) || null
+                    }
+                    onChange={(_, newValue) => {
+                      setForm({ ...form, [field.name]: newValue?.value ?? '' });
+                    }}
+                    renderInput={(params) => <TextField {...params} label={field.label} placeholder="Digite para buscar..." />}
+                    noOptionsText="Nenhuma opção encontrada"
+                  />
+                ) : field.type === 'select' || field.fetchOptions ? (
                   <TextField select label={field.label} fullWidth value={form[field.name] ?? ''} onChange={(e) => setForm({ ...form, [field.name]: e.target.value })}>
                     {(dynamicOptions[String(field.name)] || field.options || []).map((option) => <MenuItem key={option.value} value={option.value}>{option.label}</MenuItem>)}
                   </TextField>

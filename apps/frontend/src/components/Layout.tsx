@@ -1,32 +1,35 @@
 import { Box, Breadcrumbs, Container, CssBaseline, Drawer, List, ListItemButton, ListItemIcon, ListItemText, Typography, Divider, Stack, Chip } from '@mui/material';
+import type { ReactNode } from 'react';
 import { Home, School, Map, Description, Inventory2, People, Gavel, Assignment, Group, UploadFile, History, Settings, Science, Assessment, Map as MapIcon } from '@mui/icons-material';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import type { UserRole } from '../types';
 
 const drawerWidth = 240;
 
-const routes = [
-  { label: 'Dashboard', path: '/dashboard', icon: <Home /> },
-  { label: 'Mapa MT', path: '/mapa', icon: <MapIcon /> },
-  { label: 'Relatorios', path: '/relatorios', icon: <Assessment /> },
-  { label: 'Municipios', path: '/municipios', icon: <Map /> },
-  { label: 'Escolas', path: '/escolas', icon: <School /> },
-  { label: 'Editais', path: '/editais', icon: <Description /> },
-  { label: 'Produtos de referencia', path: '/produtos-referencia', icon: <Inventory2 /> },
-  { label: 'Produtores', path: '/produtores', icon: <People /> },
-  { label: 'Balizamento', path: '/balizamento', icon: <Gavel /> },
-  { label: 'Propostas', path: '/propostas', icon: <Assignment /> },
-  { label: 'Importacoes', path: '/importacoes', icon: <UploadFile /> },
-  { label: 'Usuarios', path: '/usuarios', icon: <Group /> },
-  { label: 'Auditoria', path: '/auditoria', icon: <History /> },
-  { label: 'Configuracoes', path: '/configuracoes', icon: <Settings /> },
-  { label: 'Homologacao', path: '/homologacao', icon: <Science /> },
+const routes: { label: string; path: string; icon: ReactNode; roles: UserRole[] }[] = [
+  { label: 'Dashboard', path: '/dashboard', icon: <Home />, roles: ['ADMIN', 'ESCOLA', 'EXTENSIONISTA'] },
+  { label: 'Mapa MT', path: '/mapa', icon: <MapIcon />, roles: ['ADMIN', 'ESCOLA', 'EXTENSIONISTA'] },
+  { label: 'Relatorios', path: '/relatorios', icon: <Assessment />, roles: ['ADMIN', 'ESCOLA', 'EXTENSIONISTA'] },
+  { label: 'Municipios', path: '/municipios', icon: <Map />, roles: ['ADMIN'] },
+  { label: 'Escolas', path: '/escolas', icon: <School />, roles: ['ADMIN', 'ESCOLA'] },
+  { label: 'Editais', path: '/editais', icon: <Description />, roles: ['ADMIN', 'ESCOLA'] },
+  { label: 'Produtos de referencia', path: '/produtos-referencia', icon: <Inventory2 />, roles: ['ADMIN'] },
+  { label: 'Produtores', path: '/produtores', icon: <People />, roles: ['ADMIN', 'EXTENSIONISTA'] },
+  { label: 'Balizamento', path: '/balizamento', icon: <Gavel />, roles: ['ADMIN', 'EXTENSIONISTA'] },
+  { label: 'Propostas', path: '/propostas', icon: <Assignment />, roles: ['ADMIN', 'ESCOLA', 'EXTENSIONISTA'] },
+  { label: 'Importacoes', path: '/importacoes', icon: <UploadFile />, roles: ['ADMIN', 'ESCOLA'] },
+  { label: 'Usuarios', path: '/usuarios', icon: <Group />, roles: ['ADMIN'] },
+  { label: 'Auditoria', path: '/auditoria', icon: <History />, roles: ['ADMIN'] },
+  { label: 'Configuracoes', path: '/configuracoes', icon: <Settings />, roles: ['ADMIN'] },
+  { label: 'Homologacao', path: '/homologacao', icon: <Science />, roles: ['ADMIN'] },
 ];
 
 export default function Layout() {
   const location = useLocation();
   const navigate = useNavigate();
   const { user, logout } = useAuth();
+  const visibleRoutes = routes.filter((item) => user && item.roles.includes(user.role));
 
   const breadcrumbs = location.pathname
     .split('/')
@@ -52,12 +55,12 @@ export default function Layout() {
         }}
       >
         <Box sx={{ p: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', borderBottom: '1px solid #f0f0f0' }}>
-          <Box component="img" src="/logo.png" alt="SAGAE" sx={{ height: 50, width: 'auto', objectFit: 'contain' }} />
+          <Box component="img" src="/logo.png" alt="SEAF" sx={{ height: 50, width: 'auto', objectFit: 'contain' }} />
         </Box>
 
         <Box sx={{ flex: 1, pt: 1 }}>
           <List sx={{ px: 1 }}>
-            {routes.map((item) => {
+            {visibleRoutes.map((item) => {
               const isActive = location.pathname === item.path;
               return (
                 <ListItemButton
@@ -155,7 +158,7 @@ export default function Layout() {
         </Box>
 
         <Box component="main" sx={{ flexGrow: 1, p: 3, overflow: 'auto' }}>
-          <Container maxWidth="xl" sx={{ px: 0 }}>
+          <Container maxWidth={false} sx={{ px: 0, width: '100%' }}>
             <Breadcrumbs aria-label="breadcrumb" sx={{ mb: 2 }}>
               <Link
                 to="/dashboard"

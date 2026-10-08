@@ -10,6 +10,7 @@ export class MunicipiosController {
   constructor(private readonly service: MunicipiosService) {}
 
   @Get()
+  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Listar municípios' })
   @ApiQuery({ name: 'page', required: false })
   @ApiQuery({ name: 'limit', required: false })
@@ -20,6 +21,7 @@ export class MunicipiosController {
   }
 
   @Get(':id')
+  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Buscar município por id' })
   findOne(@Param('id') id: string) {
     return this.service.findOne(id);

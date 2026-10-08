@@ -12,6 +12,7 @@ import { ImportacoesRepository } from '../repositories/importacoes.repository';
 import { ParserService } from './parser.service';
 import { ConfirmarImportacaoDto } from '../../presentation/dto/confirmar-importacao.dto';
 import { CreateImportacaoPdfDto } from '../../presentation/dto/create-importacao-pdf.dto';
+import { UpdateImportacaoEditalDto } from '../../presentation/dto/update-importacao-edital.dto';
 
 const docsDir = path.resolve(process.cwd(), '..', '..', 'docs');
 
@@ -172,6 +173,43 @@ export class ImportadorEditaisService implements OnModuleInit {
     }
 
     return this.repository.confirmImportacao(id, importacao.editalId, dto.itens);
+  }
+
+  async editarEdital(id: string, dto: UpdateImportacaoEditalDto) {
+    const importacao = await this.buscarImportacao(id);
+
+    if (importacao.status === StatusImportacao.CONFIRMADO) {
+      throw new BadRequestException('Importação já confirmada não pode ser editada.');
+    }
+
+    if (!importacao.editalId) {
+      throw new BadRequestException('A importação ainda não gerou um edital para edição.');
+    }
+
+    const editalData: Record<string, any> = { updatedBy: 'importador-editais' };
+
+    if (dto.numero !== undefined) editalData.numero = dto.numero;
+    if (dto.ano !== undefined) editalData.ano = dto.ano;
+    if (dto.titulo !== undefined) editalData.titulo = dto.titulo;
+    if (dto.descricao !== undefined) editalData.descricao = dto.descricao;
+    if (dto.objeto !== undefined) editalData.objeto = dto.objeto;
+    if (dto.escolaId !== undefined) editalData.escolaId = dto.escolaId || null;
+    if (dto.municipioId !== undefined) editalData.municipioId = dto.municipioId || null;
+    if (dto.dataPublicacao !== undefined) editalData.dataPublicacao = dto.dataPublicacao ? new Date(dto.dataPublicacao) : null;
+
+    await this.repository.updateEdital(importacao.editalId, editalData);
+
+    // Atualizar também os campos desnormalizados no ImportLog
+    const importLogData: Record<string, any> = { updatedBy: 'importador-editais' };
+    if (dto.titulo !== undefined) importLogData.tituloExtraido = dto.titulo;
+    if (dto.numero !== undefined) importLogData.numeroExtraido = dto.numero;
+    if (dto.ano !== undefined) importLogData.anoExtraido = dto.ano;
+
+    if (Object.keys(importLogData).length > 1) {
+      await this.repository.updateImportLog(id, importLogData);
+    }
+
+    return this.buscarImportacao(id);
   }
 
   private async sincronizarPdfsDaPastaDocs(processarAutomaticamente: boolean) {

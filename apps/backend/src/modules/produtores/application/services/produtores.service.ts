@@ -1,19 +1,21 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../../../../infrastructure/prisma/prisma.service';
 import { CreateProdutorDto, CreateProdutorProdutoDto, UpdateProdutorDto, UpdateProdutorProdutoDto } from '../../presentation/dto/produtor.dto';
+import { AuthenticatedUser, requireScope } from '../../../../common/auth/user-scope';
 
 @Injectable()
 export class ProdutoresService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async findAll(query: { page?: number; limit?: number; search?: string; municipioId?: string }) {
+  async findAll(query: { page?: number; limit?: number; search?: string; municipioId?: string }, user?: AuthenticatedUser) {
     const page = Number(query.page ?? 1);
     const limit = Number(query.limit ?? 10);
-    const where = {
+    const where: any = {
       deletedAt: null,
       ...(query.search ? { nome: { contains: query.search } } : {}),
       ...(query.municipioId ? { municipioId: query.municipioId } : {}),
     };
+    if (user?.role === 'EXTENSIONISTA') where.municipioId = requireScope(user, 'municipio');
 
     const [items, total] = await this.prisma.$transaction([
       this.prisma.produtor.findMany({ where, skip: (page - 1) * limit, take: limit, include: { municipio: true }, orderBy: { createdAt: 'desc' } }),
@@ -23,18 +25,21 @@ export class ProdutoresService {
     return { items, total, page, limit, totalPages: Math.ceil(total / limit) };
   }
 
-  async findOne(id: string) {
-    const item = await this.prisma.produtor.findFirst({ where: { id, deletedAt: null }, include: { municipio: true, produtos: true } });
+  async findOne(id: string, user?: AuthenticatedUser) {
+    const where: any = { id, deletedAt: null };
+    if (user?.role === 'EXTENSIONISTA') where.municipioId = requireScope(user, 'municipio');
+    const item = await this.prisma.produtor.findFirst({ where, include: { municipio: true, produtos: true } });
     if (!item) throw new NotFoundException('Produtor não encontrado');
     return item;
   }
 
-  async create(dto: CreateProdutorDto) {
-    return this.prisma.produtor.create({ data: { ...dto, createdBy: 'system' } });
+  async create(dto: CreateProdutorDto, user?: AuthenticatedUser) {
+    const municipioId = user?.role === 'EXTENSIONISTA' ? requireScope(user, 'municipio') : dto.municipioId;
+    return this.prisma.produtor.create({ data: { ...dto, municipioId, createdBy: 'system' } as any });
   }
 
-  async update(id: string, dto: UpdateProdutorDto) {
-    await this.findOne(id);
+  async update(id: string, dto: UpdateProdutorDto, user?: AuthenticatedUser) {
+    await this.findOne(id, user);
     return this.prisma.produtor.update({ where: { id }, data: { ...dto, updatedBy: 'system' } });
   }
 

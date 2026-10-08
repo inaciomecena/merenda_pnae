@@ -18,6 +18,7 @@ import { AuditModule } from './modules/audit/audit.module';
 import { ConfigModule as SystemConfigModule } from './modules/config/config.module';
 import { HomologacaoModule } from './modules/homologacao/homologacao.module';
 import { ReportsModule } from './modules/reports/reports.module';
+import { UsersModule } from './modules/users/users.module';
 
 @Module({
   imports: [
@@ -41,6 +42,7 @@ import { ReportsModule } from './modules/reports/reports.module';
     SystemConfigModule,
     HomologacaoModule,
     ReportsModule,
+    UsersModule,
   ],
   controllers: [HealthController],
   providers: [

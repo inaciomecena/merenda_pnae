@@ -10,6 +10,7 @@ export class ProdutosReferenciaController {
   constructor(private readonly service: ProdutosReferenciaService) {}
 
   @Get()
+  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Listar produtos de referência' })
   @ApiQuery({ name: 'page', required: false })
   @ApiQuery({ name: 'limit', required: false })
@@ -20,6 +21,7 @@ export class ProdutosReferenciaController {
   }
 
   @Get(':id')
+  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Buscar produto de referência por id' })
   findOne(@Param('id') id: string) {
     return this.service.findOne(id);

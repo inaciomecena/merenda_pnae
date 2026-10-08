@@ -5,13 +5,16 @@ export default function ProdutosReferenciaPage() {
     <CrudPage
       title="Produtos de referência"
       endpoint="/produtos-referencia"
-      initialValues={{ nome: '', categoria: '', unidadePadrao: '', ativo: true }}
+      initialValues={{ nome: '', categoria: '', subcategoria: '', unidadePadrao: '', palavrasChave: '', sinonimos: '', agriculturaFamiliar: true, ativo: true }}
       fields={[
         { name: 'nome', label: 'Nome' },
         { name: 'categoria', label: 'Categoria' },
+        { name: 'subcategoria', label: 'Subcategoria' },
         { name: 'unidadePadrao', label: 'Unidade padrão' },
+        { name: 'palavrasChave', label: 'Palavras-chave' },
+        { name: 'sinonimos', label: 'Sinônimos' },
       ]}
-      renderRow={(item: any) => <>{item.nome}</>}
+      renderRow={(item: any) => <>{item.nome} · {item.unidadePadrao || 'sem unidade'}{item.categoria ? ` · ${item.categoria}` : ''}{item.sinonimos ? ` · ${item.sinonimos}` : ''}</>}
     />
   );
 }

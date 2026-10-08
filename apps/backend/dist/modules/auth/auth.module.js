@@ -14,12 +14,14 @@ const auth_controller_1 = require("./presentation/controllers/auth.controller");
 const auth_service_1 = require("./application/services/auth.service");
 const jwt_auth_guard_1 = require("../../common/guards/jwt-auth.guard");
 const roles_guard_1 = require("../../common/guards/roles.guard");
+const prisma_module_1 = require("../../infrastructure/prisma/prisma.module");
 let AuthModule = class AuthModule {
 };
 exports.AuthModule = AuthModule;
 exports.AuthModule = AuthModule = __decorate([
     (0, common_1.Module)({
         imports: [
+            prisma_module_1.PrismaModule,
             jwt_1.JwtModule.register({
                 secret: process.env.JWT_SECRET || 'dev-secret',
                 signOptions: { expiresIn: '1h' },

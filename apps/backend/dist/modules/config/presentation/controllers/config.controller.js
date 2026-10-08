@@ -41,6 +41,7 @@ let ConfigController = class ConfigController {
 exports.ConfigController = ConfigController;
 __decorate([
     (0, common_1.Get)(),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Listar todas as configurações' }),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
@@ -48,6 +49,7 @@ __decorate([
 ], ConfigController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Get)(':chave'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Buscar configuração por chave' }),
     __param(0, (0, common_1.Param)('chave')),
     __metadata("design:type", Function),

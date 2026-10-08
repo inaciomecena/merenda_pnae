@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { Alert, Button, Card, CardContent, Chip, CircularProgress, Grid, Stack, Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material';
+import { Alert, Box, Button, Card, CardContent, Chip, CircularProgress, Grid, Stack, Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material';
 import { FactCheck } from '@mui/icons-material';
 import { useQuery } from '@tanstack/react-query';
 import { Link as RouterLink, useParams } from 'react-router-dom';
@@ -101,7 +101,7 @@ function Info({ label, value }: { label: string; value: ReactNode }) {
   return (
     <Grid item xs={12} md={6} lg={3}>
       <Typography variant="overline">{label}</Typography>
-      <Typography variant="body1">{value}</Typography>
+      <Box sx={{ typography: 'body1' }}>{value}</Box>
     </Grid>
   );
 }

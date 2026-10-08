@@ -1,4 +1,4 @@
-﻿import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
 import * as bcrypt from 'bcryptjs';
 
 const prisma = new PrismaClient();
@@ -8,11 +8,11 @@ const passwordHash = bcrypt.hashSync('Admin@123', 10);
 async function main() {
   // ─── USUÁRIOS ───────────────────────────────────────────────
   await prisma.user.upsert({
-    where: { email: 'admin@sagae.gov.br' },
+    where: { email: 'admin@seaf.gov.br' },
     update: { name: 'Administrador PNAE', role: 'ADMIN', active: true, updatedBy: 'system' },
     create: {
       name: 'Administrador PNAE',
-      email: 'admin@sagae.gov.br',
+      email: 'admin@seaf.gov.br',
       passwordHash,
       role: 'ADMIN',
       active: true,
@@ -22,11 +22,11 @@ async function main() {
   });
 
   await prisma.user.upsert({
-    where: { email: 'extensionista@sagae.gov.br' },
+    where: { email: 'extensionista@seaf.gov.br' },
     update: { name: 'Maria Oliveira - Extensionista', role: 'EXTENSIONISTA', active: true, updatedBy: 'system' },
     create: {
       name: 'Maria Oliveira - Extensionista',
-      email: 'extensionista@sagae.gov.br',
+      email: 'extensionista@seaf.gov.br',
       passwordHash,
       role: 'EXTENSIONISTA',
       active: true,
@@ -36,11 +36,11 @@ async function main() {
   });
 
   await prisma.user.upsert({
-    where: { email: 'escola@sagae.gov.br' },
+    where: { email: 'escola@seaf.gov.br' },
     update: { name: 'João Silva - Escola', role: 'ESCOLA', active: true, updatedBy: 'system' },
     create: {
       name: 'João Silva - Escola',
-      email: 'escola@sagae.gov.br',
+      email: 'escola@seaf.gov.br',
       passwordHash,
       role: 'ESCOLA',
       active: true,
@@ -192,9 +192,9 @@ async function main() {
 
   console.log('Seed concluído!');
   console.log('Credenciais de teste:');
-  console.log('  Admin:         admin@sagae.gov.br / Admin@123');
-  console.log('  Extensionista: extensionista@sagae.gov.br / Admin@123');
-  console.log('  Escola:        escola@sagae.gov.br / Admin@123');
+  console.log('  Admin:         admin@seaf.gov.br / Admin@123');
+  console.log('  Extensionista: extensionista@seaf.gov.br / Admin@123');
+  console.log('  Escola:        escola@seaf.gov.br / Admin@123');
 }
 
 main()

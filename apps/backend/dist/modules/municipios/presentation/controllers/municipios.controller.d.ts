@@ -6,16 +6,16 @@ export declare class MunicipiosController {
     findAll(query: any): Promise<{
         items: {
             id: string;
-            nome: string;
-            nomeNormalizado: string | null;
-            uf: string;
-            codigoIbge: string | null;
-            ativo: boolean;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            nome: string;
+            ativo: boolean;
+            nomeNormalizado: string | null;
+            uf: string;
+            codigoIbge: string | null;
         }[];
         total: number;
         page: number;
@@ -24,54 +24,54 @@ export declare class MunicipiosController {
     }>;
     findOne(id: string): Promise<{
         id: string;
-        nome: string;
-        nomeNormalizado: string | null;
-        uf: string;
-        codigoIbge: string | null;
-        ativo: boolean;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        nome: string;
+        ativo: boolean;
+        nomeNormalizado: string | null;
+        uf: string;
+        codigoIbge: string | null;
     }>;
     create(dto: CreateMunicipioDto): Promise<{
         id: string;
-        nome: string;
-        nomeNormalizado: string | null;
-        uf: string;
-        codigoIbge: string | null;
-        ativo: boolean;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        nome: string;
+        ativo: boolean;
+        nomeNormalizado: string | null;
+        uf: string;
+        codigoIbge: string | null;
     }>;
     update(id: string, dto: UpdateMunicipioDto): Promise<{
         id: string;
-        nome: string;
-        nomeNormalizado: string | null;
-        uf: string;
-        codigoIbge: string | null;
-        ativo: boolean;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        nome: string;
+        ativo: boolean;
+        nomeNormalizado: string | null;
+        uf: string;
+        codigoIbge: string | null;
     }>;
     remove(id: string): Promise<{
         id: string;
-        nome: string;
-        nomeNormalizado: string | null;
-        uf: string;
-        codigoIbge: string | null;
-        ativo: boolean;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        nome: string;
+        ativo: boolean;
+        nomeNormalizado: string | null;
+        uf: string;
+        codigoIbge: string | null;
     }>;
 }

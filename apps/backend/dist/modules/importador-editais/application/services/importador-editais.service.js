@@ -187,6 +187,44 @@ let ImportadorEditaisService = ImportadorEditaisService_1 = class ImportadorEdit
         }
         return this.repository.confirmImportacao(id, importacao.editalId, dto.itens);
     }
+    async editarEdital(id, dto) {
+        const importacao = await this.buscarImportacao(id);
+        if (importacao.status === client_1.StatusImportacao.CONFIRMADO) {
+            throw new common_1.BadRequestException('Importação já confirmada não pode ser editada.');
+        }
+        if (!importacao.editalId) {
+            throw new common_1.BadRequestException('A importação ainda não gerou um edital para edição.');
+        }
+        const editalData = { updatedBy: 'importador-editais' };
+        if (dto.numero !== undefined)
+            editalData.numero = dto.numero;
+        if (dto.ano !== undefined)
+            editalData.ano = dto.ano;
+        if (dto.titulo !== undefined)
+            editalData.titulo = dto.titulo;
+        if (dto.descricao !== undefined)
+            editalData.descricao = dto.descricao;
+        if (dto.objeto !== undefined)
+            editalData.objeto = dto.objeto;
+        if (dto.escolaId !== undefined)
+            editalData.escolaId = dto.escolaId || null;
+        if (dto.municipioId !== undefined)
+            editalData.municipioId = dto.municipioId || null;
+        if (dto.dataPublicacao !== undefined)
+            editalData.dataPublicacao = dto.dataPublicacao ? new Date(dto.dataPublicacao) : null;
+        await this.repository.updateEdital(importacao.editalId, editalData);
+        const importLogData = { updatedBy: 'importador-editais' };
+        if (dto.titulo !== undefined)
+            importLogData.tituloExtraido = dto.titulo;
+        if (dto.numero !== undefined)
+            importLogData.numeroExtraido = dto.numero;
+        if (dto.ano !== undefined)
+            importLogData.anoExtraido = dto.ano;
+        if (Object.keys(importLogData).length > 1) {
+            await this.repository.updateImportLog(id, importLogData);
+        }
+        return this.buscarImportacao(id);
+    }
     async sincronizarPdfsDaPastaDocs(processarAutomaticamente) {
         if (!fs.existsSync(docsDir)) {
             return { encontrados: 0, criados: 0, processados: 0, importacoes: [] };

@@ -12,6 +12,7 @@ const MapPage = lazy(() => import('./pages/MapPage'));
 const RelatoriosPage = lazy(() => import('./pages/RelatoriosPage'));
 const MunicipiosPage = lazy(() => import('./pages/MunicipiosPageV2'));
 const EscolasPage = lazy(() => import('./pages/EscolasPageV2'));
+const EscolaDetalhesPage = lazy(() => import('./pages/EscolaDetalhesPage'));
 const EditaisPage = lazy(() => import('./pages/EditaisPage'));
 const ProdutosReferenciaPage = lazy(() => import('./pages/ProdutosReferenciaPage'));
 const ProdutoresPage = lazy(() => import('./pages/ProdutoresPageV2'));
@@ -55,6 +56,7 @@ function AppRoutes() {
           <Route path="/relatorios" element={<ProtectedRoute><RelatoriosPage /></ProtectedRoute>} />
           <Route path="/municipios" element={<ProtectedRoute allowedRoles={['ADMIN']}><MunicipiosPage /></ProtectedRoute>} />
           <Route path="/escolas" element={<ProtectedRoute allowedRoles={['ADMIN', 'ESCOLA']}><EscolasPage /></ProtectedRoute>} />
+          <Route path="/escolas/:id" element={<ProtectedRoute allowedRoles={['ADMIN', 'ESCOLA']}><EscolaDetalhesPage /></ProtectedRoute>} />
           <Route path="/editais" element={<ProtectedRoute allowedRoles={['ADMIN', 'ESCOLA']}><EditaisPage /></ProtectedRoute>} />
           <Route path="/produtos-referencia" element={<ProtectedRoute allowedRoles={['ADMIN']}><ProdutosReferenciaPage /></ProtectedRoute>} />
           <Route path="/produtores" element={<ProtectedRoute allowedRoles={['ADMIN']}><ProdutoresPage /></ProtectedRoute>} />

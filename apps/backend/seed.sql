@@ -3,7 +3,7 @@ INSERT INTO users (id, name, email, passwordHash, role, active, createdAt, updat
 VALUES (
   UUID(),
   'Administrador PNAE',
-  'admin@sagae.gov.br',
+  'admin@seaf.gov.br',
   '$2a$10$9n1oRZ9u6dPwL1Q51JIlPu1v4Q5dD6u0D8rVv0XQBeXgY4Mu1lZna',
   'ADMIN',
   true,

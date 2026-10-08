@@ -12,6 +12,7 @@ export class PropostasController {
   constructor(private readonly service: PropostasService) {}
 
   @Get()
+  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Listar propostas' })
   @ApiQuery({ name: 'page', required: false })
   @ApiQuery({ name: 'limit', required: false })
@@ -23,12 +24,14 @@ export class PropostasController {
   }
 
   @Get(':id')
+  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Buscar proposta por id' })
   findOne(@Param('id') id: string) {
     return this.service.findOne(id);
   }
 
   @Post('preview')
+  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Pré-visualizar proposta antes de gerar' })
   preview(@Body() dto: PreviewPropostaDto) {
     return this.service.preview(dto);
@@ -63,6 +66,7 @@ export class PropostasController {
   }
 
   @Get(':id/download/:tipo')
+  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Baixar PDF ou DOCX da proposta' })
   async download(@Param('id') id: string, @Param('tipo') tipo: 'pdf' | 'docx', @Res() res: Response) {
     const { filePath, filename } = await this.service.download(id, tipo);
@@ -87,6 +91,7 @@ export class PropostasController {
   }
 
   @Get('produtores/:editalId')
+  @Roles('ADMIN', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Listar produtores com matches aprovados para um edital' })
   getProducers(@Param('editalId') editalId: string) {
     return this.service.getProducersWithApprovedMatches(editalId);

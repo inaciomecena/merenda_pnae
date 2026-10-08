@@ -27,6 +27,7 @@ const audit_module_1 = require("./modules/audit/audit.module");
 const config_module_1 = require("./modules/config/config.module");
 const homologacao_module_1 = require("./modules/homologacao/homologacao.module");
 const reports_module_1 = require("./modules/reports/reports.module");
+const users_module_1 = require("./modules/users/users.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -53,6 +54,7 @@ exports.AppModule = AppModule = __decorate([
             config_module_1.ConfigModule,
             homologacao_module_1.HomologacaoModule,
             reports_module_1.ReportsModule,
+            users_module_1.UsersModule,
         ],
         controllers: [health_controller_1.HealthController],
         providers: [

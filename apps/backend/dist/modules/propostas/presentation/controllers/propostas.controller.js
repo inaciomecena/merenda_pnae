@@ -98,6 +98,7 @@ let PropostasController = class PropostasController {
 exports.PropostasController = PropostasController;
 __decorate([
     (0, common_1.Get)(),
+    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Listar propostas' }),
     (0, swagger_1.ApiQuery)({ name: 'page', required: false }),
     (0, swagger_1.ApiQuery)({ name: 'limit', required: false }),
@@ -111,6 +112,7 @@ __decorate([
 ], PropostasController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Get)(':id'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Buscar proposta por id' }),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
@@ -119,6 +121,7 @@ __decorate([
 ], PropostasController.prototype, "findOne", null);
 __decorate([
     (0, common_1.Post)('preview'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Pré-visualizar proposta antes de gerar' }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -165,6 +168,7 @@ __decorate([
 ], PropostasController.prototype, "generate", null);
 __decorate([
     (0, common_1.Get)(':id/download/:tipo'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Baixar PDF ou DOCX da proposta' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Param)('tipo')),
@@ -193,6 +197,7 @@ __decorate([
 ], PropostasController.prototype, "remove", null);
 __decorate([
     (0, common_1.Get)('produtores/:editalId'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Listar produtores com matches aprovados para um edital' }),
     __param(0, (0, common_1.Param)('editalId')),
     __metadata("design:type", Function),

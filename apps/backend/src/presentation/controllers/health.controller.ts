@@ -9,6 +9,6 @@ export class HealthController {
   @Public()
   @ApiOperation({ summary: 'Health check' })
   health() {
-    return { status: 'ok', service: 'sagae-pnae-backend' };
+    return { status: 'ok', service: 'seaf-pnae-backend' };
   }
 }

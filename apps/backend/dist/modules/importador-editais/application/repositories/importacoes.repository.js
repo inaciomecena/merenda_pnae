@@ -79,6 +79,12 @@ let ImportacoesRepository = class ImportacoesRepository {
             data: data,
         });
     }
+    updateEdital(id, data) {
+        return this.prisma.edital.update({
+            where: { id },
+            data,
+        });
+    }
     async resolveMunicipioByName(nome) {
         if (!nome)
             return null;
@@ -154,6 +160,9 @@ let ImportacoesRepository = class ImportacoesRepository {
                     !item.unidade ||
                     !item.precoUnitario ||
                     !item.valorTotal;
+                const produtoReferenciaId = item.produtoOriginal
+                    ? await this.upsertProdutoReferencia(tx, item.produtoOriginal, item.unidade)
+                    : null;
                 await tx.editalItem.update({
                     where: { id: item.id },
                     data: {
@@ -164,6 +173,7 @@ let ImportacoesRepository = class ImportacoesRepository {
                         precoUnitario: item.precoUnitario ?? null,
                         valorTotal: item.valorTotal ?? null,
                         observacoes: item.observacoes,
+                        produtoReferenciaId,
                         pendenteEdicao: pendente,
                         status: pendente ? client_1.StatusItemEdital.PENDENTE_CONFERENCIA : client_1.StatusItemEdital.CONFIRMADO,
                         updatedBy: 'importador-editais',
@@ -200,6 +210,61 @@ let ImportacoesRepository = class ImportacoesRepository {
                 },
             });
         });
+    }
+    async upsertProdutoReferencia(tx, nomeOriginal, unidade) {
+        const nome = nomeOriginal.trim().replace(/\s+/g, ' ');
+        if (!nome || /^(sujidades|integral)$/i.test(nome))
+            return null;
+        const normalizar = (value) => value
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, ' ')
+            .trim();
+        const chave = normalizar(nome);
+        const existente = await tx.produtoReferencia.findFirst({
+            where: { deletedAt: null, nome: { equals: nome } },
+        });
+        const palavrasChave = Array.from(new Set([
+            nome,
+            chave,
+            ...(nome.includes(' - ') ? nome.split(' - ').map((item) => item.trim()) : []),
+        ])).join(', ');
+        if (existente) {
+            return (await tx.produtoReferencia.update({
+                where: { id: existente.id },
+                data: {
+                    unidadePadrao: existente.unidadePadrao || unidade || null,
+                    palavrasChave: existente.palavrasChave || palavrasChave,
+                    sinonimos: existente.sinonimos || nome,
+                    updatedBy: 'importador-editais',
+                    ativo: true,
+                },
+            })).id;
+        }
+        return (await tx.produtoReferencia.create({
+            data: {
+                nome,
+                unidadePadrao: unidade || null,
+                categoria: this.categorizarProduto(nome),
+                palavrasChave,
+                sinonimos: nome,
+                agriculturaFamiliar: true,
+                ativo: true,
+                createdBy: 'importador-editais',
+                updatedBy: 'importador-editais',
+            },
+        })).id;
+    }
+    categorizarProduto(nome) {
+        const chave = nome.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+        if (/carne|peixe|queijo|leite|manteiga|requeijao|bebida lactea/.test(chave))
+            return 'Proteínas e lácteos';
+        if (/bolo|pao|farinha|cafe|colorau|acafrao|doce/.test(chave))
+            return 'Processados';
+        if (/polpa|banana|abacaxi|abobora|batata|beterraba|cenoura|mandioca|melancia|melao|mamao|laranja|limao|ponca|tomate|pepino|pimentao|repolho/.test(chave))
+            return 'Hortifrúti';
+        return 'Hortaliças e temperos';
     }
     normalize(value) {
         return value

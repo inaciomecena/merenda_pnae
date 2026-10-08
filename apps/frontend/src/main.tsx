@@ -15,6 +15,8 @@ const theme = createTheme({
       styleOverrides: {
         body: { bgcolor: '#f5f8fc' },
         html: { bgcolor: '#f5f8fc' },
+        a: { textDecoration: 'none' },
+        'a:hover': { textDecoration: 'none' },
       },
     },
   },

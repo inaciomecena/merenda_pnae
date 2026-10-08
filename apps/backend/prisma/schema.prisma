@@ -75,6 +75,10 @@ model User {
   deletedAt    DateTime?
   createdBy    String?
   updatedBy    String?
+  escolaId     String?
+  escola       Escola?   @relation(fields: [escolaId], references: [id])
+  municipioId  String?
+  municipio    Municipio? @relation(fields: [municipioId], references: [id])
 
   @@map("users")
 }
@@ -94,6 +98,7 @@ model Municipio {
   escolas       Escola[]
   produtores    Produtor[]
   editais       Edital[]
+  users         User[]
 
   @@index([uf, nomeNormalizado])
   @@map("municipios")
@@ -114,8 +119,22 @@ model Escola {
   deletedAt     DateTime?
   createdBy     String?
   updatedBy     String?
+  restricaoAtendimento String?
+  localizacao String?
+  localidadeDiferenciada String?
+  categoriaAdministrativa String?
+  dependenciaAdministrativa String?
+  categoriaEscolaPrivada String?
+  conveniadaPoderPublico String?
+  regulamentacaoConselho String?
+  porteEscola String?
+  etapasModalidades String? @db.Text
+  outrasOfertasEducacionais String?
+  latitude Decimal? @db.Decimal(12, 8)
+  longitude Decimal? @db.Decimal(12, 8)
   editais       Edital[]
   matches       Match[]
+  users         User[]
 
   @@map("escolas")
 }

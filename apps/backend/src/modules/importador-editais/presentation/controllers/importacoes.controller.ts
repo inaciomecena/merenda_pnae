@@ -4,6 +4,7 @@ import {
   Get,
   Param,
   ParseFilePipeBuilder,
+  Patch,
   Post,
   Query,
   UploadedFile,
@@ -18,7 +19,9 @@ import { ImportadorEditaisService } from '../../application/services/importador-
 import { ConfirmarImportacaoDto } from '../dto/confirmar-importacao.dto';
 import { CreateImportacaoPdfDto } from '../dto/create-importacao-pdf.dto';
 import { ProcessarImportacaoDto } from '../dto/processar-importacao.dto';
+import { UpdateImportacaoEditalDto } from '../dto/update-importacao-edital.dto';
 import { ensurePdfFile } from '../validators/pdf-file.validator';
+import { Roles } from '../../../../common/decorators/roles.decorator';
 
 const uploadDir = path.resolve(process.cwd(), 'storage', 'importacoes');
 
@@ -45,6 +48,7 @@ export class ImportacoesController {
   constructor(private readonly service: ImportadorEditaisService) {}
 
   @Post('pdf')
+  @Roles('ADMIN', 'ESCOLA')
   @ApiOperation({ summary: 'Fazer upload manual de um edital em PDF' })
   @ApiConsumes('multipart/form-data')
   @ApiBody({ description: 'Arquivo PDF do edital', type: CreateImportacaoPdfDto })
@@ -74,6 +78,7 @@ export class ImportacoesController {
   }
 
   @Get()
+  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Listar importações de editais' })
   @ApiQuery({ name: 'page', required: false })
   @ApiQuery({ name: 'limit', required: false })
@@ -83,24 +88,35 @@ export class ImportacoesController {
   }
 
   @Post('sincronizar-docs')
+  @Roles('ADMIN')
   @ApiOperation({ summary: 'Sincronizar PDFs da pasta docs' })
   sincronizarDocs(@Body() dto: { processarAutomaticamente?: boolean }) {
     return this.service.sincronizarDocs(dto?.processarAutomaticamente ?? false);
   }
 
   @Get(':id')
+  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Detalhar uma importação' })
   findOne(@Param('id') id: string) {
     return this.service.buscarImportacao(id);
   }
 
+  @Patch(':id')
+  @Roles('ADMIN', 'ESCOLA')
+  @ApiOperation({ summary: 'Editar o edital vinculado à importação (bloqueado após confirmação)' })
+  editarEdital(@Param('id') id: string, @Body() dto: UpdateImportacaoEditalDto) {
+    return this.service.editarEdital(id, dto);
+  }
+
   @Post(':id/processar')
+  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Processar um PDF salvo' })
   processar(@Param('id') id: string, @Body() dto: ProcessarImportacaoDto) {
     return this.service.processarImportacao(id, dto.reprocessar ?? false);
   }
 
   @Post(':id/confirmar')
+  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Confirmar os itens conferidos da importação' })
   confirmar(@Param('id') id: string, @Body() dto: ConfirmarImportacaoDto) {
     return this.service.confirmarImportacao(id, dto);

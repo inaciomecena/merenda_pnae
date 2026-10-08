@@ -5,6 +5,8 @@ export interface AuthUser {
   name: string;
   email: string;
   role: UserRole;
+  escolaId?: string | null;
+  municipioId?: string | null;
 }
 
 export interface AuthResponse {

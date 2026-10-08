@@ -9,9 +9,9 @@ async function main() {
 
   // 1. Usuarios (upsert para nao duplicar)
   const users = [
-    { email: 'admin@sagae.gov.br', name: 'Administrador PNAE', role: 'ADMIN' as const },
-    { email: 'extensionista@sagae.gov.br', name: 'Maria Oliveira - Extensionista', role: 'EXTENSIONISTA' as const },
-    { email: 'escola@sagae.gov.br', name: 'Joao Silva - Escola', role: 'ESCOLA' as const },
+    { email: 'admin@seaf.gov.br', name: 'Administrador PNAE', role: 'ADMIN' as const },
+    { email: 'extensionista@seaf.gov.br', name: 'Maria Oliveira - Extensionista', role: 'EXTENSIONISTA' as const },
+    { email: 'escola@seaf.gov.br', name: 'Joao Silva - Escola', role: 'ESCOLA' as const },
   ];
 
   for (const u of users) {
@@ -83,7 +83,7 @@ async function main() {
   console.log('[OK] 5 escolas criadas');
 
   // 5. Produtores (extensionista cadastra)
-  const extensionista = await prisma.user.findUnique({ where: { email: 'extensionista@sagae.gov.br' } });
+  const extensionista = await prisma.user.findUnique({ where: { email: 'extensionista@seaf.gov.br' } });
 
   const produtoresData = [
     { nome: 'Joao da Silva', cpfCnpj: '123.456.789-00', municipioId: municipios['Alto Paraguai'].id, endereco: 'Zona Rural, Alto Paraguai-MT', telefone: '(65) 99999-0001' },

@@ -1,4 +1,5 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, Query, Req } from '@nestjs/common';
+import { Request } from 'express';
 import { ApiOperation, ApiQuery, ApiTags } from '@nestjs/swagger';
 import { Roles } from '../../../../common/decorators/roles.decorator';
 import { ProdutoresService } from '../../application/services/produtores.service';
@@ -10,22 +11,25 @@ export class ProdutoresController {
   constructor(private readonly service: ProdutoresService) {}
 
   @Get()
+  @Roles('ADMIN', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Listar produtores' })
   @ApiQuery({ name: 'page', required: false })
   @ApiQuery({ name: 'limit', required: false })
   @ApiQuery({ name: 'search', required: false })
   @ApiQuery({ name: 'municipioId', required: false })
-  findAll(@Query() query: any) {
-    return this.service.findAll(query);
+  findAll(@Query() query: any, @Req() req: Request) {
+    return this.service.findAll(query, req.user as any);
   }
 
   @Get(':id')
+  @Roles('ADMIN', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Buscar produtor por id' })
-  findOne(@Param('id') id: string) {
-    return this.service.findOne(id);
+  findOne(@Param('id') id: string, @Req() req: Request) {
+    return this.service.findOne(id, req.user as any);
   }
 
   @Get(':id/produtos')
+  @Roles('ADMIN', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Listar produtos cadastrados por produtor' })
   findProdutos(@Param('id') id: string) {
     return this.service.findProdutos(id);
@@ -59,15 +63,15 @@ export class ProdutoresController {
   @Post()
   @Roles('ADMIN', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Criar produtor' })
-  create(@Body() dto: CreateProdutorDto) {
-    return this.service.create(dto);
+  create(@Body() dto: CreateProdutorDto, @Req() req: Request) {
+    return this.service.create(dto, req.user as any);
   }
 
   @Patch(':id')
   @Roles('ADMIN', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Atualizar produtor' })
-  update(@Param('id') id: string, @Body() dto: UpdateProdutorDto) {
-    return this.service.update(id, dto);
+  update(@Param('id') id: string, @Body() dto: UpdateProdutorDto, @Req() req: Request) {
+    return this.service.update(id, dto, req.user as any);
   }
 
   @Delete(':id')

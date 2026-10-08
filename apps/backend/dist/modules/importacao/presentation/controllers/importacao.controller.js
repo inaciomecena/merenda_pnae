@@ -16,6 +16,7 @@ exports.ImportacaoController = void 0;
 const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
 const importacao_service_1 = require("../../application/services/importacao.service");
+const roles_decorator_1 = require("../../../../common/decorators/roles.decorator");
 let ImportacaoController = class ImportacaoController {
     service;
     constructor(service) {
@@ -34,6 +35,7 @@ let ImportacaoController = class ImportacaoController {
 exports.ImportacaoController = ImportacaoController;
 __decorate([
     (0, common_1.Get)(),
+    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA'),
     (0, swagger_1.ApiOperation)({ summary: 'Listar logs de importação' }),
     (0, swagger_1.ApiQuery)({ name: 'page', required: false }),
     (0, swagger_1.ApiQuery)({ name: 'limit', required: false }),
@@ -45,6 +47,7 @@ __decorate([
 ], ImportacaoController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Post)(),
+    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA'),
     (0, swagger_1.ApiOperation)({ summary: 'Registrar uma importação' }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -53,6 +56,7 @@ __decorate([
 ], ImportacaoController.prototype, "create", null);
 __decorate([
     (0, common_1.Get)('pdfs'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA'),
     (0, swagger_1.ApiOperation)({ summary: 'Listar PDFs disponíveis para importação' }),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),

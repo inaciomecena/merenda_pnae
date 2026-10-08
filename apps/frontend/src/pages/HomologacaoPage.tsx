@@ -42,7 +42,7 @@ export default function HomologacaoPage() {
   useEffect(() => { void fetchStatus(); }, [fetchStatus]);
 
   const handleExport = (tipo: string) => {
-    const token = localStorage.getItem('sagae_token');
+    const token = localStorage.getItem('seaf_token');
     const url = `http://localhost:3000/api/v1/homologacao/exportar/${tipo}`;
     fetch(url, { headers: { Authorization: `Bearer ${token}` } })
       .then(res => res.blob())
@@ -55,7 +55,7 @@ export default function HomologacaoPage() {
   };
 
   const handleRelatorio = () => {
-    const token = localStorage.getItem('sagae_token');
+    const token = localStorage.getItem('seaf_token');
     const url = 'http://localhost:3000/api/v1/homologacao/relatorio';
     fetch(url, { headers: { Authorization: `Bearer ${token}` } })
       .then(res => res.blob())

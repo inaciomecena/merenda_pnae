@@ -1,6 +1,7 @@
 import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { ApiOperation, ApiQuery, ApiTags } from '@nestjs/swagger';
 import { ImportacaoService } from '../../application/services/importacao.service';
+import { Roles } from '../../../../common/decorators/roles.decorator';
 
 @ApiTags('importacao')
 @Controller({ path: 'importacao', version: '1' })
@@ -8,6 +9,7 @@ export class ImportacaoController {
   constructor(private readonly service: ImportacaoService) {}
 
   @Get()
+  @Roles('ADMIN', 'ESCOLA')
   @ApiOperation({ summary: 'Listar logs de importação' })
   @ApiQuery({ name: 'page', required: false })
   @ApiQuery({ name: 'limit', required: false })
@@ -17,12 +19,14 @@ export class ImportacaoController {
   }
 
   @Post()
+  @Roles('ADMIN', 'ESCOLA')
   @ApiOperation({ summary: 'Registrar uma importação' })
   create(@Body() dto: { editalId?: string; arquivoNome: string; status: string; resumo?: string; createdBy?: string }) {
     return this.service.create(dto);
   }
 
   @Get('pdfs')
+  @Roles('ADMIN', 'ESCOLA')
   @ApiOperation({ summary: 'Listar PDFs disponíveis para importação' })
   listarPdfs() {
     return this.service.listarArquivosPdf();

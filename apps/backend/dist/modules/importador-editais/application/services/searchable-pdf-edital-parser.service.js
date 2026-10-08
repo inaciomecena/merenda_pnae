@@ -192,7 +192,11 @@ let SearchablePdfEditalParserService = class SearchablePdfEditalParserService ex
             skipIndices.add(unitQtyIndex);
         const detailLines = block.slice(1).filter((_, i) => !skipIndices.has(i + 1));
         const detailText = detailLines.join(' ').replace(/\s+/g, ' ').trim();
-        const { produtoOriginal, especificacao, observacoes } = this.extractProductName(detailText);
+        const headerText = block.slice(1, 6).join(' ').replace(/\s+/g, ' ').trim();
+        const extracted = this.extractProductName(headerText || detailText);
+        const produtoOriginal = extracted.produtoOriginal;
+        const especificacao = detailText || extracted.especificacao;
+        const observacoes = extracted.observacoes;
         let summary = summaryLine ? this.parseSummaryLine(summaryLine) : undefined;
         if (!summary?.quantidade && unitQtyLine) {
             summary = this.parseUnitQuantityLine(unitQtyLine, summary);

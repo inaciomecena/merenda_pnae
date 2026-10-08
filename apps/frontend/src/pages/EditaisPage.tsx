@@ -24,7 +24,7 @@ export default function EditaisPage() {
         { name: 'titulo', label: 'Título' },
         { name: 'descricao', label: 'Descrição' },
         { name: 'status', label: 'Status', type: 'select', options: [{ label: 'Rascunho', value: 'RASCUNHO' }, { label: 'Ativo', value: 'ATIVO' }] },
-        { name: 'escolaId', label: 'Escola', fetchOptions: fetchEscolas },
+        { name: 'escolaId', label: 'Escola', type: 'autocomplete', fetchOptions: fetchEscolas },
       ]}
       renderRow={(item: any) => (
         <Stack spacing={0.5}>

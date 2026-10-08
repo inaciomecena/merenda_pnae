@@ -23,20 +23,20 @@ let EditaisController = class EditaisController {
     constructor(service) {
         this.service = service;
     }
-    findAll(query) {
-        return this.service.findAll(query);
+    findAll(query, req) {
+        return this.service.findAll(query, req.user);
     }
-    findOne(id) {
-        return this.service.findOne(id);
+    findOne(id, req) {
+        return this.service.findOne(id, req.user);
     }
-    findItens(id) {
-        return this.service.findItens(id);
+    findItens(id, req) {
+        return this.service.findItens(id, req.user);
     }
-    create(dto) {
-        return this.service.create(dto);
+    create(dto, req) {
+        return this.service.create(dto, req.user);
     }
-    update(id, dto) {
-        return this.service.update(id, dto);
+    update(id, dto, req) {
+        return this.service.update(id, dto, req.user);
     }
     remove(id) {
         return this.service.remove(id);
@@ -45,6 +45,7 @@ let EditaisController = class EditaisController {
 exports.EditaisController = EditaisController;
 __decorate([
     (0, common_1.Get)(),
+    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Listar editais' }),
     (0, swagger_1.ApiQuery)({ name: 'page', required: false }),
     (0, swagger_1.ApiQuery)({ name: 'limit', required: false }),
@@ -52,24 +53,29 @@ __decorate([
     (0, swagger_1.ApiQuery)({ name: 'status', required: false }),
     (0, swagger_1.ApiQuery)({ name: 'ano', required: false }),
     __param(0, (0, common_1.Query)()),
+    __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", void 0)
 ], EditaisController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Get)(':id'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Buscar edital por id' }),
     __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [String, Object]),
     __metadata("design:returntype", void 0)
 ], EditaisController.prototype, "findOne", null);
 __decorate([
     (0, common_1.Get)(':id/itens'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Listar itens de um edital' }),
     __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [String, Object]),
     __metadata("design:returntype", void 0)
 ], EditaisController.prototype, "findItens", null);
 __decorate([
@@ -77,8 +83,9 @@ __decorate([
     (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA'),
     (0, swagger_1.ApiOperation)({ summary: 'Criar edital' }),
     __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [edital_dto_1.CreateEditalDto]),
+    __metadata("design:paramtypes", [edital_dto_1.CreateEditalDto, Object]),
     __metadata("design:returntype", void 0)
 ], EditaisController.prototype, "create", null);
 __decorate([
@@ -87,8 +94,9 @@ __decorate([
     (0, swagger_1.ApiOperation)({ summary: 'Atualizar edital' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
+    __param(2, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, edital_dto_1.UpdateEditalDto]),
+    __metadata("design:paramtypes", [String, edital_dto_1.UpdateEditalDto, Object]),
     __metadata("design:returntype", void 0)
 ], EditaisController.prototype, "update", null);
 __decorate([

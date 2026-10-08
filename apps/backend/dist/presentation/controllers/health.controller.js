@@ -15,7 +15,7 @@ const swagger_1 = require("@nestjs/swagger");
 const public_decorator_1 = require("../../common/decorators/public.decorator");
 let HealthController = class HealthController {
     health() {
-        return { status: 'ok', service: 'sagae-pnae-backend' };
+        return { status: 'ok', service: 'seaf-pnae-backend' };
     }
 };
 exports.HealthController = HealthController;

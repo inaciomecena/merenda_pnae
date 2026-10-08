@@ -1,9 +1,9 @@
 @echo off
-title SAGAE-PNAE - Iniciar Sistema
+title SEAF-PNAE - Iniciar Sistema
 color 0A
 
 echo ========================================
-echo  SAGAE-PNAE - Iniciando Sistema
+echo  SEAF-PNAE - Iniciando Sistema
 echo ========================================
 echo.
 
@@ -13,7 +13,7 @@ echo [1/3] Verificando MySQL local...
 powershell -NoProfile -Command "if (-not (Test-NetConnection 127.0.0.1 -Port 3306 -InformationLevel Quiet)) { exit 1 }"
 if %errorlevel% neq 0 (
     echo ERRO: MySQL local nao esta acessivel em 127.0.0.1:3306.
-    echo Configure/inicie o MySQL com usuario sagae, senha sagae123 e banco sagae_pnae.
+    echo Configure/inicie o MySQL com usuario seaf, senha seaf123 e banco seaf_pnae.
     pause
     exit /b 1
 )
@@ -30,16 +30,16 @@ if %errorlevel% neq 0 (
 
 echo.
 echo [3/3] Iniciando Backend e Frontend...
-start "SAGAE-Backend" cmd /k "cd /d %~dp0apps\backend && npm run dev"
+start "SEAF-Backend" cmd /k "cd /d %~dp0apps\backend && npm run dev"
 timeout /t 3 /nobreak >nul
-start "SAGAE-Frontend" cmd /k "cd /d %~dp0apps\frontend && npm run dev"
+start "SEAF-Frontend" cmd /k "cd /d %~dp0apps\frontend && npm run dev"
 
 echo.
 echo ========================================
-echo  Sistema SAGAE-PNAE iniciado!
+echo  Sistema SEAF-PNAE iniciado!
 echo  Backend:  http://localhost:3000
 echo  Frontend: http://localhost:5173
-echo  Banco:    mysql://sagae@127.0.0.1:3306/sagae_pnae
+echo  Banco:    mysql://seaf@127.0.0.1:3306/seaf_pnae
 echo ========================================
 echo.
 pause

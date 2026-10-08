@@ -184,7 +184,7 @@ export default function PropostasPage() {
   };
 
   const handleDownload = (propostaId: string, tipo: 'pdf' | 'docx') => {
-    const token = localStorage.getItem('sagae_token');
+    const token = localStorage.getItem('seaf_token');
     const url = `http://localhost:3000/api/v1/propostas/${propostaId}/download/${tipo}`;
     const a = document.createElement('a');
     a.href = url;

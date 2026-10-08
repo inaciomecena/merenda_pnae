@@ -12,12 +12,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProdutoresService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../../../../infrastructure/prisma/prisma.service");
+const user_scope_1 = require("../../../../common/auth/user-scope");
 let ProdutoresService = class ProdutoresService {
     prisma;
     constructor(prisma) {
         this.prisma = prisma;
     }
-    async findAll(query) {
+    async findAll(query, user) {
         const page = Number(query.page ?? 1);
         const limit = Number(query.limit ?? 10);
         const where = {
@@ -25,23 +26,29 @@ let ProdutoresService = class ProdutoresService {
             ...(query.search ? { nome: { contains: query.search } } : {}),
             ...(query.municipioId ? { municipioId: query.municipioId } : {}),
         };
+        if (user?.role === 'EXTENSIONISTA')
+            where.municipioId = (0, user_scope_1.requireScope)(user, 'municipio');
         const [items, total] = await this.prisma.$transaction([
             this.prisma.produtor.findMany({ where, skip: (page - 1) * limit, take: limit, include: { municipio: true }, orderBy: { createdAt: 'desc' } }),
             this.prisma.produtor.count({ where }),
         ]);
         return { items, total, page, limit, totalPages: Math.ceil(total / limit) };
     }
-    async findOne(id) {
-        const item = await this.prisma.produtor.findFirst({ where: { id, deletedAt: null }, include: { municipio: true, produtos: true } });
+    async findOne(id, user) {
+        const where = { id, deletedAt: null };
+        if (user?.role === 'EXTENSIONISTA')
+            where.municipioId = (0, user_scope_1.requireScope)(user, 'municipio');
+        const item = await this.prisma.produtor.findFirst({ where, include: { municipio: true, produtos: true } });
         if (!item)
             throw new common_1.NotFoundException('Produtor não encontrado');
         return item;
     }
-    async create(dto) {
-        return this.prisma.produtor.create({ data: { ...dto, createdBy: 'system' } });
+    async create(dto, user) {
+        const municipioId = user?.role === 'EXTENSIONISTA' ? (0, user_scope_1.requireScope)(user, 'municipio') : dto.municipioId;
+        return this.prisma.produtor.create({ data: { ...dto, municipioId, createdBy: 'system' } });
     }
-    async update(id, dto) {
-        await this.findOne(id);
+    async update(id, dto, user) {
+        await this.findOne(id, user);
         return this.prisma.produtor.update({ where: { id }, data: { ...dto, updatedBy: 'system' } });
     }
     async remove(id) {

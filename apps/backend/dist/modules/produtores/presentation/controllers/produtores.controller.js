@@ -23,11 +23,11 @@ let ProdutoresController = class ProdutoresController {
     constructor(service) {
         this.service = service;
     }
-    findAll(query) {
-        return this.service.findAll(query);
+    findAll(query, req) {
+        return this.service.findAll(query, req.user);
     }
-    findOne(id) {
-        return this.service.findOne(id);
+    findOne(id, req) {
+        return this.service.findOne(id, req.user);
     }
     findProdutos(id) {
         return this.service.findProdutos(id);
@@ -41,11 +41,11 @@ let ProdutoresController = class ProdutoresController {
     removeProduto(id, produtoId) {
         return this.service.removeProduto(id, produtoId);
     }
-    create(dto) {
-        return this.service.create(dto);
+    create(dto, req) {
+        return this.service.create(dto, req.user);
     }
-    update(id, dto) {
-        return this.service.update(id, dto);
+    update(id, dto, req) {
+        return this.service.update(id, dto, req.user);
     }
     remove(id) {
         return this.service.remove(id);
@@ -54,26 +54,31 @@ let ProdutoresController = class ProdutoresController {
 exports.ProdutoresController = ProdutoresController;
 __decorate([
     (0, common_1.Get)(),
+    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Listar produtores' }),
     (0, swagger_1.ApiQuery)({ name: 'page', required: false }),
     (0, swagger_1.ApiQuery)({ name: 'limit', required: false }),
     (0, swagger_1.ApiQuery)({ name: 'search', required: false }),
     (0, swagger_1.ApiQuery)({ name: 'municipioId', required: false }),
     __param(0, (0, common_1.Query)()),
+    __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", void 0)
 ], ProdutoresController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Get)(':id'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Buscar produtor por id' }),
     __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [String, Object]),
     __metadata("design:returntype", void 0)
 ], ProdutoresController.prototype, "findOne", null);
 __decorate([
     (0, common_1.Get)(':id/produtos'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Listar produtos cadastrados por produtor' }),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
@@ -116,8 +121,9 @@ __decorate([
     (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Criar produtor' }),
     __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [produtor_dto_1.CreateProdutorDto]),
+    __metadata("design:paramtypes", [produtor_dto_1.CreateProdutorDto, Object]),
     __metadata("design:returntype", void 0)
 ], ProdutoresController.prototype, "create", null);
 __decorate([
@@ -126,8 +132,9 @@ __decorate([
     (0, swagger_1.ApiOperation)({ summary: 'Atualizar produtor' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
+    __param(2, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, produtor_dto_1.UpdateProdutorDto]),
+    __metadata("design:paramtypes", [String, produtor_dto_1.UpdateProdutorDto, Object]),
     __metadata("design:returntype", void 0)
 ], ProdutoresController.prototype, "update", null);
 __decorate([

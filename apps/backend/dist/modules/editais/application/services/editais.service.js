@@ -12,12 +12,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.EditaisService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../../../../infrastructure/prisma/prisma.service");
+const user_scope_1 = require("../../../../common/auth/user-scope");
 let EditaisService = class EditaisService {
     prisma;
     constructor(prisma) {
         this.prisma = prisma;
     }
-    async findAll(query) {
+    async findAll(query, user) {
         const page = Number(query.page ?? 1);
         const limit = Number(query.limit ?? 10);
         const where = {
@@ -26,40 +27,51 @@ let EditaisService = class EditaisService {
             ...(query.status ? { status: query.status } : {}),
             ...(query.ano ? { ano: Number(query.ano) } : {}),
         };
+        if (user?.role === 'ESCOLA')
+            where.escolaId = (0, user_scope_1.requireScope)(user, 'escola');
+        if (user?.role === 'EXTENSIONISTA')
+            where.municipioId = (0, user_scope_1.requireScope)(user, 'municipio');
         const [items, total] = await this.prisma.$transaction([
             this.prisma.edital.findMany({ where, skip: (page - 1) * limit, take: limit, include: { escola: { include: { municipio: true } }, municipio: true }, orderBy: { createdAt: 'desc' } }),
             this.prisma.edital.count({ where }),
         ]);
         return { items, total, page, limit, totalPages: Math.ceil(total / limit) };
     }
-    async findOne(id) {
-        const item = await this.prisma.edital.findFirst({ where: { id, deletedAt: null }, include: { escola: true, itens: true } });
+    async findOne(id, user) {
+        const where = { id, deletedAt: null };
+        if (user?.role === 'ESCOLA')
+            where.escolaId = (0, user_scope_1.requireScope)(user, 'escola');
+        if (user?.role === 'EXTENSIONISTA')
+            where.municipioId = (0, user_scope_1.requireScope)(user, 'municipio');
+        const item = await this.prisma.edital.findFirst({ where, include: { escola: true, itens: true } });
         if (!item)
             throw new common_1.NotFoundException('Edital não encontrado');
         return item;
     }
-    async create(dto) {
+    async create(dto, user) {
+        const escolaId = user?.role === 'ESCOLA' ? (0, user_scope_1.requireScope)(user, 'escola') : dto.escolaId;
         const data = {
             numero: dto.numero,
             ano: dto.ano,
             titulo: dto.titulo,
             ...(dto.descricao !== undefined ? { descricao: dto.descricao } : {}),
             ...(dto.status !== undefined ? { status: dto.status } : {}),
-            ...(dto.escolaId !== undefined ? { escolaId: dto.escolaId } : {}),
+            ...(escolaId !== undefined ? { escolaId } : {}),
             ...(dto.dataPublicacao !== undefined ? { dataPublicacao: new Date(dto.dataPublicacao) } : {}),
             createdBy: 'system',
         };
         return this.prisma.edital.create({ data });
     }
-    async update(id, dto) {
-        await this.findOne(id);
+    async update(id, dto, user) {
+        await this.findOne(id, user);
+        const escolaId = user?.role === 'ESCOLA' ? (0, user_scope_1.requireScope)(user, 'escola') : dto.escolaId;
         const data = {
             ...(dto.numero !== undefined ? { numero: dto.numero } : {}),
             ...(dto.ano !== undefined ? { ano: dto.ano } : {}),
             ...(dto.titulo !== undefined ? { titulo: dto.titulo } : {}),
             ...(dto.descricao !== undefined ? { descricao: dto.descricao } : {}),
             ...(dto.status !== undefined ? { status: dto.status } : {}),
-            ...(dto.escolaId !== undefined ? { escolaId: dto.escolaId } : {}),
+            ...(escolaId !== undefined ? { escolaId } : {}),
             ...(dto.dataPublicacao !== undefined ? { dataPublicacao: new Date(dto.dataPublicacao) } : {}),
             updatedBy: 'system',
         };
@@ -69,8 +81,8 @@ let EditaisService = class EditaisService {
         await this.findOne(id);
         return this.prisma.edital.update({ where: { id }, data: { deletedAt: new Date(), updatedBy: 'system' } });
     }
-    async findItens(editalId) {
-        await this.findOne(editalId);
+    async findItens(editalId, user) {
+        await this.findOne(editalId, user);
         return this.prisma.editalItem.findMany({ where: { editalId, deletedAt: null }, orderBy: { createdAt: 'desc' } });
     }
 };

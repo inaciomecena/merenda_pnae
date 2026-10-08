@@ -12,6 +12,8 @@ export declare class AuthController {
             name: string;
             email: string;
             role: import(".prisma/client").$Enums.Role;
+            escolaId: string | null;
+            municipioId: string | null;
         };
     }>;
     refresh(dto: RefreshDto): Promise<{
@@ -22,5 +24,7 @@ export declare class AuthController {
         name: string;
         email: string;
         role: import(".prisma/client").$Enums.Role;
+        escolaId: string | null;
+        municipioId: string | null;
     }>;
 }

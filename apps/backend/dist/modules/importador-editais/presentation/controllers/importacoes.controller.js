@@ -56,7 +56,9 @@ const importador_editais_service_1 = require("../../application/services/importa
 const confirmar_importacao_dto_1 = require("../dto/confirmar-importacao.dto");
 const create_importacao_pdf_dto_1 = require("../dto/create-importacao-pdf.dto");
 const processar_importacao_dto_1 = require("../dto/processar-importacao.dto");
+const update_importacao_edital_dto_1 = require("../dto/update-importacao-edital.dto");
 const pdf_file_validator_1 = require("../validators/pdf-file.validator");
+const roles_decorator_1 = require("../../../../common/decorators/roles.decorator");
 const uploadDir = path.resolve(process.cwd(), 'storage', 'importacoes');
 function ensureUploadDir() {
     if (!fs.existsSync(uploadDir)) {
@@ -90,6 +92,9 @@ let ImportacoesController = class ImportacoesController {
     findOne(id) {
         return this.service.buscarImportacao(id);
     }
+    editarEdital(id, dto) {
+        return this.service.editarEdital(id, dto);
+    }
     processar(id, dto) {
         return this.service.processarImportacao(id, dto.reprocessar ?? false);
     }
@@ -100,6 +105,7 @@ let ImportacoesController = class ImportacoesController {
 exports.ImportacoesController = ImportacoesController;
 __decorate([
     (0, common_1.Post)('pdf'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA'),
     (0, swagger_1.ApiOperation)({ summary: 'Fazer upload manual de um edital em PDF' }),
     (0, swagger_1.ApiConsumes)('multipart/form-data'),
     (0, swagger_1.ApiBody)({ description: 'Arquivo PDF do edital', type: create_importacao_pdf_dto_1.CreateImportacaoPdfDto }),
@@ -123,6 +129,7 @@ __decorate([
 ], ImportacoesController.prototype, "uploadPdf", null);
 __decorate([
     (0, common_1.Get)(),
+    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Listar importações de editais' }),
     (0, swagger_1.ApiQuery)({ name: 'page', required: false }),
     (0, swagger_1.ApiQuery)({ name: 'limit', required: false }),
@@ -134,6 +141,7 @@ __decorate([
 ], ImportacoesController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Post)('sincronizar-docs'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Sincronizar PDFs da pasta docs' }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -142,6 +150,7 @@ __decorate([
 ], ImportacoesController.prototype, "sincronizarDocs", null);
 __decorate([
     (0, common_1.Get)(':id'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Detalhar uma importação' }),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
@@ -149,7 +158,18 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], ImportacoesController.prototype, "findOne", null);
 __decorate([
+    (0, common_1.Patch)(':id'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA'),
+    (0, swagger_1.ApiOperation)({ summary: 'Editar o edital vinculado à importação (bloqueado após confirmação)' }),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, update_importacao_edital_dto_1.UpdateImportacaoEditalDto]),
+    __metadata("design:returntype", void 0)
+], ImportacoesController.prototype, "editarEdital", null);
+__decorate([
     (0, common_1.Post)(':id/processar'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Processar um PDF salvo' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
@@ -159,6 +179,7 @@ __decorate([
 ], ImportacoesController.prototype, "processar", null);
 __decorate([
     (0, common_1.Post)(':id/confirmar'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Confirmar os itens conferidos da importação' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),

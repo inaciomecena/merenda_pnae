@@ -233,7 +233,14 @@ export class SearchablePdfEditalParserService extends ParserService {
 
     const detailLines = block.slice(1).filter((_, i) => !skipIndices.has(i + 1));
     const detailText = detailLines.join(' ').replace(/\s+/g, ' ').trim();
-    const { produtoOriginal, especificacao, observacoes } = this.extractProductName(detailText);
+    // O nome sempre começa nas primeiras linhas do bloco. Usar esse recorte
+    // evita que uma linha de especificação (ex.: "sujidades") vire o produto
+    // quando o PDF quebra a descrição entre páginas.
+    const headerText = block.slice(1, 6).join(' ').replace(/\s+/g, ' ').trim();
+    const extracted = this.extractProductName(headerText || detailText);
+    const produtoOriginal = extracted.produtoOriginal;
+    const especificacao = detailText || extracted.especificacao;
+    const observacoes = extracted.observacoes;
 
     let summary = summaryLine ? this.parseSummaryLine(summaryLine) : undefined;
 

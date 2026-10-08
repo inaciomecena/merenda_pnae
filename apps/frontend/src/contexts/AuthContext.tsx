@@ -17,7 +17,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const token = localStorage.getItem('sagae_token');
+    const token = localStorage.getItem('seaf_token');
     if (!token) {
       setLoading(false);
       return;
@@ -25,8 +25,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     api.get<ApiResponse<AuthUser>>('/auth/me')
       .then(({ data }) => setUser(data.data))
       .catch(() => {
-        localStorage.removeItem('sagae_token');
-        localStorage.removeItem('sagae_refresh');
+        localStorage.removeItem('seaf_token');
+        localStorage.removeItem('seaf_refresh');
       })
       .finally(() => setLoading(false));
   }, []);
@@ -35,8 +35,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setLoading(true);
     try {
       const { data } = await api.post<ApiResponse<AuthResponse>>('/auth/login', { email, password });
-      localStorage.setItem('sagae_token', data.data.accessToken);
-      localStorage.setItem('sagae_refresh', data.data.refreshToken);
+      localStorage.setItem('seaf_token', data.data.accessToken);
+      localStorage.setItem('seaf_refresh', data.data.refreshToken);
       setUser(data.data.user);
     } finally {
       setLoading(false);
@@ -44,8 +44,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const logout = useCallback(() => {
-    localStorage.removeItem('sagae_token');
-    localStorage.removeItem('sagae_refresh');
+    localStorage.removeItem('seaf_token');
+    localStorage.removeItem('seaf_refresh');
     setUser(null);
   }, []);
 
