@@ -199,6 +199,14 @@ export class ImportadorEditaisService implements OnModuleInit {
 
     await this.repository.updateEdital(importacao.editalId, editalData);
 
+    // Atualizar vinculo múltiplo de escolas
+    if (dto.escolaIds !== undefined) {
+      await this.repository.syncEditalEscolas(importacao.editalId, dto.escolaIds);
+    } else if (dto.escolaId !== undefined && dto.escolaId) {
+      // Manter compatibilidade: se enviou escolaId único, sincronizar com a lista
+      await this.repository.syncEditalEscolas(importacao.editalId, [dto.escolaId]);
+    }
+
     // Atualizar também os campos desnormalizados no ImportLog
     const importLogData: Record<string, any> = { updatedBy: 'importador-editais' };
     if (dto.titulo !== undefined) importLogData.tituloExtraido = dto.titulo;

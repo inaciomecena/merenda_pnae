@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { Alert, Box, Button, Card, CardContent, Chip, CircularProgress, Grid, Stack, Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material';
-import { FactCheck } from '@mui/icons-material';
+import { FactCheck, School } from '@mui/icons-material';
 import { useQuery } from '@tanstack/react-query';
 import { Link as RouterLink, useParams } from 'react-router-dom';
 import api from '../services/api';
@@ -49,7 +49,25 @@ export default function ImportacaoDetalhesPage() {
                 <Info label="Título" value={data.tituloExtraido || data.edital?.titulo || '-'} />
                 <Info label="Número/Ano" value={`${data.numeroExtraido || data.edital?.numero || '-'} / ${data.anoExtraido || data.edital?.ano || '-'}`} />
                 <Info label="Município" value={data.municipioNome || data.edital?.municipio?.nome || '-'} />
-                <Info label="Escola" value={data.escolaNome || data.edital?.escola?.nome || '-'} />
+                <Info
+                  label="Escolas Vinculadas"
+                  value={
+                    (() => {
+                      const vinculadas = data.edital?.escolasVinculadas ?? [];
+                      if (vinculadas.length > 0) {
+                        return (
+                          <Stack direction="row" spacing={0.5} flexWrap="wrap" useFlexGap>
+                            {vinculadas.map((ev) => (
+                              <Chip key={ev.id} size="small" label={ev.escola.nome} icon={<School />} />
+                            ))}
+                          </Stack>
+                        );
+                      }
+                      const unica = data.escolaNome || data.edital?.escola?.nome;
+                      return unica || '-';
+                    })()
+                  }
+                />
                 <Info label="Objeto" value={data.objeto || data.edital?.objeto || '-'} />
                 <Info label="Itens extraídos" value={String(data.quantidadeItens || data.edital?.itens?.length || 0)} />
                 <Info label="Tempo de processamento" value={data.tempoProcessamentoMs ? `${data.tempoProcessamentoMs} ms` : '-'} />

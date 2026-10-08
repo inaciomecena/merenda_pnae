@@ -92,6 +92,20 @@ let ImportacoesController = class ImportacoesController {
     findOne(id) {
         return this.service.buscarImportacao(id);
     }
+    async servePdf(id, res) {
+        const importacao = await this.service.buscarImportacao(id);
+        if (!importacao.arquivoCaminho || !fs.existsSync(importacao.arquivoCaminho)) {
+            res.status(404).json({ statusCode: 404, message: 'Arquivo PDF não encontrado.' });
+            return;
+        }
+        res.set({
+            'Content-Type': 'application/pdf',
+            'Content-Disposition': `inline; filename="${importacao.arquivoNome}"`,
+            'Cache-Control': 'no-cache',
+        });
+        const stream = fs.createReadStream(importacao.arquivoCaminho);
+        stream.pipe(res);
+    }
     editarEdital(id, dto) {
         return this.service.editarEdital(id, dto);
     }
@@ -157,6 +171,16 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], ImportacoesController.prototype, "findOne", null);
+__decorate([
+    (0, common_1.Get)(':id/pdf'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, swagger_1.ApiOperation)({ summary: 'Servir o arquivo PDF da importação' }),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Res)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:returntype", Promise)
+], ImportacoesController.prototype, "servePdf", null);
 __decorate([
     (0, common_1.Patch)(':id'),
     (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA'),

@@ -19,6 +19,7 @@ class UpdateImportacaoEditalDto {
     descricao;
     objeto;
     escolaId;
+    escolaIds;
     municipioId;
     dataPublicacao;
 }
@@ -56,11 +57,18 @@ __decorate([
     __metadata("design:type", String)
 ], UpdateImportacaoEditalDto.prototype, "objeto", void 0);
 __decorate([
-    (0, swagger_1.ApiPropertyOptional)({ description: 'ID da escola vinculada' }),
+    (0, swagger_1.ApiPropertyOptional)({ description: 'ID da escola vinculada (legado, uma escola)' }),
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], UpdateImportacaoEditalDto.prototype, "escolaId", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)({ description: 'IDs das escolas vinculadas (múltiplas)', type: [String] }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsArray)(),
+    (0, class_validator_1.IsString)({ each: true }),
+    __metadata("design:type", Array)
+], UpdateImportacaoEditalDto.prototype, "escolaIds", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({ description: 'ID do município vinculado' }),
     (0, class_validator_1.IsOptional)(),

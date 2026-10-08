@@ -1,5 +1,5 @@
 import { ApiPropertyOptional } from '@nestjs/swagger';
-import { IsDateString, IsInt, IsOptional, IsString, Length, Matches } from 'class-validator';
+import { IsArray, IsDateString, IsInt, IsOptional, IsString, Length, Matches } from 'class-validator';
 
 export class UpdateImportacaoEditalDto {
   @ApiPropertyOptional({ description: 'Número do edital' })
@@ -29,10 +29,16 @@ export class UpdateImportacaoEditalDto {
   @IsString()
   objeto?: string;
 
-  @ApiPropertyOptional({ description: 'ID da escola vinculada' })
+  @ApiPropertyOptional({ description: 'ID da escola vinculada (legado, uma escola)' })
   @IsOptional()
   @IsString()
   escolaId?: string;
+
+  @ApiPropertyOptional({ description: 'IDs das escolas vinculadas (múltiplas)', type: [String] })
+  @IsOptional()
+  @IsArray()
+  @IsString({ each: true })
+  escolaIds?: string[];
 
   @ApiPropertyOptional({ description: 'ID do município vinculado' })
   @IsOptional()

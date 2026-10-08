@@ -83,6 +83,55 @@ export declare class ImportadorEditaisService implements OnModuleInit {
                     latitude: import("@prisma/client/runtime/library").Decimal | null;
                     longitude: import("@prisma/client/runtime/library").Decimal | null;
                 } | null;
+                escolasVinculadas: ({
+                    escola: {
+                        municipio: {
+                            id: string;
+                            createdAt: Date;
+                            updatedAt: Date;
+                            deletedAt: Date | null;
+                            createdBy: string | null;
+                            updatedBy: string | null;
+                            nome: string;
+                            nomeNormalizado: string | null;
+                            uf: string;
+                            codigoIbge: string | null;
+                            ativo: boolean;
+                        };
+                    } & {
+                        id: string;
+                        createdAt: Date;
+                        updatedAt: Date;
+                        deletedAt: Date | null;
+                        createdBy: string | null;
+                        updatedBy: string | null;
+                        municipioId: string;
+                        nome: string;
+                        codigo: string | null;
+                        endereco: string | null;
+                        telefone: string | null;
+                        responsavel: string | null;
+                        active: boolean;
+                        restricaoAtendimento: string | null;
+                        localizacao: string | null;
+                        localidadeDiferenciada: string | null;
+                        categoriaAdministrativa: string | null;
+                        dependenciaAdministrativa: string | null;
+                        categoriaEscolaPrivada: string | null;
+                        conveniadaPoderPublico: string | null;
+                        regulamentacaoConselho: string | null;
+                        porteEscola: string | null;
+                        etapasModalidades: string | null;
+                        outrasOfertasEducacionais: string | null;
+                        latitude: import("@prisma/client/runtime/library").Decimal | null;
+                        longitude: import("@prisma/client/runtime/library").Decimal | null;
+                    };
+                } & {
+                    id: string;
+                    editalId: string;
+                    createdAt: Date;
+                    escolaId: string;
+                })[];
                 _count: {
                     itens: number;
                 };
@@ -229,6 +278,55 @@ export declare class ImportadorEditaisService implements OnModuleInit {
                 pendenteEdicao: boolean;
                 importadoAutomaticamente: boolean;
             }[];
+            escolasVinculadas: ({
+                escola: {
+                    municipio: {
+                        id: string;
+                        createdAt: Date;
+                        updatedAt: Date;
+                        deletedAt: Date | null;
+                        createdBy: string | null;
+                        updatedBy: string | null;
+                        nome: string;
+                        nomeNormalizado: string | null;
+                        uf: string;
+                        codigoIbge: string | null;
+                        ativo: boolean;
+                    };
+                } & {
+                    id: string;
+                    createdAt: Date;
+                    updatedAt: Date;
+                    deletedAt: Date | null;
+                    createdBy: string | null;
+                    updatedBy: string | null;
+                    municipioId: string;
+                    nome: string;
+                    codigo: string | null;
+                    endereco: string | null;
+                    telefone: string | null;
+                    responsavel: string | null;
+                    active: boolean;
+                    restricaoAtendimento: string | null;
+                    localizacao: string | null;
+                    localidadeDiferenciada: string | null;
+                    categoriaAdministrativa: string | null;
+                    dependenciaAdministrativa: string | null;
+                    categoriaEscolaPrivada: string | null;
+                    conveniadaPoderPublico: string | null;
+                    regulamentacaoConselho: string | null;
+                    porteEscola: string | null;
+                    etapasModalidades: string | null;
+                    outrasOfertasEducacionais: string | null;
+                    latitude: import("@prisma/client/runtime/library").Decimal | null;
+                    longitude: import("@prisma/client/runtime/library").Decimal | null;
+                };
+            } & {
+                id: string;
+                editalId: string;
+                createdAt: Date;
+                escolaId: string;
+            })[];
         } & {
             id: string;
             status: import(".prisma/client").$Enums.StatusEdital;
@@ -337,6 +435,55 @@ export declare class ImportadorEditaisService implements OnModuleInit {
                 pendenteEdicao: boolean;
                 importadoAutomaticamente: boolean;
             }[];
+            escolasVinculadas: ({
+                escola: {
+                    municipio: {
+                        id: string;
+                        createdAt: Date;
+                        updatedAt: Date;
+                        deletedAt: Date | null;
+                        createdBy: string | null;
+                        updatedBy: string | null;
+                        nome: string;
+                        nomeNormalizado: string | null;
+                        uf: string;
+                        codigoIbge: string | null;
+                        ativo: boolean;
+                    };
+                } & {
+                    id: string;
+                    createdAt: Date;
+                    updatedAt: Date;
+                    deletedAt: Date | null;
+                    createdBy: string | null;
+                    updatedBy: string | null;
+                    municipioId: string;
+                    nome: string;
+                    codigo: string | null;
+                    endereco: string | null;
+                    telefone: string | null;
+                    responsavel: string | null;
+                    active: boolean;
+                    restricaoAtendimento: string | null;
+                    localizacao: string | null;
+                    localidadeDiferenciada: string | null;
+                    categoriaAdministrativa: string | null;
+                    dependenciaAdministrativa: string | null;
+                    categoriaEscolaPrivada: string | null;
+                    conveniadaPoderPublico: string | null;
+                    regulamentacaoConselho: string | null;
+                    porteEscola: string | null;
+                    etapasModalidades: string | null;
+                    outrasOfertasEducacionais: string | null;
+                    latitude: import("@prisma/client/runtime/library").Decimal | null;
+                    longitude: import("@prisma/client/runtime/library").Decimal | null;
+                };
+            } & {
+                id: string;
+                editalId: string;
+                createdAt: Date;
+                escolaId: string;
+            })[];
         } & {
             id: string;
             status: import(".prisma/client").$Enums.StatusEdital;
@@ -553,6 +700,55 @@ export declare class ImportadorEditaisService implements OnModuleInit {
                 pendenteEdicao: boolean;
                 importadoAutomaticamente: boolean;
             }[];
+            escolasVinculadas: ({
+                escola: {
+                    municipio: {
+                        id: string;
+                        createdAt: Date;
+                        updatedAt: Date;
+                        deletedAt: Date | null;
+                        createdBy: string | null;
+                        updatedBy: string | null;
+                        nome: string;
+                        nomeNormalizado: string | null;
+                        uf: string;
+                        codigoIbge: string | null;
+                        ativo: boolean;
+                    };
+                } & {
+                    id: string;
+                    createdAt: Date;
+                    updatedAt: Date;
+                    deletedAt: Date | null;
+                    createdBy: string | null;
+                    updatedBy: string | null;
+                    municipioId: string;
+                    nome: string;
+                    codigo: string | null;
+                    endereco: string | null;
+                    telefone: string | null;
+                    responsavel: string | null;
+                    active: boolean;
+                    restricaoAtendimento: string | null;
+                    localizacao: string | null;
+                    localidadeDiferenciada: string | null;
+                    categoriaAdministrativa: string | null;
+                    dependenciaAdministrativa: string | null;
+                    categoriaEscolaPrivada: string | null;
+                    conveniadaPoderPublico: string | null;
+                    regulamentacaoConselho: string | null;
+                    porteEscola: string | null;
+                    etapasModalidades: string | null;
+                    outrasOfertasEducacionais: string | null;
+                    latitude: import("@prisma/client/runtime/library").Decimal | null;
+                    longitude: import("@prisma/client/runtime/library").Decimal | null;
+                };
+            } & {
+                id: string;
+                editalId: string;
+                createdAt: Date;
+                escolaId: string;
+            })[];
         } & {
             id: string;
             status: import(".prisma/client").$Enums.StatusEdital;

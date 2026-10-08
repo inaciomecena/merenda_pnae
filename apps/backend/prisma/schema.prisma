@@ -133,6 +133,7 @@ model Escola {
   latitude Decimal? @db.Decimal(12, 8)
   longitude Decimal? @db.Decimal(12, 8)
   editais       Edital[]
+  editaisVinculados EditalEscola[]
   matches       Match[]
   users         User[]
 
@@ -163,8 +164,21 @@ model Edital {
   propostas     Proposta[]
   importLogs    ImportLog[]
   matches       Match[]
+  escolasVinculadas EditalEscola[]
 
   @@map("pnae_editais")
+}
+
+model EditalEscola {
+  id        String   @id @default(uuid())
+  editalId  String
+  edital    Edital   @relation(fields: [editalId], references: [id])
+  escolaId  String
+  escola    Escola   @relation(fields: [escolaId], references: [id])
+  createdAt DateTime @default(now())
+
+  @@unique([editalId, escolaId])
+  @@map("pnae_edital_escolas")
 }
 
 model EditalItem {

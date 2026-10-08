@@ -72,6 +72,10 @@ export interface Importacao {
     observacoes?: string | null;
     municipio?: { id: string; nome: string } | null;
     escola?: { id: string; nome: string } | null;
+    escolasVinculadas?: Array<{
+      id: string;
+      escola: { id: string; nome: string; municipio?: { id: string; nome: string } | null };
+    }>;
     itens: ImportacaoItem[];
   } | null;
 }

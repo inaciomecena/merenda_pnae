@@ -134,6 +134,55 @@ export declare class ImportacoesRepository {
                 pendenteEdicao: boolean;
                 importadoAutomaticamente: boolean;
             }[];
+            escolasVinculadas: ({
+                escola: {
+                    municipio: {
+                        id: string;
+                        createdAt: Date;
+                        updatedAt: Date;
+                        deletedAt: Date | null;
+                        createdBy: string | null;
+                        updatedBy: string | null;
+                        nome: string;
+                        nomeNormalizado: string | null;
+                        uf: string;
+                        codigoIbge: string | null;
+                        ativo: boolean;
+                    };
+                } & {
+                    id: string;
+                    createdAt: Date;
+                    updatedAt: Date;
+                    deletedAt: Date | null;
+                    createdBy: string | null;
+                    updatedBy: string | null;
+                    municipioId: string;
+                    nome: string;
+                    codigo: string | null;
+                    endereco: string | null;
+                    telefone: string | null;
+                    responsavel: string | null;
+                    active: boolean;
+                    restricaoAtendimento: string | null;
+                    localizacao: string | null;
+                    localidadeDiferenciada: string | null;
+                    categoriaAdministrativa: string | null;
+                    dependenciaAdministrativa: string | null;
+                    categoriaEscolaPrivada: string | null;
+                    conveniadaPoderPublico: string | null;
+                    regulamentacaoConselho: string | null;
+                    porteEscola: string | null;
+                    etapasModalidades: string | null;
+                    outrasOfertasEducacionais: string | null;
+                    latitude: Prisma.Decimal | null;
+                    longitude: Prisma.Decimal | null;
+                };
+            } & {
+                id: string;
+                editalId: string;
+                createdAt: Date;
+                escolaId: string;
+            })[];
         } & {
             id: string;
             status: import(".prisma/client").$Enums.StatusEdital;
@@ -226,6 +275,55 @@ export declare class ImportacoesRepository {
                     latitude: Prisma.Decimal | null;
                     longitude: Prisma.Decimal | null;
                 } | null;
+                escolasVinculadas: ({
+                    escola: {
+                        municipio: {
+                            id: string;
+                            createdAt: Date;
+                            updatedAt: Date;
+                            deletedAt: Date | null;
+                            createdBy: string | null;
+                            updatedBy: string | null;
+                            nome: string;
+                            nomeNormalizado: string | null;
+                            uf: string;
+                            codigoIbge: string | null;
+                            ativo: boolean;
+                        };
+                    } & {
+                        id: string;
+                        createdAt: Date;
+                        updatedAt: Date;
+                        deletedAt: Date | null;
+                        createdBy: string | null;
+                        updatedBy: string | null;
+                        municipioId: string;
+                        nome: string;
+                        codigo: string | null;
+                        endereco: string | null;
+                        telefone: string | null;
+                        responsavel: string | null;
+                        active: boolean;
+                        restricaoAtendimento: string | null;
+                        localizacao: string | null;
+                        localidadeDiferenciada: string | null;
+                        categoriaAdministrativa: string | null;
+                        dependenciaAdministrativa: string | null;
+                        categoriaEscolaPrivada: string | null;
+                        conveniadaPoderPublico: string | null;
+                        regulamentacaoConselho: string | null;
+                        porteEscola: string | null;
+                        etapasModalidades: string | null;
+                        outrasOfertasEducacionais: string | null;
+                        latitude: Prisma.Decimal | null;
+                        longitude: Prisma.Decimal | null;
+                    };
+                } & {
+                    id: string;
+                    editalId: string;
+                    createdAt: Date;
+                    escolaId: string;
+                })[];
                 _count: {
                     itens: number;
                 };
@@ -347,6 +445,56 @@ export declare class ImportacoesRepository {
         observacoes: string | null;
         dataPublicacao: Date | null;
     }, never, import("@prisma/client/runtime/library").DefaultArgs>;
+    syncEditalEscolas(editalId: string, escolaIds: string[]): Promise<void>;
+    getEditalEscolas(editalId: string): Prisma.PrismaPromise<({
+        escola: {
+            municipio: {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                deletedAt: Date | null;
+                createdBy: string | null;
+                updatedBy: string | null;
+                nome: string;
+                nomeNormalizado: string | null;
+                uf: string;
+                codigoIbge: string | null;
+                ativo: boolean;
+            };
+        } & {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
+            municipioId: string;
+            nome: string;
+            codigo: string | null;
+            endereco: string | null;
+            telefone: string | null;
+            responsavel: string | null;
+            active: boolean;
+            restricaoAtendimento: string | null;
+            localizacao: string | null;
+            localidadeDiferenciada: string | null;
+            categoriaAdministrativa: string | null;
+            dependenciaAdministrativa: string | null;
+            categoriaEscolaPrivada: string | null;
+            conveniadaPoderPublico: string | null;
+            regulamentacaoConselho: string | null;
+            porteEscola: string | null;
+            etapasModalidades: string | null;
+            outrasOfertasEducacionais: string | null;
+            latitude: Prisma.Decimal | null;
+            longitude: Prisma.Decimal | null;
+        };
+    } & {
+        id: string;
+        editalId: string;
+        createdAt: Date;
+        escolaId: string;
+    })[]>;
     resolveMunicipioByName(nome?: string): Promise<{
         id: string;
         createdAt: Date;

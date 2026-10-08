@@ -213,6 +213,12 @@ let ImportadorEditaisService = ImportadorEditaisService_1 = class ImportadorEdit
         if (dto.dataPublicacao !== undefined)
             editalData.dataPublicacao = dto.dataPublicacao ? new Date(dto.dataPublicacao) : null;
         await this.repository.updateEdital(importacao.editalId, editalData);
+        if (dto.escolaIds !== undefined) {
+            await this.repository.syncEditalEscolas(importacao.editalId, dto.escolaIds);
+        }
+        else if (dto.escolaId !== undefined && dto.escolaId) {
+            await this.repository.syncEditalEscolas(importacao.editalId, [dto.escolaId]);
+        }
         const importLogData = { updatedBy: 'importador-editais' };
         if (dto.titulo !== undefined)
             importLogData.tituloExtraido = dto.titulo;

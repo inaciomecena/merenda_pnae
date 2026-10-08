@@ -21,6 +21,13 @@ export class ImportacoesRepository {
           include: {
             escola: true,
             municipio: true,
+            escolasVinculadas: {
+              include: {
+                escola: {
+                  include: { municipio: true },
+                },
+              },
+            },
             itens: {
               where: { deletedAt: null },
               orderBy: { numeroItem: 'asc' },
@@ -50,6 +57,11 @@ export class ImportacoesRepository {
             include: {
               escola: true,
               municipio: true,
+              escolasVinculadas: {
+                include: {
+                  escola: { include: { municipio: true } },
+                },
+              },
               _count: { select: { itens: true } },
             },
           },
@@ -78,6 +90,30 @@ export class ImportacoesRepository {
     return this.prisma.edital.update({
       where: { id },
       data,
+    });
+  }
+
+  async syncEditalEscolas(editalId: string, escolaIds: string[]) {
+    // Remove vínculos existentes
+    await this.prisma.editalEscola.deleteMany({
+      where: { editalId },
+    });
+
+    // Cria novos vínculos
+    if (escolaIds.length > 0) {
+      await this.prisma.editalEscola.createMany({
+        data: escolaIds.map((escolaId) => ({
+          editalId,
+          escolaId,
+        })),
+      });
+    }
+  }
+
+  getEditalEscolas(editalId: string) {
+    return this.prisma.editalEscola.findMany({
+      where: { editalId },
+      include: { escola: { include: { municipio: true } } },
     });
   }
 

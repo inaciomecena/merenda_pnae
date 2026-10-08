@@ -7,9 +7,11 @@ import {
   Patch,
   Post,
   Query,
+  Res,
   UploadedFile,
   UseInterceptors,
 } from '@nestjs/common';
+import type { Response } from 'express';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ApiBody, ApiConsumes, ApiOperation, ApiQuery, ApiTags } from '@nestjs/swagger';
 import { diskStorage } from 'multer';
@@ -99,6 +101,26 @@ export class ImportacoesController {
   @ApiOperation({ summary: 'Detalhar uma importação' })
   findOne(@Param('id') id: string) {
     return this.service.buscarImportacao(id);
+  }
+
+  @Get(':id/pdf')
+  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
+  @ApiOperation({ summary: 'Servir o arquivo PDF da importação' })
+  async servePdf(@Param('id') id: string, @Res() res: Response) {
+    const importacao = await this.service.buscarImportacao(id);
+    if (!importacao.arquivoCaminho || !fs.existsSync(importacao.arquivoCaminho)) {
+      res.status(404).json({ statusCode: 404, message: 'Arquivo PDF não encontrado.' });
+      return;
+    }
+
+    res.set({
+      'Content-Type': 'application/pdf',
+      'Content-Disposition': `inline; filename="${importacao.arquivoNome}"`,
+      'Cache-Control': 'no-cache',
+    });
+
+    const stream = fs.createReadStream(importacao.arquivoCaminho);
+    stream.pipe(res);
   }
 
   @Patch(':id')
