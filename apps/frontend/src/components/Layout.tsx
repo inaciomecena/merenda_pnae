@@ -1,6 +1,7 @@
-import { Box, Breadcrumbs, Container, CssBaseline, Drawer, List, ListItemButton, ListItemIcon, ListItemText, Typography, Divider, Stack, Chip } from '@mui/material';
+import { Box, Breadcrumbs, Container, CssBaseline, Drawer, List, ListItemButton, ListItemIcon, ListItemText, Typography, Divider, Stack, Chip, IconButton, useMediaQuery, useTheme } from '@mui/material';
 import type { ReactNode } from 'react';
-import { Home, School, Map, Description, Inventory2, People, Gavel, Assignment, Group, UploadFile, History, Settings, Science, Assessment, Article, Map as MapIcon } from '@mui/icons-material';
+import { useState } from 'react';
+import { Home, School, Map, Description, Inventory2, People, Gavel, Assignment, Group, UploadFile, History, Settings, Science, Assessment, Article, Map as MapIcon, Menu } from '@mui/icons-material';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import type { UserRole } from '../types';
@@ -27,6 +28,9 @@ const routes: { label: string; path: string; icon: ReactNode; roles: UserRole[] 
 ];
 
 export default function Layout() {
+  const theme = useTheme();
+  const compacto = useMediaQuery(theme.breakpoints.down('md'));
+  const [menuAberto, setMenuAberto] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const { user, logout } = useAuth();
@@ -42,9 +46,11 @@ export default function Layout() {
       <CssBaseline />
 
       <Drawer
-        variant="permanent"
+        variant={compacto ? 'temporary' : 'permanent'}
+        open={!compacto || menuAberto}
+        onClose={() => setMenuAberto(false)}
         sx={{
-          width: drawerWidth,
+          width: compacto ? 0 : drawerWidth,
           flexShrink: 0,
           '& .MuiDrawer-paper': {
             width: drawerWidth,
@@ -68,6 +74,7 @@ export default function Layout() {
                   key={item.path}
                   component={Link}
                   to={item.path}
+                  onClick={() => setMenuAberto(false)}
                   selected={isActive}
                   sx={{
                     borderRadius: 1,
@@ -129,6 +136,7 @@ export default function Layout() {
             px: 3,
           }}
         >
+          {compacto ? <IconButton aria-label="Abrir menu" onClick={() => setMenuAberto(true)} sx={{ mr: 'auto' }}><Menu /></IconButton> : null}
           <Stack direction="row" spacing={1.5} alignItems="center">
             <Chip
               label={user?.role || 'VISITANTE'}
@@ -158,7 +166,7 @@ export default function Layout() {
           </Stack>
         </Box>
 
-        <Box component="main" sx={{ flexGrow: 1, p: 3, overflow: 'auto' }}>
+        <Box component="main" sx={{ flexGrow: 1, p: { xs: 2, md: 3 }, overflow: 'auto' }}>
           <Container maxWidth={false} sx={{ px: 0, width: '100%' }}>
             <Breadcrumbs aria-label="breadcrumb" sx={{ mb: 2 }}>
               <Link

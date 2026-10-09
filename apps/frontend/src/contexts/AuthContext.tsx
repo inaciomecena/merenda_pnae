@@ -24,9 +24,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
     api.get<ApiResponse<AuthUser>>('/auth/me')
       .then(({ data }) => setUser(data.data))
-      .catch(() => {
-        localStorage.removeItem('seaf_token');
-        localStorage.removeItem('seaf_refresh');
+      .catch((error) => {
+        if (error.response?.status === 401) {
+          localStorage.removeItem('seaf_token');
+          localStorage.removeItem('seaf_refresh');
+        }
       })
       .finally(() => setLoading(false));
   }, []);

@@ -43,6 +43,12 @@ export class TemplatesDocumentoController {
     return this.service.listar(query);
   }
 
+  @Get('anexos-padrao')
+  @ApiOperation({ summary: 'Listar anexos e declarações a vincular em um novo edital' })
+  anexosPadrao() {
+    return this.service.anexosPadrao();
+  }
+
   @Get(':id')
   @ApiOperation({ summary: 'Detalhar template e versões' })
   buscar(@Param('id') id: string) {
@@ -99,7 +105,7 @@ export class TemplatesDocumentoController {
   async baixar(@Param('id') id: string, @Res() res: Response) {
     const arquivo = await this.service.caminhoArquivo(id);
     res.setHeader('Content-Disposition', `inline; filename="${arquivo.nome}"`);
-    fs.createReadStream(arquivo.caminho).pipe(res);
+    res.sendFile(arquivo.caminho);
   }
 
   @Delete(':id')

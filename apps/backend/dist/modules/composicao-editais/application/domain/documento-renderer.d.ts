@@ -19,6 +19,7 @@ export interface DocumentoRenderInput {
     itens: LinhaTabela[];
     escolas: string[];
     fornecedores: string[];
+    separarSecoes?: boolean;
 }
 declare function partesDoConteudo(conteudo: string): Array<{
     tipo: 'texto' | 'tabela' | 'assinaturas';

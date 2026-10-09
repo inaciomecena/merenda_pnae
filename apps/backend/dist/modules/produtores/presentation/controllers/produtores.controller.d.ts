@@ -4,34 +4,39 @@ import { CreateProdutorDto, CreateProdutorProdutoDto, UpdateProdutorDto, UpdateP
 export declare class ProdutoresController {
     private readonly service;
     constructor(service: ProdutoresService);
+    camposDocumentais(): {
+        chave: string;
+        rotulo: string;
+    }[];
     findAll(query: any, req: Request): Promise<{
         items: ({
             municipio: {
                 id: string;
+                nome: string;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                nome: string;
-                ativo: boolean;
                 nomeNormalizado: string | null;
                 uf: string;
                 codigoIbge: string | null;
+                ativo: boolean;
             };
         } & {
             id: string;
+            nome: string;
+            cpfCnpj: string | null;
+            municipioId: string;
+            endereco: string | null;
+            telefone: string | null;
+            dadosDocumentais: import("@prisma/client/runtime/library").JsonValue | null;
             active: boolean;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            municipioId: string;
-            nome: string;
-            cpfCnpj: string | null;
-            endereco: string | null;
-            telefone: string | null;
         })[];
         total: number;
         page: number;
@@ -41,16 +46,16 @@ export declare class ProdutoresController {
     findOne(id: string, req: Request): Promise<{
         municipio: {
             id: string;
+            nome: string;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            nome: string;
-            ativo: boolean;
             nomeNormalizado: string | null;
             uf: string;
             codigoIbge: string | null;
+            ativo: boolean;
         };
         produtos: {
             id: string;
@@ -59,26 +64,27 @@ export declare class ProdutoresController {
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            unidade: string | null;
             produtorId: string;
             produto: string;
             capacidade: string | null;
             periodoProducao: string | null;
             precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
+            unidade: string | null;
         }[];
     } & {
         id: string;
+        nome: string;
+        cpfCnpj: string | null;
+        municipioId: string;
+        endereco: string | null;
+        telefone: string | null;
+        dadosDocumentais: import("@prisma/client/runtime/library").JsonValue | null;
         active: boolean;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        municipioId: string;
-        nome: string;
-        cpfCnpj: string | null;
-        endereco: string | null;
-        telefone: string | null;
     }>;
     findProdutos(id: string): Promise<{
         id: string;
@@ -87,12 +93,12 @@ export declare class ProdutoresController {
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        unidade: string | null;
         produtorId: string;
         produto: string;
         capacidade: string | null;
         periodoProducao: string | null;
         precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
+        unidade: string | null;
     }[]>;
     createProduto(id: string, dto: CreateProdutorProdutoDto): Promise<{
         id: string;
@@ -101,12 +107,12 @@ export declare class ProdutoresController {
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        unidade: string | null;
         produtorId: string;
         produto: string;
         capacidade: string | null;
         periodoProducao: string | null;
         precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
+        unidade: string | null;
     }>;
     updateProduto(id: string, produtoId: string, dto: UpdateProdutorProdutoDto): Promise<{
         id: string;
@@ -115,12 +121,12 @@ export declare class ProdutoresController {
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        unidade: string | null;
         produtorId: string;
         produto: string;
         capacidade: string | null;
         periodoProducao: string | null;
         precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
+        unidade: string | null;
     }>;
     removeProduto(id: string, produtoId: string): Promise<{
         id: string;
@@ -129,53 +135,56 @@ export declare class ProdutoresController {
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        unidade: string | null;
         produtorId: string;
         produto: string;
         capacidade: string | null;
         periodoProducao: string | null;
         precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
+        unidade: string | null;
     }>;
     create(dto: CreateProdutorDto, req: Request): Promise<{
         id: string;
+        nome: string;
+        cpfCnpj: string | null;
+        municipioId: string;
+        endereco: string | null;
+        telefone: string | null;
+        dadosDocumentais: import("@prisma/client/runtime/library").JsonValue | null;
         active: boolean;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        municipioId: string;
-        nome: string;
-        cpfCnpj: string | null;
-        endereco: string | null;
-        telefone: string | null;
     }>;
     update(id: string, dto: UpdateProdutorDto, req: Request): Promise<{
         id: string;
+        nome: string;
+        cpfCnpj: string | null;
+        municipioId: string;
+        endereco: string | null;
+        telefone: string | null;
+        dadosDocumentais: import("@prisma/client/runtime/library").JsonValue | null;
         active: boolean;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        municipioId: string;
-        nome: string;
-        cpfCnpj: string | null;
-        endereco: string | null;
-        telefone: string | null;
     }>;
     remove(id: string): Promise<{
         id: string;
+        nome: string;
+        cpfCnpj: string | null;
+        municipioId: string;
+        endereco: string | null;
+        telefone: string | null;
+        dadosDocumentais: import("@prisma/client/runtime/library").JsonValue | null;
         active: boolean;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        municipioId: string;
-        nome: string;
-        cpfCnpj: string | null;
-        endereco: string | null;
-        telefone: string | null;
     }>;
 }

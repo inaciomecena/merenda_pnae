@@ -98,6 +98,12 @@ let ImportadorEditaisService = ImportadorEditaisService_1 = class ImportadorEdit
         }
         return item;
     }
+    excluirImportacao(id, usuarioId) {
+        return this.repository.softDelete(id, usuarioId);
+    }
+    excluirItem(id, itemId, usuarioId) {
+        return this.repository.excluirItem(id, itemId, usuarioId);
+    }
     async processarImportacao(id, reprocessar = false) {
         const importacao = await this.buscarImportacao(id);
         const processedStatuses = new Set([
@@ -257,7 +263,8 @@ let ImportadorEditaisService = ImportadorEditaisService_1 = class ImportadorEdit
         for (const file of files) {
             const existente = await this.repository.findByFilePath(file.caminho);
             if (existente) {
-                importacoes.push(existente);
+                if (!existente.deletedAt)
+                    importacoes.push(existente);
                 continue;
             }
             const created = await this.repository.createImportLog({

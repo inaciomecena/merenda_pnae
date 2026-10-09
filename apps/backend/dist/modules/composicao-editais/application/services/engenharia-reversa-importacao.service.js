@@ -51,6 +51,7 @@ const engenharia_reversa_1 = require("../domain/engenharia-reversa");
 const placeholders_1 = require("../domain/placeholders");
 const composicao_edital_service_1 = require("./composicao-edital.service");
 const templates_documento_service_1 = require("./templates-documento.service");
+const preenchimento_importacao_1 = require("../domain/preenchimento-importacao");
 let EngenhariaReversaImportacaoService = class EngenhariaReversaImportacaoService {
     prisma;
     composicao;
@@ -59,6 +60,25 @@ let EngenhariaReversaImportacaoService = class EngenhariaReversaImportacaoServic
         this.prisma = prisma;
         this.composicao = composicao;
         this.templates = templates;
+    }
+    async prepararEdital(importacaoId) {
+        const importacao = await this.prisma.importLog.findFirst({
+            where: { id: importacaoId, deletedAt: null },
+            include: {
+                estrutura: true,
+                edital: { include: { documento: true, escolasVinculadas: true, itens: { where: { deletedAt: null }, orderBy: { numeroItem: 'asc' } } } },
+            },
+        });
+        if (!importacao || importacao.edital?.deletedAt)
+            throw new common_1.NotFoundException('Importação não encontrada.');
+        if (importacao.status === 'PROCESSANDO')
+            throw new common_1.BadRequestException('Aguarde o processamento terminar para carregar os dados.');
+        if (!importacao.edital)
+            throw new common_1.BadRequestException('Processe a importação antes de carregar os dados do edital.');
+        const estrutura = importacao.estrutura ? await this.obter(importacaoId) : await this.montar(importacaoId);
+        const dados = (0, preenchimento_importacao_1.prepararDadosEdital)(importacao, estrutura);
+        dados.documento.anexos = await this.templates.anexosPadrao();
+        return dados;
     }
     async montar(importacaoId, opcoes) {
         const importacao = await this.prisma.importLog.findFirst({ where: { id: importacaoId, deletedAt: null } });
@@ -119,8 +139,8 @@ let EngenhariaReversaImportacaoService = class EngenhariaReversaImportacaoServic
             where: { importLogId: importacaoId },
             include: { campos: { orderBy: { chave: 'asc' } }, importLog: true },
         });
-        if (!estrutura)
-            throw new common_1.NotFoundException('Estrutura da importação ainda não foi gerada.');
+        if (!estrutura || estrutura.importLog.deletedAt)
+            throw new common_1.NotFoundException('Estrutura da importação não encontrada.');
         return {
             ...estrutura,
             secoes: this.parseJson(estrutura.secoesJson),
@@ -132,6 +152,7 @@ let EngenhariaReversaImportacaoService = class EngenhariaReversaImportacaoServic
         };
     }
     async atualizarCampos(importacaoId, campos) {
+        await this.obter(importacaoId);
         const estrutura = await this.prisma.importacaoEstrutura.findUnique({ where: { importLogId: importacaoId } });
         if (!estrutura)
             throw new common_1.NotFoundException('Estrutura da importação ainda não foi gerada.');

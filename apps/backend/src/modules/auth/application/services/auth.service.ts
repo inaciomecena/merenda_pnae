@@ -11,7 +11,7 @@ export class AuthService {
   ) {}
 
   async login(email: string, password: string) {
-    const user = await this.prisma.user.findFirst({ where: { email, deletedAt: null } });
+    const user = await this.prisma.user.findFirst({ where: { email, deletedAt: null, active: true } });
     if (!user) throw new UnauthorizedException('Credenciais inválidas');
 
     const passwordMatch = await bcrypt.compare(password, user.passwordHash);
@@ -26,7 +26,13 @@ export class AuthService {
   }
 
   async refresh(token: string) {
-    const payload = this.jwtService.verify(token, { secret: process.env.JWT_REFRESH_SECRET || 'refresh-secret' });
+    let payload: { sub: string };
+    try {
+      payload = this.jwtService.verify(token, { secret: process.env.JWT_REFRESH_SECRET || 'refresh-secret' });
+      if (typeof payload.sub !== 'string') throw new Error('Sessão sem usuário');
+    } catch {
+      throw new UnauthorizedException('Sua sessão expirou. Entre novamente no sistema.');
+    }
     const user = await this.prisma.user.findFirst({ where: { id: payload.sub, deletedAt: null, active: true } });
     if (!user) throw new UnauthorizedException('Usuário não encontrado ou inativo');
     return { accessToken: this.jwtService.sign({ sub: user.id, email: user.email, role: user.role, escolaId: user.escolaId, municipioId: user.municipioId }) };

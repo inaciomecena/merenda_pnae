@@ -1,3 +1,5 @@
+import { CAMPOS_PRODUTOR } from './campos-produtor';
+
 export const STATUS_REVISAO = {
   EXTRAIDO: 'extraido_automaticamente',
   CONFIRMADO: 'confirmado',
@@ -18,6 +20,10 @@ export interface VariavelCatalogo {
 }
 
 export const VARIAVEIS_DISPONIVEIS: VariavelCatalogo[] = [
+  ...CAMPOS_PRODUTOR.map(([chave, rotulo]): VariavelCatalogo => ({
+    chave, rotulo, tipo: 'texto', obrigatorio: false, sensivel: true, repetitivo: chave.startsWith('grupo.'),
+    escopos: ['ANEXO_I', 'ANEXO_II', 'ANEXO_III', 'ANEXO_IV'],
+  })),
   { chave: 'edital.numero', rotulo: 'Número do edital', tipo: 'texto', obrigatorio: true, sensivel: true, repetitivo: false, escopos: ['EDITAL_PRINCIPAL'] },
   { chave: 'edital.ano', rotulo: 'Ano do edital', tipo: 'numero', obrigatorio: true, sensivel: true, repetitivo: false, escopos: ['EDITAL_PRINCIPAL'] },
   { chave: 'edital.titulo', rotulo: 'Título', tipo: 'texto', obrigatorio: true, sensivel: false, repetitivo: false, escopos: ['EDITAL_PRINCIPAL'] },

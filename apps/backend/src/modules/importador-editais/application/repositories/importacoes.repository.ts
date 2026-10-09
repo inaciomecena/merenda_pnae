@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
 import { Prisma, StatusImportacao, StatusItemEdital } from '@prisma/client';
 import { PrismaService } from '../../../../infrastructure/prisma/prisma.service';
 
@@ -8,7 +8,8 @@ export class ImportacoesRepository {
 
   findByFilePath(arquivoCaminho: string) {
     return this.prisma.importLog.findFirst({
-      where: { arquivoCaminho, deletedAt: null },
+      // Registros excluídos também impedem a reimportação automática do mesmo PDF.
+      where: { arquivoCaminho },
       include: { edital: { include: { itens: { where: { deletedAt: null } } } } },
     });
   }
@@ -76,6 +77,44 @@ export class ImportacoesRepository {
   createImportLog(data: Prisma.ImportLogCreateInput | Prisma.ImportLogUncheckedCreateInput) {
     return this.prisma.importLog.create({
       data: data as Prisma.ImportLogUncheckedCreateInput,
+    });
+  }
+
+  async softDelete(id: string, usuarioId: string) {
+    return this.prisma.$transaction(async (tx) => {
+      const importacao = await tx.importLog.findFirst({ where: { id, deletedAt: null } });
+      if (!importacao) throw new NotFoundException('Importação não encontrada.');
+      if (importacao.status === StatusImportacao.PROCESSANDO) {
+        throw new ConflictException('Aguarde o processamento terminar para excluir a importação.');
+      }
+      const data = { deletedAt: new Date(), updatedBy: usuarioId };
+      await tx.importLog.update({ where: { id }, data });
+      if (importacao.editalId) {
+        const outrosVinculos = await tx.importLog.count({ where: { editalId: importacao.editalId, deletedAt: null } });
+        if (!outrosVinculos) {
+          await tx.edital.updateMany({ where: { id: importacao.editalId, deletedAt: null }, data });
+          await tx.editalItem.updateMany({ where: { editalId: importacao.editalId, deletedAt: null }, data });
+          await tx.match.updateMany({ where: { editalId: importacao.editalId, deletedAt: null }, data });
+        }
+      }
+      return { id, deletedAt: data.deletedAt };
+    });
+  }
+
+  async excluirItem(importacaoId: string, itemId: string, usuarioId: string) {
+    return this.prisma.$transaction(async (tx) => {
+      const importacao = await tx.importLog.findFirst({ where: { id: importacaoId, deletedAt: null } });
+      if (!importacao) throw new NotFoundException('Importação não encontrada.');
+      if (['CONFIRMADO', 'PROCESSANDO'].includes(importacao.status)) throw new ConflictException('Itens de importação confirmada ou em processamento não podem ser excluídos.');
+      if (!importacao.editalId) throw new NotFoundException('Item da importação não encontrado.');
+      const item = await tx.editalItem.findFirst({ where: { id: itemId, editalId: importacao.editalId, deletedAt: null } });
+      if (!item) throw new NotFoundException('Item da importação não encontrado.');
+      const data = { deletedAt: new Date(), updatedBy: usuarioId };
+      await tx.editalItem.update({ where: { id: itemId }, data });
+      await tx.match.updateMany({ where: { editalItemId: itemId, deletedAt: null }, data });
+      const quantidadeItens = await tx.editalItem.count({ where: { editalId: importacao.editalId, deletedAt: null } });
+      await tx.importLog.update({ where: { id: importacaoId }, data: { quantidadeItens, updatedBy: usuarioId } });
+      return { id: itemId, quantidadeItens };
     });
   }
 

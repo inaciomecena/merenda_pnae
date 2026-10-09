@@ -7,6 +7,9 @@ import {
 import { Add, Download, Visibility, CheckCircle, Cancel, PictureAsPdf, Description } from '@mui/icons-material';
 import api from '../services/api';
 import type { ApiResponse, PaginationResponse } from '../types';
+import PropostaDocumentosDialog from '../components/PropostaDocumentosDialog';
+import { useAuth } from '../contexts/AuthContext';
+import { useSearchParams } from 'react-router-dom';
 
 interface Proposta {
   id: string;
@@ -57,6 +60,10 @@ const tipoLabels: Record<string, string> = {
 };
 
 export default function PropostasPage() {
+  const [searchParams] = useSearchParams();
+  const { user } = useAuth();
+  const podeElaborar = user?.role === 'ADMIN' || user?.role === 'EXTENSIONISTA';
+  const [documentosId, setDocumentosId] = useState<string | null>(null);
   const [items, setItems] = useState<Proposta[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -68,7 +75,8 @@ export default function PropostasPage() {
   const [produtores, setProdutores] = useState<Produtor[]>([]);
 
   const [filterEdital, setFilterEdital] = useState('');
-  const [filterProdutor, setFilterProdutor] = useState('');
+  const [filterProdutor, setFilterProdutor] = useState(searchParams.get('produtorId') || '');
+  const [produtoresFiltro, setProdutoresFiltro] = useState<Produtor[]>([]);
   const [filterStatus, setFilterStatus] = useState('');
 
   const [openCreate, setOpenCreate] = useState(false);
@@ -108,23 +116,27 @@ export default function PropostasPage() {
   const fetchProdutores = async (editalId: string) => {
     if (!editalId) { setProdutores([]); return; }
     try {
-      const { data } = await api.get<Produtor[]>(`/propostas/produtores/${editalId}`);
-      setProdutores(data as any);
+      const { data } = await api.get<ApiResponse<Produtor[]>>(`/propostas/produtores/${editalId}`);
+      setProdutores(data.data || []);
     } catch { setProdutores([]); }
   };
 
   useEffect(() => { void fetchItems(); }, [fetchItems]);
   useEffect(() => { void fetchEditais(); }, []);
+  useEffect(() => {
+    if (podeElaborar) api.get('/produtores?limit=500').then(({ data }) => setProdutoresFiltro(data.data.items || [])).catch(() => setError('Não foi possível carregar os produtores.'));
+  }, [podeElaborar]);
 
   useEffect(() => {
     if (openCreate) void fetchProdutores(form.editalId);
   }, [openCreate, form.editalId]);
+  useEffect(() => { setPreviewData(null); }, [form.editalId, form.produtorId, form.tipoDocumento]);
 
   const handlePreview = async (editalId: string, produtorId: string, tipoDocumento: string) => {
     setPreviewLoading(true);
     try {
-      const { data } = await api.post<PreviewData>('/propostas/preview', { editalId, produtorId, tipoDocumento });
-      setPreviewData(data as any);
+      const { data } = await api.post<ApiResponse<PreviewData>>('/propostas/preview', { editalId, produtorId, tipoDocumento, validadeDias: form.validadeDias, prazoEntrega: form.prazoEntrega, observacao: form.observacao });
+      setPreviewData(data.data);
       setOpenPreview(true);
     } catch (err: any) {
       setError(err?.response?.data?.message || 'Erro ao gerar pré-visualização');
@@ -135,16 +147,14 @@ export default function PropostasPage() {
 
   const handleCreate = async () => {
     try {
-      const payload = { ...form, itens: [] };
+      const payload = { ...form, itens: (previewData?.itens || []).map((i: any) => ({ produto: i.produto, especificacao: i.especificacao, marca: i.marca, quantidade: i.quantidade, unidade: i.unidade, precoUnitario: i.precoUnitario, matchId: i.matchId })) };
       const { data } = await api.post('/propostas', payload);
-      const proposta = data as any;
-      if (previewData?.itens) {
-        await api.post(`/propostas/${proposta.id}/itens`, { itens: previewData.itens });
-      }
+      const proposta = data.data;
       setSuccess('Proposta criada com sucesso!');
       setOpenCreate(false);
       setOpenPreview(false);
       setPreviewData(null);
+      setDocumentosId(proposta.id);
       setForm({ editalId: '', produtorId: '', tipoDocumento: 'ANEXO_III', validadeDias: 30, prazoEntrega: 15, observacao: '' });
       void fetchItems();
     } catch (err: any) {
@@ -153,13 +163,7 @@ export default function PropostasPage() {
   };
 
   const handleGenerate = async (proposta: Proposta) => {
-    try {
-      await api.post(`/propostas/${proposta.id}/gerar`);
-      setSuccess('Documentos gerados com sucesso!');
-      void fetchItems();
-    } catch (err: any) {
-      setError(err?.response?.data?.message || 'Erro ao gerar documentos');
-    }
+    setDocumentosId(proposta.id);
   };
 
   const handleFinalize = async (proposta: Proposta) => {
@@ -183,32 +187,19 @@ export default function PropostasPage() {
     }
   };
 
-  const handleDownload = (propostaId: string, tipo: 'pdf' | 'docx') => {
-    const token = localStorage.getItem('seaf_token');
-    const url = `http://localhost:3000/api/v1/propostas/${propostaId}/download/${tipo}`;
-    const a = document.createElement('a');
-    a.href = url;
-    a.target = '_blank';
-    if (token) {
-      fetch(url, { headers: { Authorization: `Bearer ${token}` } })
-        .then(res => res.blob())
-        .then(blob => {
-          const blobUrl = URL.createObjectURL(blob);
-          a.href = blobUrl;
-          a.download = `proposta.${tipo}`;
-          a.click();
-          URL.revokeObjectURL(blobUrl);
-        });
-    } else {
-      a.click();
-    }
+  const handleDownload = async (propostaId: string, tipo: 'pdf' | 'docx') => {
+    try {
+      const { data } = await api.get(`/propostas/${propostaId}/download/${tipo}`, { responseType: 'blob' });
+      const url = URL.createObjectURL(data); const a = document.createElement('a');
+      a.href = url; a.download = `projeto-anexos-declaracoes.${tipo}`; a.click(); URL.revokeObjectURL(url);
+    } catch { setError('Não foi possível baixar o documento.'); }
   };
 
   return (
     <Stack spacing={3}>
       <Stack direction="row" justifyContent="space-between" alignItems="center">
         <Typography variant="h4" fontWeight={700}>Propostas</Typography>
-        <Button variant="contained" startIcon={<Add />} onClick={() => { setPreviewData(null); setOpenCreate(true); }}>Nova Proposta</Button>
+        {podeElaborar && <Button variant="contained" startIcon={<Add />} onClick={() => { setPreviewData(null); setOpenCreate(true); }}>Novo projeto / proposta</Button>}
       </Stack>
 
       {error ? <Alert severity="error" onClose={() => setError('')}>{error}</Alert> : null}
@@ -226,7 +217,7 @@ export default function PropostasPage() {
             <Grid item xs={12} md={4}>
               <TextField select label="Produtor" fullWidth size="small" value={filterProdutor} onChange={e => { setFilterProdutor(e.target.value); setPage(1); }}>
                 <MenuItem value="">Todos</MenuItem>
-                {produtores.map(p => <MenuItem key={p.id} value={p.id}>{p.nome}</MenuItem>)}
+                {produtoresFiltro.map(p => <MenuItem key={p.id} value={p.id}>{p.nome}</MenuItem>)}
               </TextField>
             </Grid>
             <Grid item xs={12} md={4}>
@@ -265,17 +256,18 @@ export default function PropostasPage() {
                       <TableCell align="right">
                         <Stack direction="row" spacing={0.5} justifyContent="flex-end">
                           <Tooltip title="Detalhes"><IconButton size="small" onClick={() => setDetailProposta(p)}><Visibility fontSize="small" /></IconButton></Tooltip>
-                          {p.status === 'RASCUNHO' && (
+                          {p.status !== 'CANCELADA' && <Button size="small" onClick={() => setDocumentosId(p.id)}>Anexos e declarações</Button>}
+                          {podeElaborar && p.status === 'RASCUNHO' && (
                             <>
                               <Tooltip title="Gerar documentos"><IconButton size="small" color="primary" onClick={() => handleGenerate(p)}><Description fontSize="small" /></IconButton></Tooltip>
-                              <Tooltip title="Cancelar"><IconButton size="small" color="error" onClick={() => setConfirmDelete(p)}><Cancel fontSize="small" /></IconButton></Tooltip>
+                              {user?.role === 'ADMIN' && <Tooltip title="Cancelar"><IconButton size="small" color="error" onClick={() => setConfirmDelete(p)}><Cancel fontSize="small" /></IconButton></Tooltip>}
                             </>
                           )}
                           {p.status === 'GERADA' && (
                             <>
                               <Tooltip title="Baixar PDF"><IconButton size="small" onClick={() => handleDownload(p.id, 'pdf')}><PictureAsPdf fontSize="small" /></IconButton></Tooltip>
                               <Tooltip title="Baixar DOCX"><IconButton size="small" onClick={() => handleDownload(p.id, 'docx')}><Download fontSize="small" /></IconButton></Tooltip>
-                              <Tooltip title="Finalizar"><IconButton size="small" color="success" onClick={() => handleFinalize(p)}><CheckCircle fontSize="small" /></IconButton></Tooltip>
+                              {podeElaborar && <Tooltip title="Finalizar"><IconButton size="small" color="success" onClick={() => handleFinalize(p)}><CheckCircle fontSize="small" /></IconButton></Tooltip>}
                             </>
                           )}
                           {p.status === 'FINALIZADA' && (
@@ -318,7 +310,7 @@ export default function PropostasPage() {
             </Grid>
             <Grid item xs={12} md={4}>
               <TextField select label="Tipo de Documento" fullWidth value={form.tipoDocumento} onChange={e => setForm({ ...form, tipoDocumento: e.target.value })}>
-                <MenuItem value="ANEXO_III">Anexo III — Proposta de Preços</MenuItem>
+                <MenuItem value="ANEXO_III">Anexo III — Fornecedor individual</MenuItem>
                 <MenuItem value="PROJETO_VENDA">Projeto de Venda</MenuItem>
               </TextField>
             </Grid>
@@ -393,7 +385,11 @@ export default function PropostasPage() {
                             <TableCell>{i + 1}</TableCell>
                             <TableCell>{item.produto}</TableCell>
                             <TableCell>{item.marca || '—'}</TableCell>
-                            <TableCell>{item.quantidade || '—'}</TableCell>
+                            <TableCell><TextField type="number" size="small" label="Quantidade ofertada" value={item.quantidade ?? ''} slotProps={{ htmlInput: { min: 0.01, step: 0.01 } }} onChange={e => {
+                              const quantidade = Number(e.target.value);
+                              const itens = previewData.itens.map((atual, index) => index === i ? { ...atual, quantidade, valorTotal: quantidade * Number(atual.precoUnitario || 0) } : atual);
+                              setPreviewData({ ...previewData, itens, valorTotal: itens.reduce((sum, atual) => sum + Number(atual.valorTotal || 0), 0) });
+                            }} /></TableCell>
                             <TableCell>{item.unidade || '—'}</TableCell>
                             <TableCell>{item.precoUnitario ? `R$ ${Number(item.precoUnitario).toFixed(2)}` : '—'}</TableCell>
                             <TableCell>{item.valorTotal ? `R$ ${Number(item.valorTotal).toFixed(2)}` : '—'}</TableCell>
@@ -473,6 +469,8 @@ export default function PropostasPage() {
           <Button onClick={() => setDetailProposta(null)}>Fechar</Button>
         </DialogActions>
       </Dialog>
+
+      <PropostaDocumentosDialog id={documentosId} readOnly={!podeElaborar} onClose={() => { setDocumentosId(null); void fetchItems(); }} onGenerated={() => { setSuccess('Projeto, anexos e declarações gerados em PDF e DOCX.'); void fetchItems(); }} />
 
       <Dialog open={!!confirmDelete} onClose={() => setConfirmDelete(null)}>
         <DialogTitle>Confirmar cancelamento</DialogTitle>

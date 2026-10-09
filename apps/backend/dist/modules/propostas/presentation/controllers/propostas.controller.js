@@ -48,54 +48,95 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PropostasController = void 0;
 const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
+const proposta_documentos_service_1 = require("../../application/services/proposta-documentos.service");
+const documento_proposta_dto_1 = require("../dto/documento-proposta.dto");
 const roles_decorator_1 = require("../../../../common/decorators/roles.decorator");
 const propostas_service_1 = require("../../application/services/propostas.service");
 const proposta_dto_1 = require("../dto/proposta.dto");
 const path = __importStar(require("path"));
 let PropostasController = class PropostasController {
     service;
-    constructor(service) {
+    documentos;
+    constructor(service, documentos) {
         this.service = service;
+        this.documentos = documentos;
     }
-    findAll(query) {
-        return this.service.findAll(query);
+    documentosDisponiveis(id, req) {
+        return this.documentos.preparar(id, req.user);
     }
-    findOne(id) {
-        return this.service.findOne(id);
+    salvarDocumentos(id, dto, req) {
+        return this.documentos.salvar(id, dto, req.user);
     }
-    preview(dto) {
-        return this.service.preview(dto);
+    previaDocumentos(id, req) {
+        return this.documentos.previa(id, req.user);
     }
-    create(dto) {
-        return this.service.create(dto);
+    findAll(query, req) {
+        return this.service.findAll(query, req.user);
     }
-    update(id, dto) {
-        return this.service.update(id, dto);
+    findOne(id, req) {
+        return this.service.findOne(id, req.user);
     }
-    addItens(id, body) {
-        return this.service.addItens(id, body.itens);
+    preview(dto, req) {
+        return this.service.preview(dto, req.user);
     }
-    generate(id) {
-        return this.service.generate(id);
+    create(dto, req) {
+        return this.service.create(dto, req.user);
     }
-    async download(id, tipo, res) {
-        const { filePath, filename } = await this.service.download(id, tipo);
+    update(id, dto, req) {
+        return this.service.update(id, dto, req.user);
+    }
+    addItens(id, body, req) {
+        return this.service.addItens(id, body.itens, req.user);
+    }
+    generate(id, req) {
+        return this.service.generate(id, req.user);
+    }
+    async download(id, tipo, req, res) {
+        const { filePath, filename } = await this.service.download(id, tipo, req.user);
         const contentType = tipo === 'pdf' ? 'application/pdf' : 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
         res.setHeader('Content-Type', contentType);
         res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
         res.sendFile(path.resolve(filePath));
     }
-    finalizar(id) {
-        return this.service.finalizar(id);
+    finalizar(id, req) {
+        return this.service.finalizar(id, req.user);
     }
     remove(id) {
         return this.service.remove(id);
     }
-    getProducers(editalId) {
-        return this.service.getProducersWithApprovedMatches(editalId);
+    getProducers(editalId, req) {
+        return this.service.getProducersWithApprovedMatches(editalId, req.user);
     }
 };
 exports.PropostasController = PropostasController;
+__decorate([
+    (0, common_1.Get)(':id/documentos'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA', 'ESCOLA'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:returntype", void 0)
+], PropostasController.prototype, "documentosDisponiveis", null);
+__decorate([
+    (0, common_1.Put)(':id/documentos'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __param(2, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, documento_proposta_dto_1.DocumentoPropostaDto, Object]),
+    __metadata("design:returntype", void 0)
+], PropostasController.prototype, "salvarDocumentos", null);
+__decorate([
+    (0, common_1.Get)(':id/documentos/previa'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA', 'ESCOLA'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:returntype", void 0)
+], PropostasController.prototype, "previaDocumentos", null);
 __decorate([
     (0, common_1.Get)(),
     (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
@@ -106,8 +147,9 @@ __decorate([
     (0, swagger_1.ApiQuery)({ name: 'editalId', required: false }),
     (0, swagger_1.ApiQuery)({ name: 'produtorId', required: false }),
     __param(0, (0, common_1.Query)()),
+    __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", void 0)
 ], PropostasController.prototype, "findAll", null);
 __decorate([
@@ -115,8 +157,9 @@ __decorate([
     (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Buscar proposta por id' }),
     __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [String, Object]),
     __metadata("design:returntype", void 0)
 ], PropostasController.prototype, "findOne", null);
 __decorate([
@@ -124,8 +167,9 @@ __decorate([
     (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Pré-visualizar proposta antes de gerar' }),
     __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [proposta_dto_1.PreviewPropostaDto]),
+    __metadata("design:paramtypes", [proposta_dto_1.PreviewPropostaDto, Object]),
     __metadata("design:returntype", void 0)
 ], PropostasController.prototype, "preview", null);
 __decorate([
@@ -133,8 +177,9 @@ __decorate([
     (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Criar proposta' }),
     __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [proposta_dto_1.CreatePropostaDto]),
+    __metadata("design:paramtypes", [proposta_dto_1.CreatePropostaDto, Object]),
     __metadata("design:returntype", void 0)
 ], PropostasController.prototype, "create", null);
 __decorate([
@@ -143,8 +188,9 @@ __decorate([
     (0, swagger_1.ApiOperation)({ summary: 'Atualizar proposta' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
+    __param(2, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, proposta_dto_1.UpdatePropostaDto]),
+    __metadata("design:paramtypes", [String, proposta_dto_1.UpdatePropostaDto, Object]),
     __metadata("design:returntype", void 0)
 ], PropostasController.prototype, "update", null);
 __decorate([
@@ -153,8 +199,9 @@ __decorate([
     (0, swagger_1.ApiOperation)({ summary: 'Adicionar itens à proposta' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
+    __param(2, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:paramtypes", [String, Object, Object]),
     __metadata("design:returntype", void 0)
 ], PropostasController.prototype, "addItens", null);
 __decorate([
@@ -162,8 +209,9 @@ __decorate([
     (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Gerar PDF e DOCX da proposta' }),
     __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [String, Object]),
     __metadata("design:returntype", void 0)
 ], PropostasController.prototype, "generate", null);
 __decorate([
@@ -172,9 +220,10 @@ __decorate([
     (0, swagger_1.ApiOperation)({ summary: 'Baixar PDF ou DOCX da proposta' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Param)('tipo')),
-    __param(2, (0, common_1.Res)()),
+    __param(2, (0, common_1.Req)()),
+    __param(3, (0, common_1.Res)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, String, Object]),
+    __metadata("design:paramtypes", [String, String, Object, Object]),
     __metadata("design:returntype", Promise)
 ], PropostasController.prototype, "download", null);
 __decorate([
@@ -182,8 +231,9 @@ __decorate([
     (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Finalizar proposta' }),
     __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [String, Object]),
     __metadata("design:returntype", void 0)
 ], PropostasController.prototype, "finalizar", null);
 __decorate([
@@ -200,13 +250,14 @@ __decorate([
     (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Listar produtores com matches aprovados para um edital' }),
     __param(0, (0, common_1.Param)('editalId')),
+    __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [String, Object]),
     __metadata("design:returntype", void 0)
 ], PropostasController.prototype, "getProducers", null);
 exports.PropostasController = PropostasController = __decorate([
     (0, swagger_1.ApiTags)('propostas'),
     (0, common_1.Controller)({ path: 'propostas', version: '1' }),
-    __metadata("design:paramtypes", [propostas_service_1.PropostasService])
+    __metadata("design:paramtypes", [propostas_service_1.PropostasService, proposta_documentos_service_1.PropostaDocumentosService])
 ], PropostasController);
 //# sourceMappingURL=propostas.controller.js.map

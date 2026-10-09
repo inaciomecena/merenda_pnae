@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "predev": "prisma generate",
     "dev": "prisma migrate deploy && nest start --watch",
+    "prebuild": "prisma generate",
     "build": "nest build",
     "start": "node dist/main",
     "test": "jest --runInBand",
@@ -41,8 +43,10 @@
     "pdf2table": "^0.0.2",
     "pdfjs-dist": "^6.1.200",
     "pdfkit": "^0.17.0",
+    "puppeteer-core": "^24.43.1",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.0.0",
+    "sanitize-html": "2.17.0",
     "winston": "^3.0.0"
   },
   "devDependencies": {
@@ -52,6 +56,7 @@
     "@types/jest": "^29.5.0",
     "@types/node": "^22.0.0",
     "@types/passport-jwt": "^4.0.0",
+    "@types/sanitize-html": "^2.16.2",
     "jest": "^29.7.0",
     "prisma": "^5.7.0",
     "supertest": "^6.0.0",

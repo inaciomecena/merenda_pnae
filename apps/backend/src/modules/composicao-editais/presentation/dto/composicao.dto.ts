@@ -1,8 +1,10 @@
 import { Type } from 'class-transformer';
 import { PartialType } from '@nestjs/mapped-types';
-import { IsArray, IsBoolean, IsDateString, IsInt, IsNumber, IsOptional, IsString, Length, ValidateNested } from 'class-validator';
+import { IsArray, IsBoolean, IsDateString, IsInt, IsIn, IsNumber, IsOptional, IsString, Length, ValidateNested } from 'class-validator';
 
 export class CreateTemplateDocumentoDto {
+  @IsOptional() @IsIn(['EDITAL', 'PROJETO_VENDA', 'PRODUCAO_PROPRIA', 'CONTROLE_LIMITE']) finalidade?: string;
+  @IsOptional() @IsIn(['', 'INDIVIDUAL', 'FORMAL', 'INFORMAL', 'EFR']) perfilFornecedor?: string;
   @IsString()
   tipo!: string;
 
@@ -44,6 +46,8 @@ export class CreateTemplateDocumentoDto {
 }
 
 export class UpdateTemplateDocumentoDto {
+  @IsOptional() @IsIn(['EDITAL', 'PROJETO_VENDA', 'PRODUCAO_PROPRIA', 'CONTROLE_LIMITE']) finalidade?: string;
+  @IsOptional() @IsIn(['', 'INDIVIDUAL', 'FORMAL', 'INFORMAL', 'EFR']) perfilFornecedor?: string;
   @IsOptional() @IsString() tipo?: string;
   @IsOptional() @IsInt() numeroAnexo?: number;
   @IsOptional() @IsString() @Length(2, 180) titulo?: string;
@@ -105,6 +109,9 @@ export class VariavelComposicaoDto {
 }
 
 export class CreateComposicaoDto {
+  @IsOptional() @IsArray() @ValidateNested({ each: true }) @Type(() => AnexoComposicaoDto) anexos?: AnexoComposicaoDto[];
+  @IsOptional() @IsString() importacaoId?: string;
+  @IsOptional() @IsArray() @ValidateNested({ each: true }) @Type(() => ItemComposicaoDto) itens?: ItemComposicaoDto[];
   @IsString() @Length(1, 120) numero!: string;
   @IsInt() ano!: number;
   @IsString() @Length(2, 200) titulo!: string;

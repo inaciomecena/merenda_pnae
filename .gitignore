@@ -8,3 +8,8 @@ build
 .DS_Store
 docs/inep/microdados_censo_escolar_2024.zip
 docs/inep/microdados_censo_escolar_2024/
+
+# Generated document checks and isolated browser sessions.
+apps/backend/storage/validacao-*/
+apps/backend/storage/validacao-*.log
+apps/backend/storage/propostas/

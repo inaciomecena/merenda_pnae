@@ -14,6 +14,7 @@ const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../../../../infrastructure/prisma/prisma.service");
 const placeholders_1 = require("../domain/placeholders");
 const templates_documento_service_1 = require("./templates-documento.service");
+const campos_produtor_1 = require("../domain/campos-produtor");
 const CAMPOS_DOCUMENTO = [
     'processoAdministrativo',
     'localRecebimento',
@@ -38,7 +39,16 @@ let ComposicaoEditalService = class ComposicaoEditalService {
         this.templates = templates;
     }
     async criar(dto, usuarioId) {
+        const importacao = dto.importacaoId ? await this.prisma.importLog.findFirst({
+            where: { id: dto.importacaoId, deletedAt: null }, include: { edital: true },
+        }) : null;
+        if (dto.importacaoId && (!importacao || importacao.edital?.deletedAt))
+            throw new common_1.NotFoundException('Importação não encontrada.');
+        if (importacao?.status === 'PROCESSANDO')
+            throw new common_1.BadRequestException('Aguarde o processamento terminar para criar o edital.');
         await this.templates.garantirPadroes(usuarioId);
+        const anexos = dto.anexos ?? await this.templates.anexosPadrao();
+        await this.validarAnexos(anexos);
         const edital = await this.prisma.edital.create({
             data: {
                 numero: dto.numero,
@@ -51,22 +61,30 @@ let ComposicaoEditalService = class ComposicaoEditalService {
                 escolaId: dto.escolaId || dto.escolaIds?.[0] || null,
                 dataPublicacao: dto.dataPublicacao ? new Date(dto.dataPublicacao) : null,
                 observacoes: dto.observacoes,
+                arquivoFonte: importacao?.arquivoCaminho,
                 createdBy: usuarioId,
+                escolasVinculadas: {
+                    create: [...new Set(dto.escolaIds || (dto.escolaId ? [dto.escolaId] : []))].map(escolaId => ({ escolaId })),
+                },
+                itens: { create: (dto.itens || []).map((item, index) => ({
+                        numeroItem: item.numeroItem || index + 1, produtoOriginal: item.produtoOriginal, especificacao: item.especificacao,
+                        quantidade: item.quantidade ?? null, unidade: item.unidade, precoUnitario: item.precoUnitario ?? null,
+                        valorTotal: item.quantidade != null && item.precoUnitario != null ? item.quantidade * item.precoUnitario : null,
+                        status: 'PENDENTE_CONFERENCIA', pendenteEdicao: true, createdBy: usuarioId,
+                    })) },
+                documento: { create: {
+                        statusComposicao: importacao ? 'EM_CONFERENCIA' : 'RASCUNHO',
+                        origem: importacao ? 'IMPORTACAO' : 'MANUAL',
+                        importacaoId: importacao?.id,
+                        arquivoFonte: importacao?.arquivoCaminho,
+                        ...this.dadosDocumento(dto), createdBy: usuarioId, updatedBy: usuarioId,
+                        anexos: { create: anexos.map((anexo, ordem) => this.dadosAnexo(anexo, ordem)) },
+                    } },
             },
+            include: { documento: true },
         });
-        await this.syncEscolas(edital.id, dto.escolaIds || (dto.escolaId ? [dto.escolaId] : []));
-        const documento = await this.prisma.editalDocumento.create({
-            data: {
-                editalId: edital.id,
-                statusComposicao: 'RASCUNHO',
-                origem: 'MANUAL',
-                ...this.dadosDocumento(dto),
-                createdBy: usuarioId,
-                updatedBy: usuarioId,
-            },
-        });
-        await this.anexarTemplatesPadrao(documento.id);
-        await this.sincronizarVariaveis(documento.id);
+        const documento = edital.documento;
+        await this.sincronizarVariaveis(documento.id, dto);
         await this.salvarSnapshot(documento.id, 'Criação do edital', usuarioId);
         return this.obter(edital.id);
     }
@@ -128,30 +146,20 @@ let ComposicaoEditalService = class ComposicaoEditalService {
             });
         }
         const documentoId = (await this.prisma.editalDocumento.findUnique({ where: { editalId } })).id;
-        await this.sincronizarVariaveis(documentoId);
+        await this.sincronizarVariaveis(documentoId, dto);
         return this.obter(editalId);
     }
     async salvarAnexos(editalId, anexos, usuarioId) {
         const atual = await this.obter(editalId);
         this.assertEditavel(atual.documento?.statusComposicao);
         const documento = await this.garantirDocumento(editalId, usuarioId);
+        await this.validarAnexos(anexos);
         await this.prisma.editalAnexo.deleteMany({ where: { documentoId: documento.id } });
-        for (const anexo of anexos) {
-            if (anexo.templateVersaoId) {
-                const versao = await this.prisma.templateVersao.findUnique({ where: { id: anexo.templateVersaoId } });
-                if (!versao)
-                    throw new common_1.BadRequestException(`Versão de template não encontrada para ${anexo.titulo}.`);
-            }
+        for (const [ordem, anexo] of anexos.entries()) {
             await this.prisma.editalAnexo.create({
                 data: {
                     documentoId: documento.id,
-                    tipo: anexo.tipo,
-                    titulo: anexo.titulo,
-                    ordem: anexo.ordem,
-                    incluido: anexo.incluido,
-                    templateId: anexo.templateId || null,
-                    templateVersaoId: anexo.templateVersaoId || null,
-                    conteudoManual: anexo.conteudoManual || null,
+                    ...this.dadosAnexo(anexo, ordem),
                 },
             });
         }
@@ -337,32 +345,21 @@ let ComposicaoEditalService = class ComposicaoEditalService {
             data: { editalId, origem: 'MANUAL', statusComposicao: 'RASCUNHO', createdBy: usuarioId, updatedBy: usuarioId },
         });
     }
-    async anexarTemplatesPadrao(documentoId) {
-        const templates = await this.prisma.templateDocumento.findMany({
-            where: { deletedAt: null, ativo: true },
-            include: { versoes: { orderBy: { numero: 'desc' }, take: 1 } },
-            orderBy: { ordem: 'asc' },
-        });
-        const porTipo = new Map();
-        for (const template of templates) {
-            if (!porTipo.has(template.tipo))
-                porTipo.set(template.tipo, template);
-        }
-        for (const template of porTipo.values()) {
-            await this.prisma.editalAnexo.create({
-                data: {
-                    documentoId,
-                    templateId: template.id,
-                    templateVersaoId: template.versoes[0]?.id,
-                    tipo: template.tipo,
-                    ordem: template.ordem,
-                    titulo: template.titulo,
-                    incluido: true,
-                },
-            });
+    dadosAnexo(anexo, ordem) {
+        return { tipo: anexo.tipo, titulo: anexo.titulo, ordem, incluido: anexo.incluido,
+            templateId: anexo.templateId || null, templateVersaoId: anexo.templateVersaoId || null,
+            conteudoManual: anexo.conteudoManual || null };
+    }
+    async validarAnexos(anexos) {
+        for (const anexo of anexos) {
+            if (!anexo.templateVersaoId)
+                continue;
+            const versao = await this.prisma.templateVersao.findUnique({ where: { id: anexo.templateVersaoId } });
+            if (!versao || versao.templateId !== anexo.templateId)
+                throw new common_1.BadRequestException(`Modelo e versão incompatíveis para ${anexo.titulo}.`);
         }
     }
-    async sincronizarVariaveis(documentoId) {
+    async sincronizarVariaveis(documentoId, camposSalvos = {}) {
         const documento = await this.prisma.editalDocumento.findUnique({
             where: { id: documentoId },
             include: { edital: { include: { municipio: true, escolasVinculadas: { include: { escola: true } } } } },
@@ -396,11 +393,29 @@ let ComposicaoEditalService = class ComposicaoEditalService {
             'entidade.nome': 'Secretaria de Estado de Educação de Mato Grosso',
             escolas: edital.escolasVinculadas.map((item) => item.escola.nome).join('\n') || null,
         };
+        const campos = {
+            'edital.municipio.nome': 'municipioId', 'edital.municipio.uf': 'municipioId',
+            'edital.dataSessao': 'dataRecebimento', 'edital.horarioSessao': 'horarioRecebimento',
+            'edital.localSessao': 'localRecebimento', 'edital.observacoes': 'observacoes', escolas: 'escolaIds',
+        };
         for (const catalogo of placeholders_1.VARIAVEIS_DISPONIVEIS) {
+            if ((0, campos_produtor_1.campoDoProjeto)(catalogo.chave))
+                continue;
             const existente = await this.prisma.editalVariavel.findUnique({
                 where: { documentoId_chave_escopo: { documentoId, chave: catalogo.chave, escopo: '' } },
             });
             const valorCalculado = valores[catalogo.chave] ?? catalogo.valorPadrao ?? null;
+            const campo = campos[catalogo.chave] || (catalogo.chave.startsWith('edital.') ? catalogo.chave.slice(7) : '');
+            const revisadoNoFormulario = Boolean(campo) && camposSalvos[campo] !== undefined;
+            if (revisadoNoFormulario) {
+                await this.prisma.editalVariavel.upsert({
+                    where: { documentoId_chave_escopo: { documentoId, chave: catalogo.chave, escopo: '' } },
+                    update: { valor: valorCalculado, statusRevisao: placeholders_1.STATUS_REVISAO.CONFIRMADO, origem: 'manual', obrigatorio: catalogo.obrigatorio, sensivel: catalogo.sensivel },
+                    create: { documentoId, chave: catalogo.chave, valor: valorCalculado, valorExtraido: valorCalculado,
+                        origem: 'manual', obrigatorio: catalogo.obrigatorio, sensivel: catalogo.sensivel, statusRevisao: placeholders_1.STATUS_REVISAO.CONFIRMADO },
+                });
+                continue;
+            }
             if (existente?.origem === 'manual' && existente.valor)
                 continue;
             const origemImportacao = documento.origem === 'IMPORTACAO';

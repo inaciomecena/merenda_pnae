@@ -4,8 +4,15 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
     private readonly prisma;
     constructor(prisma: PrismaService);
     onModuleInit(): Promise<void>;
-    private vincularModelosDre;
     listarVariaveis(): import("../domain/placeholders").VariavelCatalogo[];
+    anexosPadrao(): Promise<{
+        tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
+        titulo: string;
+        ordem: number;
+        incluido: boolean;
+        templateId: string;
+        templateVersaoId: string;
+    }[]>;
     listar(query: {
         search?: string;
         tipo?: string;
@@ -31,6 +38,9 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
         numeroAnexo: number | null;
         titulo: string;
         descricao: string | null;
+        finalidade: string;
+        perfilFornecedor: string | null;
+        codigoModelo: string | null;
         ordem: number;
         ativo: boolean;
         formato: import(".prisma/client").$Enums.FormatoTemplate;
@@ -79,6 +89,9 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
         numeroAnexo: number | null;
         titulo: string;
         descricao: string | null;
+        finalidade: string;
+        perfilFornecedor: string | null;
+        codigoModelo: string | null;
         ordem: number;
         ativo: boolean;
         formato: import(".prisma/client").$Enums.FormatoTemplate;
@@ -105,6 +118,8 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
         vigenciaInicio?: string;
         vigenciaFim?: string;
         ativo?: boolean;
+        finalidade?: string;
+        perfilFornecedor?: string;
     }, usuarioId: string): Promise<{
         versoes: {
             id: string;
@@ -139,6 +154,9 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
         numeroAnexo: number | null;
         titulo: string;
         descricao: string | null;
+        finalidade: string;
+        perfilFornecedor: string | null;
+        codigoModelo: string | null;
         ordem: number;
         ativo: boolean;
         formato: import(".prisma/client").$Enums.FormatoTemplate;
@@ -187,6 +205,9 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
         numeroAnexo: number | null;
         titulo: string;
         descricao: string | null;
+        finalidade: string;
+        perfilFornecedor: string | null;
+        codigoModelo: string | null;
         ordem: number;
         ativo: boolean;
         formato: import(".prisma/client").$Enums.FormatoTemplate;
@@ -235,6 +256,9 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
         numeroAnexo: number | null;
         titulo: string;
         descricao: string | null;
+        finalidade: string;
+        perfilFornecedor: string | null;
+        codigoModelo: string | null;
         ordem: number;
         ativo: boolean;
         formato: import(".prisma/client").$Enums.FormatoTemplate;
@@ -255,6 +279,9 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
         numeroAnexo: number | null;
         titulo: string;
         descricao: string | null;
+        finalidade: string;
+        perfilFornecedor: string | null;
+        codigoModelo: string | null;
         ordem: number;
         ativo: boolean;
         formato: import(".prisma/client").$Enums.FormatoTemplate;
@@ -275,6 +302,9 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
         numeroAnexo: number | null;
         titulo: string;
         descricao: string | null;
+        finalidade: string;
+        perfilFornecedor: string | null;
+        codigoModelo: string | null;
         ordem: number;
         ativo: boolean;
         formato: import(".prisma/client").$Enums.FormatoTemplate;
@@ -323,6 +353,9 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
         numeroAnexo: number | null;
         titulo: string;
         descricao: string | null;
+        finalidade: string;
+        perfilFornecedor: string | null;
+        codigoModelo: string | null;
         ordem: number;
         ativo: boolean;
         formato: import(".prisma/client").$Enums.FormatoTemplate;

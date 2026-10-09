@@ -11,16 +11,16 @@ export declare class MunicipiosService {
     }): Promise<{
         items: {
             id: string;
+            nome: string;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            nome: string;
-            ativo: boolean;
             nomeNormalizado: string | null;
             uf: string;
             codigoIbge: string | null;
+            ativo: boolean;
         }[];
         total: number;
         page: number;
@@ -29,55 +29,55 @@ export declare class MunicipiosService {
     }>;
     findOne(id: string): Promise<{
         id: string;
+        nome: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        nome: string;
-        ativo: boolean;
         nomeNormalizado: string | null;
         uf: string;
         codigoIbge: string | null;
+        ativo: boolean;
     }>;
     create(dto: CreateMunicipioDto): Promise<{
         id: string;
+        nome: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        nome: string;
-        ativo: boolean;
         nomeNormalizado: string | null;
         uf: string;
         codigoIbge: string | null;
+        ativo: boolean;
     }>;
     update(id: string, dto: UpdateMunicipioDto): Promise<{
         id: string;
+        nome: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        nome: string;
-        ativo: boolean;
         nomeNormalizado: string | null;
         uf: string;
         codigoIbge: string | null;
+        ativo: boolean;
     }>;
     remove(id: string): Promise<{
         id: string;
+        nome: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        nome: string;
-        ativo: boolean;
         nomeNormalizado: string | null;
         uf: string;
         codigoIbge: string | null;
+        ativo: boolean;
     }>;
     private normalizePayload;
     private ensureNoDuplicate;

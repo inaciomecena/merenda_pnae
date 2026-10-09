@@ -19,29 +19,29 @@ export declare class EscolasService {
         items: ({
             municipio: {
                 id: string;
+                nome: string;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                nome: string;
-                ativo: boolean;
                 nomeNormalizado: string | null;
                 uf: string;
                 codigoIbge: string | null;
+                ativo: boolean;
             };
         } & {
             id: string;
+            nome: string;
+            municipioId: string;
+            endereco: string | null;
+            telefone: string | null;
             active: boolean;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            municipioId: string;
-            nome: string;
-            endereco: string | null;
-            telefone: string | null;
             codigo: string | null;
             responsavel: string | null;
             restricaoAtendimento: string | null;
@@ -66,29 +66,29 @@ export declare class EscolasService {
     findOne(id: string, user?: AuthenticatedUser): Promise<{
         municipio: {
             id: string;
+            nome: string;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            nome: string;
-            ativo: boolean;
             nomeNormalizado: string | null;
             uf: string;
             codigoIbge: string | null;
+            ativo: boolean;
         };
     } & {
         id: string;
+        nome: string;
+        municipioId: string;
+        endereco: string | null;
+        telefone: string | null;
         active: boolean;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        municipioId: string;
-        nome: string;
-        endereco: string | null;
-        telefone: string | null;
         codigo: string | null;
         responsavel: string | null;
         restricaoAtendimento: string | null;
@@ -107,16 +107,16 @@ export declare class EscolasService {
     }>;
     create(dto: CreateEscolaDto): Promise<{
         id: string;
+        nome: string;
+        municipioId: string;
+        endereco: string | null;
+        telefone: string | null;
         active: boolean;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        municipioId: string;
-        nome: string;
-        endereco: string | null;
-        telefone: string | null;
         codigo: string | null;
         responsavel: string | null;
         restricaoAtendimento: string | null;
@@ -145,16 +145,16 @@ export declare class EscolasService {
     private parseCsv;
     update(id: string, dto: UpdateEscolaDto, user?: AuthenticatedUser): Promise<{
         id: string;
+        nome: string;
+        municipioId: string;
+        endereco: string | null;
+        telefone: string | null;
         active: boolean;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        municipioId: string;
-        nome: string;
-        endereco: string | null;
-        telefone: string | null;
         codigo: string | null;
         responsavel: string | null;
         restricaoAtendimento: string | null;
@@ -173,16 +173,16 @@ export declare class EscolasService {
     }>;
     remove(id: string): Promise<{
         id: string;
+        nome: string;
+        municipioId: string;
+        endereco: string | null;
+        telefone: string | null;
         active: boolean;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        municipioId: string;
-        nome: string;
-        endereco: string | null;
-        telefone: string | null;
         codigo: string | null;
         responsavel: string | null;
         restricaoAtendimento: string | null;

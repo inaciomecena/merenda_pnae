@@ -113,6 +113,12 @@ let ImportacoesController = class ImportacoesController {
     editarEdital(id, dto) {
         return this.service.editarEdital(id, dto);
     }
+    excluir(id, req) {
+        return this.service.excluirImportacao(id, req.user.sub);
+    }
+    excluirItem(id, itemId, req) {
+        return this.service.excluirItem(id, itemId, req.user.sub);
+    }
     processar(id, dto) {
         return this.service.processarImportacao(id, dto.reprocessar ?? false);
     }
@@ -121,6 +127,9 @@ let ImportacoesController = class ImportacoesController {
     }
     estrutura(id) {
         return this.engenhariaReversa.obter(id);
+    }
+    prepararEdital(id) {
+        return this.engenhariaReversa.prepararEdital(id);
     }
     montarEstrutura(id) {
         return this.engenhariaReversa.montar(id);
@@ -208,6 +217,27 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], ImportacoesController.prototype, "editarEdital", null);
 __decorate([
+    (0, common_1.Delete)(':id'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE'),
+    (0, swagger_1.ApiOperation)({ summary: 'Excluir logicamente a importação e o edital vinculado, preservando arquivos e histórico' }),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:returntype", void 0)
+], ImportacoesController.prototype, "excluir", null);
+__decorate([
+    (0, common_1.Delete)(':id/itens/:itemId'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE'),
+    (0, swagger_1.ApiOperation)({ summary: 'Excluir logicamente um item antes da confirmação da importação' }),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Param)('itemId')),
+    __param(2, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String, Object]),
+    __metadata("design:returntype", void 0)
+], ImportacoesController.prototype, "excluirItem", null);
+__decorate([
     (0, common_1.Post)(':id/processar'),
     (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Processar um PDF salvo' }),
@@ -236,6 +266,15 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], ImportacoesController.prototype, "estrutura", null);
+__decorate([
+    (0, common_1.Post)(':id/preparar-edital'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE'),
+    (0, swagger_1.ApiOperation)({ summary: 'Carregar os dados importados para revisar um novo edital, sem criá-lo' }),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], ImportacoesController.prototype, "prepararEdital", null);
 __decorate([
     (0, common_1.Post)(':id/estrutura'),
     (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA'),

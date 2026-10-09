@@ -5,6 +5,7 @@ import * as path from 'path';
 import { PrismaService } from '../../../../infrastructure/prisma/prisma.service';
 import { extrairPlaceholders, VARIAVEIS_DISPONIVEIS, catalogoPorChave } from '../domain/placeholders';
 import { TEMPLATES_PADRAO } from '../domain/templates-padrao';
+import { MODELOS_DRE } from '../domain/templates-dre';
 
 const uploadDir = path.resolve(process.cwd(), 'storage', 'templates');
 
@@ -15,42 +16,27 @@ export class TemplatesDocumentoService implements OnModuleInit {
   async onModuleInit() {
     try {
       await this.garantirPadroes('system');
-      await this.vincularModelosDre('system');
     } catch (error) {
       const message = error instanceof Error ? error.message : 'erro desconhecido';
       console.warn(`Templates padrão não foram semeados: ${message}`);
     }
   }
 
-  private async vincularModelosDre(usuarioId: string) {
-    const pasta = path.resolve(process.cwd(), '..', '..', 'docs', 'dre');
-    const modelos: Array<[string, string]> = [
-      ['EDITAL_PRINCIPAL', '01_Edital_Principal.pdf'],
-      ['ANEXO_I', '02_Anexo_I_Grupos_Formais.pdf'],
-      ['ANEXO_II', '03_Anexo_II_Grupos_Informais.pdf'],
-      ['ANEXO_III', '04_Anexo_III_Fornecedores_Individuais.pdf'],
-      ['ANEXO_IV', '05_Anexo_IV_Empreendimento_Familiar_Rural.pdf'],
-      ['ANEXO_V', '06_Anexo_V_Unidades_Escolares.pdf'],
-      ['ANEXO_VI', '07_Anexo_VI_Resultado_Chamada_Publica.pdf'],
-      ['ANEXO_VII', '08_Anexo_VII_Minuta_Contrato.pdf'],
-    ];
-    if (!fs.existsSync(pasta)) return;
-    fs.mkdirSync(uploadDir, { recursive: true });
-    for (const [tipo, nome] of modelos) {
-      const origem = path.join(pasta, nome);
-      if (!fs.existsSync(origem)) continue;
-      const template = await this.prisma.templateDocumento.findFirst({ where: { tipo: tipo as any, deletedAt: null }, orderBy: { id: 'asc' } });
-      if (!template || template.formato === 'PDF' && template.arquivoBase) continue;
-      const destino = path.join(uploadDir, `dre-${nome}`);
-      await fs.promises.copyFile(origem, destino);
-      const versao = template.versaoAtual + 1;
-      await this.prisma.templateDocumento.update({ where: { id: template.id }, data: { formato: 'PDF', arquivoBase: path.relative(process.cwd(), destino), versaoAtual: versao, updatedBy: usuarioId } });
-      await this.criarVersao(template.id, versao, template.titulo, template.conteudo, 'PDF', path.relative(process.cwd(), destino), undefined, undefined, usuarioId, `Modelo oficial ${nome}`);
-    }
-  }
-
   listarVariaveis() {
     return VARIAVEIS_DISPONIVEIS;
+  }
+
+  async anexosPadrao() {
+    const modelos = await this.listar({ ativo: 'true' });
+    const selecionados = new Map<string, typeof modelos[number]>();
+    for (const modelo of modelos) {
+      const chave = `${modelo.tipo}:${modelo.finalidade}:${modelo.perfilFornecedor || ''}`;
+      if (!selecionados.has(chave)) selecionados.set(chave, modelo);
+    }
+    return [...selecionados.values()].map((modelo, ordem) => ({
+      tipo: modelo.tipo, titulo: modelo.titulo, ordem, incluido: true,
+      templateId: modelo.id, templateVersaoId: modelo.versoes[0]?.id,
+    }));
   }
 
   async listar(query: { search?: string; tipo?: string; ativo?: string }) {
@@ -78,21 +64,39 @@ export class TemplatesDocumentoService implements OnModuleInit {
   }
 
   async garantirPadroes(usuarioId: string) {
-    for (const modelo of TEMPLATES_PADRAO) {
-      const existente = await this.prisma.templateDocumento.findFirst({
+    for (const modelo of MODELOS_DRE) {
+      const semeado = await this.prisma.templateDocumento.findUnique({ where: { codigoModelo: modelo.arquivo } });
+      if (semeado) continue;
+      const legado = TEMPLATES_PADRAO.find(item => item.tipo === modelo.tipo);
+      let existente = await this.prisma.templateDocumento.findFirst({
         where: { tipo: modelo.tipo as any, deletedAt: null, titulo: modelo.titulo },
       });
-      if (existente) continue;
-      await this.criar({
-        tipo: modelo.tipo,
-        numeroAnexo: modelo.numeroAnexo ?? undefined,
-        titulo: modelo.titulo,
-        descricao: modelo.descricao,
-        ordem: modelo.ordem,
-        formato: 'HTML',
-        conteudo: modelo.conteudo,
+      if (existente && existente.conteudo !== legado?.conteudo) {
+        await this.prisma.templateDocumento.update({ where: { id: existente.id }, data: { codigoModelo: modelo.arquivo } });
+        continue;
+      }
+      if (legado && ['EDITAL', 'PROJETO_VENDA'].includes(modelo.finalidade)) {
+        existente = await this.prisma.templateDocumento.findFirst({
+          where: { tipo: modelo.tipo as any, titulo: legado.titulo, conteudo: legado.conteudo, deletedAt: null },
+        });
+      }
+      const dados = {
+        tipo: modelo.tipo, titulo: modelo.titulo, finalidade: modelo.finalidade,
+        perfilFornecedor: modelo.perfilFornecedor, ordem: modelo.ordem,
+        descricao: `Texto editável baseado em docs/dre/${modelo.arquivo}.`,
+        formato: 'HTML', conteudo: modelo.conteudo,
+      };
+      if (existente) {
+        await this.atualizar(existente.id, dados, usuarioId);
+        await this.prisma.templateDocumento.update({ where: { id: existente.id }, data: { codigoModelo: modelo.arquivo } });
+        continue;
+      }
+      const criado = await this.criar({
+        ...dados,
+        numeroAnexo: modelo.tipo === 'EDITAL_PRINCIPAL' ? undefined : ['ANEXO_I', 'ANEXO_II', 'ANEXO_III', 'ANEXO_IV', 'ANEXO_V', 'ANEXO_VI', 'ANEXO_VII'].indexOf(modelo.tipo) + 1,
         ativo: true,
       }, usuarioId);
+      await this.prisma.templateDocumento.update({ where: { id: criado.id }, data: { codigoModelo: modelo.arquivo } });
     }
   }
 
@@ -107,6 +111,8 @@ export class TemplatesDocumentoService implements OnModuleInit {
     vigenciaInicio?: string;
     vigenciaFim?: string;
     ativo?: boolean;
+    finalidade?: string;
+    perfilFornecedor?: string;
   }, usuarioId: string) {
     this.assertFormato(dto.formato || 'HTML');
     if (dto.conteudo) this.assertPlaceholders(dto.conteudo);
@@ -116,6 +122,8 @@ export class TemplatesDocumentoService implements OnModuleInit {
         numeroAnexo: dto.numeroAnexo ?? null,
         titulo: dto.titulo,
         descricao: dto.descricao,
+        finalidade: dto.finalidade || 'EDITAL',
+        perfilFornecedor: dto.perfilFornecedor || null,
         ordem: dto.ordem ?? 0,
         formato: (dto.formato || 'HTML') as any,
         conteudo: dto.conteudo,
@@ -138,7 +146,7 @@ export class TemplatesDocumentoService implements OnModuleInit {
     if (dto.formato) this.assertFormato(dto.formato);
     const conteudoMudou = dto.conteudo !== undefined && dto.conteudo !== atual.conteudo;
     const vigenciaMudou = dto.vigenciaInicio !== undefined || dto.vigenciaFim !== undefined;
-    const novaVersao = conteudoMudou || vigenciaMudou || dto.arquivoBase;
+    const novaVersao = conteudoMudou || vigenciaMudou || dto.arquivoBase || (dto.formato !== undefined && dto.formato !== atual.formato) || (dto.titulo !== undefined && dto.titulo !== atual.titulo);
     const versaoAtual = novaVersao ? atual.versaoAtual + 1 : atual.versaoAtual;
 
     await this.prisma.templateDocumento.update({
@@ -148,6 +156,8 @@ export class TemplatesDocumentoService implements OnModuleInit {
         ...(dto.numeroAnexo !== undefined ? { numeroAnexo: dto.numeroAnexo } : {}),
         ...(dto.titulo !== undefined ? { titulo: dto.titulo } : {}),
         ...(dto.descricao !== undefined ? { descricao: dto.descricao } : {}),
+        ...(dto.finalidade !== undefined ? { finalidade: dto.finalidade } : {}),
+        ...(dto.perfilFornecedor !== undefined ? { perfilFornecedor: dto.perfilFornecedor || null } : {}),
         ...(dto.ordem !== undefined ? { ordem: dto.ordem } : {}),
         ...(dto.formato !== undefined ? { formato: dto.formato } : {}),
         ...(dto.conteudo !== undefined ? { conteudo: dto.conteudo } : {}),
@@ -184,6 +194,8 @@ export class TemplatesDocumentoService implements OnModuleInit {
       numeroAnexo: atual.numeroAnexo ?? undefined,
       titulo: `${atual.titulo} (cópia)`,
       descricao: atual.descricao ?? undefined,
+      finalidade: atual.finalidade,
+      perfilFornecedor: atual.perfilFornecedor ?? undefined,
       ordem: atual.ordem,
       formato: atual.formato,
       conteudo: atual.conteudo ?? undefined,
@@ -223,11 +235,11 @@ export class TemplatesDocumentoService implements OnModuleInit {
     let conteudo = atual.conteudo;
     let formato = atual.formato;
     if (ext === '.pdf') {
-      formato = 'PDF';
+      formato = atual.conteudo?.trim() && ['HTML', 'TEXTO'].includes(atual.formato) ? atual.formato : 'PDF';
       // PDFs de formulário são preservados como fonte visual; não os achatamos em HTML.
       conteudo = atual.conteudo;
     } else if (ext === '.docx') {
-      formato = 'DOCX';
+      formato = atual.conteudo?.trim() && ['HTML', 'TEXTO'].includes(atual.formato) ? atual.formato : 'DOCX';
       // O DOCX original é a fonte do template. Não o achatamos em HTML;
       // o arquivo é anexado na geração para preservar sua formatação.
       conteudo = atual.conteudo;
@@ -248,8 +260,10 @@ export class TemplatesDocumentoService implements OnModuleInit {
 
   async caminhoArquivo(id: string) {
     const item = await this.buscar(id);
-    if (!item.arquivoBase) throw new NotFoundException('Template sem arquivo-base.');
-    const absoluto = path.isAbsolute(item.arquivoBase) ? item.arquivoBase : path.resolve(process.cwd(), item.arquivoBase);
+    const modeloDre = item.codigoModelo && MODELOS_DRE.some(m => m.arquivo === item.codigoModelo);
+    const referencia = modeloDre ? [path.resolve(process.cwd(), '..', '..', 'docs', 'dre', item.codigoModelo!), path.resolve(process.cwd(), 'docs', 'dre', item.codigoModelo!)].find(p => fs.existsSync(p)) : undefined;
+    if (!item.arquivoBase && !referencia) throw new NotFoundException('Template sem arquivo-base.');
+    const absoluto = item.arquivoBase ? (path.isAbsolute(item.arquivoBase) ? item.arquivoBase : path.resolve(process.cwd(), item.arquivoBase)) : referencia!;
     if (!fs.existsSync(absoluto)) throw new NotFoundException('Arquivo-base não encontrado.');
     return { caminho: absoluto, nome: path.basename(absoluto) };
   }

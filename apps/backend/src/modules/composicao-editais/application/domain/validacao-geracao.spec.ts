@@ -31,6 +31,21 @@ describe('validação da geração', () => {
     expect(validarGeracao(base).ok).toBe(true);
   });
 
+  it('aceita projeto e declarações distintos do mesmo tipo de anexo', () => {
+    expect(validarGeracao({ ...base, anexos: [...base.anexos,
+      { tipo: 'ANEXO_I', titulo: 'Projeto formal', incluido: true, templateId: 'projeto' },
+      { tipo: 'ANEXO_I', titulo: 'Produção própria', incluido: true, templateId: 'producao' },
+      { tipo: 'ANEXO_I', titulo: 'Limite de fornecimento', incluido: true, templateId: 'limite' },
+    ] }).ok).toBe(true);
+  });
+
+  it('recusa a repetição do mesmo modelo, mesmo com outro título', () => {
+    const resultado = validarGeracao({ ...base, anexos: [...base.anexos,
+      { ...base.anexos[0], tipo: 'ANEXO_I', titulo: 'Cópia' },
+    ] });
+    expect(resultado.erros.join(' ')).toMatch(/modelos repetidos/);
+  });
+
   it('bloqueia publicado, placeholder inválido, item sem unidade e data inconsistente', () => {
     const resultado = validarGeracao({
       ...base,

@@ -1,4 +1,6 @@
 export declare class CreateTemplateDocumentoDto {
+    finalidade?: string;
+    perfilFornecedor?: string;
     tipo: string;
     numeroAnexo?: number;
     titulo: string;
@@ -11,6 +13,8 @@ export declare class CreateTemplateDocumentoDto {
     ativo?: boolean;
 }
 export declare class UpdateTemplateDocumentoDto {
+    finalidade?: string;
+    perfilFornecedor?: string;
     tipo?: string;
     numeroAnexo?: number;
     titulo?: string;
@@ -41,6 +45,9 @@ export declare class VariavelComposicaoDto {
     statusRevisao?: string;
 }
 export declare class CreateComposicaoDto {
+    anexos?: AnexoComposicaoDto[];
+    importacaoId?: string;
+    itens?: ItemComposicaoDto[];
     numero: string;
     ano: number;
     titulo: string;

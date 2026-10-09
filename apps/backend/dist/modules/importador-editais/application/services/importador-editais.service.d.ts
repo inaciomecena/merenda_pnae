@@ -14,6 +14,8 @@ export declare class ImportadorEditaisService implements OnModuleInit {
     onModuleInit(): Promise<void>;
     registrarUpload(file: Express.Multer.File, dto: CreateImportacaoPdfDto): Promise<{
         id: string;
+        objeto: string | null;
+        status: import(".prisma/client").$Enums.StatusImportacao;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
@@ -23,13 +25,11 @@ export declare class ImportadorEditaisService implements OnModuleInit {
         arquivoNome: string;
         arquivoCaminho: string;
         origem: string;
-        status: import(".prisma/client").$Enums.StatusImportacao;
         tituloExtraido: string | null;
         numeroExtraido: string | null;
         anoExtraido: number | null;
         municipioNome: string | null;
         escolaNome: string | null;
-        objeto: string | null;
         resumo: string | null;
         quantidadeItens: number;
         tempoProcessamentoMs: number | null;
@@ -44,17 +44,14 @@ export declare class ImportadorEditaisService implements OnModuleInit {
     }): Promise<{
         items: ({
             edital: ({
-                _count: {
-                    itens: number;
-                };
                 municipio: {
                     id: string;
-                    ativo: boolean;
                     createdAt: Date;
                     updatedAt: Date;
                     deletedAt: Date | null;
                     createdBy: string | null;
                     updatedBy: string | null;
+                    ativo: boolean;
                     nome: string;
                     nomeNormalizado: string | null;
                     uf: string;
@@ -92,12 +89,12 @@ export declare class ImportadorEditaisService implements OnModuleInit {
                     escola: {
                         municipio: {
                             id: string;
-                            ativo: boolean;
                             createdAt: Date;
                             updatedAt: Date;
                             deletedAt: Date | null;
                             createdBy: string | null;
                             updatedBy: string | null;
+                            ativo: boolean;
                             nome: string;
                             nomeNormalizado: string | null;
                             uf: string;
@@ -134,30 +131,35 @@ export declare class ImportadorEditaisService implements OnModuleInit {
                 } & {
                     id: string;
                     createdAt: Date;
-                    editalId: string;
                     escolaId: string;
+                    editalId: string;
                 })[];
+                _count: {
+                    itens: number;
+                };
             } & {
                 id: string;
+                numero: string;
+                ano: number;
                 titulo: string;
                 descricao: string | null;
+                objeto: string | null;
+                status: import(".prisma/client").$Enums.StatusEdital;
+                arquivoFonte: string | null;
+                observacoes: string | null;
+                dataPublicacao: Date | null;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                numero: string;
-                status: import(".prisma/client").$Enums.StatusEdital;
-                objeto: string | null;
-                ano: number;
                 municipioId: string | null;
                 escolaId: string | null;
-                arquivoFonte: string | null;
-                observacoes: string | null;
-                dataPublicacao: Date | null;
             }) | null;
         } & {
             id: string;
+            objeto: string | null;
+            status: import(".prisma/client").$Enums.StatusImportacao;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
@@ -167,13 +169,11 @@ export declare class ImportadorEditaisService implements OnModuleInit {
             arquivoNome: string;
             arquivoCaminho: string;
             origem: string;
-            status: import(".prisma/client").$Enums.StatusImportacao;
             tituloExtraido: string | null;
             numeroExtraido: string | null;
             anoExtraido: number | null;
             municipioNome: string | null;
             escolaNome: string | null;
-            objeto: string | null;
             resumo: string | null;
             quantidadeItens: number;
             tempoProcessamentoMs: number | null;
@@ -192,6 +192,8 @@ export declare class ImportadorEditaisService implements OnModuleInit {
         processados: number;
         importacoes: {
             id: string;
+            objeto: string | null;
+            status: import(".prisma/client").$Enums.StatusImportacao;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
@@ -201,13 +203,11 @@ export declare class ImportadorEditaisService implements OnModuleInit {
             arquivoNome: string;
             arquivoCaminho: string;
             origem: string;
-            status: import(".prisma/client").$Enums.StatusImportacao;
             tituloExtraido: string | null;
             numeroExtraido: string | null;
             anoExtraido: number | null;
             municipioNome: string | null;
             escolaNome: string | null;
-            objeto: string | null;
             resumo: string | null;
             quantidadeItens: number;
             tempoProcessamentoMs: number | null;
@@ -220,12 +220,12 @@ export declare class ImportadorEditaisService implements OnModuleInit {
         edital: ({
             municipio: {
                 id: string;
-                ativo: boolean;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
+                ativo: boolean;
                 nome: string;
                 nomeNormalizado: string | null;
                 uf: string;
@@ -261,14 +261,14 @@ export declare class ImportadorEditaisService implements OnModuleInit {
             } | null;
             itens: {
                 id: string;
+                status: import(".prisma/client").$Enums.StatusItemEdital;
+                observacoes: string | null;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
                 editalId: string;
-                status: import(".prisma/client").$Enums.StatusItemEdital;
-                observacoes: string | null;
                 numeroItem: number | null;
                 produtoOriginal: string;
                 especificacao: string | null;
@@ -276,20 +276,20 @@ export declare class ImportadorEditaisService implements OnModuleInit {
                 unidade: string | null;
                 precoUnitario: import("@prisma/client/runtime/library").Decimal | null;
                 valorTotal: import("@prisma/client/runtime/library").Decimal | null;
-                produtoReferenciaId: string | null;
                 pendenteEdicao: boolean;
                 importadoAutomaticamente: boolean;
+                produtoReferenciaId: string | null;
             }[];
             escolasVinculadas: ({
                 escola: {
                     municipio: {
                         id: string;
-                        ativo: boolean;
                         createdAt: Date;
                         updatedAt: Date;
                         deletedAt: Date | null;
                         createdBy: string | null;
                         updatedBy: string | null;
+                        ativo: boolean;
                         nome: string;
                         nomeNormalizado: string | null;
                         uf: string;
@@ -326,30 +326,32 @@ export declare class ImportadorEditaisService implements OnModuleInit {
             } & {
                 id: string;
                 createdAt: Date;
-                editalId: string;
                 escolaId: string;
+                editalId: string;
             })[];
         } & {
             id: string;
+            numero: string;
+            ano: number;
             titulo: string;
             descricao: string | null;
+            objeto: string | null;
+            status: import(".prisma/client").$Enums.StatusEdital;
+            arquivoFonte: string | null;
+            observacoes: string | null;
+            dataPublicacao: Date | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            numero: string;
-            status: import(".prisma/client").$Enums.StatusEdital;
-            objeto: string | null;
-            ano: number;
             municipioId: string | null;
             escolaId: string | null;
-            arquivoFonte: string | null;
-            observacoes: string | null;
-            dataPublicacao: Date | null;
         }) | null;
     } & {
         id: string;
+        objeto: string | null;
+        status: import(".prisma/client").$Enums.StatusImportacao;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
@@ -359,13 +361,11 @@ export declare class ImportadorEditaisService implements OnModuleInit {
         arquivoNome: string;
         arquivoCaminho: string;
         origem: string;
-        status: import(".prisma/client").$Enums.StatusImportacao;
         tituloExtraido: string | null;
         numeroExtraido: string | null;
         anoExtraido: number | null;
         municipioNome: string | null;
         escolaNome: string | null;
-        objeto: string | null;
         resumo: string | null;
         quantidadeItens: number;
         tempoProcessamentoMs: number | null;
@@ -373,16 +373,24 @@ export declare class ImportadorEditaisService implements OnModuleInit {
         processadoEm: Date | null;
         confirmadoEm: Date | null;
     }>;
+    excluirImportacao(id: string, usuarioId: string): Promise<{
+        id: string;
+        deletedAt: Date;
+    }>;
+    excluirItem(id: string, itemId: string, usuarioId: string): Promise<{
+        id: string;
+        quantidadeItens: number;
+    }>;
     processarImportacao(id: string, reprocessar?: boolean): Promise<{
         edital: ({
             municipio: {
                 id: string;
-                ativo: boolean;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
+                ativo: boolean;
                 nome: string;
                 nomeNormalizado: string | null;
                 uf: string;
@@ -418,14 +426,14 @@ export declare class ImportadorEditaisService implements OnModuleInit {
             } | null;
             itens: {
                 id: string;
+                status: import(".prisma/client").$Enums.StatusItemEdital;
+                observacoes: string | null;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
                 editalId: string;
-                status: import(".prisma/client").$Enums.StatusItemEdital;
-                observacoes: string | null;
                 numeroItem: number | null;
                 produtoOriginal: string;
                 especificacao: string | null;
@@ -433,20 +441,20 @@ export declare class ImportadorEditaisService implements OnModuleInit {
                 unidade: string | null;
                 precoUnitario: import("@prisma/client/runtime/library").Decimal | null;
                 valorTotal: import("@prisma/client/runtime/library").Decimal | null;
-                produtoReferenciaId: string | null;
                 pendenteEdicao: boolean;
                 importadoAutomaticamente: boolean;
+                produtoReferenciaId: string | null;
             }[];
             escolasVinculadas: ({
                 escola: {
                     municipio: {
                         id: string;
-                        ativo: boolean;
                         createdAt: Date;
                         updatedAt: Date;
                         deletedAt: Date | null;
                         createdBy: string | null;
                         updatedBy: string | null;
+                        ativo: boolean;
                         nome: string;
                         nomeNormalizado: string | null;
                         uf: string;
@@ -483,30 +491,32 @@ export declare class ImportadorEditaisService implements OnModuleInit {
             } & {
                 id: string;
                 createdAt: Date;
-                editalId: string;
                 escolaId: string;
+                editalId: string;
             })[];
         } & {
             id: string;
+            numero: string;
+            ano: number;
             titulo: string;
             descricao: string | null;
+            objeto: string | null;
+            status: import(".prisma/client").$Enums.StatusEdital;
+            arquivoFonte: string | null;
+            observacoes: string | null;
+            dataPublicacao: Date | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            numero: string;
-            status: import(".prisma/client").$Enums.StatusEdital;
-            objeto: string | null;
-            ano: number;
             municipioId: string | null;
             escolaId: string | null;
-            arquivoFonte: string | null;
-            observacoes: string | null;
-            dataPublicacao: Date | null;
         }) | null;
     } & {
         id: string;
+        objeto: string | null;
+        status: import(".prisma/client").$Enums.StatusImportacao;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
@@ -516,13 +526,11 @@ export declare class ImportadorEditaisService implements OnModuleInit {
         arquivoNome: string;
         arquivoCaminho: string;
         origem: string;
-        status: import(".prisma/client").$Enums.StatusImportacao;
         tituloExtraido: string | null;
         numeroExtraido: string | null;
         anoExtraido: number | null;
         municipioNome: string | null;
         escolaNome: string | null;
-        objeto: string | null;
         resumo: string | null;
         quantidadeItens: number;
         tempoProcessamentoMs: number | null;
@@ -534,12 +542,12 @@ export declare class ImportadorEditaisService implements OnModuleInit {
         edital: ({
             municipio: {
                 id: string;
-                ativo: boolean;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
+                ativo: boolean;
                 nome: string;
                 nomeNormalizado: string | null;
                 uf: string;
@@ -575,14 +583,14 @@ export declare class ImportadorEditaisService implements OnModuleInit {
             } | null;
             itens: {
                 id: string;
+                status: import(".prisma/client").$Enums.StatusItemEdital;
+                observacoes: string | null;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
                 editalId: string;
-                status: import(".prisma/client").$Enums.StatusItemEdital;
-                observacoes: string | null;
                 numeroItem: number | null;
                 produtoOriginal: string;
                 especificacao: string | null;
@@ -590,31 +598,33 @@ export declare class ImportadorEditaisService implements OnModuleInit {
                 unidade: string | null;
                 precoUnitario: import("@prisma/client/runtime/library").Decimal | null;
                 valorTotal: import("@prisma/client/runtime/library").Decimal | null;
-                produtoReferenciaId: string | null;
                 pendenteEdicao: boolean;
                 importadoAutomaticamente: boolean;
+                produtoReferenciaId: string | null;
             }[];
         } & {
             id: string;
+            numero: string;
+            ano: number;
             titulo: string;
             descricao: string | null;
+            objeto: string | null;
+            status: import(".prisma/client").$Enums.StatusEdital;
+            arquivoFonte: string | null;
+            observacoes: string | null;
+            dataPublicacao: Date | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            numero: string;
-            status: import(".prisma/client").$Enums.StatusEdital;
-            objeto: string | null;
-            ano: number;
             municipioId: string | null;
             escolaId: string | null;
-            arquivoFonte: string | null;
-            observacoes: string | null;
-            dataPublicacao: Date | null;
         }) | null;
     } & {
         id: string;
+        objeto: string | null;
+        status: import(".prisma/client").$Enums.StatusImportacao;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
@@ -624,13 +634,11 @@ export declare class ImportadorEditaisService implements OnModuleInit {
         arquivoNome: string;
         arquivoCaminho: string;
         origem: string;
-        status: import(".prisma/client").$Enums.StatusImportacao;
         tituloExtraido: string | null;
         numeroExtraido: string | null;
         anoExtraido: number | null;
         municipioNome: string | null;
         escolaNome: string | null;
-        objeto: string | null;
         resumo: string | null;
         quantidadeItens: number;
         tempoProcessamentoMs: number | null;
@@ -642,12 +650,12 @@ export declare class ImportadorEditaisService implements OnModuleInit {
         edital: ({
             municipio: {
                 id: string;
-                ativo: boolean;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
+                ativo: boolean;
                 nome: string;
                 nomeNormalizado: string | null;
                 uf: string;
@@ -683,14 +691,14 @@ export declare class ImportadorEditaisService implements OnModuleInit {
             } | null;
             itens: {
                 id: string;
+                status: import(".prisma/client").$Enums.StatusItemEdital;
+                observacoes: string | null;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
                 editalId: string;
-                status: import(".prisma/client").$Enums.StatusItemEdital;
-                observacoes: string | null;
                 numeroItem: number | null;
                 produtoOriginal: string;
                 especificacao: string | null;
@@ -698,20 +706,20 @@ export declare class ImportadorEditaisService implements OnModuleInit {
                 unidade: string | null;
                 precoUnitario: import("@prisma/client/runtime/library").Decimal | null;
                 valorTotal: import("@prisma/client/runtime/library").Decimal | null;
-                produtoReferenciaId: string | null;
                 pendenteEdicao: boolean;
                 importadoAutomaticamente: boolean;
+                produtoReferenciaId: string | null;
             }[];
             escolasVinculadas: ({
                 escola: {
                     municipio: {
                         id: string;
-                        ativo: boolean;
                         createdAt: Date;
                         updatedAt: Date;
                         deletedAt: Date | null;
                         createdBy: string | null;
                         updatedBy: string | null;
+                        ativo: boolean;
                         nome: string;
                         nomeNormalizado: string | null;
                         uf: string;
@@ -748,30 +756,32 @@ export declare class ImportadorEditaisService implements OnModuleInit {
             } & {
                 id: string;
                 createdAt: Date;
-                editalId: string;
                 escolaId: string;
+                editalId: string;
             })[];
         } & {
             id: string;
+            numero: string;
+            ano: number;
             titulo: string;
             descricao: string | null;
+            objeto: string | null;
+            status: import(".prisma/client").$Enums.StatusEdital;
+            arquivoFonte: string | null;
+            observacoes: string | null;
+            dataPublicacao: Date | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            numero: string;
-            status: import(".prisma/client").$Enums.StatusEdital;
-            objeto: string | null;
-            ano: number;
             municipioId: string | null;
             escolaId: string | null;
-            arquivoFonte: string | null;
-            observacoes: string | null;
-            dataPublicacao: Date | null;
         }) | null;
     } & {
         id: string;
+        objeto: string | null;
+        status: import(".prisma/client").$Enums.StatusImportacao;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
@@ -781,13 +791,11 @@ export declare class ImportadorEditaisService implements OnModuleInit {
         arquivoNome: string;
         arquivoCaminho: string;
         origem: string;
-        status: import(".prisma/client").$Enums.StatusImportacao;
         tituloExtraido: string | null;
         numeroExtraido: string | null;
         anoExtraido: number | null;
         municipioNome: string | null;
         escolaNome: string | null;
-        objeto: string | null;
         resumo: string | null;
         quantidadeItens: number;
         tempoProcessamentoMs: number | null;

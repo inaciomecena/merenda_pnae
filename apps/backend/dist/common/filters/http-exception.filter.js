@@ -15,10 +15,13 @@ let AllExceptionsFilter = class AllExceptionsFilter {
         const request = ctx.getRequest();
         const status = exception instanceof common_1.HttpException ? exception.getStatus() : common_1.HttpStatus.INTERNAL_SERVER_ERROR;
         const message = exception instanceof common_1.HttpException ? exception.message : 'Erro interno do servidor';
+        const detalhe = exception instanceof common_1.HttpException ? exception.getResponse() : null;
+        const corpo = detalhe && typeof detalhe === 'object' ? detalhe : null;
         response.status(status).json({
             success: false,
             statusCode: status,
-            message,
+            message: corpo?.message || message,
+            ...(Array.isArray(corpo?.erros) ? { erros: corpo.erros } : {}),
             path: request.url,
             timestamp: new Date().toISOString(),
         });

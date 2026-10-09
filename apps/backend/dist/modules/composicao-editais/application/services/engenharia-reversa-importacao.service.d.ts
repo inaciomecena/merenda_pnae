@@ -6,6 +6,19 @@ export declare class EngenhariaReversaImportacaoService {
     private readonly composicao;
     private readonly templates;
     constructor(prisma: PrismaService, composicao: ComposicaoEditalService, templates: TemplatesDocumentoService);
+    prepararEdital(importacaoId: string): Promise<{
+        numero: any;
+        ano: any;
+        titulo: any;
+        objeto: any;
+        descricao: any;
+        observacoes: any;
+        municipioId: any;
+        dataPublicacao: string;
+        escolasVinculadas: any;
+        itens: any;
+        documento: Record<string, any>;
+    }>;
     montar(importacaoId: string, opcoes?: {
         buffer?: Buffer;
         editalId?: string;
@@ -16,26 +29,10 @@ export declare class EngenhariaReversaImportacaoService {
         assinaturas: any;
         arquivoFonte: string;
         arquivoNome: string;
-        campos: {
-            id: string;
-            createdAt: Date;
-            updatedAt: Date;
-            chave: string;
-            rotulo: string;
-            origem: string;
-            estruturaId: string;
-            valor: string | null;
-            valorExtraido: string | null;
-            trecho: string | null;
-            confianca: string | null;
-            paginaOrigem: number | null;
-            secao: string | null;
-            editavel: boolean;
-            sensivel: boolean;
-            statusRevisao: string;
-        }[];
         importLog: {
             id: string;
+            objeto: string | null;
+            status: import(".prisma/client").$Enums.StatusImportacao;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
@@ -45,13 +42,11 @@ export declare class EngenhariaReversaImportacaoService {
             arquivoNome: string;
             arquivoCaminho: string;
             origem: string;
-            status: import(".prisma/client").$Enums.StatusImportacao;
             tituloExtraido: string | null;
             numeroExtraido: string | null;
             anoExtraido: number | null;
             municipioNome: string | null;
             escolaNome: string | null;
-            objeto: string | null;
             resumo: string | null;
             quantidadeItens: number;
             tempoProcessamentoMs: number | null;
@@ -59,11 +54,29 @@ export declare class EngenhariaReversaImportacaoService {
             processadoEm: Date | null;
             confirmadoEm: Date | null;
         };
+        campos: {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            origem: string;
+            chave: string;
+            valor: string | null;
+            valorExtraido: string | null;
+            confianca: string | null;
+            paginaOrigem: number | null;
+            sensivel: boolean;
+            statusRevisao: string;
+            estruturaId: string;
+            rotulo: string;
+            trecho: string | null;
+            secao: string | null;
+            editavel: boolean;
+        }[];
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        importLogId: string;
         editalId: string | null;
+        importLogId: string;
         textoExtraido: string | null;
         secoesJson: string | null;
         anexosJson: string | null;
@@ -79,26 +92,10 @@ export declare class EngenhariaReversaImportacaoService {
         assinaturas: any;
         arquivoFonte: string;
         arquivoNome: string;
-        campos: {
-            id: string;
-            createdAt: Date;
-            updatedAt: Date;
-            chave: string;
-            rotulo: string;
-            origem: string;
-            estruturaId: string;
-            valor: string | null;
-            valorExtraido: string | null;
-            trecho: string | null;
-            confianca: string | null;
-            paginaOrigem: number | null;
-            secao: string | null;
-            editavel: boolean;
-            sensivel: boolean;
-            statusRevisao: string;
-        }[];
         importLog: {
             id: string;
+            objeto: string | null;
+            status: import(".prisma/client").$Enums.StatusImportacao;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
@@ -108,13 +105,11 @@ export declare class EngenhariaReversaImportacaoService {
             arquivoNome: string;
             arquivoCaminho: string;
             origem: string;
-            status: import(".prisma/client").$Enums.StatusImportacao;
             tituloExtraido: string | null;
             numeroExtraido: string | null;
             anoExtraido: number | null;
             municipioNome: string | null;
             escolaNome: string | null;
-            objeto: string | null;
             resumo: string | null;
             quantidadeItens: number;
             tempoProcessamentoMs: number | null;
@@ -122,11 +117,29 @@ export declare class EngenhariaReversaImportacaoService {
             processadoEm: Date | null;
             confirmadoEm: Date | null;
         };
+        campos: {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            origem: string;
+            chave: string;
+            valor: string | null;
+            valorExtraido: string | null;
+            confianca: string | null;
+            paginaOrigem: number | null;
+            sensivel: boolean;
+            statusRevisao: string;
+            estruturaId: string;
+            rotulo: string;
+            trecho: string | null;
+            secao: string | null;
+            editavel: boolean;
+        }[];
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        importLogId: string;
         editalId: string | null;
+        importLogId: string;
         textoExtraido: string | null;
         secoesJson: string | null;
         anexosJson: string | null;
@@ -147,26 +160,10 @@ export declare class EngenhariaReversaImportacaoService {
         assinaturas: any;
         arquivoFonte: string;
         arquivoNome: string;
-        campos: {
-            id: string;
-            createdAt: Date;
-            updatedAt: Date;
-            chave: string;
-            rotulo: string;
-            origem: string;
-            estruturaId: string;
-            valor: string | null;
-            valorExtraido: string | null;
-            trecho: string | null;
-            confianca: string | null;
-            paginaOrigem: number | null;
-            secao: string | null;
-            editavel: boolean;
-            sensivel: boolean;
-            statusRevisao: string;
-        }[];
         importLog: {
             id: string;
+            objeto: string | null;
+            status: import(".prisma/client").$Enums.StatusImportacao;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
@@ -176,13 +173,11 @@ export declare class EngenhariaReversaImportacaoService {
             arquivoNome: string;
             arquivoCaminho: string;
             origem: string;
-            status: import(".prisma/client").$Enums.StatusImportacao;
             tituloExtraido: string | null;
             numeroExtraido: string | null;
             anoExtraido: number | null;
             municipioNome: string | null;
             escolaNome: string | null;
-            objeto: string | null;
             resumo: string | null;
             quantidadeItens: number;
             tempoProcessamentoMs: number | null;
@@ -190,11 +185,29 @@ export declare class EngenhariaReversaImportacaoService {
             processadoEm: Date | null;
             confirmadoEm: Date | null;
         };
+        campos: {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            origem: string;
+            chave: string;
+            valor: string | null;
+            valorExtraido: string | null;
+            confianca: string | null;
+            paginaOrigem: number | null;
+            sensivel: boolean;
+            statusRevisao: string;
+            estruturaId: string;
+            rotulo: string;
+            trecho: string | null;
+            secao: string | null;
+            editavel: boolean;
+        }[];
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        importLogId: string;
         editalId: string | null;
+        importLogId: string;
         textoExtraido: string | null;
         secoesJson: string | null;
         anexosJson: string | null;
@@ -206,12 +219,12 @@ export declare class EngenhariaReversaImportacaoService {
     aplicar(importacaoId: string, modo: 'ATUALIZAR' | 'CRIAR_NOVO', usuarioId: string, editalDestinoId?: string): Promise<{
         municipio: {
             id: string;
-            ativo: boolean;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            ativo: boolean;
             nome: string;
             nomeNormalizado: string | null;
             uf: string;
@@ -247,14 +260,14 @@ export declare class EngenhariaReversaImportacaoService {
         } | null;
         itens: {
             id: string;
+            status: import(".prisma/client").$Enums.StatusItemEdital;
+            observacoes: string | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
             editalId: string;
-            status: import(".prisma/client").$Enums.StatusItemEdital;
-            observacoes: string | null;
             numeroItem: number | null;
             produtoOriginal: string;
             especificacao: string | null;
@@ -262,9 +275,9 @@ export declare class EngenhariaReversaImportacaoService {
             unidade: string | null;
             precoUnitario: import("@prisma/client/runtime/library").Decimal | null;
             valorTotal: import("@prisma/client/runtime/library").Decimal | null;
-            produtoReferenciaId: string | null;
             pendenteEdicao: boolean;
             importadoAutomaticamente: boolean;
+            produtoReferenciaId: string | null;
         }[];
         escolasVinculadas: ({
             escola: {
@@ -298,15 +311,15 @@ export declare class EngenhariaReversaImportacaoService {
         } & {
             id: string;
             createdAt: Date;
-            editalId: string;
             escolaId: string;
+            editalId: string;
         })[];
         documento: ({
             versoes: {
                 id: string;
+                numero: number;
                 createdAt: Date;
                 createdBy: string | null;
-                numero: number;
                 statusComposicao: import(".prisma/client").$Enums.StatusComposicaoEdital;
                 documentoId: string;
                 snapshot: string;
@@ -315,24 +328,33 @@ export declare class EngenhariaReversaImportacaoService {
             anexos: ({
                 templateVersao: {
                     id: string;
+                    numero: number;
                     titulo: string;
+                    createdAt: Date;
+                    createdBy: string | null;
                     formato: import(".prisma/client").$Enums.FormatoTemplate;
                     vigenciaInicio: Date | null;
                     vigenciaFim: Date | null;
                     arquivoBase: string | null;
                     conteudo: string | null;
-                    createdAt: Date;
-                    createdBy: string | null;
-                    numero: number;
                     templateId: string;
                     observacao: string | null;
                 } | null;
                 template: {
                     id: string;
-                    tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
-                    numeroAnexo: number | null;
                     titulo: string;
                     descricao: string | null;
+                    createdAt: Date;
+                    updatedAt: Date;
+                    deletedAt: Date | null;
+                    createdBy: string | null;
+                    updatedBy: string | null;
+                    versaoAtual: number;
+                    tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
+                    numeroAnexo: number | null;
+                    finalidade: string;
+                    perfilFornecedor: string | null;
+                    codigoModelo: string | null;
                     ordem: number;
                     ativo: boolean;
                     formato: import(".prisma/client").$Enums.FormatoTemplate;
@@ -340,48 +362,42 @@ export declare class EngenhariaReversaImportacaoService {
                     vigenciaFim: Date | null;
                     arquivoBase: string | null;
                     conteudo: string | null;
-                    versaoAtual: number;
-                    createdAt: Date;
-                    updatedAt: Date;
-                    deletedAt: Date | null;
-                    createdBy: string | null;
-                    updatedBy: string | null;
                 } | null;
             } & {
                 id: string;
-                tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
                 titulo: string;
-                ordem: number;
                 createdAt: Date;
                 updatedAt: Date;
-                templateId: string | null;
                 conteudoManual: string | null;
-                documentoId: string;
-                templateVersaoId: string | null;
+                tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
+                ordem: number;
+                templateId: string | null;
                 incluido: boolean;
+                templateVersaoId: string | null;
+                documentoId: string;
             })[];
             variaveis: {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                chave: string;
-                obrigatorio: boolean;
                 origem: string;
+                chave: string;
+                documentoId: string;
                 valor: string | null;
                 valorExtraido: string | null;
                 confianca: string | null;
                 paginaOrigem: number | null;
+                obrigatorio: boolean;
                 sensivel: boolean;
-                statusRevisao: string;
-                documentoId: string;
                 escopo: string;
+                statusRevisao: string;
             }[];
             geracoes: {
                 id: string;
-                formato: string;
+                status: import(".prisma/client").$Enums.StatusGeracaoDocumento;
                 createdAt: Date;
                 editalId: string;
-                status: import(".prisma/client").$Enums.StatusGeracaoDocumento;
+                formato: string;
                 documentoId: string;
                 versaoId: string | null;
                 versaoNumero: number;
@@ -393,14 +409,13 @@ export declare class EngenhariaReversaImportacaoService {
             }[];
         } & {
             id: string;
-            versaoAtual: number;
+            arquivoFonte: string | null;
             createdAt: Date;
             updatedAt: Date;
             createdBy: string | null;
             updatedBy: string | null;
             editalId: string;
             origem: string;
-            arquivoFonte: string | null;
             statusComposicao: import(".prisma/client").$Enums.StatusComposicaoEdital;
             processoAdministrativo: string | null;
             localRecebimento: string | null;
@@ -418,26 +433,27 @@ export declare class EngenhariaReversaImportacaoService {
             observacoesDocumento: string | null;
             importacaoId: string | null;
             conteudoManual: string | null;
+            versaoAtual: number;
             publicadoEm: Date | null;
         }) | null;
     } & {
         id: string;
+        numero: string;
+        ano: number;
         titulo: string;
         descricao: string | null;
+        objeto: string | null;
+        status: import(".prisma/client").$Enums.StatusEdital;
+        arquivoFonte: string | null;
+        observacoes: string | null;
+        dataPublicacao: Date | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        numero: string;
-        status: import(".prisma/client").$Enums.StatusEdital;
-        objeto: string | null;
-        ano: number;
         municipioId: string | null;
         escolaId: string | null;
-        arquivoFonte: string | null;
-        observacoes: string | null;
-        dataPublicacao: Date | null;
     }>;
     private aplicarNoEdital;
     private criarNovo;

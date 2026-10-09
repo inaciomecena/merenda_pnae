@@ -39,5 +39,5 @@ export function moverAnexo<T extends { ordem: number }>(anexos: T[], index: numb
   const atual = copia[index];
   copia[index] = copia[alvo];
   copia[alvo] = atual;
-  return ordenarAnexos(copia);
+  return copia.map((anexo, ordem) => ({ ...anexo, ordem }));
 }

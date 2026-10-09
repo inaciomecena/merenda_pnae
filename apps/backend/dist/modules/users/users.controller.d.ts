@@ -5,12 +5,12 @@ export declare class UsersController {
     findAll(query: any): Promise<{
         items: {
             id: string;
-            name: string;
-            email: string;
-            role: import(".prisma/client").$Enums.Role;
-            active: boolean;
-            escolaId: string | null;
             municipioId: string | null;
+            active: boolean;
+            name: string;
+            role: import(".prisma/client").$Enums.Role;
+            escolaId: string | null;
+            email: string;
         }[];
         total: number;
         page: number;
@@ -19,35 +19,35 @@ export declare class UsersController {
     }>;
     create(body: any): Promise<{
         id: string;
-        name: string;
-        email: string;
-        role: import(".prisma/client").$Enums.Role;
-        active: boolean;
-        escolaId: string | null;
         municipioId: string | null;
+        active: boolean;
+        name: string;
+        role: import(".prisma/client").$Enums.Role;
+        escolaId: string | null;
+        email: string;
     }>;
     update(id: string, body: any): Promise<{
         id: string;
-        name: string;
-        email: string;
-        role: import(".prisma/client").$Enums.Role;
-        active: boolean;
-        escolaId: string | null;
         municipioId: string | null;
+        active: boolean;
+        name: string;
+        role: import(".prisma/client").$Enums.Role;
+        escolaId: string | null;
+        email: string;
     }>;
     remove(id: string): Promise<{
         id: string;
-        name: string;
-        email: string;
-        passwordHash: string;
-        role: import(".prisma/client").$Enums.Role;
+        municipioId: string | null;
         active: boolean;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        name: string;
+        role: import(".prisma/client").$Enums.Role;
         escolaId: string | null;
-        municipioId: string | null;
+        email: string;
+        passwordHash: string;
     }>;
 }

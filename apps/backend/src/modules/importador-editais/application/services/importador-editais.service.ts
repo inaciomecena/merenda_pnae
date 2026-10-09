@@ -70,6 +70,14 @@ export class ImportadorEditaisService implements OnModuleInit {
     return item;
   }
 
+  excluirImportacao(id: string, usuarioId: string) {
+    return this.repository.softDelete(id, usuarioId);
+  }
+
+  excluirItem(id: string, itemId: string, usuarioId: string) {
+    return this.repository.excluirItem(id, itemId, usuarioId);
+  }
+
   async processarImportacao(id: string, reprocessar = false) {
     const importacao = await this.buscarImportacao(id);
     const processedStatuses = new Set<StatusImportacao>([
@@ -248,7 +256,7 @@ export class ImportadorEditaisService implements OnModuleInit {
     for (const file of files) {
       const existente = await this.repository.findByFilePath(file.caminho);
       if (existente) {
-        importacoes.push(existente);
+        if (!existente.deletedAt) importacoes.push(existente);
         continue;
       }
 

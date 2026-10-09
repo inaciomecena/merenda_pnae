@@ -7,12 +7,17 @@ exports.validarPlaceholders = validarPlaceholders;
 exports.aplicarPlaceholders = aplicarPlaceholders;
 exports.variaveisObrigatoriasNaoPreenchidas = variaveisObrigatoriasNaoPreenchidas;
 exports.podeAlterarDocumentoPublicado = podeAlterarDocumentoPublicado;
+const campos_produtor_1 = require("./campos-produtor");
 exports.STATUS_REVISAO = {
     EXTRAIDO: 'extraido_automaticamente',
     CONFIRMADO: 'confirmado',
     PENDENTE: 'pendente_revisao',
 };
 exports.VARIAVEIS_DISPONIVEIS = [
+    ...campos_produtor_1.CAMPOS_PRODUTOR.map(([chave, rotulo]) => ({
+        chave, rotulo, tipo: 'texto', obrigatorio: false, sensivel: true, repetitivo: chave.startsWith('grupo.'),
+        escopos: ['ANEXO_I', 'ANEXO_II', 'ANEXO_III', 'ANEXO_IV'],
+    })),
     { chave: 'edital.numero', rotulo: 'Número do edital', tipo: 'texto', obrigatorio: true, sensivel: true, repetitivo: false, escopos: ['EDITAL_PRINCIPAL'] },
     { chave: 'edital.ano', rotulo: 'Ano do edital', tipo: 'numero', obrigatorio: true, sensivel: true, repetitivo: false, escopos: ['EDITAL_PRINCIPAL'] },
     { chave: 'edital.titulo', rotulo: 'Título', tipo: 'texto', obrigatorio: true, sensivel: false, repetitivo: false, escopos: ['EDITAL_PRINCIPAL'] },

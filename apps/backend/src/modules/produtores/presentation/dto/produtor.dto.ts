@@ -1,7 +1,8 @@
 import { Type } from 'class-transformer';
-import { IsBoolean, IsNumber, IsOptional, IsString, Length } from 'class-validator';
+import { IsBoolean, IsNumber, IsObject, IsOptional, IsString, Length } from 'class-validator';
 
 export class CreateProdutorDto {
+  @IsOptional() @IsObject() dadosDocumentais?: Record<string, string>;
   @IsString()
   @Length(2, 160)
   nome!: string;
@@ -27,6 +28,7 @@ export class CreateProdutorDto {
 }
 
 export class UpdateProdutorDto {
+  @IsOptional() @IsObject() dadosDocumentais?: Record<string, string>;
   @IsOptional()
   @IsString()
   @Length(2, 160)

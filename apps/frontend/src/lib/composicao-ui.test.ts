@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { moverAnexo, ordenarAnexos, podeEditarComposicao, rotuloStatus } from './composicao-ui';
+import { moverAnexo, ordenarAnexos, podeEditarComposicao, rotuloStatus } from './composicao-ui.ts';
 
 test('documento publicado ou cancelado não é editável', () => {
   assert.equal(podeEditarComposicao('PUBLICADO'), false);

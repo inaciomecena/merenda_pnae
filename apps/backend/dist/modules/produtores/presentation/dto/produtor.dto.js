@@ -13,6 +13,7 @@ exports.UpdateProdutorProdutoDto = exports.CreateProdutorProdutoDto = exports.Up
 const class_transformer_1 = require("class-transformer");
 const class_validator_1 = require("class-validator");
 class CreateProdutorDto {
+    dadosDocumentais;
     nome;
     cpfCnpj;
     municipioId;
@@ -21,6 +22,11 @@ class CreateProdutorDto {
     active;
 }
 exports.CreateProdutorDto = CreateProdutorDto;
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsObject)(),
+    __metadata("design:type", Object)
+], CreateProdutorDto.prototype, "dadosDocumentais", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.Length)(2, 160),
@@ -51,6 +57,7 @@ __decorate([
     __metadata("design:type", Boolean)
 ], CreateProdutorDto.prototype, "active", void 0);
 class UpdateProdutorDto {
+    dadosDocumentais;
     nome;
     cpfCnpj;
     municipioId;
@@ -59,6 +66,11 @@ class UpdateProdutorDto {
     active;
 }
 exports.UpdateProdutorDto = UpdateProdutorDto;
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsObject)(),
+    __metadata("design:type", Object)
+], UpdateProdutorDto.prototype, "dadosDocumentais", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)(),

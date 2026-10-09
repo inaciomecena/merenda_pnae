@@ -3,65 +3,40 @@ import { PrismaService } from '../../../../infrastructure/prisma/prisma.service'
 import { CreatePropostaDto, UpdatePropostaDto, PreviewPropostaDto } from '../../presentation/dto/proposta.dto';
 import { DocumentGeneratorService } from './document-generator.service';
 import { PropostaPdfData } from './pdf-generator.service';
+import { AuthenticatedUser } from '../../../../common/auth/user-scope';
+import { PropostaDocumentosService } from './proposta-documentos.service';
 export declare class PropostasService {
     private readonly prisma;
     private readonly docGenerator;
-    constructor(prisma: PrismaService, docGenerator: DocumentGeneratorService);
+    private readonly documentos;
+    constructor(prisma: PrismaService, docGenerator: DocumentGeneratorService, documentos: PropostaDocumentosService);
     findAll(query: {
         page?: number;
         limit?: number;
         status?: string;
         editalId?: string;
         produtorId?: string;
-    }): Promise<{
+    }, user?: AuthenticatedUser): Promise<{
         items: ({
             edital: {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
+                status: import(".prisma/client").$Enums.StatusEdital;
+                objeto: string | null;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                escolaId: string | null;
-                municipioId: string | null;
-                titulo: string;
-                status: import(".prisma/client").$Enums.StatusEdital;
-                ano: number;
                 numero: string;
+                ano: number;
+                titulo: string;
                 descricao: string | null;
-                objeto: string | null;
+                municipioId: string | null;
+                escolaId: string | null;
                 arquivoFonte: string | null;
                 observacoes: string | null;
                 dataPublicacao: Date | null;
             };
-            produtor: ({
-                municipio: {
-                    id: string;
-                    createdAt: Date;
-                    updatedAt: Date;
-                    deletedAt: Date | null;
-                    createdBy: string | null;
-                    updatedBy: string | null;
-                    nome: string;
-                    ativo: boolean;
-                    nomeNormalizado: string | null;
-                    uf: string;
-                    codigoIbge: string | null;
-                };
-            } & {
-                id: string;
-                active: boolean;
-                createdAt: Date;
-                updatedAt: Date;
-                deletedAt: Date | null;
-                createdBy: string | null;
-                updatedBy: string | null;
-                municipioId: string;
-                nome: string;
-                cpfCnpj: string | null;
-                endereco: string | null;
-                telefone: string | null;
-            }) | null;
             itens: {
                 id: string;
                 createdAt: Date;
@@ -75,35 +50,65 @@ export declare class PropostasService {
                 precoUnitario: Prisma.Decimal | null;
                 valorTotal: Prisma.Decimal | null;
                 produto: string;
-                matchId: string | null;
                 propostaId: string;
+                matchId: string | null;
                 marca: string | null;
             }[];
+            produtor: ({
+                municipio: {
+                    id: string;
+                    createdAt: Date;
+                    updatedAt: Date;
+                    deletedAt: Date | null;
+                    createdBy: string | null;
+                    updatedBy: string | null;
+                    nome: string;
+                    nomeNormalizado: string | null;
+                    uf: string;
+                    codigoIbge: string | null;
+                    ativo: boolean;
+                };
+            } & {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                deletedAt: Date | null;
+                createdBy: string | null;
+                updatedBy: string | null;
+                municipioId: string;
+                nome: string;
+                endereco: string | null;
+                telefone: string | null;
+                active: boolean;
+                cpfCnpj: string | null;
+                dadosDocumentais: Prisma.JsonValue | null;
+            }) | null;
         } & {
             id: string;
+            editalId: string;
             createdAt: Date;
             updatedAt: Date;
+            status: import(".prisma/client").$Enums.StatusProposta;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            status: import(".prisma/client").$Enums.StatusProposta;
             numero: string | null;
-            editalId: string;
             valorTotal: Prisma.Decimal | null;
-            produtorId: string | null;
             observacao: string | null;
             tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
             validadeDias: number;
             prazoEntrega: number;
             arquivoPdfPath: string | null;
             arquivoDocxPath: string | null;
+            documentosJson: string | null;
+            produtorId: string | null;
         })[];
         total: number;
         page: number;
         limit: number;
         totalPages: number;
     }>;
-    findOne(id: string): Promise<{
+    findOne(id: string, user?: AuthenticatedUser): Promise<{
         edital: {
             municipio: {
                 id: string;
@@ -113,58 +118,30 @@ export declare class PropostasService {
                 createdBy: string | null;
                 updatedBy: string | null;
                 nome: string;
-                ativo: boolean;
                 nomeNormalizado: string | null;
                 uf: string;
                 codigoIbge: string | null;
+                ativo: boolean;
             } | null;
         } & {
             id: string;
             createdAt: Date;
             updatedAt: Date;
+            status: import(".prisma/client").$Enums.StatusEdital;
+            objeto: string | null;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            escolaId: string | null;
-            municipioId: string | null;
-            titulo: string;
-            status: import(".prisma/client").$Enums.StatusEdital;
-            ano: number;
             numero: string;
+            ano: number;
+            titulo: string;
             descricao: string | null;
-            objeto: string | null;
+            municipioId: string | null;
+            escolaId: string | null;
             arquivoFonte: string | null;
             observacoes: string | null;
             dataPublicacao: Date | null;
         };
-        produtor: ({
-            municipio: {
-                id: string;
-                createdAt: Date;
-                updatedAt: Date;
-                deletedAt: Date | null;
-                createdBy: string | null;
-                updatedBy: string | null;
-                nome: string;
-                ativo: boolean;
-                nomeNormalizado: string | null;
-                uf: string;
-                codigoIbge: string | null;
-            };
-        } & {
-            id: string;
-            active: boolean;
-            createdAt: Date;
-            updatedAt: Date;
-            deletedAt: Date | null;
-            createdBy: string | null;
-            updatedBy: string | null;
-            municipioId: string;
-            nome: string;
-            cpfCnpj: string | null;
-            endereco: string | null;
-            telefone: string | null;
-        }) | null;
         itens: {
             id: string;
             createdAt: Date;
@@ -178,64 +155,10 @@ export declare class PropostasService {
             precoUnitario: Prisma.Decimal | null;
             valorTotal: Prisma.Decimal | null;
             produto: string;
-            matchId: string | null;
             propostaId: string;
+            matchId: string | null;
             marca: string | null;
         }[];
-    } & {
-        id: string;
-        createdAt: Date;
-        updatedAt: Date;
-        deletedAt: Date | null;
-        createdBy: string | null;
-        updatedBy: string | null;
-        status: import(".prisma/client").$Enums.StatusProposta;
-        numero: string | null;
-        editalId: string;
-        valorTotal: Prisma.Decimal | null;
-        produtorId: string | null;
-        observacao: string | null;
-        tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
-        validadeDias: number;
-        prazoEntrega: number;
-        arquivoPdfPath: string | null;
-        arquivoDocxPath: string | null;
-    }>;
-    preview(dto: PreviewPropostaDto): Promise<PropostaPdfData>;
-    create(dto: CreatePropostaDto): Promise<{
-        edital: {
-            municipio: {
-                id: string;
-                createdAt: Date;
-                updatedAt: Date;
-                deletedAt: Date | null;
-                createdBy: string | null;
-                updatedBy: string | null;
-                nome: string;
-                ativo: boolean;
-                nomeNormalizado: string | null;
-                uf: string;
-                codigoIbge: string | null;
-            } | null;
-        } & {
-            id: string;
-            createdAt: Date;
-            updatedAt: Date;
-            deletedAt: Date | null;
-            createdBy: string | null;
-            updatedBy: string | null;
-            escolaId: string | null;
-            municipioId: string | null;
-            titulo: string;
-            status: import(".prisma/client").$Enums.StatusEdital;
-            ano: number;
-            numero: string;
-            descricao: string | null;
-            objeto: string | null;
-            arquivoFonte: string | null;
-            observacoes: string | null;
-            dataPublicacao: Date | null;
-        };
         produtor: ({
             municipio: {
                 id: string;
@@ -245,14 +168,13 @@ export declare class PropostasService {
                 createdBy: string | null;
                 updatedBy: string | null;
                 nome: string;
-                ativo: boolean;
                 nomeNormalizado: string | null;
                 uf: string;
                 codigoIbge: string | null;
+                ativo: boolean;
             };
         } & {
             id: string;
-            active: boolean;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
@@ -260,10 +182,67 @@ export declare class PropostasService {
             updatedBy: string | null;
             municipioId: string;
             nome: string;
-            cpfCnpj: string | null;
             endereco: string | null;
             telefone: string | null;
+            active: boolean;
+            cpfCnpj: string | null;
+            dadosDocumentais: Prisma.JsonValue | null;
         }) | null;
+    } & {
+        id: string;
+        editalId: string;
+        createdAt: Date;
+        updatedAt: Date;
+        status: import(".prisma/client").$Enums.StatusProposta;
+        deletedAt: Date | null;
+        createdBy: string | null;
+        updatedBy: string | null;
+        numero: string | null;
+        valorTotal: Prisma.Decimal | null;
+        observacao: string | null;
+        tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
+        validadeDias: number;
+        prazoEntrega: number;
+        arquivoPdfPath: string | null;
+        arquivoDocxPath: string | null;
+        documentosJson: string | null;
+        produtorId: string | null;
+    }>;
+    preview(dto: PreviewPropostaDto, user?: AuthenticatedUser): Promise<PropostaPdfData>;
+    create(dto: CreatePropostaDto, user?: AuthenticatedUser): Promise<{
+        edital: {
+            municipio: {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                deletedAt: Date | null;
+                createdBy: string | null;
+                updatedBy: string | null;
+                nome: string;
+                nomeNormalizado: string | null;
+                uf: string;
+                codigoIbge: string | null;
+                ativo: boolean;
+            } | null;
+        } & {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            status: import(".prisma/client").$Enums.StatusEdital;
+            objeto: string | null;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
+            numero: string;
+            ano: number;
+            titulo: string;
+            descricao: string | null;
+            municipioId: string | null;
+            escolaId: string | null;
+            arquivoFonte: string | null;
+            observacoes: string | null;
+            dataPublicacao: Date | null;
+        };
         itens: {
             id: string;
             createdAt: Date;
@@ -277,63 +256,10 @@ export declare class PropostasService {
             precoUnitario: Prisma.Decimal | null;
             valorTotal: Prisma.Decimal | null;
             produto: string;
-            matchId: string | null;
             propostaId: string;
+            matchId: string | null;
             marca: string | null;
         }[];
-    } & {
-        id: string;
-        createdAt: Date;
-        updatedAt: Date;
-        deletedAt: Date | null;
-        createdBy: string | null;
-        updatedBy: string | null;
-        status: import(".prisma/client").$Enums.StatusProposta;
-        numero: string | null;
-        editalId: string;
-        valorTotal: Prisma.Decimal | null;
-        produtorId: string | null;
-        observacao: string | null;
-        tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
-        validadeDias: number;
-        prazoEntrega: number;
-        arquivoPdfPath: string | null;
-        arquivoDocxPath: string | null;
-    }>;
-    addItens(propostaId: string, itens: CreatePropostaDto['itens']): Promise<{
-        edital: {
-            municipio: {
-                id: string;
-                createdAt: Date;
-                updatedAt: Date;
-                deletedAt: Date | null;
-                createdBy: string | null;
-                updatedBy: string | null;
-                nome: string;
-                ativo: boolean;
-                nomeNormalizado: string | null;
-                uf: string;
-                codigoIbge: string | null;
-            } | null;
-        } & {
-            id: string;
-            createdAt: Date;
-            updatedAt: Date;
-            deletedAt: Date | null;
-            createdBy: string | null;
-            updatedBy: string | null;
-            escolaId: string | null;
-            municipioId: string | null;
-            titulo: string;
-            status: import(".prisma/client").$Enums.StatusEdital;
-            ano: number;
-            numero: string;
-            descricao: string | null;
-            objeto: string | null;
-            arquivoFonte: string | null;
-            observacoes: string | null;
-            dataPublicacao: Date | null;
-        };
         produtor: ({
             municipio: {
                 id: string;
@@ -343,14 +269,13 @@ export declare class PropostasService {
                 createdBy: string | null;
                 updatedBy: string | null;
                 nome: string;
-                ativo: boolean;
                 nomeNormalizado: string | null;
                 uf: string;
                 codigoIbge: string | null;
+                ativo: boolean;
             };
         } & {
             id: string;
-            active: boolean;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
@@ -358,10 +283,66 @@ export declare class PropostasService {
             updatedBy: string | null;
             municipioId: string;
             nome: string;
-            cpfCnpj: string | null;
             endereco: string | null;
             telefone: string | null;
+            active: boolean;
+            cpfCnpj: string | null;
+            dadosDocumentais: Prisma.JsonValue | null;
         }) | null;
+    } & {
+        id: string;
+        editalId: string;
+        createdAt: Date;
+        updatedAt: Date;
+        status: import(".prisma/client").$Enums.StatusProposta;
+        deletedAt: Date | null;
+        createdBy: string | null;
+        updatedBy: string | null;
+        numero: string | null;
+        valorTotal: Prisma.Decimal | null;
+        observacao: string | null;
+        tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
+        validadeDias: number;
+        prazoEntrega: number;
+        arquivoPdfPath: string | null;
+        arquivoDocxPath: string | null;
+        documentosJson: string | null;
+        produtorId: string | null;
+    }>;
+    addItens(propostaId: string, itens: CreatePropostaDto['itens'], user?: AuthenticatedUser): Promise<{
+        edital: {
+            municipio: {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                deletedAt: Date | null;
+                createdBy: string | null;
+                updatedBy: string | null;
+                nome: string;
+                nomeNormalizado: string | null;
+                uf: string;
+                codigoIbge: string | null;
+                ativo: boolean;
+            } | null;
+        } & {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            status: import(".prisma/client").$Enums.StatusEdital;
+            objeto: string | null;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
+            numero: string;
+            ano: number;
+            titulo: string;
+            descricao: string | null;
+            municipioId: string | null;
+            escolaId: string | null;
+            arquivoFonte: string | null;
+            observacoes: string | null;
+            dataPublicacao: Date | null;
+        };
         itens: {
             id: string;
             createdAt: Date;
@@ -375,63 +356,10 @@ export declare class PropostasService {
             precoUnitario: Prisma.Decimal | null;
             valorTotal: Prisma.Decimal | null;
             produto: string;
-            matchId: string | null;
             propostaId: string;
+            matchId: string | null;
             marca: string | null;
         }[];
-    } & {
-        id: string;
-        createdAt: Date;
-        updatedAt: Date;
-        deletedAt: Date | null;
-        createdBy: string | null;
-        updatedBy: string | null;
-        status: import(".prisma/client").$Enums.StatusProposta;
-        numero: string | null;
-        editalId: string;
-        valorTotal: Prisma.Decimal | null;
-        produtorId: string | null;
-        observacao: string | null;
-        tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
-        validadeDias: number;
-        prazoEntrega: number;
-        arquivoPdfPath: string | null;
-        arquivoDocxPath: string | null;
-    }>;
-    update(id: string, dto: UpdatePropostaDto): Promise<{
-        edital: {
-            municipio: {
-                id: string;
-                createdAt: Date;
-                updatedAt: Date;
-                deletedAt: Date | null;
-                createdBy: string | null;
-                updatedBy: string | null;
-                nome: string;
-                ativo: boolean;
-                nomeNormalizado: string | null;
-                uf: string;
-                codigoIbge: string | null;
-            } | null;
-        } & {
-            id: string;
-            createdAt: Date;
-            updatedAt: Date;
-            deletedAt: Date | null;
-            createdBy: string | null;
-            updatedBy: string | null;
-            escolaId: string | null;
-            municipioId: string | null;
-            titulo: string;
-            status: import(".prisma/client").$Enums.StatusEdital;
-            ano: number;
-            numero: string;
-            descricao: string | null;
-            objeto: string | null;
-            arquivoFonte: string | null;
-            observacoes: string | null;
-            dataPublicacao: Date | null;
-        };
         produtor: ({
             municipio: {
                 id: string;
@@ -441,14 +369,13 @@ export declare class PropostasService {
                 createdBy: string | null;
                 updatedBy: string | null;
                 nome: string;
-                ativo: boolean;
                 nomeNormalizado: string | null;
                 uf: string;
                 codigoIbge: string | null;
+                ativo: boolean;
             };
         } & {
             id: string;
-            active: boolean;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
@@ -456,10 +383,66 @@ export declare class PropostasService {
             updatedBy: string | null;
             municipioId: string;
             nome: string;
-            cpfCnpj: string | null;
             endereco: string | null;
             telefone: string | null;
+            active: boolean;
+            cpfCnpj: string | null;
+            dadosDocumentais: Prisma.JsonValue | null;
         }) | null;
+    } & {
+        id: string;
+        editalId: string;
+        createdAt: Date;
+        updatedAt: Date;
+        status: import(".prisma/client").$Enums.StatusProposta;
+        deletedAt: Date | null;
+        createdBy: string | null;
+        updatedBy: string | null;
+        numero: string | null;
+        valorTotal: Prisma.Decimal | null;
+        observacao: string | null;
+        tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
+        validadeDias: number;
+        prazoEntrega: number;
+        arquivoPdfPath: string | null;
+        arquivoDocxPath: string | null;
+        documentosJson: string | null;
+        produtorId: string | null;
+    }>;
+    update(id: string, dto: UpdatePropostaDto, user?: AuthenticatedUser): Promise<{
+        edital: {
+            municipio: {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                deletedAt: Date | null;
+                createdBy: string | null;
+                updatedBy: string | null;
+                nome: string;
+                nomeNormalizado: string | null;
+                uf: string;
+                codigoIbge: string | null;
+                ativo: boolean;
+            } | null;
+        } & {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            status: import(".prisma/client").$Enums.StatusEdital;
+            objeto: string | null;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
+            numero: string;
+            ano: number;
+            titulo: string;
+            descricao: string | null;
+            municipioId: string | null;
+            escolaId: string | null;
+            arquivoFonte: string | null;
+            observacoes: string | null;
+            dataPublicacao: Date | null;
+        };
         itens: {
             id: string;
             createdAt: Date;
@@ -473,85 +456,87 @@ export declare class PropostasService {
             precoUnitario: Prisma.Decimal | null;
             valorTotal: Prisma.Decimal | null;
             produto: string;
-            matchId: string | null;
             propostaId: string;
+            matchId: string | null;
             marca: string | null;
         }[];
+        produtor: ({
+            municipio: {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                deletedAt: Date | null;
+                createdBy: string | null;
+                updatedBy: string | null;
+                nome: string;
+                nomeNormalizado: string | null;
+                uf: string;
+                codigoIbge: string | null;
+                ativo: boolean;
+            };
+        } & {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
+            municipioId: string;
+            nome: string;
+            endereco: string | null;
+            telefone: string | null;
+            active: boolean;
+            cpfCnpj: string | null;
+            dadosDocumentais: Prisma.JsonValue | null;
+        }) | null;
     } & {
         id: string;
+        editalId: string;
         createdAt: Date;
         updatedAt: Date;
+        status: import(".prisma/client").$Enums.StatusProposta;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        status: import(".prisma/client").$Enums.StatusProposta;
         numero: string | null;
-        editalId: string;
         valorTotal: Prisma.Decimal | null;
-        produtorId: string | null;
         observacao: string | null;
         tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
         validadeDias: number;
         prazoEntrega: number;
         arquivoPdfPath: string | null;
         arquivoDocxPath: string | null;
+        documentosJson: string | null;
+        produtorId: string | null;
     }>;
-    generate(propostaId: string): Promise<{
+    generate(propostaId: string, user?: AuthenticatedUser): Promise<{
         pdfPath: string;
         docxPath: string;
     }>;
-    download(propostaId: string, tipo: 'pdf' | 'docx'): Promise<{
+    download(propostaId: string, tipo: 'pdf' | 'docx', user?: AuthenticatedUser): Promise<{
         filePath: string;
         filename: string;
     }>;
-    finalizar(propostaId: string): Promise<{
+    finalizar(propostaId: string, user?: AuthenticatedUser): Promise<{
         edital: {
             id: string;
             createdAt: Date;
             updatedAt: Date;
+            status: import(".prisma/client").$Enums.StatusEdital;
+            objeto: string | null;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            escolaId: string | null;
-            municipioId: string | null;
-            titulo: string;
-            status: import(".prisma/client").$Enums.StatusEdital;
-            ano: number;
             numero: string;
+            ano: number;
+            titulo: string;
             descricao: string | null;
-            objeto: string | null;
+            municipioId: string | null;
+            escolaId: string | null;
             arquivoFonte: string | null;
             observacoes: string | null;
             dataPublicacao: Date | null;
         };
-        produtor: ({
-            municipio: {
-                id: string;
-                createdAt: Date;
-                updatedAt: Date;
-                deletedAt: Date | null;
-                createdBy: string | null;
-                updatedBy: string | null;
-                nome: string;
-                ativo: boolean;
-                nomeNormalizado: string | null;
-                uf: string;
-                codigoIbge: string | null;
-            };
-        } & {
-            id: string;
-            active: boolean;
-            createdAt: Date;
-            updatedAt: Date;
-            deletedAt: Date | null;
-            createdBy: string | null;
-            updatedBy: string | null;
-            municipioId: string;
-            nome: string;
-            cpfCnpj: string | null;
-            endereco: string | null;
-            telefone: string | null;
-        }) | null;
         itens: {
             id: string;
             createdAt: Date;
@@ -565,49 +550,80 @@ export declare class PropostasService {
             precoUnitario: Prisma.Decimal | null;
             valorTotal: Prisma.Decimal | null;
             produto: string;
-            matchId: string | null;
             propostaId: string;
+            matchId: string | null;
             marca: string | null;
         }[];
+        produtor: ({
+            municipio: {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                deletedAt: Date | null;
+                createdBy: string | null;
+                updatedBy: string | null;
+                nome: string;
+                nomeNormalizado: string | null;
+                uf: string;
+                codigoIbge: string | null;
+                ativo: boolean;
+            };
+        } & {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
+            municipioId: string;
+            nome: string;
+            endereco: string | null;
+            telefone: string | null;
+            active: boolean;
+            cpfCnpj: string | null;
+            dadosDocumentais: Prisma.JsonValue | null;
+        }) | null;
     } & {
         id: string;
+        editalId: string;
         createdAt: Date;
         updatedAt: Date;
+        status: import(".prisma/client").$Enums.StatusProposta;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        status: import(".prisma/client").$Enums.StatusProposta;
         numero: string | null;
-        editalId: string;
         valorTotal: Prisma.Decimal | null;
-        produtorId: string | null;
         observacao: string | null;
         tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
         validadeDias: number;
         prazoEntrega: number;
         arquivoPdfPath: string | null;
         arquivoDocxPath: string | null;
+        documentosJson: string | null;
+        produtorId: string | null;
     }>;
     remove(id: string): Promise<{
         id: string;
+        editalId: string;
         createdAt: Date;
         updatedAt: Date;
+        status: import(".prisma/client").$Enums.StatusProposta;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        status: import(".prisma/client").$Enums.StatusProposta;
         numero: string | null;
-        editalId: string;
         valorTotal: Prisma.Decimal | null;
-        produtorId: string | null;
         observacao: string | null;
         tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
         validadeDias: number;
         prazoEntrega: number;
         arquivoPdfPath: string | null;
         arquivoDocxPath: string | null;
+        documentosJson: string | null;
+        produtorId: string | null;
     }>;
-    getProducersWithApprovedMatches(editalId: string): Promise<(({
+    getProducersWithApprovedMatches(editalId: string, user?: AuthenticatedUser): Promise<(({
         municipio: {
             id: string;
             createdAt: Date;
@@ -616,14 +632,13 @@ export declare class PropostasService {
             createdBy: string | null;
             updatedBy: string | null;
             nome: string;
-            ativo: boolean;
             nomeNormalizado: string | null;
             uf: string;
             codigoIbge: string | null;
+            ativo: boolean;
         };
     } & {
         id: string;
-        active: boolean;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
@@ -631,9 +646,12 @@ export declare class PropostasService {
         updatedBy: string | null;
         municipioId: string;
         nome: string;
-        cpfCnpj: string | null;
         endereco: string | null;
         telefone: string | null;
+        active: boolean;
+        cpfCnpj: string | null;
+        dadosDocumentais: Prisma.JsonValue | null;
     }) | null)[]>;
     private recalculateTotal;
+    private escopo;
 }

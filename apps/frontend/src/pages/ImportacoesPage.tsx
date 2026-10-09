@@ -1,9 +1,10 @@
 import { Alert, Autocomplete, Box, Button, Card, CardContent, Chip, CircularProgress, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Grid, IconButton, List, ListItem, ListItemText, Stack, Table, TableBody, TableCell, TableHead, TableRow, TextField, Typography } from '@mui/material';
-import { Add, Autorenew, Close, Edit, FactCheck, Lock, PictureAsPdf, School, UploadFile, Visibility } from '@mui/icons-material';
-import { useQuery } from '@tanstack/react-query';
+import { Add, Autorenew, Close, DeleteOutline, Edit, FactCheck, Lock, PictureAsPdf, School, UploadFile, Visibility } from '@mui/icons-material';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import api from '../services/api';
+import { useAuth } from '../contexts/AuthContext';
 import type { ApiResponse, Importacao, PaginationResponse } from '../types';
 
 function formatDate(value?: string | null) {
@@ -32,6 +33,12 @@ interface EditForm {
 }
 
 export default function ImportacoesPage() {
+  const { user } = useAuth();
+  const queryClient = useQueryClient();
+  const podeExcluir = user?.role === 'ADMIN' || user?.role === 'DRE';
+  const [excluirItem, setExcluirItem] = useState<Importacao | null>(null);
+  const [excluindo, setExcluindo] = useState(false);
+  const [excluirErro, setExcluirErro] = useState('');
   const [editOpen, setEditOpen] = useState(false);
   const [editItem, setEditItem] = useState<Importacao | null>(null);
   const [editForm, setEditForm] = useState<EditForm>({ numero: '', ano: '', titulo: '', descricao: '', objeto: '', escolaIds: [], municipioId: '' });
@@ -93,6 +100,21 @@ export default function ImportacoesPage() {
   const processar = async (id: string) => {
     await api.post(`/importacoes/${id}/processar`, { reprocessar: true });
     await refetch();
+  };
+
+  const excluir = async () => {
+    if (!excluirItem || excluindo) return;
+    setExcluindo(true);
+    setExcluirErro('');
+    try {
+      await api.delete(`/importacoes/${excluirItem.id}`);
+      setExcluirItem(null);
+      await queryClient.invalidateQueries();
+    } catch (err: any) {
+      setExcluirErro(err?.response?.data?.message || 'Não foi possível excluir a importação.');
+    } finally {
+      setExcluindo(false);
+    }
   };
 
   const verPdf = async (item: Importacao) => {
@@ -277,7 +299,7 @@ export default function ImportacoesPage() {
                       <TableCell>{item.municipioNome || item.edital?.municipio?.nome || '-'}</TableCell>
                       <TableCell>{formatDate(item.createdAt)}</TableCell>
                       <TableCell>
-                        <Stack direction="row" spacing={0.5}>
+                        <Stack direction="row" spacing={0.5} flexWrap="wrap" useFlexGap>
                           <Button size="small" startIcon={<PictureAsPdf />} onClick={() => void verPdf(item)}>
                             PDF
                           </Button>
@@ -285,6 +307,7 @@ export default function ImportacoesPage() {
                             Detalhes
                           </Button>
                           <Button component={RouterLink} to={`/importacoes/${item.id}/estrutura`} size="small">Estrutura</Button>
+                          {podeExcluir ? <Button component={RouterLink} to={`/editais/novo?importacaoId=${item.id}`} size="small" disabled={!item.editalId || item.status === 'PROCESSANDO'}>Criar edital</Button> : null}
                           <Button component={RouterLink} to={`/importacoes/${item.id}/conferencia`} size="small" startIcon={<FactCheck />} disabled={isConfirmado}>
                             Conferir
                           </Button>
@@ -300,6 +323,7 @@ export default function ImportacoesPage() {
                               </Button>
                             </>
                           )}
+                          {podeExcluir ? <Button size="small" color="error" startIcon={<DeleteOutline />} disabled={item.status === 'PROCESSANDO'} onClick={() => { setExcluirErro(''); setExcluirItem(item); }}>Excluir</Button> : null}
                         </Stack>
                       </TableCell>
                     </TableRow>
@@ -315,6 +339,19 @@ export default function ImportacoesPage() {
           )}
         </CardContent>
       </Card>
+
+      <Dialog open={Boolean(excluirItem)} onClose={() => { if (!excluindo) setExcluirItem(null); }} maxWidth="sm" fullWidth>
+        <DialogTitle>Excluir importação?</DialogTitle>
+        <DialogContent>
+          {excluirErro ? <Alert severity="error" sx={{ mb: 2 }}>{excluirErro}</Alert> : null}
+          <Typography fontWeight={600} sx={{ mb: 2 }}>{excluirItem?.arquivoNome}</Typography>
+          <Typography>A importação e o edital vinculado serão removidos das listas ativas, junto com seus itens e balizamentos. Os arquivos, o histórico e as propostas existentes serão preservados.</Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button disabled={excluindo} onClick={() => setExcluirItem(null)}>Cancelar</Button>
+          <Button color="error" variant="contained" disabled={excluindo} onClick={() => void excluir()}>{excluindo ? 'Excluindo...' : 'Excluir importação'}</Button>
+        </DialogActions>
+      </Dialog>
 
       <Dialog open={editOpen} onClose={closeEdit} maxWidth="md" fullWidth>
         <DialogTitle sx={{ pb: 1 }}>

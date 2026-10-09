@@ -26,6 +26,8 @@ import { Add, Agriculture, Delete, Edit } from '@mui/icons-material';
 import { useEffect, useState } from 'react';
 import api from '../services/api';
 import type { ApiResponse, PaginationResponse } from '../types';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 
 type MunicipioOption = { label: string; value: string };
 
@@ -37,6 +39,7 @@ type Produtor = {
   telefone?: string | null;
   endereco?: string | null;
   active: boolean;
+  dadosDocumentais?: Record<string, string> | null;
   municipio?: { nome: string; uf: string } | null;
 };
 
@@ -49,10 +52,14 @@ type ProdutoProdutor = {
   precoSugerido?: number | string | null;
 };
 
-const produtorInicial = { nome: '', cpfCnpj: '', municipioId: '', telefone: '', endereco: '' };
+const produtorInicial = { nome: '', cpfCnpj: '', municipioId: '', telefone: '', endereco: '', dadosDocumentais: {} as Record<string, string> };
 const produtoInicial = { produto: '', capacidade: '', unidade: 'KG', periodoProducao: 'Ano todo', precoSugerido: '' };
 
 export default function ProdutoresPageV2() {
+  const navigate = useNavigate();
+  const { user } = useAuth();
+  const [camposDocumentais, setCamposDocumentais] = useState<Array<{ chave: string; rotulo: string }>>([]);
+  useEffect(() => { api.get('/produtores/campos-documentais').then(({ data }) => setCamposDocumentais(data.data)).catch(() => setError('Não foi possível carregar os campos dos anexos.')); }, []);
   const [items, setItems] = useState<Produtor[]>([]);
   const [municipios, setMunicipios] = useState<MunicipioOption[]>([]);
   const [loading, setLoading] = useState(false);
@@ -172,7 +179,7 @@ export default function ProdutoresPageV2() {
 
   const openCreate = () => {
     setEditing(null);
-    setForm(produtorInicial);
+    setForm({ ...produtorInicial, municipioId: user?.role === 'EXTENSIONISTA' ? user.municipioId || '' : '' });
     setOpen(true);
   };
 
@@ -184,6 +191,7 @@ export default function ProdutoresPageV2() {
       municipioId: item.municipioId ?? '',
       telefone: item.telefone ?? '',
       endereco: item.endereco ?? '',
+      dadosDocumentais: item.dadosDocumentais || {},
     });
     setOpen(true);
   };
@@ -221,6 +229,7 @@ export default function ProdutoresPageV2() {
                     <TableCell>{item.telefone || '-'}</TableCell>
                     <TableCell align="right">
                       <Stack direction="row" spacing={1} justifyContent="flex-end">
+                        <Button size="small" onClick={() => navigate(`/propostas?produtorId=${item.id}`)}>Projetos e declarações</Button>
                         <Button size="small" startIcon={<Agriculture />} onClick={() => void openProdutos(item)}>Produtos</Button>
                         <IconButton onClick={() => openEdit(item)}><Edit /></IconButton>
                         <IconButton onClick={() => setConfirmDelete(item)}><Delete /></IconButton>
@@ -237,19 +246,25 @@ export default function ProdutoresPageV2() {
         </CardContent>
       </Card>
 
-      <Dialog open={open} onClose={() => setOpen(false)} maxWidth="sm" fullWidth>
+      <Dialog open={open} onClose={() => setOpen(false)} maxWidth="md" fullWidth>
         <DialogTitle>{editing ? 'Editar produtor' : 'Novo produtor'}</DialogTitle>
         <DialogContent>
           <Grid container spacing={2} sx={{ mt: 0.5 }}>
+            {error && <Grid item xs={12}><Alert severity="error">{Array.isArray(error) ? error.join(' ') : error}</Alert></Grid>}
             <Grid item xs={12} md={6}><TextField label="Nome" fullWidth value={form.nome} onChange={(e) => setForm({ ...form, nome: e.target.value })} /></Grid>
             <Grid item xs={12} md={6}><TextField label="CPF/CNPJ" fullWidth value={form.cpfCnpj} onChange={(e) => setForm({ ...form, cpfCnpj: e.target.value })} /></Grid>
             <Grid item xs={12} md={6}>
-              <TextField select label="Municipio" fullWidth value={form.municipioId} onChange={(e) => setForm({ ...form, municipioId: e.target.value })}>
+              <TextField select label="Municipio" fullWidth disabled={user?.role === 'EXTENSIONISTA'} value={form.municipioId} onChange={(e) => setForm({ ...form, municipioId: e.target.value })}>
                 {municipios.map((option) => <MenuItem key={option.value} value={option.value}>{option.label}</MenuItem>)}
               </TextField>
             </Grid>
             <Grid item xs={12} md={6}><TextField label="Telefone" fullWidth value={form.telefone} onChange={(e) => setForm({ ...form, telefone: e.target.value })} /></Grid>
             <Grid item xs={12}><TextField label="Endereco" fullWidth value={form.endereco} onChange={(e) => setForm({ ...form, endereco: e.target.value })} /></Grid>
+          </Grid>
+          <Typography variant="h6" sx={{ mt: 3, mb: 1 }}>Dados para projetos, anexos e declarações</Typography>
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>Preencha os campos aplicáveis ao fornecedor. Esses dados serão reutilizados pelo extensionista na elaboração dos documentos.</Typography>
+          <Grid container spacing={2}>
+            {camposDocumentais.map(c => <Grid item xs={12} md={6} key={c.chave}><TextField label={c.rotulo} fullWidth multiline={c.chave.startsWith('grupo.')} value={form.dadosDocumentais[c.chave] || ''} onChange={e => setForm({ ...form, dadosDocumentais: { ...form.dadosDocumentais, [c.chave]: e.target.value } })} /></Grid>)}
           </Grid>
         </DialogContent>
         <DialogActions>

@@ -59,7 +59,7 @@ let DocumentGeneratorService = class DocumentGeneratorService {
         this.docxGenerator = docxGenerator;
     }
     async preview(editalId, produtorId, tipoDocumento) {
-        const edital = await this.prisma.edital.findUnique({ where: { id: editalId }, include: { municipio: true } });
+        const edital = await this.prisma.edital.findFirst({ where: { id: editalId, deletedAt: null }, include: { municipio: true } });
         if (!edital)
             throw new common_1.NotFoundException('Edital nao encontrado. Verifique se o edital foi importado e confirmado.');
         const produtor = await this.prisma.produtor.findUnique({ where: { id: produtorId }, include: { municipio: true, produtos: true } });
@@ -81,7 +81,7 @@ let DocumentGeneratorService = class DocumentGeneratorService {
             const item = m.editalItem;
             const prodProduto = m.produtorProduto;
             const qtd = Number(item.quantidade || 0);
-            const preco = Number(prodProduto?.precoSugerido || item.precoUnitario || 0);
+            const preco = Number(item.precoUnitario || prodProduto?.precoSugerido || 0);
             return {
                 produto: prodProduto?.produto || item.produtoOriginal,
                 especificacao: item.especificacao || undefined,

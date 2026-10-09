@@ -50,6 +50,10 @@ export default function EngenhariaReversaPage() {
     setErro('');
     try {
       await salvar();
+      if (modo === 'CRIAR_NOVO') {
+        navigate(`/editais/novo?importacaoId=${id}`);
+        return;
+      }
       const criado = (await api.post(`/importacoes/${id}/estrutura/aplicar`, { modo })).data.data;
       navigate(`/editais/${criado.id}`);
     } catch (err: any) {
@@ -69,7 +73,7 @@ export default function EngenhariaReversaPage() {
         </Box>
         <Button component={RouterLink} to={`/importacoes/${id}/conferencia`} variant="outlined">Conferência de itens</Button>
       </Stack>
-      <Alert severity="info">O arquivo-fonte permanece intacto. Número, ano, datas, município, escolas, processo, valores, quantidades, legislação, responsáveis e assinaturas não são copiados para um novo edital até serem confirmados.</Alert>
+      <Alert severity="info">O arquivo-fonte permanece intacto. Ao criar um novo edital, os dados serão carregados no formulário para revisão antes de salvar.</Alert>
       {erro ? <Alert severity="error">{Array.isArray(erro) ? erro.join(' ') : erro}</Alert> : null}
       {mensagem ? <Alert severity="success">{mensagem}</Alert> : null}
       <Typography variant="caption">Arquivo-fonte: {estrutura.arquivoFonte}</Typography>

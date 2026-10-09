@@ -14,31 +14,31 @@ export declare class EscolasController {
         items: ({
             municipio: {
                 id: string;
+                nome: string;
+                nomeNormalizado: string | null;
+                uf: string;
+                codigoIbge: string | null;
+                ativo: boolean;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                nome: string;
-                ativo: boolean;
-                nomeNormalizado: string | null;
-                uf: string;
-                codigoIbge: string | null;
             };
         } & {
             id: string;
-            active: boolean;
+            nome: string;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            codigo: string | null;
             municipioId: string;
-            nome: string;
             endereco: string | null;
             telefone: string | null;
-            codigo: string | null;
             responsavel: string | null;
+            active: boolean;
             restricaoAtendimento: string | null;
             localizacao: string | null;
             localidadeDiferenciada: string | null;
@@ -61,31 +61,31 @@ export declare class EscolasController {
     findOne(id: string, req: Request): Promise<{
         municipio: {
             id: string;
+            nome: string;
+            nomeNormalizado: string | null;
+            uf: string;
+            codigoIbge: string | null;
+            ativo: boolean;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            nome: string;
-            ativo: boolean;
-            nomeNormalizado: string | null;
-            uf: string;
-            codigoIbge: string | null;
         };
     } & {
         id: string;
-        active: boolean;
+        nome: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        codigo: string | null;
         municipioId: string;
-        nome: string;
         endereco: string | null;
         telefone: string | null;
-        codigo: string | null;
         responsavel: string | null;
+        active: boolean;
         restricaoAtendimento: string | null;
         localizacao: string | null;
         localidadeDiferenciada: string | null;
@@ -102,18 +102,18 @@ export declare class EscolasController {
     }>;
     create(dto: CreateEscolaDto): Promise<{
         id: string;
-        active: boolean;
+        nome: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        codigo: string | null;
         municipioId: string;
-        nome: string;
         endereco: string | null;
         telefone: string | null;
-        codigo: string | null;
         responsavel: string | null;
+        active: boolean;
         restricaoAtendimento: string | null;
         localizacao: string | null;
         localidadeDiferenciada: string | null;
@@ -130,18 +130,18 @@ export declare class EscolasController {
     }>;
     update(id: string, dto: UpdateEscolaDto, req: Request): Promise<{
         id: string;
-        active: boolean;
+        nome: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        codigo: string | null;
         municipioId: string;
-        nome: string;
         endereco: string | null;
         telefone: string | null;
-        codigo: string | null;
         responsavel: string | null;
+        active: boolean;
         restricaoAtendimento: string | null;
         localizacao: string | null;
         localidadeDiferenciada: string | null;
@@ -158,18 +158,18 @@ export declare class EscolasController {
     }>;
     remove(id: string): Promise<{
         id: string;
-        active: boolean;
+        nome: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        codigo: string | null;
         municipioId: string;
-        nome: string;
         endereco: string | null;
         telefone: string | null;
-        codigo: string | null;
         responsavel: string | null;
+        active: boolean;
         restricaoAtendimento: string | null;
         localizacao: string | null;
         localidadeDiferenciada: string | null;

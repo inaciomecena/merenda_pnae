@@ -9,18 +9,61 @@ export declare class BalizamentoController {
         atualizados: number;
         total: number;
         matches: ({
-            escola: {
+            produtor: ({
+                municipio: {
+                    id: string;
+                    nome: string;
+                    createdAt: Date;
+                    updatedAt: Date;
+                    deletedAt: Date | null;
+                    createdBy: string | null;
+                    updatedBy: string | null;
+                    nomeNormalizado: string | null;
+                    uf: string;
+                    codigoIbge: string | null;
+                    ativo: boolean;
+                };
+            } & {
                 id: string;
+                nome: string;
+                cpfCnpj: string | null;
+                municipioId: string;
+                endereco: string | null;
+                telefone: string | null;
+                dadosDocumentais: import("@prisma/client/runtime/library").JsonValue | null;
                 active: boolean;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                municipioId: string;
+            }) | null;
+            produtorProduto: {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                deletedAt: Date | null;
+                createdBy: string | null;
+                updatedBy: string | null;
+                produtorId: string;
+                produto: string;
+                capacidade: string | null;
+                periodoProducao: string | null;
+                precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
+                unidade: string | null;
+            } | null;
+            escola: {
+                id: string;
                 nome: string;
+                municipioId: string;
                 endereco: string | null;
                 telefone: string | null;
+                active: boolean;
+                createdAt: Date;
+                updatedAt: Date;
+                deletedAt: Date | null;
+                createdBy: string | null;
+                updatedBy: string | null;
                 codigo: string | null;
                 responsavel: string | null;
                 restricaoAtendimento: string | null;
@@ -40,29 +83,29 @@ export declare class BalizamentoController {
             edital: ({
                 municipio: {
                     id: string;
+                    nome: string;
                     createdAt: Date;
                     updatedAt: Date;
                     deletedAt: Date | null;
                     createdBy: string | null;
                     updatedBy: string | null;
-                    nome: string;
-                    ativo: boolean;
                     nomeNormalizado: string | null;
                     uf: string;
                     codigoIbge: string | null;
+                    ativo: boolean;
                 } | null;
                 escola: {
                     id: string;
+                    nome: string;
+                    municipioId: string;
+                    endereco: string | null;
+                    telefone: string | null;
                     active: boolean;
                     createdAt: Date;
                     updatedAt: Date;
                     deletedAt: Date | null;
                     createdBy: string | null;
                     updatedBy: string | null;
-                    municipioId: string;
-                    nome: string;
-                    endereco: string | null;
-                    telefone: string | null;
                     codigo: string | null;
                     responsavel: string | null;
                     restricaoAtendimento: string | null;
@@ -81,20 +124,20 @@ export declare class BalizamentoController {
                 } | null;
             } & {
                 id: string;
+                municipioId: string | null;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                escolaId: string | null;
-                municipioId: string | null;
                 titulo: string;
-                status: import(".prisma/client").$Enums.StatusEdital;
-                ano: number;
-                numero: string;
                 descricao: string | null;
-                objeto: string | null;
+                numero: string;
                 arquivoFonte: string | null;
+                status: import(".prisma/client").$Enums.StatusEdital;
+                objeto: string | null;
+                ano: number;
+                escolaId: string | null;
                 observacoes: string | null;
                 dataPublicacao: Date | null;
             }) | null;
@@ -105,14 +148,14 @@ export declare class BalizamentoController {
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
+                unidade: string | null;
+                editalId: string;
                 status: import(".prisma/client").$Enums.StatusItemEdital;
                 observacoes: string | null;
-                editalId: string;
                 numeroItem: number | null;
                 produtoOriginal: string;
                 especificacao: string | null;
                 quantidade: import("@prisma/client/runtime/library").Decimal | null;
-                unidade: string | null;
                 precoUnitario: import("@prisma/client/runtime/library").Decimal | null;
                 valorTotal: import("@prisma/client/runtime/library").Decimal | null;
                 produtoReferenciaId: string | null;
@@ -121,12 +164,12 @@ export declare class BalizamentoController {
             };
             produtoReferencia: {
                 id: string;
+                nome: string;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                nome: string;
                 ativo: boolean;
                 categoria: string | null;
                 subcategoria: string | null;
@@ -135,48 +178,6 @@ export declare class BalizamentoController {
                 sinonimos: string | null;
                 agriculturaFamiliar: boolean;
             } | null;
-            produtor: ({
-                municipio: {
-                    id: string;
-                    createdAt: Date;
-                    updatedAt: Date;
-                    deletedAt: Date | null;
-                    createdBy: string | null;
-                    updatedBy: string | null;
-                    nome: string;
-                    ativo: boolean;
-                    nomeNormalizado: string | null;
-                    uf: string;
-                    codigoIbge: string | null;
-                };
-            } & {
-                id: string;
-                active: boolean;
-                createdAt: Date;
-                updatedAt: Date;
-                deletedAt: Date | null;
-                createdBy: string | null;
-                updatedBy: string | null;
-                municipioId: string;
-                nome: string;
-                cpfCnpj: string | null;
-                endereco: string | null;
-                telefone: string | null;
-            }) | null;
-            produtorProduto: {
-                id: string;
-                createdAt: Date;
-                updatedAt: Date;
-                deletedAt: Date | null;
-                createdBy: string | null;
-                updatedBy: string | null;
-                unidade: string | null;
-                produtorId: string;
-                produto: string;
-                capacidade: string | null;
-                periodoProducao: string | null;
-                precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
-            } | null;
         } & {
             id: string;
             createdAt: Date;
@@ -184,12 +185,12 @@ export declare class BalizamentoController {
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            escolaId: string | null;
-            status: import(".prisma/client").$Enums.StatusMatch;
-            observacoes: string | null;
-            editalId: string | null;
-            produtoReferenciaId: string | null;
             produtorId: string | null;
+            editalId: string | null;
+            status: import(".prisma/client").$Enums.StatusMatch;
+            escolaId: string | null;
+            observacoes: string | null;
+            produtoReferenciaId: string | null;
             scoreMatch: number;
             origemMatch: import(".prisma/client").$Enums.OrigemMatch;
             motivoScore: string | null;
@@ -199,18 +200,61 @@ export declare class BalizamentoController {
     }>;
     findByEdital(editalId: string, query: any): Promise<{
         items: ({
-            escola: {
+            produtor: ({
+                municipio: {
+                    id: string;
+                    nome: string;
+                    createdAt: Date;
+                    updatedAt: Date;
+                    deletedAt: Date | null;
+                    createdBy: string | null;
+                    updatedBy: string | null;
+                    nomeNormalizado: string | null;
+                    uf: string;
+                    codigoIbge: string | null;
+                    ativo: boolean;
+                };
+            } & {
                 id: string;
+                nome: string;
+                cpfCnpj: string | null;
+                municipioId: string;
+                endereco: string | null;
+                telefone: string | null;
+                dadosDocumentais: import("@prisma/client/runtime/library").JsonValue | null;
                 active: boolean;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                municipioId: string;
+            }) | null;
+            produtorProduto: {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                deletedAt: Date | null;
+                createdBy: string | null;
+                updatedBy: string | null;
+                produtorId: string;
+                produto: string;
+                capacidade: string | null;
+                periodoProducao: string | null;
+                precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
+                unidade: string | null;
+            } | null;
+            escola: {
+                id: string;
                 nome: string;
+                municipioId: string;
                 endereco: string | null;
                 telefone: string | null;
+                active: boolean;
+                createdAt: Date;
+                updatedAt: Date;
+                deletedAt: Date | null;
+                createdBy: string | null;
+                updatedBy: string | null;
                 codigo: string | null;
                 responsavel: string | null;
                 restricaoAtendimento: string | null;
@@ -230,29 +274,29 @@ export declare class BalizamentoController {
             edital: ({
                 municipio: {
                     id: string;
+                    nome: string;
                     createdAt: Date;
                     updatedAt: Date;
                     deletedAt: Date | null;
                     createdBy: string | null;
                     updatedBy: string | null;
-                    nome: string;
-                    ativo: boolean;
                     nomeNormalizado: string | null;
                     uf: string;
                     codigoIbge: string | null;
+                    ativo: boolean;
                 } | null;
                 escola: {
                     id: string;
+                    nome: string;
+                    municipioId: string;
+                    endereco: string | null;
+                    telefone: string | null;
                     active: boolean;
                     createdAt: Date;
                     updatedAt: Date;
                     deletedAt: Date | null;
                     createdBy: string | null;
                     updatedBy: string | null;
-                    municipioId: string;
-                    nome: string;
-                    endereco: string | null;
-                    telefone: string | null;
                     codigo: string | null;
                     responsavel: string | null;
                     restricaoAtendimento: string | null;
@@ -271,20 +315,20 @@ export declare class BalizamentoController {
                 } | null;
             } & {
                 id: string;
+                municipioId: string | null;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                escolaId: string | null;
-                municipioId: string | null;
                 titulo: string;
-                status: import(".prisma/client").$Enums.StatusEdital;
-                ano: number;
-                numero: string;
                 descricao: string | null;
-                objeto: string | null;
+                numero: string;
                 arquivoFonte: string | null;
+                status: import(".prisma/client").$Enums.StatusEdital;
+                objeto: string | null;
+                ano: number;
+                escolaId: string | null;
                 observacoes: string | null;
                 dataPublicacao: Date | null;
             }) | null;
@@ -295,14 +339,14 @@ export declare class BalizamentoController {
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
+                unidade: string | null;
+                editalId: string;
                 status: import(".prisma/client").$Enums.StatusItemEdital;
                 observacoes: string | null;
-                editalId: string;
                 numeroItem: number | null;
                 produtoOriginal: string;
                 especificacao: string | null;
                 quantidade: import("@prisma/client/runtime/library").Decimal | null;
-                unidade: string | null;
                 precoUnitario: import("@prisma/client/runtime/library").Decimal | null;
                 valorTotal: import("@prisma/client/runtime/library").Decimal | null;
                 produtoReferenciaId: string | null;
@@ -311,12 +355,12 @@ export declare class BalizamentoController {
             };
             produtoReferencia: {
                 id: string;
+                nome: string;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                nome: string;
                 ativo: boolean;
                 categoria: string | null;
                 subcategoria: string | null;
@@ -325,48 +369,6 @@ export declare class BalizamentoController {
                 sinonimos: string | null;
                 agriculturaFamiliar: boolean;
             } | null;
-            produtor: ({
-                municipio: {
-                    id: string;
-                    createdAt: Date;
-                    updatedAt: Date;
-                    deletedAt: Date | null;
-                    createdBy: string | null;
-                    updatedBy: string | null;
-                    nome: string;
-                    ativo: boolean;
-                    nomeNormalizado: string | null;
-                    uf: string;
-                    codigoIbge: string | null;
-                };
-            } & {
-                id: string;
-                active: boolean;
-                createdAt: Date;
-                updatedAt: Date;
-                deletedAt: Date | null;
-                createdBy: string | null;
-                updatedBy: string | null;
-                municipioId: string;
-                nome: string;
-                cpfCnpj: string | null;
-                endereco: string | null;
-                telefone: string | null;
-            }) | null;
-            produtorProduto: {
-                id: string;
-                createdAt: Date;
-                updatedAt: Date;
-                deletedAt: Date | null;
-                createdBy: string | null;
-                updatedBy: string | null;
-                unidade: string | null;
-                produtorId: string;
-                produto: string;
-                capacidade: string | null;
-                periodoProducao: string | null;
-                precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
-            } | null;
         } & {
             id: string;
             createdAt: Date;
@@ -374,12 +376,12 @@ export declare class BalizamentoController {
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            escolaId: string | null;
-            status: import(".prisma/client").$Enums.StatusMatch;
-            observacoes: string | null;
-            editalId: string | null;
-            produtoReferenciaId: string | null;
             produtorId: string | null;
+            editalId: string | null;
+            status: import(".prisma/client").$Enums.StatusMatch;
+            escolaId: string | null;
+            observacoes: string | null;
+            produtoReferenciaId: string | null;
             scoreMatch: number;
             origemMatch: import(".prisma/client").$Enums.OrigemMatch;
             motivoScore: string | null;
@@ -389,18 +391,61 @@ export declare class BalizamentoController {
         total: number;
     }>;
     findByItem(editalId: string, itemId: string): Promise<({
-        escola: {
+        produtor: ({
+            municipio: {
+                id: string;
+                nome: string;
+                createdAt: Date;
+                updatedAt: Date;
+                deletedAt: Date | null;
+                createdBy: string | null;
+                updatedBy: string | null;
+                nomeNormalizado: string | null;
+                uf: string;
+                codigoIbge: string | null;
+                ativo: boolean;
+            };
+        } & {
             id: string;
+            nome: string;
+            cpfCnpj: string | null;
+            municipioId: string;
+            endereco: string | null;
+            telefone: string | null;
+            dadosDocumentais: import("@prisma/client/runtime/library").JsonValue | null;
             active: boolean;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            municipioId: string;
+        }) | null;
+        produtorProduto: {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
+            produtorId: string;
+            produto: string;
+            capacidade: string | null;
+            periodoProducao: string | null;
+            precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
+            unidade: string | null;
+        } | null;
+        escola: {
+            id: string;
             nome: string;
+            municipioId: string;
             endereco: string | null;
             telefone: string | null;
+            active: boolean;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
             codigo: string | null;
             responsavel: string | null;
             restricaoAtendimento: string | null;
@@ -420,29 +465,29 @@ export declare class BalizamentoController {
         edital: ({
             municipio: {
                 id: string;
+                nome: string;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                nome: string;
-                ativo: boolean;
                 nomeNormalizado: string | null;
                 uf: string;
                 codigoIbge: string | null;
+                ativo: boolean;
             } | null;
             escola: {
                 id: string;
+                nome: string;
+                municipioId: string;
+                endereco: string | null;
+                telefone: string | null;
                 active: boolean;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                municipioId: string;
-                nome: string;
-                endereco: string | null;
-                telefone: string | null;
                 codigo: string | null;
                 responsavel: string | null;
                 restricaoAtendimento: string | null;
@@ -461,20 +506,20 @@ export declare class BalizamentoController {
             } | null;
         } & {
             id: string;
+            municipioId: string | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            escolaId: string | null;
-            municipioId: string | null;
             titulo: string;
-            status: import(".prisma/client").$Enums.StatusEdital;
-            ano: number;
-            numero: string;
             descricao: string | null;
-            objeto: string | null;
+            numero: string;
             arquivoFonte: string | null;
+            status: import(".prisma/client").$Enums.StatusEdital;
+            objeto: string | null;
+            ano: number;
+            escolaId: string | null;
             observacoes: string | null;
             dataPublicacao: Date | null;
         }) | null;
@@ -485,14 +530,14 @@ export declare class BalizamentoController {
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            unidade: string | null;
+            editalId: string;
             status: import(".prisma/client").$Enums.StatusItemEdital;
             observacoes: string | null;
-            editalId: string;
             numeroItem: number | null;
             produtoOriginal: string;
             especificacao: string | null;
             quantidade: import("@prisma/client/runtime/library").Decimal | null;
-            unidade: string | null;
             precoUnitario: import("@prisma/client/runtime/library").Decimal | null;
             valorTotal: import("@prisma/client/runtime/library").Decimal | null;
             produtoReferenciaId: string | null;
@@ -501,12 +546,12 @@ export declare class BalizamentoController {
         };
         produtoReferencia: {
             id: string;
+            nome: string;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            nome: string;
             ativo: boolean;
             categoria: string | null;
             subcategoria: string | null;
@@ -515,48 +560,6 @@ export declare class BalizamentoController {
             sinonimos: string | null;
             agriculturaFamiliar: boolean;
         } | null;
-        produtor: ({
-            municipio: {
-                id: string;
-                createdAt: Date;
-                updatedAt: Date;
-                deletedAt: Date | null;
-                createdBy: string | null;
-                updatedBy: string | null;
-                nome: string;
-                ativo: boolean;
-                nomeNormalizado: string | null;
-                uf: string;
-                codigoIbge: string | null;
-            };
-        } & {
-            id: string;
-            active: boolean;
-            createdAt: Date;
-            updatedAt: Date;
-            deletedAt: Date | null;
-            createdBy: string | null;
-            updatedBy: string | null;
-            municipioId: string;
-            nome: string;
-            cpfCnpj: string | null;
-            endereco: string | null;
-            telefone: string | null;
-        }) | null;
-        produtorProduto: {
-            id: string;
-            createdAt: Date;
-            updatedAt: Date;
-            deletedAt: Date | null;
-            createdBy: string | null;
-            updatedBy: string | null;
-            unidade: string | null;
-            produtorId: string;
-            produto: string;
-            capacidade: string | null;
-            periodoProducao: string | null;
-            precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
-        } | null;
     } & {
         id: string;
         createdAt: Date;
@@ -564,12 +567,12 @@ export declare class BalizamentoController {
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        escolaId: string | null;
-        status: import(".prisma/client").$Enums.StatusMatch;
-        observacoes: string | null;
-        editalId: string | null;
-        produtoReferenciaId: string | null;
         produtorId: string | null;
+        editalId: string | null;
+        status: import(".prisma/client").$Enums.StatusMatch;
+        escolaId: string | null;
+        observacoes: string | null;
+        produtoReferenciaId: string | null;
         scoreMatch: number;
         origemMatch: import(".prisma/client").$Enums.OrigemMatch;
         motivoScore: string | null;
@@ -577,18 +580,61 @@ export declare class BalizamentoController {
         produtorProdutoId: string | null;
     })[]>;
     createManual(dto: CriarMatchManualDto): Promise<{
-        escola: {
+        produtor: ({
+            municipio: {
+                id: string;
+                nome: string;
+                createdAt: Date;
+                updatedAt: Date;
+                deletedAt: Date | null;
+                createdBy: string | null;
+                updatedBy: string | null;
+                nomeNormalizado: string | null;
+                uf: string;
+                codigoIbge: string | null;
+                ativo: boolean;
+            };
+        } & {
             id: string;
+            nome: string;
+            cpfCnpj: string | null;
+            municipioId: string;
+            endereco: string | null;
+            telefone: string | null;
+            dadosDocumentais: import("@prisma/client/runtime/library").JsonValue | null;
             active: boolean;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            municipioId: string;
+        }) | null;
+        produtorProduto: {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
+            produtorId: string;
+            produto: string;
+            capacidade: string | null;
+            periodoProducao: string | null;
+            precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
+            unidade: string | null;
+        } | null;
+        escola: {
+            id: string;
             nome: string;
+            municipioId: string;
             endereco: string | null;
             telefone: string | null;
+            active: boolean;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
             codigo: string | null;
             responsavel: string | null;
             restricaoAtendimento: string | null;
@@ -608,29 +654,29 @@ export declare class BalizamentoController {
         edital: ({
             municipio: {
                 id: string;
+                nome: string;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                nome: string;
-                ativo: boolean;
                 nomeNormalizado: string | null;
                 uf: string;
                 codigoIbge: string | null;
+                ativo: boolean;
             } | null;
             escola: {
                 id: string;
+                nome: string;
+                municipioId: string;
+                endereco: string | null;
+                telefone: string | null;
                 active: boolean;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                municipioId: string;
-                nome: string;
-                endereco: string | null;
-                telefone: string | null;
                 codigo: string | null;
                 responsavel: string | null;
                 restricaoAtendimento: string | null;
@@ -649,20 +695,20 @@ export declare class BalizamentoController {
             } | null;
         } & {
             id: string;
+            municipioId: string | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            escolaId: string | null;
-            municipioId: string | null;
             titulo: string;
-            status: import(".prisma/client").$Enums.StatusEdital;
-            ano: number;
-            numero: string;
             descricao: string | null;
-            objeto: string | null;
+            numero: string;
             arquivoFonte: string | null;
+            status: import(".prisma/client").$Enums.StatusEdital;
+            objeto: string | null;
+            ano: number;
+            escolaId: string | null;
             observacoes: string | null;
             dataPublicacao: Date | null;
         }) | null;
@@ -673,14 +719,14 @@ export declare class BalizamentoController {
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            unidade: string | null;
+            editalId: string;
             status: import(".prisma/client").$Enums.StatusItemEdital;
             observacoes: string | null;
-            editalId: string;
             numeroItem: number | null;
             produtoOriginal: string;
             especificacao: string | null;
             quantidade: import("@prisma/client/runtime/library").Decimal | null;
-            unidade: string | null;
             precoUnitario: import("@prisma/client/runtime/library").Decimal | null;
             valorTotal: import("@prisma/client/runtime/library").Decimal | null;
             produtoReferenciaId: string | null;
@@ -689,12 +735,12 @@ export declare class BalizamentoController {
         };
         produtoReferencia: {
             id: string;
+            nome: string;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            nome: string;
             ativo: boolean;
             categoria: string | null;
             subcategoria: string | null;
@@ -703,48 +749,6 @@ export declare class BalizamentoController {
             sinonimos: string | null;
             agriculturaFamiliar: boolean;
         } | null;
-        produtor: ({
-            municipio: {
-                id: string;
-                createdAt: Date;
-                updatedAt: Date;
-                deletedAt: Date | null;
-                createdBy: string | null;
-                updatedBy: string | null;
-                nome: string;
-                ativo: boolean;
-                nomeNormalizado: string | null;
-                uf: string;
-                codigoIbge: string | null;
-            };
-        } & {
-            id: string;
-            active: boolean;
-            createdAt: Date;
-            updatedAt: Date;
-            deletedAt: Date | null;
-            createdBy: string | null;
-            updatedBy: string | null;
-            municipioId: string;
-            nome: string;
-            cpfCnpj: string | null;
-            endereco: string | null;
-            telefone: string | null;
-        }) | null;
-        produtorProduto: {
-            id: string;
-            createdAt: Date;
-            updatedAt: Date;
-            deletedAt: Date | null;
-            createdBy: string | null;
-            updatedBy: string | null;
-            unidade: string | null;
-            produtorId: string;
-            produto: string;
-            capacidade: string | null;
-            periodoProducao: string | null;
-            precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
-        } | null;
     } & {
         id: string;
         createdAt: Date;
@@ -752,12 +756,12 @@ export declare class BalizamentoController {
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        escolaId: string | null;
-        status: import(".prisma/client").$Enums.StatusMatch;
-        observacoes: string | null;
-        editalId: string | null;
-        produtoReferenciaId: string | null;
         produtorId: string | null;
+        editalId: string | null;
+        status: import(".prisma/client").$Enums.StatusMatch;
+        escolaId: string | null;
+        observacoes: string | null;
+        produtoReferenciaId: string | null;
         scoreMatch: number;
         origemMatch: import(".prisma/client").$Enums.OrigemMatch;
         motivoScore: string | null;
@@ -765,18 +769,61 @@ export declare class BalizamentoController {
         produtorProdutoId: string | null;
     }>;
     aprovar(matchId: string, dto: AtualizarStatusMatchDto): Promise<{
-        escola: {
+        produtor: ({
+            municipio: {
+                id: string;
+                nome: string;
+                createdAt: Date;
+                updatedAt: Date;
+                deletedAt: Date | null;
+                createdBy: string | null;
+                updatedBy: string | null;
+                nomeNormalizado: string | null;
+                uf: string;
+                codigoIbge: string | null;
+                ativo: boolean;
+            };
+        } & {
             id: string;
+            nome: string;
+            cpfCnpj: string | null;
+            municipioId: string;
+            endereco: string | null;
+            telefone: string | null;
+            dadosDocumentais: import("@prisma/client/runtime/library").JsonValue | null;
             active: boolean;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            municipioId: string;
+        }) | null;
+        produtorProduto: {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
+            produtorId: string;
+            produto: string;
+            capacidade: string | null;
+            periodoProducao: string | null;
+            precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
+            unidade: string | null;
+        } | null;
+        escola: {
+            id: string;
             nome: string;
+            municipioId: string;
             endereco: string | null;
             telefone: string | null;
+            active: boolean;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
             codigo: string | null;
             responsavel: string | null;
             restricaoAtendimento: string | null;
@@ -796,29 +843,29 @@ export declare class BalizamentoController {
         edital: ({
             municipio: {
                 id: string;
+                nome: string;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                nome: string;
-                ativo: boolean;
                 nomeNormalizado: string | null;
                 uf: string;
                 codigoIbge: string | null;
+                ativo: boolean;
             } | null;
             escola: {
                 id: string;
+                nome: string;
+                municipioId: string;
+                endereco: string | null;
+                telefone: string | null;
                 active: boolean;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                municipioId: string;
-                nome: string;
-                endereco: string | null;
-                telefone: string | null;
                 codigo: string | null;
                 responsavel: string | null;
                 restricaoAtendimento: string | null;
@@ -837,20 +884,20 @@ export declare class BalizamentoController {
             } | null;
         } & {
             id: string;
+            municipioId: string | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            escolaId: string | null;
-            municipioId: string | null;
             titulo: string;
-            status: import(".prisma/client").$Enums.StatusEdital;
-            ano: number;
-            numero: string;
             descricao: string | null;
-            objeto: string | null;
+            numero: string;
             arquivoFonte: string | null;
+            status: import(".prisma/client").$Enums.StatusEdital;
+            objeto: string | null;
+            ano: number;
+            escolaId: string | null;
             observacoes: string | null;
             dataPublicacao: Date | null;
         }) | null;
@@ -861,14 +908,14 @@ export declare class BalizamentoController {
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            unidade: string | null;
+            editalId: string;
             status: import(".prisma/client").$Enums.StatusItemEdital;
             observacoes: string | null;
-            editalId: string;
             numeroItem: number | null;
             produtoOriginal: string;
             especificacao: string | null;
             quantidade: import("@prisma/client/runtime/library").Decimal | null;
-            unidade: string | null;
             precoUnitario: import("@prisma/client/runtime/library").Decimal | null;
             valorTotal: import("@prisma/client/runtime/library").Decimal | null;
             produtoReferenciaId: string | null;
@@ -877,12 +924,12 @@ export declare class BalizamentoController {
         };
         produtoReferencia: {
             id: string;
+            nome: string;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            nome: string;
             ativo: boolean;
             categoria: string | null;
             subcategoria: string | null;
@@ -891,48 +938,6 @@ export declare class BalizamentoController {
             sinonimos: string | null;
             agriculturaFamiliar: boolean;
         } | null;
-        produtor: ({
-            municipio: {
-                id: string;
-                createdAt: Date;
-                updatedAt: Date;
-                deletedAt: Date | null;
-                createdBy: string | null;
-                updatedBy: string | null;
-                nome: string;
-                ativo: boolean;
-                nomeNormalizado: string | null;
-                uf: string;
-                codigoIbge: string | null;
-            };
-        } & {
-            id: string;
-            active: boolean;
-            createdAt: Date;
-            updatedAt: Date;
-            deletedAt: Date | null;
-            createdBy: string | null;
-            updatedBy: string | null;
-            municipioId: string;
-            nome: string;
-            cpfCnpj: string | null;
-            endereco: string | null;
-            telefone: string | null;
-        }) | null;
-        produtorProduto: {
-            id: string;
-            createdAt: Date;
-            updatedAt: Date;
-            deletedAt: Date | null;
-            createdBy: string | null;
-            updatedBy: string | null;
-            unidade: string | null;
-            produtorId: string;
-            produto: string;
-            capacidade: string | null;
-            periodoProducao: string | null;
-            precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
-        } | null;
     } & {
         id: string;
         createdAt: Date;
@@ -940,12 +945,12 @@ export declare class BalizamentoController {
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        escolaId: string | null;
-        status: import(".prisma/client").$Enums.StatusMatch;
-        observacoes: string | null;
-        editalId: string | null;
-        produtoReferenciaId: string | null;
         produtorId: string | null;
+        editalId: string | null;
+        status: import(".prisma/client").$Enums.StatusMatch;
+        escolaId: string | null;
+        observacoes: string | null;
+        produtoReferenciaId: string | null;
         scoreMatch: number;
         origemMatch: import(".prisma/client").$Enums.OrigemMatch;
         motivoScore: string | null;
@@ -953,18 +958,61 @@ export declare class BalizamentoController {
         produtorProdutoId: string | null;
     }>;
     rejeitar(matchId: string, dto: AtualizarStatusMatchDto): Promise<{
-        escola: {
+        produtor: ({
+            municipio: {
+                id: string;
+                nome: string;
+                createdAt: Date;
+                updatedAt: Date;
+                deletedAt: Date | null;
+                createdBy: string | null;
+                updatedBy: string | null;
+                nomeNormalizado: string | null;
+                uf: string;
+                codigoIbge: string | null;
+                ativo: boolean;
+            };
+        } & {
             id: string;
+            nome: string;
+            cpfCnpj: string | null;
+            municipioId: string;
+            endereco: string | null;
+            telefone: string | null;
+            dadosDocumentais: import("@prisma/client/runtime/library").JsonValue | null;
             active: boolean;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            municipioId: string;
+        }) | null;
+        produtorProduto: {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
+            produtorId: string;
+            produto: string;
+            capacidade: string | null;
+            periodoProducao: string | null;
+            precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
+            unidade: string | null;
+        } | null;
+        escola: {
+            id: string;
             nome: string;
+            municipioId: string;
             endereco: string | null;
             telefone: string | null;
+            active: boolean;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
             codigo: string | null;
             responsavel: string | null;
             restricaoAtendimento: string | null;
@@ -984,29 +1032,29 @@ export declare class BalizamentoController {
         edital: ({
             municipio: {
                 id: string;
+                nome: string;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                nome: string;
-                ativo: boolean;
                 nomeNormalizado: string | null;
                 uf: string;
                 codigoIbge: string | null;
+                ativo: boolean;
             } | null;
             escola: {
                 id: string;
+                nome: string;
+                municipioId: string;
+                endereco: string | null;
+                telefone: string | null;
                 active: boolean;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                municipioId: string;
-                nome: string;
-                endereco: string | null;
-                telefone: string | null;
                 codigo: string | null;
                 responsavel: string | null;
                 restricaoAtendimento: string | null;
@@ -1025,20 +1073,20 @@ export declare class BalizamentoController {
             } | null;
         } & {
             id: string;
+            municipioId: string | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            escolaId: string | null;
-            municipioId: string | null;
             titulo: string;
-            status: import(".prisma/client").$Enums.StatusEdital;
-            ano: number;
-            numero: string;
             descricao: string | null;
-            objeto: string | null;
+            numero: string;
             arquivoFonte: string | null;
+            status: import(".prisma/client").$Enums.StatusEdital;
+            objeto: string | null;
+            ano: number;
+            escolaId: string | null;
             observacoes: string | null;
             dataPublicacao: Date | null;
         }) | null;
@@ -1049,14 +1097,14 @@ export declare class BalizamentoController {
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            unidade: string | null;
+            editalId: string;
             status: import(".prisma/client").$Enums.StatusItemEdital;
             observacoes: string | null;
-            editalId: string;
             numeroItem: number | null;
             produtoOriginal: string;
             especificacao: string | null;
             quantidade: import("@prisma/client/runtime/library").Decimal | null;
-            unidade: string | null;
             precoUnitario: import("@prisma/client/runtime/library").Decimal | null;
             valorTotal: import("@prisma/client/runtime/library").Decimal | null;
             produtoReferenciaId: string | null;
@@ -1065,12 +1113,12 @@ export declare class BalizamentoController {
         };
         produtoReferencia: {
             id: string;
+            nome: string;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            nome: string;
             ativo: boolean;
             categoria: string | null;
             subcategoria: string | null;
@@ -1079,48 +1127,6 @@ export declare class BalizamentoController {
             sinonimos: string | null;
             agriculturaFamiliar: boolean;
         } | null;
-        produtor: ({
-            municipio: {
-                id: string;
-                createdAt: Date;
-                updatedAt: Date;
-                deletedAt: Date | null;
-                createdBy: string | null;
-                updatedBy: string | null;
-                nome: string;
-                ativo: boolean;
-                nomeNormalizado: string | null;
-                uf: string;
-                codigoIbge: string | null;
-            };
-        } & {
-            id: string;
-            active: boolean;
-            createdAt: Date;
-            updatedAt: Date;
-            deletedAt: Date | null;
-            createdBy: string | null;
-            updatedBy: string | null;
-            municipioId: string;
-            nome: string;
-            cpfCnpj: string | null;
-            endereco: string | null;
-            telefone: string | null;
-        }) | null;
-        produtorProduto: {
-            id: string;
-            createdAt: Date;
-            updatedAt: Date;
-            deletedAt: Date | null;
-            createdBy: string | null;
-            updatedBy: string | null;
-            unidade: string | null;
-            produtorId: string;
-            produto: string;
-            capacidade: string | null;
-            periodoProducao: string | null;
-            precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
-        } | null;
     } & {
         id: string;
         createdAt: Date;
@@ -1128,12 +1134,12 @@ export declare class BalizamentoController {
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        escolaId: string | null;
-        status: import(".prisma/client").$Enums.StatusMatch;
-        observacoes: string | null;
-        editalId: string | null;
-        produtoReferenciaId: string | null;
         produtorId: string | null;
+        editalId: string | null;
+        status: import(".prisma/client").$Enums.StatusMatch;
+        escolaId: string | null;
+        observacoes: string | null;
+        produtoReferenciaId: string | null;
         scoreMatch: number;
         origemMatch: import(".prisma/client").$Enums.OrigemMatch;
         motivoScore: string | null;
@@ -1141,18 +1147,61 @@ export declare class BalizamentoController {
         produtorProdutoId: string | null;
     }>;
     remove(matchId: string): Promise<{
-        escola: {
+        produtor: ({
+            municipio: {
+                id: string;
+                nome: string;
+                createdAt: Date;
+                updatedAt: Date;
+                deletedAt: Date | null;
+                createdBy: string | null;
+                updatedBy: string | null;
+                nomeNormalizado: string | null;
+                uf: string;
+                codigoIbge: string | null;
+                ativo: boolean;
+            };
+        } & {
             id: string;
+            nome: string;
+            cpfCnpj: string | null;
+            municipioId: string;
+            endereco: string | null;
+            telefone: string | null;
+            dadosDocumentais: import("@prisma/client/runtime/library").JsonValue | null;
             active: boolean;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            municipioId: string;
+        }) | null;
+        produtorProduto: {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
+            produtorId: string;
+            produto: string;
+            capacidade: string | null;
+            periodoProducao: string | null;
+            precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
+            unidade: string | null;
+        } | null;
+        escola: {
+            id: string;
             nome: string;
+            municipioId: string;
             endereco: string | null;
             telefone: string | null;
+            active: boolean;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
             codigo: string | null;
             responsavel: string | null;
             restricaoAtendimento: string | null;
@@ -1172,29 +1221,29 @@ export declare class BalizamentoController {
         edital: ({
             municipio: {
                 id: string;
+                nome: string;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                nome: string;
-                ativo: boolean;
                 nomeNormalizado: string | null;
                 uf: string;
                 codigoIbge: string | null;
+                ativo: boolean;
             } | null;
             escola: {
                 id: string;
+                nome: string;
+                municipioId: string;
+                endereco: string | null;
+                telefone: string | null;
                 active: boolean;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                municipioId: string;
-                nome: string;
-                endereco: string | null;
-                telefone: string | null;
                 codigo: string | null;
                 responsavel: string | null;
                 restricaoAtendimento: string | null;
@@ -1213,20 +1262,20 @@ export declare class BalizamentoController {
             } | null;
         } & {
             id: string;
+            municipioId: string | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            escolaId: string | null;
-            municipioId: string | null;
             titulo: string;
-            status: import(".prisma/client").$Enums.StatusEdital;
-            ano: number;
-            numero: string;
             descricao: string | null;
-            objeto: string | null;
+            numero: string;
             arquivoFonte: string | null;
+            status: import(".prisma/client").$Enums.StatusEdital;
+            objeto: string | null;
+            ano: number;
+            escolaId: string | null;
             observacoes: string | null;
             dataPublicacao: Date | null;
         }) | null;
@@ -1237,14 +1286,14 @@ export declare class BalizamentoController {
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            unidade: string | null;
+            editalId: string;
             status: import(".prisma/client").$Enums.StatusItemEdital;
             observacoes: string | null;
-            editalId: string;
             numeroItem: number | null;
             produtoOriginal: string;
             especificacao: string | null;
             quantidade: import("@prisma/client/runtime/library").Decimal | null;
-            unidade: string | null;
             precoUnitario: import("@prisma/client/runtime/library").Decimal | null;
             valorTotal: import("@prisma/client/runtime/library").Decimal | null;
             produtoReferenciaId: string | null;
@@ -1253,12 +1302,12 @@ export declare class BalizamentoController {
         };
         produtoReferencia: {
             id: string;
+            nome: string;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            nome: string;
             ativo: boolean;
             categoria: string | null;
             subcategoria: string | null;
@@ -1267,48 +1316,6 @@ export declare class BalizamentoController {
             sinonimos: string | null;
             agriculturaFamiliar: boolean;
         } | null;
-        produtor: ({
-            municipio: {
-                id: string;
-                createdAt: Date;
-                updatedAt: Date;
-                deletedAt: Date | null;
-                createdBy: string | null;
-                updatedBy: string | null;
-                nome: string;
-                ativo: boolean;
-                nomeNormalizado: string | null;
-                uf: string;
-                codigoIbge: string | null;
-            };
-        } & {
-            id: string;
-            active: boolean;
-            createdAt: Date;
-            updatedAt: Date;
-            deletedAt: Date | null;
-            createdBy: string | null;
-            updatedBy: string | null;
-            municipioId: string;
-            nome: string;
-            cpfCnpj: string | null;
-            endereco: string | null;
-            telefone: string | null;
-        }) | null;
-        produtorProduto: {
-            id: string;
-            createdAt: Date;
-            updatedAt: Date;
-            deletedAt: Date | null;
-            createdBy: string | null;
-            updatedBy: string | null;
-            unidade: string | null;
-            produtorId: string;
-            produto: string;
-            capacidade: string | null;
-            periodoProducao: string | null;
-            precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
-        } | null;
     } & {
         id: string;
         createdAt: Date;
@@ -1316,12 +1323,12 @@ export declare class BalizamentoController {
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        escolaId: string | null;
-        status: import(".prisma/client").$Enums.StatusMatch;
-        observacoes: string | null;
-        editalId: string | null;
-        produtoReferenciaId: string | null;
         produtorId: string | null;
+        editalId: string | null;
+        status: import(".prisma/client").$Enums.StatusMatch;
+        escolaId: string | null;
+        observacoes: string | null;
+        produtoReferenciaId: string | null;
         scoreMatch: number;
         origemMatch: import(".prisma/client").$Enums.OrigemMatch;
         motivoScore: string | null;

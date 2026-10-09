@@ -55,7 +55,7 @@ __decorate([
 ], EscolasController.prototype, "importarCsv", null);
 __decorate([
     (0, common_1.Get)(),
-    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Listar escolas' }),
     (0, swagger_1.ApiQuery)({ name: 'page', required: false }),
     (0, swagger_1.ApiQuery)({ name: 'limit', required: false }),
@@ -75,7 +75,7 @@ __decorate([
 ], EscolasController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Get)(':id'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Buscar escola por id' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Req)()),

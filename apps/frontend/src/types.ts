@@ -45,6 +45,7 @@ export interface ImportacaoItem {
 
 export interface Importacao {
   id: string;
+  editalId?: string | null;
   arquivoNome: string;
   arquivoCaminho: string;
   origem: string;

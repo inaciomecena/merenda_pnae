@@ -34,19 +34,22 @@ let JwtAuthGuard = class JwtAuthGuard {
         const req = context.switchToHttp().getRequest();
         const authHeader = req.headers.authorization;
         if (!authHeader?.startsWith('Bearer '))
-            return false;
+            throw new common_1.UnauthorizedException('Sessão ausente. Entre no sistema para continuar.');
         const token = authHeader.split(' ')[1];
+        let payload;
         try {
-            const payload = this.jwtService.verify(token, { secret: process.env.JWT_SECRET || 'dev-secret' });
-            const user = await this.prisma.user.findFirst({ where: { id: payload.sub, deletedAt: null, active: true } });
-            if (!user)
-                return false;
-            req.user = { sub: user.id, email: user.email, role: user.role, escolaId: user.escolaId, municipioId: user.municipioId };
-            return true;
+            payload = this.jwtService.verify(token, { secret: process.env.JWT_SECRET || 'dev-secret' });
+            if (typeof payload.sub !== 'string')
+                throw new Error('Sessão sem usuário');
         }
         catch {
-            return false;
+            throw new common_1.UnauthorizedException('Sua sessão expirou ou é inválida. Entre novamente no sistema.');
         }
+        const user = await this.prisma.user.findFirst({ where: { id: payload.sub, deletedAt: null, active: true } });
+        if (!user)
+            throw new common_1.UnauthorizedException('Sessão inválida. Entre novamente no sistema.');
+        req.user = { sub: user.id, email: user.email, role: user.role, escolaId: user.escolaId, municipioId: user.municipioId };
+        return true;
     }
 };
 exports.JwtAuthGuard = JwtAuthGuard;

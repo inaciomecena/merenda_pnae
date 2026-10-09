@@ -19,7 +19,7 @@ export class EscolasController {
   }
 
   @Get()
-  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
+  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Listar escolas' })
   @ApiQuery({ name: 'page', required: false })
   @ApiQuery({ name: 'limit', required: false })
@@ -36,7 +36,7 @@ export class EscolasController {
   }
 
   @Get(':id')
-  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
+  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Buscar escola por id' })
   findOne(@Param('id') id: string, @Req() req: Request) {
     return this.service.findOne(id, req.user as any);

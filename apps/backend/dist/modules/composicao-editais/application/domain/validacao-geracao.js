@@ -70,9 +70,11 @@ function validarGeracao(entrada) {
         if (!item.unidade?.trim())
             erros.push(`Item ${index + 1} (${item.produto}) sem unidade.`);
     });
-    const tipos = incluidos.map((anexo) => anexo.tipo);
-    if (new Set(tipos).size !== tipos.length)
-        erros.push('Há anexos duplicados na composição.');
+    const modelos = incluidos.map((anexo) => anexo.templateId || `${anexo.tipo}:${anexo.titulo.trim()}`);
+    if (new Set(modelos).size !== modelos.length)
+        erros.push('Há modelos repetidos na composição. Remova a cópia do mesmo modelo.');
+    if (incluidos.filter((anexo) => anexo.tipo === 'EDITAL_PRINCIPAL').length > 1)
+        erros.push('Selecione somente um edital principal.');
     return { ok: erros.length === 0, erros };
 }
 //# sourceMappingURL=validacao-geracao.js.map

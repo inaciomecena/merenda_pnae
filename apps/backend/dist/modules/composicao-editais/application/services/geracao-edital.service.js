@@ -49,7 +49,9 @@ const path = __importStar(require("path"));
 const pdf_lib_1 = require("pdf-lib");
 const prisma_service_1 = require("../../../../infrastructure/prisma/prisma.service");
 const documento_renderer_1 = require("../domain/documento-renderer");
+const edital_pdf_layout_1 = require("../domain/edital-pdf-layout");
 const placeholders_1 = require("../domain/placeholders");
+const campos_produtor_1 = require("../domain/campos-produtor");
 const validacao_geracao_1 = require("../domain/validacao-geracao");
 const composicao_edital_service_1 = require("./composicao-edital.service");
 let GeracaoEditalService = class GeracaoEditalService {
@@ -74,7 +76,7 @@ let GeracaoEditalService = class GeracaoEditalService {
         const pacote = await this.montar(editalId);
         if (!pacote.validacao.ok) {
             await this.registrar(pacote, usuario, 'VALIDACAO', null, pacote.validacao.erros.join(' '));
-            throw new common_1.BadRequestException(pacote.validacao.erros.join(' '));
+            throw new common_1.BadRequestException({ message: 'Revise as pendências abaixo para gerar o edital.', erros: pacote.validacao.erros });
         }
         const selo = Date.now();
         const pasta = path.resolve(process.cwd(), 'storage', 'editais-gerados', editalId);
@@ -104,7 +106,7 @@ let GeracaoEditalService = class GeracaoEditalService {
     async renderPacotePdf(input, outputPath) {
         const fontes = (input.secoes || []).filter((secao) => secao.formato === 'PDF' && secao.arquivoBase);
         if (!fontes.length || fontes.length !== input.secoes.length)
-            return (0, documento_renderer_1.renderPdf)(input, outputPath);
+            return (0, edital_pdf_layout_1.renderPdfEdital)(input, outputPath);
         const destino = await pdf_lib_1.PDFDocument.create();
         for (const secao of fontes.sort((a, b) => a.ordem - b.ordem)) {
             const caminho = path.isAbsolute(secao.arquivoBase) ? secao.arquivoBase : path.resolve(process.cwd(), secao.arquivoBase);
@@ -142,9 +144,6 @@ let GeracaoEditalService = class GeracaoEditalService {
             if (variavel.valor)
                 valores[variavel.chave] = variavel.valor;
         }
-        const pendentes = edital.documento.variaveis
-            .filter((variavel) => variavel.statusRevisao === placeholders_1.STATUS_REVISAO.PENDENTE)
-            .map((variavel) => variavel.chave);
         const secoes = edital.documento.anexos.filter((anexo) => anexo.incluido).map((anexo) => ({
             titulo: anexo.titulo,
             tipo: anexo.tipo,
@@ -153,6 +152,9 @@ let GeracaoEditalService = class GeracaoEditalService {
             formato: anexo.templateVersao?.formato || anexo.template?.formato,
             arquivoBase: anexo.templateVersao?.arquivoBase || anexo.template?.arquivoBase,
             templateId: anexo.templateId,
+            codigoModelo: anexo.template?.codigoModelo,
+            finalidade: anexo.template?.finalidade,
+            perfilFornecedor: anexo.template?.perfilFornecedor,
             vigenciaFim: anexo.templateVersao?.vigenciaFim || anexo.template?.vigenciaFim,
         }));
         if (edital.documento.conteudoManual) {
@@ -160,6 +162,13 @@ let GeracaoEditalService = class GeracaoEditalService {
             if (principal)
                 principal.conteudo = edital.documento.conteudoManual;
         }
+        const usadas = new Set(secoes.flatMap((secao) => (0, placeholders_1.extrairPlaceholders)(secao.conteudo)));
+        const pendentes = edital.documento.variaveis
+            .filter((variavel) => !variavel.escopo && usadas.has(variavel.chave)
+            && !placeholders_1.CHAVES_ESPECIAIS.has(variavel.chave) && !(0, campos_produtor_1.campoDoProjeto)(variavel.chave)
+            && variavel.statusRevisao === placeholders_1.STATUS_REVISAO.PENDENTE
+            && Boolean(variavel.valor?.trim() || variavel.valorExtraido?.trim()))
+            .map((variavel) => variavel.chave);
         const validacao = (0, validacao_geracao_1.validarGeracao)({
             statusComposicao: edital.documento.statusComposicao,
             numero: edital.numero,
@@ -182,6 +191,11 @@ let GeracaoEditalService = class GeracaoEditalService {
             itens: edital.itens.map((item) => ({ produto: item.produtoOriginal, quantidade: item.quantidade?.toString(), unidade: item.unidade })),
             conteudos: secoes.map((secao) => secao.conteudo),
         });
+        const valoresRenderizacao = { ...valores };
+        for (const chave of usadas) {
+            if (!placeholders_1.CHAVES_ESPECIAIS.has(chave) && !valoresRenderizacao[chave]?.trim())
+                valoresRenderizacao[chave] = '________________';
+        }
         const input = {
             numero: edital.numero,
             ano: edital.ano,
@@ -189,8 +203,15 @@ let GeracaoEditalService = class GeracaoEditalService {
             versao: edital.documento.versaoAtual,
             usuario: edital.documento.updatedBy || edital.documento.createdBy || 'sistema',
             geradoEm: new Date().toLocaleString('pt-BR'),
-            valores,
+            valores: valoresRenderizacao,
             secoes,
+            produtos: edital.itens.map((item, index) => ({
+                numero: item.numeroItem ?? index + 1, produto: item.produtoOriginal, especificacao: item.especificacao || '',
+                quantidade: item.quantidade?.toString() || '', unidade: item.unidade || '',
+                precoUnitario: item.precoUnitario?.toString() || '',
+                total: item.quantidade != null && item.precoUnitario != null ? String(Number(item.quantidade) * Number(item.precoUnitario)) : '',
+            })),
+            escolasDetalhes: edital.escolasVinculadas.map(({ escola }) => ({ nome: escola.nome, endereco: escola.endereco, telefone: escola.telefone })),
             itens: [
                 { colunas: ['Item', 'Produto', 'Especificação', 'Quantidade', 'Unidade'] },
                 ...edital.itens.map((item) => ({

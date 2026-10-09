@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
   ParseFilePipeBuilder,
@@ -136,6 +137,20 @@ export class ImportacoesController {
     return this.service.editarEdital(id, dto);
   }
 
+  @Delete(':id')
+  @Roles('ADMIN', 'DRE')
+  @ApiOperation({ summary: 'Excluir logicamente a importação e o edital vinculado, preservando arquivos e histórico' })
+  excluir(@Param('id') id: string, @Req() req: { user: { sub: string } }) {
+    return this.service.excluirImportacao(id, req.user.sub);
+  }
+
+  @Delete(':id/itens/:itemId')
+  @Roles('ADMIN', 'DRE')
+  @ApiOperation({ summary: 'Excluir logicamente um item antes da confirmação da importação' })
+  excluirItem(@Param('id') id: string, @Param('itemId') itemId: string, @Req() req: { user: { sub: string } }) {
+    return this.service.excluirItem(id, itemId, req.user.sub);
+  }
+
   @Post(':id/processar')
   @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Processar um PDF salvo' })
@@ -155,6 +170,13 @@ export class ImportacoesController {
   @ApiOperation({ summary: 'Conferir a estrutura documental extraída do PDF' })
   estrutura(@Param('id') id: string) {
     return this.engenhariaReversa.obter(id);
+  }
+
+  @Post(':id/preparar-edital')
+  @Roles('ADMIN', 'DRE')
+  @ApiOperation({ summary: 'Carregar os dados importados para revisar um novo edital, sem criá-lo' })
+  prepararEdital(@Param('id') id: string) {
+    return this.engenhariaReversa.prepararEdital(id);
   }
 
   @Post(':id/estrutura')

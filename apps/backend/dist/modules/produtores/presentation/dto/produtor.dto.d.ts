@@ -1,4 +1,5 @@
 export declare class CreateProdutorDto {
+    dadosDocumentais?: Record<string, string>;
     nome: string;
     cpfCnpj?: string;
     municipioId: string;
@@ -7,6 +8,7 @@ export declare class CreateProdutorDto {
     active?: boolean;
 }
 export declare class UpdateProdutorDto {
+    dadosDocumentais?: Record<string, string>;
     nome?: string;
     cpfCnpj?: string;
     municipioId?: string;

@@ -14,6 +14,8 @@ const class_transformer_1 = require("class-transformer");
 const mapped_types_1 = require("@nestjs/mapped-types");
 const class_validator_1 = require("class-validator");
 class CreateTemplateDocumentoDto {
+    finalidade;
+    perfilFornecedor;
     tipo;
     numeroAnexo;
     titulo;
@@ -26,6 +28,16 @@ class CreateTemplateDocumentoDto {
     ativo;
 }
 exports.CreateTemplateDocumentoDto = CreateTemplateDocumentoDto;
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsIn)(['EDITAL', 'PROJETO_VENDA', 'PRODUCAO_PROPRIA', 'CONTROLE_LIMITE']),
+    __metadata("design:type", String)
+], CreateTemplateDocumentoDto.prototype, "finalidade", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsIn)(['', 'INDIVIDUAL', 'FORMAL', 'INFORMAL', 'EFR']),
+    __metadata("design:type", String)
+], CreateTemplateDocumentoDto.prototype, "perfilFornecedor", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
@@ -76,6 +88,8 @@ __decorate([
     __metadata("design:type", Boolean)
 ], CreateTemplateDocumentoDto.prototype, "ativo", void 0);
 class UpdateTemplateDocumentoDto {
+    finalidade;
+    perfilFornecedor;
     tipo;
     numeroAnexo;
     titulo;
@@ -88,6 +102,16 @@ class UpdateTemplateDocumentoDto {
     ativo;
 }
 exports.UpdateTemplateDocumentoDto = UpdateTemplateDocumentoDto;
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsIn)(['EDITAL', 'PROJETO_VENDA', 'PRODUCAO_PROPRIA', 'CONTROLE_LIMITE']),
+    __metadata("design:type", String)
+], UpdateTemplateDocumentoDto.prototype, "finalidade", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsIn)(['', 'INDIVIDUAL', 'FORMAL', 'INFORMAL', 'EFR']),
+    __metadata("design:type", String)
+], UpdateTemplateDocumentoDto.prototype, "perfilFornecedor", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)(),
@@ -215,6 +239,9 @@ __decorate([
     __metadata("design:type", String)
 ], VariavelComposicaoDto.prototype, "statusRevisao", void 0);
 class CreateComposicaoDto {
+    anexos;
+    importacaoId;
+    itens;
     numero;
     ano;
     titulo;
@@ -240,6 +267,25 @@ class CreateComposicaoDto {
     observacoes;
 }
 exports.CreateComposicaoDto = CreateComposicaoDto;
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsArray)(),
+    (0, class_validator_1.ValidateNested)({ each: true }),
+    (0, class_transformer_1.Type)(() => AnexoComposicaoDto),
+    __metadata("design:type", Array)
+], CreateComposicaoDto.prototype, "anexos", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateComposicaoDto.prototype, "importacaoId", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsArray)(),
+    (0, class_validator_1.ValidateNested)({ each: true }),
+    (0, class_transformer_1.Type)(() => ItemComposicaoDto),
+    __metadata("design:type", Array)
+], CreateComposicaoDto.prototype, "itens", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.Length)(1, 120),

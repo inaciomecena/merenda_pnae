@@ -1,4 +1,5 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
+import { CAMPOS_PRODUTOR } from '../../../composicao-editais/application/domain/campos-produtor';
 import { PrismaService } from '../../../../infrastructure/prisma/prisma.service';
 import { CreateProdutorDto, CreateProdutorProdutoDto, UpdateProdutorDto, UpdateProdutorProdutoDto } from '../../presentation/dto/produtor.dto';
 import { AuthenticatedUser, requireScope } from '../../../../common/auth/user-scope';
@@ -34,11 +35,13 @@ export class ProdutoresService {
   }
 
   async create(dto: CreateProdutorDto, user?: AuthenticatedUser) {
+    this.validarDadosDocumentais(dto.dadosDocumentais);
     const municipioId = user?.role === 'EXTENSIONISTA' ? requireScope(user, 'municipio') : dto.municipioId;
     return this.prisma.produtor.create({ data: { ...dto, municipioId, createdBy: 'system' } as any });
   }
 
   async update(id: string, dto: UpdateProdutorDto, user?: AuthenticatedUser) {
+    this.validarDadosDocumentais(dto.dadosDocumentais);
     await this.findOne(id, user);
     return this.prisma.produtor.update({ where: { id }, data: { ...dto, updatedBy: 'system' } });
   }
@@ -51,6 +54,18 @@ export class ProdutoresService {
   async findProdutos(produtorId: string) {
     await this.findOne(produtorId);
     return this.prisma.produtorProduto.findMany({ where: { produtorId, deletedAt: null }, orderBy: [{ produto: 'asc' }, { createdAt: 'desc' }] });
+  }
+
+  camposDocumentais() {
+    return CAMPOS_PRODUTOR.filter(([chave]) => /^(produtor|representante|grupo)\./.test(chave) && !['produtor.nome', 'produtor.cpfCnpj', 'produtor.endereco', 'produtor.telefone', 'produtor.municipio'].includes(chave)).map(([chave, rotulo]) => ({ chave, rotulo }));
+  }
+
+  private validarDadosDocumentais(dados?: Record<string, string>) {
+    if (!dados) return;
+    const chaves = new Set(this.camposDocumentais().map(c => c.chave));
+    for (const [chave, valor] of Object.entries(dados)) {
+      if (!chaves.has(chave) || typeof valor !== 'string' || valor.length > 20000 || valor.includes('{{')) throw new BadRequestException(`Campo documental inválido: ${chave}.`);
+    }
   }
 
   async createProduto(produtorId: string, dto: CreateProdutorProdutoDto) {

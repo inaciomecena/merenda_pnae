@@ -23,6 +23,7 @@ let ProdutoresController = class ProdutoresController {
     constructor(service) {
         this.service = service;
     }
+    camposDocumentais() { return this.service.camposDocumentais(); }
     findAll(query, req) {
         return this.service.findAll(query, req.user);
     }
@@ -52,6 +53,13 @@ let ProdutoresController = class ProdutoresController {
     }
 };
 exports.ProdutoresController = ProdutoresController;
+__decorate([
+    (0, common_1.Get)('campos-documentais'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], ProdutoresController.prototype, "camposDocumentais", null);
 __decorate([
     (0, common_1.Get)(),
     (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA'),

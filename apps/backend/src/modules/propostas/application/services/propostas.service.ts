@@ -5,18 +5,21 @@ import { CreatePropostaDto, UpdatePropostaDto, PreviewPropostaDto, TipoPropostaD
 import { DocumentGeneratorService } from './document-generator.service';
 import { PropostaPdfData } from './pdf-generator.service';
 import * as fs from 'fs';
+import { AuthenticatedUser, requireScope } from '../../../../common/auth/user-scope';
+import { PropostaDocumentosService } from './proposta-documentos.service';
 
 @Injectable()
 export class PropostasService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly docGenerator: DocumentGeneratorService,
+    private readonly documentos: PropostaDocumentosService,
   ) {}
 
-  async findAll(query: { page?: number; limit?: number; status?: string; editalId?: string; produtorId?: string }) {
+  async findAll(query: { page?: number; limit?: number; status?: string; editalId?: string; produtorId?: string }, user?: AuthenticatedUser) {
     const page = Number(query.page ?? 1);
     const limit = Number(query.limit ?? 20);
-    const where: any = { deletedAt: null };
+    const where: any = { deletedAt: null, ...this.escopo(user) };
     if (query.status) where.status = query.status;
     if (query.editalId) where.editalId = query.editalId;
     if (query.produtorId) where.produtorId = query.produtorId;
@@ -33,9 +36,9 @@ export class PropostasService {
     return { items, total, page, limit, totalPages: Math.ceil(total / limit) };
   }
 
-  async findOne(id: string) {
+  async findOne(id: string, user?: AuthenticatedUser) {
     const item = await this.prisma.proposta.findFirst({
-      where: { id, deletedAt: null },
+      where: { id, deletedAt: null, ...this.escopo(user) },
       include: {
         edital: { include: { municipio: true } },
         produtor: { include: { municipio: true } },
@@ -46,16 +49,21 @@ export class PropostasService {
     return item;
   }
 
-  async preview(dto: PreviewPropostaDto): Promise<PropostaPdfData> {
-    return this.docGenerator.preview(dto.editalId, dto.produtorId, dto.tipoDocumento);
+  async preview(dto: PreviewPropostaDto, user?: AuthenticatedUser): Promise<PropostaPdfData> {
+    if (user?.role === 'EXTENSIONISTA') {
+      const produtor = await this.prisma.produtor.findFirst({ where: { id: dto.produtorId, municipioId: requireScope(user, 'municipio'), deletedAt: null } });
+      if (!produtor) throw new NotFoundException('Produtor não encontrado no seu município.');
+    }
+    const preview = await this.docGenerator.preview(dto.editalId, dto.produtorId, dto.tipoDocumento);
+    return { ...preview, validadeDias: dto.validadeDias ?? preview.validadeDias, prazoEntrega: dto.prazoEntrega ?? preview.prazoEntrega, observacao: dto.observacao };
   }
 
-  async create(dto: CreatePropostaDto) {
-    const edital = await this.prisma.edital.findUnique({ where: { id: dto.editalId } });
+  async create(dto: CreatePropostaDto, user?: AuthenticatedUser) {
+    const edital = await this.prisma.edital.findFirst({ where: { id: dto.editalId, deletedAt: null } });
     if (!edital) throw new NotFoundException('Edital não encontrado');
 
     if (dto.produtorId) {
-      const produtor = await this.prisma.produtor.findUnique({ where: { id: dto.produtorId } });
+      const produtor = await this.prisma.produtor.findFirst({ where: { id: dto.produtorId, deletedAt: null, ...(user?.role === 'EXTENSIONISTA' ? { municipioId: requireScope(user, 'municipio') } : {}) } });
       if (!produtor) throw new NotFoundException('Produtor não encontrado');
     }
 
@@ -85,20 +93,24 @@ export class PropostasService {
       prazoEntrega: dto.prazoEntrega || 15,
       createdBy: 'system',
     };
-    if (dto.produtorId) createData.produtorId = dto.produtorId;
+    if (dto.produtorId) createData.produtor = { connect: { id: dto.produtorId } };
     if (dto.observacao) createData.observacao = dto.observacao;
-
-    const proposta = await this.prisma.proposta.create({ data: createData });
-
-    if (dto.itens && dto.itens.length > 0) {
-      await this.addItens(proposta.id, dto.itens);
+    if (dto.itens?.length) {
+      createData.itens = { create: dto.itens.map(item => ({
+        produto: item.produto, especificacao: item.especificacao, marca: item.marca,
+        quantidade: item.quantidade, unidade: item.unidade, precoUnitario: item.precoUnitario,
+        valorTotal: (item.quantidade || 0) * (item.precoUnitario || 0),
+        ...(item.matchId ? { match: { connect: { id: item.matchId } } } : {}), createdBy: user?.sub || 'system',
+      })) };
+      createData.valorTotal = dto.itens.reduce((sum, i) => sum + (i.quantidade || 0) * (i.precoUnitario || 0), 0);
     }
+    const proposta = await this.prisma.proposta.create({ data: createData });
 
     return this.findOne(proposta.id);
   }
 
-  async addItens(propostaId: string, itens: CreatePropostaDto['itens']) {
-    const proposta = await this.findOne(propostaId);
+  async addItens(propostaId: string, itens: CreatePropostaDto['itens'], user?: AuthenticatedUser) {
+    const proposta = await this.findOne(propostaId, user);
     if (proposta.status === StatusProposta.FINALIZADA) {
       throw new BadRequestException('Não é possível adicionar itens a proposta finalizada');
     }
@@ -110,7 +122,7 @@ export class PropostasService {
         produto: item.produto,
         createdBy: 'system',
       };
-      if (item.matchId) itemData.matchId = item.matchId;
+      if (item.matchId) itemData.match = { connect: { id: item.matchId } };
       if (item.especificacao) itemData.especificacao = item.especificacao;
       if (item.marca) itemData.marca = item.marca;
       if (item.quantidade) itemData.quantidade = item.quantidade;
@@ -122,16 +134,19 @@ export class PropostasService {
     }
 
     await this.recalculateTotal(propostaId);
+    await this.prisma.proposta.update({ where: { id: propostaId }, data: { status: 'RASCUNHO', arquivoPdfPath: null, arquivoDocxPath: null } });
     return this.findOne(propostaId);
   }
 
-  async update(id: string, dto: UpdatePropostaDto) {
-    const proposta = await this.findOne(id);
+  async update(id: string, dto: UpdatePropostaDto, user?: AuthenticatedUser) {
+    const proposta = await this.findOne(id, user);
     if (proposta.status === StatusProposta.FINALIZADA) {
       throw new BadRequestException('Não é possível alterar proposta finalizada');
     }
 
     const data: Prisma.PropostaUpdateInput = {
+      status: 'RASCUNHO', arquivoPdfPath: null, arquivoDocxPath: null,
+      ...(dto.produtorId !== undefined && dto.produtorId !== proposta.produtorId ? { documentosJson: null } : {}),
       ...(dto.produtorId !== undefined ? { produtor: dto.produtorId ? { connect: { id: dto.produtorId } } : { disconnect: true } } : {}),
       ...(dto.tipoDocumento !== undefined ? { tipoDocumento: dto.tipoDocumento as TipoProposta } : {}),
       ...(dto.validadeDias !== undefined ? { validadeDias: dto.validadeDias } : {}),
@@ -150,27 +165,27 @@ export class PropostasService {
     return this.findOne(id);
   }
 
-  async generate(propostaId: string) {
-    const proposta = await this.findOne(propostaId);
-    if (proposta.itens.length === 0) {
-      throw new BadRequestException('Proposta não possui itens para gerar documentos');
-    }
-    return this.docGenerator.generate(propostaId);
+  async generate(propostaId: string, user?: AuthenticatedUser) {
+    return this.documentos.gerar(propostaId, user);
   }
 
-  async download(propostaId: string, tipo: 'pdf' | 'docx') {
+  async download(propostaId: string, tipo: 'pdf' | 'docx', user?: AuthenticatedUser) {
+    await this.findOne(propostaId, user);
+    if (!['pdf', 'docx'].includes(tipo)) throw new BadRequestException('Formato inválido.');
     const filePath = await this.docGenerator.getFilePath(propostaId, tipo);
     return { filePath, filename: path.basename(filePath) };
   }
 
-  async finalizar(propostaId: string) {
-    const proposta = await this.findOne(propostaId);
+  async finalizar(propostaId: string, user?: AuthenticatedUser) {
+    const proposta = await this.findOne(propostaId, user);
     if (proposta.status === StatusProposta.FINALIZADA) {
       throw new BadRequestException('Proposta já está finalizada');
     }
     if (proposta.itens.length === 0) {
       throw new BadRequestException('Não é possível finalizar proposta sem itens');
     }
+
+    if (proposta.status !== 'GERADA' || !proposta.arquivoPdfPath || !proposta.arquivoDocxPath) throw new BadRequestException('Gere e confira os documentos antes de finalizar o projeto.');
 
     return this.prisma.proposta.update({
       where: { id: propostaId },
@@ -187,9 +202,9 @@ export class PropostasService {
     });
   }
 
-  async getProducersWithApprovedMatches(editalId: string) {
+  async getProducersWithApprovedMatches(editalId: string, user?: AuthenticatedUser) {
     const matches = await this.prisma.match.findMany({
-      where: { editalId, status: 'APROVADO', deletedAt: null },
+      where: { editalId, status: 'APROVADO', deletedAt: null, ...(user?.role === 'EXTENSIONISTA' ? { produtor: { municipioId: requireScope(user, 'municipio'), deletedAt: null } } : {}) },
       include: { produtor: { include: { municipio: true } } },
       distinct: ['produtorId'],
     });
@@ -208,6 +223,15 @@ export class PropostasService {
       where: { id: propostaId },
       data: { valorTotal: total, updatedBy: 'system' },
     });
+  }
+
+  private escopo(user?: AuthenticatedUser): Prisma.PropostaWhereInput {
+    if (user?.role === 'EXTENSIONISTA') return { produtor: { municipioId: requireScope(user, 'municipio') } };
+    if (user?.role === 'ESCOLA') {
+      const escolaId = requireScope(user, 'escola');
+      return { edital: { OR: [{ escolaId }, { escolasVinculadas: { some: { escolaId } } }] } };
+    }
+    return {};
   }
 }
 

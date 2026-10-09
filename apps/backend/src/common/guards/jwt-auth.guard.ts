@@ -1,4 +1,4 @@
-import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common';
+import { Injectable, CanActivate, ExecutionContext, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { Reflector } from '@nestjs/core';
 import { Request } from 'express';
@@ -23,17 +23,19 @@ export class JwtAuthGuard implements CanActivate {
 
     const req = context.switchToHttp().getRequest<Request>();
     const authHeader = req.headers.authorization;
-    if (!authHeader?.startsWith('Bearer ')) return false;
+    if (!authHeader?.startsWith('Bearer ')) throw new UnauthorizedException('Sessão ausente. Entre no sistema para continuar.');
 
     const token = authHeader.split(' ')[1];
+    let payload: { sub: string };
     try {
-      const payload = this.jwtService.verify(token, { secret: process.env.JWT_SECRET || 'dev-secret' });
-      const user = await this.prisma.user.findFirst({ where: { id: payload.sub, deletedAt: null, active: true } });
-      if (!user) return false;
-      req.user = { sub: user.id, email: user.email, role: user.role, escolaId: user.escolaId, municipioId: user.municipioId };
-      return true;
+      payload = this.jwtService.verify(token, { secret: process.env.JWT_SECRET || 'dev-secret' });
+      if (typeof payload.sub !== 'string') throw new Error('Sessão sem usuário');
     } catch {
-      return false;
+      throw new UnauthorizedException('Sua sessão expirou ou é inválida. Entre novamente no sistema.');
     }
+    const user = await this.prisma.user.findFirst({ where: { id: payload.sub, deletedAt: null, active: true } });
+    if (!user) throw new UnauthorizedException('Sessão inválida. Entre novamente no sistema.');
+    req.user = { sub: user.id, email: user.email, role: user.role, escolaId: user.escolaId, municipioId: user.municipioId };
+    return true;
   }
 }

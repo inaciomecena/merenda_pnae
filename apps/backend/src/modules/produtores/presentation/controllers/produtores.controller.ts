@@ -10,6 +10,10 @@ import { CreateProdutorDto, CreateProdutorProdutoDto, UpdateProdutorDto, UpdateP
 export class ProdutoresController {
   constructor(private readonly service: ProdutoresService) {}
 
+  @Get('campos-documentais')
+  @Roles('ADMIN', 'EXTENSIONISTA')
+  camposDocumentais() { return this.service.camposDocumentais(); }
+
   @Get()
   @Roles('ADMIN', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Listar produtores' })

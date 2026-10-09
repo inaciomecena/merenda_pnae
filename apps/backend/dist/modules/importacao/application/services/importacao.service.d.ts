@@ -18,10 +18,9 @@ export declare class ImportacaoService {
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            status: import(".prisma/client").$Enums.StatusImportacao;
-            objeto: string | null;
             editalId: string | null;
             origem: string;
+            status: import(".prisma/client").$Enums.StatusImportacao;
             arquivoNome: string;
             arquivoCaminho: string;
             tituloExtraido: string | null;
@@ -29,6 +28,7 @@ export declare class ImportacaoService {
             anoExtraido: number | null;
             municipioNome: string | null;
             escolaNome: string | null;
+            objeto: string | null;
             resumo: string | null;
             quantidadeItens: number;
             tempoProcessamentoMs: number | null;
@@ -54,10 +54,9 @@ export declare class ImportacaoService {
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        status: import(".prisma/client").$Enums.StatusImportacao;
-        objeto: string | null;
         editalId: string | null;
         origem: string;
+        status: import(".prisma/client").$Enums.StatusImportacao;
         arquivoNome: string;
         arquivoCaminho: string;
         tituloExtraido: string | null;
@@ -65,6 +64,7 @@ export declare class ImportacaoService {
         anoExtraido: number | null;
         municipioNome: string | null;
         escolaNome: string | null;
+        objeto: string | null;
         resumo: string | null;
         quantidadeItens: number;
         tempoProcessamentoMs: number | null;

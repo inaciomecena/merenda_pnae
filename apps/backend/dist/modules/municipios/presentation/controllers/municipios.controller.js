@@ -42,7 +42,7 @@ let MunicipiosController = class MunicipiosController {
 exports.MunicipiosController = MunicipiosController;
 __decorate([
     (0, common_1.Get)(),
-    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Listar municípios' }),
     (0, swagger_1.ApiQuery)({ name: 'page', required: false }),
     (0, swagger_1.ApiQuery)({ name: 'limit', required: false }),
@@ -55,7 +55,7 @@ __decorate([
 ], MunicipiosController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Get)(':id'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Buscar município por id' }),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),

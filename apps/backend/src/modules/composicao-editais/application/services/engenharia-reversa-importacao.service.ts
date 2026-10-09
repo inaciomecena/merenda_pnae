@@ -6,6 +6,7 @@ import { analisarTextoEdital, PaginaTexto } from '../domain/engenharia-reversa';
 import { STATUS_REVISAO } from '../domain/placeholders';
 import { ComposicaoEditalService } from './composicao-edital.service';
 import { TemplatesDocumentoService } from './templates-documento.service';
+import { prepararDadosEdital } from '../domain/preenchimento-importacao';
 
 @Injectable()
 export class EngenhariaReversaImportacaoService {
@@ -14,6 +15,23 @@ export class EngenhariaReversaImportacaoService {
     private readonly composicao: ComposicaoEditalService,
     private readonly templates: TemplatesDocumentoService,
   ) {}
+
+  async prepararEdital(importacaoId: string) {
+    const importacao = await this.prisma.importLog.findFirst({
+      where: { id: importacaoId, deletedAt: null },
+      include: {
+        estrutura: true,
+        edital: { include: { documento: true, escolasVinculadas: true, itens: { where: { deletedAt: null }, orderBy: { numeroItem: 'asc' } } } },
+      },
+    });
+    if (!importacao || importacao.edital?.deletedAt) throw new NotFoundException('Importação não encontrada.');
+    if (importacao.status === 'PROCESSANDO') throw new BadRequestException('Aguarde o processamento terminar para carregar os dados.');
+    if (!importacao.edital) throw new BadRequestException('Processe a importação antes de carregar os dados do edital.');
+    const estrutura = importacao.estrutura ? await this.obter(importacaoId) : await this.montar(importacaoId);
+    const dados = prepararDadosEdital(importacao, estrutura);
+    dados.documento.anexos = await this.templates.anexosPadrao();
+    return dados;
+  }
 
   async montar(importacaoId: string, opcoes?: { buffer?: Buffer; editalId?: string }) {
     const importacao = await this.prisma.importLog.findFirst({ where: { id: importacaoId, deletedAt: null } });
@@ -75,7 +93,7 @@ export class EngenhariaReversaImportacaoService {
       where: { importLogId: importacaoId },
       include: { campos: { orderBy: { chave: 'asc' } }, importLog: true },
     });
-    if (!estrutura) throw new NotFoundException('Estrutura da importação ainda não foi gerada.');
+    if (!estrutura || estrutura.importLog.deletedAt) throw new NotFoundException('Estrutura da importação não encontrada.');
     return {
       ...estrutura,
       secoes: this.parseJson(estrutura.secoesJson),
@@ -88,6 +106,7 @@ export class EngenhariaReversaImportacaoService {
   }
 
   async atualizarCampos(importacaoId: string, campos: Array<{ id?: string; chave: string; valor?: string; statusRevisao?: string }>) {
+    await this.obter(importacaoId);
     const estrutura = await this.prisma.importacaoEstrutura.findUnique({ where: { importLogId: importacaoId } });
     if (!estrutura) throw new NotFoundException('Estrutura da importação ainda não foi gerada.');
     for (const campo of campos) {

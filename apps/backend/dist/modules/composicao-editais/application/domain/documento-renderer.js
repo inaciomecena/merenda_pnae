@@ -83,9 +83,33 @@ function drawTable(doc, linhas) {
         doc.fontSize(10).font('Helvetica-Oblique').text('Tabela sem linhas.');
         return;
     }
+    const width = doc.page.width - doc.page.margins.left - doc.page.margins.right;
+    const count = Math.max(...linhas.map(l => l.colunas.length));
+    const widths = Array.from({ length: count }, (_v, i) => count >= 5 ? (i === 0 ? width * 0.4 : width * 0.6 / (count - 1)) : width / count);
+    const row = (linha, header) => {
+        doc.font(header ? 'Helvetica-Bold' : 'Helvetica').fontSize(8);
+        const height = Math.max(22, ...linha.colunas.map((text, i) => doc.heightOfString(text, { width: widths[i] - 8 }) + 10));
+        let x = doc.page.margins.left;
+        const y = doc.y;
+        linha.colunas.forEach((text, i) => {
+            if (header)
+                doc.rect(x, y, widths[i], height).fill('#edf2f7');
+            doc.rect(x, y, widths[i], height).strokeColor('#9aa5b1').stroke();
+            doc.fillColor('#000000').text(text, x + 4, y + 5, { width: widths[i] - 8 });
+            x += widths[i];
+        });
+        doc.x = doc.page.margins.left;
+        doc.y = y + height;
+    };
     linhas.forEach((linha, index) => {
-        doc.font(index === 0 ? 'Helvetica-Bold' : 'Helvetica').fontSize(9).text(linha.colunas.join('  |  '), { width: 480 });
-        doc.moveDown(0.15);
+        doc.fontSize(8);
+        const needed = Math.max(22, ...linha.colunas.map((text, i) => doc.heightOfString(text, { width: widths[i] - 8 }) + 10));
+        if (doc.y + needed > doc.page.height - doc.page.margins.bottom) {
+            doc.addPage();
+            if (index > 0)
+                row(linhas[0], true);
+        }
+        row(linha, index === 0);
     });
 }
 function renderPdf(input, outputPath) {
@@ -101,7 +125,9 @@ function renderPdf(input, outputPath) {
         doc.fontSize(13).font('Helvetica-Bold').text(`Chamada pública nº ${input.numero}/${input.ano}`, { align: 'center' });
         doc.fontSize(10).font('Helvetica').text(input.titulo, { align: 'center' });
         doc.moveDown(0.8);
-        for (const secao of secoes) {
+        for (const [index, secao] of secoes.entries()) {
+            if (input.separarSecoes && index > 0)
+                doc.addPage();
             doc.fontSize(12).font('Helvetica-Bold').fillColor('#01287C').text(secao.titulo);
             doc.moveDown(0.3);
             doc.fillColor('#000000');
@@ -127,9 +153,12 @@ function renderPdf(input, outputPath) {
         const range = doc.bufferedPageRange();
         for (let index = 0; index < range.count; index += 1) {
             doc.switchToPage(index);
+            const bottom = doc.page.margins.bottom;
+            doc.page.margins.bottom = 0;
             doc.fontSize(8).font('Helvetica').fillColor('#444444');
             doc.text(`PNAE · versão ${input.versao} · ${input.geradoEm} · ${input.usuario}`, 56, 28, { width: 480, align: 'right', lineBreak: false });
             doc.text(`Página ${index + 1} de ${range.count}`, 56, doc.page.height - 36, { width: 480, align: 'center', lineBreak: false });
+            doc.page.margins.bottom = bottom;
         }
         doc.end();
         stream.on('finish', () => resolve(outputPath));
@@ -161,7 +190,9 @@ async function renderDocx(input, outputPath) {
         new docx_1.Paragraph({ alignment: docx_1.AlignmentType.CENTER, children: [new docx_1.TextRun({ text: `Chamada pública nº ${input.numero}/${input.ano}`, bold: true, font: 'Arial', size: 28 })] }),
         new docx_1.Paragraph({ alignment: docx_1.AlignmentType.CENTER, spacing: { after: 240 }, children: [new docx_1.TextRun({ text: input.titulo, font: 'Arial', size: 20 })] }),
     ];
-    for (const secao of secoes) {
+    for (const [index, secao] of secoes.entries()) {
+        if (input.separarSecoes && index > 0)
+            children.push(new docx_1.Paragraph({ pageBreakBefore: true, children: [] }));
         children.push(paragrafo(secao.titulo, true));
         for (const parte of secao.partes) {
             if (parte.tipo === 'texto')

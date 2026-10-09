@@ -23,7 +23,7 @@ export default function EditaisPage() {
         {dre ? (
           <Stack direction="row" spacing={1}>
             <Button component={RouterLink} to="/editais/novo" variant="contained">Novo Edital</Button>
-            <Button component={RouterLink} to="/importacoes" variant="outlined">Criar a partir de importação</Button>
+            <Button component={RouterLink} to="/importacoes/importar?destino=edital" variant="outlined">Criar a partir de importação</Button>
           </Stack>
         ) : null}
       </Stack>

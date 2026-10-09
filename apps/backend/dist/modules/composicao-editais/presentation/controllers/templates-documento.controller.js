@@ -67,6 +67,9 @@ let TemplatesDocumentoController = class TemplatesDocumentoController {
     listar(query) {
         return this.service.listar(query);
     }
+    anexosPadrao() {
+        return this.service.anexosPadrao();
+    }
     buscar(id) {
         return this.service.buscar(id);
     }
@@ -88,7 +91,7 @@ let TemplatesDocumentoController = class TemplatesDocumentoController {
     async baixar(id, res) {
         const arquivo = await this.service.caminhoArquivo(id);
         res.setHeader('Content-Disposition', `inline; filename="${arquivo.nome}"`);
-        fs.createReadStream(arquivo.caminho).pipe(res);
+        res.sendFile(arquivo.caminho);
     }
     remover(id, req) {
         return this.service.remover(id, this.usuario(req));
@@ -114,6 +117,13 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], TemplatesDocumentoController.prototype, "listar", null);
+__decorate([
+    (0, common_1.Get)('anexos-padrao'),
+    (0, swagger_1.ApiOperation)({ summary: 'Listar anexos e declarações a vincular em um novo edital' }),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], TemplatesDocumentoController.prototype, "anexosPadrao", null);
 __decorate([
     (0, common_1.Get)(':id'),
     (0, swagger_1.ApiOperation)({ summary: 'Detalhar template e versões' }),

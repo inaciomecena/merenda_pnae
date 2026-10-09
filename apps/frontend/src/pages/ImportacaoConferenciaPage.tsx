@@ -1,7 +1,8 @@
 import { Alert, Box, Button, Card, CardContent, Chip, CircularProgress, Grid, InputAdornment, Stack, TextField, Typography } from '@mui/material';
-import { FactCheck, Save } from '@mui/icons-material';
+import { DeleteOutline, FactCheck, Save } from '@mui/icons-material';
 import { useEffect, useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { useAuth } from '../contexts/AuthContext';
 import { Link as RouterLink, useNavigate, useParams } from 'react-router-dom';
 import api from '../services/api';
 import type { ApiResponse, Importacao, ImportacaoItem } from '../types';
@@ -30,11 +31,13 @@ function formatCurrency(value?: number | null): string {
   return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 }
 
-function ItemCard({ item, index, onUpdate, onUpdateCurrency }: {
+function ItemCard({ item, index, onUpdate, onUpdateCurrency, onDelete, deleting }: {
   item: EditableItem;
   index: number;
   onUpdate: (id: string, field: keyof EditableItem, value: string) => void;
   onUpdateCurrency: (id: string, field: 'precoUnitario' | 'valorTotal', value: string) => void;
+  onDelete?: (id: string) => void;
+  deleting: boolean;
 }) {
   const needsReview = item.status === 'PENDENTE_CONFERENCIA';
 
@@ -67,6 +70,7 @@ function ItemCard({ item, index, onUpdate, onUpdateCurrency }: {
               ) : (
                 <Chip label="OK" size="small" color="success" variant="outlined" />
               )}
+              {onDelete ? <Button size="small" color="error" startIcon={<DeleteOutline />} disabled={deleting} onClick={() => onDelete(item.id)}>Excluir item</Button> : null}
             </Stack>
           </Grid>
 
@@ -176,6 +180,9 @@ export default function ImportacaoConferenciaPage() {
   const [items, setItems] = useState<EditableItem[]>([]);
   const [error, setError] = useState('');
   const [saving, setSaving] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+  const { user } = useAuth();
+  const queryClient = useQueryClient();
 
   const { data, isLoading, error: queryError } = useQuery({
     queryKey: ['importacao-conferencia', id],
@@ -189,6 +196,19 @@ export default function ImportacaoConferenciaPage() {
   useEffect(() => {
     setItems(data?.edital?.itens ?? []);
   }, [data]);
+
+  const excluirItem = async (itemId: string) => {
+    setDeleting(true);
+    setError('');
+    try {
+      await api.delete(`/importacoes/${id}/itens/${itemId}`);
+      setItems(current => current.filter(item => item.id !== itemId));
+      await queryClient.invalidateQueries({ queryKey: ['importacoes'] });
+      await queryClient.invalidateQueries({ queryKey: ['editais'] });
+    } catch (err: any) {
+      setError(err?.response?.data?.message || 'Não foi possível excluir o item.');
+    } finally { setDeleting(false); }
+  };
 
   const updateItem = (itemId: string, field: keyof EditableItem, value: string) => {
     setItems((current) =>
@@ -263,7 +283,7 @@ export default function ImportacaoConferenciaPage() {
           <Button component={RouterLink} to={`/importacoes/${id}/estrutura`} variant="outlined">
             Estrutura do documento
           </Button>
-          <Button variant="contained" startIcon={<Save />} onClick={() => void confirmar()} disabled={saving}>
+          <Button variant="contained" startIcon={<Save />} onClick={() => void confirmar()} disabled={saving || deleting || !items.length}>
             {saving ? 'Salvando...' : 'Confirmar Importação'}
           </Button>
         </Stack>
@@ -329,11 +349,13 @@ export default function ImportacaoConferenciaPage() {
                 index={index}
                 onUpdate={updateItem}
                 onUpdateCurrency={updateCurrencyItem}
+                deleting={deleting || saving}
+                onDelete={['ADMIN', 'DRE'].includes(user?.role || '') && !['CONFIRMADO', 'PROCESSANDO'].includes(data.status) ? itemId => void excluirItem(itemId) : undefined}
               />
             ))}
 
             <Stack direction="row" justifyContent="flex-end" sx={{ mt: 2 }}>
-              <Button variant="contained" startIcon={<Save />} onClick={() => void confirmar()} disabled={saving}>
+              <Button variant="contained" startIcon={<Save />} onClick={() => void confirmar()} disabled={saving || deleting || !items.length}>
                 {saving ? 'Salvando...' : 'Confirmar Importação'}
               </Button>
             </Stack>

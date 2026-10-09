@@ -39,7 +39,8 @@ function Loading() {
 }
 
 function ProtectedRoute({ children, allowedRoles }: { children: ReactElement; allowedRoles?: UserRole[] }) {
-  const { isAuthenticated, user } = useAuth();
+  const { isAuthenticated, user, loading } = useAuth();
+  if (loading) return <Loading />;
   if (!isAuthenticated) return <Navigate to="/login" replace />;
   if (allowedRoles && user && !allowedRoles.includes(user.role)) {
     return <Navigate to="/dashboard" replace />;
@@ -64,7 +65,7 @@ function AppRoutes() {
           <Route path="/editais/:id" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE', 'ESCOLA']}><EditalComposicaoPage /></ProtectedRoute>} />
           <Route path="/templates-anexos" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE']}><TemplatesAnexosPage /></ProtectedRoute>} />
           <Route path="/produtos-referencia" element={<ProtectedRoute allowedRoles={['ADMIN']}><ProdutosReferenciaPage /></ProtectedRoute>} />
-          <Route path="/produtores" element={<ProtectedRoute allowedRoles={['ADMIN']}><ProdutoresPage /></ProtectedRoute>} />
+          <Route path="/produtores" element={<ProtectedRoute allowedRoles={['ADMIN', 'EXTENSIONISTA']}><ProdutoresPage /></ProtectedRoute>} />
           <Route path="/balizamento" element={<ProtectedRoute allowedRoles={['ADMIN', 'EXTENSIONISTA']}><BalizamentoPage /></ProtectedRoute>} />
           <Route path="/propostas" element={<ProtectedRoute allowedRoles={['ADMIN', 'EXTENSIONISTA', 'ESCOLA']}><PropostasPage /></ProtectedRoute>} />
           <Route path="/importacoes" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE', 'ESCOLA']}><ImportacoesPage /></ProtectedRoute>} />
