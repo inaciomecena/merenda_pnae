@@ -32,6 +32,7 @@
     "class-transformer": "^0.5.0",
     "class-validator": "^0.14.0",
     "docx": "^9.1.0",
+    "mammoth": "^1.13.0",
     "multer": "^2.0.2",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.0",

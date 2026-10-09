@@ -59,6 +59,8 @@ const processar_importacao_dto_1 = require("../dto/processar-importacao.dto");
 const update_importacao_edital_dto_1 = require("../dto/update-importacao-edital.dto");
 const pdf_file_validator_1 = require("../validators/pdf-file.validator");
 const roles_decorator_1 = require("../../../../common/decorators/roles.decorator");
+const engenharia_reversa_importacao_service_1 = require("../../../composicao-editais/application/services/engenharia-reversa-importacao.service");
+const composicao_dto_1 = require("../../../composicao-editais/presentation/dto/composicao.dto");
 const uploadDir = path.resolve(process.cwd(), 'storage', 'importacoes');
 function ensureUploadDir() {
     if (!fs.existsSync(uploadDir)) {
@@ -76,8 +78,10 @@ function sanitizeFileName(fileName) {
 }
 let ImportacoesController = class ImportacoesController {
     service;
-    constructor(service) {
+    engenhariaReversa;
+    constructor(service, engenhariaReversa) {
         this.service = service;
+        this.engenhariaReversa = engenhariaReversa;
     }
     async uploadPdf(file, dto) {
         (0, pdf_file_validator_1.ensurePdfFile)(file);
@@ -115,11 +119,23 @@ let ImportacoesController = class ImportacoesController {
     confirmar(id, dto) {
         return this.service.confirmarImportacao(id, dto);
     }
+    estrutura(id) {
+        return this.engenhariaReversa.obter(id);
+    }
+    montarEstrutura(id) {
+        return this.engenhariaReversa.montar(id);
+    }
+    revisarCampos(id, dto) {
+        return this.engenhariaReversa.atualizarCampos(id, dto.campos);
+    }
+    aplicarEstrutura(id, dto, req) {
+        return this.engenhariaReversa.aplicar(id, dto.modo, req.user?.sub || 'system', dto.editalDestinoId);
+    }
 };
 exports.ImportacoesController = ImportacoesController;
 __decorate([
     (0, common_1.Post)('pdf'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA'),
     (0, swagger_1.ApiOperation)({ summary: 'Fazer upload manual de um edital em PDF' }),
     (0, swagger_1.ApiConsumes)('multipart/form-data'),
     (0, swagger_1.ApiBody)({ description: 'Arquivo PDF do edital', type: create_importacao_pdf_dto_1.CreateImportacaoPdfDto }),
@@ -143,7 +159,7 @@ __decorate([
 ], ImportacoesController.prototype, "uploadPdf", null);
 __decorate([
     (0, common_1.Get)(),
-    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Listar importações de editais' }),
     (0, swagger_1.ApiQuery)({ name: 'page', required: false }),
     (0, swagger_1.ApiQuery)({ name: 'limit', required: false }),
@@ -164,7 +180,7 @@ __decorate([
 ], ImportacoesController.prototype, "sincronizarDocs", null);
 __decorate([
     (0, common_1.Get)(':id'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Detalhar uma importação' }),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
@@ -173,7 +189,7 @@ __decorate([
 ], ImportacoesController.prototype, "findOne", null);
 __decorate([
     (0, common_1.Get)(':id/pdf'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Servir o arquivo PDF da importação' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Res)()),
@@ -183,7 +199,7 @@ __decorate([
 ], ImportacoesController.prototype, "servePdf", null);
 __decorate([
     (0, common_1.Patch)(':id'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA'),
     (0, swagger_1.ApiOperation)({ summary: 'Editar o edital vinculado à importação (bloqueado após confirmação)' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
@@ -193,7 +209,7 @@ __decorate([
 ], ImportacoesController.prototype, "editarEdital", null);
 __decorate([
     (0, common_1.Post)(':id/processar'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Processar um PDF salvo' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
@@ -203,7 +219,7 @@ __decorate([
 ], ImportacoesController.prototype, "processar", null);
 __decorate([
     (0, common_1.Post)(':id/confirmar'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Confirmar os itens conferidos da importação' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
@@ -211,9 +227,49 @@ __decorate([
     __metadata("design:paramtypes", [String, confirmar_importacao_dto_1.ConfirmarImportacaoDto]),
     __metadata("design:returntype", void 0)
 ], ImportacoesController.prototype, "confirmar", null);
+__decorate([
+    (0, common_1.Get)(':id/estrutura'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA'),
+    (0, swagger_1.ApiOperation)({ summary: 'Conferir a estrutura documental extraída do PDF' }),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], ImportacoesController.prototype, "estrutura", null);
+__decorate([
+    (0, common_1.Post)(':id/estrutura'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA'),
+    (0, swagger_1.ApiOperation)({ summary: 'Executar engenharia reversa sem alterar o PDF original nem os itens já importados' }),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], ImportacoesController.prototype, "montarEstrutura", null);
+__decorate([
+    (0, common_1.Patch)(':id/estrutura/campos'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA'),
+    (0, swagger_1.ApiOperation)({ summary: 'Revisar campos extraídos automaticamente' }),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, composicao_dto_1.AtualizarCamposImportacaoDto]),
+    __metadata("design:returntype", void 0)
+], ImportacoesController.prototype, "revisarCampos", null);
+__decorate([
+    (0, common_1.Post)(':id/estrutura/aplicar'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE'),
+    (0, swagger_1.ApiOperation)({ summary: 'Atualizar o edital importado ou criar um novo edital baseado nele' }),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __param(2, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, composicao_dto_1.AplicarEstruturaDto, Object]),
+    __metadata("design:returntype", void 0)
+], ImportacoesController.prototype, "aplicarEstrutura", null);
 exports.ImportacoesController = ImportacoesController = __decorate([
     (0, swagger_1.ApiTags)('importacoes'),
     (0, common_1.Controller)({ path: 'importacoes', version: '1' }),
-    __metadata("design:paramtypes", [importador_editais_service_1.ImportadorEditaisService])
+    __metadata("design:paramtypes", [importador_editais_service_1.ImportadorEditaisService,
+        engenharia_reversa_importacao_service_1.EngenhariaReversaImportacaoService])
 ], ImportacoesController);
 //# sourceMappingURL=importacoes.controller.js.map

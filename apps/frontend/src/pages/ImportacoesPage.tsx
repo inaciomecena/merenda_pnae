@@ -1,5 +1,5 @@
 import { Alert, Autocomplete, Box, Button, Card, CardContent, Chip, CircularProgress, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Grid, IconButton, List, ListItem, ListItemText, Stack, Table, TableBody, TableCell, TableHead, TableRow, TextField, Typography } from '@mui/material';
-import { Add, Autorenew, Close, Edit, FactCheck, LinkOff, Lock, PictureAsPdf, School, UploadFile, Visibility } from '@mui/icons-material';
+import { Add, Autorenew, Close, Edit, FactCheck, Lock, PictureAsPdf, School, UploadFile, Visibility } from '@mui/icons-material';
 import { useQuery } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
@@ -284,6 +284,7 @@ export default function ImportacoesPage() {
                           <Button component={RouterLink} to={`/importacoes/${item.id}`} size="small" startIcon={<Visibility />}>
                             Detalhes
                           </Button>
+                          <Button component={RouterLink} to={`/importacoes/${item.id}/estrutura`} size="small">Estrutura</Button>
                           <Button component={RouterLink} to={`/importacoes/${item.id}/conferencia`} size="small" startIcon={<FactCheck />} disabled={isConfirmado}>
                             Conferir
                           </Button>
@@ -399,7 +400,7 @@ export default function ImportacoesPage() {
                 <Autocomplete
                   options={municipios}
                   getOptionLabel={(opt) => opt.label || ''}
-                  isOptionEqualToValue={(opt, val) => opt.value === val}
+                  isOptionEqualToValue={(opt, val) => opt.value === val.value}
                   value={municipios.find((o) => o.value === editForm.municipioId) || null}
                   onChange={(_, val) => {
                     setEditForm({ ...editForm, municipioId: val?.value ?? '' });
@@ -433,7 +434,7 @@ export default function ImportacoesPage() {
               <Autocomplete
                 options={escolas}
                 getOptionLabel={(opt) => opt.label || ''}
-                isOptionEqualToValue={(opt, val) => opt.value === val}
+                isOptionEqualToValue={(opt, val) => opt.value === val.value}
                 value={selectedEscolaToAdd}
                 onChange={(_, val) => setSelectedEscolaToAdd(val)}
                 onInputChange={(_, value, reason) => {

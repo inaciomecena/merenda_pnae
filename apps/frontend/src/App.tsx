@@ -14,6 +14,9 @@ const MunicipiosPage = lazy(() => import('./pages/MunicipiosPageV2'));
 const EscolasPage = lazy(() => import('./pages/EscolasPageV2'));
 const EscolaDetalhesPage = lazy(() => import('./pages/EscolaDetalhesPage'));
 const EditaisPage = lazy(() => import('./pages/EditaisPage'));
+const EditalComposicaoPage = lazy(() => import('./pages/EditalComposicaoPage'));
+const TemplatesAnexosPage = lazy(() => import('./pages/TemplatesAnexosPage'));
+const EngenhariaReversaPage = lazy(() => import('./pages/EngenhariaReversaPage'));
 const ProdutosReferenciaPage = lazy(() => import('./pages/ProdutosReferenciaPage'));
 const ProdutoresPage = lazy(() => import('./pages/ProdutoresPageV2'));
 const BalizamentoPage = lazy(() => import('./pages/BalizamentoPageV2'));
@@ -57,15 +60,18 @@ function AppRoutes() {
           <Route path="/municipios" element={<ProtectedRoute allowedRoles={['ADMIN']}><MunicipiosPage /></ProtectedRoute>} />
           <Route path="/escolas" element={<ProtectedRoute allowedRoles={['ADMIN', 'ESCOLA']}><EscolasPage /></ProtectedRoute>} />
           <Route path="/escolas/:id" element={<ProtectedRoute allowedRoles={['ADMIN', 'ESCOLA']}><EscolaDetalhesPage /></ProtectedRoute>} />
-          <Route path="/editais" element={<ProtectedRoute allowedRoles={['ADMIN', 'ESCOLA']}><EditaisPage /></ProtectedRoute>} />
+          <Route path="/editais" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE', 'ESCOLA']}><EditaisPage /></ProtectedRoute>} />
+          <Route path="/editais/:id" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE', 'ESCOLA']}><EditalComposicaoPage /></ProtectedRoute>} />
+          <Route path="/templates-anexos" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE']}><TemplatesAnexosPage /></ProtectedRoute>} />
           <Route path="/produtos-referencia" element={<ProtectedRoute allowedRoles={['ADMIN']}><ProdutosReferenciaPage /></ProtectedRoute>} />
           <Route path="/produtores" element={<ProtectedRoute allowedRoles={['ADMIN']}><ProdutoresPage /></ProtectedRoute>} />
           <Route path="/balizamento" element={<ProtectedRoute allowedRoles={['ADMIN', 'EXTENSIONISTA']}><BalizamentoPage /></ProtectedRoute>} />
           <Route path="/propostas" element={<ProtectedRoute allowedRoles={['ADMIN', 'EXTENSIONISTA', 'ESCOLA']}><PropostasPage /></ProtectedRoute>} />
-          <Route path="/importacoes" element={<ProtectedRoute allowedRoles={['ADMIN', 'ESCOLA']}><ImportacoesPage /></ProtectedRoute>} />
-          <Route path="/importacoes/importar" element={<ProtectedRoute allowedRoles={['ADMIN', 'ESCOLA']}><ImportarEditalPage /></ProtectedRoute>} />
-          <Route path="/importacoes/:id" element={<ProtectedRoute allowedRoles={['ADMIN', 'ESCOLA']}><ImportacaoDetalhesPage /></ProtectedRoute>} />
-          <Route path="/importacoes/:id/conferencia" element={<ProtectedRoute allowedRoles={['ADMIN', 'ESCOLA']}><ImportacaoConferenciaPage /></ProtectedRoute>} />
+          <Route path="/importacoes" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE', 'ESCOLA']}><ImportacoesPage /></ProtectedRoute>} />
+          <Route path="/importacoes/importar" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE', 'ESCOLA']}><ImportarEditalPage /></ProtectedRoute>} />
+          <Route path="/importacoes/:id" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE', 'ESCOLA']}><ImportacaoDetalhesPage /></ProtectedRoute>} />
+          <Route path="/importacoes/:id/conferencia" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE', 'ESCOLA']}><ImportacaoConferenciaPage /></ProtectedRoute>} />
+          <Route path="/importacoes/:id/estrutura" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE', 'ESCOLA']}><EngenhariaReversaPage /></ProtectedRoute>} />
           <Route path="/usuarios" element={<ProtectedRoute allowedRoles={['ADMIN']}><UsuariosPage /></ProtectedRoute>} />
           <Route path="/auditoria" element={<ProtectedRoute allowedRoles={['ADMIN']}><LogsPage /></ProtectedRoute>} />
           <Route path="/configuracoes" element={<ProtectedRoute allowedRoles={['ADMIN']}><ConfigPage /></ProtectedRoute>} />

@@ -30,6 +30,7 @@ export declare class HomologacaoService {
         ultimosErros: {
             id: string;
             createdAt: Date;
+            ipAddress: string | null;
             userId: string | null;
             userName: string | null;
             userEmail: string | null;
@@ -40,7 +41,6 @@ export declare class HomologacaoService {
             entityLabel: string | null;
             oldValues: string | null;
             newValues: string | null;
-            ipAddress: string | null;
             userAgent: string | null;
             endpoint: string | null;
             method: string | null;
@@ -51,6 +51,7 @@ export declare class HomologacaoService {
         ultimosEventos: {
             id: string;
             createdAt: Date;
+            ipAddress: string | null;
             userId: string | null;
             userName: string | null;
             userEmail: string | null;
@@ -61,7 +62,6 @@ export declare class HomologacaoService {
             entityLabel: string | null;
             oldValues: string | null;
             newValues: string | null;
-            ipAddress: string | null;
             userAgent: string | null;
             endpoint: string | null;
             method: string | null;

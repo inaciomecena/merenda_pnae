@@ -36,6 +36,20 @@ async function main() {
   });
 
   await prisma.user.upsert({
+    where: { email: 'dre@seaf.gov.br' },
+    update: { name: 'Câmara de Negócios - DRE', role: 'DRE', active: true, updatedBy: 'system' },
+    create: {
+      name: 'Câmara de Negócios - DRE',
+      email: 'dre@seaf.gov.br',
+      passwordHash,
+      role: 'DRE',
+      active: true,
+      createdBy: 'system',
+      updatedBy: 'system',
+    },
+  });
+
+  await prisma.user.upsert({
     where: { email: 'escola@seaf.gov.br' },
     update: { name: 'João Silva - Escola', role: 'ESCOLA', active: true, updatedBy: 'system' },
     create: {

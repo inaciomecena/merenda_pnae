@@ -91,12 +91,12 @@ export declare class PropostasService {
             editalId: string;
             valorTotal: Prisma.Decimal | null;
             produtorId: string | null;
+            observacao: string | null;
             tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
             validadeDias: number;
             prazoEntrega: number;
             arquivoPdfPath: string | null;
             arquivoDocxPath: string | null;
-            observacao: string | null;
         })[];
         total: number;
         page: number;
@@ -194,12 +194,12 @@ export declare class PropostasService {
         editalId: string;
         valorTotal: Prisma.Decimal | null;
         produtorId: string | null;
+        observacao: string | null;
         tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
         validadeDias: number;
         prazoEntrega: number;
         arquivoPdfPath: string | null;
         arquivoDocxPath: string | null;
-        observacao: string | null;
     }>;
     preview(dto: PreviewPropostaDto): Promise<PropostaPdfData>;
     create(dto: CreatePropostaDto): Promise<{
@@ -293,12 +293,12 @@ export declare class PropostasService {
         editalId: string;
         valorTotal: Prisma.Decimal | null;
         produtorId: string | null;
+        observacao: string | null;
         tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
         validadeDias: number;
         prazoEntrega: number;
         arquivoPdfPath: string | null;
         arquivoDocxPath: string | null;
-        observacao: string | null;
     }>;
     addItens(propostaId: string, itens: CreatePropostaDto['itens']): Promise<{
         edital: {
@@ -391,12 +391,12 @@ export declare class PropostasService {
         editalId: string;
         valorTotal: Prisma.Decimal | null;
         produtorId: string | null;
+        observacao: string | null;
         tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
         validadeDias: number;
         prazoEntrega: number;
         arquivoPdfPath: string | null;
         arquivoDocxPath: string | null;
-        observacao: string | null;
     }>;
     update(id: string, dto: UpdatePropostaDto): Promise<{
         edital: {
@@ -489,12 +489,12 @@ export declare class PropostasService {
         editalId: string;
         valorTotal: Prisma.Decimal | null;
         produtorId: string | null;
+        observacao: string | null;
         tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
         validadeDias: number;
         prazoEntrega: number;
         arquivoPdfPath: string | null;
         arquivoDocxPath: string | null;
-        observacao: string | null;
     }>;
     generate(propostaId: string): Promise<{
         pdfPath: string;
@@ -581,12 +581,12 @@ export declare class PropostasService {
         editalId: string;
         valorTotal: Prisma.Decimal | null;
         produtorId: string | null;
+        observacao: string | null;
         tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
         validadeDias: number;
         prazoEntrega: number;
         arquivoPdfPath: string | null;
         arquivoDocxPath: string | null;
-        observacao: string | null;
     }>;
     remove(id: string): Promise<{
         id: string;
@@ -600,12 +600,12 @@ export declare class PropostasService {
         editalId: string;
         valorTotal: Prisma.Decimal | null;
         produtorId: string | null;
+        observacao: string | null;
         tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
         validadeDias: number;
         prazoEntrega: number;
         arquivoPdfPath: string | null;
         arquivoDocxPath: string | null;
-        observacao: string | null;
     }>;
     getProducersWithApprovedMatches(editalId: string): Promise<(({
         municipio: {

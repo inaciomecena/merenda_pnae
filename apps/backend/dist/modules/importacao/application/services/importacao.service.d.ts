@@ -21,9 +21,9 @@ export declare class ImportacaoService {
             status: import(".prisma/client").$Enums.StatusImportacao;
             objeto: string | null;
             editalId: string | null;
+            origem: string;
             arquivoNome: string;
             arquivoCaminho: string;
-            origem: string;
             tituloExtraido: string | null;
             numeroExtraido: string | null;
             anoExtraido: number | null;
@@ -57,9 +57,9 @@ export declare class ImportacaoService {
         status: import(".prisma/client").$Enums.StatusImportacao;
         objeto: string | null;
         editalId: string | null;
+        origem: string;
         arquivoNome: string;
         arquivoCaminho: string;
-        origem: string;
         tituloExtraido: string | null;
         numeroExtraido: string | null;
         anoExtraido: number | null;

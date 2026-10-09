@@ -11,7 +11,7 @@ export class EditaisController {
   constructor(private readonly service: EditaisService) {}
 
   @Get()
-  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
+  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Listar editais' })
   @ApiQuery({ name: 'page', required: false })
   @ApiQuery({ name: 'limit', required: false })
@@ -23,28 +23,28 @@ export class EditaisController {
   }
 
   @Get(':id')
-  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
+  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Buscar edital por id' })
   findOne(@Param('id') id: string, @Req() req: Request) {
     return this.service.findOne(id, req.user as any);
   }
 
   @Get(':id/itens')
-  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
+  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Listar itens de um edital' })
   findItens(@Param('id') id: string, @Req() req: Request) {
     return this.service.findItens(id, req.user as any);
   }
 
   @Post()
-  @Roles('ADMIN', 'ESCOLA')
+  @Roles('ADMIN', 'DRE', 'ESCOLA')
   @ApiOperation({ summary: 'Criar edital' })
   create(@Body() dto: CreateEditalDto, @Req() req: Request) {
     return this.service.create(dto, req.user as any);
   }
 
   @Patch(':id')
-  @Roles('ADMIN', 'ESCOLA')
+  @Roles('ADMIN', 'DRE', 'ESCOLA')
   @ApiOperation({ summary: 'Atualizar edital' })
   update(@Param('id') id: string, @Body() dto: UpdateEditalDto, @Req() req: Request) {
     return this.service.update(id, dto, req.user as any);

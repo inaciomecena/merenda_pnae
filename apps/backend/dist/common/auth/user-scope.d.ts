@@ -1,6 +1,6 @@
 export type AuthenticatedUser = {
     sub: string;
-    role: 'ADMIN' | 'ESCOLA' | 'EXTENSIONISTA';
+    role: 'ADMIN' | 'ESCOLA' | 'EXTENSIONISTA' | 'DRE';
     escolaId?: string | null;
     municipioId?: string | null;
 };

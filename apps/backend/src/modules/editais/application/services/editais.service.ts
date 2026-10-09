@@ -21,7 +21,17 @@ export class EditaisService {
     if (user?.role === 'EXTENSIONISTA') where.municipioId = requireScope(user, 'municipio');
 
     const [items, total] = await this.prisma.$transaction([
-      this.prisma.edital.findMany({ where, skip: (page - 1) * limit, take: limit, include: { escola: { include: { municipio: true } }, municipio: true }, orderBy: { createdAt: 'desc' } }),
+      this.prisma.edital.findMany({
+        where,
+        skip: (page - 1) * limit,
+        take: limit,
+        include: {
+          escola: { include: { municipio: true } },
+          municipio: true,
+          documento: { include: { geracoes: { orderBy: { createdAt: 'desc' }, take: 1 } } },
+        },
+        orderBy: { createdAt: 'desc' },
+      }),
       this.prisma.edital.count({ where }),
     ]);
 

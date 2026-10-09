@@ -61,6 +61,51 @@ export declare class EditaisController {
                 latitude: import("@prisma/client/runtime/library").Decimal | null;
                 longitude: import("@prisma/client/runtime/library").Decimal | null;
             }) | null;
+            documento: ({
+                geracoes: {
+                    id: string;
+                    createdAt: Date;
+                    status: import(".prisma/client").$Enums.StatusGeracaoDocumento;
+                    editalId: string;
+                    formato: string;
+                    documentoId: string;
+                    versaoNumero: number;
+                    usuarioId: string | null;
+                    usuarioNome: string | null;
+                    arquivoPath: string | null;
+                    mensagem: string | null;
+                    ipAddress: string | null;
+                    versaoId: string | null;
+                }[];
+            } & {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                createdBy: string | null;
+                updatedBy: string | null;
+                arquivoFonte: string | null;
+                editalId: string;
+                versaoAtual: number;
+                statusComposicao: import(".prisma/client").$Enums.StatusComposicaoEdital;
+                processoAdministrativo: string | null;
+                localRecebimento: string | null;
+                dataRecebimento: Date | null;
+                horarioRecebimento: string | null;
+                comissao: string | null;
+                legislacaoAplicavel: string | null;
+                prazoVigencia: string | null;
+                condicoesParticipacao: string | null;
+                criteriosHabilitacao: string | null;
+                regrasEntrega: string | null;
+                formaPagamento: string | null;
+                penalidades: string | null;
+                foro: string | null;
+                observacoesDocumento: string | null;
+                origem: string;
+                importacaoId: string | null;
+                conteudoManual: string | null;
+                publicadoEm: Date | null;
+            }) | null;
         } & {
             id: string;
             createdAt: Date;

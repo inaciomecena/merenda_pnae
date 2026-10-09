@@ -7,6 +7,7 @@ import {
   Patch,
   Post,
   Query,
+  Req,
   Res,
   UploadedFile,
   UseInterceptors,
@@ -24,6 +25,8 @@ import { ProcessarImportacaoDto } from '../dto/processar-importacao.dto';
 import { UpdateImportacaoEditalDto } from '../dto/update-importacao-edital.dto';
 import { ensurePdfFile } from '../validators/pdf-file.validator';
 import { Roles } from '../../../../common/decorators/roles.decorator';
+import { EngenhariaReversaImportacaoService } from '../../../composicao-editais/application/services/engenharia-reversa-importacao.service';
+import { AplicarEstruturaDto, AtualizarCamposImportacaoDto } from '../../../composicao-editais/presentation/dto/composicao.dto';
 
 const uploadDir = path.resolve(process.cwd(), 'storage', 'importacoes');
 
@@ -47,10 +50,13 @@ function sanitizeFileName(fileName: string): string {
 @ApiTags('importacoes')
 @Controller({ path: 'importacoes', version: '1' })
 export class ImportacoesController {
-  constructor(private readonly service: ImportadorEditaisService) {}
+  constructor(
+    private readonly service: ImportadorEditaisService,
+    private readonly engenhariaReversa: EngenhariaReversaImportacaoService,
+  ) {}
 
   @Post('pdf')
-  @Roles('ADMIN', 'ESCOLA')
+  @Roles('ADMIN', 'DRE', 'ESCOLA')
   @ApiOperation({ summary: 'Fazer upload manual de um edital em PDF' })
   @ApiConsumes('multipart/form-data')
   @ApiBody({ description: 'Arquivo PDF do edital', type: CreateImportacaoPdfDto })
@@ -80,7 +86,7 @@ export class ImportacoesController {
   }
 
   @Get()
-  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
+  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Listar importações de editais' })
   @ApiQuery({ name: 'page', required: false })
   @ApiQuery({ name: 'limit', required: false })
@@ -97,14 +103,14 @@ export class ImportacoesController {
   }
 
   @Get(':id')
-  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
+  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Detalhar uma importação' })
   findOne(@Param('id') id: string) {
     return this.service.buscarImportacao(id);
   }
 
   @Get(':id/pdf')
-  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
+  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Servir o arquivo PDF da importação' })
   async servePdf(@Param('id') id: string, @Res() res: Response) {
     const importacao = await this.service.buscarImportacao(id);
@@ -124,23 +130,51 @@ export class ImportacoesController {
   }
 
   @Patch(':id')
-  @Roles('ADMIN', 'ESCOLA')
+  @Roles('ADMIN', 'DRE', 'ESCOLA')
   @ApiOperation({ summary: 'Editar o edital vinculado à importação (bloqueado após confirmação)' })
   editarEdital(@Param('id') id: string, @Body() dto: UpdateImportacaoEditalDto) {
     return this.service.editarEdital(id, dto);
   }
 
   @Post(':id/processar')
-  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
+  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Processar um PDF salvo' })
   processar(@Param('id') id: string, @Body() dto: ProcessarImportacaoDto) {
     return this.service.processarImportacao(id, dto.reprocessar ?? false);
   }
 
   @Post(':id/confirmar')
-  @Roles('ADMIN', 'ESCOLA', 'EXTENSIONISTA')
+  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA')
   @ApiOperation({ summary: 'Confirmar os itens conferidos da importação' })
   confirmar(@Param('id') id: string, @Body() dto: ConfirmarImportacaoDto) {
     return this.service.confirmarImportacao(id, dto);
+  }
+
+  @Get(':id/estrutura')
+  @Roles('ADMIN', 'DRE', 'ESCOLA')
+  @ApiOperation({ summary: 'Conferir a estrutura documental extraída do PDF' })
+  estrutura(@Param('id') id: string) {
+    return this.engenhariaReversa.obter(id);
+  }
+
+  @Post(':id/estrutura')
+  @Roles('ADMIN', 'DRE', 'ESCOLA')
+  @ApiOperation({ summary: 'Executar engenharia reversa sem alterar o PDF original nem os itens já importados' })
+  montarEstrutura(@Param('id') id: string) {
+    return this.engenhariaReversa.montar(id);
+  }
+
+  @Patch(':id/estrutura/campos')
+  @Roles('ADMIN', 'DRE', 'ESCOLA')
+  @ApiOperation({ summary: 'Revisar campos extraídos automaticamente' })
+  revisarCampos(@Param('id') id: string, @Body() dto: AtualizarCamposImportacaoDto) {
+    return this.engenhariaReversa.atualizarCampos(id, dto.campos);
+  }
+
+  @Post(':id/estrutura/aplicar')
+  @Roles('ADMIN', 'DRE')
+  @ApiOperation({ summary: 'Atualizar o edital importado ou criar um novo edital baseado nele' })
+  aplicarEstrutura(@Param('id') id: string, @Body() dto: AplicarEstruturaDto, @Req() req: { user?: { sub?: string } }) {
+    return this.engenhariaReversa.aplicar(id, dto.modo, req.user?.sub || 'system', dto.editalDestinoId);
   }
 }

@@ -260,6 +260,9 @@ export default function ImportacaoConferenciaPage() {
           <Button component={RouterLink} to={`/importacoes/${id}`} variant="outlined">
             Voltar
           </Button>
+          <Button component={RouterLink} to={`/importacoes/${id}/estrutura`} variant="outlined">
+            Estrutura do documento
+          </Button>
           <Button variant="contained" startIcon={<Save />} onClick={() => void confirmar()} disabled={saving}>
             {saving ? 'Salvando...' : 'Confirmar Importação'}
           </Button>

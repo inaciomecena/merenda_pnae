@@ -82,12 +82,12 @@ export declare class PropostasController {
             editalId: string;
             valorTotal: import("@prisma/client/runtime/library").Decimal | null;
             produtorId: string | null;
+            observacao: string | null;
             tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
             validadeDias: number;
             prazoEntrega: number;
             arquivoPdfPath: string | null;
             arquivoDocxPath: string | null;
-            observacao: string | null;
         })[];
         total: number;
         page: number;
@@ -185,12 +185,12 @@ export declare class PropostasController {
         editalId: string;
         valorTotal: import("@prisma/client/runtime/library").Decimal | null;
         produtorId: string | null;
+        observacao: string | null;
         tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
         validadeDias: number;
         prazoEntrega: number;
         arquivoPdfPath: string | null;
         arquivoDocxPath: string | null;
-        observacao: string | null;
     }>;
     preview(dto: PreviewPropostaDto): Promise<import("../../application/services/pdf-generator.service").PropostaPdfData>;
     create(dto: CreatePropostaDto): Promise<{
@@ -284,12 +284,12 @@ export declare class PropostasController {
         editalId: string;
         valorTotal: import("@prisma/client/runtime/library").Decimal | null;
         produtorId: string | null;
+        observacao: string | null;
         tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
         validadeDias: number;
         prazoEntrega: number;
         arquivoPdfPath: string | null;
         arquivoDocxPath: string | null;
-        observacao: string | null;
     }>;
     update(id: string, dto: UpdatePropostaDto): Promise<{
         edital: {
@@ -382,12 +382,12 @@ export declare class PropostasController {
         editalId: string;
         valorTotal: import("@prisma/client/runtime/library").Decimal | null;
         produtorId: string | null;
+        observacao: string | null;
         tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
         validadeDias: number;
         prazoEntrega: number;
         arquivoPdfPath: string | null;
         arquivoDocxPath: string | null;
-        observacao: string | null;
     }>;
     addItens(id: string, body: {
         itens: CreatePropostaDto['itens'];
@@ -482,12 +482,12 @@ export declare class PropostasController {
         editalId: string;
         valorTotal: import("@prisma/client/runtime/library").Decimal | null;
         produtorId: string | null;
+        observacao: string | null;
         tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
         validadeDias: number;
         prazoEntrega: number;
         arquivoPdfPath: string | null;
         arquivoDocxPath: string | null;
-        observacao: string | null;
     }>;
     generate(id: string): Promise<{
         pdfPath: string;
@@ -571,12 +571,12 @@ export declare class PropostasController {
         editalId: string;
         valorTotal: import("@prisma/client/runtime/library").Decimal | null;
         produtorId: string | null;
+        observacao: string | null;
         tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
         validadeDias: number;
         prazoEntrega: number;
         arquivoPdfPath: string | null;
         arquivoDocxPath: string | null;
-        observacao: string | null;
     }>;
     remove(id: string): Promise<{
         id: string;
@@ -590,12 +590,12 @@ export declare class PropostasController {
         editalId: string;
         valorTotal: import("@prisma/client/runtime/library").Decimal | null;
         produtorId: string | null;
+        observacao: string | null;
         tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
         validadeDias: number;
         prazoEntrega: number;
         arquivoPdfPath: string | null;
         arquivoDocxPath: string | null;
-        observacao: string | null;
     }>;
     getProducers(editalId: string): Promise<(({
         municipio: {

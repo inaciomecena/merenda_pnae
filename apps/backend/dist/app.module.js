@@ -28,6 +28,7 @@ const config_module_1 = require("./modules/config/config.module");
 const homologacao_module_1 = require("./modules/homologacao/homologacao.module");
 const reports_module_1 = require("./modules/reports/reports.module");
 const users_module_1 = require("./modules/users/users.module");
+const composicao_editais_module_1 = require("./modules/composicao-editais/composicao-editais.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -55,6 +56,7 @@ exports.AppModule = AppModule = __decorate([
             homologacao_module_1.HomologacaoModule,
             reports_module_1.ReportsModule,
             users_module_1.UsersModule,
+            composicao_editais_module_1.ComposicaoEditaisModule,
         ],
         controllers: [health_controller_1.HealthController],
         providers: [

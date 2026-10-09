@@ -1,6 +1,6 @@
 import { Box, Breadcrumbs, Container, CssBaseline, Drawer, List, ListItemButton, ListItemIcon, ListItemText, Typography, Divider, Stack, Chip } from '@mui/material';
 import type { ReactNode } from 'react';
-import { Home, School, Map, Description, Inventory2, People, Gavel, Assignment, Group, UploadFile, History, Settings, Science, Assessment, Map as MapIcon } from '@mui/icons-material';
+import { Home, School, Map, Description, Inventory2, People, Gavel, Assignment, Group, UploadFile, History, Settings, Science, Assessment, Article, Map as MapIcon } from '@mui/icons-material';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import type { UserRole } from '../types';
@@ -8,17 +8,18 @@ import type { UserRole } from '../types';
 const drawerWidth = 240;
 
 const routes: { label: string; path: string; icon: ReactNode; roles: UserRole[] }[] = [
-  { label: 'Dashboard', path: '/dashboard', icon: <Home />, roles: ['ADMIN', 'ESCOLA', 'EXTENSIONISTA'] },
+  { label: 'Dashboard', path: '/dashboard', icon: <Home />, roles: ['ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'] },
   { label: 'Mapa MT', path: '/mapa', icon: <MapIcon />, roles: ['ADMIN', 'ESCOLA', 'EXTENSIONISTA'] },
   { label: 'Relatorios', path: '/relatorios', icon: <Assessment />, roles: ['ADMIN', 'ESCOLA', 'EXTENSIONISTA'] },
   { label: 'Municipios', path: '/municipios', icon: <Map />, roles: ['ADMIN'] },
   { label: 'Escolas', path: '/escolas', icon: <School />, roles: ['ADMIN', 'ESCOLA'] },
-  { label: 'Editais', path: '/editais', icon: <Description />, roles: ['ADMIN', 'ESCOLA'] },
+  { label: 'Editais', path: '/editais', icon: <Description />, roles: ['ADMIN', 'DRE', 'ESCOLA'] },
+  { label: 'Templates de Anexos', path: '/templates-anexos', icon: <Article />, roles: ['ADMIN', 'DRE'] },
   { label: 'Produtos de referencia', path: '/produtos-referencia', icon: <Inventory2 />, roles: ['ADMIN'] },
   { label: 'Produtores', path: '/produtores', icon: <People />, roles: ['ADMIN', 'EXTENSIONISTA'] },
   { label: 'Balizamento', path: '/balizamento', icon: <Gavel />, roles: ['ADMIN', 'EXTENSIONISTA'] },
   { label: 'Propostas', path: '/propostas', icon: <Assignment />, roles: ['ADMIN', 'ESCOLA', 'EXTENSIONISTA'] },
-  { label: 'Importacoes', path: '/importacoes', icon: <UploadFile />, roles: ['ADMIN', 'ESCOLA'] },
+  { label: 'Importacoes', path: '/importacoes', icon: <UploadFile />, roles: ['ADMIN', 'DRE', 'ESCOLA'] },
   { label: 'Usuarios', path: '/usuarios', icon: <Group />, roles: ['ADMIN'] },
   { label: 'Auditoria', path: '/auditoria', icon: <History />, roles: ['ADMIN'] },
   { label: 'Configuracoes', path: '/configuracoes', icon: <Settings />, roles: ['ADMIN'] },

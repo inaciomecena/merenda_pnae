@@ -50,14 +50,17 @@ const fs = __importStar(require("fs"));
 const path = __importStar(require("path"));
 const importacoes_repository_1 = require("../repositories/importacoes.repository");
 const parser_service_1 = require("./parser.service");
+const engenharia_reversa_importacao_service_1 = require("../../../composicao-editais/application/services/engenharia-reversa-importacao.service");
 const docsDir = path.resolve(process.cwd(), '..', '..', 'docs');
 let ImportadorEditaisService = ImportadorEditaisService_1 = class ImportadorEditaisService {
     repository;
     parserService;
+    engenhariaReversa;
     logger = new common_1.Logger(ImportadorEditaisService_1.name);
-    constructor(repository, parserService) {
+    constructor(repository, parserService, engenhariaReversa) {
         this.repository = repository;
         this.parserService = parserService;
+        this.engenhariaReversa = engenhariaReversa;
     }
     async onModuleInit() {
         try {
@@ -152,6 +155,13 @@ let ImportadorEditaisService = ImportadorEditaisService_1 = class ImportadorEdit
                 importadoAutomaticamente: true,
                 createdBy: 'importador-editais',
             })));
+            try {
+                await this.engenhariaReversa.montar(importacao.id, { buffer, editalId: edital.id });
+            }
+            catch (estruturaError) {
+                const estruturaMessage = estruturaError instanceof Error ? estruturaError.message : 'falha desconhecida';
+                this.logger.warn(`Engenharia reversa complementar não concluída para ${importacao.id}: ${estruturaMessage}`);
+            }
             await this.repository.updateImportLog(importacao.id, {
                 editalId: edital.id,
                 tituloExtraido: parsed.titulo,
@@ -277,6 +287,7 @@ exports.ImportadorEditaisService = ImportadorEditaisService;
 exports.ImportadorEditaisService = ImportadorEditaisService = ImportadorEditaisService_1 = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [importacoes_repository_1.ImportacoesRepository,
-        parser_service_1.ParserService])
+        parser_service_1.ParserService,
+        engenharia_reversa_importacao_service_1.EngenhariaReversaImportacaoService])
 ], ImportadorEditaisService);
 //# sourceMappingURL=importador-editais.service.js.map

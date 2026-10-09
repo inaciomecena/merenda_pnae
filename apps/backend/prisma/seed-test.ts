@@ -11,6 +11,7 @@ async function main() {
   const users = [
     { email: 'admin@seaf.gov.br', name: 'Administrador PNAE', role: 'ADMIN' as const },
     { email: 'extensionista@seaf.gov.br', name: 'Maria Oliveira - Extensionista', role: 'EXTENSIONISTA' as const },
+    { email: 'dre@seaf.gov.br', name: 'Camara de Negocios - DRE', role: 'DRE' as const },
     { email: 'escola@seaf.gov.br', name: 'Joao Silva - Escola', role: 'ESCOLA' as const },
   ];
 

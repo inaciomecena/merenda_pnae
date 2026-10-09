@@ -37,6 +37,7 @@ export declare class AuditService {
             metadata: any;
             id: string;
             createdAt: Date;
+            ipAddress: string | null;
             userId: string | null;
             userName: string | null;
             userEmail: string | null;
@@ -45,7 +46,6 @@ export declare class AuditService {
             entity: string;
             entityId: string | null;
             entityLabel: string | null;
-            ipAddress: string | null;
             userAgent: string | null;
             endpoint: string | null;
             method: string | null;

@@ -19,6 +19,7 @@ import { ConfigModule as SystemConfigModule } from './modules/config/config.modu
 import { HomologacaoModule } from './modules/homologacao/homologacao.module';
 import { ReportsModule } from './modules/reports/reports.module';
 import { UsersModule } from './modules/users/users.module';
+import { ComposicaoEditaisModule } from './modules/composicao-editais/composicao-editais.module';
 
 @Module({
   imports: [
@@ -43,6 +44,7 @@ import { UsersModule } from './modules/users/users.module';
     HomologacaoModule,
     ReportsModule,
     UsersModule,
+    ComposicaoEditaisModule,
   ],
   controllers: [HealthController],
   providers: [

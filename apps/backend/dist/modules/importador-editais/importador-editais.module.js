@@ -9,6 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ImportadorEditaisModule = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_module_1 = require("../../infrastructure/prisma/prisma.module");
+const composicao_editais_module_1 = require("../composicao-editais/composicao-editais.module");
 const importacoes_controller_1 = require("./presentation/controllers/importacoes.controller");
 const importacoes_repository_1 = require("./application/repositories/importacoes.repository");
 const importador_editais_service_1 = require("./application/services/importador-editais.service");
@@ -19,7 +20,7 @@ let ImportadorEditaisModule = class ImportadorEditaisModule {
 exports.ImportadorEditaisModule = ImportadorEditaisModule;
 exports.ImportadorEditaisModule = ImportadorEditaisModule = __decorate([
     (0, common_1.Module)({
-        imports: [prisma_module_1.PrismaModule],
+        imports: [prisma_module_1.PrismaModule, composicao_editais_module_1.ComposicaoEditaisModule],
         controllers: [importacoes_controller_1.ImportacoesController],
         providers: [
             importacoes_repository_1.ImportacoesRepository,

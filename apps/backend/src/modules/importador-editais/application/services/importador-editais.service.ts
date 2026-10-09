@@ -13,6 +13,7 @@ import { ParserService } from './parser.service';
 import { ConfirmarImportacaoDto } from '../../presentation/dto/confirmar-importacao.dto';
 import { CreateImportacaoPdfDto } from '../../presentation/dto/create-importacao-pdf.dto';
 import { UpdateImportacaoEditalDto } from '../../presentation/dto/update-importacao-edital.dto';
+import { EngenhariaReversaImportacaoService } from '../../../composicao-editais/application/services/engenharia-reversa-importacao.service';
 
 const docsDir = path.resolve(process.cwd(), '..', '..', 'docs');
 
@@ -23,6 +24,7 @@ export class ImportadorEditaisService implements OnModuleInit {
   constructor(
     private readonly repository: ImportacoesRepository,
     private readonly parserService: ParserService,
+    private readonly engenhariaReversa: EngenhariaReversaImportacaoService,
   ) {}
 
   async onModuleInit() {
@@ -135,6 +137,13 @@ export class ImportadorEditaisService implements OnModuleInit {
           createdBy: 'importador-editais',
         })),
       );
+
+      try {
+        await this.engenhariaReversa.montar(importacao.id, { buffer, editalId: edital.id });
+      } catch (estruturaError) {
+        const estruturaMessage = estruturaError instanceof Error ? estruturaError.message : 'falha desconhecida';
+        this.logger.warn(`Engenharia reversa complementar não concluída para ${importacao.id}: ${estruturaMessage}`);
+      }
 
       await this.repository.updateImportLog(importacao.id, {
         editalId: edital.id,

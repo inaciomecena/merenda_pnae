@@ -141,7 +141,7 @@ export function CrudPage<TItem extends { id: string }, TForm extends Record<stri
                   <Autocomplete
                     options={dynamicOptions[String(field.name)] || field.options || []}
                     getOptionLabel={(option) => option.label || ''}
-                    isOptionEqualToValue={(option, value) => option.value === value}
+                    isOptionEqualToValue={(option, value) => option.value === value.value}
                     value={
                       (dynamicOptions[String(field.name)] || field.options || []).find(
                         (opt) => opt.value === form[field.name]

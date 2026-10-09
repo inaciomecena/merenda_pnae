@@ -11,6 +11,7 @@ enum Role {
   ADMIN
   ESCOLA
   EXTENSIONISTA
+  DRE
 }
 
 enum StatusEdital {
@@ -165,6 +166,7 @@ model Edital {
   importLogs    ImportLog[]
   matches       Match[]
   escolasVinculadas EditalEscola[]
+  documento       EditalDocumento?
 
   @@map("pnae_editais")
 }
@@ -370,6 +372,7 @@ model ImportLog {
   deletedAt       DateTime?
   createdBy       String?
   updatedBy       String?
+  estrutura       ImportacaoEstrutura?
 
   @@map("pnae_import_logs")
 }
@@ -412,4 +415,262 @@ model SystemConfig {
   updatedAt     DateTime  @updatedAt
 
   @@map("pnae_system_config")
+}
+
+enum TipoDocumentoTemplate {
+  EDITAL_PRINCIPAL
+  ANEXO_I
+  ANEXO_II
+  ANEXO_III
+  ANEXO_IV
+  ANEXO_V
+  ANEXO_VI
+  ANEXO_VII
+}
+
+enum FormatoTemplate {
+  HTML
+  DOCX
+  TEXTO
+  PDF
+}
+
+enum StatusComposicaoEdital {
+  RASCUNHO
+  EM_CONFERENCIA
+  PRONTO_PARA_GERAR
+  GERADO
+  PUBLICADO
+  CANCELADO
+}
+
+enum StatusGeracaoDocumento {
+  SUCESSO
+  ERRO
+  VALIDACAO
+}
+
+model TemplateDocumento {
+  id              String                 @id @default(uuid())
+  tipo            TipoDocumentoTemplate
+  numeroAnexo     Int?
+  titulo          String
+  descricao       String?                @db.Text
+  ordem           Int                    @default(0)
+  ativo           Boolean                @default(true)
+  formato         FormatoTemplate        @default(HTML)
+  vigenciaInicio  DateTime?
+  vigenciaFim     DateTime?
+  arquivoBase     String?
+  conteudo        String?                @db.LongText
+  versaoAtual     Int                    @default(1)
+  createdAt       DateTime               @default(now())
+  updatedAt       DateTime               @updatedAt
+  deletedAt       DateTime?
+  createdBy       String?
+  updatedBy       String?
+  versoes         TemplateVersao[]
+  campos          CampoTemplate[]
+  anexosEdital    EditalAnexo[]
+
+  @@index([tipo, ativo])
+  @@map("pnae_templates_documento")
+}
+
+model TemplateVersao {
+  id             String                 @id @default(uuid())
+  templateId     String
+  template       TemplateDocumento      @relation(fields: [templateId], references: [id])
+  numero         Int
+  titulo         String
+  conteudo       String?                @db.LongText
+  formato        FormatoTemplate
+  arquivoBase    String?
+  vigenciaInicio DateTime?
+  vigenciaFim    DateTime?
+  observacao     String?                @db.Text
+  createdAt      DateTime               @default(now())
+  createdBy      String?
+  anexos         EditalAnexo[]
+
+  @@unique([templateId, numero])
+  @@map("pnae_template_versoes")
+}
+
+model CampoTemplate {
+  id           String                  @id @default(uuid())
+  templateId   String
+  template     TemplateDocumento       @relation(fields: [templateId], references: [id])
+  chave        String
+  rotulo       String
+  tipo         String                  @default("texto")
+  obrigatorio  Boolean                 @default(false)
+  valorPadrao  String?                 @db.Text
+  repetitivo   Boolean                 @default(false)
+  anexoTipo    TipoDocumentoTemplate?
+  ordem        Int                     @default(0)
+  createdAt    DateTime                @default(now())
+
+  @@index([templateId, chave])
+  @@map("pnae_campos_template")
+}
+
+model EditalDocumento {
+  id                      String                  @id @default(uuid())
+  editalId                String                  @unique
+  edital                  Edital                  @relation(fields: [editalId], references: [id])
+  statusComposicao        StatusComposicaoEdital  @default(RASCUNHO)
+  processoAdministrativo  String?
+  localRecebimento        String?                 @db.Text
+  dataRecebimento         DateTime?
+  horarioRecebimento      String?
+  comissao                String?                 @db.Text
+  legislacaoAplicavel     String?                 @db.Text
+  prazoVigencia           String?
+  condicoesParticipacao   String?                 @db.LongText
+  criteriosHabilitacao    String?                 @db.LongText
+  regrasEntrega           String?                 @db.Text
+  formaPagamento          String?                 @db.Text
+  penalidades             String?                 @db.Text
+  foro                    String?
+  observacoesDocumento    String?                 @db.Text
+  origem                  String                  @default("MANUAL")
+  arquivoFonte            String?
+  importacaoId            String?
+  conteudoManual          String?                 @db.LongText
+  versaoAtual             Int                     @default(1)
+  publicadoEm             DateTime?
+  createdAt               DateTime                @default(now())
+  updatedAt               DateTime                @updatedAt
+  createdBy               String?
+  updatedBy               String?
+  versoes                 EditalVersao[]
+  anexos                  EditalAnexo[]
+  variaveis               EditalVariavel[]
+  geracoes                HistoricoGeracaoDocumento[]
+
+  @@index([statusComposicao])
+  @@index([importacaoId])
+  @@map("pnae_edital_documentos")
+}
+
+model EditalVersao {
+  id               String                 @id @default(uuid())
+  documentoId      String
+  documento        EditalDocumento        @relation(fields: [documentoId], references: [id])
+  numero           Int
+  statusComposicao StatusComposicaoEdital
+  snapshot         String                 @db.LongText
+  motivo           String?                @db.Text
+  createdAt        DateTime               @default(now())
+  createdBy        String?
+  geracoes         HistoricoGeracaoDocumento[]
+
+  @@unique([documentoId, numero])
+  @@map("pnae_edital_versoes")
+}
+
+model EditalAnexo {
+  id               String                 @id @default(uuid())
+  documentoId      String
+  documento        EditalDocumento        @relation(fields: [documentoId], references: [id])
+  templateId       String?
+  template         TemplateDocumento?     @relation(fields: [templateId], references: [id])
+  templateVersaoId String?
+  templateVersao   TemplateVersao?        @relation(fields: [templateVersaoId], references: [id])
+  tipo             TipoDocumentoTemplate
+  ordem            Int                    @default(0)
+  titulo           String
+  incluido         Boolean                @default(true)
+  conteudoManual   String?                @db.LongText
+  createdAt        DateTime               @default(now())
+  updatedAt        DateTime               @updatedAt
+
+  @@index([documentoId, ordem])
+  @@map("pnae_edital_anexos")
+}
+
+model EditalVariavel {
+  id            String                  @id @default(uuid())
+  documentoId   String
+  documento     EditalDocumento         @relation(fields: [documentoId], references: [id])
+  chave         String
+  valor         String?                 @db.LongText
+  valorExtraido String?                 @db.LongText
+  origem        String                  @default("manual")
+  confianca     String?
+  paginaOrigem  Int?
+  obrigatorio   Boolean                 @default(false)
+  sensivel      Boolean                 @default(false)
+  escopo        String                  @default("")
+  statusRevisao String                  @default("confirmado")
+  createdAt     DateTime                @default(now())
+  updatedAt     DateTime                @updatedAt
+
+  @@unique([documentoId, chave, escopo])
+  @@map("pnae_edital_variaveis")
+}
+
+model ImportacaoEstrutura {
+  id              String            @id @default(uuid())
+  importLogId     String            @unique
+  importLog       ImportLog         @relation(fields: [importLogId], references: [id])
+  editalId        String?
+  textoExtraido   String?           @db.LongText
+  secoesJson      String?           @db.LongText
+  anexosJson      String?           @db.LongText
+  tabelasJson     String?           @db.LongText
+  assinaturasJson String?           @db.LongText
+  confiancaGeral  String?
+  parametrizado   String?           @db.LongText
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  campos          ImportacaoCampo[]
+
+  @@map("pnae_importacao_estruturas")
+}
+
+model ImportacaoCampo {
+  id             String              @id @default(uuid())
+  estruturaId    String
+  estrutura      ImportacaoEstrutura @relation(fields: [estruturaId], references: [id])
+  chave          String
+  rotulo         String
+  valor          String?             @db.Text
+  valorExtraido  String?             @db.Text
+  trecho         String?             @db.Text
+  origem         String              @default("extraido_automaticamente")
+  confianca      String?
+  paginaOrigem   Int?
+  secao          String?
+  editavel       Boolean             @default(true)
+  sensivel       Boolean             @default(false)
+  statusRevisao  String              @default("pendente_revisao")
+  createdAt      DateTime            @default(now())
+  updatedAt      DateTime            @updatedAt
+
+  @@index([estruturaId, chave])
+  @@map("pnae_importacao_campos")
+}
+
+model HistoricoGeracaoDocumento {
+  id            String                 @id @default(uuid())
+  documentoId   String
+  documento     EditalDocumento        @relation(fields: [documentoId], references: [id])
+  editalId      String
+  versaoId      String?
+  versao        EditalVersao?          @relation(fields: [versaoId], references: [id])
+  versaoNumero  Int
+  usuarioId     String?
+  usuarioNome   String?
+  formato       String
+  arquivoPath   String?
+  status        StatusGeracaoDocumento
+  mensagem      String?                @db.Text
+  ipAddress     String?
+  createdAt     DateTime               @default(now())
+
+  @@index([editalId, createdAt])
+  @@index([documentoId])
+  @@map("pnae_historico_geracao_documento")
 }
