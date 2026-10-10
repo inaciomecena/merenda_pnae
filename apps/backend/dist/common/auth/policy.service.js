@@ -116,7 +116,7 @@ let PolicyService = class PolicyService {
             });
             return vinculos.map(v => v.produtorId).filter((id) => Boolean(id));
         }
-        if (user.role === 'EXTENSIONISTA') {
+        if (user.role === 'EXTENSIONISTA' || user.role === 'REPRESENTANTE') {
             const representacoes = await this.prisma.representacaoFornecedor.findMany({
                 where: {
                     userId: user.sub,
@@ -171,7 +171,7 @@ let PolicyService = class PolicyService {
             await this.requireProdutorAccess(user, produtorId);
             return;
         }
-        if (user.role !== 'EXTENSIONISTA')
+        if (user.role !== 'EXTENSIONISTA' && user.role !== 'REPRESENTANTE')
             throw new common_1.ForbiddenException('Ação não autorizada');
         const now = new Date();
         const rows = await this.prisma.representacaoFornecedor.findMany({ where: {
@@ -185,7 +185,7 @@ let PolicyService = class PolicyService {
     }
     async getAuthorizedProdutorIdsForAction(user, action) {
         const ids = await this.getAuthorizedProdutorIds(user);
-        if (user.role !== 'EXTENSIONISTA')
+        if (user.role !== 'EXTENSIONISTA' && user.role !== 'REPRESENTANTE')
             return ids;
         const allowed = [];
         for (const id of ids) {

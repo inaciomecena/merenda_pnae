@@ -77,7 +77,7 @@ let DashboardController = class DashboardController {
 exports.DashboardController = DashboardController;
 __decorate([
     (0, common_1.Get)(),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR'),
     (0, swagger_1.ApiOperation)({ summary: 'Dashboard principal com KPIs e graficos' }),
     (0, swagger_1.ApiQuery)({ name: 'ano', required: false }),
     (0, swagger_1.ApiQuery)({ name: 'municipioId', required: false }),
@@ -90,7 +90,7 @@ __decorate([
 ], DashboardController.prototype, "getDashboard", null);
 __decorate([
     (0, common_1.Get)('kpis'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR'),
     (0, swagger_1.ApiOperation)({ summary: 'Indicadores KPI do sistema' }),
     (0, swagger_1.ApiQuery)({ name: 'ano', required: false }),
     (0, swagger_1.ApiQuery)({ name: 'municipioId', required: false }),
@@ -103,7 +103,7 @@ __decorate([
 ], DashboardController.prototype, "getKPIs", null);
 __decorate([
     (0, common_1.Get)('graficos'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR'),
     (0, swagger_1.ApiOperation)({ summary: 'Dados para graficos do dashboard' }),
     (0, swagger_1.ApiQuery)({ name: 'ano', required: false }),
     (0, swagger_1.ApiQuery)({ name: 'municipioId', required: false }),
@@ -116,7 +116,7 @@ __decorate([
 ], DashboardController.prototype, "getGraficos", null);
 __decorate([
     (0, common_1.Get)('ranking/:tipo'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR'),
     (0, swagger_1.ApiOperation)({ summary: 'Rankings do sistema' }),
     (0, swagger_1.ApiQuery)({ name: 'limit', required: false }),
     (0, swagger_1.ApiQuery)({ name: 'municipioId', required: false }),
@@ -130,7 +130,7 @@ __decorate([
 ], DashboardController.prototype, "getRanking", null);
 __decorate([
     (0, common_1.Get)('mapa'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR'),
     (0, swagger_1.ApiOperation)({ summary: 'Dados para mapa do Mato Grosso' }),
     __param(0, (0, common_1.Req)()),
     __metadata("design:type", Function),
@@ -139,7 +139,7 @@ __decorate([
 ], DashboardController.prototype, "getMapaDados", null);
 __decorate([
     (0, common_1.Get)('produtos'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR'),
     (0, swagger_1.ApiOperation)({ summary: 'Produtos mais solicitados' }),
     (0, swagger_1.ApiQuery)({ name: 'limit', required: false }),
     __param(0, (0, common_1.Query)('limit')),
@@ -150,7 +150,7 @@ __decorate([
 ], DashboardController.prototype, "getProdutos", null);
 __decorate([
     (0, common_1.Get)('municipios'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR'),
     (0, swagger_1.ApiOperation)({ summary: 'Ranking de municipios' }),
     (0, swagger_1.ApiQuery)({ name: 'limit', required: false }),
     __param(0, (0, common_1.Query)('limit')),
@@ -161,7 +161,7 @@ __decorate([
 ], DashboardController.prototype, "getMunicipios", null);
 __decorate([
     (0, common_1.Get)('escolas'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR'),
     (0, swagger_1.ApiOperation)({ summary: 'Ranking de escolas' }),
     (0, swagger_1.ApiQuery)({ name: 'limit', required: false }),
     __param(0, (0, common_1.Query)('limit')),
@@ -172,7 +172,7 @@ __decorate([
 ], DashboardController.prototype, "getEscolas", null);
 __decorate([
     (0, common_1.Get)('produtores'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR'),
     (0, swagger_1.ApiOperation)({ summary: 'Ranking de produtores' }),
     (0, swagger_1.ApiQuery)({ name: 'limit', required: false }),
     __param(0, (0, common_1.Query)('limit')),
@@ -183,7 +183,7 @@ __decorate([
 ], DashboardController.prototype, "getProdutores", null);
 __decorate([
     (0, common_1.Get)('exportar/:tipo'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR'),
     (0, swagger_1.ApiOperation)({ summary: 'Exportar dados do dashboard' }),
     __param(0, (0, common_1.Param)('tipo')),
     __param(1, (0, common_1.Query)('ano')),

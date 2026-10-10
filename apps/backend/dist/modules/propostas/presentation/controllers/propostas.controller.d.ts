@@ -88,13 +88,13 @@ export declare class PropostasController {
                 updatedBy: string | null;
                 produto: string;
                 unidade: string | null;
+                valorTotal: import("@prisma/client/runtime/library").Decimal | null;
+                propostaId: string;
+                matchId: string | null;
                 especificacao: string | null;
+                marca: string | null;
                 quantidade: import("@prisma/client/runtime/library").Decimal | null;
                 precoUnitario: import("@prisma/client/runtime/library").Decimal | null;
-                valorTotal: import("@prisma/client/runtime/library").Decimal | null;
-                matchId: string | null;
-                propostaId: string;
-                marca: string | null;
             }[];
             edital: {
                 id: string;
@@ -104,16 +104,16 @@ export declare class PropostasController {
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                numero: string;
-                ano: number;
                 titulo: string;
                 descricao: string | null;
-                objeto: string | null;
+                numero: string;
                 status: import(".prisma/client").$Enums.StatusEdital;
+                ano: number;
+                objeto: string | null;
+                escolaId: string | null;
                 arquivoFonte: string | null;
                 observacoes: string | null;
                 dataPublicacao: Date | null;
-                escolaId: string | null;
             };
         } & {
             id: string;
@@ -124,15 +124,15 @@ export declare class PropostasController {
             updatedBy: string | null;
             produtorId: string | null;
             numero: string | null;
-            status: import(".prisma/client").$Enums.StatusProposta;
             editalId: string;
-            valorTotal: import("@prisma/client/runtime/library").Decimal | null;
-            observacao: string | null;
             tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
+            status: import(".prisma/client").$Enums.StatusProposta;
             validadeDias: number;
             prazoEntrega: number;
+            valorTotal: import("@prisma/client/runtime/library").Decimal | null;
             arquivoPdfPath: string | null;
             arquivoDocxPath: string | null;
+            observacao: string | null;
             documentosJson: string | null;
         })[];
         total: number;
@@ -179,13 +179,13 @@ export declare class PropostasController {
             updatedBy: string | null;
             produto: string;
             unidade: string | null;
+            valorTotal: import("@prisma/client/runtime/library").Decimal | null;
+            propostaId: string;
+            matchId: string | null;
             especificacao: string | null;
+            marca: string | null;
             quantidade: import("@prisma/client/runtime/library").Decimal | null;
             precoUnitario: import("@prisma/client/runtime/library").Decimal | null;
-            valorTotal: import("@prisma/client/runtime/library").Decimal | null;
-            matchId: string | null;
-            propostaId: string;
-            marca: string | null;
         }[];
         edital: {
             municipio: {
@@ -209,16 +209,16 @@ export declare class PropostasController {
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            numero: string;
-            ano: number;
             titulo: string;
             descricao: string | null;
-            objeto: string | null;
+            numero: string;
             status: import(".prisma/client").$Enums.StatusEdital;
+            ano: number;
+            objeto: string | null;
+            escolaId: string | null;
             arquivoFonte: string | null;
             observacoes: string | null;
             dataPublicacao: Date | null;
-            escolaId: string | null;
         };
     } & {
         id: string;
@@ -229,15 +229,15 @@ export declare class PropostasController {
         updatedBy: string | null;
         produtorId: string | null;
         numero: string | null;
-        status: import(".prisma/client").$Enums.StatusProposta;
         editalId: string;
-        valorTotal: import("@prisma/client/runtime/library").Decimal | null;
-        observacao: string | null;
         tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
+        status: import(".prisma/client").$Enums.StatusProposta;
         validadeDias: number;
         prazoEntrega: number;
+        valorTotal: import("@prisma/client/runtime/library").Decimal | null;
         arquivoPdfPath: string | null;
         arquivoDocxPath: string | null;
+        observacao: string | null;
         documentosJson: string | null;
     }>;
     preview(dto: PreviewPropostaDto, req: Request): Promise<import("../../application/services/pdf-generator.service").PropostaPdfData>;
@@ -280,13 +280,13 @@ export declare class PropostasController {
             updatedBy: string | null;
             produto: string;
             unidade: string | null;
+            valorTotal: import("@prisma/client/runtime/library").Decimal | null;
+            propostaId: string;
+            matchId: string | null;
             especificacao: string | null;
+            marca: string | null;
             quantidade: import("@prisma/client/runtime/library").Decimal | null;
             precoUnitario: import("@prisma/client/runtime/library").Decimal | null;
-            valorTotal: import("@prisma/client/runtime/library").Decimal | null;
-            matchId: string | null;
-            propostaId: string;
-            marca: string | null;
         }[];
         edital: {
             municipio: {
@@ -310,16 +310,16 @@ export declare class PropostasController {
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            numero: string;
-            ano: number;
             titulo: string;
             descricao: string | null;
-            objeto: string | null;
+            numero: string;
             status: import(".prisma/client").$Enums.StatusEdital;
+            ano: number;
+            objeto: string | null;
+            escolaId: string | null;
             arquivoFonte: string | null;
             observacoes: string | null;
             dataPublicacao: Date | null;
-            escolaId: string | null;
         };
     } & {
         id: string;
@@ -330,15 +330,15 @@ export declare class PropostasController {
         updatedBy: string | null;
         produtorId: string | null;
         numero: string | null;
-        status: import(".prisma/client").$Enums.StatusProposta;
         editalId: string;
-        valorTotal: import("@prisma/client/runtime/library").Decimal | null;
-        observacao: string | null;
         tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
+        status: import(".prisma/client").$Enums.StatusProposta;
         validadeDias: number;
         prazoEntrega: number;
+        valorTotal: import("@prisma/client/runtime/library").Decimal | null;
         arquivoPdfPath: string | null;
         arquivoDocxPath: string | null;
+        observacao: string | null;
         documentosJson: string | null;
     }>;
     update(id: string, dto: UpdatePropostaDto, req: Request): Promise<{
@@ -380,13 +380,13 @@ export declare class PropostasController {
             updatedBy: string | null;
             produto: string;
             unidade: string | null;
+            valorTotal: import("@prisma/client/runtime/library").Decimal | null;
+            propostaId: string;
+            matchId: string | null;
             especificacao: string | null;
+            marca: string | null;
             quantidade: import("@prisma/client/runtime/library").Decimal | null;
             precoUnitario: import("@prisma/client/runtime/library").Decimal | null;
-            valorTotal: import("@prisma/client/runtime/library").Decimal | null;
-            matchId: string | null;
-            propostaId: string;
-            marca: string | null;
         }[];
         edital: {
             municipio: {
@@ -410,16 +410,16 @@ export declare class PropostasController {
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            numero: string;
-            ano: number;
             titulo: string;
             descricao: string | null;
-            objeto: string | null;
+            numero: string;
             status: import(".prisma/client").$Enums.StatusEdital;
+            ano: number;
+            objeto: string | null;
+            escolaId: string | null;
             arquivoFonte: string | null;
             observacoes: string | null;
             dataPublicacao: Date | null;
-            escolaId: string | null;
         };
     } & {
         id: string;
@@ -430,15 +430,15 @@ export declare class PropostasController {
         updatedBy: string | null;
         produtorId: string | null;
         numero: string | null;
-        status: import(".prisma/client").$Enums.StatusProposta;
         editalId: string;
-        valorTotal: import("@prisma/client/runtime/library").Decimal | null;
-        observacao: string | null;
         tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
+        status: import(".prisma/client").$Enums.StatusProposta;
         validadeDias: number;
         prazoEntrega: number;
+        valorTotal: import("@prisma/client/runtime/library").Decimal | null;
         arquivoPdfPath: string | null;
         arquivoDocxPath: string | null;
+        observacao: string | null;
         documentosJson: string | null;
     }>;
     addItens(id: string, body: {
@@ -482,13 +482,13 @@ export declare class PropostasController {
             updatedBy: string | null;
             produto: string;
             unidade: string | null;
+            valorTotal: import("@prisma/client/runtime/library").Decimal | null;
+            propostaId: string;
+            matchId: string | null;
             especificacao: string | null;
+            marca: string | null;
             quantidade: import("@prisma/client/runtime/library").Decimal | null;
             precoUnitario: import("@prisma/client/runtime/library").Decimal | null;
-            valorTotal: import("@prisma/client/runtime/library").Decimal | null;
-            matchId: string | null;
-            propostaId: string;
-            marca: string | null;
         }[];
         edital: {
             municipio: {
@@ -512,16 +512,16 @@ export declare class PropostasController {
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            numero: string;
-            ano: number;
             titulo: string;
             descricao: string | null;
-            objeto: string | null;
+            numero: string;
             status: import(".prisma/client").$Enums.StatusEdital;
+            ano: number;
+            objeto: string | null;
+            escolaId: string | null;
             arquivoFonte: string | null;
             observacoes: string | null;
             dataPublicacao: Date | null;
-            escolaId: string | null;
         };
     } & {
         id: string;
@@ -532,15 +532,15 @@ export declare class PropostasController {
         updatedBy: string | null;
         produtorId: string | null;
         numero: string | null;
-        status: import(".prisma/client").$Enums.StatusProposta;
         editalId: string;
-        valorTotal: import("@prisma/client/runtime/library").Decimal | null;
-        observacao: string | null;
         tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
+        status: import(".prisma/client").$Enums.StatusProposta;
         validadeDias: number;
         prazoEntrega: number;
+        valorTotal: import("@prisma/client/runtime/library").Decimal | null;
         arquivoPdfPath: string | null;
         arquivoDocxPath: string | null;
+        observacao: string | null;
         documentosJson: string | null;
     }>;
     generate(id: string, req: Request): Promise<{
@@ -587,13 +587,13 @@ export declare class PropostasController {
             updatedBy: string | null;
             produto: string;
             unidade: string | null;
+            valorTotal: import("@prisma/client/runtime/library").Decimal | null;
+            propostaId: string;
+            matchId: string | null;
             especificacao: string | null;
+            marca: string | null;
             quantidade: import("@prisma/client/runtime/library").Decimal | null;
             precoUnitario: import("@prisma/client/runtime/library").Decimal | null;
-            valorTotal: import("@prisma/client/runtime/library").Decimal | null;
-            matchId: string | null;
-            propostaId: string;
-            marca: string | null;
         }[];
         edital: {
             id: string;
@@ -603,16 +603,16 @@ export declare class PropostasController {
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            numero: string;
-            ano: number;
             titulo: string;
             descricao: string | null;
-            objeto: string | null;
+            numero: string;
             status: import(".prisma/client").$Enums.StatusEdital;
+            ano: number;
+            objeto: string | null;
+            escolaId: string | null;
             arquivoFonte: string | null;
             observacoes: string | null;
             dataPublicacao: Date | null;
-            escolaId: string | null;
         };
     } & {
         id: string;
@@ -623,15 +623,15 @@ export declare class PropostasController {
         updatedBy: string | null;
         produtorId: string | null;
         numero: string | null;
-        status: import(".prisma/client").$Enums.StatusProposta;
         editalId: string;
-        valorTotal: import("@prisma/client/runtime/library").Decimal | null;
-        observacao: string | null;
         tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
+        status: import(".prisma/client").$Enums.StatusProposta;
         validadeDias: number;
         prazoEntrega: number;
+        valorTotal: import("@prisma/client/runtime/library").Decimal | null;
         arquivoPdfPath: string | null;
         arquivoDocxPath: string | null;
+        observacao: string | null;
         documentosJson: string | null;
     }>;
     remove(id: string): Promise<{
@@ -643,15 +643,15 @@ export declare class PropostasController {
         updatedBy: string | null;
         produtorId: string | null;
         numero: string | null;
-        status: import(".prisma/client").$Enums.StatusProposta;
         editalId: string;
-        valorTotal: import("@prisma/client/runtime/library").Decimal | null;
-        observacao: string | null;
         tipoDocumento: import(".prisma/client").$Enums.TipoProposta;
+        status: import(".prisma/client").$Enums.StatusProposta;
         validadeDias: number;
         prazoEntrega: number;
+        valorTotal: import("@prisma/client/runtime/library").Decimal | null;
         arquivoPdfPath: string | null;
         arquivoDocxPath: string | null;
+        observacao: string | null;
         documentosJson: string | null;
     }>;
     getProducers(editalId: string, req: Request): Promise<(({

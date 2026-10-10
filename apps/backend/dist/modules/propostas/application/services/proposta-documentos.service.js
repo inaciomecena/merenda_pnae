@@ -50,6 +50,7 @@ const path = __importStar(require("path"));
 const crypto_1 = require("crypto");
 const prisma_service_1 = require("../../../../infrastructure/prisma/prisma.service");
 const policy_service_1 = require("../../../../common/auth/policy.service");
+const audit_service_1 = require("../../../audit/application/services/audit.service");
 const campos_produtor_1 = require("../../../composicao-editais/application/domain/campos-produtor");
 const placeholders_1 = require("../../../composicao-editais/application/domain/placeholders");
 const documento_renderer_1 = require("../../../composicao-editais/application/domain/documento-renderer");
@@ -90,9 +91,11 @@ function validarDocumentos(modelos, valores) {
 let PropostaDocumentosService = class PropostaDocumentosService {
     prisma;
     policy;
-    constructor(prisma, policy) {
+    audit;
+    constructor(prisma, policy, audit) {
         this.prisma = prisma;
         this.policy = policy;
+        this.audit = audit;
     }
     async carregar(id, user) {
         const proposta = await this.prisma.proposta.findFirst({
@@ -104,7 +107,7 @@ let PropostaDocumentosService = class PropostaDocumentosService {
         });
         if (!proposta)
             throw new common_1.NotFoundException('Proposta não encontrada.');
-        if ((user?.role === 'EXTENSIONISTA' || user?.role === 'PRODUTOR')) {
+        if ((user?.role === 'EXTENSIONISTA' || user?.role === 'REPRESENTANTE' || user?.role === 'PRODUTOR')) {
             if (!proposta.produtorId)
                 throw new common_1.ForbiddenException('Proposta sem fornecedor representado.');
             await this.policy.requireProdutorAccess(user, proposta.produtorId);
@@ -179,6 +182,8 @@ let PropostaDocumentosService = class PropostaDocumentosService {
         }
         const config = { modelos: snapshots, valores, salvoEm: new Date().toISOString(), salvoPor: user?.sub };
         await this.prisma.proposta.update({ where: { id }, data: { documentosJson: JSON.stringify(config), status: 'RASCUNHO', arquivoPdfPath: null, arquivoDocxPath: null, updatedBy: user?.sub } });
+        await this.audit.log({ userId: user?.sub, userRole: user?.role, action: 'UPDATE_DOCUMENTS', entity: 'Proposta', entityId: id,
+            metadata: { executorId: user?.sub, fornecedorRepresentadoId: proposta.produtorId } });
         return { ...config, pendencias: validarDocumentos(snapshots, valores) };
     }
     async gerar(id, user) {
@@ -218,6 +223,8 @@ let PropostaDocumentosService = class PropostaDocumentosService {
                 status: 'GERADA', arquivoPdfPath: pdfPath, arquivoDocxPath: docxPath,
                 documentosJson: JSON.stringify({ ...config, valores, geradoEm: new Date().toISOString() }), updatedBy: user?.sub,
             } });
+        await this.audit.log({ userId: user?.sub, userRole: user?.role, action: 'GENERATE_DOCUMENTS', entity: 'Proposta', entityId: id,
+            metadata: { executorId: user?.sub, fornecedorRepresentadoId: proposta.produtorId } });
         return { pdfPath, docxPath };
     }
     async previa(id, user) {
@@ -265,7 +272,7 @@ let PropostaDocumentosService = class PropostaDocumentosService {
 exports.PropostaDocumentosService = PropostaDocumentosService;
 exports.PropostaDocumentosService = PropostaDocumentosService = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [prisma_service_1.PrismaService, policy_service_1.PolicyService])
+    __metadata("design:paramtypes", [prisma_service_1.PrismaService, policy_service_1.PolicyService, audit_service_1.AuditService])
 ], PropostaDocumentosService);
 function dinheiro(value) { return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); }
 //# sourceMappingURL=proposta-documentos.service.js.map

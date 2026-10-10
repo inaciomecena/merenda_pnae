@@ -11,7 +11,7 @@ export class DashboardController {
   constructor(private readonly service: DashboardService) {}
 
   @Get()
-  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA')
+  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR')
   @ApiOperation({ summary: 'Dashboard principal com KPIs e graficos' })
   @ApiQuery({ name: 'ano', required: false })
   @ApiQuery({ name: 'municipioId', required: false })
@@ -30,7 +30,7 @@ export class DashboardController {
   }
 
   @Get('kpis')
-  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA')
+  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR')
   @ApiOperation({ summary: 'Indicadores KPI do sistema' })
   @ApiQuery({ name: 'ano', required: false })
   @ApiQuery({ name: 'municipioId', required: false })
@@ -44,7 +44,7 @@ export class DashboardController {
   }
 
   @Get('graficos')
-  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA')
+  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR')
   @ApiOperation({ summary: 'Dados para graficos do dashboard' })
   @ApiQuery({ name: 'ano', required: false })
   @ApiQuery({ name: 'municipioId', required: false })
@@ -58,7 +58,7 @@ export class DashboardController {
   }
 
   @Get('ranking/:tipo')
-  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA')
+  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR')
   @ApiOperation({ summary: 'Rankings do sistema' })
   @ApiQuery({ name: 'limit', required: false })
   @ApiQuery({ name: 'municipioId', required: false })
@@ -73,7 +73,7 @@ export class DashboardController {
   }
 
   @Get('mapa')
-  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA')
+  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR')
   @ApiOperation({ summary: 'Dados para mapa do Mato Grosso' })
   getMapaDados(@Req() req?: Request) {
     const user = req?.user as AuthenticatedUser;
@@ -81,7 +81,7 @@ export class DashboardController {
   }
 
   @Get('produtos')
-  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA')
+  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR')
   @ApiOperation({ summary: 'Produtos mais solicitados' })
   @ApiQuery({ name: 'limit', required: false })
   getProdutos(@Query('limit') limit?: number, @Req() req?: Request) {
@@ -90,7 +90,7 @@ export class DashboardController {
   }
 
   @Get('municipios')
-  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA')
+  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR')
   @ApiOperation({ summary: 'Ranking de municipios' })
   @ApiQuery({ name: 'limit', required: false })
   getMunicipios(@Query('limit') limit?: number, @Req() req?: Request) {
@@ -99,7 +99,7 @@ export class DashboardController {
   }
 
   @Get('escolas')
-  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA')
+  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR')
   @ApiOperation({ summary: 'Ranking de escolas' })
   @ApiQuery({ name: 'limit', required: false })
   getEscolas(@Query('limit') limit?: number, @Req() req?: Request) {
@@ -108,7 +108,7 @@ export class DashboardController {
   }
 
   @Get('produtores')
-  @Roles('ADMIN', 'EXTENSIONISTA')
+  @Roles('ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR')
   @ApiOperation({ summary: 'Ranking de produtores' })
   @ApiQuery({ name: 'limit', required: false })
   getProdutores(@Query('limit') limit?: number, @Req() req?: Request) {
@@ -117,7 +117,7 @@ export class DashboardController {
   }
 
   @Get('exportar/:tipo')
-  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA')
+  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR')
   @ApiOperation({ summary: 'Exportar dados do dashboard' })
   async exportar(
     @Param('tipo') tipo: string,
@@ -136,3 +136,4 @@ export class DashboardController {
     return data;
   }
 }
+

@@ -11,12 +11,13 @@ const common_1 = require("@nestjs/common");
 const produtores_controller_1 = require("./presentation/controllers/produtores.controller");
 const produtores_service_1 = require("./application/services/produtores.service");
 const auth_module_1 = require("../auth/auth.module");
+const audit_module_1 = require("../audit/audit.module");
 let ProdutoresModule = class ProdutoresModule {
 };
 exports.ProdutoresModule = ProdutoresModule;
 exports.ProdutoresModule = ProdutoresModule = __decorate([
     (0, common_1.Module)({
-        imports: [auth_module_1.AuthModule],
+        imports: [auth_module_1.AuthModule, audit_module_1.AuditModule],
         controllers: [produtores_controller_1.ProdutoresController],
         providers: [produtores_service_1.ProdutoresService],
     })

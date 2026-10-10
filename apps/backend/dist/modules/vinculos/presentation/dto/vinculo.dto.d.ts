@@ -1,6 +1,6 @@
 export declare class CreateVinculoDto {
     userId: string;
-    funcao: 'ADMIN' | 'DRE' | 'ESCOLA' | 'EXTENSIONISTA' | 'PRODUTOR';
+    funcao: 'ADMIN' | 'DRE' | 'ESCOLA' | 'EXTENSIONISTA' | 'PRODUTOR' | 'REPRESENTANTE';
     dreId?: string;
     escolaId?: string;
     municipioId?: string;

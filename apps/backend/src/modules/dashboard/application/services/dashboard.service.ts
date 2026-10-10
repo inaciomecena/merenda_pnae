@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+﻿import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../../infrastructure/prisma/prisma.service';
 import { PolicyService } from '../../../../common/auth/policy.service';
 import { AuthenticatedUser } from '../../../../common/auth/user-scope';
@@ -23,7 +23,7 @@ export class DashboardService {
         OR: [
           { escolaId: { in: escolaIds } },
           { escolasVinculadas: { some: { escolaId: { in: escolaIds } } } },
-          ...(user.role === 'EXTENSIONISTA' ? [{ propostas: { some: { produtorId: { in: produtorIds } } } }] : []),
+          ...((user.role === 'EXTENSIONISTA' || user.role === 'REPRESENTANTE') ? [{ propostas: { some: { produtorId: { in: produtorIds } } } }] : []),
         ],
       }),
     };
@@ -101,3 +101,4 @@ export class DashboardService {
     return { erro: 'Tipo invalido' };
   }
 }
+

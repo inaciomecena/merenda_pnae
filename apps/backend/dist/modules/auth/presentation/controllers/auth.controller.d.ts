@@ -33,7 +33,7 @@ export declare class AuthController {
         user: {
             id: string;
             email: string | undefined;
-            role: "ADMIN" | "DRE" | "ESCOLA" | "EXTENSIONISTA" | "PRODUTOR";
+            role: "ADMIN" | "ESCOLA" | "EXTENSIONISTA" | "DRE" | "PRODUTOR" | "REPRESENTANTE";
         };
         pendencias: string[];
         vinculos: {

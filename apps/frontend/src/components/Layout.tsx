@@ -1,4 +1,4 @@
-import { Alert, Box, Breadcrumbs, Container, CssBaseline, Drawer, List, ListItemButton, ListItemIcon, ListItemText, Typography, Divider, Stack, Chip, IconButton, MenuItem, Select, useMediaQuery, useTheme } from '@mui/material';
+﻿import { Alert, Box, Breadcrumbs, Container, CssBaseline, Drawer, List, ListItemButton, ListItemIcon, ListItemText, Typography, Divider, Stack, Chip, IconButton, MenuItem, Select, useMediaQuery, useTheme } from '@mui/material';
 import type { ReactNode } from 'react';
 import { useState } from 'react';
 import { Home, School, Map, Description, Inventory2, People, Gavel, Assignment, Group, UploadFile, History, Settings, Science, Assessment, Article, Map as MapIcon, Menu } from '@mui/icons-material';
@@ -9,7 +9,7 @@ import type { UserRole } from '../types';
 const drawerWidth = 240;
 
 const routes: { label: string; path: string; icon: ReactNode; roles: UserRole[] }[] = [
-  { label: 'Dashboard', path: '/dashboard', icon: <Home />, roles: ['ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'PRODUTOR'] },
+  { label: 'Dashboard', path: '/dashboard', icon: <Home />, roles: ['ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR'] },
   { label: 'Mapa MT', path: '/mapa', icon: <MapIcon />, roles: ['ADMIN'] },
   { label: 'Relatorios', path: '/relatorios', icon: <Assessment />, roles: ['ADMIN'] },
   { label: 'Municipios', path: '/municipios', icon: <Map />, roles: ['ADMIN'] },
@@ -17,9 +17,9 @@ const routes: { label: string; path: string; icon: ReactNode; roles: UserRole[] 
   { label: 'Editais', path: '/editais', icon: <Description />, roles: ['ADMIN', 'DRE', 'ESCOLA'] },
   { label: 'Templates de Anexos', path: '/templates-anexos', icon: <Article />, roles: ['ADMIN'] },
   { label: 'Produtos de referencia', path: '/produtos-referencia', icon: <Inventory2 />, roles: ['ADMIN'] },
-  { label: 'Produtores', path: '/produtores', icon: <People />, roles: ['ADMIN', 'EXTENSIONISTA', 'PRODUTOR'] },
+  { label: 'Produtores', path: '/produtores', icon: <People />, roles: ['ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR'] },
   { label: 'Balizamento', path: '/balizamento', icon: <Gavel />, roles: ['ADMIN'] },
-  { label: 'Propostas', path: '/propostas', icon: <Assignment />, roles: ['ADMIN', 'EXTENSIONISTA', 'PRODUTOR'] },
+  { label: 'Propostas', path: '/propostas', icon: <Assignment />, roles: ['ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR'] },
   { label: 'Importacoes', path: '/importacoes', icon: <UploadFile />, roles: ['ADMIN'] },
   { label: 'Organização', path: '/organizacao', icon: <School />, roles: ['ADMIN'] },
   { label: 'Vínculos', path: '/vinculos', icon: <Group />, roles: ['ADMIN'] },
@@ -195,3 +195,4 @@ export default function Layout() {
     </Box>
   );
 }
+

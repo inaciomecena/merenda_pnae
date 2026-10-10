@@ -4,6 +4,7 @@ import { randomUUID } from 'crypto';
 import { PrismaService } from '../../../../infrastructure/prisma/prisma.service';
 import { AuthenticatedUser } from '../../../../common/auth/user-scope';
 import { PolicyService } from '../../../../common/auth/policy.service';
+import { AuditService } from '../../../audit/application/services/audit.service';
 import { CAMPOS_PRODUTOR } from '../../../composicao-editais/application/domain/campos-produtor';
 import { catalogoPorChave, extrairPlaceholders, VARIAVEIS_DISPONIVEIS } from '../../../composicao-editais/application/domain/placeholders';
 import { DocumentoRenderInput, renderDocx, renderPdf } from '../../../composicao-editais/application/domain/documento-renderer';
@@ -60,7 +61,7 @@ export function validarDocumentos(modelos: ModeloPropostaSnapshot[], valores: Re
 
 @Injectable()
 export class PropostaDocumentosService {
-  constructor(private readonly prisma: PrismaService, private readonly policy: PolicyService) {}
+  constructor(private readonly prisma: PrismaService, private readonly policy: PolicyService, private readonly audit: AuditService) {}
 
   private async carregar(id: string, user?: AuthenticatedUser) {
     const proposta = await this.prisma.proposta.findFirst({
@@ -71,7 +72,7 @@ export class PropostaDocumentosService {
       },
     });
     if (!proposta) throw new NotFoundException('Proposta não encontrada.');
-    if ((user?.role === 'EXTENSIONISTA' || user?.role === 'PRODUTOR')) {
+    if ((user?.role === 'EXTENSIONISTA' || user?.role === 'REPRESENTANTE' || user?.role === 'PRODUTOR')) {
       if (!proposta.produtorId) throw new ForbiddenException('Proposta sem fornecedor representado.');
       await this.policy.requireProdutorAccess(user, proposta.produtorId);
     }
@@ -136,6 +137,8 @@ export class PropostaDocumentosService {
     }
     const config: ConfigDocumentos = { modelos: snapshots, valores, salvoEm: new Date().toISOString(), salvoPor: user?.sub };
     await this.prisma.proposta.update({ where: { id }, data: { documentosJson: JSON.stringify(config), status: 'RASCUNHO', arquivoPdfPath: null, arquivoDocxPath: null, updatedBy: user?.sub } });
+    await this.audit.log({ userId: user?.sub, userRole: user?.role, action: 'UPDATE_DOCUMENTS', entity: 'Proposta', entityId: id,
+      metadata: { executorId: user?.sub, fornecedorRepresentadoId: proposta.produtorId } });
     return { ...config, pendencias: validarDocumentos(snapshots, valores) };
   }
 
@@ -170,6 +173,8 @@ export class PropostaDocumentosService {
       status: 'GERADA', arquivoPdfPath: pdfPath, arquivoDocxPath: docxPath,
       documentosJson: JSON.stringify({ ...config, valores, geradoEm: new Date().toISOString() }), updatedBy: user?.sub,
     } });
+    await this.audit.log({ userId: user?.sub, userRole: user?.role, action: 'GENERATE_DOCUMENTS', entity: 'Proposta', entityId: id,
+      metadata: { executorId: user?.sub, fornecedorRepresentadoId: proposta.produtorId } });
     return { pdfPath, docxPath };
   }
 
@@ -218,3 +223,4 @@ export class PropostaDocumentosService {
 }
 
 function dinheiro(value: number) { return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); }
+

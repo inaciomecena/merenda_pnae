@@ -55,14 +55,14 @@ let ProdutoresController = class ProdutoresController {
 exports.ProdutoresController = ProdutoresController;
 __decorate([
     (0, common_1.Get)('campos-documentais'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA', 'PRODUTOR'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], ProdutoresController.prototype, "camposDocumentais", null);
 __decorate([
     (0, common_1.Get)(),
-    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA', 'PRODUTOR'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR'),
     (0, swagger_1.ApiOperation)({ summary: 'Listar produtores' }),
     (0, swagger_1.ApiQuery)({ name: 'page', required: false }),
     (0, swagger_1.ApiQuery)({ name: 'limit', required: false }),
@@ -76,7 +76,7 @@ __decorate([
 ], ProdutoresController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Get)(':id'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA', 'PRODUTOR'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR'),
     (0, swagger_1.ApiOperation)({ summary: 'Buscar produtor por id' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Req)()),
@@ -86,7 +86,7 @@ __decorate([
 ], ProdutoresController.prototype, "findOne", null);
 __decorate([
     (0, common_1.Get)(':id/produtos'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA', 'PRODUTOR'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR'),
     (0, swagger_1.ApiOperation)({ summary: 'Listar produtos cadastrados por produtor' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Req)()),
@@ -96,7 +96,7 @@ __decorate([
 ], ProdutoresController.prototype, "findProdutos", null);
 __decorate([
     (0, common_1.Post)(':id/produtos'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA', 'PRODUTOR'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR'),
     (0, swagger_1.ApiOperation)({ summary: 'Cadastrar produto produzido pelo produtor' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
@@ -107,7 +107,7 @@ __decorate([
 ], ProdutoresController.prototype, "createProduto", null);
 __decorate([
     (0, common_1.Patch)(':id/produtos/:produtoId'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA', 'PRODUTOR'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR'),
     (0, swagger_1.ApiOperation)({ summary: 'Atualizar produto produzido pelo produtor' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Param)('produtoId')),
@@ -119,7 +119,7 @@ __decorate([
 ], ProdutoresController.prototype, "updateProduto", null);
 __decorate([
     (0, common_1.Delete)(':id/produtos/:produtoId'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA', 'PRODUTOR'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR'),
     (0, swagger_1.ApiOperation)({ summary: 'Remover produto produzido pelo produtor' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Param)('produtoId')),
@@ -140,7 +140,7 @@ __decorate([
 ], ProdutoresController.prototype, "create", null);
 __decorate([
     (0, common_1.Patch)(':id'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA', 'PRODUTOR'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR'),
     (0, swagger_1.ApiOperation)({ summary: 'Atualizar produtor' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),

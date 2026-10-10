@@ -2,10 +2,12 @@ import { PrismaService } from '../../../../infrastructure/prisma/prisma.service'
 import { CreateProdutorDto, CreateProdutorProdutoDto, UpdateProdutorDto, UpdateProdutorProdutoDto } from '../../presentation/dto/produtor.dto';
 import { AuthenticatedUser } from '../../../../common/auth/user-scope';
 import { PolicyService } from '../../../../common/auth/policy.service';
+import { AuditService } from '../../../audit/application/services/audit.service';
 export declare class ProdutoresService {
     private readonly prisma;
     private readonly policy;
-    constructor(prisma: PrismaService, policy: PolicyService);
+    private readonly audit;
+    constructor(prisma: PrismaService, policy: PolicyService, audit: AuditService);
     findAll(query: {
         page?: number;
         limit?: number;

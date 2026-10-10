@@ -1,6 +1,7 @@
 import { PrismaService } from '../../../../infrastructure/prisma/prisma.service';
 import { AuthenticatedUser } from '../../../../common/auth/user-scope';
 import { PolicyService } from '../../../../common/auth/policy.service';
+import { AuditService } from '../../../audit/application/services/audit.service';
 import { DocumentoPropostaDto } from '../../presentation/dto/documento-proposta.dto';
 export interface ModeloPropostaSnapshot {
     templateId: string;
@@ -32,7 +33,8 @@ export declare function validarDocumentos(modelos: ModeloPropostaSnapshot[], val
 export declare class PropostaDocumentosService {
     private readonly prisma;
     private readonly policy;
-    constructor(prisma: PrismaService, policy: PolicyService);
+    private readonly audit;
+    constructor(prisma: PrismaService, policy: PolicyService, audit: AuditService);
     private carregar;
     private config;
     preparar(id: string, user?: AuthenticatedUser): Promise<{

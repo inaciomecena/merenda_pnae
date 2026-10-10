@@ -30,8 +30,8 @@ __decorate([
     __metadata("design:type", String)
 ], CreateVinculoDto.prototype, "userId", void 0);
 __decorate([
-    (0, swagger_1.ApiProperty)({ enum: ['ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'PRODUTOR'] }),
-    (0, class_validator_1.IsEnum)(['ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'PRODUTOR']),
+    (0, swagger_1.ApiProperty)({ enum: ['ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'PRODUTOR', 'REPRESENTANTE'] }),
+    (0, class_validator_1.IsEnum)(['ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'PRODUTOR', 'REPRESENTANTE']),
     __metadata("design:type", String)
 ], CreateVinculoDto.prototype, "funcao", void 0);
 __decorate([

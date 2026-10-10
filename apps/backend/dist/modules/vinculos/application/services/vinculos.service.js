@@ -116,9 +116,9 @@ let VinculosService = class VinculosService {
         return { message: 'Vínculo revogado com sucesso' };
     }
     async createRepresentacao(data, actor) {
-        const target = await this.prisma.user.findFirst({ where: { id: data.userId, role: 'EXTENSIONISTA', active: true, deletedAt: null } });
+        const target = await this.prisma.user.findFirst({ where: { id: data.userId, role: { in: ['EXTENSIONISTA', 'REPRESENTANTE'] }, active: true, deletedAt: null } });
         if (!target)
-            throw new common_1.BadRequestException('Representante deve ser usuário extensionista ativo');
+            throw new common_1.BadRequestException('Representante deve ser usuário extensionista ou representante ativo');
         const produtor = await this.prisma.produtor.findFirst({ where: { id: data.produtorId, active: true, deletedAt: null } });
         if (!produtor)
             throw new common_1.NotFoundException('Produtor ativo não encontrado');

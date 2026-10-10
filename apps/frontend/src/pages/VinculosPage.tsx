@@ -13,6 +13,7 @@ export default function VinculosPage() {
   const [produtorId, setProdutorId] = useState('');
   const [documento, setDocumento] = useState('');
   const [permissoes, setPermissoes] = useState('CONSULTAR');
+  const [justificativa, setJustificativa] = useState('');
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
   const [vinculos, setVinculos] = useState<Vinculo[]>([]);
@@ -39,7 +40,7 @@ export default function VinculosPage() {
       <Typography variant="h6">Vínculo de usuário</Typography>
       <TextField label="ID do usuário" value={userId} onChange={e => setUserId(e.target.value)} />
       <TextField select label="Função" value={funcao} onChange={e => setFuncao(e.target.value as UserRole)}>
-        {(['ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'PRODUTOR'] as UserRole[]).map(r => <MenuItem key={r} value={r}>{r}</MenuItem>)}
+        {(['ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR'] as UserRole[]).map(r => <MenuItem key={r} value={r}>{r}</MenuItem>)}
       </TextField>
       {scopeField && <TextField label={`ID do escopo (${scopeField})`} value={escopoId} onChange={e => setEscopoId(e.target.value)} />}
       <Button variant="contained" disabled={!userId || Boolean(scopeField && !escopoId)} onClick={() => void submit(() => api.post('/vinculos', { userId, funcao, ...(scopeField ? { [scopeField]: escopoId } : {}), vigenciaInicio: new Date().toISOString() }), 'Vínculo criado.')}>Conceder função</Button>
@@ -56,6 +57,7 @@ export default function VinculosPage() {
         <MenuItem value="CONSULTAR,EDITAR_PRODUTOR,EDITAR_PROPOSTA">Todas as ações do fornecedor</MenuItem>
       </TextField>
       <Button variant="contained" disabled={!userId || !produtorId || !documento} onClick={() => void submit(() => api.post('/representacoes', { userId, produtorId, autorizacaoDocumento: documento, permissoes, vigenciaInicio: new Date().toISOString() }), 'Representação autorizada.')}>Autorizar representação</Button>
+      <TextField label="Justificativa para alteração ou revogação" value={justificativa} onChange={e => setJustificativa(e.target.value)} />
     </Stack></CardContent></Card>
     <Card><CardContent><Stack spacing={2}>
       <Typography variant="h6">Consultar e revogar</Typography>
@@ -66,7 +68,8 @@ export default function VinculosPage() {
       </Stack>)}
       {representacoes.map(r => <Stack key={r.id} direction="row" spacing={2} alignItems="center">
         <Typography>Produtor {r.produtorId} · {r.permissoes}</Typography>
-        {r.ativo && !r.revogadoEm && <Button color="error" onClick={() => void submit(() => api.put(`/representacoes/${r.id}/revogar`, { motivo: 'Revogação administrativa' }), 'Representação revogada.')}>Revogar</Button>}
+        {r.ativo && !r.revogadoEm && <Button disabled={!justificativa} onClick={() => void submit(() => api.put(`/representacoes/${r.id}`, { permissoes, justificativa }), 'Representação atualizada.')}>Alterar permissões</Button>}
+        {r.ativo && !r.revogadoEm && <Button color="error" disabled={!justificativa} onClick={() => void submit(() => api.put(`/representacoes/${r.id}/revogar`, { motivo: justificativa }), 'Representação revogada.')}>Revogar</Button>}
       </Stack>)}
     </Stack></CardContent></Card>
   </Stack>;

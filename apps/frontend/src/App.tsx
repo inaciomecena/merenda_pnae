@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+﻿import { lazy, Suspense } from 'react';
 import type { ReactElement } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
@@ -69,9 +69,9 @@ function AppRoutes() {
           <Route path="/editais/:id/consulta" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE', 'ESCOLA']}><EditalConsultaPage /></ProtectedRoute>} />
           <Route path="/templates-anexos" element={<ProtectedRoute allowedRoles={['ADMIN']}><TemplatesAnexosPage /></ProtectedRoute>} />
           <Route path="/produtos-referencia" element={<ProtectedRoute allowedRoles={['ADMIN']}><ProdutosReferenciaPage /></ProtectedRoute>} />
-          <Route path="/produtores" element={<ProtectedRoute allowedRoles={['ADMIN', 'EXTENSIONISTA', 'PRODUTOR']}><ProdutoresPage /></ProtectedRoute>} />
+          <Route path="/produtores" element={<ProtectedRoute allowedRoles={['ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR']}><ProdutoresPage /></ProtectedRoute>} />
           <Route path="/balizamento" element={<ProtectedRoute allowedRoles={['ADMIN']}><BalizamentoPage /></ProtectedRoute>} />
-          <Route path="/propostas" element={<ProtectedRoute allowedRoles={['ADMIN', 'EXTENSIONISTA', 'PRODUTOR']}><PropostasPage /></ProtectedRoute>} />
+          <Route path="/propostas" element={<ProtectedRoute allowedRoles={['ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR']}><PropostasPage /></ProtectedRoute>} />
           <Route path="/importacoes" element={<ProtectedRoute allowedRoles={['ADMIN']}><ImportacoesPage /></ProtectedRoute>} />
           <Route path="/importacoes/importar" element={<ProtectedRoute allowedRoles={['ADMIN']}><ImportarEditalPage /></ProtectedRoute>} />
           <Route path="/importacoes/:id" element={<ProtectedRoute allowedRoles={['ADMIN']}><ImportacaoDetalhesPage /></ProtectedRoute>} />
@@ -99,3 +99,4 @@ export default function App() {
     </BrowserRouter>
   );
 }
+

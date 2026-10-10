@@ -24,7 +24,12 @@ export declare class VinculosController {
         } | null;
     } & {
         id: string;
+        userId: string;
         funcao: import(".prisma/client").$Enums.Role;
+        dreId: string | null;
+        escolaId: string | null;
+        municipioId: string | null;
+        produtorId: string | null;
         vigenciaInicio: Date;
         vigenciaFim: Date | null;
         ativo: boolean;
@@ -32,11 +37,6 @@ export declare class VinculosController {
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
-        userId: string;
-        dreId: string | null;
-        escolaId: string | null;
-        municipioId: string | null;
-        produtorId: string | null;
     }>;
     getVinculosUsuario(userId: string): Promise<({
         dre: {
@@ -55,7 +55,12 @@ export declare class VinculosController {
         } | null;
     } & {
         id: string;
+        userId: string;
         funcao: import(".prisma/client").$Enums.Role;
+        dreId: string | null;
+        escolaId: string | null;
+        municipioId: string | null;
+        produtorId: string | null;
         vigenciaInicio: Date;
         vigenciaFim: Date | null;
         ativo: boolean;
@@ -63,11 +68,6 @@ export declare class VinculosController {
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
-        userId: string;
-        dreId: string | null;
-        escolaId: string | null;
-        municipioId: string | null;
-        produtorId: string | null;
     })[]>;
     revokeVinculo(vinculoId: string, req: Request): Promise<{
         message: string;
@@ -89,6 +89,8 @@ export declare class RepresentacoesController {
         };
     } & {
         id: string;
+        userId: string;
+        produtorId: string;
         vigenciaInicio: Date;
         vigenciaFim: Date | null;
         ativo: boolean;
@@ -96,8 +98,6 @@ export declare class RepresentacoesController {
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
-        userId: string;
-        produtorId: string;
         tipoRepresentacao: string;
         permissoes: string;
         autorizacaoDocumento: string | null;
@@ -113,6 +113,8 @@ export declare class RepresentacoesController {
         };
     } & {
         id: string;
+        userId: string;
+        produtorId: string;
         vigenciaInicio: Date;
         vigenciaFim: Date | null;
         ativo: boolean;
@@ -120,8 +122,6 @@ export declare class RepresentacoesController {
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
-        userId: string;
-        produtorId: string;
         tipoRepresentacao: string;
         permissoes: string;
         autorizacaoDocumento: string | null;
@@ -134,6 +134,8 @@ export declare class RepresentacoesController {
     }>;
     atualizarRepresentacao(id: string, dto: UpdateRepresentacaoDto, req: Request): Promise<{
         id: string;
+        userId: string;
+        produtorId: string;
         vigenciaInicio: Date;
         vigenciaFim: Date | null;
         ativo: boolean;
@@ -141,8 +143,6 @@ export declare class RepresentacoesController {
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
-        userId: string;
-        produtorId: string;
         tipoRepresentacao: string;
         permissoes: string;
         autorizacaoDocumento: string | null;

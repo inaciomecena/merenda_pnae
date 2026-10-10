@@ -7,9 +7,9 @@ export class CreateVinculoDto {
   @IsNotEmpty()
   userId!: string;
 
-  @ApiProperty({ enum: ['ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'PRODUTOR'] })
-  @IsEnum(['ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'PRODUTOR'])
-  funcao!: 'ADMIN' | 'DRE' | 'ESCOLA' | 'EXTENSIONISTA' | 'PRODUTOR';
+  @ApiProperty({ enum: ['ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'PRODUTOR', 'REPRESENTANTE'] })
+  @IsEnum(['ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'PRODUTOR', 'REPRESENTANTE'])
+  funcao!: 'ADMIN' | 'DRE' | 'ESCOLA' | 'EXTENSIONISTA' | 'PRODUTOR' | 'REPRESENTANTE';
 
   @ApiProperty({ description: 'ID da DRE', required: false })
   @IsString()

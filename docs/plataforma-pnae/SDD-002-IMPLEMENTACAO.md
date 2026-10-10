@@ -31,13 +31,13 @@ Módulos de importação, balizamento, relatórios e composição documental de 
 
 ## Interface
 
-`AuthContext` carrega `/auth/me/contexto`, mostra pendência e permite selecionar vínculo válido quando há mais de um na mesma função. `Layout` filtra o menu por perfil e vínculo. Novas telas: `/organizacao` (EEx, DRE e escola–DRE) e `/vinculos` (concessão, consulta e revogação de função e representação), ambas ADMIN. `/editais/:id/consulta` é leitura de edital para DRE e escola sem abrir a composição restrita. Dashboard usa contagens realmente filtradas; indicadores sem implementação de escopo foram retirados da tela.
+`AuthContext` carrega `/auth/me/contexto`, mostra pendência e permite selecionar vínculo válido quando há mais de um na mesma função. `Layout` filtra o menu por perfil e vínculo. Novas telas: `/organizacao` (cadastro e edição de EEx/DRE, vínculo e revogação escola–DRE) e `/vinculos` (concessão, consulta e revogação de função; autorização, alteração de permissões e revogação de representação), ambas ADMIN. `/editais/:id/consulta` é leitura de edital para DRE e escola sem abrir a composição restrita. Dashboard usa contagens realmente filtradas; indicadores sem implementação de escopo foram retirados da tela.
 
-Limites da interface: edição de EEx, DRE e representação está exposta por API, mas não por formulário completo; a tela administrativa inicial cobre criação, associação e revogação. A seleção de contexto serve a múltiplos vínculos da role atual; alternância de funções diferentes requer trocar o perfil principal do usuário. A interface de representação aceita referência do documento, sem upload próprio.
+Limites da interface: edição de EEx/DRE cobre nome; demais campos e datas de vigência são mantidos pela API. A seleção de contexto serve a múltiplos vínculos da role atual; alternância de funções diferentes requer trocar o perfil principal do usuário. A interface de representação aceita referência do documento, sem upload próprio.
 
 ## Auditoria
 
-Criação e alteração de EEx/DRE, concessão e revogação de vínculos e representação, e associação escola–DRE usam `AuditService`. Criação, edição e finalização de propostas registram executor e fornecedor representado em metadados. O log evita copiar credenciais ou `dadosDocumentais`; o conteúdo antigo de auditoria e o rascunho prévio devem ser revisados antes de produção. `AuditService` ainda não é transacional com o comando de negócio e absorve falha de escrita de log: garantia forte de histórico é pendência.
+Criação e alteração de EEx/DRE, concessão e revogação de vínculos e representação, e associação escola–DRE usam `AuditService`. Criação, edição e finalização de propostas, edição de cadastro e produtos, e salvamento/geração de documentos registram executor e fornecedor representado em metadados. O log evita copiar credenciais ou `dadosDocumentais`; o conteúdo antigo de auditoria e o rascunho prévio devem ser revisados antes de produção. `AuditService` ainda não é transacional com o comando de negócio e absorve falha de escrita de log: garantia forte de histórico é pendência.
 
 ## Testes e verificações realmente executados
 

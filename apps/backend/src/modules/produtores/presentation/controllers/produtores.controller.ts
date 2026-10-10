@@ -11,11 +11,11 @@ export class ProdutoresController {
   constructor(private readonly service: ProdutoresService) {}
 
   @Get('campos-documentais')
-  @Roles('ADMIN', 'EXTENSIONISTA', 'PRODUTOR')
+  @Roles('ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR')
   camposDocumentais() { return this.service.camposDocumentais(); }
 
   @Get()
-  @Roles('ADMIN', 'EXTENSIONISTA', 'PRODUTOR')
+  @Roles('ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR')
   @ApiOperation({ summary: 'Listar produtores' })
   @ApiQuery({ name: 'page', required: false })
   @ApiQuery({ name: 'limit', required: false })
@@ -26,28 +26,28 @@ export class ProdutoresController {
   }
 
   @Get(':id')
-  @Roles('ADMIN', 'EXTENSIONISTA', 'PRODUTOR')
+  @Roles('ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR')
   @ApiOperation({ summary: 'Buscar produtor por id' })
   findOne(@Param('id') id: string, @Req() req: Request) {
     return this.service.findOne(id, req.user as any);
   }
 
   @Get(':id/produtos')
-  @Roles('ADMIN', 'EXTENSIONISTA', 'PRODUTOR')
+  @Roles('ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR')
   @ApiOperation({ summary: 'Listar produtos cadastrados por produtor' })
   findProdutos(@Param('id') id: string, @Req() req: Request) {
     return this.service.findProdutos(id, req.user as any);
   }
 
   @Post(':id/produtos')
-  @Roles('ADMIN', 'EXTENSIONISTA', 'PRODUTOR')
+  @Roles('ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR')
   @ApiOperation({ summary: 'Cadastrar produto produzido pelo produtor' })
   createProduto(@Param('id') id: string, @Body() dto: CreateProdutorProdutoDto, @Req() req: Request) {
     return this.service.createProduto(id, dto, req.user as any);
   }
 
   @Patch(':id/produtos/:produtoId')
-  @Roles('ADMIN', 'EXTENSIONISTA', 'PRODUTOR')
+  @Roles('ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR')
   @ApiOperation({ summary: 'Atualizar produto produzido pelo produtor' })
   updateProduto(
     @Param('id') id: string,
@@ -59,7 +59,7 @@ export class ProdutoresController {
   }
 
   @Delete(':id/produtos/:produtoId')
-  @Roles('ADMIN', 'EXTENSIONISTA', 'PRODUTOR')
+  @Roles('ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR')
   @ApiOperation({ summary: 'Remover produto produzido pelo produtor' })
   removeProduto(@Param('id') id: string, @Param('produtoId') produtoId: string, @Req() req: Request) {
     return this.service.removeProduto(id, produtoId, req.user as any);
@@ -73,7 +73,7 @@ export class ProdutoresController {
   }
 
   @Patch(':id')
-  @Roles('ADMIN', 'EXTENSIONISTA', 'PRODUTOR')
+  @Roles('ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR')
   @ApiOperation({ summary: 'Atualizar produtor' })
   update(@Param('id') id: string, @Body() dto: UpdateProdutorDto, @Req() req: Request) {
     return this.service.update(id, dto, req.user as any);
@@ -86,3 +86,4 @@ export class ProdutoresController {
     return this.service.remove(id);
   }
 }
+

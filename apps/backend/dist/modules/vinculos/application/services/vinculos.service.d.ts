@@ -3,7 +3,7 @@ import { AuditService } from '../../../audit/application/services/audit.service'
 import { AuthenticatedUser } from '../../../../common/auth/user-scope';
 interface CreateVinculoDto {
     userId: string;
-    funcao: 'ADMIN' | 'DRE' | 'ESCOLA' | 'EXTENSIONISTA' | 'PRODUTOR';
+    funcao: 'ADMIN' | 'DRE' | 'ESCOLA' | 'EXTENSIONISTA' | 'PRODUTOR' | 'REPRESENTANTE';
     dreId?: string;
     escolaId?: string;
     municipioId?: string;
@@ -44,7 +44,12 @@ export declare class VinculosService {
         } | null;
     } & {
         id: string;
+        userId: string;
         funcao: import(".prisma/client").$Enums.Role;
+        dreId: string | null;
+        escolaId: string | null;
+        municipioId: string | null;
+        produtorId: string | null;
         vigenciaInicio: Date;
         vigenciaFim: Date | null;
         ativo: boolean;
@@ -52,11 +57,6 @@ export declare class VinculosService {
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
-        userId: string;
-        dreId: string | null;
-        escolaId: string | null;
-        municipioId: string | null;
-        produtorId: string | null;
     }>;
     getVinculosUsuario(userId: string): Promise<({
         dre: {
@@ -75,7 +75,12 @@ export declare class VinculosService {
         } | null;
     } & {
         id: string;
+        userId: string;
         funcao: import(".prisma/client").$Enums.Role;
+        dreId: string | null;
+        escolaId: string | null;
+        municipioId: string | null;
+        produtorId: string | null;
         vigenciaInicio: Date;
         vigenciaFim: Date | null;
         ativo: boolean;
@@ -83,11 +88,6 @@ export declare class VinculosService {
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
-        userId: string;
-        dreId: string | null;
-        escolaId: string | null;
-        municipioId: string | null;
-        produtorId: string | null;
     })[]>;
     revokeVinculo(vinculoId: string, actor: AuthenticatedUser): Promise<{
         message: string;
@@ -105,6 +105,8 @@ export declare class VinculosService {
         };
     } & {
         id: string;
+        userId: string;
+        produtorId: string;
         vigenciaInicio: Date;
         vigenciaFim: Date | null;
         ativo: boolean;
@@ -112,8 +114,6 @@ export declare class VinculosService {
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
-        userId: string;
-        produtorId: string;
         tipoRepresentacao: string;
         permissoes: string;
         autorizacaoDocumento: string | null;
@@ -129,6 +129,8 @@ export declare class VinculosService {
         };
     } & {
         id: string;
+        userId: string;
+        produtorId: string;
         vigenciaInicio: Date;
         vigenciaFim: Date | null;
         ativo: boolean;
@@ -136,8 +138,6 @@ export declare class VinculosService {
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
-        userId: string;
-        produtorId: string;
         tipoRepresentacao: string;
         permissoes: string;
         autorizacaoDocumento: string | null;
@@ -155,6 +155,8 @@ export declare class VinculosService {
         justificativa: string;
     }, actor: AuthenticatedUser): Promise<{
         id: string;
+        userId: string;
+        produtorId: string;
         vigenciaInicio: Date;
         vigenciaFim: Date | null;
         ativo: boolean;
@@ -162,8 +164,6 @@ export declare class VinculosService {
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
-        userId: string;
-        produtorId: string;
         tipoRepresentacao: string;
         permissoes: string;
         autorizacaoDocumento: string | null;

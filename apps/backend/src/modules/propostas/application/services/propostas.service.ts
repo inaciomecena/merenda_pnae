@@ -55,7 +55,7 @@ export class PropostasService {
   }
 
   async preview(dto: PreviewPropostaDto, user?: AuthenticatedUser): Promise<PropostaPdfData> {
-    if ((user?.role === 'EXTENSIONISTA' || user?.role === 'PRODUTOR')) await this.policy.requireProdutorAccess(user, dto.produtorId);
+    if ((user?.role === 'EXTENSIONISTA' || user?.role === 'REPRESENTANTE' || user?.role === 'PRODUTOR')) await this.policy.requireProdutorAccess(user, dto.produtorId);
     const preview = await this.docGenerator.preview(dto.editalId, dto.produtorId, dto.tipoDocumento);
     return { ...preview, validadeDias: dto.validadeDias ?? preview.validadeDias, prazoEntrega: dto.prazoEntrega ?? preview.prazoEntrega, observacao: dto.observacao };
   }
@@ -65,11 +65,11 @@ export class PropostasService {
     if (!edital) throw new NotFoundException('Edital não encontrado');
 
     if (dto.produtorId) {
-      if ((user?.role === 'EXTENSIONISTA' || user?.role === 'PRODUTOR')) await this.policy.requireProdutorAction(user, dto.produtorId, 'EDITAR_PROPOSTA');
+      if ((user?.role === 'EXTENSIONISTA' || user?.role === 'REPRESENTANTE' || user?.role === 'PRODUTOR')) await this.policy.requireProdutorAction(user, dto.produtorId, 'EDITAR_PROPOSTA');
       const produtor = await this.prisma.produtor.findFirst({ where: { id: dto.produtorId, deletedAt: null } });
       if (!produtor) throw new NotFoundException('Produtor não encontrado');
     }
-    if ((user?.role === 'EXTENSIONISTA' || user?.role === 'PRODUTOR') && !dto.produtorId) throw new ForbiddenException('Fornecedor representado é obrigatório');
+    if ((user?.role === 'EXTENSIONISTA' || user?.role === 'REPRESENTANTE' || user?.role === 'PRODUTOR') && !dto.produtorId) throw new ForbiddenException('Fornecedor representado é obrigatório');
     await this.validarMatches(dto.itens, dto.editalId, dto.produtorId);
 
     const tipo = (dto.tipoDocumento || TipoPropostaDto.ANEXO_III) as TipoProposta;
@@ -151,7 +151,7 @@ export class PropostasService {
   async update(id: string, dto: UpdatePropostaDto, user?: AuthenticatedUser) {
     const proposta = await this.findOne(id, user);
     if (user && user.role !== 'ADMIN' && proposta.produtorId) await this.policy.requireProdutorAction(user, proposta.produtorId, 'EDITAR_PROPOSTA');
-    if ((user?.role === 'EXTENSIONISTA' || user?.role === 'PRODUTOR') && dto.produtorId !== undefined && dto.produtorId !== proposta.produtorId) {
+    if ((user?.role === 'EXTENSIONISTA' || user?.role === 'REPRESENTANTE' || user?.role === 'PRODUTOR') && dto.produtorId !== undefined && dto.produtorId !== proposta.produtorId) {
       if (!dto.produtorId) throw new ForbiddenException('Fornecedor representado é obrigatório');
       await this.policy.requireProdutorAction(user, dto.produtorId, 'EDITAR_PROPOSTA');
     }
@@ -227,7 +227,7 @@ export class PropostasService {
 
   async getProducersWithApprovedMatches(editalId: string, user?: AuthenticatedUser) {
     const matches = await this.prisma.match.findMany({
-      where: { editalId, status: 'APROVADO', deletedAt: null, ...((user?.role === 'EXTENSIONISTA' || user?.role === 'PRODUTOR') ? { produtorId: { in: await this.policy.getAuthorizedProdutorIdsForAction(user, 'EDITAR_PROPOSTA') } } : {}) },
+      where: { editalId, status: 'APROVADO', deletedAt: null, ...((user?.role === 'EXTENSIONISTA' || user?.role === 'REPRESENTANTE' || user?.role === 'PRODUTOR') ? { produtorId: { in: await this.policy.getAuthorizedProdutorIdsForAction(user, 'EDITAR_PROPOSTA') } } : {}) },
       include: { produtor: { include: { municipio: true } } },
       distinct: ['produtorId'],
     });
@@ -259,7 +259,7 @@ export class PropostasService {
   }
 
   private async escopo(user?: AuthenticatedUser): Promise<Prisma.PropostaWhereInput> {
-    if ((user?.role === 'EXTENSIONISTA' || user?.role === 'PRODUTOR')) return { produtorId: { in: await this.policy.getAuthorizedProdutorIds(user) } };
+    if ((user?.role === 'EXTENSIONISTA' || user?.role === 'REPRESENTANTE' || user?.role === 'PRODUTOR')) return { produtorId: { in: await this.policy.getAuthorizedProdutorIds(user) } };
     if (user?.role === 'ESCOLA') {
       return { id: { in: [] } };
     }
@@ -268,3 +268,4 @@ export class PropostasService {
 }
 
 import * as path from 'path';
+

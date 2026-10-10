@@ -1,4 +1,4 @@
-export type UserRole = 'ADMIN' | 'ESCOLA' | 'EXTENSIONISTA' | 'DRE' | 'PRODUTOR';
+export type UserRole = 'ADMIN' | 'ESCOLA' | 'EXTENSIONISTA' | 'DRE' | 'PRODUTOR' | 'REPRESENTANTE';
 
 export interface UserContext {
   pendencias: string[];

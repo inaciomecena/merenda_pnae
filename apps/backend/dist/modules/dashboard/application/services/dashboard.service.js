@@ -34,7 +34,7 @@ let DashboardService = class DashboardService {
                 OR: [
                     { escolaId: { in: escolaIds } },
                     { escolasVinculadas: { some: { escolaId: { in: escolaIds } } } },
-                    ...(user.role === 'EXTENSIONISTA' ? [{ propostas: { some: { produtorId: { in: produtorIds } } } }] : []),
+                    ...((user.role === 'EXTENSIONISTA' || user.role === 'REPRESENTANTE') ? [{ propostas: { some: { produtorId: { in: produtorIds } } } }] : []),
                 ],
             }),
         };

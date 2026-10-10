@@ -30,7 +30,7 @@ export default function DashboardPage() {
   if (!data) return <CircularProgress />;
   const role = user?.role;
   const cards = [
-    ...(role === 'PRODUTOR' || role === 'EXTENSIONISTA' ? [] : [
+    ...(role === 'PRODUTOR' || role === 'EXTENSIONISTA' || role === 'REPRESENTANTE' ? [] : [
       { label: 'Editais no escopo', value: data.kpis.editais.total },
       { label: 'Escolas no escopo', value: data.kpis.escolas },
     ]),
@@ -41,11 +41,11 @@ export default function DashboardPage() {
     ]),
   ];
   return <Stack spacing={3}>
-    <Typography variant="h4">Painel {role === 'DRE' ? 'da DRE' : role === 'ESCOLA' ? 'da escola' : role === 'PRODUTOR' ? 'do produtor' : role === 'EXTENSIONISTA' ? 'do representante' : 'administrativo'}</Typography>
+    <Typography variant="h4">Painel {role === 'DRE' ? 'da DRE' : role === 'ESCOLA' ? 'da escola' : role === 'PRODUTOR' ? 'do produtor' : role === 'EXTENSIONISTA' || role === 'REPRESENTANTE' ? 'do representante' : 'administrativo'}</Typography>
     <Grid container spacing={2}>{cards.map(card => <Grid item xs={12} sm={6} md={3} key={card.label}>
       <Card><CardContent><Typography color="text.secondary">{card.label}</Typography><Typography variant="h5">{card.value}</Typography></CardContent></Card>
     </Grid>)}</Grid>
-    {role !== 'PRODUTOR' && role !== 'EXTENSIONISTA' && <Card><CardContent>
+    {role !== 'PRODUTOR' && role !== 'EXTENSIONISTA' && role !== 'REPRESENTANTE' && <Card><CardContent>
       <Typography variant="h6">Produtos solicitados em editais do escopo</Typography>
       <ResponsiveContainer width="100%" height={300}><BarChart data={data.graficos.produtosSolicitados}>
         <CartesianGrid strokeDasharray="3 3" /><XAxis dataKey="nome" /><YAxis /><Tooltip /><Bar dataKey="quantidade" fill="#01287C" />

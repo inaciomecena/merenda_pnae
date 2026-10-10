@@ -131,7 +131,7 @@ export class PolicyService {
       return vinculos.map(v => v.produtorId).filter((id): id is string => Boolean(id));
     }
 
-    if (user.role === 'EXTENSIONISTA') {
+    if (user.role === 'EXTENSIONISTA' || user.role === 'REPRESENTANTE') {
       // Apenas representações expressas e vigentes dão acesso ao fornecedor.
       const representacoes = await this.prisma.representacaoFornecedor.findMany({
         where: {
@@ -216,7 +216,7 @@ export class PolicyService {
       await this.requireProdutorAccess(user, produtorId);
       return;
     }
-    if (user.role !== 'EXTENSIONISTA') throw new ForbiddenException('Ação não autorizada');
+    if (user.role !== 'EXTENSIONISTA' && user.role !== 'REPRESENTANTE') throw new ForbiddenException('Ação não autorizada');
     const now = new Date();
     const rows = await this.prisma.representacaoFornecedor.findMany({ where: {
       userId: user.sub, produtorId, ativo: true, revogadoEm: null,
@@ -230,7 +230,7 @@ export class PolicyService {
 
   async getAuthorizedProdutorIdsForAction(user: AuthenticatedUser, action: 'EDITAR_PRODUTOR' | 'EDITAR_PROPOSTA') {
     const ids = await this.getAuthorizedProdutorIds(user);
-    if (user.role !== 'EXTENSIONISTA') return ids;
+    if (user.role !== 'EXTENSIONISTA' && user.role !== 'REPRESENTANTE') return ids;
     const allowed: string[] = [];
     for (const id of ids) {
       try { await this.requireProdutorAction(user, id, action); allowed.push(id); } catch { /* Representação apenas de consulta. */ }

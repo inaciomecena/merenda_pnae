@@ -5,10 +5,11 @@ import { CreateProdutorDto, CreateProdutorProdutoDto, UpdateProdutorDto, UpdateP
 import { AuthenticatedUser } from '../../../../common/auth/user-scope';
 import { PolicyService } from '../../../../common/auth/policy.service';
 import { ForbiddenException } from '@nestjs/common';
+import { AuditService } from '../../../audit/application/services/audit.service';
 
 @Injectable()
 export class ProdutoresService {
-  constructor(private readonly prisma: PrismaService, private readonly policy: PolicyService) {}
+  constructor(private readonly prisma: PrismaService, private readonly policy: PolicyService, private readonly audit: AuditService) {}
 
   async findAll(query: { page?: number; limit?: number; search?: string; municipioId?: string }, user?: AuthenticatedUser) {
     const page = Number(query.page ?? 1);
@@ -18,7 +19,7 @@ export class ProdutoresService {
       ...(query.search ? { nome: { contains: query.search } } : {}),
       ...(query.municipioId ? { municipioId: query.municipioId } : {}),
     };
-    if ((user?.role === 'EXTENSIONISTA' || user?.role === 'PRODUTOR')) where.id = { in: await this.policy.getAuthorizedProdutorIds(user) };
+    if ((user?.role === 'EXTENSIONISTA' || user?.role === 'REPRESENTANTE' || user?.role === 'PRODUTOR')) where.id = { in: await this.policy.getAuthorizedProdutorIds(user) };
 
     const [items, total] = await this.prisma.$transaction([
       this.prisma.produtor.findMany({ where, skip: (page - 1) * limit, take: limit, include: { municipio: true }, orderBy: { createdAt: 'desc' } }),
@@ -30,7 +31,7 @@ export class ProdutoresService {
 
   async findOne(id: string, user?: AuthenticatedUser) {
     const where: any = { id, deletedAt: null };
-    if ((user?.role === 'EXTENSIONISTA' || user?.role === 'PRODUTOR')) await this.policy.requireProdutorAccess(user, id);
+    if ((user?.role === 'EXTENSIONISTA' || user?.role === 'REPRESENTANTE' || user?.role === 'PRODUTOR')) await this.policy.requireProdutorAccess(user, id);
     const item = await this.prisma.produtor.findFirst({ where, include: { municipio: true, produtos: true } });
     if (!item) throw new NotFoundException('Produtor não encontrado');
     return item;
@@ -47,8 +48,11 @@ export class ProdutoresService {
     this.validarDadosDocumentais(dto.dadosDocumentais);
     await this.findOne(id, user);
     if (user && user.role !== 'ADMIN') await this.policy.requireProdutorAction(user, id, 'EDITAR_PRODUTOR');
-    if ((user?.role === 'EXTENSIONISTA' || user?.role === 'PRODUTOR') && dto.municipioId) throw new ForbiddenException('Representante não pode alterar o município do fornecedor');
-    return this.prisma.produtor.update({ where: { id }, data: { ...dto, updatedBy: 'system' } });
+    if ((user?.role === 'EXTENSIONISTA' || user?.role === 'REPRESENTANTE' || user?.role === 'PRODUTOR') && dto.municipioId) throw new ForbiddenException('Representante não pode alterar o município do fornecedor');
+    const updated = await this.prisma.produtor.update({ where: { id }, data: { ...dto, updatedBy: user?.sub || 'system' } });
+    await this.audit.log({ userId: user?.sub, userRole: user?.role, action: 'UPDATE', entity: 'Produtor', entityId: id,
+      metadata: { executorId: user?.sub, fornecedorRepresentadoId: id } });
+    return updated;
   }
 
   async remove(id: string) {
@@ -76,7 +80,7 @@ export class ProdutoresService {
   async createProduto(produtorId: string, dto: CreateProdutorProdutoDto, user?: AuthenticatedUser) {
     await this.findOne(produtorId, user);
     if (user && user.role !== 'ADMIN') await this.policy.requireProdutorAction(user, produtorId, 'EDITAR_PRODUTOR');
-    return this.prisma.produtorProduto.create({
+    const produto = await this.prisma.produtorProduto.create({
       data: {
         produtorId,
         ...this.normalizeProdutoPayload(dto),
@@ -85,29 +89,38 @@ export class ProdutoresService {
         updatedBy: 'system',
       },
     });
+    await this.audit.log({ userId: user?.sub, userRole: user?.role, action: 'CREATE', entity: 'ProdutorProduto', entityId: produto.id,
+      metadata: { executorId: user?.sub, fornecedorRepresentadoId: produtorId } });
+    return produto;
   }
 
   async updateProduto(produtorId: string, produtoId: string, dto: UpdateProdutorProdutoDto, user?: AuthenticatedUser) {
     await this.findOne(produtorId, user);
     if (user && user.role !== 'ADMIN') await this.policy.requireProdutorAction(user, produtorId, 'EDITAR_PRODUTOR');
     await this.findProduto(produtorId, produtoId);
-    return this.prisma.produtorProduto.update({
+    const produto = await this.prisma.produtorProduto.update({
       where: { id: produtoId },
       data: {
         ...this.normalizeProdutoPayload(dto),
         updatedBy: 'system',
       },
     });
+    await this.audit.log({ userId: user?.sub, userRole: user?.role, action: 'UPDATE', entity: 'ProdutorProduto', entityId: produtoId,
+      metadata: { executorId: user?.sub, fornecedorRepresentadoId: produtorId } });
+    return produto;
   }
 
   async removeProduto(produtorId: string, produtoId: string, user?: AuthenticatedUser) {
     await this.findOne(produtorId, user);
     if (user && user.role !== 'ADMIN') await this.policy.requireProdutorAction(user, produtorId, 'EDITAR_PRODUTOR');
     await this.findProduto(produtorId, produtoId);
-    return this.prisma.produtorProduto.update({
+    const produto = await this.prisma.produtorProduto.update({
       where: { id: produtoId },
       data: { deletedAt: new Date(), updatedBy: 'system' },
     });
+    await this.audit.log({ userId: user?.sub, userRole: user?.role, action: 'DELETE', entity: 'ProdutorProduto', entityId: produtoId,
+      metadata: { executorId: user?.sub, fornecedorRepresentadoId: produtorId } });
+    return produto;
   }
 
   private async findProduto(produtorId: string, produtoId: string) {
@@ -133,3 +146,4 @@ export class ProdutoresService {
     };
   }
 }
+

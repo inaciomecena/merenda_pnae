@@ -5,7 +5,7 @@ import { AuthenticatedUser } from '../../../../common/auth/user-scope';
 
 interface CreateVinculoDto {
   userId: string;
-  funcao: 'ADMIN' | 'DRE' | 'ESCOLA' | 'EXTENSIONISTA' | 'PRODUTOR';
+  funcao: 'ADMIN' | 'DRE' | 'ESCOLA' | 'EXTENSIONISTA' | 'PRODUTOR' | 'REPRESENTANTE';
   dreId?: string;
   escolaId?: string;
   municipioId?: string;
@@ -131,8 +131,8 @@ export class VinculosService {
   }
 
   async createRepresentacao(data: CreateRepresentacaoDto, actor: AuthenticatedUser) {
-    const target = await this.prisma.user.findFirst({ where: { id: data.userId, role: 'EXTENSIONISTA', active: true, deletedAt: null } });
-    if (!target) throw new BadRequestException('Representante deve ser usuário extensionista ativo');
+    const target = await this.prisma.user.findFirst({ where: { id: data.userId, role: { in: ['EXTENSIONISTA', 'REPRESENTANTE'] }, active: true, deletedAt: null } });
+    if (!target) throw new BadRequestException('Representante deve ser usuário extensionista ou representante ativo');
     const produtor = await this.prisma.produtor.findFirst({ where: { id: data.produtorId, active: true, deletedAt: null } });
     if (!produtor) throw new NotFoundException('Produtor ativo não encontrado');
     const permissoes = data.permissoes ?? 'CONSULTAR';
