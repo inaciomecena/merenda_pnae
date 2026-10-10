@@ -1,4 +1,4 @@
-import { Box, Breadcrumbs, Container, CssBaseline, Drawer, List, ListItemButton, ListItemIcon, ListItemText, Typography, Divider, Stack, Chip, IconButton, useMediaQuery, useTheme } from '@mui/material';
+import { Alert, Box, Breadcrumbs, Container, CssBaseline, Drawer, List, ListItemButton, ListItemIcon, ListItemText, Typography, Divider, Stack, Chip, IconButton, MenuItem, Select, useMediaQuery, useTheme } from '@mui/material';
 import type { ReactNode } from 'react';
 import { useState } from 'react';
 import { Home, School, Map, Description, Inventory2, People, Gavel, Assignment, Group, UploadFile, History, Settings, Science, Assessment, Article, Map as MapIcon, Menu } from '@mui/icons-material';
@@ -9,18 +9,20 @@ import type { UserRole } from '../types';
 const drawerWidth = 240;
 
 const routes: { label: string; path: string; icon: ReactNode; roles: UserRole[] }[] = [
-  { label: 'Dashboard', path: '/dashboard', icon: <Home />, roles: ['ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'] },
-  { label: 'Mapa MT', path: '/mapa', icon: <MapIcon />, roles: ['ADMIN', 'ESCOLA', 'EXTENSIONISTA'] },
-  { label: 'Relatorios', path: '/relatorios', icon: <Assessment />, roles: ['ADMIN', 'ESCOLA', 'EXTENSIONISTA'] },
+  { label: 'Dashboard', path: '/dashboard', icon: <Home />, roles: ['ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'PRODUTOR'] },
+  { label: 'Mapa MT', path: '/mapa', icon: <MapIcon />, roles: ['ADMIN'] },
+  { label: 'Relatorios', path: '/relatorios', icon: <Assessment />, roles: ['ADMIN'] },
   { label: 'Municipios', path: '/municipios', icon: <Map />, roles: ['ADMIN'] },
-  { label: 'Escolas', path: '/escolas', icon: <School />, roles: ['ADMIN', 'ESCOLA'] },
+  { label: 'Escolas', path: '/escolas', icon: <School />, roles: ['ADMIN', 'DRE', 'ESCOLA'] },
   { label: 'Editais', path: '/editais', icon: <Description />, roles: ['ADMIN', 'DRE', 'ESCOLA'] },
-  { label: 'Templates de Anexos', path: '/templates-anexos', icon: <Article />, roles: ['ADMIN', 'DRE'] },
+  { label: 'Templates de Anexos', path: '/templates-anexos', icon: <Article />, roles: ['ADMIN'] },
   { label: 'Produtos de referencia', path: '/produtos-referencia', icon: <Inventory2 />, roles: ['ADMIN'] },
-  { label: 'Produtores', path: '/produtores', icon: <People />, roles: ['ADMIN', 'EXTENSIONISTA'] },
-  { label: 'Balizamento', path: '/balizamento', icon: <Gavel />, roles: ['ADMIN', 'EXTENSIONISTA'] },
-  { label: 'Propostas', path: '/propostas', icon: <Assignment />, roles: ['ADMIN', 'ESCOLA', 'EXTENSIONISTA'] },
-  { label: 'Importacoes', path: '/importacoes', icon: <UploadFile />, roles: ['ADMIN', 'DRE', 'ESCOLA'] },
+  { label: 'Produtores', path: '/produtores', icon: <People />, roles: ['ADMIN', 'EXTENSIONISTA', 'PRODUTOR'] },
+  { label: 'Balizamento', path: '/balizamento', icon: <Gavel />, roles: ['ADMIN'] },
+  { label: 'Propostas', path: '/propostas', icon: <Assignment />, roles: ['ADMIN', 'EXTENSIONISTA', 'PRODUTOR'] },
+  { label: 'Importacoes', path: '/importacoes', icon: <UploadFile />, roles: ['ADMIN'] },
+  { label: 'Organização', path: '/organizacao', icon: <School />, roles: ['ADMIN'] },
+  { label: 'Vínculos', path: '/vinculos', icon: <Group />, roles: ['ADMIN'] },
   { label: 'Usuarios', path: '/usuarios', icon: <Group />, roles: ['ADMIN'] },
   { label: 'Auditoria', path: '/auditoria', icon: <History />, roles: ['ADMIN'] },
   { label: 'Configuracoes', path: '/configuracoes', icon: <Settings />, roles: ['ADMIN'] },
@@ -33,8 +35,8 @@ export default function Layout() {
   const [menuAberto, setMenuAberto] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const { user, logout } = useAuth();
-  const visibleRoutes = routes.filter((item) => user && item.roles.includes(user.role));
+  const { user, context, selectedVinculo, selectVinculo, logout } = useAuth();
+  const visibleRoutes = routes.filter((item) => user && item.roles.includes(user.role) && (!context?.pendencias.length || item.path === '/dashboard'));
 
   const breadcrumbs = location.pathname
     .split('/')
@@ -138,6 +140,10 @@ export default function Layout() {
         >
           {compacto ? <IconButton aria-label="Abrir menu" onClick={() => setMenuAberto(true)} sx={{ mr: 'auto' }}><Menu /></IconButton> : null}
           <Stack direction="row" spacing={1.5} alignItems="center">
+            {context && context.vinculos.filter(v => v.funcao === user?.role).length > 1 && <Select size="small" displayEmpty value={selectedVinculo} onChange={e => { selectVinculo(e.target.value); window.location.reload(); }}>
+              <MenuItem value="">Todos os vínculos</MenuItem>
+              {context.vinculos.filter(v => v.funcao === user?.role).map(v => <MenuItem key={v.id} value={v.id}>{v.dre?.nome || v.escola?.nome || v.produtor?.nome || v.funcao}</MenuItem>)}
+            </Select>}
             <Chip
               label={user?.role || 'VISITANTE'}
               size="small"
@@ -168,6 +174,7 @@ export default function Layout() {
 
         <Box component="main" sx={{ flexGrow: 1, p: { xs: 2, md: 3 }, overflow: 'auto' }}>
           <Container maxWidth={false} sx={{ px: 0, width: '100%' }}>
+            {context?.pendencias.length ? <Alert severity="warning" sx={{ mb: 2 }}>{context.pendencias.join('. ')}. Solicite ao administrador a regularização.</Alert> : null}
             <Breadcrumbs aria-label="breadcrumb" sx={{ mb: 2 }}>
               <Link
                 to="/dashboard"

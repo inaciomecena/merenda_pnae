@@ -61,8 +61,8 @@ const tipoLabels: Record<string, string> = {
 
 export default function PropostasPage() {
   const [searchParams] = useSearchParams();
-  const { user } = useAuth();
-  const podeElaborar = user?.role === 'ADMIN' || user?.role === 'EXTENSIONISTA';
+  const { user, context } = useAuth();
+  const podeElaborar = user?.role === 'ADMIN' || user?.role === 'PRODUTOR' || (user?.role === 'EXTENSIONISTA' && Boolean(context?.representacoes.some(r => r.permissoes.split(',').includes('EDITAR_PROPOSTA'))));
   const [documentosId, setDocumentosId] = useState<string | null>(null);
   const [items, setItems] = useState<Proposta[]>([]);
   const [loading, setLoading] = useState(false);

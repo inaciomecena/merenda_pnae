@@ -12,13 +12,13 @@ export declare class ImportacoesController {
     constructor(service: ImportadorEditaisService, engenhariaReversa: EngenhariaReversaImportacaoService);
     uploadPdf(file: Express.Multer.File, dto: CreateImportacaoPdfDto): Promise<{
         id: string;
-        objeto: string | null;
-        status: import(".prisma/client").$Enums.StatusImportacao;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        objeto: string | null;
+        status: import(".prisma/client").$Enums.StatusImportacao;
         editalId: string | null;
         arquivoNome: string;
         arquivoCaminho: string;
@@ -44,31 +44,34 @@ export declare class ImportacoesController {
             edital: ({
                 municipio: {
                     id: string;
+                    nome: string;
                     createdAt: Date;
                     updatedAt: Date;
                     deletedAt: Date | null;
                     createdBy: string | null;
                     updatedBy: string | null;
-                    ativo: boolean;
-                    nome: string;
                     nomeNormalizado: string | null;
                     uf: string;
                     codigoIbge: string | null;
+                    ativo: boolean;
                 } | null;
+                _count: {
+                    itens: number;
+                };
                 escola: {
                     id: string;
+                    nome: string;
+                    municipioId: string;
+                    endereco: string | null;
+                    telefone: string | null;
+                    active: boolean;
                     createdAt: Date;
                     updatedAt: Date;
                     deletedAt: Date | null;
                     createdBy: string | null;
                     updatedBy: string | null;
-                    municipioId: string;
-                    nome: string;
                     codigo: string | null;
-                    endereco: string | null;
-                    telefone: string | null;
                     responsavel: string | null;
-                    active: boolean;
                     restricaoAtendimento: string | null;
                     localizacao: string | null;
                     localidadeDiferenciada: string | null;
@@ -87,31 +90,31 @@ export declare class ImportacoesController {
                     escola: {
                         municipio: {
                             id: string;
+                            nome: string;
                             createdAt: Date;
                             updatedAt: Date;
                             deletedAt: Date | null;
                             createdBy: string | null;
                             updatedBy: string | null;
-                            ativo: boolean;
-                            nome: string;
                             nomeNormalizado: string | null;
                             uf: string;
                             codigoIbge: string | null;
+                            ativo: boolean;
                         };
                     } & {
                         id: string;
+                        nome: string;
+                        municipioId: string;
+                        endereco: string | null;
+                        telefone: string | null;
+                        active: boolean;
                         createdAt: Date;
                         updatedAt: Date;
                         deletedAt: Date | null;
                         createdBy: string | null;
                         updatedBy: string | null;
-                        municipioId: string;
-                        nome: string;
                         codigo: string | null;
-                        endereco: string | null;
-                        telefone: string | null;
                         responsavel: string | null;
-                        active: boolean;
                         restricaoAtendimento: string | null;
                         localizacao: string | null;
                         localidadeDiferenciada: string | null;
@@ -132,11 +135,14 @@ export declare class ImportacoesController {
                     escolaId: string;
                     editalId: string;
                 })[];
-                _count: {
-                    itens: number;
-                };
             } & {
                 id: string;
+                municipioId: string | null;
+                createdAt: Date;
+                updatedAt: Date;
+                deletedAt: Date | null;
+                createdBy: string | null;
+                updatedBy: string | null;
                 numero: string;
                 ano: number;
                 titulo: string;
@@ -146,23 +152,17 @@ export declare class ImportacoesController {
                 arquivoFonte: string | null;
                 observacoes: string | null;
                 dataPublicacao: Date | null;
-                createdAt: Date;
-                updatedAt: Date;
-                deletedAt: Date | null;
-                createdBy: string | null;
-                updatedBy: string | null;
-                municipioId: string | null;
                 escolaId: string | null;
             }) | null;
         } & {
             id: string;
-            objeto: string | null;
-            status: import(".prisma/client").$Enums.StatusImportacao;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            objeto: string | null;
+            status: import(".prisma/client").$Enums.StatusImportacao;
             editalId: string | null;
             arquivoNome: string;
             arquivoCaminho: string;
@@ -192,13 +192,13 @@ export declare class ImportacoesController {
         processados: number;
         importacoes: {
             id: string;
-            objeto: string | null;
-            status: import(".prisma/client").$Enums.StatusImportacao;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            objeto: string | null;
+            status: import(".prisma/client").$Enums.StatusImportacao;
             editalId: string | null;
             arquivoNome: string;
             arquivoCaminho: string;
@@ -220,31 +220,31 @@ export declare class ImportacoesController {
         edital: ({
             municipio: {
                 id: string;
+                nome: string;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                ativo: boolean;
-                nome: string;
                 nomeNormalizado: string | null;
                 uf: string;
                 codigoIbge: string | null;
+                ativo: boolean;
             } | null;
             escola: {
                 id: string;
+                nome: string;
+                municipioId: string;
+                endereco: string | null;
+                telefone: string | null;
+                active: boolean;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                municipioId: string;
-                nome: string;
                 codigo: string | null;
-                endereco: string | null;
-                telefone: string | null;
                 responsavel: string | null;
-                active: boolean;
                 restricaoAtendimento: string | null;
                 localizacao: string | null;
                 localidadeDiferenciada: string | null;
@@ -261,19 +261,19 @@ export declare class ImportacoesController {
             } | null;
             itens: {
                 id: string;
-                status: import(".prisma/client").$Enums.StatusItemEdital;
-                observacoes: string | null;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
+                unidade: string | null;
+                status: import(".prisma/client").$Enums.StatusItemEdital;
+                observacoes: string | null;
                 editalId: string;
                 numeroItem: number | null;
                 produtoOriginal: string;
                 especificacao: string | null;
                 quantidade: import("@prisma/client/runtime/library").Decimal | null;
-                unidade: string | null;
                 precoUnitario: import("@prisma/client/runtime/library").Decimal | null;
                 valorTotal: import("@prisma/client/runtime/library").Decimal | null;
                 pendenteEdicao: boolean;
@@ -284,31 +284,31 @@ export declare class ImportacoesController {
                 escola: {
                     municipio: {
                         id: string;
+                        nome: string;
                         createdAt: Date;
                         updatedAt: Date;
                         deletedAt: Date | null;
                         createdBy: string | null;
                         updatedBy: string | null;
-                        ativo: boolean;
-                        nome: string;
                         nomeNormalizado: string | null;
                         uf: string;
                         codigoIbge: string | null;
+                        ativo: boolean;
                     };
                 } & {
                     id: string;
+                    nome: string;
+                    municipioId: string;
+                    endereco: string | null;
+                    telefone: string | null;
+                    active: boolean;
                     createdAt: Date;
                     updatedAt: Date;
                     deletedAt: Date | null;
                     createdBy: string | null;
                     updatedBy: string | null;
-                    municipioId: string;
-                    nome: string;
                     codigo: string | null;
-                    endereco: string | null;
-                    telefone: string | null;
                     responsavel: string | null;
-                    active: boolean;
                     restricaoAtendimento: string | null;
                     localizacao: string | null;
                     localidadeDiferenciada: string | null;
@@ -331,6 +331,12 @@ export declare class ImportacoesController {
             })[];
         } & {
             id: string;
+            municipioId: string | null;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
             numero: string;
             ano: number;
             titulo: string;
@@ -340,23 +346,17 @@ export declare class ImportacoesController {
             arquivoFonte: string | null;
             observacoes: string | null;
             dataPublicacao: Date | null;
-            createdAt: Date;
-            updatedAt: Date;
-            deletedAt: Date | null;
-            createdBy: string | null;
-            updatedBy: string | null;
-            municipioId: string | null;
             escolaId: string | null;
         }) | null;
     } & {
         id: string;
-        objeto: string | null;
-        status: import(".prisma/client").$Enums.StatusImportacao;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        objeto: string | null;
+        status: import(".prisma/client").$Enums.StatusImportacao;
         editalId: string | null;
         arquivoNome: string;
         arquivoCaminho: string;
@@ -378,31 +378,31 @@ export declare class ImportacoesController {
         edital: ({
             municipio: {
                 id: string;
+                nome: string;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                ativo: boolean;
-                nome: string;
                 nomeNormalizado: string | null;
                 uf: string;
                 codigoIbge: string | null;
+                ativo: boolean;
             } | null;
             escola: {
                 id: string;
+                nome: string;
+                municipioId: string;
+                endereco: string | null;
+                telefone: string | null;
+                active: boolean;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                municipioId: string;
-                nome: string;
                 codigo: string | null;
-                endereco: string | null;
-                telefone: string | null;
                 responsavel: string | null;
-                active: boolean;
                 restricaoAtendimento: string | null;
                 localizacao: string | null;
                 localidadeDiferenciada: string | null;
@@ -419,19 +419,19 @@ export declare class ImportacoesController {
             } | null;
             itens: {
                 id: string;
-                status: import(".prisma/client").$Enums.StatusItemEdital;
-                observacoes: string | null;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
+                unidade: string | null;
+                status: import(".prisma/client").$Enums.StatusItemEdital;
+                observacoes: string | null;
                 editalId: string;
                 numeroItem: number | null;
                 produtoOriginal: string;
                 especificacao: string | null;
                 quantidade: import("@prisma/client/runtime/library").Decimal | null;
-                unidade: string | null;
                 precoUnitario: import("@prisma/client/runtime/library").Decimal | null;
                 valorTotal: import("@prisma/client/runtime/library").Decimal | null;
                 pendenteEdicao: boolean;
@@ -442,31 +442,31 @@ export declare class ImportacoesController {
                 escola: {
                     municipio: {
                         id: string;
+                        nome: string;
                         createdAt: Date;
                         updatedAt: Date;
                         deletedAt: Date | null;
                         createdBy: string | null;
                         updatedBy: string | null;
-                        ativo: boolean;
-                        nome: string;
                         nomeNormalizado: string | null;
                         uf: string;
                         codigoIbge: string | null;
+                        ativo: boolean;
                     };
                 } & {
                     id: string;
+                    nome: string;
+                    municipioId: string;
+                    endereco: string | null;
+                    telefone: string | null;
+                    active: boolean;
                     createdAt: Date;
                     updatedAt: Date;
                     deletedAt: Date | null;
                     createdBy: string | null;
                     updatedBy: string | null;
-                    municipioId: string;
-                    nome: string;
                     codigo: string | null;
-                    endereco: string | null;
-                    telefone: string | null;
                     responsavel: string | null;
-                    active: boolean;
                     restricaoAtendimento: string | null;
                     localizacao: string | null;
                     localidadeDiferenciada: string | null;
@@ -489,6 +489,12 @@ export declare class ImportacoesController {
             })[];
         } & {
             id: string;
+            municipioId: string | null;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
             numero: string;
             ano: number;
             titulo: string;
@@ -498,23 +504,17 @@ export declare class ImportacoesController {
             arquivoFonte: string | null;
             observacoes: string | null;
             dataPublicacao: Date | null;
-            createdAt: Date;
-            updatedAt: Date;
-            deletedAt: Date | null;
-            createdBy: string | null;
-            updatedBy: string | null;
-            municipioId: string | null;
             escolaId: string | null;
         }) | null;
     } & {
         id: string;
-        objeto: string | null;
-        status: import(".prisma/client").$Enums.StatusImportacao;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        objeto: string | null;
+        status: import(".prisma/client").$Enums.StatusImportacao;
         editalId: string | null;
         arquivoNome: string;
         arquivoCaminho: string;
@@ -551,31 +551,31 @@ export declare class ImportacoesController {
         edital: ({
             municipio: {
                 id: string;
+                nome: string;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                ativo: boolean;
-                nome: string;
                 nomeNormalizado: string | null;
                 uf: string;
                 codigoIbge: string | null;
+                ativo: boolean;
             } | null;
             escola: {
                 id: string;
+                nome: string;
+                municipioId: string;
+                endereco: string | null;
+                telefone: string | null;
+                active: boolean;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                municipioId: string;
-                nome: string;
                 codigo: string | null;
-                endereco: string | null;
-                telefone: string | null;
                 responsavel: string | null;
-                active: boolean;
                 restricaoAtendimento: string | null;
                 localizacao: string | null;
                 localidadeDiferenciada: string | null;
@@ -592,19 +592,19 @@ export declare class ImportacoesController {
             } | null;
             itens: {
                 id: string;
-                status: import(".prisma/client").$Enums.StatusItemEdital;
-                observacoes: string | null;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
+                unidade: string | null;
+                status: import(".prisma/client").$Enums.StatusItemEdital;
+                observacoes: string | null;
                 editalId: string;
                 numeroItem: number | null;
                 produtoOriginal: string;
                 especificacao: string | null;
                 quantidade: import("@prisma/client/runtime/library").Decimal | null;
-                unidade: string | null;
                 precoUnitario: import("@prisma/client/runtime/library").Decimal | null;
                 valorTotal: import("@prisma/client/runtime/library").Decimal | null;
                 pendenteEdicao: boolean;
@@ -615,31 +615,31 @@ export declare class ImportacoesController {
                 escola: {
                     municipio: {
                         id: string;
+                        nome: string;
                         createdAt: Date;
                         updatedAt: Date;
                         deletedAt: Date | null;
                         createdBy: string | null;
                         updatedBy: string | null;
-                        ativo: boolean;
-                        nome: string;
                         nomeNormalizado: string | null;
                         uf: string;
                         codigoIbge: string | null;
+                        ativo: boolean;
                     };
                 } & {
                     id: string;
+                    nome: string;
+                    municipioId: string;
+                    endereco: string | null;
+                    telefone: string | null;
+                    active: boolean;
                     createdAt: Date;
                     updatedAt: Date;
                     deletedAt: Date | null;
                     createdBy: string | null;
                     updatedBy: string | null;
-                    municipioId: string;
-                    nome: string;
                     codigo: string | null;
-                    endereco: string | null;
-                    telefone: string | null;
                     responsavel: string | null;
-                    active: boolean;
                     restricaoAtendimento: string | null;
                     localizacao: string | null;
                     localidadeDiferenciada: string | null;
@@ -662,6 +662,12 @@ export declare class ImportacoesController {
             })[];
         } & {
             id: string;
+            municipioId: string | null;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
             numero: string;
             ano: number;
             titulo: string;
@@ -671,23 +677,17 @@ export declare class ImportacoesController {
             arquivoFonte: string | null;
             observacoes: string | null;
             dataPublicacao: Date | null;
-            createdAt: Date;
-            updatedAt: Date;
-            deletedAt: Date | null;
-            createdBy: string | null;
-            updatedBy: string | null;
-            municipioId: string | null;
             escolaId: string | null;
         }) | null;
     } & {
         id: string;
-        objeto: string | null;
-        status: import(".prisma/client").$Enums.StatusImportacao;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        objeto: string | null;
+        status: import(".prisma/client").$Enums.StatusImportacao;
         editalId: string | null;
         arquivoNome: string;
         arquivoCaminho: string;
@@ -708,31 +708,31 @@ export declare class ImportacoesController {
         edital: ({
             municipio: {
                 id: string;
+                nome: string;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                ativo: boolean;
-                nome: string;
                 nomeNormalizado: string | null;
                 uf: string;
                 codigoIbge: string | null;
+                ativo: boolean;
             } | null;
             escola: {
                 id: string;
+                nome: string;
+                municipioId: string;
+                endereco: string | null;
+                telefone: string | null;
+                active: boolean;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                municipioId: string;
-                nome: string;
                 codigo: string | null;
-                endereco: string | null;
-                telefone: string | null;
                 responsavel: string | null;
-                active: boolean;
                 restricaoAtendimento: string | null;
                 localizacao: string | null;
                 localidadeDiferenciada: string | null;
@@ -749,19 +749,19 @@ export declare class ImportacoesController {
             } | null;
             itens: {
                 id: string;
-                status: import(".prisma/client").$Enums.StatusItemEdital;
-                observacoes: string | null;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
+                unidade: string | null;
+                status: import(".prisma/client").$Enums.StatusItemEdital;
+                observacoes: string | null;
                 editalId: string;
                 numeroItem: number | null;
                 produtoOriginal: string;
                 especificacao: string | null;
                 quantidade: import("@prisma/client/runtime/library").Decimal | null;
-                unidade: string | null;
                 precoUnitario: import("@prisma/client/runtime/library").Decimal | null;
                 valorTotal: import("@prisma/client/runtime/library").Decimal | null;
                 pendenteEdicao: boolean;
@@ -770,6 +770,12 @@ export declare class ImportacoesController {
             }[];
         } & {
             id: string;
+            municipioId: string | null;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
             numero: string;
             ano: number;
             titulo: string;
@@ -779,23 +785,17 @@ export declare class ImportacoesController {
             arquivoFonte: string | null;
             observacoes: string | null;
             dataPublicacao: Date | null;
-            createdAt: Date;
-            updatedAt: Date;
-            deletedAt: Date | null;
-            createdBy: string | null;
-            updatedBy: string | null;
-            municipioId: string | null;
             escolaId: string | null;
         }) | null;
     } & {
         id: string;
-        objeto: string | null;
-        status: import(".prisma/client").$Enums.StatusImportacao;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        objeto: string | null;
+        status: import(".prisma/client").$Enums.StatusImportacao;
         editalId: string | null;
         arquivoNome: string;
         arquivoCaminho: string;
@@ -821,13 +821,13 @@ export declare class ImportacoesController {
         arquivoNome: string;
         importLog: {
             id: string;
-            objeto: string | null;
-            status: import(".prisma/client").$Enums.StatusImportacao;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            objeto: string | null;
+            status: import(".prisma/client").$Enums.StatusImportacao;
             editalId: string | null;
             arquivoNome: string;
             arquivoCaminho: string;
@@ -848,16 +848,16 @@ export declare class ImportacoesController {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            origem: string;
             chave: string;
+            rotulo: string;
             valor: string | null;
+            origem: string;
             valorExtraido: string | null;
             confianca: string | null;
             paginaOrigem: number | null;
             sensivel: boolean;
             statusRevisao: string;
             estruturaId: string;
-            rotulo: string;
             trecho: string | null;
             secao: string | null;
             editavel: boolean;
@@ -897,13 +897,13 @@ export declare class ImportacoesController {
         arquivoNome: string;
         importLog: {
             id: string;
-            objeto: string | null;
-            status: import(".prisma/client").$Enums.StatusImportacao;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            objeto: string | null;
+            status: import(".prisma/client").$Enums.StatusImportacao;
             editalId: string | null;
             arquivoNome: string;
             arquivoCaminho: string;
@@ -924,16 +924,16 @@ export declare class ImportacoesController {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            origem: string;
             chave: string;
+            rotulo: string;
             valor: string | null;
+            origem: string;
             valorExtraido: string | null;
             confianca: string | null;
             paginaOrigem: number | null;
             sensivel: boolean;
             statusRevisao: string;
             estruturaId: string;
-            rotulo: string;
             trecho: string | null;
             secao: string | null;
             editavel: boolean;
@@ -960,13 +960,13 @@ export declare class ImportacoesController {
         arquivoNome: string;
         importLog: {
             id: string;
-            objeto: string | null;
-            status: import(".prisma/client").$Enums.StatusImportacao;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            objeto: string | null;
+            status: import(".prisma/client").$Enums.StatusImportacao;
             editalId: string | null;
             arquivoNome: string;
             arquivoCaminho: string;
@@ -987,16 +987,16 @@ export declare class ImportacoesController {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            origem: string;
             chave: string;
+            rotulo: string;
             valor: string | null;
+            origem: string;
             valorExtraido: string | null;
             confianca: string | null;
             paginaOrigem: number | null;
             sensivel: boolean;
             statusRevisao: string;
             estruturaId: string;
-            rotulo: string;
             trecho: string | null;
             secao: string | null;
             editavel: boolean;
@@ -1021,31 +1021,31 @@ export declare class ImportacoesController {
     }): Promise<{
         municipio: {
             id: string;
+            nome: string;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            ativo: boolean;
-            nome: string;
             nomeNormalizado: string | null;
             uf: string;
             codigoIbge: string | null;
+            ativo: boolean;
         } | null;
         escola: {
             id: string;
+            nome: string;
+            municipioId: string;
+            endereco: string | null;
+            telefone: string | null;
+            active: boolean;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            municipioId: string;
-            nome: string;
             codigo: string | null;
-            endereco: string | null;
-            telefone: string | null;
             responsavel: string | null;
-            active: boolean;
             restricaoAtendimento: string | null;
             localizacao: string | null;
             localidadeDiferenciada: string | null;
@@ -1062,19 +1062,19 @@ export declare class ImportacoesController {
         } | null;
         itens: {
             id: string;
-            status: import(".prisma/client").$Enums.StatusItemEdital;
-            observacoes: string | null;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            unidade: string | null;
+            status: import(".prisma/client").$Enums.StatusItemEdital;
+            observacoes: string | null;
             editalId: string;
             numeroItem: number | null;
             produtoOriginal: string;
             especificacao: string | null;
             quantidade: import("@prisma/client/runtime/library").Decimal | null;
-            unidade: string | null;
             precoUnitario: import("@prisma/client/runtime/library").Decimal | null;
             valorTotal: import("@prisma/client/runtime/library").Decimal | null;
             pendenteEdicao: boolean;
@@ -1084,18 +1084,18 @@ export declare class ImportacoesController {
         escolasVinculadas: ({
             escola: {
                 id: string;
+                nome: string;
+                municipioId: string;
+                endereco: string | null;
+                telefone: string | null;
+                active: boolean;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                municipioId: string;
-                nome: string;
                 codigo: string | null;
-                endereco: string | null;
-                telefone: string | null;
                 responsavel: string | null;
-                active: boolean;
                 restricaoAtendimento: string | null;
                 localizacao: string | null;
                 localidadeDiferenciada: string | null;
@@ -1119,9 +1119,9 @@ export declare class ImportacoesController {
         documento: ({
             versoes: {
                 id: string;
-                numero: number;
                 createdAt: Date;
                 createdBy: string | null;
+                numero: number;
                 statusComposicao: import(".prisma/client").$Enums.StatusComposicaoEdital;
                 documentoId: string;
                 snapshot: string;
@@ -1130,10 +1130,10 @@ export declare class ImportacoesController {
             anexos: ({
                 templateVersao: {
                     id: string;
-                    numero: number;
-                    titulo: string;
                     createdAt: Date;
                     createdBy: string | null;
+                    numero: number;
+                    titulo: string;
                     formato: import(".prisma/client").$Enums.FormatoTemplate;
                     vigenciaInicio: Date | null;
                     vigenciaFim: Date | null;
@@ -1144,13 +1144,14 @@ export declare class ImportacoesController {
                 } | null;
                 template: {
                     id: string;
-                    titulo: string;
-                    descricao: string | null;
                     createdAt: Date;
                     updatedAt: Date;
                     deletedAt: Date | null;
                     createdBy: string | null;
                     updatedBy: string | null;
+                    ativo: boolean;
+                    titulo: string;
+                    descricao: string | null;
                     versaoAtual: number;
                     tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
                     numeroAnexo: number | null;
@@ -1158,7 +1159,6 @@ export declare class ImportacoesController {
                     perfilFornecedor: string | null;
                     codigoModelo: string | null;
                     ordem: number;
-                    ativo: boolean;
                     formato: import(".prisma/client").$Enums.FormatoTemplate;
                     vigenciaInicio: Date | null;
                     vigenciaFim: Date | null;
@@ -1167,9 +1167,9 @@ export declare class ImportacoesController {
                 } | null;
             } & {
                 id: string;
-                titulo: string;
                 createdAt: Date;
                 updatedAt: Date;
+                titulo: string;
                 conteudoManual: string | null;
                 tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
                 ordem: number;
@@ -1182,10 +1182,10 @@ export declare class ImportacoesController {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                origem: string;
                 chave: string;
-                documentoId: string;
                 valor: string | null;
+                origem: string;
+                documentoId: string;
                 valorExtraido: string | null;
                 confianca: string | null;
                 paginaOrigem: number | null;
@@ -1196,8 +1196,8 @@ export declare class ImportacoesController {
             }[];
             geracoes: {
                 id: string;
-                status: import(".prisma/client").$Enums.StatusGeracaoDocumento;
                 createdAt: Date;
+                status: import(".prisma/client").$Enums.StatusGeracaoDocumento;
                 editalId: string;
                 formato: string;
                 documentoId: string;
@@ -1211,11 +1211,11 @@ export declare class ImportacoesController {
             }[];
         } & {
             id: string;
-            arquivoFonte: string | null;
             createdAt: Date;
             updatedAt: Date;
             createdBy: string | null;
             updatedBy: string | null;
+            arquivoFonte: string | null;
             editalId: string;
             origem: string;
             statusComposicao: import(".prisma/client").$Enums.StatusComposicaoEdital;
@@ -1240,6 +1240,12 @@ export declare class ImportacoesController {
         }) | null;
     } & {
         id: string;
+        municipioId: string | null;
+        createdAt: Date;
+        updatedAt: Date;
+        deletedAt: Date | null;
+        createdBy: string | null;
+        updatedBy: string | null;
         numero: string;
         ano: number;
         titulo: string;
@@ -1249,12 +1255,6 @@ export declare class ImportacoesController {
         arquivoFonte: string | null;
         observacoes: string | null;
         dataPublicacao: Date | null;
-        createdAt: Date;
-        updatedAt: Date;
-        deletedAt: Date | null;
-        createdBy: string | null;
-        updatedBy: string | null;
-        municipioId: string | null;
         escolaId: string | null;
     }>;
 }

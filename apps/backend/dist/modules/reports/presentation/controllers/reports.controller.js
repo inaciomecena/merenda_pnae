@@ -69,7 +69,7 @@ let ReportsController = class ReportsController {
 exports.ReportsController = ReportsController;
 __decorate([
     (0, common_1.Get)(':tipo'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Gerar relatorio por tipo' }),
     (0, swagger_1.ApiQuery)({ name: 'id', required: false }),
     (0, swagger_1.ApiQuery)({ name: 'nome', required: false }),
@@ -89,7 +89,7 @@ __decorate([
 ], ReportsController.prototype, "getRelatorio", null);
 __decorate([
     (0, common_1.Get)('exportar/:tipo'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Exportar relatorio em CSV' }),
     (0, swagger_1.ApiQuery)({ name: 'id', required: false }),
     (0, swagger_1.ApiQuery)({ name: 'nome', required: false }),

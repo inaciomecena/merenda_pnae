@@ -1,12 +1,14 @@
-import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
+﻿import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { CAMPOS_PRODUTOR } from '../../../composicao-editais/application/domain/campos-produtor';
 import { PrismaService } from '../../../../infrastructure/prisma/prisma.service';
 import { CreateProdutorDto, CreateProdutorProdutoDto, UpdateProdutorDto, UpdateProdutorProdutoDto } from '../../presentation/dto/produtor.dto';
-import { AuthenticatedUser, requireScope } from '../../../../common/auth/user-scope';
+import { AuthenticatedUser } from '../../../../common/auth/user-scope';
+import { PolicyService } from '../../../../common/auth/policy.service';
+import { ForbiddenException } from '@nestjs/common';
 
 @Injectable()
 export class ProdutoresService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService, private readonly policy: PolicyService) {}
 
   async findAll(query: { page?: number; limit?: number; search?: string; municipioId?: string }, user?: AuthenticatedUser) {
     const page = Number(query.page ?? 1);
@@ -16,7 +18,7 @@ export class ProdutoresService {
       ...(query.search ? { nome: { contains: query.search } } : {}),
       ...(query.municipioId ? { municipioId: query.municipioId } : {}),
     };
-    if (user?.role === 'EXTENSIONISTA') where.municipioId = requireScope(user, 'municipio');
+    if ((user?.role === 'EXTENSIONISTA' || user?.role === 'PRODUTOR')) where.id = { in: await this.policy.getAuthorizedProdutorIds(user) };
 
     const [items, total] = await this.prisma.$transaction([
       this.prisma.produtor.findMany({ where, skip: (page - 1) * limit, take: limit, include: { municipio: true }, orderBy: { createdAt: 'desc' } }),
@@ -28,7 +30,7 @@ export class ProdutoresService {
 
   async findOne(id: string, user?: AuthenticatedUser) {
     const where: any = { id, deletedAt: null };
-    if (user?.role === 'EXTENSIONISTA') where.municipioId = requireScope(user, 'municipio');
+    if ((user?.role === 'EXTENSIONISTA' || user?.role === 'PRODUTOR')) await this.policy.requireProdutorAccess(user, id);
     const item = await this.prisma.produtor.findFirst({ where, include: { municipio: true, produtos: true } });
     if (!item) throw new NotFoundException('Produtor não encontrado');
     return item;
@@ -36,13 +38,16 @@ export class ProdutoresService {
 
   async create(dto: CreateProdutorDto, user?: AuthenticatedUser) {
     this.validarDadosDocumentais(dto.dadosDocumentais);
-    const municipioId = user?.role === 'EXTENSIONISTA' ? requireScope(user, 'municipio') : dto.municipioId;
+    if (user?.role !== 'ADMIN') throw new ForbiddenException('Cadastro de fornecedor requer autorização administrativa');
+    const municipioId = dto.municipioId;
     return this.prisma.produtor.create({ data: { ...dto, municipioId, createdBy: 'system' } as any });
   }
 
   async update(id: string, dto: UpdateProdutorDto, user?: AuthenticatedUser) {
     this.validarDadosDocumentais(dto.dadosDocumentais);
     await this.findOne(id, user);
+    if (user && user.role !== 'ADMIN') await this.policy.requireProdutorAction(user, id, 'EDITAR_PRODUTOR');
+    if ((user?.role === 'EXTENSIONISTA' || user?.role === 'PRODUTOR') && dto.municipioId) throw new ForbiddenException('Representante não pode alterar o município do fornecedor');
     return this.prisma.produtor.update({ where: { id }, data: { ...dto, updatedBy: 'system' } });
   }
 
@@ -51,8 +56,8 @@ export class ProdutoresService {
     return this.prisma.produtor.update({ where: { id }, data: { deletedAt: new Date(), updatedBy: 'system' } });
   }
 
-  async findProdutos(produtorId: string) {
-    await this.findOne(produtorId);
+  async findProdutos(produtorId: string, user?: AuthenticatedUser) {
+    await this.findOne(produtorId, user);
     return this.prisma.produtorProduto.findMany({ where: { produtorId, deletedAt: null }, orderBy: [{ produto: 'asc' }, { createdAt: 'desc' }] });
   }
 
@@ -68,8 +73,9 @@ export class ProdutoresService {
     }
   }
 
-  async createProduto(produtorId: string, dto: CreateProdutorProdutoDto) {
-    await this.findOne(produtorId);
+  async createProduto(produtorId: string, dto: CreateProdutorProdutoDto, user?: AuthenticatedUser) {
+    await this.findOne(produtorId, user);
+    if (user && user.role !== 'ADMIN') await this.policy.requireProdutorAction(user, produtorId, 'EDITAR_PRODUTOR');
     return this.prisma.produtorProduto.create({
       data: {
         produtorId,
@@ -81,7 +87,9 @@ export class ProdutoresService {
     });
   }
 
-  async updateProduto(produtorId: string, produtoId: string, dto: UpdateProdutorProdutoDto) {
+  async updateProduto(produtorId: string, produtoId: string, dto: UpdateProdutorProdutoDto, user?: AuthenticatedUser) {
+    await this.findOne(produtorId, user);
+    if (user && user.role !== 'ADMIN') await this.policy.requireProdutorAction(user, produtorId, 'EDITAR_PRODUTOR');
     await this.findProduto(produtorId, produtoId);
     return this.prisma.produtorProduto.update({
       where: { id: produtoId },
@@ -92,7 +100,9 @@ export class ProdutoresService {
     });
   }
 
-  async removeProduto(produtorId: string, produtoId: string) {
+  async removeProduto(produtorId: string, produtoId: string, user?: AuthenticatedUser) {
+    await this.findOne(produtorId, user);
+    if (user && user.role !== 'ADMIN') await this.policy.requireProdutorAction(user, produtorId, 'EDITAR_PRODUTOR');
     await this.findProduto(produtorId, produtoId);
     return this.prisma.produtorProduto.update({
       where: { id: produtoId },

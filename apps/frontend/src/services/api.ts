@@ -10,6 +10,8 @@ api.interceptors.request.use((config) => {
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
+  const vinculo = sessionStorage.getItem('seaf_vinculo');
+  if (vinculo) config.headers['X-Contexto-Vinculo'] = vinculo;
   return config;
 });
 

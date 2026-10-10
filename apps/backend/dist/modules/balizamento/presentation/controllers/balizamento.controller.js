@@ -48,7 +48,7 @@ let BalizamentoController = class BalizamentoController {
 exports.BalizamentoController = BalizamentoController;
 __decorate([
     (0, common_1.Post)('editais/:editalId/executar'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Executar balizamento automático do edital' }),
     __param(0, (0, common_1.Param)('editalId')),
     __metadata("design:type", Function),
@@ -57,7 +57,7 @@ __decorate([
 ], BalizamentoController.prototype, "executar", null);
 __decorate([
     (0, common_1.Get)('editais/:editalId'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Listar resultado do balizamento por edital' }),
     __param(0, (0, common_1.Param)('editalId')),
     __param(1, (0, common_1.Query)()),
@@ -67,7 +67,7 @@ __decorate([
 ], BalizamentoController.prototype, "findByEdital", null);
 __decorate([
     (0, common_1.Get)('editais/:editalId/itens/:itemId'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Listar matches de um item do edital' }),
     __param(0, (0, common_1.Param)('editalId')),
     __param(1, (0, common_1.Param)('itemId')),
@@ -77,7 +77,7 @@ __decorate([
 ], BalizamentoController.prototype, "findByItem", null);
 __decorate([
     (0, common_1.Post)('matches/manual'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Criar vínculo manual entre item do edital e produtor' }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -86,7 +86,7 @@ __decorate([
 ], BalizamentoController.prototype, "createManual", null);
 __decorate([
     (0, common_1.Put)('matches/:matchId/aprovar'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Aprovar match' }),
     __param(0, (0, common_1.Param)('matchId')),
     __param(1, (0, common_1.Body)()),
@@ -96,7 +96,7 @@ __decorate([
 ], BalizamentoController.prototype, "aprovar", null);
 __decorate([
     (0, common_1.Put)('matches/:matchId/rejeitar'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Rejeitar match' }),
     __param(0, (0, common_1.Param)('matchId')),
     __param(1, (0, common_1.Body)()),

@@ -1,4 +1,10 @@
-export type UserRole = 'ADMIN' | 'ESCOLA' | 'EXTENSIONISTA' | 'DRE';
+export type UserRole = 'ADMIN' | 'ESCOLA' | 'EXTENSIONISTA' | 'DRE' | 'PRODUTOR';
+
+export interface UserContext {
+  pendencias: string[];
+  vinculos: Array<{ id: string; funcao: UserRole; dre?: { id: string; nome: string } | null; escola?: { id: string; nome: string } | null; produtor?: { id: string; nome: string } | null }>;
+  representacoes: Array<{ id: string; produtor: { id: string; nome: string }; permissoes: string }>;
+}
 
 export interface AuthUser {
   id: string;

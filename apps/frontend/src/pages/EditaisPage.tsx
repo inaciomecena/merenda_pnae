@@ -7,7 +7,7 @@ import api from '../services/api';
 
 export default function EditaisPage() {
   const { user } = useAuth();
-  const dre = user?.role === 'ADMIN' || user?.role === 'DRE';
+  const podeEditar = user?.role === 'ADMIN';
   const { data, isLoading, error } = useQuery({
     queryKey: ['editais'],
     queryFn: async () => (await api.get('/editais?limit=50')).data.data,
@@ -20,7 +20,7 @@ export default function EditaisPage() {
           <Typography variant="h4" fontWeight={700}>Editais</Typography>
           <Typography color="text.secondary">Composição, versão e geração da chamada pública do PNAE.</Typography>
         </div>
-        {dre ? (
+        {podeEditar ? (
           <Stack direction="row" spacing={1}>
             <Button component={RouterLink} to="/editais/novo" variant="contained">Novo Edital</Button>
             <Button component={RouterLink} to="/importacoes/importar?destino=edital" variant="outlined">Criar a partir de importação</Button>
@@ -44,8 +44,8 @@ export default function EditaisPage() {
               Origem: {item.documento?.origem || 'cadastro operacional'} · Arquivo-fonte: {item.documento?.arquivoFonte || item.arquivoFonte || 'não informado'}
             </Typography>
             <Stack direction="row" spacing={1}>
-              <Button component={RouterLink} to={`/editais/${item.id}`} size="small">{dre ? 'Editar estrutura' : 'Visualizar'}</Button>
-              {dre ? <Button size="small" onClick={() => void api.post(`/editais/${item.id}/composicao/duplicar`).then(() => window.location.reload())}>Duplicar edital</Button> : null}
+              <Button component={RouterLink} to={podeEditar ? `/editais/${item.id}` : `/editais/${item.id}/consulta`} size="small">{podeEditar ? 'Editar estrutura' : 'Visualizar'}</Button>
+              {podeEditar ? <Button size="small" onClick={() => void api.post(`/editais/${item.id}/composicao/duplicar`).then(() => window.location.reload())}>Duplicar edital</Button> : null}
             </Stack>
           </Stack>
         );

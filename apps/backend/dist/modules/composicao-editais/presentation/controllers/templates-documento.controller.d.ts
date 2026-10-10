@@ -12,10 +12,10 @@ export declare class TemplatesDocumentoController {
     }): Promise<({
         versoes: {
             id: string;
-            numero: number;
-            titulo: string;
             createdAt: Date;
             createdBy: string | null;
+            numero: number;
+            titulo: string;
             formato: import(".prisma/client").$Enums.FormatoTemplate;
             vigenciaInicio: Date | null;
             vigenciaFim: Date | null;
@@ -26,13 +26,14 @@ export declare class TemplatesDocumentoController {
         }[];
     } & {
         id: string;
-        titulo: string;
-        descricao: string | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        ativo: boolean;
+        titulo: string;
+        descricao: string | null;
         versaoAtual: number;
         tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
         numeroAnexo: number | null;
@@ -40,7 +41,6 @@ export declare class TemplatesDocumentoController {
         perfilFornecedor: string | null;
         codigoModelo: string | null;
         ordem: number;
-        ativo: boolean;
         formato: import(".prisma/client").$Enums.FormatoTemplate;
         vigenciaInicio: Date | null;
         vigenciaFim: Date | null;
@@ -58,10 +58,10 @@ export declare class TemplatesDocumentoController {
     buscar(id: string): Promise<{
         versoes: {
             id: string;
-            numero: number;
-            titulo: string;
             createdAt: Date;
             createdBy: string | null;
+            numero: number;
+            titulo: string;
             formato: import(".prisma/client").$Enums.FormatoTemplate;
             vigenciaInicio: Date | null;
             vigenciaFim: Date | null;
@@ -73,25 +73,26 @@ export declare class TemplatesDocumentoController {
         campos: {
             id: string;
             createdAt: Date;
+            chave: string;
+            rotulo: string;
             tipo: string;
             ordem: number;
             templateId: string;
-            chave: string;
             obrigatorio: boolean;
-            rotulo: string;
             valorPadrao: string | null;
             repetitivo: boolean;
             anexoTipo: import(".prisma/client").$Enums.TipoDocumentoTemplate | null;
         }[];
     } & {
         id: string;
-        titulo: string;
-        descricao: string | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        ativo: boolean;
+        titulo: string;
+        descricao: string | null;
         versaoAtual: number;
         tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
         numeroAnexo: number | null;
@@ -99,7 +100,6 @@ export declare class TemplatesDocumentoController {
         perfilFornecedor: string | null;
         codigoModelo: string | null;
         ordem: number;
-        ativo: boolean;
         formato: import(".prisma/client").$Enums.FormatoTemplate;
         vigenciaInicio: Date | null;
         vigenciaFim: Date | null;
@@ -109,10 +109,10 @@ export declare class TemplatesDocumentoController {
     criar(dto: CreateTemplateDocumentoDto, req: Request): Promise<{
         versoes: {
             id: string;
-            numero: number;
-            titulo: string;
             createdAt: Date;
             createdBy: string | null;
+            numero: number;
+            titulo: string;
             formato: import(".prisma/client").$Enums.FormatoTemplate;
             vigenciaInicio: Date | null;
             vigenciaFim: Date | null;
@@ -124,25 +124,26 @@ export declare class TemplatesDocumentoController {
         campos: {
             id: string;
             createdAt: Date;
+            chave: string;
+            rotulo: string;
             tipo: string;
             ordem: number;
             templateId: string;
-            chave: string;
             obrigatorio: boolean;
-            rotulo: string;
             valorPadrao: string | null;
             repetitivo: boolean;
             anexoTipo: import(".prisma/client").$Enums.TipoDocumentoTemplate | null;
         }[];
     } & {
         id: string;
-        titulo: string;
-        descricao: string | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        ativo: boolean;
+        titulo: string;
+        descricao: string | null;
         versaoAtual: number;
         tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
         numeroAnexo: number | null;
@@ -150,7 +151,6 @@ export declare class TemplatesDocumentoController {
         perfilFornecedor: string | null;
         codigoModelo: string | null;
         ordem: number;
-        ativo: boolean;
         formato: import(".prisma/client").$Enums.FormatoTemplate;
         vigenciaInicio: Date | null;
         vigenciaFim: Date | null;
@@ -160,10 +160,10 @@ export declare class TemplatesDocumentoController {
     atualizar(id: string, dto: UpdateTemplateDocumentoDto, req: Request): Promise<{
         versoes: {
             id: string;
-            numero: number;
-            titulo: string;
             createdAt: Date;
             createdBy: string | null;
+            numero: number;
+            titulo: string;
             formato: import(".prisma/client").$Enums.FormatoTemplate;
             vigenciaInicio: Date | null;
             vigenciaFim: Date | null;
@@ -175,25 +175,26 @@ export declare class TemplatesDocumentoController {
         campos: {
             id: string;
             createdAt: Date;
+            chave: string;
+            rotulo: string;
             tipo: string;
             ordem: number;
             templateId: string;
-            chave: string;
             obrigatorio: boolean;
-            rotulo: string;
             valorPadrao: string | null;
             repetitivo: boolean;
             anexoTipo: import(".prisma/client").$Enums.TipoDocumentoTemplate | null;
         }[];
     } & {
         id: string;
-        titulo: string;
-        descricao: string | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        ativo: boolean;
+        titulo: string;
+        descricao: string | null;
         versaoAtual: number;
         tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
         numeroAnexo: number | null;
@@ -201,7 +202,6 @@ export declare class TemplatesDocumentoController {
         perfilFornecedor: string | null;
         codigoModelo: string | null;
         ordem: number;
-        ativo: boolean;
         formato: import(".prisma/client").$Enums.FormatoTemplate;
         vigenciaInicio: Date | null;
         vigenciaFim: Date | null;
@@ -211,10 +211,10 @@ export declare class TemplatesDocumentoController {
     duplicar(id: string, req: Request): Promise<{
         versoes: {
             id: string;
-            numero: number;
-            titulo: string;
             createdAt: Date;
             createdBy: string | null;
+            numero: number;
+            titulo: string;
             formato: import(".prisma/client").$Enums.FormatoTemplate;
             vigenciaInicio: Date | null;
             vigenciaFim: Date | null;
@@ -226,25 +226,26 @@ export declare class TemplatesDocumentoController {
         campos: {
             id: string;
             createdAt: Date;
+            chave: string;
+            rotulo: string;
             tipo: string;
             ordem: number;
             templateId: string;
-            chave: string;
             obrigatorio: boolean;
-            rotulo: string;
             valorPadrao: string | null;
             repetitivo: boolean;
             anexoTipo: import(".prisma/client").$Enums.TipoDocumentoTemplate | null;
         }[];
     } & {
         id: string;
-        titulo: string;
-        descricao: string | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        ativo: boolean;
+        titulo: string;
+        descricao: string | null;
         versaoAtual: number;
         tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
         numeroAnexo: number | null;
@@ -252,7 +253,6 @@ export declare class TemplatesDocumentoController {
         perfilFornecedor: string | null;
         codigoModelo: string | null;
         ordem: number;
-        ativo: boolean;
         formato: import(".prisma/client").$Enums.FormatoTemplate;
         vigenciaInicio: Date | null;
         vigenciaFim: Date | null;
@@ -261,13 +261,14 @@ export declare class TemplatesDocumentoController {
     }>;
     status(id: string, dto: StatusTemplateDto, req: Request): Promise<{
         id: string;
-        titulo: string;
-        descricao: string | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        ativo: boolean;
+        titulo: string;
+        descricao: string | null;
         versaoAtual: number;
         tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
         numeroAnexo: number | null;
@@ -275,7 +276,6 @@ export declare class TemplatesDocumentoController {
         perfilFornecedor: string | null;
         codigoModelo: string | null;
         ordem: number;
-        ativo: boolean;
         formato: import(".prisma/client").$Enums.FormatoTemplate;
         vigenciaInicio: Date | null;
         vigenciaFim: Date | null;
@@ -285,10 +285,10 @@ export declare class TemplatesDocumentoController {
     arquivo(id: string, file: Express.Multer.File, req: Request): Promise<{
         versoes: {
             id: string;
-            numero: number;
-            titulo: string;
             createdAt: Date;
             createdBy: string | null;
+            numero: number;
+            titulo: string;
             formato: import(".prisma/client").$Enums.FormatoTemplate;
             vigenciaInicio: Date | null;
             vigenciaFim: Date | null;
@@ -300,25 +300,26 @@ export declare class TemplatesDocumentoController {
         campos: {
             id: string;
             createdAt: Date;
+            chave: string;
+            rotulo: string;
             tipo: string;
             ordem: number;
             templateId: string;
-            chave: string;
             obrigatorio: boolean;
-            rotulo: string;
             valorPadrao: string | null;
             repetitivo: boolean;
             anexoTipo: import(".prisma/client").$Enums.TipoDocumentoTemplate | null;
         }[];
     } & {
         id: string;
-        titulo: string;
-        descricao: string | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        ativo: boolean;
+        titulo: string;
+        descricao: string | null;
         versaoAtual: number;
         tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
         numeroAnexo: number | null;
@@ -326,7 +327,6 @@ export declare class TemplatesDocumentoController {
         perfilFornecedor: string | null;
         codigoModelo: string | null;
         ordem: number;
-        ativo: boolean;
         formato: import(".prisma/client").$Enums.FormatoTemplate;
         vigenciaInicio: Date | null;
         vigenciaFim: Date | null;
@@ -336,13 +336,14 @@ export declare class TemplatesDocumentoController {
     baixar(id: string, res: Response): Promise<void>;
     remover(id: string, req: Request): Promise<{
         id: string;
-        titulo: string;
-        descricao: string | null;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        ativo: boolean;
+        titulo: string;
+        descricao: string | null;
         versaoAtual: number;
         tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
         numeroAnexo: number | null;
@@ -350,7 +351,6 @@ export declare class TemplatesDocumentoController {
         perfilFornecedor: string | null;
         codigoModelo: string | null;
         ordem: number;
-        ativo: boolean;
         formato: import(".prisma/client").$Enums.FormatoTemplate;
         vigenciaInicio: Date | null;
         vigenciaFim: Date | null;

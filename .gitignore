@@ -13,3 +13,14 @@ docs/inep/microdados_censo_escolar_2024/
 apps/backend/storage/validacao-*/
 apps/backend/storage/validacao-*.log
 apps/backend/storage/propostas/
+
+# SDD-001: Dumps de banco e arquivos storage/ não devem ser versionados
+merenda.sql
+*.sql.gz
+backups/*.sql
+apps/backend/storage/*
+!apps/backend/storage/.gitkeep
+
+# Arquivos temporários de validação
+docs/plataforma-pnae/storage_refs.txt
+.env.test

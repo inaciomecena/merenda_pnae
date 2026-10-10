@@ -1,9 +1,11 @@
 import { PrismaService } from '../../../../infrastructure/prisma/prisma.service';
 import { CreateProdutorDto, CreateProdutorProdutoDto, UpdateProdutorDto, UpdateProdutorProdutoDto } from '../../presentation/dto/produtor.dto';
 import { AuthenticatedUser } from '../../../../common/auth/user-scope';
+import { PolicyService } from '../../../../common/auth/policy.service';
 export declare class ProdutoresService {
     private readonly prisma;
-    constructor(prisma: PrismaService);
+    private readonly policy;
+    constructor(prisma: PrismaService, policy: PolicyService);
     findAll(query: {
         page?: number;
         limit?: number;
@@ -132,7 +134,7 @@ export declare class ProdutoresService {
         createdBy: string | null;
         updatedBy: string | null;
     }>;
-    findProdutos(produtorId: string): Promise<{
+    findProdutos(produtorId: string, user?: AuthenticatedUser): Promise<{
         id: string;
         createdAt: Date;
         updatedAt: Date;
@@ -151,7 +153,7 @@ export declare class ProdutoresService {
         rotulo: string;
     }[];
     private validarDadosDocumentais;
-    createProduto(produtorId: string, dto: CreateProdutorProdutoDto): Promise<{
+    createProduto(produtorId: string, dto: CreateProdutorProdutoDto, user?: AuthenticatedUser): Promise<{
         id: string;
         createdAt: Date;
         updatedAt: Date;
@@ -165,7 +167,7 @@ export declare class ProdutoresService {
         precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
         unidade: string | null;
     }>;
-    updateProduto(produtorId: string, produtoId: string, dto: UpdateProdutorProdutoDto): Promise<{
+    updateProduto(produtorId: string, produtoId: string, dto: UpdateProdutorProdutoDto, user?: AuthenticatedUser): Promise<{
         id: string;
         createdAt: Date;
         updatedAt: Date;
@@ -179,7 +181,7 @@ export declare class ProdutoresService {
         precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
         unidade: string | null;
     }>;
-    removeProduto(produtorId: string, produtoId: string): Promise<{
+    removeProduto(produtorId: string, produtoId: string, user?: AuthenticatedUser): Promise<{
         id: string;
         createdAt: Date;
         updatedAt: Date;

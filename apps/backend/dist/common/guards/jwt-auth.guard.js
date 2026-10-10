@@ -48,7 +48,8 @@ let JwtAuthGuard = class JwtAuthGuard {
         const user = await this.prisma.user.findFirst({ where: { id: payload.sub, deletedAt: null, active: true } });
         if (!user)
             throw new common_1.UnauthorizedException('Sessão inválida. Entre novamente no sistema.');
-        req.user = { sub: user.id, email: user.email, role: user.role, escolaId: user.escolaId, municipioId: user.municipioId };
+        req.user = { sub: user.id, email: user.email, role: user.role, escolaId: user.escolaId, municipioId: user.municipioId,
+            vinculoId: typeof req.headers['x-contexto-vinculo'] === 'string' ? req.headers['x-contexto-vinculo'] : undefined };
         return true;
     }
 };

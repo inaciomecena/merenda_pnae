@@ -30,8 +30,8 @@ export declare class HomologacaoService {
         ultimosErros: {
             id: string;
             createdAt: Date;
-            ipAddress: string | null;
             userId: string | null;
+            ipAddress: string | null;
             userName: string | null;
             userEmail: string | null;
             userRole: string | null;
@@ -51,8 +51,8 @@ export declare class HomologacaoService {
         ultimosEventos: {
             id: string;
             createdAt: Date;
-            ipAddress: string | null;
             userId: string | null;
+            ipAddress: string | null;
             userName: string | null;
             userEmail: string | null;
             userRole: string | null;

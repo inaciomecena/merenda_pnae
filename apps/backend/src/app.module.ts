@@ -20,6 +20,8 @@ import { HomologacaoModule } from './modules/homologacao/homologacao.module';
 import { ReportsModule } from './modules/reports/reports.module';
 import { UsersModule } from './modules/users/users.module';
 import { ComposicaoEditaisModule } from './modules/composicao-editais/composicao-editais.module';
+import { DREModule } from './modules/dre/dre.module';
+import { VinculosModule } from './modules/vinculos/vinculos.module';
 
 @Module({
   imports: [
@@ -45,6 +47,8 @@ import { ComposicaoEditaisModule } from './modules/composicao-editais/composicao
     ReportsModule,
     UsersModule,
     ComposicaoEditaisModule,
+    DREModule,
+    VinculosModule,
   ],
   controllers: [HealthController],
   providers: [

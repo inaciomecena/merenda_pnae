@@ -22,40 +22,50 @@ let DashboardController = class DashboardController {
     constructor(service) {
         this.service = service;
     }
-    async getDashboard(ano, municipioId) {
-        const filters = { ano: ano ? Number(ano) : undefined, municipioId };
+    async getDashboard(ano, municipioId, req) {
+        const user = req?.user;
+        const filters = { ano: ano ? Number(ano) : undefined, municipioId, user };
         const [kpis, graficos] = await Promise.all([
             this.service.getKPIs(filters),
             this.service.getGraficos(filters),
         ]);
         return { kpis, graficos };
     }
-    getKPIs(ano, municipioId) {
-        return this.service.getKPIs({ ano: ano ? Number(ano) : undefined, municipioId });
+    getKPIs(ano, municipioId, req) {
+        const user = req?.user;
+        return this.service.getKPIs({ ano: ano ? Number(ano) : undefined, municipioId, user });
     }
-    getGraficos(ano, municipioId) {
-        return this.service.getGraficos({ ano: ano ? Number(ano) : undefined, municipioId });
+    getGraficos(ano, municipioId, req) {
+        const user = req?.user;
+        return this.service.getGraficos({ ano: ano ? Number(ano) : undefined, municipioId, user });
     }
-    getRanking(tipo, limit, municipioId) {
-        return this.service.getRanking(tipo, { limit: limit ? Number(limit) : 20, municipioId });
+    getRanking(tipo, limit, municipioId, req) {
+        const user = req?.user;
+        return this.service.getRanking(tipo, { limit: limit ? Number(limit) : 20, municipioId, user });
     }
-    getMapaDados() {
-        return this.service.getMapaDados();
+    getMapaDados(req) {
+        const user = req?.user;
+        return this.service.getMapaDados(user);
     }
-    getProdutos(limit) {
-        return this.service.getRanking('produtos-solicitados', { limit: limit ? Number(limit) : 15 });
+    getProdutos(limit, req) {
+        const user = req?.user;
+        return this.service.getRanking('produtos-solicitados', { limit: limit ? Number(limit) : 15, user });
     }
-    getMunicipios(limit) {
-        return this.service.getRanking('municipios', { limit: limit ? Number(limit) : 10 });
+    getMunicipios(limit, req) {
+        const user = req?.user;
+        return this.service.getRanking('municipios', { limit: limit ? Number(limit) : 10, user });
     }
-    getEscolas(limit) {
-        return this.service.getRanking('escolas', { limit: limit ? Number(limit) : 10 });
+    getEscolas(limit, req) {
+        const user = req?.user;
+        return this.service.getRanking('escolas', { limit: limit ? Number(limit) : 10, user });
     }
-    getProdutores(limit) {
-        return this.service.getRanking('produtores', { limit: limit ? Number(limit) : 10 });
+    getProdutores(limit, req) {
+        const user = req?.user;
+        return this.service.getRanking('produtores', { limit: limit ? Number(limit) : 10, user });
     }
-    async exportar(tipo, ano, municipioId, res) {
-        const data = await this.service.getExportData(tipo, { ano: ano ? Number(ano) : undefined, municipioId });
+    async exportar(tipo, ano, municipioId, res, req) {
+        const user = req?.user;
+        const data = await this.service.getExportData(tipo, { ano: ano ? Number(ano) : undefined, municipioId, user });
         if (res) {
             res.setHeader('Content-Type', 'application/json');
             res.setHeader('Content-Disposition', `attachment; filename="dashboard-${tipo}.json"`);
@@ -67,89 +77,97 @@ let DashboardController = class DashboardController {
 exports.DashboardController = DashboardController;
 __decorate([
     (0, common_1.Get)(),
-    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Dashboard principal com KPIs e graficos' }),
     (0, swagger_1.ApiQuery)({ name: 'ano', required: false }),
     (0, swagger_1.ApiQuery)({ name: 'municipioId', required: false }),
     __param(0, (0, common_1.Query)('ano')),
     __param(1, (0, common_1.Query)('municipioId')),
+    __param(2, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number, String]),
+    __metadata("design:paramtypes", [Number, String, Object]),
     __metadata("design:returntype", Promise)
 ], DashboardController.prototype, "getDashboard", null);
 __decorate([
     (0, common_1.Get)('kpis'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Indicadores KPI do sistema' }),
     (0, swagger_1.ApiQuery)({ name: 'ano', required: false }),
     (0, swagger_1.ApiQuery)({ name: 'municipioId', required: false }),
     __param(0, (0, common_1.Query)('ano')),
     __param(1, (0, common_1.Query)('municipioId')),
+    __param(2, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number, String]),
+    __metadata("design:paramtypes", [Number, String, Object]),
     __metadata("design:returntype", void 0)
 ], DashboardController.prototype, "getKPIs", null);
 __decorate([
     (0, common_1.Get)('graficos'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Dados para graficos do dashboard' }),
     (0, swagger_1.ApiQuery)({ name: 'ano', required: false }),
     (0, swagger_1.ApiQuery)({ name: 'municipioId', required: false }),
     __param(0, (0, common_1.Query)('ano')),
     __param(1, (0, common_1.Query)('municipioId')),
+    __param(2, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number, String]),
+    __metadata("design:paramtypes", [Number, String, Object]),
     __metadata("design:returntype", void 0)
 ], DashboardController.prototype, "getGraficos", null);
 __decorate([
     (0, common_1.Get)('ranking/:tipo'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Rankings do sistema' }),
     (0, swagger_1.ApiQuery)({ name: 'limit', required: false }),
     (0, swagger_1.ApiQuery)({ name: 'municipioId', required: false }),
     __param(0, (0, common_1.Param)('tipo')),
     __param(1, (0, common_1.Query)('limit')),
     __param(2, (0, common_1.Query)('municipioId')),
+    __param(3, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, Number, String]),
+    __metadata("design:paramtypes", [String, Number, String, Object]),
     __metadata("design:returntype", void 0)
 ], DashboardController.prototype, "getRanking", null);
 __decorate([
     (0, common_1.Get)('mapa'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Dados para mapa do Mato Grosso' }),
+    __param(0, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], DashboardController.prototype, "getMapaDados", null);
 __decorate([
     (0, common_1.Get)('produtos'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Produtos mais solicitados' }),
     (0, swagger_1.ApiQuery)({ name: 'limit', required: false }),
     __param(0, (0, common_1.Query)('limit')),
+    __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
+    __metadata("design:paramtypes", [Number, Object]),
     __metadata("design:returntype", void 0)
 ], DashboardController.prototype, "getProdutos", null);
 __decorate([
     (0, common_1.Get)('municipios'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Ranking de municipios' }),
     (0, swagger_1.ApiQuery)({ name: 'limit', required: false }),
     __param(0, (0, common_1.Query)('limit')),
+    __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
+    __metadata("design:paramtypes", [Number, Object]),
     __metadata("design:returntype", void 0)
 ], DashboardController.prototype, "getMunicipios", null);
 __decorate([
     (0, common_1.Get)('escolas'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Ranking de escolas' }),
     (0, swagger_1.ApiQuery)({ name: 'limit', required: false }),
     __param(0, (0, common_1.Query)('limit')),
+    __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
+    __metadata("design:paramtypes", [Number, Object]),
     __metadata("design:returntype", void 0)
 ], DashboardController.prototype, "getEscolas", null);
 __decorate([
@@ -158,20 +176,22 @@ __decorate([
     (0, swagger_1.ApiOperation)({ summary: 'Ranking de produtores' }),
     (0, swagger_1.ApiQuery)({ name: 'limit', required: false }),
     __param(0, (0, common_1.Query)('limit')),
+    __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
+    __metadata("design:paramtypes", [Number, Object]),
     __metadata("design:returntype", void 0)
 ], DashboardController.prototype, "getProdutores", null);
 __decorate([
     (0, common_1.Get)('exportar/:tipo'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
     (0, swagger_1.ApiOperation)({ summary: 'Exportar dados do dashboard' }),
     __param(0, (0, common_1.Param)('tipo')),
     __param(1, (0, common_1.Query)('ano')),
     __param(2, (0, common_1.Query)('municipioId')),
     __param(3, (0, common_1.Res)()),
+    __param(4, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, Number, String, Object]),
+    __metadata("design:paramtypes", [String, Number, String, Object, Object]),
     __metadata("design:returntype", Promise)
 ], DashboardController.prototype, "exportar", null);
 exports.DashboardController = DashboardController = __decorate([

@@ -18,10 +18,13 @@ const swagger_1 = require("@nestjs/swagger");
 const public_decorator_1 = require("../../../../common/decorators/public.decorator");
 const auth_service_1 = require("../../application/services/auth.service");
 const login_dto_1 = require("../dto/login.dto");
+const policy_service_1 = require("../../../../common/auth/policy.service");
 let AuthController = class AuthController {
     authService;
-    constructor(authService) {
+    policyService;
+    constructor(authService, policyService) {
         this.authService = authService;
+        this.policyService = policyService;
     }
     login(dto) {
         return this.authService.login(dto.email, dto.password);
@@ -32,6 +35,10 @@ let AuthController = class AuthController {
     getProfile(req) {
         const user = req.user;
         return this.authService.getProfile(user.sub);
+    }
+    async getContexto(req) {
+        const user = req.user;
+        return this.policyService.getUserContext(user);
     }
 };
 exports.AuthController = AuthController;
@@ -62,9 +69,19 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "getProfile", null);
+__decorate([
+    (0, common_1.Get)('me/contexto'),
+    (0, swagger_1.ApiBearerAuth)(),
+    (0, swagger_1.ApiOperation)({ summary: 'Retorna contexto completo do usuário (vínculos e representações)' }),
+    __param(0, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], AuthController.prototype, "getContexto", null);
 exports.AuthController = AuthController = __decorate([
     (0, swagger_1.ApiTags)('auth'),
     (0, common_1.Controller)({ path: 'auth', version: '1' }),
-    __metadata("design:paramtypes", [auth_service_1.AuthService])
+    __metadata("design:paramtypes", [auth_service_1.AuthService,
+        policy_service_1.PolicyService])
 ], AuthController);
 //# sourceMappingURL=auth.controller.js.map

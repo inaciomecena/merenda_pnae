@@ -4,11 +4,16 @@ import { Public } from '../../../../common/decorators/public.decorator';
 import { AuthService } from '../../application/services/auth.service';
 import { LoginDto, RefreshDto } from '../dto/login.dto';
 import { Request } from 'express';
+import { PolicyService } from '../../../../common/auth/policy.service';
+import { AuthenticatedUser } from '../../../../common/auth/user-scope';
 
 @ApiTags('auth')
 @Controller({ path: 'auth', version: '1' })
 export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+  constructor(
+    private readonly authService: AuthService,
+    private readonly policyService: PolicyService,
+  ) {}
 
   @Public()
   @Post('login')
@@ -30,5 +35,13 @@ export class AuthController {
   getProfile(@Req() req: Request) {
     const user = req.user as any;
     return this.authService.getProfile(user.sub);
+  }
+
+  @Get('me/contexto')
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Retorna contexto completo do usuário (vínculos e representações)' })
+  async getContexto(@Req() req: Request) {
+    const user = req.user as AuthenticatedUser;
+    return this.policyService.getUserContext(user);
   }
 }

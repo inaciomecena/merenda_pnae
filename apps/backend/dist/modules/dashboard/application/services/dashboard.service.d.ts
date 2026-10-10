@@ -1,11 +1,18 @@
 import { PrismaService } from '../../../../infrastructure/prisma/prisma.service';
+import { PolicyService } from '../../../../common/auth/policy.service';
+import { AuthenticatedUser } from '../../../../common/auth/user-scope';
+type Filters = {
+    ano?: number;
+    municipioId?: string;
+    limit?: number;
+    user: AuthenticatedUser;
+};
 export declare class DashboardService {
     private readonly prisma;
-    constructor(prisma: PrismaService);
-    getKPIs(filters?: {
-        ano?: number;
-        municipioId?: string;
-    }): Promise<{
+    private readonly policy;
+    constructor(prisma: PrismaService, policy: PolicyService);
+    private scope;
+    getKPIs(filters: Filters): Promise<{
         editais: {
             total: number;
             abertos: number;
@@ -33,63 +40,29 @@ export declare class DashboardService {
         editalItens: number;
         itensComMatch: number;
     }>;
-    getGraficos(filters?: {
-        ano?: number;
-        municipioId?: string;
-    }): Promise<{
+    getGraficos(filters: Filters): Promise<{
         produtosSolicitados: {
             nome: string;
             quantidade: number;
         }[];
-        municipiosDemanda: {
-            nome: string;
-            quantidade: number;
-        }[];
-        municipiosOferta: {
-            nome: string;
-            quantidade: number;
-        }[];
-        distribuicaoProdutos: {
-            nome: string;
-            quantidade: number;
-        }[];
-        evolucaoMensal: {
-            mes: string;
-            importacoes: number;
-            balizamentos: number;
-            propostas: number;
-        }[];
+        municipiosDemanda: never[];
+        municipiosOferta: never[];
+        distribuicaoProdutos: never[];
+        evolucaoMensal: never[];
     }>;
-    private getProdutosSolicitados;
-    private getMunicipiosDemanda;
-    private getMunicipiosOferta;
-    private getDistribuicaoProdutos;
-    private getEvolucaoMensal;
-    getRanking(tipo: string, filters?: {
-        ano?: number;
-        municipioId?: string;
-        limit?: number;
-    }): Promise<{
+    getRanking(tipo: string, filters: Filters): Promise<{
         nome: string;
-        editais: number;
+        quantidade: number;
     }[] | {
+        editais: number;
         nome: string;
-        cpfCnpj: string | null;
+        codigo: string | null;
+    }[] | {
         matches: number;
         produtos: number;
-    }[] | {
-        produto: string;
-        fornecedores: number;
-    }[] | {
-        produto: string;
-        solicitacoes: number;
+        nome: string;
     }[]>;
-    private getRankingMunicipios;
-    private getRankingEscolas;
-    private getRankingProdutores;
-    private getRankingProdutosVendidos;
-    private getRankingProdutosSolicitados;
-    getMapaDados(): Promise<{
+    getMapaDados(user: AuthenticatedUser): Promise<{
         id: string;
         nome: string;
         uf: string;
@@ -99,7 +72,7 @@ export declare class DashboardService {
         editais: number;
         propostas: number;
     }[]>;
-    getExportData(tipo: string, filters?: any): Promise<{
+    getExportData(tipo: string, filters: Filters): Promise<{
         editais: {
             total: number;
             abertos: number;
@@ -127,43 +100,27 @@ export declare class DashboardService {
         editalItens: number;
         itensComMatch: number;
     } | {
+        nome: string;
+        quantidade: number;
+    }[] | {
         produtosSolicitados: {
             nome: string;
             quantidade: number;
         }[];
-        municipiosDemanda: {
-            nome: string;
-            quantidade: number;
-        }[];
-        municipiosOferta: {
-            nome: string;
-            quantidade: number;
-        }[];
-        distribuicaoProdutos: {
-            nome: string;
-            quantidade: number;
-        }[];
-        evolucaoMensal: {
-            mes: string;
-            importacoes: number;
-            balizamentos: number;
-            propostas: number;
-        }[];
+        municipiosDemanda: never[];
+        municipiosOferta: never[];
+        distribuicaoProdutos: never[];
+        evolucaoMensal: never[];
     } | {
-        nome: string;
         editais: number;
-    }[] | {
         nome: string;
-        cpfCnpj: string | null;
+        codigo: string | null;
+    }[] | {
         matches: number;
         produtos: number;
-    }[] | {
-        produto: string;
-        fornecedores: number;
-    }[] | {
-        produto: string;
-        solicitacoes: number;
+        nome: string;
     }[] | {
         erro: string;
     }>;
 }
+export {};

@@ -126,7 +126,7 @@ let ComposicaoEditalController = class ComposicaoEditalController {
 exports.ComposicaoEditalController = ComposicaoEditalController;
 __decorate([
     (0, common_1.Post)('composicao'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Criar edital do zero com composição documental' }),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Req)()),
@@ -136,7 +136,7 @@ __decorate([
 ], ComposicaoEditalController.prototype, "criar", null);
 __decorate([
     (0, common_1.Get)(':id/composicao'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Obter composição, anexos, variáveis, versões e última geração' }),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
@@ -145,7 +145,7 @@ __decorate([
 ], ComposicaoEditalController.prototype, "obter", null);
 __decorate([
     (0, common_1.Patch)(':id/composicao'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Editar estrutura do edital' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
@@ -156,7 +156,7 @@ __decorate([
 ], ComposicaoEditalController.prototype, "atualizar", null);
 __decorate([
     (0, common_1.Post)(':id/composicao/itens'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Substituir itens do edital em composição' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
@@ -167,7 +167,7 @@ __decorate([
 ], ComposicaoEditalController.prototype, "itens", null);
 __decorate([
     (0, common_1.Post)(':id/composicao/anexos'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Selecionar, ordenar e versionar anexos' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
@@ -178,7 +178,7 @@ __decorate([
 ], ComposicaoEditalController.prototype, "anexos", null);
 __decorate([
     (0, common_1.Post)(':id/composicao/variaveis'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Salvar variáveis e marcar revisão' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
@@ -189,7 +189,7 @@ __decorate([
 ], ComposicaoEditalController.prototype, "variaveis", null);
 __decorate([
     (0, common_1.Post)(':id/composicao/duplicar'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Duplicar edital sem copiar dados sensíveis' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Req)()),
@@ -199,7 +199,7 @@ __decorate([
 ], ComposicaoEditalController.prototype, "duplicar", null);
 __decorate([
     (0, common_1.Post)(':id/composicao/nova-versao'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Abrir nova versão sem alterar a publicação anterior' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Req)()),
@@ -209,7 +209,7 @@ __decorate([
 ], ComposicaoEditalController.prototype, "novaVersao", null);
 __decorate([
     (0, common_1.Post)(':id/composicao/publicar'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Publicar edital gerado' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Req)()),
@@ -219,7 +219,7 @@ __decorate([
 ], ComposicaoEditalController.prototype, "publicar", null);
 __decorate([
     (0, common_1.Post)(':id/composicao/cancelar'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Cancelar edital ainda não publicado' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Req)()),
@@ -229,7 +229,7 @@ __decorate([
 ], ComposicaoEditalController.prototype, "cancelar", null);
 __decorate([
     (0, common_1.Get)(':id/composicao/previa'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Prévia textual e validação antes da geração' }),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
@@ -238,7 +238,7 @@ __decorate([
 ], ComposicaoEditalController.prototype, "previa", null);
 __decorate([
     (0, common_1.Post)(':id/composicao/gerar'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Gerar PDF e DOCX do edital e anexos' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Req)()),
@@ -248,7 +248,7 @@ __decorate([
 ], ComposicaoEditalController.prototype, "gerar", null);
 __decorate([
     (0, common_1.Get)(':id/composicao/download'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Baixar PDF ou DOCX gerado' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Query)('formato')),

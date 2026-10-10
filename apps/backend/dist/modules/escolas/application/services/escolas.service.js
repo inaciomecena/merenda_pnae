@@ -12,11 +12,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.EscolasService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../../../../infrastructure/prisma/prisma.service");
-const user_scope_1 = require("../../../../common/auth/user-scope");
+const policy_service_1 = require("../../../../common/auth/policy.service");
 let EscolasService = class EscolasService {
     prisma;
-    constructor(prisma) {
+    policy;
+    constructor(prisma, policy) {
         this.prisma = prisma;
+        this.policy = policy;
     }
     async findAll(query, user) {
         const page = Number(query.page ?? 1);
@@ -32,10 +34,8 @@ let EscolasService = class EscolasService {
             ...(query.restricaoAtendimento ? { restricaoAtendimento: { contains: query.restricaoAtendimento } } : {}),
             ...(query.active === 'true' ? { active: true } : query.active === 'false' ? { active: false } : {}),
         };
-        if (user?.role === 'ESCOLA')
-            where.id = (0, user_scope_1.requireScope)(user, 'escola');
-        if (user?.role === 'EXTENSIONISTA')
-            where.municipioId = (0, user_scope_1.requireScope)(user, 'municipio');
+        if (user && user.role !== 'ADMIN')
+            where.id = { in: await this.policy.getAuthorizedEscolaIds(user) };
         const [items, total] = await this.prisma.$transaction([
             this.prisma.escola.findMany({ where, skip: (page - 1) * limit, take: limit, include: { municipio: true }, orderBy: [{ municipio: { nome: 'asc' } }, { nome: 'asc' }] }),
             this.prisma.escola.count({ where }),
@@ -44,10 +44,8 @@ let EscolasService = class EscolasService {
     }
     async findOne(id, user) {
         const where = { id, deletedAt: null };
-        if (user?.role === 'ESCOLA')
-            where.id = (0, user_scope_1.requireScope)(user, 'escola');
-        if (user?.role === 'EXTENSIONISTA')
-            where.municipioId = (0, user_scope_1.requireScope)(user, 'municipio');
+        if (user && user.role !== 'ADMIN')
+            await this.policy.requireEscolaAccess(user, id);
         const item = await this.prisma.escola.findFirst({ where, include: { municipio: true } });
         if (!item)
             throw new common_1.NotFoundException('Escola não encontrada');
@@ -219,6 +217,6 @@ let EscolasService = class EscolasService {
 exports.EscolasService = EscolasService;
 exports.EscolasService = EscolasService = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [prisma_service_1.PrismaService])
+    __metadata("design:paramtypes", [prisma_service_1.PrismaService, policy_service_1.PolicyService])
 ], EscolasService);
 //# sourceMappingURL=escolas.service.js.map

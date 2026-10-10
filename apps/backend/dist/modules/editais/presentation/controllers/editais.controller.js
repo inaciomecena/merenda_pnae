@@ -45,7 +45,7 @@ let EditaisController = class EditaisController {
 exports.EditaisController = EditaisController;
 __decorate([
     (0, common_1.Get)(),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA'),
     (0, swagger_1.ApiOperation)({ summary: 'Listar editais' }),
     (0, swagger_1.ApiQuery)({ name: 'page', required: false }),
     (0, swagger_1.ApiQuery)({ name: 'limit', required: false }),
@@ -60,7 +60,7 @@ __decorate([
 ], EditaisController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Get)(':id'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA'),
     (0, swagger_1.ApiOperation)({ summary: 'Buscar edital por id' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Req)()),
@@ -70,7 +70,7 @@ __decorate([
 ], EditaisController.prototype, "findOne", null);
 __decorate([
     (0, common_1.Get)(':id/itens'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA'),
     (0, swagger_1.ApiOperation)({ summary: 'Listar itens de um edital' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Req)()),
@@ -80,7 +80,7 @@ __decorate([
 ], EditaisController.prototype, "findItens", null);
 __decorate([
     (0, common_1.Post)(),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Criar edital' }),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Req)()),
@@ -90,7 +90,7 @@ __decorate([
 ], EditaisController.prototype, "create", null);
 __decorate([
     (0, common_1.Patch)(':id'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Atualizar edital' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),

@@ -2,11 +2,13 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { Prisma, StatusEdital } from '@prisma/client';
 import { PrismaService } from '../../../../infrastructure/prisma/prisma.service';
 import { CreateEditalDto, UpdateEditalDto } from '../../presentation/dto/edital.dto';
-import { AuthenticatedUser, requireScope } from '../../../../common/auth/user-scope';
+import { AuthenticatedUser } from '../../../../common/auth/user-scope';
+import { PolicyService } from '../../../../common/auth/policy.service';
+import { ForbiddenException } from '@nestjs/common';
 
 @Injectable()
 export class EditaisService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService, private readonly policy: PolicyService) {}
 
   async findAll(query: { page?: number; limit?: number; search?: string; status?: string; ano?: number }, user?: AuthenticatedUser) {
     const page = Number(query.page ?? 1);
@@ -17,8 +19,10 @@ export class EditaisService {
       ...(query.status ? { status: query.status as any } : {}),
       ...(query.ano ? { ano: Number(query.ano) } : {}),
     };
-    if (user?.role === 'ESCOLA') where.escolaId = requireScope(user, 'escola');
-    if (user?.role === 'EXTENSIONISTA') where.municipioId = requireScope(user, 'municipio');
+    if (user && user.role !== 'ADMIN') {
+      const escolas = await this.policy.getAuthorizedEscolaIds(user);
+      where.OR = [{ escolaId: { in: escolas } }, { escolasVinculadas: { some: { escolaId: { in: escolas } } } }];
+    }
 
     const [items, total] = await this.prisma.$transaction([
       this.prisma.edital.findMany({
@@ -28,7 +32,7 @@ export class EditaisService {
         include: {
           escola: { include: { municipio: true } },
           municipio: true,
-          documento: { include: { geracoes: { orderBy: { createdAt: 'desc' }, take: 1 } } },
+          ...(user?.role === 'ADMIN' ? { documento: { include: { geracoes: { orderBy: { createdAt: 'desc' as const }, take: 1 } } } } : {}),
         },
         orderBy: { createdAt: 'desc' },
       }),
@@ -40,15 +44,18 @@ export class EditaisService {
 
   async findOne(id: string, user?: AuthenticatedUser) {
     const where: any = { id, deletedAt: null };
-    if (user?.role === 'ESCOLA') where.escolaId = requireScope(user, 'escola');
-    if (user?.role === 'EXTENSIONISTA') where.municipioId = requireScope(user, 'municipio');
+    if (user && user.role !== 'ADMIN') {
+      const escolas = await this.policy.getAuthorizedEscolaIds(user);
+      where.OR = [{ escolaId: { in: escolas } }, { escolasVinculadas: { some: { escolaId: { in: escolas } } } }];
+    }
     const item = await this.prisma.edital.findFirst({ where, include: { escola: true, itens: true } });
     if (!item) throw new NotFoundException('Edital não encontrado');
     return item;
   }
 
   async create(dto: CreateEditalDto, user?: AuthenticatedUser) {
-    const escolaId = user?.role === 'ESCOLA' ? requireScope(user, 'escola') : dto.escolaId;
+    if (user?.role !== 'ADMIN') throw new ForbiddenException('Criação de edital requer autorização administrativa');
+    const escolaId = dto.escolaId;
     const data: Prisma.EditalCreateInput = {
       numero: dto.numero,
       ano: dto.ano,
@@ -65,7 +72,8 @@ export class EditaisService {
 
   async update(id: string, dto: UpdateEditalDto, user?: AuthenticatedUser) {
     await this.findOne(id, user);
-    const escolaId = user?.role === 'ESCOLA' ? requireScope(user, 'escola') : dto.escolaId;
+    if (user?.role !== 'ADMIN') throw new ForbiddenException('Alteração de edital requer autorização administrativa');
+    const escolaId = dto.escolaId;
 
     const data: Prisma.EditalUpdateInput = {
       ...(dto.numero !== undefined ? { numero: dto.numero } : {}),

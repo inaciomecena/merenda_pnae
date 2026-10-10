@@ -1,11 +1,12 @@
 import { BadRequestException, ConflictException, Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../../../../infrastructure/prisma/prisma.service';
 import { CreateEscolaDto, UpdateEscolaDto } from '../../presentation/dto/escola.dto';
-import { AuthenticatedUser, requireScope } from '../../../../common/auth/user-scope';
+import { AuthenticatedUser } from '../../../../common/auth/user-scope';
+import { PolicyService } from '../../../../common/auth/policy.service';
 
 @Injectable()
 export class EscolasService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService, private readonly policy: PolicyService) {}
 
   async findAll(query: {
     page?: number; limit?: number; search?: string; codigo?: string; municipioId?: string;
@@ -25,8 +26,7 @@ export class EscolasService {
       ...(query.restricaoAtendimento ? { restricaoAtendimento: { contains: query.restricaoAtendimento } } : {}),
       ...(query.active === 'true' ? { active: true } : query.active === 'false' ? { active: false } : {}),
     };
-    if (user?.role === 'ESCOLA') where.id = requireScope(user, 'escola');
-    if (user?.role === 'EXTENSIONISTA') where.municipioId = requireScope(user, 'municipio');
+    if (user && user.role !== 'ADMIN') where.id = { in: await this.policy.getAuthorizedEscolaIds(user) };
 
     const [items, total] = await this.prisma.$transaction([
       this.prisma.escola.findMany({ where, skip: (page - 1) * limit, take: limit, include: { municipio: true }, orderBy: [{ municipio: { nome: 'asc' } }, { nome: 'asc' }] }),
@@ -38,8 +38,7 @@ export class EscolasService {
 
   async findOne(id: string, user?: AuthenticatedUser) {
     const where: any = { id, deletedAt: null };
-    if (user?.role === 'ESCOLA') where.id = requireScope(user, 'escola');
-    if (user?.role === 'EXTENSIONISTA') where.municipioId = requireScope(user, 'municipio');
+    if (user && user.role !== 'ADMIN') await this.policy.requireEscolaAccess(user, id);
     const item = await this.prisma.escola.findFirst({ where, include: { municipio: true } });
     if (!item) throw new NotFoundException('Escola não encontrada');
     return item;

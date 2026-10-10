@@ -1,19 +1,22 @@
 import { PrismaService } from '../../infrastructure/prisma/prisma.service';
+import { AuditService } from '../audit/application/services/audit.service';
+import { AuthenticatedUser } from '../../common/auth/user-scope';
 export declare class UsersService {
     private readonly prisma;
-    constructor(prisma: PrismaService);
+    private readonly audit;
+    constructor(prisma: PrismaService, audit: AuditService);
     findAll(query: {
         page?: number;
         limit?: number;
     }): Promise<{
         items: {
             id: string;
-            municipioId: string | null;
-            active: boolean;
-            name: string;
-            role: import(".prisma/client").$Enums.Role;
             escolaId: string | null;
+            municipioId: string | null;
+            name: string;
             email: string;
+            role: import(".prisma/client").$Enums.Role;
+            active: boolean;
         }[];
         total: number;
         page: number;
@@ -22,36 +25,36 @@ export declare class UsersService {
     }>;
     create(body: any): Promise<{
         id: string;
-        municipioId: string | null;
-        active: boolean;
-        name: string;
-        role: import(".prisma/client").$Enums.Role;
         escolaId: string | null;
-        email: string;
-    }>;
-    update(id: string, body: any): Promise<{
-        id: string;
         municipioId: string | null;
-        active: boolean;
         name: string;
-        role: import(".prisma/client").$Enums.Role;
-        escolaId: string | null;
         email: string;
-    }>;
-    remove(id: string): Promise<{
-        id: string;
-        municipioId: string | null;
+        role: import(".prisma/client").$Enums.Role;
         active: boolean;
+    }>;
+    update(id: string, body: any, actor?: AuthenticatedUser): Promise<{
+        id: string;
+        escolaId: string | null;
+        municipioId: string | null;
+        name: string;
+        email: string;
+        role: import(".prisma/client").$Enums.Role;
+        active: boolean;
+    }>;
+    remove(id: string, actor?: AuthenticatedUser): Promise<{
+        id: string;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        name: string;
-        role: import(".prisma/client").$Enums.Role;
         escolaId: string | null;
+        municipioId: string | null;
+        name: string;
         email: string;
         passwordHash: string;
+        role: import(".prisma/client").$Enums.Role;
+        active: boolean;
+        deletedAt: Date | null;
     }>;
     private validateScope;
 }

@@ -6,13 +6,13 @@ export declare class ProdutosReferenciaController {
     findAll(query: any): Promise<{
         items: {
             id: string;
-            nome: string;
+            ativo: boolean;
             createdAt: Date;
             updatedAt: Date;
-            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            ativo: boolean;
+            deletedAt: Date | null;
+            nome: string;
             categoria: string | null;
             subcategoria: string | null;
             unidadePadrao: string | null;
@@ -27,13 +27,13 @@ export declare class ProdutosReferenciaController {
     }>;
     findOne(id: string): Promise<{
         id: string;
-        nome: string;
+        ativo: boolean;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        ativo: boolean;
+        deletedAt: Date | null;
+        nome: string;
         categoria: string | null;
         subcategoria: string | null;
         unidadePadrao: string | null;
@@ -43,13 +43,13 @@ export declare class ProdutosReferenciaController {
     }>;
     create(dto: CreateProdutoReferenciaDto): Promise<{
         id: string;
-        nome: string;
+        ativo: boolean;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        ativo: boolean;
+        deletedAt: Date | null;
+        nome: string;
         categoria: string | null;
         subcategoria: string | null;
         unidadePadrao: string | null;
@@ -59,13 +59,13 @@ export declare class ProdutosReferenciaController {
     }>;
     update(id: string, dto: UpdateProdutoReferenciaDto): Promise<{
         id: string;
-        nome: string;
+        ativo: boolean;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        ativo: boolean;
+        deletedAt: Date | null;
+        nome: string;
         categoria: string | null;
         subcategoria: string | null;
         unidadePadrao: string | null;
@@ -75,13 +75,13 @@ export declare class ProdutosReferenciaController {
     }>;
     remove(id: string): Promise<{
         id: string;
-        nome: string;
+        ativo: boolean;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        ativo: boolean;
+        deletedAt: Date | null;
+        nome: string;
         categoria: string | null;
         subcategoria: string | null;
         unidadePadrao: string | null;

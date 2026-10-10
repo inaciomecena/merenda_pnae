@@ -1,5 +1,6 @@
 import { PrismaService } from '../../../../infrastructure/prisma/prisma.service';
 import { AuthenticatedUser } from '../../../../common/auth/user-scope';
+import { PolicyService } from '../../../../common/auth/policy.service';
 import { DocumentoPropostaDto } from '../../presentation/dto/documento-proposta.dto';
 export interface ModeloPropostaSnapshot {
     templateId: string;
@@ -30,7 +31,8 @@ export declare function camposDosModelos(modelos: Array<{
 export declare function validarDocumentos(modelos: ModeloPropostaSnapshot[], valores: Record<string, string>): string[];
 export declare class PropostaDocumentosService {
     private readonly prisma;
-    constructor(prisma: PrismaService);
+    private readonly policy;
+    constructor(prisma: PrismaService, policy: PolicyService);
     private carregar;
     private config;
     preparar(id: string, user?: AuthenticatedUser): Promise<{

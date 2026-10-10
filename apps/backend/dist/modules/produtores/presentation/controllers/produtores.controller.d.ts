@@ -86,7 +86,7 @@ export declare class ProdutoresController {
         createdBy: string | null;
         updatedBy: string | null;
     }>;
-    findProdutos(id: string): Promise<{
+    findProdutos(id: string, req: Request): Promise<{
         id: string;
         createdAt: Date;
         updatedAt: Date;
@@ -100,7 +100,7 @@ export declare class ProdutoresController {
         precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
         unidade: string | null;
     }[]>;
-    createProduto(id: string, dto: CreateProdutorProdutoDto): Promise<{
+    createProduto(id: string, dto: CreateProdutorProdutoDto, req: Request): Promise<{
         id: string;
         createdAt: Date;
         updatedAt: Date;
@@ -114,7 +114,7 @@ export declare class ProdutoresController {
         precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
         unidade: string | null;
     }>;
-    updateProduto(id: string, produtoId: string, dto: UpdateProdutorProdutoDto): Promise<{
+    updateProduto(id: string, produtoId: string, dto: UpdateProdutorProdutoDto, req: Request): Promise<{
         id: string;
         createdAt: Date;
         updatedAt: Date;
@@ -128,7 +128,7 @@ export declare class ProdutoresController {
         precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
         unidade: string | null;
     }>;
-    removeProduto(id: string, produtoId: string): Promise<{
+    removeProduto(id: string, produtoId: string, req: Request): Promise<{
         id: string;
         createdAt: Date;
         updatedAt: Date;

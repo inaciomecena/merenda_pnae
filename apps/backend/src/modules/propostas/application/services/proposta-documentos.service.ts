@@ -1,8 +1,9 @@
-import { BadRequestException, ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
+﻿import { BadRequestException, ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
 import * as path from 'path';
 import { randomUUID } from 'crypto';
 import { PrismaService } from '../../../../infrastructure/prisma/prisma.service';
-import { AuthenticatedUser, requireScope } from '../../../../common/auth/user-scope';
+import { AuthenticatedUser } from '../../../../common/auth/user-scope';
+import { PolicyService } from '../../../../common/auth/policy.service';
 import { CAMPOS_PRODUTOR } from '../../../composicao-editais/application/domain/campos-produtor';
 import { catalogoPorChave, extrairPlaceholders, VARIAVEIS_DISPONIVEIS } from '../../../composicao-editais/application/domain/placeholders';
 import { DocumentoRenderInput, renderDocx, renderPdf } from '../../../composicao-editais/application/domain/documento-renderer';
@@ -59,7 +60,7 @@ export function validarDocumentos(modelos: ModeloPropostaSnapshot[], valores: Re
 
 @Injectable()
 export class PropostaDocumentosService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService, private readonly policy: PolicyService) {}
 
   private async carregar(id: string, user?: AuthenticatedUser) {
     const proposta = await this.prisma.proposta.findFirst({
@@ -70,11 +71,11 @@ export class PropostaDocumentosService {
       },
     });
     if (!proposta) throw new NotFoundException('Proposta não encontrada.');
-    if (user?.role === 'EXTENSIONISTA' && proposta.produtor?.municipioId !== requireScope(user, 'municipio')) throw new ForbiddenException('Proposta fora do seu município.');
-    if (user?.role === 'ESCOLA') {
-      const escolaId = requireScope(user, 'escola');
-      if (proposta.edital.escolaId !== escolaId && !proposta.edital.escolasVinculadas.some(e => e.escolaId === escolaId)) throw new ForbiddenException('Proposta fora da sua escola.');
+    if ((user?.role === 'EXTENSIONISTA' || user?.role === 'PRODUTOR')) {
+      if (!proposta.produtorId) throw new ForbiddenException('Proposta sem fornecedor representado.');
+      await this.policy.requireProdutorAccess(user, proposta.produtorId);
     }
+    if (user?.role === 'ESCOLA') throw new ForbiddenException('Documentos privados de proposta não pertencem à escola.');
     return proposta;
   }
 
@@ -108,6 +109,7 @@ export class PropostaDocumentosService {
 
   async salvar(id: string, dto: DocumentoPropostaDto, user?: AuthenticatedUser) {
     const proposta = await this.carregar(id, user);
+    if (user && user.role !== 'ADMIN' && proposta.produtorId) await this.policy.requireProdutorAction(user, proposta.produtorId, 'EDITAR_PROPOSTA');
     if (['FINALIZADA', 'CANCELADA'].includes(proposta.status)) throw new BadRequestException('Proposta finalizada ou cancelada não pode ser alterada.');
     if (!dto.modelos.length) throw new BadRequestException('Selecione os modelos para o projeto.');
     if (new Set(dto.modelos.map(m => m.templateId)).size !== dto.modelos.length) throw new BadRequestException('Há modelos duplicados.');
@@ -139,6 +141,7 @@ export class PropostaDocumentosService {
 
   async gerar(id: string, user?: AuthenticatedUser) {
     const proposta = await this.carregar(id, user);
+    if (user && user.role !== 'ADMIN' && proposta.produtorId) await this.policy.requireProdutorAction(user, proposta.produtorId, 'EDITAR_PROPOSTA');
     if (['FINALIZADA', 'CANCELADA'].includes(proposta.status)) throw new BadRequestException('Proposta finalizada ou cancelada não pode ser regerada.');
     const config = this.config(proposta.documentosJson);
     if (!config) throw new BadRequestException('Abra Anexos e declarações, selecione os modelos da DRE e confira os dados antes de gerar.');

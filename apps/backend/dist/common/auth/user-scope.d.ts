@@ -1,7 +1,8 @@
 export type AuthenticatedUser = {
     sub: string;
-    role: 'ADMIN' | 'ESCOLA' | 'EXTENSIONISTA' | 'DRE';
+    email?: string;
+    role: 'ADMIN' | 'ESCOLA' | 'EXTENSIONISTA' | 'DRE' | 'PRODUTOR';
     escolaId?: string | null;
     municipioId?: string | null;
+    vinculoId?: string;
 };
-export declare function requireScope(user: AuthenticatedUser, kind: 'escola' | 'municipio'): string | undefined;

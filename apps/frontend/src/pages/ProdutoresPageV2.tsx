@@ -57,7 +57,8 @@ const produtoInicial = { produto: '', capacidade: '', unidade: 'KG', periodoProd
 
 export default function ProdutoresPageV2() {
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user, context } = useAuth();
+  const canEdit = (id: string) => user?.role === 'ADMIN' || user?.role === 'PRODUTOR' || Boolean(context?.representacoes.some(r => r.produtor.id === id && r.permissoes.split(',').includes('EDITAR_PRODUTOR')));
   const [camposDocumentais, setCamposDocumentais] = useState<Array<{ chave: string; rotulo: string }>>([]);
   useEffect(() => { api.get('/produtores/campos-documentais').then(({ data }) => setCamposDocumentais(data.data)).catch(() => setError('Não foi possível carregar os campos dos anexos.')); }, []);
   const [items, setItems] = useState<Produtor[]>([]);
@@ -200,7 +201,7 @@ export default function ProdutoresPageV2() {
     <Stack spacing={3}>
       <Stack direction="row" justifyContent="space-between" alignItems="center">
         <Typography variant="h4" fontWeight={700}>Produtores</Typography>
-        <Button variant="contained" startIcon={<Add />} onClick={openCreate}>Novo</Button>
+        {user?.role === 'ADMIN' && <Button variant="contained" startIcon={<Add />} onClick={openCreate}>Novo</Button>}
       </Stack>
 
       {error ? <Alert severity="error" onClose={() => setError('')}>{error}</Alert> : null}
@@ -231,8 +232,8 @@ export default function ProdutoresPageV2() {
                       <Stack direction="row" spacing={1} justifyContent="flex-end">
                         <Button size="small" onClick={() => navigate(`/propostas?produtorId=${item.id}`)}>Projetos e declarações</Button>
                         <Button size="small" startIcon={<Agriculture />} onClick={() => void openProdutos(item)}>Produtos</Button>
-                        <IconButton onClick={() => openEdit(item)}><Edit /></IconButton>
-                        <IconButton onClick={() => setConfirmDelete(item)}><Delete /></IconButton>
+                        {canEdit(item.id) && <IconButton onClick={() => openEdit(item)}><Edit /></IconButton>}
+                        {user?.role === 'ADMIN' && <IconButton onClick={() => setConfirmDelete(item)}><Delete /></IconButton>}
                       </Stack>
                     </TableCell>
                   </TableRow>
@@ -279,7 +280,7 @@ export default function ProdutoresPageV2() {
           <Alert severity="info" sx={{ mb: 2 }}>
             Registre a sazonalidade no campo Periodo de producao. Exemplos: Ano todo, Jan-Mar, Abr-Jul, Safra das aguas, Entressafra.
           </Alert>
-          <Grid container spacing={2} sx={{ mb: 2 }}>
+          {produtorSelecionado && canEdit(produtorSelecionado.id) && <Grid container spacing={2} sx={{ mb: 2 }}>
             <Grid item xs={12} md={3}><TextField label="Produto" fullWidth value={produtoForm.produto} onChange={(e) => setProdutoForm({ ...produtoForm, produto: e.target.value })} /></Grid>
             <Grid item xs={12} md={2}><TextField label="Capacidade" fullWidth value={produtoForm.capacidade} onChange={(e) => setProdutoForm({ ...produtoForm, capacidade: e.target.value })} /></Grid>
             <Grid item xs={12} md={1.5}><TextField label="Unidade" fullWidth value={produtoForm.unidade} onChange={(e) => setProdutoForm({ ...produtoForm, unidade: e.target.value })} /></Grid>
@@ -290,7 +291,7 @@ export default function ProdutoresPageV2() {
                 {produtoEditing ? 'Atualizar' : 'Adicionar'}
               </Button>
             </Grid>
-          </Grid>
+          </Grid>}
 
           <Table size="small">
             <TableHead>
@@ -310,8 +311,8 @@ export default function ProdutoresPageV2() {
                   <TableCell><Chip size="small" color={item.periodoProducao ? 'success' : 'warning'} label={item.periodoProducao || 'Nao informado'} /></TableCell>
                   <TableCell>{item.precoSugerido ? `R$ ${Number(item.precoSugerido).toFixed(2)}` : '-'}</TableCell>
                   <TableCell align="right">
-                    <IconButton onClick={() => editProduto(item)}><Edit /></IconButton>
-                    <IconButton color="error" onClick={() => void removeProduto(item.id)}><Delete /></IconButton>
+                    {produtorSelecionado && canEdit(produtorSelecionado.id) && <IconButton onClick={() => editProduto(item)}><Edit /></IconButton>}
+                    {produtorSelecionado && canEdit(produtorSelecionado.id) && <IconButton color="error" onClick={() => void removeProduto(item.id)}><Delete /></IconButton>}
                   </TableCell>
                 </TableRow>
               )) : (

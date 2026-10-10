@@ -1,9 +1,11 @@
 import { PrismaService } from '../../../../infrastructure/prisma/prisma.service';
 import { CreateEscolaDto, UpdateEscolaDto } from '../../presentation/dto/escola.dto';
 import { AuthenticatedUser } from '../../../../common/auth/user-scope';
+import { PolicyService } from '../../../../common/auth/policy.service';
 export declare class EscolasService {
     private readonly prisma;
-    constructor(prisma: PrismaService);
+    private readonly policy;
+    constructor(prisma: PrismaService, policy: PolicyService);
     findAll(query: {
         page?: number;
         limit?: number;
@@ -19,30 +21,30 @@ export declare class EscolasService {
         items: ({
             municipio: {
                 id: string;
-                nome: string;
+                ativo: boolean;
                 createdAt: Date;
                 updatedAt: Date;
-                deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
+                deletedAt: Date | null;
+                nome: string;
                 nomeNormalizado: string | null;
                 uf: string;
                 codigoIbge: string | null;
-                ativo: boolean;
             };
         } & {
             id: string;
-            nome: string;
-            municipioId: string;
-            endereco: string | null;
-            telefone: string | null;
-            active: boolean;
             createdAt: Date;
             updatedAt: Date;
-            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            municipioId: string;
+            active: boolean;
+            deletedAt: Date | null;
+            nome: string;
             codigo: string | null;
+            endereco: string | null;
+            telefone: string | null;
             responsavel: string | null;
             restricaoAtendimento: string | null;
             localizacao: string | null;
@@ -66,30 +68,30 @@ export declare class EscolasService {
     findOne(id: string, user?: AuthenticatedUser): Promise<{
         municipio: {
             id: string;
-            nome: string;
+            ativo: boolean;
             createdAt: Date;
             updatedAt: Date;
-            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            deletedAt: Date | null;
+            nome: string;
             nomeNormalizado: string | null;
             uf: string;
             codigoIbge: string | null;
-            ativo: boolean;
         };
     } & {
         id: string;
-        nome: string;
-        municipioId: string;
-        endereco: string | null;
-        telefone: string | null;
-        active: boolean;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        municipioId: string;
+        active: boolean;
+        deletedAt: Date | null;
+        nome: string;
         codigo: string | null;
+        endereco: string | null;
+        telefone: string | null;
         responsavel: string | null;
         restricaoAtendimento: string | null;
         localizacao: string | null;
@@ -107,17 +109,17 @@ export declare class EscolasService {
     }>;
     create(dto: CreateEscolaDto): Promise<{
         id: string;
-        nome: string;
-        municipioId: string;
-        endereco: string | null;
-        telefone: string | null;
-        active: boolean;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        municipioId: string;
+        active: boolean;
+        deletedAt: Date | null;
+        nome: string;
         codigo: string | null;
+        endereco: string | null;
+        telefone: string | null;
         responsavel: string | null;
         restricaoAtendimento: string | null;
         localizacao: string | null;
@@ -145,17 +147,17 @@ export declare class EscolasService {
     private parseCsv;
     update(id: string, dto: UpdateEscolaDto, user?: AuthenticatedUser): Promise<{
         id: string;
-        nome: string;
-        municipioId: string;
-        endereco: string | null;
-        telefone: string | null;
-        active: boolean;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        municipioId: string;
+        active: boolean;
+        deletedAt: Date | null;
+        nome: string;
         codigo: string | null;
+        endereco: string | null;
+        telefone: string | null;
         responsavel: string | null;
         restricaoAtendimento: string | null;
         localizacao: string | null;
@@ -173,17 +175,17 @@ export declare class EscolasService {
     }>;
     remove(id: string): Promise<{
         id: string;
-        nome: string;
-        municipioId: string;
-        endereco: string | null;
-        telefone: string | null;
-        active: boolean;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        municipioId: string;
+        active: boolean;
+        deletedAt: Date | null;
+        nome: string;
         codigo: string | null;
+        endereco: string | null;
+        telefone: string | null;
         responsavel: string | null;
         restricaoAtendimento: string | null;
         localizacao: string | null;

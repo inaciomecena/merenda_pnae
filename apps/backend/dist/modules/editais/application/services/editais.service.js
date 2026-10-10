@@ -12,11 +12,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.EditaisService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../../../../infrastructure/prisma/prisma.service");
-const user_scope_1 = require("../../../../common/auth/user-scope");
+const policy_service_1 = require("../../../../common/auth/policy.service");
+const common_2 = require("@nestjs/common");
 let EditaisService = class EditaisService {
     prisma;
-    constructor(prisma) {
+    policy;
+    constructor(prisma, policy) {
         this.prisma = prisma;
+        this.policy = policy;
     }
     async findAll(query, user) {
         const page = Number(query.page ?? 1);
@@ -27,10 +30,10 @@ let EditaisService = class EditaisService {
             ...(query.status ? { status: query.status } : {}),
             ...(query.ano ? { ano: Number(query.ano) } : {}),
         };
-        if (user?.role === 'ESCOLA')
-            where.escolaId = (0, user_scope_1.requireScope)(user, 'escola');
-        if (user?.role === 'EXTENSIONISTA')
-            where.municipioId = (0, user_scope_1.requireScope)(user, 'municipio');
+        if (user && user.role !== 'ADMIN') {
+            const escolas = await this.policy.getAuthorizedEscolaIds(user);
+            where.OR = [{ escolaId: { in: escolas } }, { escolasVinculadas: { some: { escolaId: { in: escolas } } } }];
+        }
         const [items, total] = await this.prisma.$transaction([
             this.prisma.edital.findMany({
                 where,
@@ -39,7 +42,7 @@ let EditaisService = class EditaisService {
                 include: {
                     escola: { include: { municipio: true } },
                     municipio: true,
-                    documento: { include: { geracoes: { orderBy: { createdAt: 'desc' }, take: 1 } } },
+                    ...(user?.role === 'ADMIN' ? { documento: { include: { geracoes: { orderBy: { createdAt: 'desc' }, take: 1 } } } } : {}),
                 },
                 orderBy: { createdAt: 'desc' },
             }),
@@ -49,17 +52,19 @@ let EditaisService = class EditaisService {
     }
     async findOne(id, user) {
         const where = { id, deletedAt: null };
-        if (user?.role === 'ESCOLA')
-            where.escolaId = (0, user_scope_1.requireScope)(user, 'escola');
-        if (user?.role === 'EXTENSIONISTA')
-            where.municipioId = (0, user_scope_1.requireScope)(user, 'municipio');
+        if (user && user.role !== 'ADMIN') {
+            const escolas = await this.policy.getAuthorizedEscolaIds(user);
+            where.OR = [{ escolaId: { in: escolas } }, { escolasVinculadas: { some: { escolaId: { in: escolas } } } }];
+        }
         const item = await this.prisma.edital.findFirst({ where, include: { escola: true, itens: true } });
         if (!item)
             throw new common_1.NotFoundException('Edital não encontrado');
         return item;
     }
     async create(dto, user) {
-        const escolaId = user?.role === 'ESCOLA' ? (0, user_scope_1.requireScope)(user, 'escola') : dto.escolaId;
+        if (user?.role !== 'ADMIN')
+            throw new common_2.ForbiddenException('Criação de edital requer autorização administrativa');
+        const escolaId = dto.escolaId;
         const data = {
             numero: dto.numero,
             ano: dto.ano,
@@ -74,7 +79,9 @@ let EditaisService = class EditaisService {
     }
     async update(id, dto, user) {
         await this.findOne(id, user);
-        const escolaId = user?.role === 'ESCOLA' ? (0, user_scope_1.requireScope)(user, 'escola') : dto.escolaId;
+        if (user?.role !== 'ADMIN')
+            throw new common_2.ForbiddenException('Alteração de edital requer autorização administrativa');
+        const escolaId = dto.escolaId;
         const data = {
             ...(dto.numero !== undefined ? { numero: dto.numero } : {}),
             ...(dto.ano !== undefined ? { ano: dto.ano } : {}),
@@ -99,6 +106,6 @@ let EditaisService = class EditaisService {
 exports.EditaisService = EditaisService;
 exports.EditaisService = EditaisService = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [prisma_service_1.PrismaService])
+    __metadata("design:paramtypes", [prisma_service_1.PrismaService, policy_service_1.PolicyService])
 ], EditaisService);
 //# sourceMappingURL=editais.service.js.map

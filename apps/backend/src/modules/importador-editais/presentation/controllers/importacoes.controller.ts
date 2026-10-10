@@ -1,4 +1,4 @@
-import {
+﻿import {
   Body,
   Controller,
   Delete,
@@ -57,7 +57,7 @@ export class ImportacoesController {
   ) {}
 
   @Post('pdf')
-  @Roles('ADMIN', 'DRE', 'ESCOLA')
+  @Roles('ADMIN')
   @ApiOperation({ summary: 'Fazer upload manual de um edital em PDF' })
   @ApiConsumes('multipart/form-data')
   @ApiBody({ description: 'Arquivo PDF do edital', type: CreateImportacaoPdfDto })
@@ -87,7 +87,7 @@ export class ImportacoesController {
   }
 
   @Get()
-  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA')
+  @Roles('ADMIN')
   @ApiOperation({ summary: 'Listar importações de editais' })
   @ApiQuery({ name: 'page', required: false })
   @ApiQuery({ name: 'limit', required: false })
@@ -104,14 +104,14 @@ export class ImportacoesController {
   }
 
   @Get(':id')
-  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA')
+  @Roles('ADMIN')
   @ApiOperation({ summary: 'Detalhar uma importação' })
   findOne(@Param('id') id: string) {
     return this.service.buscarImportacao(id);
   }
 
   @Get(':id/pdf')
-  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA')
+  @Roles('ADMIN')
   @ApiOperation({ summary: 'Servir o arquivo PDF da importação' })
   async servePdf(@Param('id') id: string, @Res() res: Response) {
     const importacao = await this.service.buscarImportacao(id);
@@ -131,70 +131,70 @@ export class ImportacoesController {
   }
 
   @Patch(':id')
-  @Roles('ADMIN', 'DRE', 'ESCOLA')
+  @Roles('ADMIN')
   @ApiOperation({ summary: 'Editar o edital vinculado à importação (bloqueado após confirmação)' })
   editarEdital(@Param('id') id: string, @Body() dto: UpdateImportacaoEditalDto) {
     return this.service.editarEdital(id, dto);
   }
 
   @Delete(':id')
-  @Roles('ADMIN', 'DRE')
+  @Roles('ADMIN')
   @ApiOperation({ summary: 'Excluir logicamente a importação e o edital vinculado, preservando arquivos e histórico' })
   excluir(@Param('id') id: string, @Req() req: { user: { sub: string } }) {
     return this.service.excluirImportacao(id, req.user.sub);
   }
 
   @Delete(':id/itens/:itemId')
-  @Roles('ADMIN', 'DRE')
+  @Roles('ADMIN')
   @ApiOperation({ summary: 'Excluir logicamente um item antes da confirmação da importação' })
   excluirItem(@Param('id') id: string, @Param('itemId') itemId: string, @Req() req: { user: { sub: string } }) {
     return this.service.excluirItem(id, itemId, req.user.sub);
   }
 
   @Post(':id/processar')
-  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA')
+  @Roles('ADMIN')
   @ApiOperation({ summary: 'Processar um PDF salvo' })
   processar(@Param('id') id: string, @Body() dto: ProcessarImportacaoDto) {
     return this.service.processarImportacao(id, dto.reprocessar ?? false);
   }
 
   @Post(':id/confirmar')
-  @Roles('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA')
+  @Roles('ADMIN')
   @ApiOperation({ summary: 'Confirmar os itens conferidos da importação' })
   confirmar(@Param('id') id: string, @Body() dto: ConfirmarImportacaoDto) {
     return this.service.confirmarImportacao(id, dto);
   }
 
   @Get(':id/estrutura')
-  @Roles('ADMIN', 'DRE', 'ESCOLA')
+  @Roles('ADMIN')
   @ApiOperation({ summary: 'Conferir a estrutura documental extraída do PDF' })
   estrutura(@Param('id') id: string) {
     return this.engenhariaReversa.obter(id);
   }
 
   @Post(':id/preparar-edital')
-  @Roles('ADMIN', 'DRE')
+  @Roles('ADMIN')
   @ApiOperation({ summary: 'Carregar os dados importados para revisar um novo edital, sem criá-lo' })
   prepararEdital(@Param('id') id: string) {
     return this.engenhariaReversa.prepararEdital(id);
   }
 
   @Post(':id/estrutura')
-  @Roles('ADMIN', 'DRE', 'ESCOLA')
+  @Roles('ADMIN')
   @ApiOperation({ summary: 'Executar engenharia reversa sem alterar o PDF original nem os itens já importados' })
   montarEstrutura(@Param('id') id: string) {
     return this.engenhariaReversa.montar(id);
   }
 
   @Patch(':id/estrutura/campos')
-  @Roles('ADMIN', 'DRE', 'ESCOLA')
+  @Roles('ADMIN')
   @ApiOperation({ summary: 'Revisar campos extraídos automaticamente' })
   revisarCampos(@Param('id') id: string, @Body() dto: AtualizarCamposImportacaoDto) {
     return this.engenhariaReversa.atualizarCampos(id, dto.campos);
   }
 
   @Post(':id/estrutura/aplicar')
-  @Roles('ADMIN', 'DRE')
+  @Roles('ADMIN')
   @ApiOperation({ summary: 'Atualizar o edital importado ou criar um novo edital baseado nele' })
   aplicarEstrutura(@Param('id') id: string, @Body() dto: AplicarEstruturaDto, @Req() req: { user?: { sub?: string } }) {
     return this.engenhariaReversa.aplicar(id, dto.modo, req.user?.sub || 'system', dto.editalDestinoId);

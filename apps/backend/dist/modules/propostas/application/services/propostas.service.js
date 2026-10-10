@@ -48,21 +48,27 @@ const client_1 = require("@prisma/client");
 const prisma_service_1 = require("../../../../infrastructure/prisma/prisma.service");
 const proposta_dto_1 = require("../../presentation/dto/proposta.dto");
 const document_generator_service_1 = require("./document-generator.service");
-const user_scope_1 = require("../../../../common/auth/user-scope");
+const policy_service_1 = require("../../../../common/auth/policy.service");
+const common_2 = require("@nestjs/common");
+const audit_service_1 = require("../../../audit/application/services/audit.service");
 const proposta_documentos_service_1 = require("./proposta-documentos.service");
 let PropostasService = class PropostasService {
     prisma;
     docGenerator;
     documentos;
-    constructor(prisma, docGenerator, documentos) {
+    policy;
+    audit;
+    constructor(prisma, docGenerator, documentos, policy, audit) {
         this.prisma = prisma;
         this.docGenerator = docGenerator;
         this.documentos = documentos;
+        this.policy = policy;
+        this.audit = audit;
     }
     async findAll(query, user) {
         const page = Number(query.page ?? 1);
         const limit = Number(query.limit ?? 20);
-        const where = { deletedAt: null, ...this.escopo(user) };
+        const where = { deletedAt: null, AND: [await this.escopo(user)] };
         if (query.status)
             where.status = query.status;
         if (query.editalId)
@@ -81,7 +87,7 @@ let PropostasService = class PropostasService {
     }
     async findOne(id, user) {
         const item = await this.prisma.proposta.findFirst({
-            where: { id, deletedAt: null, ...this.escopo(user) },
+            where: { id, deletedAt: null, ...await this.escopo(user) },
             include: {
                 edital: { include: { municipio: true } },
                 produtor: { include: { municipio: true } },
@@ -93,11 +99,8 @@ let PropostasService = class PropostasService {
         return item;
     }
     async preview(dto, user) {
-        if (user?.role === 'EXTENSIONISTA') {
-            const produtor = await this.prisma.produtor.findFirst({ where: { id: dto.produtorId, municipioId: (0, user_scope_1.requireScope)(user, 'municipio'), deletedAt: null } });
-            if (!produtor)
-                throw new common_1.NotFoundException('Produtor não encontrado no seu município.');
-        }
+        if ((user?.role === 'EXTENSIONISTA' || user?.role === 'PRODUTOR'))
+            await this.policy.requireProdutorAccess(user, dto.produtorId);
         const preview = await this.docGenerator.preview(dto.editalId, dto.produtorId, dto.tipoDocumento);
         return { ...preview, validadeDias: dto.validadeDias ?? preview.validadeDias, prazoEntrega: dto.prazoEntrega ?? preview.prazoEntrega, observacao: dto.observacao };
     }
@@ -106,10 +109,15 @@ let PropostasService = class PropostasService {
         if (!edital)
             throw new common_1.NotFoundException('Edital não encontrado');
         if (dto.produtorId) {
-            const produtor = await this.prisma.produtor.findFirst({ where: { id: dto.produtorId, deletedAt: null, ...(user?.role === 'EXTENSIONISTA' ? { municipioId: (0, user_scope_1.requireScope)(user, 'municipio') } : {}) } });
+            if ((user?.role === 'EXTENSIONISTA' || user?.role === 'PRODUTOR'))
+                await this.policy.requireProdutorAction(user, dto.produtorId, 'EDITAR_PROPOSTA');
+            const produtor = await this.prisma.produtor.findFirst({ where: { id: dto.produtorId, deletedAt: null } });
             if (!produtor)
                 throw new common_1.NotFoundException('Produtor não encontrado');
         }
+        if ((user?.role === 'EXTENSIONISTA' || user?.role === 'PRODUTOR') && !dto.produtorId)
+            throw new common_2.ForbiddenException('Fornecedor representado é obrigatório');
+        await this.validarMatches(dto.itens, dto.editalId, dto.produtorId);
         const tipo = (dto.tipoDocumento || proposta_dto_1.TipoPropostaDto.ANEXO_III);
         const existing = await this.prisma.proposta.findFirst({
             where: {
@@ -146,10 +154,15 @@ let PropostasService = class PropostasService {
             createData.valorTotal = dto.itens.reduce((sum, i) => sum + (i.quantidade || 0) * (i.precoUnitario || 0), 0);
         }
         const proposta = await this.prisma.proposta.create({ data: createData });
+        await this.audit.log({ userId: user?.sub, userRole: user?.role, action: 'CREATE', entity: 'Proposta', entityId: proposta.id,
+            metadata: { executorId: user?.sub, fornecedorRepresentadoId: dto.produtorId || null } });
         return this.findOne(proposta.id);
     }
     async addItens(propostaId, itens, user) {
         const proposta = await this.findOne(propostaId, user);
+        if (user && user.role !== 'ADMIN' && proposta.produtorId)
+            await this.policy.requireProdutorAction(user, proposta.produtorId, 'EDITAR_PROPOSTA');
+        await this.validarMatches(itens, proposta.editalId, proposta.produtorId);
         if (proposta.status === client_1.StatusProposta.FINALIZADA) {
             throw new common_1.BadRequestException('Não é possível adicionar itens a proposta finalizada');
         }
@@ -182,6 +195,13 @@ let PropostasService = class PropostasService {
     }
     async update(id, dto, user) {
         const proposta = await this.findOne(id, user);
+        if (user && user.role !== 'ADMIN' && proposta.produtorId)
+            await this.policy.requireProdutorAction(user, proposta.produtorId, 'EDITAR_PROPOSTA');
+        if ((user?.role === 'EXTENSIONISTA' || user?.role === 'PRODUTOR') && dto.produtorId !== undefined && dto.produtorId !== proposta.produtorId) {
+            if (!dto.produtorId)
+                throw new common_2.ForbiddenException('Fornecedor representado é obrigatório');
+            await this.policy.requireProdutorAction(user, dto.produtorId, 'EDITAR_PROPOSTA');
+        }
         if (proposta.status === client_1.StatusProposta.FINALIZADA) {
             throw new common_1.BadRequestException('Não é possível alterar proposta finalizada');
         }
@@ -196,13 +216,18 @@ let PropostasService = class PropostasService {
             updatedBy: 'system',
         };
         await this.prisma.proposta.update({ where: { id }, data });
+        await this.audit.log({ userId: user?.sub, userRole: user?.role, action: 'UPDATE', entity: 'Proposta', entityId: id,
+            metadata: { executorId: user?.sub, fornecedorRepresentadoId: proposta.produtorId } });
         if (dto.itens) {
             await this.prisma.propostaItem.deleteMany({ where: { propostaId: id } });
-            await this.addItens(id, dto.itens);
+            await this.addItens(id, dto.itens, user);
         }
-        return this.findOne(id);
+        return this.findOne(id, user);
     }
     async generate(propostaId, user) {
+        const proposta = await this.findOne(propostaId, user);
+        if (user && user.role !== 'ADMIN' && proposta.produtorId)
+            await this.policy.requireProdutorAction(user, proposta.produtorId, 'EDITAR_PROPOSTA');
         return this.documentos.gerar(propostaId, user);
     }
     async download(propostaId, tipo, user) {
@@ -214,6 +239,8 @@ let PropostasService = class PropostasService {
     }
     async finalizar(propostaId, user) {
         const proposta = await this.findOne(propostaId, user);
+        if (user && user.role !== 'ADMIN' && proposta.produtorId)
+            await this.policy.requireProdutorAction(user, proposta.produtorId, 'EDITAR_PROPOSTA');
         if (proposta.status === client_1.StatusProposta.FINALIZADA) {
             throw new common_1.BadRequestException('Proposta já está finalizada');
         }
@@ -222,11 +249,14 @@ let PropostasService = class PropostasService {
         }
         if (proposta.status !== 'GERADA' || !proposta.arquivoPdfPath || !proposta.arquivoDocxPath)
             throw new common_1.BadRequestException('Gere e confira os documentos antes de finalizar o projeto.');
-        return this.prisma.proposta.update({
+        const finalizada = await this.prisma.proposta.update({
             where: { id: propostaId },
             data: { status: client_1.StatusProposta.FINALIZADA, updatedBy: 'system' },
             include: { edital: true, produtor: { include: { municipio: true } }, itens: true },
         });
+        await this.audit.log({ userId: user?.sub, userRole: user?.role, action: 'FINALIZE', entity: 'Proposta', entityId: propostaId,
+            metadata: { executorId: user?.sub, fornecedorRepresentadoId: proposta.produtorId } });
+        return finalizada;
     }
     async remove(id) {
         await this.findOne(id);
@@ -237,7 +267,7 @@ let PropostasService = class PropostasService {
     }
     async getProducersWithApprovedMatches(editalId, user) {
         const matches = await this.prisma.match.findMany({
-            where: { editalId, status: 'APROVADO', deletedAt: null, ...(user?.role === 'EXTENSIONISTA' ? { produtor: { municipioId: (0, user_scope_1.requireScope)(user, 'municipio'), deletedAt: null } } : {}) },
+            where: { editalId, status: 'APROVADO', deletedAt: null, ...((user?.role === 'EXTENSIONISTA' || user?.role === 'PRODUTOR') ? { produtorId: { in: await this.policy.getAuthorizedProdutorIdsForAction(user, 'EDITAR_PROPOSTA') } } : {}) },
             include: { produtor: { include: { municipio: true } } },
             distinct: ['produtorId'],
         });
@@ -255,12 +285,22 @@ let PropostasService = class PropostasService {
             data: { valorTotal: total, updatedBy: 'system' },
         });
     }
-    escopo(user) {
-        if (user?.role === 'EXTENSIONISTA')
-            return { produtor: { municipioId: (0, user_scope_1.requireScope)(user, 'municipio') } };
+    async validarMatches(itens, editalId, produtorId) {
+        for (const item of itens || []) {
+            if (!item.matchId)
+                continue;
+            const match = await this.prisma.match.findFirst({ where: {
+                    id: item.matchId, editalId, produtorId: produtorId || undefined, deletedAt: null,
+                } });
+            if (!produtorId || !match)
+                throw new common_2.ForbiddenException('Match fora do edital ou fornecedor da proposta');
+        }
+    }
+    async escopo(user) {
+        if ((user?.role === 'EXTENSIONISTA' || user?.role === 'PRODUTOR'))
+            return { produtorId: { in: await this.policy.getAuthorizedProdutorIds(user) } };
         if (user?.role === 'ESCOLA') {
-            const escolaId = (0, user_scope_1.requireScope)(user, 'escola');
-            return { edital: { OR: [{ escolaId }, { escolasVinculadas: { some: { escolaId } } }] } };
+            return { id: { in: [] } };
         }
         return {};
     }
@@ -270,7 +310,9 @@ exports.PropostasService = PropostasService = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [prisma_service_1.PrismaService,
         document_generator_service_1.DocumentGeneratorService,
-        proposta_documentos_service_1.PropostaDocumentosService])
+        proposta_documentos_service_1.PropostaDocumentosService,
+        policy_service_1.PolicyService,
+        audit_service_1.AuditService])
 ], PropostasService);
 const path = __importStar(require("path"));
 //# sourceMappingURL=propostas.service.js.map

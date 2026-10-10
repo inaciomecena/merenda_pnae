@@ -3,13 +3,13 @@ export declare class ConfigController {
     private readonly service;
     constructor(service: ConfigService);
     findAll(): Promise<{
-        chave: string;
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        valor: string;
         tipo: string;
         descricao: string | null;
+        chave: string;
+        valor: string;
     }[]>;
     get(chave: string): Promise<string | null>;
     set(chave: string, body: {
@@ -17,13 +17,13 @@ export declare class ConfigController {
         descricao?: string;
         tipo?: string;
     }): Promise<{
-        chave: string;
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        valor: string;
         tipo: string;
         descricao: string | null;
+        chave: string;
+        valor: string;
     }>;
     setMany(body: Array<{
         chave: string;
@@ -31,21 +31,21 @@ export declare class ConfigController {
         descricao?: string;
         tipo?: string;
     }>): Promise<{
-        chave: string;
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        valor: string;
         tipo: string;
         descricao: string | null;
+        chave: string;
+        valor: string;
     }[]>;
     initDefaults(): Promise<{
-        chave: string;
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        valor: string;
         tipo: string;
         descricao: string | null;
+        chave: string;
+        valor: string;
     }[]>;
 }

@@ -1,4 +1,4 @@
-import {
+﻿import {
   Body,
   Controller,
   Delete,
@@ -27,7 +27,7 @@ const uploadDir = path.resolve(process.cwd(), 'storage', 'templates');
 
 @ApiTags('templates-documento')
 @Controller({ path: 'templates-documento', version: '1' })
-@Roles('ADMIN', 'DRE')
+@Roles('ADMIN')
 export class TemplatesDocumentoController {
   constructor(private readonly service: TemplatesDocumentoService) {}
 

@@ -1,9 +1,9 @@
-import { Response } from 'express';
+import { Response, Request } from 'express';
 import { DashboardService } from '../../application/services/dashboard.service';
 export declare class DashboardController {
     private readonly service;
     constructor(service: DashboardService);
-    getDashboard(ano?: number, municipioId?: string): Promise<{
+    getDashboard(ano?: number, municipioId?: string, req?: Request): Promise<{
         kpis: {
             editais: {
                 total: number;
@@ -37,27 +37,13 @@ export declare class DashboardController {
                 nome: string;
                 quantidade: number;
             }[];
-            municipiosDemanda: {
-                nome: string;
-                quantidade: number;
-            }[];
-            municipiosOferta: {
-                nome: string;
-                quantidade: number;
-            }[];
-            distribuicaoProdutos: {
-                nome: string;
-                quantidade: number;
-            }[];
-            evolucaoMensal: {
-                mes: string;
-                importacoes: number;
-                balizamentos: number;
-                propostas: number;
-            }[];
+            municipiosDemanda: never[];
+            municipiosOferta: never[];
+            distribuicaoProdutos: never[];
+            evolucaoMensal: never[];
         };
     }>;
-    getKPIs(ano?: number, municipioId?: string): Promise<{
+    getKPIs(ano?: number, municipioId?: string, req?: Request): Promise<{
         editais: {
             total: number;
             abertos: number;
@@ -85,46 +71,29 @@ export declare class DashboardController {
         editalItens: number;
         itensComMatch: number;
     }>;
-    getGraficos(ano?: number, municipioId?: string): Promise<{
+    getGraficos(ano?: number, municipioId?: string, req?: Request): Promise<{
         produtosSolicitados: {
             nome: string;
             quantidade: number;
         }[];
-        municipiosDemanda: {
-            nome: string;
-            quantidade: number;
-        }[];
-        municipiosOferta: {
-            nome: string;
-            quantidade: number;
-        }[];
-        distribuicaoProdutos: {
-            nome: string;
-            quantidade: number;
-        }[];
-        evolucaoMensal: {
-            mes: string;
-            importacoes: number;
-            balizamentos: number;
-            propostas: number;
-        }[];
+        municipiosDemanda: never[];
+        municipiosOferta: never[];
+        distribuicaoProdutos: never[];
+        evolucaoMensal: never[];
     }>;
-    getRanking(tipo: string, limit?: number, municipioId?: string): Promise<{
+    getRanking(tipo: string, limit?: number, municipioId?: string, req?: Request): Promise<{
         nome: string;
-        editais: number;
+        quantidade: number;
     }[] | {
+        editais: number;
         nome: string;
-        cpfCnpj: string | null;
+        codigo: string | null;
+    }[] | {
         matches: number;
         produtos: number;
-    }[] | {
-        produto: string;
-        fornecedores: number;
-    }[] | {
-        produto: string;
-        solicitacoes: number;
+        nome: string;
     }[]>;
-    getMapaDados(): Promise<{
+    getMapaDados(req?: Request): Promise<{
         id: string;
         nome: string;
         uf: string;
@@ -134,67 +103,55 @@ export declare class DashboardController {
         editais: number;
         propostas: number;
     }[]>;
-    getProdutos(limit?: number): Promise<{
+    getProdutos(limit?: number, req?: Request): Promise<{
         nome: string;
-        editais: number;
+        quantidade: number;
     }[] | {
+        editais: number;
         nome: string;
-        cpfCnpj: string | null;
+        codigo: string | null;
+    }[] | {
         matches: number;
         produtos: number;
-    }[] | {
-        produto: string;
-        fornecedores: number;
-    }[] | {
-        produto: string;
-        solicitacoes: number;
+        nome: string;
     }[]>;
-    getMunicipios(limit?: number): Promise<{
+    getMunicipios(limit?: number, req?: Request): Promise<{
         nome: string;
-        editais: number;
+        quantidade: number;
     }[] | {
+        editais: number;
         nome: string;
-        cpfCnpj: string | null;
+        codigo: string | null;
+    }[] | {
         matches: number;
         produtos: number;
-    }[] | {
-        produto: string;
-        fornecedores: number;
-    }[] | {
-        produto: string;
-        solicitacoes: number;
+        nome: string;
     }[]>;
-    getEscolas(limit?: number): Promise<{
+    getEscolas(limit?: number, req?: Request): Promise<{
         nome: string;
-        editais: number;
+        quantidade: number;
     }[] | {
+        editais: number;
         nome: string;
-        cpfCnpj: string | null;
+        codigo: string | null;
+    }[] | {
         matches: number;
         produtos: number;
-    }[] | {
-        produto: string;
-        fornecedores: number;
-    }[] | {
-        produto: string;
-        solicitacoes: number;
+        nome: string;
     }[]>;
-    getProdutores(limit?: number): Promise<{
+    getProdutores(limit?: number, req?: Request): Promise<{
         nome: string;
-        editais: number;
+        quantidade: number;
     }[] | {
+        editais: number;
         nome: string;
-        cpfCnpj: string | null;
+        codigo: string | null;
+    }[] | {
         matches: number;
         produtos: number;
-    }[] | {
-        produto: string;
-        fornecedores: number;
-    }[] | {
-        produto: string;
-        solicitacoes: number;
+        nome: string;
     }[]>;
-    exportar(tipo: string, ano?: number, municipioId?: string, res?: Response): Promise<{
+    exportar(tipo: string, ano?: number, municipioId?: string, res?: Response, req?: Request): Promise<{
         editais: {
             total: number;
             abertos: number;
@@ -226,38 +183,21 @@ export declare class DashboardController {
             nome: string;
             quantidade: number;
         }[];
-        municipiosDemanda: {
-            nome: string;
-            quantidade: number;
-        }[];
-        municipiosOferta: {
-            nome: string;
-            quantidade: number;
-        }[];
-        distribuicaoProdutos: {
-            nome: string;
-            quantidade: number;
-        }[];
-        evolucaoMensal: {
-            mes: string;
-            importacoes: number;
-            balizamentos: number;
-            propostas: number;
-        }[];
+        municipiosDemanda: never[];
+        municipiosOferta: never[];
+        distribuicaoProdutos: never[];
+        evolucaoMensal: never[];
     } | {
         nome: string;
-        editais: number;
+        quantidade: number;
     }[] | {
+        editais: number;
         nome: string;
-        cpfCnpj: string | null;
+        codigo: string | null;
+    }[] | {
         matches: number;
         produtos: number;
-    }[] | {
-        produto: string;
-        fornecedores: number;
-    }[] | {
-        produto: string;
-        solicitacoes: number;
+        nome: string;
     }[] | {
         erro: string;
     }>;

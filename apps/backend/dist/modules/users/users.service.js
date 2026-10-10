@@ -46,10 +46,13 @@ exports.UsersService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../../infrastructure/prisma/prisma.service");
 const bcrypt = __importStar(require("bcryptjs"));
+const audit_service_1 = require("../audit/application/services/audit.service");
 let UsersService = class UsersService {
     prisma;
-    constructor(prisma) {
+    audit;
+    constructor(prisma, audit) {
         this.prisma = prisma;
+        this.audit = audit;
     }
     async findAll(query) {
         const page = Number(query.page ?? 1);
@@ -66,7 +69,7 @@ let UsersService = class UsersService {
         const passwordHash = await bcrypt.hash(body.password || 'Admin@123', 10);
         return this.prisma.user.create({ data: { name: body.name, email: body.email, role: body.role, passwordHash, escolaId: body.role === 'ESCOLA' ? body.escolaId : null, municipioId: body.role === 'EXTENSIONISTA' ? body.municipioId : null, createdBy: 'admin', updatedBy: 'admin' }, select: { id: true, name: true, email: true, role: true, active: true, escolaId: true, municipioId: true } });
     }
-    async update(id, body) {
+    async update(id, body, actor) {
         const existing = await this.prisma.user.findFirst({ where: { id, deletedAt: null } });
         if (!existing)
             throw new common_1.NotFoundException('Usuário não encontrado');
@@ -74,9 +77,20 @@ let UsersService = class UsersService {
         const data = { name: body.name, email: body.email, role: body.role, active: body.active, escolaId: body.role === 'ESCOLA' ? body.escolaId : null, municipioId: body.role === 'EXTENSIONISTA' ? body.municipioId : null, updatedBy: 'admin' };
         if (body.password)
             data.passwordHash = await bcrypt.hash(body.password, 10);
-        return this.prisma.user.update({ where: { id }, data, select: { id: true, name: true, email: true, role: true, active: true, escolaId: true, municipioId: true } });
+        const updated = await this.prisma.$transaction(async (tx) => {
+            const result = await tx.user.update({ where: { id }, data, select: { id: true, name: true, email: true, role: true, active: true, escolaId: true, municipioId: true } });
+            if (existing.role !== result.role || !result.active) {
+                await tx.vinculoUsuario.updateMany({ where: { userId: id, ativo: true }, data: { ativo: false, vigenciaFim: new Date(), updatedBy: actor?.sub } });
+                await tx.representacaoFornecedor.updateMany({ where: { userId: id, ativo: true }, data: { ativo: false, revogadoEm: new Date(), revogadoPor: actor?.sub, motivoRevogacao: 'Perfil alterado ou usuário desativado', updatedBy: actor?.sub } });
+            }
+            return result;
+        });
+        if (existing.role !== updated.role || existing.active !== updated.active)
+            await this.audit.log({ userId: actor?.sub, userRole: actor?.role, action: 'UPDATE', entity: 'User', entityId: id,
+                oldValues: { role: existing.role, active: existing.active }, newValues: { role: updated.role, active: updated.active } });
+        return updated;
     }
-    async remove(id) { await this.update(id, { active: false }); return this.prisma.user.update({ where: { id }, data: { deletedAt: new Date(), updatedBy: 'admin' } }); }
+    async remove(id, actor) { await this.update(id, { active: false }, actor); return this.prisma.user.update({ where: { id }, data: { deletedAt: new Date(), updatedBy: actor?.sub || 'admin' } }); }
     validateScope(body) {
         if (body.role === 'ESCOLA' && !body.escolaId)
             throw new common_1.BadRequestException('Usuário ESCOLA deve possuir uma escola vinculada');
@@ -87,6 +101,6 @@ let UsersService = class UsersService {
 exports.UsersService = UsersService;
 exports.UsersService = UsersService = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [prisma_service_1.PrismaService])
+    __metadata("design:paramtypes", [prisma_service_1.PrismaService, audit_service_1.AuditService])
 ], UsersService);
 //# sourceMappingURL=users.service.js.map

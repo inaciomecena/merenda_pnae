@@ -1,3 +1,4 @@
+import { Request } from 'express';
 import { UsersService } from './users.service';
 export declare class UsersController {
     private readonly service;
@@ -5,12 +6,12 @@ export declare class UsersController {
     findAll(query: any): Promise<{
         items: {
             id: string;
-            municipioId: string | null;
-            active: boolean;
-            name: string;
-            role: import(".prisma/client").$Enums.Role;
             escolaId: string | null;
+            municipioId: string | null;
+            name: string;
             email: string;
+            role: import(".prisma/client").$Enums.Role;
+            active: boolean;
         }[];
         total: number;
         page: number;
@@ -19,35 +20,35 @@ export declare class UsersController {
     }>;
     create(body: any): Promise<{
         id: string;
-        municipioId: string | null;
-        active: boolean;
-        name: string;
-        role: import(".prisma/client").$Enums.Role;
         escolaId: string | null;
-        email: string;
-    }>;
-    update(id: string, body: any): Promise<{
-        id: string;
         municipioId: string | null;
-        active: boolean;
         name: string;
-        role: import(".prisma/client").$Enums.Role;
-        escolaId: string | null;
         email: string;
-    }>;
-    remove(id: string): Promise<{
-        id: string;
-        municipioId: string | null;
+        role: import(".prisma/client").$Enums.Role;
         active: boolean;
+    }>;
+    update(id: string, body: any, req: Request): Promise<{
+        id: string;
+        escolaId: string | null;
+        municipioId: string | null;
+        name: string;
+        email: string;
+        role: import(".prisma/client").$Enums.Role;
+        active: boolean;
+    }>;
+    remove(id: string, req: Request): Promise<{
+        id: string;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        name: string;
-        role: import(".prisma/client").$Enums.Role;
         escolaId: string | null;
+        municipioId: string | null;
+        name: string;
         email: string;
         passwordHash: string;
+        role: import(".prisma/client").$Enums.Role;
+        active: boolean;
+        deletedAt: Date | null;
     }>;
 }

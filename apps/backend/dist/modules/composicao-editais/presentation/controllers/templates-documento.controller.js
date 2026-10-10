@@ -212,7 +212,7 @@ __decorate([
 exports.TemplatesDocumentoController = TemplatesDocumentoController = __decorate([
     (0, swagger_1.ApiTags)('templates-documento'),
     (0, common_1.Controller)({ path: 'templates-documento', version: '1' }),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     __metadata("design:paramtypes", [templates_documento_service_1.TemplatesDocumentoService])
 ], TemplatesDocumentoController);
 //# sourceMappingURL=templates-documento.controller.js.map

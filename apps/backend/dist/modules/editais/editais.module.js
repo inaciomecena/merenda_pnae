@@ -10,11 +10,13 @@ exports.EditaisModule = void 0;
 const common_1 = require("@nestjs/common");
 const editais_controller_1 = require("./presentation/controllers/editais.controller");
 const editais_service_1 = require("./application/services/editais.service");
+const auth_module_1 = require("../auth/auth.module");
 let EditaisModule = class EditaisModule {
 };
 exports.EditaisModule = EditaisModule;
 exports.EditaisModule = EditaisModule = __decorate([
     (0, common_1.Module)({
+        imports: [auth_module_1.AuthModule],
         controllers: [editais_controller_1.EditaisController],
         providers: [editais_service_1.EditaisService],
     })

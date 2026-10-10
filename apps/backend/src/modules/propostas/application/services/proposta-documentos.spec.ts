@@ -38,17 +38,18 @@ describe('modelos da DRE e documentos do produtor', () => {
     const config = { modelos: anteriores, valores: {}, salvoEm: '2026-01-01' };
     const proposta = { id: 'p1', documentosJson: JSON.stringify(config), status: 'RASCUNHO', produtor: null, itens: [], edital: { numero: '001', ano: 2026, escolasVinculadas: [], documento: null } };
     const prisma: any = { proposta: { findFirst: jest.fn().mockResolvedValue(proposta), update: jest.fn().mockResolvedValue({}) }, templateDocumento: { findMany: jest.fn().mockResolvedValue([]) } };
-    const service = new PropostaDocumentosService(prisma);
+    const service = new PropostaDocumentosService(prisma, {} as any);
     await service.salvar('p1', { modelos: anteriores.map(m => ({ templateId: m.templateId, versaoId: m.versaoId })), valores: {} });
     const gravado = JSON.parse(prisma.proposta.update.mock.calls[0][0].data.documentosJson);
     expect(gravado.modelos).toEqual(anteriores);
   });
 
-  it('impede alteração de proposta finalizada e acesso de extensionista de outro município', async () => {
-    const prisma: any = { proposta: { findFirst: jest.fn().mockResolvedValue({ status: 'FINALIZADA', produtor: { municipioId: 'outro' } }), update: jest.fn() } };
-    const service = new PropostaDocumentosService(prisma);
+  it('impede alteração de proposta finalizada e representação não autorizada', async () => {
+    const prisma: any = { proposta: { findFirst: jest.fn().mockResolvedValue({ status: 'FINALIZADA', produtorId: 'produtor-outro', produtor: { municipioId: 'outro' } }), update: jest.fn() } };
+    const policy: any = { requireProdutorAccess: jest.fn().mockRejectedValue(new Error('Representação não autorizada')) };
+    const service = new PropostaDocumentosService(prisma, policy);
     await expect(service.salvar('p1', { modelos: [], valores: {} })).rejects.toThrow('finalizada');
-    await expect(service.preparar('p1', { sub: 'u1', role: 'EXTENSIONISTA', municipioId: 'meu-municipio' })).rejects.toThrow('fora do seu município');
+    await expect(service.preparar('p1', { sub: 'u1', role: 'EXTENSIONISTA', municipioId: 'meu-municipio' })).rejects.toThrow('Representação não autorizada');
     expect(prisma.proposta.update).not.toHaveBeenCalled();
   });
 });

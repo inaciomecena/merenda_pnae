@@ -144,7 +144,7 @@ let ImportacoesController = class ImportacoesController {
 exports.ImportacoesController = ImportacoesController;
 __decorate([
     (0, common_1.Post)('pdf'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Fazer upload manual de um edital em PDF' }),
     (0, swagger_1.ApiConsumes)('multipart/form-data'),
     (0, swagger_1.ApiBody)({ description: 'Arquivo PDF do edital', type: create_importacao_pdf_dto_1.CreateImportacaoPdfDto }),
@@ -168,7 +168,7 @@ __decorate([
 ], ImportacoesController.prototype, "uploadPdf", null);
 __decorate([
     (0, common_1.Get)(),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Listar importações de editais' }),
     (0, swagger_1.ApiQuery)({ name: 'page', required: false }),
     (0, swagger_1.ApiQuery)({ name: 'limit', required: false }),
@@ -189,7 +189,7 @@ __decorate([
 ], ImportacoesController.prototype, "sincronizarDocs", null);
 __decorate([
     (0, common_1.Get)(':id'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Detalhar uma importação' }),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
@@ -198,7 +198,7 @@ __decorate([
 ], ImportacoesController.prototype, "findOne", null);
 __decorate([
     (0, common_1.Get)(':id/pdf'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Servir o arquivo PDF da importação' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Res)()),
@@ -208,7 +208,7 @@ __decorate([
 ], ImportacoesController.prototype, "servePdf", null);
 __decorate([
     (0, common_1.Patch)(':id'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Editar o edital vinculado à importação (bloqueado após confirmação)' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
@@ -218,7 +218,7 @@ __decorate([
 ], ImportacoesController.prototype, "editarEdital", null);
 __decorate([
     (0, common_1.Delete)(':id'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Excluir logicamente a importação e o edital vinculado, preservando arquivos e histórico' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Req)()),
@@ -228,7 +228,7 @@ __decorate([
 ], ImportacoesController.prototype, "excluir", null);
 __decorate([
     (0, common_1.Delete)(':id/itens/:itemId'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Excluir logicamente um item antes da confirmação da importação' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Param)('itemId')),
@@ -239,7 +239,7 @@ __decorate([
 ], ImportacoesController.prototype, "excluirItem", null);
 __decorate([
     (0, common_1.Post)(':id/processar'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Processar um PDF salvo' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
@@ -249,7 +249,7 @@ __decorate([
 ], ImportacoesController.prototype, "processar", null);
 __decorate([
     (0, common_1.Post)(':id/confirmar'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Confirmar os itens conferidos da importação' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
@@ -259,7 +259,7 @@ __decorate([
 ], ImportacoesController.prototype, "confirmar", null);
 __decorate([
     (0, common_1.Get)(':id/estrutura'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Conferir a estrutura documental extraída do PDF' }),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
@@ -268,7 +268,7 @@ __decorate([
 ], ImportacoesController.prototype, "estrutura", null);
 __decorate([
     (0, common_1.Post)(':id/preparar-edital'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Carregar os dados importados para revisar um novo edital, sem criá-lo' }),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
@@ -277,7 +277,7 @@ __decorate([
 ], ImportacoesController.prototype, "prepararEdital", null);
 __decorate([
     (0, common_1.Post)(':id/estrutura'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Executar engenharia reversa sem alterar o PDF original nem os itens já importados' }),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
@@ -286,7 +286,7 @@ __decorate([
 ], ImportacoesController.prototype, "montarEstrutura", null);
 __decorate([
     (0, common_1.Patch)(':id/estrutura/campos'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE', 'ESCOLA'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Revisar campos extraídos automaticamente' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
@@ -296,7 +296,7 @@ __decorate([
 ], ImportacoesController.prototype, "revisarCampos", null);
 __decorate([
     (0, common_1.Post)(':id/estrutura/aplicar'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'DRE'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     (0, swagger_1.ApiOperation)({ summary: 'Atualizar o edital importado ou criar um novo edital baseado nele' }),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),

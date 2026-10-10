@@ -12,6 +12,7 @@ enum Role {
   ESCOLA
   EXTENSIONISTA
   DRE
+  PRODUTOR
 }
 
 enum StatusEdital {
@@ -80,6 +81,8 @@ model User {
   escola       Escola?   @relation(fields: [escolaId], references: [id])
   municipioId  String?
   municipio    Municipio? @relation(fields: [municipioId], references: [id])
+  vinculos     VinculoUsuario[]
+  representacoes RepresentacaoFornecedor[]
 
   @@map("users")
 }
@@ -100,6 +103,8 @@ model Municipio {
   produtores    Produtor[]
   editais       Edital[]
   users         User[]
+  entidadesExecutoras EntidadeExecutora[]
+  vinculosUsuario VinculoUsuario[]
 
   @@index([uf, nomeNormalizado])
   @@map("municipios")
@@ -137,6 +142,8 @@ model Escola {
   editaisVinculados EditalEscola[]
   matches       Match[]
   users         User[]
+  vinculosDRE   VinculoEscolaDRE[]
+  vinculosUsuario VinculoUsuario[]
 
   @@map("escolas")
 }
@@ -249,6 +256,8 @@ model Produtor {
   produtos        ProdutorProduto[]
   matches         Match[]
   propostas       Proposta[]
+  representacoes  RepresentacaoFornecedor[]
+  vinculosUsuario VinculoUsuario[]
 
   @@map("produtores")
 }
@@ -679,3 +688,122 @@ model HistoricoGeracaoDocumento {
   @@index([documentoId])
   @@map("pnae_historico_geracao_documento")
 }
+
+// SDD-002: Modelo Organizacional
+
+model EntidadeExecutora {
+  id            String    @id @default(uuid())
+  nome          String
+  cnpj          String?   @unique
+  tipo          String    @default("PREFEITURA")
+  uf            String
+  municipioId   String?
+  municipio     Municipio? @relation(fields: [municipioId], references: [id])
+  ativo         Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  deletedAt     DateTime?
+  createdBy     String?
+  updatedBy     String?
+  dres          DRE[]
+
+  @@index([uf])
+  @@index([municipioId])
+  @@map("entidades_executoras")
+}
+
+model DRE {
+  id                    String             @id @default(uuid())
+  nome                  String
+  codigo                String?            @unique
+  entidadeExecutoraId   String
+  entidadeExecutora     EntidadeExecutora  @relation(fields: [entidadeExecutoraId], references: [id], onDelete: Restrict)
+  municipioSede         String?
+  ativo                 Boolean            @default(true)
+  createdAt             DateTime           @default(now())
+  updatedAt             DateTime           @updatedAt
+  deletedAt             DateTime?
+  createdBy             String?
+  updatedBy             String?
+  vinculosEscolas       VinculoEscolaDRE[]
+  vinculosUsuarios      VinculoUsuario[]
+
+  @@index([entidadeExecutoraId])
+  @@map("dres")
+}
+
+model VinculoEscolaDRE {
+  id              String    @id @default(uuid())
+  escolaId        String
+  escola          Escola    @relation(fields: [escolaId], references: [id], onDelete: Cascade)
+  dreId           String
+  dre             DRE       @relation(fields: [dreId], references: [id], onDelete: Cascade)
+  vigenciaInicio  DateTime
+  vigenciaFim     DateTime?
+  ativo           Boolean   @default(true)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  createdBy       String?
+  updatedBy       String?
+
+  @@index([escolaId])
+  @@index([dreId])
+  @@index([vigenciaInicio, vigenciaFim])
+  @@map("vinculo_escola_dre")
+}
+
+model VinculoUsuario {
+  id              String    @id @default(uuid())
+  userId          String
+  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  funcao          Role
+  dreId           String?
+  dre             DRE?      @relation(fields: [dreId], references: [id], onDelete: Cascade)
+  escolaId        String?
+  escola          Escola?   @relation(fields: [escolaId], references: [id], onDelete: Cascade)
+  municipioId     String?
+  municipio       Municipio? @relation(fields: [municipioId], references: [id])
+  produtorId      String?
+  produtor        Produtor?  @relation(fields: [produtorId], references: [id])
+  vigenciaInicio  DateTime
+  vigenciaFim     DateTime?
+  ativo           Boolean   @default(true)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  createdBy       String?
+  updatedBy       String?
+
+  @@index([userId])
+  @@index([dreId])
+  @@index([escolaId])
+  @@index([produtorId])
+  @@index([vigenciaInicio, vigenciaFim])
+  @@map("vinculos_usuario")
+}
+
+model RepresentacaoFornecedor {
+  id                   String    @id @default(uuid())
+  userId               String
+  user                 User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  produtorId           String
+  produtor             Produtor  @relation(fields: [produtorId], references: [id], onDelete: Cascade)
+  tipoRepresentacao    String    @default("REPRESENTANTE")
+  permissoes           String    @default("CONSULTAR")
+  autorizacaoDocumento String?
+  vigenciaInicio       DateTime
+  vigenciaFim          DateTime?
+  ativo                Boolean   @default(true)
+  revogadoEm           DateTime?
+  revogadoPor          String?
+  motivoRevogacao      String?   @db.Text
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+  createdBy            String?
+  updatedBy            String?
+
+  @@index([userId])
+  @@index([produtorId])
+  @@index([vigenciaInicio, vigenciaFim])
+  @@map("representacoes_fornecedor")
+}
+

@@ -49,7 +49,7 @@ const common_1 = require("@nestjs/common");
 const path = __importStar(require("path"));
 const crypto_1 = require("crypto");
 const prisma_service_1 = require("../../../../infrastructure/prisma/prisma.service");
-const user_scope_1 = require("../../../../common/auth/user-scope");
+const policy_service_1 = require("../../../../common/auth/policy.service");
 const campos_produtor_1 = require("../../../composicao-editais/application/domain/campos-produtor");
 const placeholders_1 = require("../../../composicao-editais/application/domain/placeholders");
 const documento_renderer_1 = require("../../../composicao-editais/application/domain/documento-renderer");
@@ -89,8 +89,10 @@ function validarDocumentos(modelos, valores) {
 }
 let PropostaDocumentosService = class PropostaDocumentosService {
     prisma;
-    constructor(prisma) {
+    policy;
+    constructor(prisma, policy) {
         this.prisma = prisma;
+        this.policy = policy;
     }
     async carregar(id, user) {
         const proposta = await this.prisma.proposta.findFirst({
@@ -102,13 +104,13 @@ let PropostaDocumentosService = class PropostaDocumentosService {
         });
         if (!proposta)
             throw new common_1.NotFoundException('Proposta não encontrada.');
-        if (user?.role === 'EXTENSIONISTA' && proposta.produtor?.municipioId !== (0, user_scope_1.requireScope)(user, 'municipio'))
-            throw new common_1.ForbiddenException('Proposta fora do seu município.');
-        if (user?.role === 'ESCOLA') {
-            const escolaId = (0, user_scope_1.requireScope)(user, 'escola');
-            if (proposta.edital.escolaId !== escolaId && !proposta.edital.escolasVinculadas.some(e => e.escolaId === escolaId))
-                throw new common_1.ForbiddenException('Proposta fora da sua escola.');
+        if ((user?.role === 'EXTENSIONISTA' || user?.role === 'PRODUTOR')) {
+            if (!proposta.produtorId)
+                throw new common_1.ForbiddenException('Proposta sem fornecedor representado.');
+            await this.policy.requireProdutorAccess(user, proposta.produtorId);
         }
+        if (user?.role === 'ESCOLA')
+            throw new common_1.ForbiddenException('Documentos privados de proposta não pertencem à escola.');
         return proposta;
     }
     config(json) {
@@ -141,6 +143,8 @@ let PropostaDocumentosService = class PropostaDocumentosService {
     }
     async salvar(id, dto, user) {
         const proposta = await this.carregar(id, user);
+        if (user && user.role !== 'ADMIN' && proposta.produtorId)
+            await this.policy.requireProdutorAction(user, proposta.produtorId, 'EDITAR_PROPOSTA');
         if (['FINALIZADA', 'CANCELADA'].includes(proposta.status))
             throw new common_1.BadRequestException('Proposta finalizada ou cancelada não pode ser alterada.');
         if (!dto.modelos.length)
@@ -179,6 +183,8 @@ let PropostaDocumentosService = class PropostaDocumentosService {
     }
     async gerar(id, user) {
         const proposta = await this.carregar(id, user);
+        if (user && user.role !== 'ADMIN' && proposta.produtorId)
+            await this.policy.requireProdutorAction(user, proposta.produtorId, 'EDITAR_PROPOSTA');
         if (['FINALIZADA', 'CANCELADA'].includes(proposta.status))
             throw new common_1.BadRequestException('Proposta finalizada ou cancelada não pode ser regerada.');
         const config = this.config(proposta.documentosJson);
@@ -259,7 +265,7 @@ let PropostaDocumentosService = class PropostaDocumentosService {
 exports.PropostaDocumentosService = PropostaDocumentosService;
 exports.PropostaDocumentosService = PropostaDocumentosService = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [prisma_service_1.PrismaService])
+    __metadata("design:paramtypes", [prisma_service_1.PrismaService, policy_service_1.PolicyService])
 ], PropostaDocumentosService);
 function dinheiro(value) { return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); }
 //# sourceMappingURL=proposta-documentos.service.js.map

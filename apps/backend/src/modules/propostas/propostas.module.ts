@@ -5,8 +5,11 @@ import { DocumentGeneratorService } from './application/services/document-genera
 import { PdfGeneratorService } from './application/services/pdf-generator.service';
 import { DocxGeneratorService } from './application/services/docx-generator.service';
 import { PropostaDocumentosService } from './application/services/proposta-documentos.service';
+import { AuthModule } from '../auth/auth.module';
+import { AuditModule } from '../audit/audit.module';
 
 @Module({
+  imports: [AuthModule, AuditModule],
   controllers: [PropostasController],
   providers: [PropostasService, DocumentGeneratorService, PdfGeneratorService, DocxGeneratorService, PropostaDocumentosService],
   exports: [PropostasService],

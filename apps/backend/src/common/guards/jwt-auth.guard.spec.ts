@@ -33,14 +33,14 @@ describe('autenticação e permissões', () => {
     const { context, request } = contexto(jwt.sign({ sub: usuario.id, role: 'ADMIN' }));
     await guard.canActivate(context);
     expect(request.user.role).toBe('ESCOLA');
-    const roles = new RolesGuard({ getAllAndOverride: () => ['ADMIN', 'DRE'] } as unknown as Reflector);
-    expect(roles.canActivate(context)).toBe(false);
+    const roles = new RolesGuard({ getAllAndOverride: () => ['ADMIN', 'DRE'] } as unknown as Reflector, { vinculoUsuario: { findFirst: jest.fn() } } as unknown as PrismaService);
+    await expect(roles.canActivate(context)).resolves.toBe(false);
   });
   it('autoriza ADMIN autenticado a acessar as rotas de composição', async () => {
     const { context } = contexto(jwt.sign({ sub: usuario.id }));
     await expect(guard.canActivate(context)).resolves.toBe(true);
-    const roles = new RolesGuard({ getAllAndOverride: () => ['ADMIN', 'DRE'] } as unknown as Reflector);
-    expect(roles.canActivate(context)).toBe(true);
+    const roles = new RolesGuard({ getAllAndOverride: () => ['ADMIN', 'DRE'] } as unknown as Reflector, { vinculoUsuario: { findFirst: jest.fn().mockResolvedValue({ id: 'v-admin' }) } } as unknown as PrismaService);
+    await expect(roles.canActivate(context)).resolves.toBe(true);
   });
   it('não confunde falha do banco com sessão expirada', async () => {
     const falha = new Error('Banco indisponível');
