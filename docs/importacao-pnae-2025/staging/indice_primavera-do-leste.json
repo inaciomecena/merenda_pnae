@@ -1,6 +1,6 @@
 {
   "dre": "Primavera do Leste",
-  "geradoEm": "2026-10-12T19:29:45.449Z",
+  "geradoEm": "2026-10-12T20:16:16.950Z",
   "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
   "procedimentos": [
     {
@@ -445,7 +445,7 @@
       "decisao": "APROVADO",
       "numero": "016/2024",
       "municipio": "Gaúcha do Norte",
-      "itens": 0,
+      "itens": 19,
       "pendencias": 1,
       "arquivos": [
         "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0069_DOC-0069.pdf"

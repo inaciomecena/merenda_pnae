@@ -22,6 +22,12 @@ const ALL_ROLES: UserRole[] = ['ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'REPRE
 /** Navegação organizada pela finalidade de cada recurso. */
 export const menuConfig: MenuItemConfig[] = [
   {
+    screenCode: 'MENU-MEU-CAMPO', label: 'Meu campo', icon: <Inventory2 />, roles: ['ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR'],
+    children: [
+      { screenCode: 'PNAE-PRD-010', label: 'Produção e colheita', path: '/meu-campo', icon: <Inventory2 />, roles: ['ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR'], description: 'Unidades, produtos, safras e entregas' },
+    ],
+  },
+  {
     screenCode: 'MENU-VISAO-GERAL', label: 'Visão geral', icon: <Assessment />, roles: ALL_ROLES,
     children: [
       { screenCode: 'PNAE-DSH-001', label: 'Painel geral', path: '/dashboard', icon: <Home />, roles: ALL_ROLES, description: 'Indicadores gerais da plataforma' },

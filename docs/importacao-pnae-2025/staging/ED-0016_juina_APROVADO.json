@@ -1,6 +1,6 @@
 {
   "schema": "importacao-historica-pnae/1.0",
-  "geradoEm": "2026-10-12T19:29:19.520Z",
+  "geradoEm": "2026-10-12T20:15:38.421Z",
   "idPacote": "ED-0016",
   "dre": "Juína",
   "chaveLogica": "ee77c7abbd69585d601089bc6b881018",
@@ -202,6 +202,88 @@
       "metodo": "pdf_texto_regex",
       "statusRevisao": "pendente_conferencia",
       "pendencia": "total informado na fonte difere de quantidade × preço unitário em 1.46"
+    },
+    {
+      "sequencia": 6,
+      "produto": "AÇAFRÃO",
+      "descricaoCompleta": "6. AÇAFRÃO, torrado, em pó fino e homogêneo, com aspecto, cor, cheiro e sabor próprios, isenta de impurezas e umidade. As características deverão atender aos requisitos 6.",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "313",
+        "normalizado": "313.00",
+        "pagina": 4,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "2,75",
+        "normalizado": "2.75",
+        "pagina": 4,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "859,71",
+        "normalizado": "859.71",
+        "pagina": 4,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "860.75",
+      "divergencia": "-1.04",
+      "pagina": 4,
+      "documentoId": "DOC-0017",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada | total informado na fonte difere de quantidade × preço unitário em 1.04"
+    },
+    {
+      "sequencia": 8,
+      "produto": "ACELGA",
+      "descricaoCompleta": "8. ACELGA, com folhas inteiras, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. As características 8.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "196",
+        "normalizado": "196.00",
+        "pagina": 5,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "14,80",
+        "normalizado": "14.80",
+        "pagina": 5,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "2.900,15",
+        "normalizado": "2900.15",
+        "pagina": 5,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "2900.80",
+      "divergencia": "-0.65",
+      "pagina": 5,
+      "documentoId": "DOC-0017",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "total informado na fonte difere de quantidade × preço unitário em 0.65"
     },
     {
       "sequencia": 9,
@@ -493,6 +575,88 @@
       "pendencia": "total informado na fonte difere de quantidade × preço unitário em 0.91"
     },
     {
+      "sequencia": 24,
+      "produto": "BEBIDA LÁCTEA FERMENTADA SABOR COCO",
+      "descricaoCompleta": "24. BEBIDA LÁCTEA FERMENTADA SABOR COCO, pasteurizado, podendo ser integral ou não, e/ou leite reconstituído, soro de leite, açúcar, preparado de coco, 24.",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "595",
+        "normalizado": "595.00",
+        "pagina": 9,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "19,35",
+        "normalizado": "19.35",
+        "pagina": 9,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "11.511,27",
+        "normalizado": "11511.27",
+        "pagina": 9,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "11513.25",
+      "divergencia": "-1.98",
+      "pagina": 9,
+      "documentoId": "DOC-0017",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada | total informado na fonte difere de quantidade × preço unitário em 1.98"
+    },
+    {
+      "sequencia": 25,
+      "produto": "BEBIDA LÁCTEA FERMENTADA SABOR MORANGO",
+      "descricaoCompleta": "25. BEBIDA LÁCTEA FERMENTADA SABOR MORANGO, pasteurizado, podendo ser integral ou não, e/ou leite reconstituído, soro de leite, 25.",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "595",
+        "normalizado": "595.00",
+        "pagina": 10,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "19,35",
+        "normalizado": "19.35",
+        "pagina": 10,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "11.511,27",
+        "normalizado": "11511.27",
+        "pagina": 10,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "11513.25",
+      "divergencia": "-1.98",
+      "pagina": 10,
+      "documentoId": "DOC-0017",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada | total informado na fonte difere de quantidade × preço unitário em 1.98"
+    },
+    {
       "sequencia": 26,
       "produto": "BETERRABA",
       "descricaoCompleta": "26. BETERRABA, inteira, livre de sujidades, insetos, larvas e fungos. Consistência firme, apresentando desenvolvimento completo, isenta de odores estranhos e deformidades,",
@@ -616,6 +780,47 @@
       "metodo": "pdf_texto_regex",
       "statusRevisao": "pendente_conferencia",
       "pendencia": "quantidade ambígua: \"1.115\""
+    },
+    {
+      "sequencia": 37,
+      "produto": "CAFÉ TORRADO E MOÍDO",
+      "descricaoCompleta": "37. CAFÉ TORRADO E MOÍDO, 1ª qualidade, tipo tradicional. Pó homogêneo, aroma e sabor característicos de regular a intenso, isento de grãos pretos, verdes ou 37.",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "365",
+        "normalizado": "365.00",
+        "pagina": 13,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "20,10",
+        "normalizado": "20.10",
+        "pagina": 13,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "7.336,50",
+        "normalizado": "7336.50",
+        "pagina": 13,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "7336.50",
+      "divergencia": "0.00",
+      "pagina": 13,
+      "documentoId": "DOC-0017",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada"
     },
     {
       "sequencia": 39,
@@ -783,6 +988,48 @@
       "pendencia": "total informado na fonte difere de quantidade × preço unitário em 0.09"
     },
     {
+      "sequencia": 47,
+      "produto": "COLORAU",
+      "descricaoCompleta": "47. COLORAU, corante, natural de urucum com aspecto, cor e cheiro próprio, podendo conter fubá de milho e óleo de soja. As características deverão atender aos 47.",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "2.643",
+        "normalizado": null,
+        "pagina": 16,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "pendente_revisao",
+        "pendencia": "formato fora do padrão brasileiro reconhecido (esperado \"1.234,56\"): \"2.643\""
+      },
+      "precoUnitario": {
+        "bruto": "2,53",
+        "normalizado": "2.53",
+        "pagina": 16,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "6.677,98",
+        "normalizado": "6677.98",
+        "pagina": 16,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 16,
+      "documentoId": "DOC-0017",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "quantidade ambígua: \"2.643\" | unidade comercial não identificada"
+    },
+    {
       "sequencia": 48,
       "produto": "COUVE",
       "descricaoCompleta": "48. COUVE, manteiga com folhas inteiras, livre de sujidades, insetos, larvas, fungos, isenta de podridões e amarelados, não se apresentar desidratada, murcha ou congelada.",
@@ -823,6 +1070,47 @@
       "metodo": "pdf_texto_regex",
       "statusRevisao": "pendente_conferencia",
       "pendencia": "quantidade ambígua: \"1.167\""
+    },
+    {
+      "sequencia": 52,
+      "produto": "FARINHA DE MANDIOCA",
+      "descricaoCompleta": "52. FARINHA DE MANDIOCA, do tipo branca ou amarela, torrada, grupo seco, subgrupo média, classe branca, isenta de matéria terrosa, fungos ou parasitas, umidade e 52.",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "486",
+        "normalizado": "486.00",
+        "pagina": 18,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "9,28",
+        "normalizado": "9.28",
+        "pagina": 18,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "4.510,08",
+        "normalizado": "4510.08",
+        "pagina": 18,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "4510.08",
+      "divergencia": "0.00",
+      "pagina": 18,
+      "documentoId": "DOC-0017",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada"
     },
     {
       "sequencia": 62,
@@ -906,6 +1194,48 @@
       "metodo": "pdf_texto_regex",
       "statusRevisao": "pendente_conferencia",
       "pendencia": "quantidade ambígua: \"1.387\""
+    },
+    {
+      "sequencia": 67,
+      "produto": "LEITE UHT INTEGRAL",
+      "descricaoCompleta": "67. LEITE UHT INTEGRAL, estabilizantes citrato de sódio, trifosfato de sódio, monofosfato de sódio e difosfato de sódio. Não contém glúten. As características de 67.",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "5.114",
+        "normalizado": null,
+        "pagina": 22,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "pendente_revisao",
+        "pendencia": "formato fora do padrão brasileiro reconhecido (esperado \"1.234,56\"): \"5.114\""
+      },
+      "precoUnitario": {
+        "bruto": "7,85",
+        "normalizado": "7.85",
+        "pagina": 22,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "40.127,85",
+        "normalizado": "40127.85",
+        "pagina": 22,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 22,
+      "documentoId": "DOC-0017",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "quantidade ambígua: \"5.114\" | unidade comercial não identificada"
     },
     {
       "sequencia": 69,
@@ -1029,6 +1359,88 @@
       "metodo": "pdf_texto_regex",
       "statusRevisao": "extraido",
       "pendencia": null
+    },
+    {
+      "sequencia": 73,
+      "produto": "MANDIOCA DESCASCADA CONGELADA",
+      "descricaoCompleta": "73. MANDIOCA DESCASCADA CONGELADA, livre de sujidades, insetos, larvas e fungos, isenta de podridões, consistência firme. Acondicionada em saco plástico 73.",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "620",
+        "normalizado": "620.00",
+        "pagina": 24,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "7,46",
+        "normalizado": "7.46",
+        "pagina": 24,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "4.627,27",
+        "normalizado": "4627.27",
+        "pagina": 24,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "4625.20",
+      "divergencia": "2.07",
+      "pagina": 24,
+      "documentoId": "DOC-0017",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada | total informado na fonte difere de quantidade × preço unitário em 2.07"
+    },
+    {
+      "sequencia": 78,
+      "produto": "MANTEIGA PURA COM SAL",
+      "descricaoCompleta": "78. MANTEIGA PURA COM SAL, obtida do creme de leite, adicionado de cloreto de sódio e corante natural, SEM ADITIVOS QUÍMICOS. As características deverão atender aos 78.",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "794",
+        "normalizado": "794.00",
+        "pagina": 25,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "47,69",
+        "normalizado": "47.69",
+        "pagina": 25,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "37.865,86",
+        "normalizado": "37865.86",
+        "pagina": 25,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "37865.86",
+      "divergencia": "0.00",
+      "pagina": 25,
+      "documentoId": "DOC-0017",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada"
     },
     {
       "sequencia": 81,
@@ -1194,6 +1606,47 @@
       "metodo": "pdf_texto_regex",
       "statusRevisao": "pendente_conferencia",
       "pendencia": "quantidade ambígua: \"1.185\""
+    },
+    {
+      "sequencia": 99,
+      "produto": "PEIXE PINTADO FILÉ EM CUBOS",
+      "descricaoCompleta": "99. PEIXE PINTADO FILÉ EM CUBOS, de água doce, eviscerado, sem cabeça, sem nadadeiras, sem cauda, sem espinha, sem pele, filé em cubos. As características deverão 99.",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "670",
+        "normalizado": "670.00",
+        "pagina": 32,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "79,33",
+        "normalizado": "79.33",
+        "pagina": 32,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "53.153,33",
+        "normalizado": "53153.33",
+        "pagina": 32,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "53151.10",
+      "divergencia": "2.23",
+      "pagina": 32,
+      "documentoId": "DOC-0017",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada | total informado na fonte difere de quantidade × preço unitário em 2.23"
     },
     {
       "sequencia": 102,
@@ -1401,6 +1854,88 @@
       "pendencia": "total informado na fonte difere de quantidade × preço unitário em 0.26"
     },
     {
+      "sequencia": 1,
+      "produto": "KG 499 42",
+      "descricaoCompleta": "1 Kg 499 42,46 21.189,20 1 Kg",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "499",
+        "normalizado": "499.00",
+        "pagina": 37,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "42,46",
+        "normalizado": "42.46",
+        "pagina": 37,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "21.189,20",
+        "normalizado": "21189.20",
+        "pagina": 37,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "21187.54",
+      "divergencia": "1.66",
+      "pagina": 37,
+      "documentoId": "DOC-0017",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada | total informado na fonte difere de quantidade × preço unitário em 1.66"
+    },
+    {
+      "sequencia": 1,
+      "produto": "KG 500 71",
+      "descricaoCompleta": "1 Kg 500 71,10 35.548,33 1 Kg",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "500",
+        "normalizado": "500.00",
+        "pagina": 38,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "71,10",
+        "normalizado": "71.10",
+        "pagina": 38,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "35.548,33",
+        "normalizado": "35548.33",
+        "pagina": 38,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "35550.00",
+      "divergencia": "-1.67",
+      "pagina": 38,
+      "documentoId": "DOC-0017",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada | total informado na fonte difere de quantidade × preço unitário em 1.67"
+    },
+    {
       "sequencia": 119,
       "produto": "PONCÃ",
       "descricaoCompleta": "119. PONCÃ, inteiro, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. Consistência firme, cascas intactas,",
@@ -1523,6 +2058,47 @@
       "metodo": "pdf_texto_regex",
       "statusRevisao": "pendente_conferencia",
       "pendencia": "quantidade ambígua: \"1.210\""
+    },
+    {
+      "sequencia": 122,
+      "produto": "REQUEIJÃO CREMOSO",
+      "descricaoCompleta": "122. REQUEIJÃO CREMOSO, produzido com creme de leite, leite desnatado, cloreto de sódio, fermento lácteo, estabilizante. As características deverão atender aos 122.",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "300",
+        "normalizado": "300.00",
+        "pagina": 40,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "10,32",
+        "normalizado": "10.32",
+        "pagina": 40,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "3.097,00",
+        "normalizado": "3097.00",
+        "pagina": 40,
+        "documentoId": "DOC-0017",
+        "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "3096.00",
+      "divergencia": "1.00",
+      "pagina": 40,
+      "documentoId": "DOC-0017",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada | total informado na fonte difere de quantidade × preço unitário em 1.00"
     },
     {
       "sequencia": 123,
@@ -1713,6 +2289,16 @@
     },
     {
       "tipo": "item_conferencia",
+      "descricao": "item 6 (AÇAFRÃO): unidade comercial não identificada | total informado na fonte difere de quantidade × preço unitário em 1.04",
+      "origem": "DOC-0017"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 8 (ACELGA): total informado na fonte difere de quantidade × preço unitário em 0.65",
+      "origem": "DOC-0017"
+    },
+    {
+      "tipo": "item_conferencia",
       "descricao": "item 9 (AGRIÃO): total informado na fonte difere de quantidade × preço unitário em 0.70",
       "origem": "DOC-0017"
     },
@@ -1748,6 +2334,16 @@
     },
     {
       "tipo": "item_conferencia",
+      "descricao": "item 24 (BEBIDA LÁCTEA FERMENTADA SABOR COCO): unidade comercial não identificada | total informado na fonte difere de quantidade × preço unitário em 1.98",
+      "origem": "DOC-0017"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 25 (BEBIDA LÁCTEA FERMENTADA SABOR MORANGO): unidade comercial não identificada | total informado na fonte difere de quantidade × preço unitário em 1.98",
+      "origem": "DOC-0017"
+    },
+    {
+      "tipo": "item_conferencia",
       "descricao": "item 26 (BETERRABA): total informado na fonte difere de quantidade × preço unitário em 0.74",
       "origem": "DOC-0017"
     },
@@ -1759,6 +2355,11 @@
     {
       "tipo": "item_conferencia",
       "descricao": "item 31 (BOLO DE CHOCOLATE): quantidade ambígua: \"1.115\"",
+      "origem": "DOC-0017"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 37 (CAFÉ TORRADO E MOÍDO): unidade comercial não identificada",
       "origem": "DOC-0017"
     },
     {
@@ -1783,7 +2384,17 @@
     },
     {
       "tipo": "item_conferencia",
+      "descricao": "item 47 (COLORAU): quantidade ambígua: \"2.643\" | unidade comercial não identificada",
+      "origem": "DOC-0017"
+    },
+    {
+      "tipo": "item_conferencia",
       "descricao": "item 48 (COUVE): quantidade ambígua: \"1.167\"",
+      "origem": "DOC-0017"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 52 (FARINHA DE MANDIOCA): unidade comercial não identificada",
       "origem": "DOC-0017"
     },
     {
@@ -1793,7 +2404,22 @@
     },
     {
       "tipo": "item_conferencia",
+      "descricao": "item 67 (LEITE UHT INTEGRAL): quantidade ambígua: \"5.114\" | unidade comercial não identificada",
+      "origem": "DOC-0017"
+    },
+    {
+      "tipo": "item_conferencia",
       "descricao": "item 69 (LIMÃO TAHITI): total informado na fonte difere de quantidade × preço unitário em 0.95",
+      "origem": "DOC-0017"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 73 (MANDIOCA DESCASCADA CONGELADA): unidade comercial não identificada | total informado na fonte difere de quantidade × preço unitário em 2.07",
+      "origem": "DOC-0017"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 78 (MANTEIGA PURA COM SAL): unidade comercial não identificada",
       "origem": "DOC-0017"
     },
     {
@@ -1813,6 +2439,11 @@
     },
     {
       "tipo": "item_conferencia",
+      "descricao": "item 99 (PEIXE PINTADO FILÉ EM CUBOS): unidade comercial não identificada | total informado na fonte difere de quantidade × preço unitário em 2.23",
+      "origem": "DOC-0017"
+    },
+    {
+      "tipo": "item_conferencia",
       "descricao": "item 107 (PEPINO): total informado na fonte difere de quantidade × preço unitário em 0.62",
       "origem": "DOC-0017"
     },
@@ -1828,12 +2459,27 @@
     },
     {
       "tipo": "item_conferencia",
+      "descricao": "item 1 (KG 499 42): unidade comercial não identificada | total informado na fonte difere de quantidade × preço unitário em 1.66",
+      "origem": "DOC-0017"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 1 (KG 500 71): unidade comercial não identificada | total informado na fonte difere de quantidade × preço unitário em 1.67",
+      "origem": "DOC-0017"
+    },
+    {
+      "tipo": "item_conferencia",
       "descricao": "item 120 (QUEIJO MUSSARELA): total informado na fonte difere de quantidade × preço unitário em 1.25",
       "origem": "DOC-0017"
     },
     {
       "tipo": "item_conferencia",
       "descricao": "item 121 (REPOLHO BRANCO/VERDE): quantidade ambígua: \"1.210\"",
+      "origem": "DOC-0017"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 122 (REQUEIJÃO CREMOSO): unidade comercial não identificada | total informado na fonte difere de quantidade × preço unitário em 1.00",
       "origem": "DOC-0017"
     },
     {
@@ -1856,6 +2502,6 @@
     "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
     "documentosValidados": 1,
     "itensDoManifesto": 0,
-    "itensExtraidosPdf": 39
+    "itensExtraidosPdf": 53
   }
 }

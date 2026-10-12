@@ -1,6 +1,6 @@
 {
   "suite": "SDD-009",
-  "startedAt": "2026-10-12T19:01:13.068Z",
+  "startedAt": "2026-10-12T20:03:41.384Z",
   "cases": [
     {
       "name": "login administrativo",
@@ -93,31 +93,7 @@
       "ok": true
     },
     {
-      "name": "concluir item auditoria",
-      "status": 201,
-      "expected": 201,
-      "ok": true
-    },
-    {
-      "name": "concluir item backup",
-      "status": 201,
-      "expected": 201,
-      "ok": true
-    },
-    {
-      "name": "concluir item dados_institucionais",
-      "status": 201,
-      "expected": 201,
-      "ok": true
-    },
-    {
       "name": "concluir item parametros",
-      "status": 201,
-      "expected": 201,
-      "ok": true
-    },
-    {
-      "name": "concluir item permissoes",
       "status": 201,
       "expected": 201,
       "ok": true
@@ -129,7 +105,31 @@
       "ok": true
     },
     {
+      "name": "concluir item backup",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "concluir item permissoes",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "concluir item auditoria",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
       "name": "concluir item testes",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "concluir item dados_institucionais",
       "status": 201,
       "expected": 201,
       "ok": true
@@ -173,19 +173,19 @@
   ],
   "dashboard": {
     "indicadores": {
-      "editaisEmElaboracao": 2,
-      "editaisPublicados": 1,
+      "editaisEmElaboracao": 3,
+      "editaisPublicados": 0,
       "chamadasAbertas": 0,
-      "inscricoesPendentes": 1,
-      "contratosEmRascunho": 3,
+      "inscricoesPendentes": 0,
+      "contratosEmRascunho": 0,
       "entregasPendentes": 0,
       "prestacoesContasPendentes": 0
     },
     "escopo": "ADMIN",
-    "atualizadoEm": "2026-10-12T19:01:13.366Z"
+    "atualizadoEm": "2026-10-12T20:03:41.749Z"
   },
-  "checklistId": "c64c2d1f-d951-4998-8101-114a5882920e",
-  "configurationId": "6a2932b6-ad6e-436f-b00d-17faae899762",
-  "finishedAt": "2026-10-12T19:01:13.841Z",
+  "checklistId": "dea3b145-fc64-41e9-9a1c-0eca85c0d7c1",
+  "configurationId": "85cb529e-6f51-458c-9059-5d0a3aea308f",
+  "finishedAt": "2026-10-12T20:03:42.303Z",
   "result": "PASS"
 }

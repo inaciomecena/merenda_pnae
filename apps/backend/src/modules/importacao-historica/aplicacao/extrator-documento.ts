@@ -62,6 +62,39 @@ const LINHA_RESUMO = new RegExp(
 const ehNumeroColuna = (s: string): boolean => /^\d{1,3}(?:\.\d{3})*(?:,\d{1,2})?$/.test(s);
 
 /**
+ * Conjunto de unidades normalizadas (upper-case) para validação.
+ * Inclui explicitamente "QUILOGRAMA", que aparece no PDF quebrado em duas
+ * linhas ("Quilogram" + "a") em DOC-0069.
+ */
+const UNIDADES_SET = new Set(
+  [
+    ...UNIDADES.split('|').map((u) => u.toUpperCase()),
+    'QUILOGRAMA',
+    'QUILOGRAMAS',
+    'LITRO',
+    'LITROS',
+    'MILILITRO',
+    'MILILITROS',
+    'UNIDADE',
+    'UNIDADES',
+    'PACOTE',
+    'PACOTES',
+    'CAIXA',
+    'CAIXAS',
+    'MAÇO',
+    'MACO',
+    'BANDEJA',
+    'BANDEJAS',
+    'DÚZIA',
+    'DUZIA',
+    'FARDO',
+    'FARDOS',
+    'SACO',
+    'SACOS',
+  ].map((u) => u.toUpperCase()),
+);
+
+/**
  * Terceiro layout do pacote (ex.: DOC-0069, Primavera do Leste): os valores
  * vêm em uma linha SEPARADA, separados por TAB, e a unidade nas linhas
  * anteriores ("Quilogram" + "a"):
@@ -79,30 +112,37 @@ function parseLinhaValoresSeparados(colunas: string[], indice: number): {
   if (toks.length !== 3 || !toks.every(ehNumeroColuna)) return null;
 
   // Unidade: varre as linhas anteriores do mesmo bloco (a unidade vem antes
-  // da linha de valores neste layout). Aceita unidade quebrada em duas linhas
-  // ("Quilogram" + "a"), pulando linhas vazias.
+  // da linha de valores neste layout). A unidade pode vir quebrada em duas
+  // linhas ("Quilogram" + "a"); para isso, acumula os tokens finais das
+  // últimas linhas não vazias e tenta completar contra o dicionário.
   let unidade: string | null = null;
   const anteriores = colunas.slice(Math.max(0, indice - 6), indice);
-  for (let j = 0; j < anteriores.length; j++) {
+  const finais: string[] = []; // tokens finais, do mais recente para o mais antigo
+  for (let j = anteriores.length - 1; j >= 0 && finais.length < 4; j--) {
     const t = anteriores[j].trim();
     if (!t) continue;
-    const ult = t.split(/\s{2,}/).pop()?.trim() ?? '';
-    if (ehUnidadeConhecida(ult)) {
-      unidade = ult;
+    finais.push(t.split(/\s{2,}/).pop()?.trim() ?? '');
+  }
+  for (let i = 0; i < finais.length; i++) {
+    const atual = finais[i];
+    if (!atual) continue;
+    if (ehUnidadeConhecida(atual)) {
+      unidade = atual;
       break;
     }
-    if (ehPrefixoUnidade(ult)) {
-      // Unidade quebrada: completa com o token da próxima linha não vazia
-      // ("Quilogram" + "a" -> "QUILOGRAMA").
-      for (let k = j + 1; k < Math.min(j + 3, anteriores.length); k++) {
-        const prox = anteriores[k].trim();
-        if (!prox) continue;
-        const completada = tentarCompletarUnidade(ult, prox);
-        if (completada) unidade = completada;
-        break; // só considera a primeira linha não vazia seguinte
+    // Unidade quebrada em duas linhas ("Quilogram" + "a"). Testa o token
+    // atual como prefixo contra cada outro token da janela.
+    if (ehPrefixoUnidade(atual)) {
+      for (let k = 0; k < finais.length; k++) {
+        if (k === i) continue;
+        const completada = tentarCompletarUnidade(atual, finais[k]);
+        if (completada) {
+          unidade = completada;
+          break;
+        }
       }
-      if (unidade) break;
     }
+    if (unidade) break;
   }
 
   // Produto: primeira linha não vazia do bloco antes das linhas de unidade.
@@ -140,7 +180,6 @@ function parseColunasResumo(linha: string): {
   return { quantidade: fim[0], preco: fim[1], total: fim[2], unidade, prefixo };
 }
 
-const UNIDADES_SET = new Set(UNIDADES.split('|').map((u) => u.toUpperCase()));
 const ehUnidadeConhecida = (tok: string): boolean => UNIDADES_SET.has(tok.toUpperCase());
 const ehSufixoUnidade = (tok: string): boolean => /^\d+(?:[.,]\d+)?\s*(?:[KkGg][Gg]?|[Ll]|[Mm][Ll]|[Uu]n)$/i.test(tok);
 
@@ -179,7 +218,7 @@ function tentarCompletarUnidade(atual: string, proximo: string): string | null {
   if (!p || p.length > 4) return null;
   for (const u of UNIDADES_SET) {
     const ul = u.toLowerCase();
-    if (ul.startsWith(a) && ul.endsWith(p) && ul.length === a.length + p.length) return u;
+    if (ul === `${a}${p}` || ul === `${a} ${p}`) return u;
   }
   return null;
 }
@@ -243,7 +282,10 @@ function finalizarBloco(bloco: BlocoItem, documentoId: string, sha256: string | 
   // `texto` colapsa espaços (descrição); `colunas` preserva o espaçamento
   // interno para o parser de colunas alinhadas.
   const texto = bloco.linhas.map(limparLinha).filter(Boolean);
-  const colunas = bloco.linhas.map(prepararLinhaColuna).filter(Boolean);
+  // Preserva linhas vazias em `colunas` (mesmo comprimento de bloco.linhas)
+  // para que a janela de busca da unidade veja "Quilogram" imediatamente
+  // antes de "a" quando a unidade vem quebrada em duas linhas.
+  const colunas = bloco.linhas.map(prepararLinhaColuna);
   const indiceResumo = texto.findIndex((linha) => LINHA_RESUMO.test(linha) && /R\$/.test(linha));
 
   let quantidadeBruta: string | null = null;
@@ -387,6 +429,15 @@ function finalizarBloco(bloco: BlocoItem, documentoId: string, sha256: string | 
     statusRevisao: pendencias.length > 0 ? 'pendente_conferencia' : 'extraido',
     pendencia: pendencias.length > 0 ? pendencias.join(' | ') : null,
   };
+}
+
+/**
+ * Bloco extraído que NÃO é um item de produto: texto corrido com numeração
+ * de cláusula (ex.: "19. 2. FUNDAMENTAÇÃO LEGAL …"). Não pode virar item —
+ * vira pendência de revisão para não contaminar a tabela com zero artificial.
+ */
+function ehBlocoNaoItem(finalizado: ItemExtraido): boolean {
+  return !finalizado.produto && !finalizado.unidadeComercial && !finalizado.totalFonte && !finalizado.quantidade;
 }
 
 /** Extrai a tabela de itens de um PDF com proveniência por página. */

@@ -1,0 +1,94 @@
+
+=== SDD-005 E2E — http://localhost:3212/api/v1 ===
+
+
+-- A. Bootstrap institucional --
+  [OK]     A1 ADMIN global é autorizado sem vínculo institucional (papel global, sem escopo) — esperado: 200 | obtido: 200
+  [OK]     A2 bootstrap com token inválido é recusado — esperado: 403 | obtido: 403
+  [OK]     A3 bootstrap sem token é recusado (validação) — esperado: 400 | obtido: 400
+  [OK]     A4 primeiro bootstrap autorizado cria vínculo ADMIN global — esperado: 2xx + funcao=ADMIN sem escopo | obtido: HTTP 201 funcao=ADMIN dreId=null escolaId=null
+  [OK]     A5 repetir o bootstrap é recusado (execução única) — esperado: 409 | obtido: 409
+  [OK]     A6 escalonamento: ESCOLA é recusado mesmo com token correto — esperado: 403 | obtido: 403
+  [OK]     A7 ADMIN com vínculo ativo é autorizado — esperado: 200 | obtido: 200
+
+-- B. Vínculos institucionais --
+  [OK]     B1 DRE sem vínculo institucional é bloqueado — esperado: 403 | obtido: 403
+  [OK]     B2 vínculo DRE-B criado (fora do escopo do contrato) — esperado: 2xx | obtido: 201
+  [OK]     B3 vínculo DRE-A criado (escopo do contrato) — esperado: 2xx | obtido: 201
+  [OK]     B4 vínculo ESCOLA criado — esperado: 2xx + id | obtido: HTTP 201 id=f63b9b51-0028-4669-a0db-83c68ccea879
+  [OK]     B5 vínculo EXTENSIONISTA criado — esperado: 2xx | obtido: 201
+  [OK]     B6 vínculo DRE sem dreId é recusado — esperado: 400 | obtido: 400
+  [OK]     B7 vínculo ADMIN duplicado é recusado (sobreposição) — esperado: 400 | obtido: 400
+  [OK]     B8 id do vínculo ESCOLA capturado para o teste de revogação — esperado: id presente | obtido: f63b9b51-0028-4669-a0db-83c68ccea879
+
+-- C. Upload XML --
+  [OK]     C1 upload XML cria a nota (status PROCESSADA) — esperado: 2xx + id | obtido: HTTP 201 id=b5c4bb2b-6d6d-47d0-8b08-514f568da7ee
+  [OK]     C2 nota detalhada: PROCESSADA, 1 item, valorTotal 12.50, fornecedor vinculado — esperado: PROCESSADA / 1 item / 12.50 | obtido: PROCESSADA / 1 item(s) / 12.5 / Fornecedor Teste SDD-005
+  [OK]     C3 reenvio do mesmo XML é recusado (chave duplicada) — esperado: 409 | obtido: 409
+  [OK]     C4 upload por EXTENSIONISTA é recusado (papel) — esperado: 403 | obtido: 403
+
+-- D. Segregação de funções e escopo --
+  [OK]     D1 DRE de outra instituição não concilia (fora do escopo) — esperado: 403 | obtido: 403
+  [OK]     D2 ESCOLA não concilia (papel não financeiro na rota) — esperado: 403 | obtido: 403
+  [OK]     D3 EXTENSIONISTA não concilia (papel) — esperado: 403 | obtido: 403
+  [OK]     D4 isolamento de listagem: DRE-A vê a nota; DRE-B não — esperado: DRE-A ≥1 item; DRE-B 0 itens | obtido: DRE-A=1; DRE-B=0
+  [OK]     D5 EXTENSIONISTA sem escopo de produtor vê lista vazia — esperado: 200 + 0 itens | obtido: HTTP 200 itens=0
+
+-- E. Conciliação --
+  [OK]     E1 DRE-A (escopo correto) concilia: PENDENTE_CONFERENCIA + CONCILIADA_COM_RESSALVAS — esperado: 2xx / PENDENTE_CONFERENCIA / CONCILIADA_COM_RESSALVAS | obtido: HTTP 201 / PENDENTE_CONFERENCIA / CONCILIADA_COM_RESSALVAS
+  [OK]     E2 divergências persistidas são médias e esperadas (item sem vínculo + recebimento não confirmado) — esperado: 2 divergências MEDIA ABERTA (PRODUTO_DIVERGENTE, RECEBIMENTO_NAO_CONFIRMADO) | obtido: RECEBIMENTO_NAO_CONFIRMADO:MEDIA:ABERTA | PRODUTO_DIVERGENTE:MEDIA:ABERTA
+  [OK]     E3 reexecução da conciliação é estável (idempotência operacional) — esperado: 2xx + status segue PENDENTE_CONFERENCIA | obtido: HTTP 201 / PENDENTE_CONFERENCIA
+
+-- F. Conferência --
+  [OK]     F1 ESCOLA não registra conferência (papel) — esperado: 403 | obtido: 403
+  [OK]     F2 DRE-B fora do escopo não registra conferência — esperado: 403 | obtido: 403
+  [OK]     F3 aprovação da conferência move a nota para AGUARDANDO_ATESTO — esperado: 2xx (registro APROVADO) + nota AGUARDANDO_ATESTO | obtido: HTTP 201 / registro=APROVADA / nota=AGUARDANDO_ATESTO
+  [OK]     F4 conferência persistida com checklist e ressalvas — esperado: APROVADA + 2 itens + ressalva | obtido: APROVADA / 2 item(ns) / ressalva=sim
+
+-- G. Atesto --
+  [OK]     G1 atesto acima do saldo é recusado — esperado: 409 | obtido: 409
+  [OK]     G2 atesto parcial 5.00 aceito; nota segue aguardando atesto — esperado: 2xx + nota AGUARDANDO_ATESTO | obtido: HTTP 201 / -
+  [OK]     G3 após parcial: 1 atesto registrado e nota ainda AGUARDANDO_ATESTO — esperado: 1 atesto / AGUARDANDO_ATESTO | obtido: 1 atesto(s) / AGUARDANDO_ATESTO
+  [OK]     G4 atesto integral do saldo restante (7.50) aceito — esperado: 2xx | obtido: 201
+  [OK]     G5 nota ATESTADA com 2 atestos (12.50 = valorTotal) — esperado: ATESTADA / 2 atestos | obtido: ATESTADA / 2
+  [OK]     G6 novo atesto após ATESTADA é recusado — esperado: 400 | obtido: 400
+  [OK]     G7 liquidação acima do atestado é recusada — esperado: 409 | obtido: 409
+  [OK]     G8 ESCOLA não liquida (papel) — esperado: 403 | obtido: 403
+  [OK]     G9 liquidação integral registrada (REGISTRADA) — esperado: 2xx + REGISTRADA + id | obtido: HTTP 201 / REGISTRADA / 0dc4ff16-29da-43ce-bf97-994b3d29d33a
+  [OK]     G10 segunda liquidação é recusada (saldo atestado esgotado) — esperado: 409 | obtido: 409
+
+-- H. Pagamentos --
+  [OK]     H1 pagamento acima do saldo é recusado — esperado: 409 | obtido: 409
+  [OK]     H2 pagamento parcial 6.00 registrado (status REGISTRADO) — esperado: 2xx + REGISTRADO | obtido: HTTP 201 / REGISTRADO
+  [OK]     H3 pagamento integral ≠ saldo é recusado — esperado: 400 | obtido: 400
+  [OK]     H4 pagamento integral do saldo (6.50) → CONFIRMADO — esperado: 2xx + CONFIRMADO | obtido: HTTP 201 / CONFIRMADO
+  [OK]     H5 estorno marca ESTORNADO (sem exclusão do registro) — esperado: 2xx + ESTORNADO | obtido: HTTP 201 / ESTORNADO
+  [OK]     H6 estorno repetido é recusado — esperado: 409 | obtido: 409
+  [OK]     H7 concorrência: dois pagamentos parciais simultâneos → exatamente um vence e um conflita — esperado: 1 × 2xx e 1 × 409 | obtido: 1 × 2xx e 1 × 409 (409/201)
+
+-- I. Saldos e dashboard --
+  [OK]     I1 histórico de pagamentos: 3 registros (p1, p2 estornado, vencedor da concorrência) e Σ ativa = 10.00 — esperado: 3 itens / 1 ESTORNADO / Σ ativos 10.00 | obtido: 3 itens / 1 estornado(s) / Σ ativos 10.00
+  [OK]     I2 liquidação única de 12.50 e saldo pendente de pagamento = 2.50 — esperado: 1 liq / Σ 12.50 / saldo 2.50 | obtido: 1 liq / Σ 12.50 / saldo 2.50
+  [OK]     I3 dashboard indicadores responde — esperado: 200 + dados | obtido: HTTP 200 + dados
+  [OK]     I3 dashboard saldos responde — esperado: 200 + dados | obtido: HTTP 200 + dados
+  [OK]     I3 dashboard pendencias responde — esperado: 200 + dados | obtido: HTTP 200 + dados
+  [OK]     I3 dashboard divergencias responde — esperado: 200 + dados | obtido: HTTP 200 + dados
+  [OK]     I3 dashboard grafico responde — esperado: 200 + dados | obtido: HTTP 200 + dados
+  [OK]     I4 vínculo revogado bloqueia imediatamente (ciclo de vida do vínculo) — esperado: DELETE 2xx + escola 403 | obtido: DELETE 200 / escola 403
+
+-- J. Cadastro manual, correção e recebimentos --
+  [OK]     J1 cadastro manual cria a nota em PENDENTE_PROCESSAMENTO — esperado: 2xx + id + PENDENTE_PROCESSAMENTO | obtido: HTTP 201 / PENDENTE_PROCESSAMENTO
+  [OK]     J2 correção manual dos dados antes da confirmação — esperado: 2xx + número atualizado | obtido: HTTP 200 / 90001-A
+  [OK]     J3 transição para PROCESSADA via PATCH (máquina de estados) — esperado: 2xx + PROCESSADA | obtido: HTTP 200 / PROCESSADA
+  [OK]     J4 EXTENSIONISTA não cadastra nota fiscal manual (papel) — esperado: 403 | obtido: 403
+  [OK]     J5 DRE-B fora do escopo não cadastra nota fiscal manual — esperado: 403 | obtido: 403
+  [OK]     J6 candidatos de recebimento listam entrega aceita com disponibilidade — esperado: 200 + ≥1 candidato + disponibilidade > 0 | obtido: HTTP 200 / candidatos=1 / disp=10
+  [OK]     J7 recebimento aceito vinculado ao item da nota (1 vínculo) — esperado: 2xx + 1 vínculo com quantidades | obtido: HTTP 201 / vínculos=1
+  [OK]     J8 vínculo acima da quantidade faturada é recusado — esperado: 409 | obtido: 409
+  [OK]     J9 conciliação manual converge: CONCILIADA com 0 divergências — esperado: 2xx / PENDENTE_CONFERENCIA / CONCILIADA / 0 divergências | obtido: HTTP 201 / PENDENTE_CONFERENCIA / CONCILIADA / 0 div
+  [OK]     J10 conferência aprovada e atesto integral movem a nota para ATESTADA — esperado: 2xx / 2xx / ATESTADA | obtido: conf=201 / atesto=201 / nota=ATESTADA
+  [OK]     J11 desvinculação de recebimento bloqueada após o atesto — esperado: 400 | obtido: 400
+  [OK]     J12 liquidação manual registra número da liquidação e observações — esperado: 2xx + numeroLiquidacao + observacoes | obtido: HTTP 201 / LQ-2026-900
+  [OK]     J13 pagamento manual registra referência e observações (parcial) — esperado: 2xx + numeroOrdemPagamento + observacoes + PARCIAL | obtido: HTTP 201 / OP-2026-900
+
+=== RESUMO E2E SDD-005: 69/69 asserções OK ===

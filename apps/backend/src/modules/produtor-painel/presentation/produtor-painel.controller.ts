@@ -10,6 +10,7 @@ const PRODUCER_ROLES = ['ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR'] a
 export class ProdutorPainelController {
   constructor(private readonly service: ProdutorPainelService) {}
   private u(req: Request) { return req.user as AuthenticatedUser; }
+  @Get('meus-vinculos') @Roles(...PRODUCER_ROLES) vinculos(@Req() req: Request) { return this.service.meusProdutores(this.u(req)); }
   @Get('meu-painel') @Roles(...PRODUCER_ROLES) painel(@Query('produtorId') id: string, @Req() req: Request) { return this.service.painel(this.u(req), id); }
   @Get('minhas-unidades') @Roles(...PRODUCER_ROLES) unidades(@Query('produtorId') id: string, @Req() req: Request) { return this.service.unidades(this.u(req), id); }
   @Post('minhas-unidades') @Roles(...PRODUCER_ROLES) criarUnidade(@Body() dto: UnidadeProdutivaDto, @Query('produtorId') id: string, @Req() req: Request) { return this.service.criarUnidade(dto, this.u(req), id); }
@@ -28,8 +29,8 @@ export class ProdutorPainelController {
   @Post('minha-logistica') @Roles(...PRODUCER_ROLES) criarLogistica(@Body() dto: LogisticaDto, @Query('produtorId') id: string, @Req() req: Request) { return this.service.criarLogistica(dto, this.u(req), id); }
   @Patch('minha-logistica/:id') @Roles(...PRODUCER_ROLES) atualizarLogistica(@Param('id') id: string, @Body() dto: LogisticaDto, @Req() req: Request) { return this.service.atualizarLogistica(id, dto, this.u(req)); }
   @Get('assistencia-tecnica') @Roles(...PRODUCER_ROLES) assistencias(@Query('produtorId') id: string, @Req() req: Request) { return this.service.assistencias(this.u(req), id); }
-  @Post('assistencia-tecnica') @Roles('ADMIN', 'EXTENSIONISTA') criarAssistencia(@Body() dto: AssistenciaTecnicaDto, @Req() req: Request) { return this.service.criarAssistencia(dto, this.u(req)); }
-  @Patch('assistencia-tecnica/:id') @Roles('ADMIN', 'EXTENSIONISTA', 'PRODUTOR') atualizarAssistencia(@Param('id') id: string, @Body() dto: Partial<AssistenciaTecnicaDto>, @Req() req: Request) { return this.service.atualizarAssistencia(id, dto, this.u(req)); }
+  @Post('assistencia-tecnica') @Roles('ADMIN') criarAssistencia(@Body() dto: AssistenciaTecnicaDto, @Req() req: Request) { return this.service.criarAssistencia(dto, this.u(req)); }
+  @Patch('assistencia-tecnica/:id') @Roles('ADMIN') atualizarAssistencia(@Param('id') id: string, @Body() dto: Partial<AssistenciaTecnicaDto>, @Req() req: Request) { return this.service.atualizarAssistencia(id, dto, this.u(req)); }
   @Post('mapeamentos-edital') @Roles(...PRODUCER_ROLES) mapear(@Body() dto: MapeamentoProdutoEditalDto, @Query('produtorId') id: string, @Req() req: Request) { return this.service.criarMapeamento(dto, this.u(req), id); }
   @Patch('mapeamentos-edital/:id') @Roles('ADMIN', 'DRE') revisar(@Param('id') id: string, @Body('status') status: string, @Req() req: Request) { return this.service.revisarMapeamento(id, status, this.u(req)); }
 }
@@ -38,6 +39,7 @@ export class ProdutorPainelController {
 export class CatalogoProdutosController {
   constructor(private readonly service: ProdutorPainelService) {}
   @Get() @Roles('ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR', 'DRE', 'ESCOLA') listar() { return this.service.catalogo(); }
+  @Get(':id/nutricao') @Roles('ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR', 'DRE', 'ESCOLA') nutricao(@Param('id') id: string) { return this.service.nutricao(id); }
   @Get(':id') @Roles('ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR', 'DRE', 'ESCOLA') obter(@Param('id') id: string) { return this.service.catalogoItem(id); }
   @Post('solicitacoes') @Roles('ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR') solicitar(@Body() dto: CatalogoSolicitacaoDto, @Req() req: Request) { return this.service.solicitarCatalogo(dto, req.user as AuthenticatedUser); }
 }

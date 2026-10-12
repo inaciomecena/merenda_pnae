@@ -1,6 +1,6 @@
 {
   "schema": "importacao-historica-pnae/1.0",
-  "geradoEm": "2026-10-12T19:29:32.927Z",
+  "geradoEm": "2026-10-12T20:15:55.955Z",
   "idPacote": "ED-0067",
   "dre": "Sinop",
   "chaveLogica": "a1de1dee6d7d14602964ac7d1288cb08",
@@ -37,7 +37,8 @@
     "condicoesPagamento": null,
     "valorEstimado": null,
     "observacoes": [
-      "número lido no PDF (\"025/224\", página 1) difere do manifesto (\"025/2024\"); grafia original preservada"
+      "número lido no PDF (\"025/224\", página 1) difere do manifesto (\"025/2024\"); grafia original preservada",
+      "grafia do documento \"025/224\" com ano de 3 dígitos; normalização proposta \"025/224\" — a grafia original é preservada e a normalização depende de revisão administrativa"
     ]
   },
   "documentos": [

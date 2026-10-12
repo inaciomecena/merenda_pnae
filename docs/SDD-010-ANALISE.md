@@ -21,7 +21,7 @@ Análise realizada no repositório existente antes da modelagem.
 ## Decisões
 
 - `ProdutoReferencia` continua sendo o catálogo central; não é criado `ProdutoCatalogo` paralelo.
-- `ProdutorProduto` legado permanece compatível. `ProdutoProdutor` referencia o catálogo e a unidade produtiva para os novos fluxos.
+- `ProdutorProduto` legado foi ampliado com referências opcionais ao catálogo e à unidade produtiva; não existe tabela paralela `ProdutoProdutor`.
 - Disponibilidade é calculada como `colhida - perdas - comprometida - reservada`; previsão não é estoque confirmado.
 - Nenhuma reserva automática é criada por consulta a edital.
 - Nutrição sem fonte/valor permanece nula ou pendente; não são inseridos zeros demonstrativos.

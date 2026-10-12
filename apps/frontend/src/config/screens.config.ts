@@ -8,6 +8,7 @@ export interface ScreenDefinition {
 export const screenDefinitions: ScreenDefinition[] = [
   { code: 'PNAE-AUT-001', label: 'Acesso ao sistema', pattern: /^\/login\/?$/ },
   { code: 'PNAE-DSH-001', label: 'Painel geral', pattern: /^\/dashboard\/?$/ },
+  { code: 'PNAE-PRD-010', label: 'Meu campo', pattern: /^\/meu-campo\/?$/ },
   { code: 'PNAE-GEO-001', label: 'Mapa de Mato Grosso', pattern: /^\/mapa\/?$/ },
   { code: 'PNAE-REL-001', label: 'Relatórios gerenciais', pattern: /^\/relatorios\/?$/ },
   { code: 'PNAE-MUN-001', label: 'Municípios', pattern: /^\/municipios\/?$/ },

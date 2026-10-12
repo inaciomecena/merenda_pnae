@@ -1,7 +1,7 @@
 {
-  "base": "http://localhost:3000/api/v1",
-  "id": "0ef72699-18ab-4ec6-8d38-44f0128023fd",
-  "generatedAt": "2026-10-12T18:03:33.792Z",
+  "base": "http://localhost:3211/api/v1",
+  "id": "de5ce4cb-127a-49bf-a6a9-01c8f7aeb3b4",
+  "generatedAt": "2026-10-12T20:15:54.088Z",
   "passed": 38,
   "total": 38,
   "results": [
@@ -33,7 +33,7 @@
       "caso": "rascunho e versao inicial",
       "ok": true,
       "esperado": "RASCUNHO/v1",
-      "obtido": "{\"id\":\"0ef72699-18ab-4ec6-8d38-44f0128023fd\",\"exercicio\":2026,\"periodoInicio\":\"2026-01-01T00:00:00.000Z\",\"periodoFim\":\"2026-12-31T23:59:59.000Z\",\"dreId\":null,\"escolaId\":null,\"observacoes\":\"E2E SDD-006\",\"status\":\"RASCUNHO\",\"versao\":1,\"enviadoEm\":null,\"analisadoEm\":null,\"aprovadoEm\":null,\"devolvidoEm\":null,\"justificativa\":null,\"createdAt\":\"2026-10-12T18:03:32.514Z\",\"updatedAt\":\"2026-10-12T18:03:32.514Z\",\"createdBy\":\"16d05213-5567-4d0b-81ba-1e13151f016f\",\"updatedBy\":\"16d05213-5567-4d0b-81ba-1e13151f016f\"}"
+      "obtido": "{\"id\":\"de5ce4cb-127a-49bf-a6a9-01c8f7aeb3b4\",\"exercicio\":2026,\"periodoInicio\":\"2026-01-01T00:00:00.000Z\",\"periodoFim\":\"2026-12-31T23:59:59.000Z\",\"dreId\":null,\"escolaId\":null,\"observacoes\":\"E2E SDD-006\",\"status\":\"RASCUNHO\",\"versao\":1,\"enviadoEm\":null,\"analisadoEm\":null,\"aprovadoEm\":null,\"devolvidoEm\":null,\"justificativa\":null,\"createdAt\":\"2026-10-12T20:15:52.513Z\",\"updatedAt\":\"2026-10-12T20:15:52.513Z\",\"createdBy\":\"42bcac95-872f-426d-8005-883747aad7da\",\"updatedBy\":\"42bcac95-872f-426d-8005-883747aad7da\"}"
     },
     {
       "caso": "editar rascunho",
@@ -152,20 +152,20 @@
     {
       "caso": "filtro DRE",
       "ok": true,
-      "esperado": "campo nao aplicavel",
-      "obtido": "sem campo"
+      "esperado": "200 + escopo filtrado",
+      "obtido": "200/1"
     },
     {
       "caso": "filtro escola",
       "ok": true,
-      "esperado": "campo nao aplicavel",
-      "obtido": "sem campo"
+      "esperado": "200 + escopo filtrado",
+      "obtido": "200/1"
     },
     {
       "caso": "filtro municipio",
       "ok": true,
-      "esperado": "campo nao aplicavel",
-      "obtido": "sem campo"
+      "esperado": "200 + escopo filtrado",
+      "obtido": "200/1"
     },
     {
       "caso": "comportamento sem dados",
@@ -177,7 +177,7 @@
       "caso": "indicadores contra fonte financeira",
       "ok": true,
       "esperado": "contratado consistente",
-      "obtido": "1425.00/1425"
+      "obtido": "1000.00/1000"
     },
     {
       "caso": "saldos e pagamentos parciais",
@@ -195,25 +195,25 @@
       "caso": "exportar csv",
       "ok": true,
       "esperado": "200 + arquivo valido",
-      "obtido": "200/638/﻿"
+      "obtido": "200/480/﻿"
     },
     {
       "caso": "exportar xlsx",
       "ok": true,
       "esperado": "200 + arquivo valido",
-      "obtido": "200/17884/PK"
+      "obtido": "200/17320/PK"
     },
     {
       "caso": "exportar pdf",
       "ok": true,
       "esperado": "200 + arquivo valido",
-      "obtido": "200/1457/%PDF"
+      "obtido": "200/1424/%PDF"
     },
     {
       "caso": "trilha de auditoria",
       "ok": true,
       "esperado": "log da prestacao",
-      "obtido": "84"
+      "obtido": "42"
     },
     {
       "caso": "transparencia publica sanitizada",

@@ -1,6 +1,6 @@
 {
   "schema": "importacao-historica-pnae/1.0",
-  "geradoEm": "2026-10-12T19:29:45.175Z",
+  "geradoEm": "2026-10-12T20:16:16.751Z",
   "idPacote": "ED-0121",
   "dre": "Pontes e Lacerda",
   "chaveLogica": "acda3534118772f032903a12e512b184",
@@ -684,6 +684,48 @@
       "pendencia": "quantidade ambígua: \"3.126\" | total ambíguo: \"82.839\""
     },
     {
+      "sequencia": 52,
+      "produto": "FARINHA DE MANDIOCA",
+      "descricaoCompleta": "52. FARINHA DE MANDIOCA, do tipo branca ou amarela, torrada, grupo seco, subgrupo média, classe branca, isenta de matéria terrosa, fungos ou parasitas, umidade e fragmentos estranhos. As 52.",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "1.511",
+        "normalizado": null,
+        "pagina": 18,
+        "documentoId": "DOC-0131",
+        "sha256": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "pendente_revisao",
+        "pendencia": "formato fora do padrão brasileiro reconhecido (esperado \"1.234,56\"): \"1.511\""
+      },
+      "precoUnitario": {
+        "bruto": "16,62",
+        "normalizado": "16.62",
+        "pagina": 18,
+        "documentoId": "DOC-0131",
+        "sha256": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "25.112,82",
+        "normalizado": "25112.82",
+        "pagina": 18,
+        "documentoId": "DOC-0131",
+        "sha256": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 18,
+      "documentoId": "DOC-0131",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "quantidade ambígua: \"1.511\" | unidade comercial não identificada"
+    },
+    {
       "sequencia": 62,
       "produto": "INHAME",
       "descricaoCompleta": "62. INHAME, in natura, tamanho e coloração uniforme, livres de sujidades, parasitas, larvas, fungos, isento de podridões e amarelados, não se apresentar desidratado, murcho ou congelado. As características",
@@ -849,6 +891,48 @@
       "pendencia": null
     },
     {
+      "sequencia": 73,
+      "produto": "MANDIOCA DESCASCADA CONGELADA",
+      "descricaoCompleta": "73. MANDIOCA DESCASCADA CONGELADA, livre de sujidades, insetos, larvas e fungos, isenta de podridões, consistência firme. Acondicionada em saco plástico atóxico, transparente e resistente. 73.",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "1.894",
+        "normalizado": null,
+        "pagina": 25,
+        "documentoId": "DOC-0131",
+        "sha256": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "pendente_revisao",
+        "pendencia": "formato fora do padrão brasileiro reconhecido (esperado \"1.234,56\"): \"1.894\""
+      },
+      "precoUnitario": {
+        "bruto": "10,72",
+        "normalizado": "10.72",
+        "pagina": 25,
+        "documentoId": "DOC-0131",
+        "sha256": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "20.303,68",
+        "normalizado": "20303.68",
+        "pagina": 25,
+        "documentoId": "DOC-0131",
+        "sha256": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 25,
+      "documentoId": "DOC-0131",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "quantidade ambígua: \"1.894\" | unidade comercial não identificada"
+    },
+    {
       "sequencia": 83,
       "produto": "MELANCIA",
       "descricaoCompleta": "83. MELANCIA, inteira, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. Consistência firme, cascas intactas, de forma que não deixem exposta a",
@@ -889,6 +973,48 @@
       "metodo": "pdf_texto_regex",
       "statusRevisao": "pendente_conferencia",
       "pendencia": "quantidade ambígua: \"2.607\""
+    },
+    {
+      "sequencia": 84,
+      "produto": "MELÃO",
+      "descricaoCompleta": "84. MELÃO, inteiro, livre de sujidades, insetos, larvas, fungos, isento de podridões, não se apresentar desidratado, murcho ou congelado. Consistência firme, cascas intactas, de forma que não deixem exposta a 84.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "2.086",
+        "normalizado": null,
+        "pagina": 28,
+        "documentoId": "DOC-0131",
+        "sha256": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "pendente_revisao",
+        "pendencia": "formato fora do padrão brasileiro reconhecido (esperado \"1.234,56\"): \"2.086\""
+      },
+      "precoUnitario": {
+        "bruto": "13,06",
+        "normalizado": "13.06",
+        "pagina": 28,
+        "documentoId": "DOC-0131",
+        "sha256": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "27.243,16",
+        "normalizado": "27243.16",
+        "pagina": 28,
+        "documentoId": "DOC-0131",
+        "sha256": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 28,
+      "documentoId": "DOC-0131",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "quantidade ambígua: \"2.086\""
     },
     {
       "sequencia": 107,
@@ -1012,6 +1138,252 @@
       "metodo": "pdf_texto_regex",
       "statusRevisao": "extraido",
       "pendencia": null
+    },
+    {
+      "sequencia": 1,
+      "produto": "KG 649 34",
+      "descricaoCompleta": "1 Kg 649 34,18 22.182,82 Secretaria de Estado de Educação SEDUC Diretoria Regional de Educação de Pontes e Lacerda-DRE 1 Kg",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "649",
+        "normalizado": "649.00",
+        "pagina": 37,
+        "documentoId": "DOC-0131",
+        "sha256": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "34,18",
+        "normalizado": "34.18",
+        "pagina": 37,
+        "documentoId": "DOC-0131",
+        "sha256": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "22.182,82",
+        "normalizado": "22182.82",
+        "pagina": 37,
+        "documentoId": "DOC-0131",
+        "sha256": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "22182.82",
+      "divergencia": "0.00",
+      "pagina": 37,
+      "documentoId": "DOC-0131",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada"
+    },
+    {
+      "sequencia": 1,
+      "produto": "KG 649 34",
+      "descricaoCompleta": "1 Kg 649 34,18 22.182,82 1 Kg",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "649",
+        "normalizado": "649.00",
+        "pagina": 38,
+        "documentoId": "DOC-0131",
+        "sha256": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "34,18",
+        "normalizado": "34.18",
+        "pagina": 38,
+        "documentoId": "DOC-0131",
+        "sha256": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "22.182,82",
+        "normalizado": "22182.82",
+        "pagina": 38,
+        "documentoId": "DOC-0131",
+        "sha256": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "22182.82",
+      "divergencia": "0.00",
+      "pagina": 38,
+      "documentoId": "DOC-0131",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada"
+    },
+    {
+      "sequencia": 1,
+      "produto": "KG 649 34",
+      "descricaoCompleta": "1 Kg 649 34,18 22.182,82 Secretaria de Estado de Educação SEDUC Diretoria Regional de Educação de Pontes e Lacerda-DRE 1 Kg",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "649",
+        "normalizado": "649.00",
+        "pagina": 38,
+        "documentoId": "DOC-0131",
+        "sha256": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "34,18",
+        "normalizado": "34.18",
+        "pagina": 38,
+        "documentoId": "DOC-0131",
+        "sha256": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "22.182,82",
+        "normalizado": "22182.82",
+        "pagina": 38,
+        "documentoId": "DOC-0131",
+        "sha256": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "22182.82",
+      "divergencia": "0.00",
+      "pagina": 38,
+      "documentoId": "DOC-0131",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada"
+    },
+    {
+      "sequencia": 1,
+      "produto": "KG 649 34",
+      "descricaoCompleta": "1 Kg 649 34,18 22.182,82 1 Kg",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "649",
+        "normalizado": "649.00",
+        "pagina": 39,
+        "documentoId": "DOC-0131",
+        "sha256": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "34,18",
+        "normalizado": "34.18",
+        "pagina": 39,
+        "documentoId": "DOC-0131",
+        "sha256": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "22.182,82",
+        "normalizado": "22182.82",
+        "pagina": 39,
+        "documentoId": "DOC-0131",
+        "sha256": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "22182.82",
+      "divergencia": "0.00",
+      "pagina": 39,
+      "documentoId": "DOC-0131",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada"
+    },
+    {
+      "sequencia": 1,
+      "produto": "KG 649 34",
+      "descricaoCompleta": "1 Kg 649 34,18 22.182,82 1 Kg",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "649",
+        "normalizado": "649.00",
+        "pagina": 39,
+        "documentoId": "DOC-0131",
+        "sha256": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "34,18",
+        "normalizado": "34.18",
+        "pagina": 39,
+        "documentoId": "DOC-0131",
+        "sha256": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "22.182,82",
+        "normalizado": "22182.82",
+        "pagina": 39,
+        "documentoId": "DOC-0131",
+        "sha256": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "22182.82",
+      "divergencia": "0.00",
+      "pagina": 39,
+      "documentoId": "DOC-0131",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada"
+    },
+    {
+      "sequencia": 1,
+      "produto": "KG 649 44",
+      "descricaoCompleta": "1 Kg 649 44,04 28.581,96 Secretaria de Estado de Educação SEDUC Diretoria Regional de Educação de Pontes e Lacerda-DRE 1 Kg",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "649",
+        "normalizado": "649.00",
+        "pagina": 39,
+        "documentoId": "DOC-0131",
+        "sha256": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "44,04",
+        "normalizado": "44.04",
+        "pagina": 39,
+        "documentoId": "DOC-0131",
+        "sha256": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "28.581,96",
+        "normalizado": "28581.96",
+        "pagina": 39,
+        "documentoId": "DOC-0131",
+        "sha256": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "28581.96",
+      "divergencia": "0.00",
+      "pagina": 39,
+      "documentoId": "DOC-0131",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada"
     },
     {
       "sequencia": 123,
@@ -1467,12 +1839,57 @@
     },
     {
       "tipo": "item_conferencia",
+      "descricao": "item 52 (FARINHA DE MANDIOCA): quantidade ambígua: \"1.511\" | unidade comercial não identificada",
+      "origem": "DOC-0131"
+    },
+    {
+      "tipo": "item_conferencia",
       "descricao": "item 65 (LARANJA PÊRA): quantidade ambígua: \"4.242\"",
       "origem": "DOC-0131"
     },
     {
       "tipo": "item_conferencia",
+      "descricao": "item 73 (MANDIOCA DESCASCADA CONGELADA): quantidade ambígua: \"1.894\" | unidade comercial não identificada",
+      "origem": "DOC-0131"
+    },
+    {
+      "tipo": "item_conferencia",
       "descricao": "item 83 (MELANCIA): quantidade ambígua: \"2.607\"",
+      "origem": "DOC-0131"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 84 (MELÃO): quantidade ambígua: \"2.086\"",
+      "origem": "DOC-0131"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 1 (KG 649 34): unidade comercial não identificada",
+      "origem": "DOC-0131"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 1 (KG 649 34): unidade comercial não identificada",
+      "origem": "DOC-0131"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 1 (KG 649 34): unidade comercial não identificada",
+      "origem": "DOC-0131"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 1 (KG 649 34): unidade comercial não identificada",
+      "origem": "DOC-0131"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 1 (KG 649 34): unidade comercial não identificada",
+      "origem": "DOC-0131"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 1 (KG 649 44): unidade comercial não identificada",
       "origem": "DOC-0131"
     },
     {
@@ -1560,6 +1977,6 @@
     "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
     "documentosValidados": 1,
     "itensDoManifesto": 0,
-    "itensExtraidosPdf": 41
+    "itensExtraidosPdf": 50
   }
 }

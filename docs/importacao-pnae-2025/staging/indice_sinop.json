@@ -1,6 +1,6 @@
 {
   "dre": "Sinop",
-  "geradoEm": "2026-10-12T19:29:45.450Z",
+  "geradoEm": "2026-10-12T20:16:16.951Z",
   "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
   "procedimentos": [
     {
@@ -43,7 +43,7 @@
       "idPacote": "ED-0065",
       "chaveLogica": "dcf5f661f78e6ca1cc6c8a7dfac14c96",
       "decisao": "APROVADO",
-      "numero": "23/2024",
+      "numero": "023/2024",
       "municipio": "ITAÚBA",
       "itens": 42,
       "pendencias": 43,

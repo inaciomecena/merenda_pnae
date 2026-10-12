@@ -48,6 +48,7 @@ const DashboardFinanceiroPage = lazy(() => import('./pages/DashboardFinanceiroPa
 const PrestacaoContasPage = lazy(() => import('./pages/PrestacaoContasPage'));
 const ChamadasPublicasPage = lazy(() => import('./pages/ChamadasPublicasPage'));
 const GestaoOperacionalPage = lazy(() => import('./pages/GestaoOperacionalPage'));
+const MeuCampoPage = lazy(() => import('./pages/MeuCampoPage'));
 
 function Loading() {
   return (
@@ -75,6 +76,7 @@ function AppRoutes() {
         <Route element={<Layout />}>
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
           <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
+          <Route path="/meu-campo" element={<ProtectedRoute allowedRoles={['ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR']}><MeuCampoPage /></ProtectedRoute>} />
           <Route path="/mapa" element={<ProtectedRoute allowedRoles={['ADMIN']}><MapPage /></ProtectedRoute>} />
           <Route path="/relatorios" element={<ProtectedRoute allowedRoles={['ADMIN']}><RelatoriosPage /></ProtectedRoute>} />
           <Route path="/municipios" element={<ProtectedRoute allowedRoles={['ADMIN']}><MunicipiosPage /></ProtectedRoute>} />

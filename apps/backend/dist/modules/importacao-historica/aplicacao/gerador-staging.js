@@ -39,6 +39,7 @@ const fs = __importStar(require("fs"));
 const path = __importStar(require("path"));
 const classificacao_pacote_1 = require("../dominio/classificacao-pacote");
 const chaves_logicas_1 = require("../dominio/chaves-logicas");
+const classificacao_pacote_2 = require("../dominio/classificacao-pacote");
 const leitor_pacote_1 = require("./leitor-pacote");
 const extrator_documento_1 = require("./extrator-documento");
 const resolucao_institucional_1 = require("./resolucao-institucional");
@@ -103,10 +104,11 @@ async function gerarStaging(opcoes) {
         if (!editalPacote)
             continue;
         const { municipio: municipioPuro, recorte } = (0, chaves_logicas_1.separarMunicipioERecorte)(editalPacote.municipio ?? null);
+        const numeroNormalizado = (0, classificacao_pacote_2.normalizarNumeroComJustificativa)(editalPacote.numero ?? null);
         const chave = (0, chaves_logicas_1.chaveLogicaEdital)({
             dre: editalPacote.dre,
             tipoProcedimento: editalPacote.tipo ?? null,
-            numero: editalPacote.numero ?? null,
+            numero: numeroNormalizado.normalizado,
             anoNumeracao: editalPacote.ano_numeracao ?? null,
             exercicio: editalPacote.exercicio ?? null,
             recorte: (0, chaves_logicas_1.normalizarRecorte)(recorte === 'NAO_IDENTICO' ? null : recorte),
@@ -134,6 +136,16 @@ async function gerarStaging(opcoes) {
                     itens = (0, extrator_documento_1.extrairItens)(paginas, docPrincipal.id_documento, validacao.sha256_calculado);
                 }
                 anexos = (0, extrator_documento_1.extrairAnexos)(paginas, docPrincipal.id_documento);
+                const numeroExtraido = (0, classificacao_pacote_2.normalizarNumeroComJustificativa)(identificacao.numeroBruto ?? editalPacote.numero ?? null);
+                identificacao = {
+                    ...identificacao,
+                    numeroBruto: numeroExtraido.bruto ?? identificacao.numeroBruto,
+                    numeroNormalizado: numeroExtraido.normalizado ?? identificacao.numeroNormalizado,
+                    observacoes: [
+                        ...identificacao.observacoes,
+                        ...(numeroExtraido.justificativa ? [numeroExtraido.justificativa] : []),
+                    ],
+                };
                 log(`${editalPacote.id} (${editalPacote.dre}/${editalPacote.numero}): ${itens.length} itens extraídos de ${docPrincipal.id_documento}`);
             }
             catch (erro) {
@@ -223,9 +235,10 @@ async function gerarStaging(opcoes) {
     return { staging, decisoes, duplicados, manifestoSha256: pacote.manifestoSha256, resumo };
 }
 function identificacaoFallback(editalPacote, vinculos) {
+    const numero = (0, classificacao_pacote_2.normalizarNumeroComJustificativa)(editalPacote.numero ?? null);
     return {
-        numeroBruto: editalPacote.numero ?? null,
-        numeroNormalizado: editalPacote.numero ?? null,
+        numeroBruto: numero.bruto,
+        numeroNormalizado: numero.normalizado,
         anoNumeracao: editalPacote.ano_numeracao ?? null,
         exercicio: editalPacote.exercicio ?? null,
         exercicioEvidencia: [],
@@ -244,7 +257,10 @@ function identificacaoFallback(editalPacote, vinculos) {
         condicoesEntrega: null,
         condicoesPagamento: null,
         valorEstimado: null,
-        observacoes: ['identificação preenchida a partir do manifesto (extração de PDF não realizada ou indisponível)'],
+        observacoes: [
+            'identificação preenchida a partir do manifesto (extração de PDF não realizada ou indisponível)',
+            ...(numero.justificativa ? [numero.justificativa] : []),
+        ],
     };
 }
 function gravarStaging(resultado, destinoRaiz) {

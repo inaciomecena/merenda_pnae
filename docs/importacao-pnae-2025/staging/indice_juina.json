@@ -1,6 +1,6 @@
 {
   "dre": "Juína",
-  "geradoEm": "2026-10-12T19:29:45.448Z",
+  "geradoEm": "2026-10-12T20:16:16.949Z",
   "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
   "procedimentos": [
     {
@@ -9,8 +9,8 @@
       "decisao": "APROVADO",
       "numero": "026/2024",
       "municipio": "Castanheira",
-      "itens": 30,
-      "pendencias": 17,
+      "itens": 40,
+      "pendencias": 27,
       "arquivos": [
         "PNAE_MT_2025/06_JUINA/DOC-0016_castanheiraedital--chamada-pUblica-2025docx-PO0m.pdf"
       ]
@@ -21,8 +21,8 @@
       "decisao": "APROVADO",
       "numero": "017/2024",
       "municipio": "Brasnorte",
-      "itens": 39,
-      "pendencias": 32,
+      "itens": 53,
+      "pendencias": 46,
       "arquivos": [
         "PNAE_MT_2025/06_JUINA/DOC-0017_brasnorteedital--chamada-pUblica-2025docx-ZQmt.pdf"
       ]
@@ -31,10 +31,10 @@
       "idPacote": "ED-0017",
       "chaveLogica": "3081243cf062539ffef4dfff8d1c4cb0",
       "decisao": "APROVADO",
-      "numero": "20/2024",
+      "numero": "020/2024",
       "municipio": "Juína",
-      "itens": 28,
-      "pendencias": 23,
+      "itens": 43,
+      "pendencias": 37,
       "arquivos": [
         "PNAE_MT_2025/06_JUINA/DOC-0018_juinaedital--chamada-pUblica-2025-juinadocx-d5go.pdf"
       ]
@@ -43,10 +43,10 @@
       "idPacote": "ED-0018",
       "chaveLogica": "98009d48046042065ad02979695148e4",
       "decisao": "APROVADO",
-      "numero": "19/2024",
+      "numero": "019/2024",
       "municipio": "COTRIGUAÇU",
-      "itens": 31,
-      "pendencias": 24,
+      "itens": 44,
+      "pendencias": 36,
       "arquivos": [
         "PNAE_MT_2025/06_JUINA/DOC-0019_cotriguacuedital--chamada-pUblica-2025-t7Br.pdf",
         "PNAE_MT_2025/06_JUINA/DOC-0020_cotriguacuedital--chamada-pUblica-2025-2-MbYw.pdf"
@@ -56,10 +56,10 @@
       "idPacote": "ED-0019",
       "chaveLogica": "ffa65d31039a5fad523a743422ece51e",
       "decisao": "APROVADO",
-      "numero": "25/2024",
+      "numero": "025/2024",
       "municipio": "Novo Horizonte do Norte",
-      "itens": 28,
-      "pendencias": 22,
+      "itens": 42,
+      "pendencias": 35,
       "arquivos": [
         "PNAE_MT_2025/06_JUINA/DOC-0021_novo-horizonte-edital--chamada-pUblica-2025pos-parecer-2docx-FGAB.pdf"
       ]
@@ -70,8 +70,8 @@
       "decisao": "APROVADO",
       "numero": "024/2024",
       "municipio": "Porto dos Gaúchos",
-      "itens": 33,
-      "pendencias": 25,
+      "itens": 46,
+      "pendencias": 38,
       "arquivos": [
         "PNAE_MT_2025/06_JUINA/DOC-0022_porto-edital--chamada-pUblica-2025docx-1-zvmJ.pdf"
       ]
@@ -80,10 +80,10 @@
       "idPacote": "ED-0021",
       "chaveLogica": "145333114d57aab770886c46dcd0b799",
       "decisao": "APROVADO",
-      "numero": "22/2024",
+      "numero": "022/2024",
       "municipio": "JUARA",
-      "itens": 31,
-      "pendencias": 26,
+      "itens": 42,
+      "pendencias": 36,
       "arquivos": [
         "PNAE_MT_2025/06_JUINA/DOC-0023_juara-indigenaedital--chamada-pUblica-2025pos-parecer-1docx-5sZw.pdf"
       ]
@@ -92,10 +92,10 @@
       "idPacote": "ED-0022",
       "chaveLogica": "11a81ed57582972394eb470e42781ca3",
       "decisao": "APROVADO",
-      "numero": "21/2024",
+      "numero": "021/2024",
       "municipio": "JUARA",
-      "itens": 45,
-      "pendencias": 39,
+      "itens": 47,
+      "pendencias": 42,
       "arquivos": [
         "PNAE_MT_2025/06_JUINA/DOC-0024_juaraedital-docx-atRm.pdf"
       ]
@@ -118,8 +118,8 @@
       "decisao": "APROVADO",
       "numero": "015/2024",
       "municipio": "Aripuanã",
-      "itens": 33,
-      "pendencias": 27,
+      "itens": 46,
+      "pendencias": 40,
       "arquivos": [
         "PNAE_MT_2025/06_JUINA/DOC-0026_aripuana-edital--chamada-pUblica-2025pos-parecerdocx-1-gKjW.pdf",
         "PNAE_MT_2025/06_JUINA/DOC-0027_aripuana-edital--chamada-pUblica-2025pos-parecerdocx-1-xI4f.pdf"

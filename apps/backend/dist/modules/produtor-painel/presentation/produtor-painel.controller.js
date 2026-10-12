@@ -24,6 +24,7 @@ let ProdutorPainelController = class ProdutorPainelController {
         this.service = service;
     }
     u(req) { return req.user; }
+    vinculos(req) { return this.service.meusProdutores(this.u(req)); }
     painel(id, req) { return this.service.painel(this.u(req), id); }
     unidades(id, req) { return this.service.unidades(this.u(req), id); }
     criarUnidade(dto, id, req) { return this.service.criarUnidade(dto, this.u(req), id); }
@@ -48,6 +49,14 @@ let ProdutorPainelController = class ProdutorPainelController {
     revisar(id, status, req) { return this.service.revisarMapeamento(id, status, this.u(req)); }
 };
 exports.ProdutorPainelController = ProdutorPainelController;
+__decorate([
+    (0, common_1.Get)('meus-vinculos'),
+    (0, roles_decorator_1.Roles)(...PRODUCER_ROLES),
+    __param(0, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], ProdutorPainelController.prototype, "vinculos", null);
 __decorate([
     (0, common_1.Get)('meu-painel'),
     (0, roles_decorator_1.Roles)(...PRODUCER_ROLES),
@@ -222,7 +231,7 @@ __decorate([
 ], ProdutorPainelController.prototype, "assistencias", null);
 __decorate([
     (0, common_1.Post)('assistencia-tecnica'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
@@ -231,7 +240,7 @@ __decorate([
 ], ProdutorPainelController.prototype, "criarAssistencia", null);
 __decorate([
     (0, common_1.Patch)('assistencia-tecnica/:id'),
-    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA', 'PRODUTOR'),
+    (0, roles_decorator_1.Roles)('ADMIN'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __param(2, (0, common_1.Req)()),
@@ -269,6 +278,7 @@ let CatalogoProdutosController = class CatalogoProdutosController {
         this.service = service;
     }
     listar() { return this.service.catalogo(); }
+    nutricao(id) { return this.service.nutricao(id); }
     obter(id) { return this.service.catalogoItem(id); }
     solicitar(dto, req) { return this.service.solicitarCatalogo(dto, req.user); }
 };
@@ -280,6 +290,14 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], CatalogoProdutosController.prototype, "listar", null);
+__decorate([
+    (0, common_1.Get)(':id/nutricao'),
+    (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR', 'DRE', 'ESCOLA'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], CatalogoProdutosController.prototype, "nutricao", null);
 __decorate([
     (0, common_1.Get)(':id'),
     (0, roles_decorator_1.Roles)('ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR', 'DRE', 'ESCOLA'),

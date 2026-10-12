@@ -1,6 +1,6 @@
 {
   "schema": "importacao-historica-pnae/1.0",
-  "geradoEm": "2026-10-12T19:29:26.676Z",
+  "geradoEm": "2026-10-12T20:15:45.468Z",
   "idPacote": "ED-0022",
   "dre": "Juína",
   "chaveLogica": "11a81ed57582972394eb470e42781ca3",
@@ -8,7 +8,7 @@
   "motivosBloqueio": [],
   "identificacao": {
     "numeroBruto": "21/2024",
-    "numeroNormalizado": "21/2024",
+    "numeroNormalizado": "021/2024",
     "anoNumeracao": 2024,
     "exercicio": 2025,
     "exercicioEvidencia": [
@@ -211,7 +211,7 @@
       "sequencia": 6,
       "produto": "AÇAFRÃO",
       "descricaoCompleta": "6. AÇAFRÃO, torrado, em pó fino e homogêneo, com aspecto, cor, cheiro e sabor próprios, isenta de impurezas e umidade. As características deverão atender aos requisitos mínimos de",
-      "unidadeComercial": "UNIDADE DE 30G",
+      "unidadeComercial": null,
       "embalagem": null,
       "quantidade": {
         "bruto": "851",
@@ -245,8 +245,8 @@
       "pagina": 4,
       "documentoId": "DOC-0024",
       "metodo": "pdf_texto_regex",
-      "statusRevisao": "extraido",
-      "pendencia": null
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada"
     },
     {
       "sequencia": 8,
@@ -543,7 +543,7 @@
       "sequencia": 25,
       "produto": "BEBIDA LÁCTEA FERMENTADA SABOR MORANGO",
       "descricaoCompleta": "25. BEBIDA LÁCTEA FERMENTADA SABOR MORANGO, pasteurizado, podendo ser integral ou não, e/ou leite reconstituído, soro de leite, açúcar, preparado de morango sem corante",
-      "unidadeComercial": "UNIDADE DE 900G",
+      "unidadeComercial": null,
       "embalagem": null,
       "quantidade": {
         "bruto": "3.337",
@@ -579,7 +579,7 @@
       "documentoId": "DOC-0024",
       "metodo": "pdf_texto_regex",
       "statusRevisao": "pendente_conferencia",
-      "pendencia": "quantidade ambígua: \"3.337\""
+      "pendencia": "quantidade ambígua: \"3.337\" | unidade comercial não identificada"
     },
     {
       "sequencia": 26,
@@ -705,6 +705,47 @@
       "metodo": "pdf_texto_regex",
       "statusRevisao": "pendente_conferencia",
       "pendencia": "quantidade ambígua: \"1.921\""
+    },
+    {
+      "sequencia": 37,
+      "produto": "CAFÉ TORRADO E MOÍDO",
+      "descricaoCompleta": "37. CAFÉ TORRADO E MOÍDO, 1ª qualidade, tipo tradicional. Pó homogêneo, aroma e sabor característicos de regular a intenso, isento de grãos pretos, verdes ou 37.",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "568",
+        "normalizado": "568.00",
+        "pagina": 13,
+        "documentoId": "DOC-0024",
+        "sha256": "ce762815c672efc76f002354e776ca31f18ebf409ae8e7b5fc50abf3ac9173ef",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "26,00",
+        "normalizado": "26.00",
+        "pagina": 13,
+        "documentoId": "DOC-0024",
+        "sha256": "ce762815c672efc76f002354e776ca31f18ebf409ae8e7b5fc50abf3ac9173ef",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "14.766,11",
+        "normalizado": "14766.11",
+        "pagina": 13,
+        "documentoId": "DOC-0024",
+        "sha256": "ce762815c672efc76f002354e776ca31f18ebf409ae8e7b5fc50abf3ac9173ef",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "14768.00",
+      "divergencia": "-1.89",
+      "pagina": 13,
+      "documentoId": "DOC-0024",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada | total informado na fonte difere de quantidade × preço unitário em 1.89"
     },
     {
       "sequencia": 42,
@@ -834,7 +875,7 @@
       "sequencia": 47,
       "produto": "COLORAU",
       "descricaoCompleta": "47. COLORAU, corante, natural de urucum com aspecto, cor e cheiro próprio, podendo conter fubá de milho e óleo de soja. As características deverão atender aos requisitos",
-      "unidadeComercial": "UNIDADE DE 30G",
+      "unidadeComercial": null,
       "embalagem": null,
       "quantidade": {
         "bruto": "7.398",
@@ -870,7 +911,7 @@
       "documentoId": "DOC-0024",
       "metodo": "pdf_texto_regex",
       "statusRevisao": "pendente_conferencia",
-      "pendencia": "quantidade ambígua: \"7.398\""
+      "pendencia": "quantidade ambígua: \"7.398\" | unidade comercial não identificada"
     },
     {
       "sequencia": 48,
@@ -913,6 +954,48 @@
       "metodo": "pdf_texto_regex",
       "statusRevisao": "pendente_conferencia",
       "pendencia": "quantidade ambígua: \"3.279\""
+    },
+    {
+      "sequencia": 52,
+      "produto": "FARINHA DE MANDIOCA",
+      "descricaoCompleta": "52. FARINHA DE MANDIOCA, do tipo branca ou amarela, torrada, grupo seco, subgrupo média, classe branca, isenta de matéria terrosa, fungos ou parasitas, umidade e fragmentos 52.",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "1.223",
+        "normalizado": null,
+        "pagina": 18,
+        "documentoId": "DOC-0024",
+        "sha256": "ce762815c672efc76f002354e776ca31f18ebf409ae8e7b5fc50abf3ac9173ef",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "pendente_revisao",
+        "pendencia": "formato fora do padrão brasileiro reconhecido (esperado \"1.234,56\"): \"1.223\""
+      },
+      "precoUnitario": {
+        "bruto": "12,63",
+        "normalizado": "12.63",
+        "pagina": 18,
+        "documentoId": "DOC-0024",
+        "sha256": "ce762815c672efc76f002354e776ca31f18ebf409ae8e7b5fc50abf3ac9173ef",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "15.442,41",
+        "normalizado": "15442.41",
+        "pagina": 18,
+        "documentoId": "DOC-0024",
+        "sha256": "ce762815c672efc76f002354e776ca31f18ebf409ae8e7b5fc50abf3ac9173ef",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 18,
+      "documentoId": "DOC-0024",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "quantidade ambígua: \"1.223\" | unidade comercial não identificada"
     },
     {
       "sequencia": 62,
@@ -1001,7 +1084,7 @@
       "sequencia": 67,
       "produto": "LEITE UHT INTEGRAL",
       "descricaoCompleta": "67. LEITE UHT INTEGRAL, estabilizantes citrato de sódio, trifosfato de sódio, monofosfato de sódio e difosfato de sódio. Não contém glúten. As características de qualidade",
-      "unidadeComercial": "UNIDADE DE 1 LITRO",
+      "unidadeComercial": null,
       "embalagem": null,
       "quantidade": {
         "bruto": "9.226",
@@ -1037,7 +1120,7 @@
       "documentoId": "DOC-0024",
       "metodo": "pdf_texto_regex",
       "statusRevisao": "pendente_conferencia",
-      "pendencia": "quantidade ambígua: \"9.226\""
+      "pendencia": "quantidade ambígua: \"9.226\" | unidade comercial não identificada"
     },
     {
       "sequencia": 69,
@@ -1126,7 +1209,7 @@
       "sequencia": 73,
       "produto": "MANDIOCA DESCASCADA CONGELADA",
       "descricaoCompleta": "73. MANDIOCA DESCASCADA CONGELADA, livre de sujidades, insetos, larvas e fungos, isenta de podridões, consistência firme. Acondicionada em saco plástico",
-      "unidadeComercial": "UNIDADE DE 1KG",
+      "unidadeComercial": null,
       "embalagem": null,
       "quantidade": {
         "bruto": "1.640",
@@ -1162,13 +1245,13 @@
       "documentoId": "DOC-0024",
       "metodo": "pdf_texto_regex",
       "statusRevisao": "pendente_conferencia",
-      "pendencia": "quantidade ambígua: \"1.640\""
+      "pendencia": "quantidade ambígua: \"1.640\" | unidade comercial não identificada"
     },
     {
       "sequencia": 78,
       "produto": "MANTEIGA PURA COM SAL",
       "descricaoCompleta": "78. MANTEIGA PURA COM SAL, obtida do creme de leite, adicionado de cloreto de sódio e corante natural, SEM ADITIVOS QUÍMICOS. As características deverão atender aos",
-      "unidadeComercial": "UNIDADE DE 500G",
+      "unidadeComercial": null,
       "embalagem": null,
       "quantidade": {
         "bruto": "1.878",
@@ -1204,7 +1287,7 @@
       "documentoId": "DOC-0024",
       "metodo": "pdf_texto_regex",
       "statusRevisao": "pendente_conferencia",
-      "pendencia": "quantidade ambígua: \"1.878\""
+      "pendencia": "quantidade ambígua: \"1.878\" | unidade comercial não identificada"
     },
     {
       "sequencia": 83,
@@ -1378,7 +1461,7 @@
       "sequencia": 105,
       "produto": "PEIXE TAMBATINGA FILÉ",
       "descricaoCompleta": "105. PEIXE TAMBATINGA FILÉ, peixe de água doce, tambatinga, eviscerado, sem cabeça, sem nadadeiras, sem cauda, sem espinha, sem pele, filé espalmado. As características deverão",
-      "unidadeComercial": "UNIDADE DE 1KG",
+      "unidadeComercial": null,
       "embalagem": null,
       "quantidade": {
         "bruto": "1.869",
@@ -1414,7 +1497,7 @@
       "documentoId": "DOC-0024",
       "metodo": "pdf_texto_regex",
       "statusRevisao": "pendente_conferencia",
-      "pendencia": "quantidade ambígua: \"1.869\""
+      "pendencia": "quantidade ambígua: \"1.869\" | unidade comercial não identificada"
     },
     {
       "sequencia": 107,
@@ -1543,7 +1626,7 @@
       "sequencia": 113,
       "produto": "POLPA DE ACEROLA",
       "descricaoCompleta": "113. POLPA DE ACEROLA, SEM adição de açúcar e ausente de substâncias estranhas. Produto congelado, não fermentado e sem conservantes. As características deverão atender aos",
-      "unidadeComercial": "UNIDADE DE 1 KG",
+      "unidadeComercial": null,
       "embalagem": null,
       "quantidade": {
         "bruto": "966",
@@ -1578,13 +1661,13 @@
       "documentoId": "DOC-0024",
       "metodo": "pdf_texto_regex",
       "statusRevisao": "pendente_conferencia",
-      "pendencia": "total informado na fonte difere de quantidade × preço unitário em 3.22"
+      "pendencia": "unidade comercial não identificada | total informado na fonte difere de quantidade × preço unitário em 3.22"
     },
     {
       "sequencia": 117,
       "produto": "POLPA DE MARACUJÁ",
       "descricaoCompleta": "117. POLPA DE MARACUJÁ, SEM adição de açúcar e ausente de substâncias estranhas. Produto congelado, não fermentado e sem conservantes. As características",
-      "unidadeComercial": "UNIDADE DE 1 KG",
+      "unidadeComercial": null,
       "embalagem": null,
       "quantidade": {
         "bruto": "966",
@@ -1619,7 +1702,7 @@
       "documentoId": "DOC-0024",
       "metodo": "pdf_texto_regex",
       "statusRevisao": "pendente_conferencia",
-      "pendencia": "total informado na fonte difere de quantidade × preço unitário em 3.22"
+      "pendencia": "unidade comercial não identificada | total informado na fonte difere de quantidade × preço unitário em 3.22"
     },
     {
       "sequencia": 119,
@@ -1750,7 +1833,7 @@
       "sequencia": 122,
       "produto": "REQUEIJÃO CREMOSO",
       "descricaoCompleta": "122. REQUEIJÃO CREMOSO, produzido com creme de leite, leite desnatado, cloreto de sódio, fermento lácteo, estabilizante. As características deverão atender aos requisitos",
-      "unidadeComercial": "UNIDADE DE 200G",
+      "unidadeComercial": null,
       "embalagem": null,
       "quantidade": {
         "bruto": "490",
@@ -1785,7 +1868,7 @@
       "documentoId": "DOC-0024",
       "metodo": "pdf_texto_regex",
       "statusRevisao": "pendente_conferencia",
-      "pendencia": "total informado na fonte difere de quantidade × preço unitário em 1.63"
+      "pendencia": "unidade comercial não identificada | total informado na fonte difere de quantidade × preço unitário em 1.63"
     },
     {
       "sequencia": 123,
@@ -1973,6 +2056,11 @@
     },
     {
       "tipo": "item_conferencia",
+      "descricao": "item 6 (AÇAFRÃO): unidade comercial não identificada",
+      "origem": "DOC-0024"
+    },
+    {
+      "tipo": "item_conferencia",
       "descricao": "item 13 (ALMEIRÃO): quantidade ambígua: \"1.167\"",
       "origem": "DOC-0024"
     },
@@ -1998,7 +2086,7 @@
     },
     {
       "tipo": "item_conferencia",
-      "descricao": "item 25 (BEBIDA LÁCTEA FERMENTADA SABOR MORANGO): quantidade ambígua: \"3.337\"",
+      "descricao": "item 25 (BEBIDA LÁCTEA FERMENTADA SABOR MORANGO): quantidade ambígua: \"3.337\" | unidade comercial não identificada",
       "origem": "DOC-0024"
     },
     {
@@ -2009,6 +2097,11 @@
     {
       "tipo": "item_conferencia",
       "descricao": "item 34 (BOLO DE LARANJA): quantidade ambígua: \"1.921\"",
+      "origem": "DOC-0024"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 37 (CAFÉ TORRADO E MOÍDO): unidade comercial não identificada | total informado na fonte difere de quantidade × preço unitário em 1.89",
       "origem": "DOC-0024"
     },
     {
@@ -2028,12 +2121,17 @@
     },
     {
       "tipo": "item_conferencia",
-      "descricao": "item 47 (COLORAU): quantidade ambígua: \"7.398\"",
+      "descricao": "item 47 (COLORAU): quantidade ambígua: \"7.398\" | unidade comercial não identificada",
       "origem": "DOC-0024"
     },
     {
       "tipo": "item_conferencia",
       "descricao": "item 48 (COUVE): quantidade ambígua: \"3.279\"",
+      "origem": "DOC-0024"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 52 (FARINHA DE MANDIOCA): quantidade ambígua: \"1.223\" | unidade comercial não identificada",
       "origem": "DOC-0024"
     },
     {
@@ -2048,7 +2146,7 @@
     },
     {
       "tipo": "item_conferencia",
-      "descricao": "item 67 (LEITE UHT INTEGRAL): quantidade ambígua: \"9.226\"",
+      "descricao": "item 67 (LEITE UHT INTEGRAL): quantidade ambígua: \"9.226\" | unidade comercial não identificada",
       "origem": "DOC-0024"
     },
     {
@@ -2063,12 +2161,12 @@
     },
     {
       "tipo": "item_conferencia",
-      "descricao": "item 73 (MANDIOCA DESCASCADA CONGELADA): quantidade ambígua: \"1.640\"",
+      "descricao": "item 73 (MANDIOCA DESCASCADA CONGELADA): quantidade ambígua: \"1.640\" | unidade comercial não identificada",
       "origem": "DOC-0024"
     },
     {
       "tipo": "item_conferencia",
-      "descricao": "item 78 (MANTEIGA PURA COM SAL): quantidade ambígua: \"1.878\"",
+      "descricao": "item 78 (MANTEIGA PURA COM SAL): quantidade ambígua: \"1.878\" | unidade comercial não identificada",
       "origem": "DOC-0024"
     },
     {
@@ -2093,7 +2191,7 @@
     },
     {
       "tipo": "item_conferencia",
-      "descricao": "item 105 (PEIXE TAMBATINGA FILÉ): quantidade ambígua: \"1.869\"",
+      "descricao": "item 105 (PEIXE TAMBATINGA FILÉ): quantidade ambígua: \"1.869\" | unidade comercial não identificada",
       "origem": "DOC-0024"
     },
     {
@@ -2113,12 +2211,12 @@
     },
     {
       "tipo": "item_conferencia",
-      "descricao": "item 113 (POLPA DE ACEROLA): total informado na fonte difere de quantidade × preço unitário em 3.22",
+      "descricao": "item 113 (POLPA DE ACEROLA): unidade comercial não identificada | total informado na fonte difere de quantidade × preço unitário em 3.22",
       "origem": "DOC-0024"
     },
     {
       "tipo": "item_conferencia",
-      "descricao": "item 117 (POLPA DE MARACUJÁ): total informado na fonte difere de quantidade × preço unitário em 3.22",
+      "descricao": "item 117 (POLPA DE MARACUJÁ): unidade comercial não identificada | total informado na fonte difere de quantidade × preço unitário em 3.22",
       "origem": "DOC-0024"
     },
     {
@@ -2133,7 +2231,7 @@
     },
     {
       "tipo": "item_conferencia",
-      "descricao": "item 122 (REQUEIJÃO CREMOSO): total informado na fonte difere de quantidade × preço unitário em 1.63",
+      "descricao": "item 122 (REQUEIJÃO CREMOSO): unidade comercial não identificada | total informado na fonte difere de quantidade × preço unitário em 1.63",
       "origem": "DOC-0024"
     },
     {
@@ -2156,6 +2254,6 @@
     "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
     "documentosValidados": 1,
     "itensDoManifesto": 0,
-    "itensExtraidosPdf": 45
+    "itensExtraidosPdf": 47
   }
 }

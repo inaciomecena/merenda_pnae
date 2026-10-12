@@ -16,6 +16,7 @@ import * as path from 'path';
 import { ManifestoPacote, StagingEdital, ItemExtraido, PapelDocumento, DecisaoPacote, VinculoInstitucional } from '../dominio/tipos';
 import { classificarPacote, DecisaoClassificacao } from '../dominio/classificacao-pacote';
 import { chaveLogicaEdital, chaveVersaoDocumento, classificarPapelDocumento, normalizarRecorte, separarMunicipioERecorte } from '../dominio/chaves-logicas';
+import { normalizarNumeroComJustificativa as normalizarNumeroEdital } from '../dominio/classificacao-pacote';
 import { PacoteCarregado, carregarPacote, agruparDuplicados } from './leitor-pacote';
 import { lerPaginasPdf, extrairItens, extrairIdentificacao, extrairAnexos } from './extrator-documento';
 import {
@@ -132,10 +133,11 @@ export async function gerarStaging(opcoes: OpcoesStaging): Promise<ResultadoStag
     if (!editalPacote) continue;
 
     const { municipio: municipioPuro, recorte } = separarMunicipioERecorte(editalPacote.municipio ?? null);
+    const numeroNormalizado = normalizarNumeroEdital(editalPacote.numero ?? null);
     const chave = chaveLogicaEdital({
       dre: editalPacote.dre,
       tipoProcedimento: editalPacote.tipo ?? null,
-      numero: editalPacote.numero ?? null,
+      numero: numeroNormalizado.normalizado,
       anoNumeracao: editalPacote.ano_numeracao ?? null,
       exercicio: editalPacote.exercicio ?? null,
       recorte: normalizarRecorte(recorte === ('NAO_IDENTICO' as never) ? null : recorte),
@@ -169,6 +171,18 @@ export async function gerarStaging(opcoes: OpcoesStaging): Promise<ResultadoStag
           itens = extrairItens(paginas, docPrincipal.id_documento, validacao.sha256_calculado);
         }
         anexos = extrairAnexos(paginas, docPrincipal.id_documento);
+        // Normaliza o número lido no PDF (zero-pad) preservando a grafia bruta
+        // em `numeroBruto` e registrando a justificativa quando houver.
+        const numeroExtraido = normalizarNumeroEdital(identificacao.numeroBruto ?? editalPacote.numero ?? null);
+        identificacao = {
+          ...identificacao,
+          numeroBruto: numeroExtraido.bruto ?? identificacao.numeroBruto,
+          numeroNormalizado: numeroExtraido.normalizado ?? identificacao.numeroNormalizado,
+          observacoes: [
+            ...identificacao.observacoes,
+            ...(numeroExtraido.justificativa ? [numeroExtraido.justificativa] : []),
+          ],
+        };
         log(`${editalPacote.id} (${editalPacote.dre}/${editalPacote.numero}): ${itens.length} itens extraídos de ${docPrincipal.id_documento}`);
       } catch (erro) {
         errosExtracao.push({ documentoId: docPrincipal.id_documento, erro: (erro as Error).message });
@@ -270,9 +284,10 @@ function identificacaoFallback(
   editalPacote: { numero?: string | null; exercicio?: number | null; ano_numeracao?: number | null; municipio?: string | null; dre: string; objeto?: string | null; cnpj?: string | null; unidade_executora?: string | null },
   vinculos: VinculoInstitucional,
 ): StagingEdital['identificacao'] {
+  const numero = normalizarNumeroEdital(editalPacote.numero ?? null);
   return {
-    numeroBruto: editalPacote.numero ?? null,
-    numeroNormalizado: editalPacote.numero ?? null,
+    numeroBruto: numero.bruto,
+    numeroNormalizado: numero.normalizado,
     anoNumeracao: editalPacote.ano_numeracao ?? null,
     exercicio: editalPacote.exercicio ?? null,
     exercicioEvidencia: [],
@@ -291,7 +306,10 @@ function identificacaoFallback(
     condicoesEntrega: null,
     condicoesPagamento: null,
     valorEstimado: null,
-    observacoes: ['identificação preenchida a partir do manifesto (extração de PDF não realizada ou indisponível)'],
+    observacoes: [
+      'identificação preenchida a partir do manifesto (extração de PDF não realizada ou indisponível)',
+      ...(numero.justificativa ? [numero.justificativa] : []),
+    ],
   };
 }
 

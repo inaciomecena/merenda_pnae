@@ -1,19 +1,19 @@
 {
-  "databaseUrl": "mysql://root:@localhost:3306/merenda_pnae_sdd005_regressao_20261012?charset=utf8mb4",
-  "contratoId": "98edec20-cc91-437a-b219-28e62cb2b499",
-  "fornecedorId": "3551dbf3-4786-42cc-8b8d-1be04df8465a",
-  "contratoItemId": "3c9512b8-6562-477a-97b0-b3a5bc367b57",
-  "entregaId": "16d366b4-ed74-4ff6-b373-12a9932fcd9b",
-  "entregaItemId": "f25061de-a3a6-4baa-81c2-4122746ddf9e",
-  "dreAId": "55bf3b81-38e0-4d00-b3d4-cecbc60db2e8",
-  "dreBId": "7bacae08-8d49-4c38-a349-565d87304d4f",
-  "escolaId": "d56637e2-c4a4-411d-9bb6-fb65e4724d85",
-  "municipioId": "71ee2dd2-c666-11f1-8f2d-6451061ac5e7",
+  "databaseUrl": "mysql://root@localhost:3306/merenda_pnae_sdd005_mv5p1ho3?charset=utf8mb4",
+  "contratoId": "2d6bf991-b196-44af-abd0-4eaf1dd14bac",
+  "fornecedorId": "1a4549a2-6b22-4ea3-a8c3-d0991e68eb94",
+  "contratoItemId": "ba128edf-e94b-4ced-80d2-e9953df63f16",
+  "entregaId": "3d772718-2efb-43ed-9b54-0c7cfe387590",
+  "entregaItemId": "ef12eae4-076d-470a-9166-f4619c577c58",
+  "dreAId": "5ed4087a-ec0d-4505-b2f8-45b53bbffb95",
+  "dreBId": "58be0440-8daa-4c8c-8963-087f00ec969c",
+  "escolaId": "19a765d1-d1ab-42bf-aefe-deb3e3cf2dff",
+  "municipioId": "0e91100f-c67a-11f1-8f2d-6451061ac5e7",
   "users": {
-    "admin@seaf.gov.br": "643efe3f-2f39-4a6e-a8cc-87ed665f8992",
-    "dre@seaf.gov.br": "1a05ee39-1e5a-4df7-9392-9c274a914b26",
-    "dre-a@seaf.gov.br": "a94d365a-3840-443a-b8ae-c7d2d43eaf47",
-    "escola@seaf.gov.br": "28a0a4f5-d71f-4439-a521-5af11035541e",
-    "extensionista@seaf.gov.br": "1982a68b-0ecb-4a1c-86b0-17a9b8381c07"
+    "admin@seaf.gov.br": "5fa10d14-6fc9-4762-a5cf-ddf0573eaf98",
+    "dre@seaf.gov.br": "64849455-022a-4a39-8f4f-1af160766668",
+    "dre-a@seaf.gov.br": "9796fb47-81fa-4aab-a71b-f9eb54190c41",
+    "escola@seaf.gov.br": "971bcbd8-7f37-4928-b6eb-dda5cca85482",
+    "extensionista@seaf.gov.br": "9c8cd9fd-cdff-4032-b2a1-7c8cdfe78d86"
   }
 }

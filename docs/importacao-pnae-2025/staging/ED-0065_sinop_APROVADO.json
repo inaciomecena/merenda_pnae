@@ -1,6 +1,6 @@
 {
   "schema": "importacao-historica-pnae/1.0",
-  "geradoEm": "2026-10-12T19:29:31.832Z",
+  "geradoEm": "2026-10-12T20:15:54.583Z",
   "idPacote": "ED-0065",
   "dre": "Sinop",
   "chaveLogica": "dcf5f661f78e6ca1cc6c8a7dfac14c96",
@@ -8,7 +8,7 @@
   "motivosBloqueio": [],
   "identificacao": {
     "numeroBruto": "23/2024",
-    "numeroNormalizado": "23/2024",
+    "numeroNormalizado": "023/2024",
     "anoNumeracao": 2024,
     "exercicio": 2025,
     "exercicioEvidencia": [

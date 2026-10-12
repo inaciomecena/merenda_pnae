@@ -29,34 +29,65 @@ function prepararLinhaColuna(linha) {
 const UNIDADES = '(Quilograma|Quilogramas|Kg|kg|Kilo|Kilos|Quilo|Quilos|Litro|Litros|L|l|Mililitro|Mililitros|ML|ml|Unidade|Unidades|Un|un|Pacote|Pacotes|PCT|Caixa|Caixas|CX|Maço|Maços|Maco|Macos|MACO|Bandeja|Bandejas|Duzia|Dúzia|Duzias|Dúzias|Fardo|Fardos|Saco|Sacos|Duzia|Peso)';
 const LINHA_RESUMO = new RegExp(`^(.*?)(?:(?<unidade>${UNIDADES})\\s+)?(?<quantidade>\\d{1,3}(?:\\.\\d{3})*(?:,\\d+)?|\\d+(?:,\\d+)?)\\s+R\\$\\s*(?<preco>\\d{1,3}(?:\\.\\d{3})*,\\d{2}|\\d+,\\d{2})\\s+R\\$\\s*(?<total>\\d{1,3}(?:\\.\\d{3})*,\\d{2}|\\d+,\\d{2})\\s*$`, 'i');
 const ehNumeroColuna = (s) => /^\d{1,3}(?:\.\d{3})*(?:,\d{1,2})?$/.test(s);
+const UNIDADES_SET = new Set([
+    ...UNIDADES.split('|').map((u) => u.toUpperCase()),
+    'QUILOGRAMA',
+    'QUILOGRAMAS',
+    'LITRO',
+    'LITROS',
+    'MILILITRO',
+    'MILILITROS',
+    'UNIDADE',
+    'UNIDADES',
+    'PACOTE',
+    'PACOTES',
+    'CAIXA',
+    'CAIXAS',
+    'MAÇO',
+    'MACO',
+    'BANDEJA',
+    'BANDEJAS',
+    'DÚZIA',
+    'DUZIA',
+    'FARDO',
+    'FARDOS',
+    'SACO',
+    'SACOS',
+].map((u) => u.toUpperCase()));
 function parseLinhaValoresSeparados(colunas, indice) {
     const toks = colunas[indice].trim().split(/\s{2,}/).map((t) => t.trim()).filter(Boolean);
     if (toks.length !== 3 || !toks.every(ehNumeroColuna))
         return null;
     let unidade = null;
     const anteriores = colunas.slice(Math.max(0, indice - 6), indice);
-    for (let j = 0; j < anteriores.length; j++) {
+    const finais = [];
+    for (let j = anteriores.length - 1; j >= 0 && finais.length < 4; j--) {
         const t = anteriores[j].trim();
         if (!t)
             continue;
-        const ult = t.split(/\s{2,}/).pop()?.trim() ?? '';
-        if (ehUnidadeConhecida(ult)) {
-            unidade = ult;
+        finais.push(t.split(/\s{2,}/).pop()?.trim() ?? '');
+    }
+    for (let i = 0; i < finais.length; i++) {
+        const atual = finais[i];
+        if (!atual)
+            continue;
+        if (ehUnidadeConhecida(atual)) {
+            unidade = atual;
             break;
         }
-        if (ehPrefixoUnidade(ult)) {
-            for (let k = j + 1; k < Math.min(j + 3, anteriores.length); k++) {
-                const prox = anteriores[k].trim();
-                if (!prox)
+        if (ehPrefixoUnidade(atual)) {
+            for (let k = 0; k < finais.length; k++) {
+                if (k === i)
                     continue;
-                const completada = tentarCompletarUnidade(ult, prox);
-                if (completada)
+                const completada = tentarCompletarUnidade(atual, finais[k]);
+                if (completada) {
                     unidade = completada;
-                break;
+                    break;
+                }
             }
-            if (unidade)
-                break;
         }
+        if (unidade)
+            break;
     }
     let prefixo = '';
     for (let j = 0; j < indice; j++) {
@@ -79,7 +110,6 @@ function parseColunasResumo(linha) {
     const prefixo = toks.slice(0, toks.length - 4).join(' ');
     return { quantidade: fim[0], preco: fim[1], total: fim[2], unidade, prefixo };
 }
-const UNIDADES_SET = new Set(UNIDADES.split('|').map((u) => u.toUpperCase()));
 const ehUnidadeConhecida = (tok) => UNIDADES_SET.has(tok.toUpperCase());
 const ehSufixoUnidade = (tok) => /^\d+(?:[.,]\d+)?\s*(?:[KkGg][Gg]?|[Ll]|[Mm][Ll]|[Uu]n)$/i.test(tok);
 function ehPrefixoUnidade(tok) {
@@ -118,7 +148,7 @@ function tentarCompletarUnidade(atual, proximo) {
         return null;
     for (const u of UNIDADES_SET) {
         const ul = u.toLowerCase();
-        if (ul.startsWith(a) && ul.endsWith(p) && ul.length === a.length + p.length)
+        if (ul === `${a}${p}` || ul === `${a} ${p}`)
             return u;
     }
     return null;
@@ -170,7 +200,7 @@ function blocosDePagina(linhas, pagina, atual) {
 }
 function finalizarBloco(bloco, documentoId, sha256) {
     const texto = bloco.linhas.map(limparLinha).filter(Boolean);
-    const colunas = bloco.linhas.map(prepararLinhaColuna).filter(Boolean);
+    const colunas = bloco.linhas.map(prepararLinhaColuna);
     const indiceResumo = texto.findIndex((linha) => LINHA_RESUMO.test(linha) && /R\$/.test(linha));
     let quantidadeBruta = null;
     let precoBruto = null;
@@ -304,6 +334,9 @@ function finalizarBloco(bloco, documentoId, sha256) {
         statusRevisao: pendencias.length > 0 ? 'pendente_conferencia' : 'extraido',
         pendencia: pendencias.length > 0 ? pendencias.join(' | ') : null,
     };
+}
+function ehBlocoNaoItem(finalizado) {
+    return !finalizado.produto && !finalizado.unidadeComercial && !finalizado.totalFonte && !finalizado.quantidade;
 }
 function extrairItens(paginas, documentoId, sha256) {
     const itens = [];

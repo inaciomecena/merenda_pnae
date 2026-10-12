@@ -1,6 +1,6 @@
 {
-  "base": "http://localhost:3000/api/v1",
-  "generatedAt": "2026-10-12T18:04:15.043Z",
+  "base": "http://localhost:3211/api/v1",
+  "generatedAt": "2026-10-12T20:16:48.239Z",
   "passed": 25,
   "total": 25,
   "results": [
@@ -140,7 +140,7 @@
       "caso": "encaminhar para contrato rascunho",
       "ok": true,
       "esperado": "201/RASCUNHO",
-      "obtido": "201/{\"success\":true,\"data\":{\"id\":\"cc82f90e-db56-46ea-825d-80c6d8339d18\",\"numero\":\"CH-E2E-1791828254497-b3968c0e\",\"exercicio\":2026,\"editalId\":\"24f2257e-d350-48ea-92e7-39decb6e2698\",\"chamadaPublica\":\"E2E-1791828254497\",\"propostaId\":\"cb336a40-da44-4710-875e-0619879574f6\",\"produtorId\":\"b3968c0e-4b02-4153-9997-107ebf60361e\",\"escolaId\":null,\"dreId\":null,\"municipioId\":null,\"valorInicial\":\"25\",\"valorAtualizado\":\"25\",\"dataAssinatura\":null,\"vigenciaInicio\":null,\"vigenciaFim\":null,\"status\":\"RASCUNHO\",\"objeto\":\"E2E SDD-007 chamada pública\",\"observacoes\":null,\"condicoesFornecimento\":null,\"condicoesPagamento\":null,\"fiscalizacao\":null,\"instrumentoExternoRegistrado\":false,\"instrumentoRegistradoEm\":null,\"versao\":1,\"createdAt\":\"2026-10-12T18:04:15.016Z\",\"updatedAt\":\"2026-10-12T18:04:15.016Z\",\"deletedAt\":null,\"createdBy\":\"16d05213-5567-4d0b-81ba-1e13151f016f\",\"updatedBy\":null},\"timestamp\":\"2026-10-12T18:04:15.024Z\"}"
+      "obtido": "201/{\"success\":true,\"data\":{\"id\":\"92393fa9-d934-444a-b7c0-54f57db1d820\",\"numero\":\"CH-E2E-1791836207050-a7c4e1f9\",\"exercicio\":2026,\"editalId\":\"1920d7e4-1fa7-49fd-9756-13b64cf55747\",\"chamadaPublica\":\"E2E-1791836207050\",\"propostaId\":\"a7426cbc-6ebc-4971-8226-0fa0ec77738a\",\"produtorId\":\"a7c4e1f9-dd44-42d2-9d15-0d6f4690874e\",\"escolaId\":null,\"dreId\":null,\"municipioId\":null,\"valorInicial\":\"25\",\"valorAtualizado\":\"25\",\"dataAssinatura\":null,\"vigenciaInicio\":null,\"vigenciaFim\":null,\"status\":\"RASCUNHO\",\"objeto\":\"E2E SDD-007 chamada pública\",\"observacoes\":null,\"condicoesFornecimento\":null,\"condicoesPagamento\":null,\"fiscalizacao\":null,\"instrumentoExternoRegistrado\":false,\"instrumentoRegistradoEm\":null,\"versao\":1,\"createdAt\":\"2026-10-12T20:16:48.182Z\",\"updatedAt\":\"2026-10-12T20:16:48.182Z\",\"deletedAt\":null,\"createdBy\":\"05ba9bbd-7eda-4869-8fdc-ff7d5111a7fa\",\"updatedBy\":null},\"timestamp\":\"2026-10-12T20:16:48.209Z\"}"
     },
     {
       "caso": "trilha de auditoria",
