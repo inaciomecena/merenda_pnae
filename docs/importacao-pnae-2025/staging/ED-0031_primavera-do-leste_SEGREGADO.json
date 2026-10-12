@@ -1,0 +1,92 @@
+{
+  "schema": "importacao-historica-pnae/1.0",
+  "geradoEm": "2026-10-12T19:29:28.600Z",
+  "idPacote": "ED-0031",
+  "dre": "Primavera do Leste",
+  "chaveLogica": "ed82b250af1b53b3d633ad409ddf7d22",
+  "decisao": "SEGREGADO",
+  "motivosBloqueio": [
+    "PREGAO_2025: pregão não é chamada pública da agricultura familiar; segregado da importação."
+  ],
+  "identificacao": {
+    "numeroBruto": "007/2025",
+    "numeroNormalizado": "007/2025",
+    "anoNumeracao": 2025,
+    "exercicio": null,
+    "exercicioEvidencia": [],
+    "processoAdministrativo": null,
+    "dreNome": "Primavera do Leste",
+    "camaraNegocios": "Primavera do Leste",
+    "municipioAtendido": "Santo Antônio do Leste",
+    "recorte": "NAO_IDENTIFICADO",
+    "dataPublicacao": null,
+    "dataSessao": null,
+    "objeto": "Aquisição de gêneros alimentícios para alimentação escolar",
+    "fundamentacaoLegal": null,
+    "prazos": null,
+    "habilitacao": null,
+    "criteriosSelecao": null,
+    "condicoesEntrega": null,
+    "condicoesPagamento": null,
+    "valorEstimado": null,
+    "observacoes": [
+      "identificação preenchida a partir do manifesto (extração de PDF não realizada ou indisponível)"
+    ]
+  },
+  "documentos": [
+    {
+      "idDocumento": "DOC-0035",
+      "papel": "EDITAL_PRINCIPAL",
+      "sha256": "3e120754bbad3a3d5114de0c177e140274fbf80a7388d17fed5462c5598e4506",
+      "caminho": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0035_DOC-0035.pdf",
+      "paginas": 168,
+      "urls": [
+        "https://drive.google.com/file/d/1FOq4Eay9AaNQgqG3jtX1drPKFEYW_rQU/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1FOq4Eay9AaNQgqG3jtX1drPKFEYW_rQU",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "chaveVersao": "ca16acb116d9578acb4b0f3da2b8d2e8"
+    }
+  ],
+  "vinculosInstitucionais": {
+    "dre": {
+      "nomePacote": "Primavera do Leste",
+      "dreId": "b741d30a-c5e2-11f1-8f2d-6451061ac5e7",
+      "codigo": "PVL",
+      "status": "CONFIRMADO",
+      "detalhe": "DRE \"DRE Primavera do Leste\" (PVL)"
+    },
+    "municipio": {
+      "nomePacote": "Santo Antônio do Leste",
+      "municipioId": "058d1d33-99f3-4c27-8e54-31979c5cb06b",
+      "codigoIbge": "5107792",
+      "status": "CONFIRMADO",
+      "detalhe": "\"Santo Antônio do Leste\" (IBGE 5107792)"
+    },
+    "escolas": [],
+    "unidadesExecutoras": [
+      {
+        "nome": "Primavera do Leste",
+        "cnpj": null,
+        "entidadeExecutoraId": null,
+        "status": "PENDENTE",
+        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+      }
+    ]
+  },
+  "itens": [],
+  "anexos": [],
+  "pendencias": [
+    {
+      "tipo": "resolucao_entidade_executora",
+      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
+      "origem": "snapshot institucional"
+    }
+  ],
+  "metadadoExtracao": {
+    "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+    "documentosValidados": 1,
+    "itensDoManifesto": 0,
+    "itensExtraidosPdf": 0
+  }
+}

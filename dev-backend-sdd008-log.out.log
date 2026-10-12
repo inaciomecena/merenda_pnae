@@ -1,0 +1,308 @@
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [NestFactory] Starting Nest application...
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] PrismaModule dependencies initialized +90ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] ThrottlerModule dependencies initialized +27ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] JwtModule dependencies initialized +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] ConfigHostModule dependencies initialized +2ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] MunicipiosModule dependencies initialized +4ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] ProdutosReferenciaModule dependencies initialized +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] AuditModule dependencies initialized +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] ConfigModule dependencies initialized +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] HomologacaoModule dependencies initialized +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] ConfigModule dependencies initialized +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] ReportsModule dependencies initialized +2ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] AuthModule dependencies initialized +3ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] BalizamentoModule dependencies initialized +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] AppModule dependencies initialized +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] UsersModule dependencies initialized +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] VinculosModule dependencies initialized +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] DREModule dependencies initialized +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] EditaisModule dependencies initialized +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] ProdutoresModule dependencies initialized +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] ChamadasPublicasModule dependencies initialized +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] DashboardModule dependencies initialized +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] PrestacaoContasModule dependencies initialized +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] PropostasModule dependencies initialized +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] EscolasModule dependencies initialized +2ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] ContratosModule dependencies initialized +2ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] ComposicaoEditaisModule dependencies initialized +3ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] EntregasModule dependencies initialized +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] FiscalModule dependencies initialized +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [InstanceLoader] ImportadorEditaisModule dependencies initialized +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] HealthController {/api/v1/health}: +381ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/health, GET} route +6ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] AuthController {/api/v1/auth}: +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/auth/login, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/auth/refresh, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/auth/me, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/auth/me/contexto, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] MunicipiosController {/api/v1/municipios}: +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/municipios, GET} route +2ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/municipios/:id, GET} route +4ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/municipios, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/municipios/:id, PATCH} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/municipios/:id, DELETE} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] EscolasController {/api/v1/escolas}: +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/escolas/importar-csv, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/escolas, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/escolas/:id, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/escolas, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/escolas/:id, PATCH} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/escolas/:id, DELETE} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] EditaisController {/api/v1/editais}: +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/editais, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/editais/:id, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/editais/:id/itens, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/editais, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/editais/:id, PATCH} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/editais/:id, DELETE} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] ProdutosReferenciaController {/api/v1/produtos-referencia}: +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/produtos-referencia, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/produtos-referencia/:id, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/produtos-referencia, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/produtos-referencia/:id, PATCH} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/produtos-referencia/:id, DELETE} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] ProdutoresController {/api/v1/produtores}: +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/produtores/campos-documentais, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/produtores, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/produtores/:id, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/produtores/:id/produtos, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/produtores/:id/produtos, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/produtores/:id/produtos/:produtoId, PATCH} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/produtores/:id/produtos/:produtoId, DELETE} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/produtores, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/produtores/:id, PATCH} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/produtores/:id, DELETE} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] AuditController {/api/v1/audit}: +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/audit, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/audit/stats, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] ImportacoesController {/api/v1/importacoes}: +2ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/importacoes/pdf, POST} route +2ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/importacoes, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/importacoes/sincronizar-docs, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/importacoes/:id, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/importacoes/:id/pdf, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/importacoes/:id, PATCH} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/importacoes/:id, DELETE} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/importacoes/:id/itens/:itemId, DELETE} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/importacoes/:id/processar, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/importacoes/:id/confirmar, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/importacoes/:id/estrutura, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/importacoes/:id/preparar-edital, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/importacoes/:id/estrutura, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/importacoes/:id/estrutura/campos, PATCH} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/importacoes/:id/estrutura/aplicar, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] TemplatesDocumentoController {/api/v1/templates-documento}: +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/templates-documento/variaveis, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/templates-documento, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/templates-documento/anexos-padrao, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/templates-documento/:id, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/templates-documento, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/templates-documento/:id, PATCH} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/templates-documento/:id/duplicar, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/templates-documento/:id/status, PATCH} route +2ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/templates-documento/:id/arquivo, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/templates-documento/:id/arquivo, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/templates-documento/:id, DELETE} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] ComposicaoEditalController {/api/v1/editais}: +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/editais/composicao, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/editais/:id/composicao, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/editais/:id/composicao, PATCH} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/editais/:id/composicao/itens, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/editais/:id/composicao/anexos, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/editais/:id/composicao/variaveis, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/editais/:id/composicao/duplicar, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/editais/:id/composicao/nova-versao, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/editais/:id/composicao/publicar, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/editais/:id/composicao/cancelar, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/editais/:id/composicao/previa, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/editais/:id/composicao/gerar, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/editais/:id/composicao/download, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] BalizamentoController {/api/v1/balizamento}: +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/balizamento/editais/:editalId/executar, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/balizamento/editais/:editalId, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/balizamento/editais/:editalId/itens/:itemId, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/balizamento/matches/manual, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/balizamento/matches/:matchId/aprovar, PUT} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/balizamento/matches/:matchId/rejeitar, PUT} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/balizamento/matches/:matchId, DELETE} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] PropostasController {/api/v1/propostas}: +2ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/propostas/:id/documentos, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/propostas/:id/documentos, PUT} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/propostas/:id/documentos/previa, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/propostas, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/propostas/:id, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/propostas/preview, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/propostas, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/propostas/:id, PUT} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/propostas/:id/itens, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/propostas/:id/gerar, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/propostas/:id/download/:tipo, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/propostas/:id/finalizar, PUT} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/propostas/:id, DELETE} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/propostas/produtores/:editalId, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] DashboardController {/api/v1/dashboard}: +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/dashboard, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/dashboard/kpis, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/dashboard/graficos, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/dashboard/ranking/:tipo, GET} route +2ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/dashboard/mapa, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/dashboard/produtos, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/dashboard/municipios, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/dashboard/escolas, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/dashboard/produtores, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/dashboard/exportar/:tipo, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] ConfigController {/api/v1/config}: +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/config, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/config/:chave, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/config/:chave, PUT} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/config, PUT} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/config/init, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] HomologacaoController {/api/v1/homologacao}: +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/homologacao/status, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/homologacao/relatorio, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/homologacao/exportar/:tipo, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/homologacao/seed-teste, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] ReportsController {/api/v1/reports}: +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/reports/:tipo, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/reports/exportar/:tipo, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] UsersController {/api/v1/users}: +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/users, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/users, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/users/:id, PATCH} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/users/:id, DELETE} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] DREController {/api/v1/dres}: +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/dres, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/dres, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/dres/:id, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/dres/:id, PUT} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/dres/:id, DELETE} route +2ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] EscolaVinculoDREController {/api/v1/escolas}: +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/escolas/:id/vincular-dre, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/escolas/vinculos/:vinculoId, DELETE} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] EntidadesExecutorasController {/api/v1/entidades-executoras}: +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/entidades-executoras, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/entidades-executoras, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/entidades-executoras/:id, PUT} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] VinculosController {/api/v1/vinculos}: +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/vinculos/bootstrap, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/vinculos, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/vinculos/usuario/:userId, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/vinculos/:vinculoId, DELETE} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] RepresentacoesController {/api/v1/representacoes}: +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/representacoes, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/representacoes/usuario/:userId, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/representacoes/:id/revogar, PUT} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/representacoes/:id, PUT} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] ContratosController {/api/v1/contratos}: +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/contratos, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/contratos/origens/:editalId, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/contratos/indicadores, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/contratos/:id, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/contratos, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/contratos/:id, PATCH} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/contratos/:id/validar, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/contratos/:id/encaminhar-conferencia, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/contratos/:id/enviar-assinatura, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/contratos/:id/formalizar, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/contratos/:id/transicao, PATCH} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/contratos/:id/minuta, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/contratos/:id/documentos, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/contratos/:id/documentos, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/contratos/:id/documentos/:documentoId, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/contratos/:id/historico, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/contratos/:id/auditoria, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/contratos/:id/aditivos, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/contratos/:id/aditivos, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/contratos/:id/aditivos/:aditivoId/formalizar, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/contratos/:id/aditivos/:aditivoId/minuta, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] ProgramacaoEntregaController {/api/v1/programacoes-entrega}: +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/programacoes-entrega, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/programacoes-entrega, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/programacoes-entrega/:id, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/programacoes-entrega/calendario/mes, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/programacoes-entrega/:id/historico, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/programacoes-entrega/:id, PUT} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/programacoes-entrega/:id/confirmar, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/programacoes-entrega/:id/cancelar, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/programacoes-entrega/:id/status, PATCH} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] EntregaController {/api/v1/entregas}: +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/entregas/:id/documentos/termo, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/entregas/:id/documentos, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/entregas/:id/documentos/:documentoId, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/entregas, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/entregas, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/entregas/:id, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/entregas/:id/conferir, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/entregas/:id/aceitar, POST} route +2ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/entregas/:id/estornar, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/entregas/:id/status, PATCH} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] OcorrenciaEntregaController {/api/v1/entregas/:entregaId/ocorrencias}: +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/entregas/:entregaId/ocorrencias, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/entregas/:entregaId/ocorrencias, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] OcorrenciaEntregaGlobalController {/api/v1/ocorrencias-entrega}: +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/ocorrencias-entrega, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/ocorrencias-entrega/:id, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/ocorrencias-entrega/:id/tratar, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/ocorrencias-entrega/:id/status, PATCH} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] SaldoContratoController {/api/v1/saldos-contratos}: +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/saldos-contratos/:contratoId, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/saldos-contratos/:contratoId/periodo, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/saldos-contratos/execucao/geral, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] NotaFiscalController {/api/v1/notas-fiscais}: +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/notas-fiscais, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/notas-fiscais, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/notas-fiscais/:id, PATCH} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/notas-fiscais/:id/recebimentos/candidatos, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/notas-fiscais/:id/recebimentos, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/notas-fiscais/:id/recebimentos/:vinculoId, DELETE} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/notas-fiscais/upload, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/notas-fiscais/:id, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/notas-fiscais/:id/conciliar, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/notas-fiscais/:id/documentos/:documentoId, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/notas-fiscais/:id/conferencia, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/notas-fiscais/:id/conferencia, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/notas-fiscais/:id/atestos, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/notas-fiscais/:id/atestos, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/notas-fiscais/:id/atestos/:atestoId/comprovante, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] LiquidacaoController {/api/v1/liquidacoes}: +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/liquidacoes, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/liquidacoes, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/liquidacoes/:id/comprovante, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] PagamentoController {/api/v1/pagamentos}: +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/pagamentos, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/pagamentos, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/pagamentos/:id/estornar, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/pagamentos/:id/comprovante, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] DashboardFinanceiroController {/api/v1/dashboard-financeiro}: +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/dashboard-financeiro/indicadores, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/dashboard-financeiro/saldos, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/dashboard-financeiro/pendencias, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/dashboard-financeiro/divergencias, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/dashboard-financeiro/grafico, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] PrestacaoContasController {/api/v1/prestacoes-contas}: +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/prestacoes-contas/demonstrativo, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/prestacoes-contas/exportar/:formato, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/prestacoes-contas, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/prestacoes-contas, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/prestacoes-contas/:id, PATCH} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/prestacoes-contas/:id/transicoes/:status, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] TransparenciaController {/api/v1/transparencia}: +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/transparencia/contratos, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RoutesResolver] ChamadasPublicasController {/api/v1/chamadas-publicas}: +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/chamadas-publicas, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/chamadas-publicas/:id, GET} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/chamadas-publicas, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/chamadas-publicas/:id, PATCH} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/chamadas-publicas/:id/transicoes/:status, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/chamadas-publicas/:id/inscricoes, GET} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/chamadas-publicas/:id/inscricoes, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/chamadas-publicas/:id/projetos, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/chamadas-publicas/projetos/:projetoId/enviar, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/chamadas-publicas/projetos/:projetoId/habilitacao, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/chamadas-publicas/:id/classificacoes, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/chamadas-publicas/classificacoes/:classificacaoId/selecao, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/chamadas-publicas/:id/recursos, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/chamadas-publicas/recursos/:recursoId/decisao, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/chamadas-publicas/:id/homologacao, POST} route +1ms
+[Nest] 13752  - 12/10/2026, 14:06:59     LOG [RouterExplorer] Mapped {/api/v1/chamadas-publicas/projetos/:projetoId/encaminhar-contrato, POST} route +0ms
+[Nest] 13752  - 12/10/2026, 14:07:00     LOG [NestApplication] Nest application successfully started +124ms

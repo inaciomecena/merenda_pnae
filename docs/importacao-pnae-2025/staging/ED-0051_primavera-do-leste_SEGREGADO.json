@@ -1,0 +1,105 @@
+{
+  "schema": "importacao-historica-pnae/1.0",
+  "geradoEm": "2026-10-12T19:29:29.160Z",
+  "idPacote": "ED-0051",
+  "dre": "Primavera do Leste",
+  "chaveLogica": "cc47dca78b101a0869012340f4bbc903",
+  "decisao": "SEGREGADO",
+  "motivosBloqueio": [
+    "PREGAO_2025: pregão não é chamada pública da agricultura familiar; segregado da importação."
+  ],
+  "identificacao": {
+    "numeroBruto": "014/2024",
+    "numeroNormalizado": "014/2024",
+    "anoNumeracao": 2024,
+    "exercicio": 2025,
+    "exercicioEvidencia": [],
+    "processoAdministrativo": null,
+    "dreNome": "Primavera do Leste",
+    "camaraNegocios": "Primavera do Leste",
+    "municipioAtendido": "Paranatinga - urbana",
+    "recorte": "NAO_IDENTIFICADO",
+    "dataPublicacao": null,
+    "dataSessao": null,
+    "objeto": "Aquisição de gêneros alimentícios para alimentação escolar",
+    "fundamentacaoLegal": null,
+    "prazos": null,
+    "habilitacao": null,
+    "criteriosSelecao": null,
+    "condicoesEntrega": null,
+    "condicoesPagamento": null,
+    "valorEstimado": null,
+    "observacoes": [
+      "identificação preenchida a partir do manifesto (extração de PDF não realizada ou indisponível)"
+    ]
+  },
+  "documentos": [
+    {
+      "idDocumento": "DOC-0056",
+      "papel": "AVISO",
+      "sha256": "f54c7bef910089b0188853f7a3c3c0dd41dcb031b379eb58d5c3d2adbc2c35fb",
+      "caminho": "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0056_DOC-0056.pdf",
+      "paginas": 1,
+      "urls": [
+        "https://drive.google.com/file/d/1Y_315oY6TdY8OgRLwb159dQbj6z_sHZR/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1Y_315oY6TdY8OgRLwb159dQbj6z_sHZR",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "chaveVersao": "27fa4fcdbd93fa7f72e4dd7d23ac270c"
+    },
+    {
+      "idDocumento": "DOC-0066",
+      "papel": "EDITAL_PRINCIPAL",
+      "sha256": "b691d4486cf0ae6796be44f590dd994126b84498cccbae160deaf8dddc7baab4",
+      "caminho": "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0066_DOC-0066.pdf",
+      "paginas": 147,
+      "urls": [
+        "https://drive.google.com/file/d/10Goz6E9hSipACxJ1artyZEApT2JJcnuW/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=10Goz6E9hSipACxJ1artyZEApT2JJcnuW",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "chaveVersao": "6562c8082051091284997adb19d1dd07"
+    }
+  ],
+  "vinculosInstitucionais": {
+    "dre": {
+      "nomePacote": "Primavera do Leste",
+      "dreId": "b741d30a-c5e2-11f1-8f2d-6451061ac5e7",
+      "codigo": "PVL",
+      "status": "CONFIRMADO",
+      "detalhe": "DRE \"DRE Primavera do Leste\" (PVL)"
+    },
+    "municipio": {
+      "nomePacote": "Paranatinga - urbana",
+      "municipioId": "e25f317a-43c8-41dc-9777-04f16152f8d5",
+      "codigoIbge": "5106307",
+      "status": "CONFIRMADO",
+      "detalhe": "\"Paranatinga\" (IBGE 5106307)"
+    },
+    "escolas": [],
+    "unidadesExecutoras": [
+      {
+        "nome": "Primavera do Leste",
+        "cnpj": null,
+        "entidadeExecutoraId": null,
+        "status": "PENDENTE",
+        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+      }
+    ]
+  },
+  "itens": [],
+  "anexos": [],
+  "pendencias": [
+    {
+      "tipo": "resolucao_entidade_executora",
+      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
+      "origem": "snapshot institucional"
+    }
+  ],
+  "metadadoExtracao": {
+    "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+    "documentosValidados": 2,
+    "itensDoManifesto": 0,
+    "itensExtraidosPdf": 0
+  }
+}

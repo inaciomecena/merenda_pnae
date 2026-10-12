@@ -1,0 +1,12 @@
+import { Prisma } from '@prisma/client';
+export declare const FISCAL_LIMITE_ARQUIVO_BYTES: number;
+export declare const MIME_TYPES_FISCAIS: Record<string, string>;
+export declare function podeTransicionarNotaFiscal(atual: string, para: string): boolean;
+export declare function statusNotaFiscalValido(status: string): boolean;
+export declare function decimalFiscal(valor: string | number | Prisma.Decimal | undefined, campo: string): Prisma.Decimal;
+export declare function quantidadeFiscal(valor: string | number | Prisma.Decimal | undefined, campo: string): Prisma.Decimal;
+export declare function validarSaldoDisponivel(quantidadeFiscal: Prisma.Decimal, saldoDisponivel: Prisma.Decimal, campo: string): void;
+export declare function dentroTolerancia(valor: Prisma.Decimal, referencia: Prisma.Decimal, toleranciaPercentual: number): boolean;
+export declare function normalizarDocumento(doc: string | undefined | null): string | undefined;
+export declare function mimeTypeFiscalPermitido(mimeType: string | undefined): mimeType is string;
+export declare function extensaoFiscal(mimeType: string): string;

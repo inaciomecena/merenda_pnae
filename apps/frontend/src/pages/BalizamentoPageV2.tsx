@@ -23,6 +23,7 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
+import { humanizeSystemValue } from '../lib/display-text';
 import { CheckCircle, Delete, PlayArrow, ThumbDown, Tune } from '@mui/icons-material';
 import { useQuery } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
@@ -234,12 +235,12 @@ export default function BalizamentoPageV2() {
                       {match.produtorProduto ? (
                         <Stack spacing={0.5}>
                           <Typography variant="body2">{match.produtorProduto.capacidade ?? '-'} {match.produtorProduto.unidade ?? ''}</Typography>
-                          <Typography variant="caption" color="text.secondary">Periodo: {match.produtorProduto.periodoProducao ?? 'Nao informado'}</Typography>
+                          <Typography variant="caption" color="text.secondary">Período: {match.produtorProduto.periodoProducao ?? 'Não informado'}</Typography>
                         </Stack>
                       ) : '-'}
                     </TableCell>
                     <TableCell><Chip color={scoreColor(match.scoreMatch)} label={match.scoreMatch} /></TableCell>
-                    <TableCell><Chip color={statusColor(match.status)} label={match.status} /></TableCell>
+                    <TableCell><Chip color={statusColor(match.status)} label={humanizeSystemValue(match.status)} /></TableCell>
                     <TableCell sx={{ maxWidth: 360 }}>{match.motivoScore || match.observacoes || '-'}</TableCell>
                     <TableCell>
                       <Stack direction="row" spacing={1}>
@@ -288,7 +289,7 @@ export default function BalizamentoPageV2() {
               <Select label="Produto produzido" value={manual.produtorProdutoId} onChange={(event) => setManual({ ...manual, produtorProdutoId: event.target.value })}>
                 {(produtosProdutor.data ?? []).map((item) => (
                   <MenuItem key={item.id} value={item.id}>
-                    {item.produto} ({item.capacidade ?? '-'} {item.unidade ?? ''}) - {item.periodoProducao ?? 'periodo nao informado'}
+                    {item.produto} ({item.capacidade ?? '-'} {item.unidade ?? ''}) — {item.periodoProducao ?? 'período não informado'}
                   </MenuItem>
                 ))}
               </Select>

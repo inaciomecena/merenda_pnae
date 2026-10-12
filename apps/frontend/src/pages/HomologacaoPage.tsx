@@ -6,6 +6,7 @@ import {
 import { Refresh, Download, Assessment, CheckCircle, Error, Warning } from '@mui/icons-material';
 import api from '../services/api';
 import type { ApiResponse } from '../types';
+import { humanizeSystemValue } from '../lib/display-text';
 
 interface HomologacaoStatus {
   timestamp: string;
@@ -25,15 +26,25 @@ interface HomologacaoStatus {
 export default function HomologacaoPage() {
   const [status, setStatus] = useState<HomologacaoStatus | null>(null);
   const [loading, setLoading] = useState(false);
+  const [runningSeed, setRunningSeed] = useState(false);
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
   const fetchStatus = useCallback(async () => {
     setLoading(true);
+    setError('');
     try {
       const { data } = await api.get<ApiResponse<HomologacaoStatus>>('/homologacao/status');
-      setStatus(data as any);
+      const result = data.data;
+      setStatus({
+        ...result,
+        matchesPorStatus: result.matchesPorStatus ?? {},
+        propostasPorStatus: result.propostasPorStatus ?? {},
+        ultimosErros: result.ultimosErros ?? [],
+        ultimosEventos: result.ultimosEventos ?? [],
+      });
     } catch {
-      setError('Nao foi possivel carregar o status do sistema.');
+      setError('Não foi possível carregar o status do sistema.');
     } finally {
       setLoading(false);
     }
@@ -67,38 +78,58 @@ export default function HomologacaoPage() {
       });
   };
 
+  const handleSeed = async () => {
+    setRunningSeed(true);
+    setError('');
+    setSuccess('');
+    try {
+      const { data } = await api.post<ApiResponse<{ success: boolean; message: string }>>(
+        '/homologacao/seed-teste',
+        undefined,
+        { timeout: 65000 },
+      );
+      if (!data.data.success) {
+        setError(data.data.message || 'Erro ao executar seed de teste.');
+        return;
+      }
+      setSuccess(data.data.message || 'Seed de teste executado com sucesso.');
+      await fetchStatus();
+    } catch (err: any) {
+      setError(err?.response?.data?.message || 'Erro ao executar seed de teste.');
+    } finally {
+      setRunningSeed(false);
+    }
+  };
+
   if (loading && !status) return <CircularProgress />;
-  if (error) return <Alert severity="error">{error}</Alert>;
+  if (error && !status) return <Alert severity="error">{error}</Alert>;
   if (!status) return null;
 
   const dbOk = status.db.status === 'CONECTADO';
+  const ambienteColor = status.ambiente === 'PRODUCAO'
+    ? 'error'
+    : status.ambiente === 'HOMOLOGACAO' ? 'warning' : 'info';
 
   return (
     <Stack spacing={3}>
       <Stack direction="row" justifyContent="space-between" alignItems="center">
         <Stack direction="row" spacing={2} alignItems="center">
-          <Typography variant="h4" fontWeight={700}>Homologacao</Typography>
-          <Chip icon={<Assessment />} label={status.ambiente} color={status.ambiente === 'HOMOLOGACAO' ? 'warning' : 'success'} />
+          <Typography variant="h4" fontWeight={700}>Homologação técnica</Typography>
+          <Chip icon={<Assessment />} label={humanizeSystemValue(status.ambiente)} color={ambienteColor} />
         </Stack>
         <Stack direction="row" spacing={1}>
           <Button variant="outlined" startIcon={<Refresh />} onClick={() => void fetchStatus()}>Atualizar</Button>
-          <Button variant="outlined" startIcon={<Download />} onClick={handleRelatorio}>Relatorio</Button>
-          <Button
-            variant="contained"
-            color="warning"
-            onClick={async () => {
-              try {
-                await api.post('/homologacao/seed-teste');
-                void fetchStatus();
-              } catch {
-                setError('Erro ao executar seed de teste.');
-              }
-            }}
-          >
-            Executar Seed Teste
-          </Button>
+          <Button variant="outlined" startIcon={<Download />} onClick={handleRelatorio}>Relatório</Button>
+          {status.ambiente !== 'PRODUCAO' && (
+            <Button variant="contained" color="warning" onClick={() => void handleSeed()} disabled={runningSeed}>
+              {runningSeed ? 'Executando Seed...' : 'Executar Seed Teste'}
+            </Button>
+          )}
         </Stack>
       </Stack>
+
+      {error ? <Alert severity="error" onClose={() => setError('')}>{error}</Alert> : null}
+      {success ? <Alert severity="success" onClose={() => setSuccess('')}>{success}</Alert> : null}
 
       <Grid container spacing={2}>
         <Grid item xs={12} md={4}>
@@ -115,7 +146,7 @@ export default function HomologacaoPage() {
         <Grid item xs={12} md={4}>
           <Card>
             <CardContent>
-              <Typography variant="subtitle2" color="text.secondary">Ultima atualizacao</Typography>
+              <Typography variant="subtitle2" color="text.secondary">Última atualização</Typography>
               <Typography>{new Date(status.timestamp).toLocaleString('pt-BR')}</Typography>
             </CardContent>
           </Card>
@@ -138,13 +169,13 @@ export default function HomologacaoPage() {
             {[
               { label: 'Editais', value: status.counts.editais },
               { label: 'Itens Importados', value: status.counts.editalItens },
-              { label: 'Municipios', value: status.counts.municipios },
+              { label: 'Municípios', value: status.counts.municipios },
               { label: 'Escolas', value: status.counts.escolas },
               { label: 'Produtores', value: status.counts.produtores },
-              { label: 'Produtos Referencia', value: status.counts.produtosRef },
+              { label: 'Produtos de referência', value: status.counts.produtosRef },
               { label: 'Matches', value: status.counts.matches },
               { label: 'Propostas', value: status.counts.propostas },
-              { label: 'Usuarios', value: status.counts.users },
+              { label: 'Usuários', value: status.counts.users },
             ].map(item => (
               <Grid item xs={6} md={3} key={item.label}>
                 <Typography variant="subtitle2" color="text.secondary">{item.label}</Typography>
@@ -210,7 +241,7 @@ export default function HomologacaoPage() {
           <CardContent>
             <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
               <Warning color="warning" />
-              <Typography variant="h6">Ultimos Erros</Typography>
+              <Typography variant="h6">Últimos erros</Typography>
             </Stack>
             {status.ultimosErros.slice(0, 5).map(erro => (
               <Stack key={erro.id} sx={{ py: 0.5 }}>
@@ -226,12 +257,12 @@ export default function HomologacaoPage() {
 
       <Card>
         <CardContent>
-          <Typography variant="h6" gutterBottom>Ultimos Eventos de Auditoria</Typography>
+          <Typography variant="h6" gutterBottom>Últimos eventos de auditoria</Typography>
           <Divider sx={{ mb: 1 }} />
           {status.ultimosEventos.slice(0, 10).map(ev => (
             <Stack key={ev.id} direction="row" spacing={2} sx={{ py: 0.5 }}>
               <Typography variant="caption" sx={{ minWidth: 140 }}>{new Date(ev.createdAt).toLocaleString('pt-BR')}</Typography>
-              <Chip label={ev.action} size="small" />
+              <Chip label={humanizeSystemValue(ev.action)} size="small" />
               <Typography variant="body2">{ev.entity}</Typography>
               <Typography variant="body2" color="text.secondary">{ev.userName || '—'}</Typography>
             </Stack>

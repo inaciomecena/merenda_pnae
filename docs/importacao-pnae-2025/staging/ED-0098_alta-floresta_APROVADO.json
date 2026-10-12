@@ -1,0 +1,981 @@
+{
+  "schema": "importacao-historica-pnae/1.0",
+  "geradoEm": "2026-10-12T19:29:43.778Z",
+  "idPacote": "ED-0098",
+  "dre": "Alta Floresta",
+  "chaveLogica": "3e9a7de30d0059b3123f3c889a8ae5f8",
+  "decisao": "APROVADO",
+  "motivosBloqueio": [],
+  "identificacao": {
+    "numeroBruto": "008/2024",
+    "numeroNormalizado": "008/2024",
+    "anoNumeracao": 2024,
+    "exercicio": 2025,
+    "exercicioEvidencia": [
+      {
+        "pagina": 2,
+        "trecho": "ano letivo de\n2025"
+      },
+      {
+        "pagina": 2,
+        "trecho": "ano letivo de\n2025"
+      },
+      {
+        "pagina": 2,
+        "trecho": "ano letivo de 2025"
+      },
+      {
+        "pagina": 3,
+        "trecho": "ano letivo de 2025"
+      },
+      {
+        "pagina": 26,
+        "trecho": "ano letivo de\n2025"
+      }
+    ],
+    "processoAdministrativo": "SEDUC-PRO-2024/172947",
+    "dreNome": "Alta Floresta",
+    "camaraNegocios": "Alta",
+    "municipioAtendido": "Alta Floresta",
+    "recorte": "NAO_IDENTIFICADO",
+    "dataPublicacao": null,
+    "dataSessao": "08 de janeiro de 2025",
+    "objeto": "Aquisição de gêneros alimentícios",
+    "fundamentacaoLegal": "IN nº 011/2024/GS/SEDUC/MT",
+    "prazos": null,
+    "habilitacao": null,
+    "criteriosSelecao": null,
+    "condicoesEntrega": null,
+    "condicoesPagamento": null,
+    "valorEstimado": null,
+    "observacoes": []
+  },
+  "documentos": [
+    {
+      "idDocumento": "DOC-0108",
+      "papel": "EDITAL_PRINCIPAL",
+      "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+      "caminho": "PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0108_EDITAL-CHAMADA-PUBLICA-008-24-AF-ano-letivo-2025.pdf",
+      "paginas": 34,
+      "urls": [
+        "https://drealtafloresta.com.br/drealtafloresta/wp-content/uploads/2024/12/EDITAL-CHAMADA-PUBLICA-008-24-AF-ano-letivo-2025.pdf",
+        "https://drealtafloresta.com.br/drealtafloresta/wp-content/uploads/2024/12/EDITAL-CHAMADA-PUBLICA-008-24-AF-ano-letivo-2025.pdf",
+        "https://drealtafloresta.com.br/drealtafloresta/aviso-de-chamada-publica-no-008-2024-alta-floresta/"
+      ],
+      "chaveVersao": "9add76b54467df6dcdbcfee3c9e0190d"
+    }
+  ],
+  "vinculosInstitucionais": {
+    "dre": {
+      "nomePacote": "Alta Floresta",
+      "dreId": "b733bfc6-c5e2-11f1-8f2d-6451061ac5e7",
+      "codigo": "ATF",
+      "status": "CONFIRMADO",
+      "detalhe": "DRE \"DRE Alta Floresta\" (ATF)"
+    },
+    "municipio": {
+      "nomePacote": "Alta Floresta",
+      "municipioId": "a5b170e2-0adb-4e9c-a0fd-35782d907e00",
+      "codigoIbge": "5100250",
+      "status": "CONFIRMADO",
+      "detalhe": "\"Alta Floresta\" (IBGE 5100250)"
+    },
+    "escolas": [],
+    "unidadesExecutoras": [
+      {
+        "nome": "Alta Floresta",
+        "cnpj": null,
+        "entidadeExecutoraId": null,
+        "status": "PENDENTE",
+        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+      }
+    ]
+  },
+  "itens": [
+    {
+      "sequencia": 3,
+      "produto": "ABÓBORA PAULISTA",
+      "descricaoCompleta": "3. ABÓBORA PAULISTA, inteira, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. Consistência firme, cascas intactas, de forma que não deixem exposta a polpa, em grau de maturação adequado para consumo, não se apresentar excessivamente madura ou passada. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionado em saco plástico atóxico,",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "1.443",
+        "normalizado": null,
+        "pagina": 3,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "pendente_revisao",
+        "pendencia": "formato fora do padrão brasileiro reconhecido (esperado \"1.234,56\"): \"1.443\""
+      },
+      "precoUnitario": {
+        "bruto": "5,61",
+        "normalizado": "5.61",
+        "pagina": 3,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "8.101,00",
+        "normalizado": "8101.00",
+        "pagina": 3,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 3,
+      "documentoId": "DOC-0108",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "quantidade ambígua: \"1.443\""
+    },
+    {
+      "sequencia": 4,
+      "produto": "AÇAFRÃO",
+      "descricaoCompleta": "4. AÇAFRÃO, torrado, em pó fino e homogêneo, com aspecto, cor, cheiro e sabor próprios, isenta de impurezas e umidade. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionado em embalagem de polietileno de 30g, íntegro, atóxico, resistente, vedado hermeticamente e limpo, contendo os dados de identificação do fabricante, data de fabricação, data de validade e quantidade do produto. Validade mínima de 6 meses 30g",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "1.087",
+        "normalizado": null,
+        "pagina": 3,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "pendente_revisao",
+        "pendencia": "formato fora do padrão brasileiro reconhecido (esperado \"1.234,56\"): \"1.087\""
+      },
+      "precoUnitario": {
+        "bruto": "2,78",
+        "normalizado": "2.78",
+        "pagina": 3,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "3.019,14",
+        "normalizado": "3019.14",
+        "pagina": 3,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 3,
+      "documentoId": "DOC-0108",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "quantidade ambígua: \"1.087\" | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 10,
+      "produto": "BANANA MAÇÃ",
+      "descricaoCompleta": "10. BANANA MAÇÃ, inteira, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. Consistência firme, cascas intactas, de forma que não deixem exposta a polpa, em grau de maturação adequado para consumo, não se apresentar excessivamente madura ou passada. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionado em saco plástico atóxico,",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "500",
+        "normalizado": "500.00",
+        "pagina": 4,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "7,49",
+        "normalizado": "7.49",
+        "pagina": 4,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "3.745,00",
+        "normalizado": "3745.00",
+        "pagina": 4,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "3745.00",
+      "divergencia": "0.00",
+      "pagina": 4,
+      "documentoId": "DOC-0108",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "extraido",
+      "pendencia": null
+    },
+    {
+      "sequencia": 11,
+      "produto": "BANANA NANICA",
+      "descricaoCompleta": "11. BANANA NANICA, inteira, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. Consistência firme, cascas intactas, de forma que não deixem exposta a polpa, em grau de maturação adequado para consumo, não se apresentar excessivamente madura ou passada. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionado em saco plástico atóxico,",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "2.940",
+        "normalizado": null,
+        "pagina": 4,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "pendente_revisao",
+        "pendencia": "formato fora do padrão brasileiro reconhecido (esperado \"1.234,56\"): \"2.940\""
+      },
+      "precoUnitario": {
+        "bruto": "8,26",
+        "normalizado": "8.26",
+        "pagina": 4,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "24.284,40",
+        "normalizado": "24284.40",
+        "pagina": 4,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 4,
+      "documentoId": "DOC-0108",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "quantidade ambígua: \"2.940\""
+    },
+    {
+      "sequencia": 12,
+      "produto": "BATATA DOCE",
+      "descricaoCompleta": "12. BATATA DOCE, inteira, livre de sujidades, insetos, larvas e fungos. Consistência firme, apresentando desenvolvimento completo, isenta de odores estranhos e deformidades, isenta de podridões, não se apresentar desidratada, murcha ou congelada. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionada em saco plástico atóxico, transparente e resistente.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "1.023",
+        "normalizado": null,
+        "pagina": 4,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "pendente_revisao",
+        "pendencia": "formato fora do padrão brasileiro reconhecido (esperado \"1.234,56\"): \"1.023\""
+      },
+      "precoUnitario": {
+        "bruto": "6,87",
+        "normalizado": "6.87",
+        "pagina": 4,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "7.028,01",
+        "normalizado": "7028.01",
+        "pagina": 4,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 4,
+      "documentoId": "DOC-0108",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "quantidade ambígua: \"1.023\""
+    },
+    {
+      "sequencia": 13,
+      "produto": "BEBIDA LÁCTEA FERMENTADA SABOR COCO",
+      "descricaoCompleta": "13. BEBIDA LÁCTEA FERMENTADA SABOR COCO, pasteurizado, podendo ser integral ou não, e/ou leite reconstituído, soro de leite, açúcar, preparado de coco, aroma idêntico ao natural de coco, estabilizante, conservante (sorbato de potássio), acidulante ácido cítrico, fermento lácteo. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Embalagem de polietileno atóxico, resistente de 900g, sendo entregue sob",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "3.971",
+        "normalizado": null,
+        "pagina": 4,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "pendente_revisao",
+        "pendencia": "formato fora do padrão brasileiro reconhecido (esperado \"1.234,56\"): \"3.971\""
+      },
+      "precoUnitario": {
+        "bruto": "7,67",
+        "normalizado": "7.67",
+        "pagina": 4,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "30.457,57",
+        "normalizado": "30457.57",
+        "pagina": 4,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 4,
+      "documentoId": "DOC-0108",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "quantidade ambígua: \"3.971\" | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 14,
+      "produto": "BETERRABA",
+      "descricaoCompleta": "14. BETERRABA, inteira, livre de sujidades, insetos, larvas e fungos. Consistência firme, apresentando desenvolvimento completo, isenta de odores estranhos e deformidades, isenta de podridões, não se apresentar desidratada, murcha ou congelada. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionada em saco plástico atóxico, transparente e resistente.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "639",
+        "normalizado": "639.00",
+        "pagina": 4,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "5,99",
+        "normalizado": "5.99",
+        "pagina": 4,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "3.829,21",
+        "normalizado": "3829.21",
+        "pagina": 4,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "3827.61",
+      "divergencia": "1.60",
+      "pagina": 4,
+      "documentoId": "DOC-0108",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "total informado na fonte difere de quantidade × preço unitário em 1.60"
+    },
+    {
+      "sequencia": 17,
+      "produto": "CENOURA",
+      "descricaoCompleta": "17. CENOURA, inteira, livre de sujidades, insetos, larvas e fungos. Consistência firme, apresentando desenvolvimento completo, isenta de odores estranhos e deformidades, isenta de podridões, não se apresentar desidratada, murcha ou congelada. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionada em saco plástico atóxico, transparente e resistente.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "3.183",
+        "normalizado": null,
+        "pagina": 4,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "pendente_revisao",
+        "pendencia": "formato fora do padrão brasileiro reconhecido (esperado \"1.234,56\"): \"3.183\""
+      },
+      "precoUnitario": {
+        "bruto": "7,22",
+        "normalizado": "7.22",
+        "pagina": 4,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "22.965,35",
+        "normalizado": "22965.35",
+        "pagina": 4,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 4,
+      "documentoId": "DOC-0108",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "quantidade ambígua: \"3.183\""
+    },
+    {
+      "sequencia": 19,
+      "produto": "COLORAU",
+      "descricaoCompleta": "19. COLORAU, corante, natural de urucum com aspecto, cor e cheiro próprio, podendo conter fubá de milho e óleo de soja. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionado em saco de polietileno, íntegro, atóxico, resistente, embalagem de 30g. contendo externamente os dados de identificação do fabricante, data de validade e quantidade do produto. Validade mínima de 6 meses a contar da data de entrega. 30g",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "9.040",
+        "normalizado": null,
+        "pagina": 4,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "pendente_revisao",
+        "pendencia": "formato fora do padrão brasileiro reconhecido (esperado \"1.234,56\"): \"9.040\""
+      },
+      "precoUnitario": {
+        "bruto": "2,43",
+        "normalizado": "2.43",
+        "pagina": 4,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "21.967,20",
+        "normalizado": "21967.20",
+        "pagina": 4,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 4,
+      "documentoId": "DOC-0108",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "quantidade ambígua: \"9.040\" | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 23,
+      "produto": "LARANJA PÊRA",
+      "descricaoCompleta": "23. LARANJA PÊRA, inteira, livre de sujidades, insetos, larvas, fungos, isento de podridões, não se apresentar desidratado, murcho ou congelado. Consistência firme, cascas intactas, de forma que não deixem exposta a polpa, em grau de maturação adequado para consumo, não se apresentar excessivamente maduro ou passado. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionado em saco plástico de",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "4.990",
+        "normalizado": null,
+        "pagina": 5,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "pendente_revisao",
+        "pendencia": "formato fora do padrão brasileiro reconhecido (esperado \"1.234,56\"): \"4.990\""
+      },
+      "precoUnitario": {
+        "bruto": "8,67",
+        "normalizado": "8.67",
+        "pagina": 5,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "43.275,78",
+        "normalizado": "43275.78",
+        "pagina": 5,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 5,
+      "documentoId": "DOC-0108",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "quantidade ambígua: \"4.990\""
+    },
+    {
+      "sequencia": 24,
+      "produto": "LEITE PASTEURIZADO INTEGRAL LEITE DE VACA INTEGRAL",
+      "descricaoCompleta": "24. LEITE PASTEURIZADO INTEGRAL leite de vaca integral, fluído, pasteurizado, de cor branca opaca, homogêneo e odor característico. As características de qualidade e identidade do produto deverão estar de acordo com a legislação vigente. Embalagem de plástica a atóxica e resistente de 1 litro, contendo externamente os dados de identificação do fabricante, informações nutricionais, número de lote, data de fabricação, data de validade, quantidade do produto e número do Registro no SIF, SISE ou SIM. 1",
+      "unidadeComercial": "L",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "29.674",
+        "normalizado": null,
+        "pagina": 5,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "pendente_revisao",
+        "pendencia": "formato fora do padrão brasileiro reconhecido (esperado \"1.234,56\"): \"29.674\""
+      },
+      "precoUnitario": {
+        "bruto": "5,49",
+        "normalizado": "5.49",
+        "pagina": 5,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "162.984,45",
+        "normalizado": "162984.45",
+        "pagina": 5,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 5,
+      "documentoId": "DOC-0108",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "quantidade ambígua: \"29.674\""
+    },
+    {
+      "sequencia": 26,
+      "produto": "MAMÃO FORMOSA",
+      "descricaoCompleta": "26. MAMÃO FORMOSA, livre de sujidades, insetos, larvas, fungos, isento de podridões, não se apresentar desidratado, murcho ou congelado. Consistência firme, cascas intactas, de forma que não deixem exposta a polpa, em grau de maturação adequado para consumo, não se apresentar excessivamente maduro ou passado. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionado em saco plástico atóxico, transparente e",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "1.948",
+        "normalizado": null,
+        "pagina": 5,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "pendente_revisao",
+        "pendencia": "formato fora do padrão brasileiro reconhecido (esperado \"1.234,56\"): \"1.948\""
+      },
+      "precoUnitario": {
+        "bruto": "9,44",
+        "normalizado": "9.44",
+        "pagina": 5,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "18.381,33",
+        "normalizado": "18381.33",
+        "pagina": 5,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 5,
+      "documentoId": "DOC-0108",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "quantidade ambígua: \"1.948\""
+    },
+    {
+      "sequencia": 27,
+      "produto": "MANDIOCA",
+      "descricaoCompleta": "27. MANDIOCA, in natura, branca ou amarela, inteira, livre de sujidades, insetos, larvas e fungos. Consistência firme, apresentando desenvolvimento completo, isenta de odores estranhos e deformidades, isenta de podridões, não se apresentar desidratada, murcha ou congelada. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionada em saco plástico atóxico, transparente e resistente.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "200",
+        "normalizado": "200.00",
+        "pagina": 5,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "6,74",
+        "normalizado": "6.74",
+        "pagina": 5,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "1.348,00",
+        "normalizado": "1348.00",
+        "pagina": 5,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "1348.00",
+      "divergencia": "0.00",
+      "pagina": 5,
+      "documentoId": "DOC-0108",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "extraido",
+      "pendencia": null
+    },
+    {
+      "sequencia": 28,
+      "produto": "MANDIOCA DESCASCADA CONGELADA",
+      "descricaoCompleta": "28. MANDIOCA DESCASCADA CONGELADA, livre de sujidades, insetos, larvas e fungos, isenta de podridões, consistência firme. Acondicionada em saco plástico atóxico, transparente e resistente. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. A embalagem deverá conter externamente os dados de identificação do fabricante, informações nutricionais, data de fabricação, data de validade e quantidade. 1",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "2.106",
+        "normalizado": null,
+        "pagina": 5,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "pendente_revisao",
+        "pendencia": "formato fora do padrão brasileiro reconhecido (esperado \"1.234,56\"): \"2.106\""
+      },
+      "precoUnitario": {
+        "bruto": "8,39",
+        "normalizado": "8.39",
+        "pagina": 5,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "17.662,32",
+        "normalizado": "17662.32",
+        "pagina": 5,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 5,
+      "documentoId": "DOC-0108",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "quantidade ambígua: \"2.106\""
+    },
+    {
+      "sequencia": 30,
+      "produto": "MELANCIA",
+      "descricaoCompleta": "30. MELANCIA, inteira, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. Consistência firme, cascas intactas, de forma que não deixem exposta a polpa, em grau de maturação adequado para consumo, não se apresentar excessivamente madura ou passada. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionado em saco plástico atóxico, transparente e",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "3.236",
+        "normalizado": null,
+        "pagina": 5,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "pendente_revisao",
+        "pendencia": "formato fora do padrão brasileiro reconhecido (esperado \"1.234,56\"): \"3.236\""
+      },
+      "precoUnitario": {
+        "bruto": "4,27",
+        "normalizado": "4.27",
+        "pagina": 5,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "13.817,72",
+        "normalizado": "13817.72",
+        "pagina": 5,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 5,
+      "documentoId": "DOC-0108",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "quantidade ambígua: \"3.236\""
+    },
+    {
+      "sequencia": 35,
+      "produto": "PEPINO",
+      "descricaoCompleta": "35. PEPINO, inteiro, livre de sujidades, insetos, larvas e fungos. Consistência firme, apresentando desenvolvimento completo, isento de odores estranhos e deformidades, isento de podridões, não se apresentar desidratado, murcho ou congelado. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionada em saco plástico atóxico, transparente e resistente.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "753",
+        "normalizado": "753.00",
+        "pagina": 6,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "6,59",
+        "normalizado": "6.59",
+        "pagina": 6,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "4.962,27",
+        "normalizado": "4962.27",
+        "pagina": 6,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "4962.27",
+      "divergencia": "0.00",
+      "pagina": 6,
+      "documentoId": "DOC-0108",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "extraido",
+      "pendencia": null
+    },
+    {
+      "sequencia": 45,
+      "produto": "REPOLHO BRANCO/VERDE",
+      "descricaoCompleta": "45. REPOLHO BRANCO/VERDE, inteiro, livre de sujidades, insetos, larvas e fungos, apresentando desenvolvimento completo, isento de odores estranhos e deformidades, isento de podridões, não se apresentar desidratado, murcho ou congelado. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionada em saco plástico atóxico, transparente e resistente.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "3.200",
+        "normalizado": null,
+        "pagina": 7,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "pendente_revisao",
+        "pendencia": "formato fora do padrão brasileiro reconhecido (esperado \"1.234,56\"): \"3.200\""
+      },
+      "precoUnitario": {
+        "bruto": "5,19",
+        "normalizado": "5.19",
+        "pagina": 7,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "16.600,00",
+        "normalizado": "16600.00",
+        "pagina": 7,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 7,
+      "documentoId": "DOC-0108",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "quantidade ambígua: \"3.200\""
+    },
+    {
+      "sequencia": 49,
+      "produto": "TOMATE SALADA",
+      "descricaoCompleta": "49. TOMATE SALADA, inteiros, sem ferimentos ou defeitos, livre de sujidades, insetos, larvas ou fungos, isento de odores estranhos, consistência firme, a pele deve estar intacta, de forma que não deixem expostas as polpas, em grau de maturação adequado para consumo, não se apresentar excessivamente maduro ou passado, isento de podridões, não se apresentar desidratado, murcho ou congelado. As características deverão atender aos requisitos mínimos de identidade e qualidade",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "2.811",
+        "normalizado": null,
+        "pagina": 7,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "pendente_revisao",
+        "pendencia": "formato fora do padrão brasileiro reconhecido (esperado \"1.234,56\"): \"2.811\""
+      },
+      "precoUnitario": {
+        "bruto": "8,90",
+        "normalizado": "8.90",
+        "pagina": 7,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "25.010,87",
+        "normalizado": "25010.87",
+        "pagina": 7,
+        "documentoId": "DOC-0108",
+        "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 7,
+      "documentoId": "DOC-0108",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "quantidade ambígua: \"2.811\""
+    },
+    {
+      "sequencia": 50,
+      "produto": "VAGEM",
+      "descricaoCompleta": "50. VAGEM, inteira, livre de sujidades, insetos, larvas e fungos. Consistência firme, apresentando desenvolvimento completo, isenta de odores estranhos e deformidades, isenta de podridões e amarelados, não se apresentar desidratada, murcha ou congelada. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionada em saco plástico atóxico, transparente e resistente.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 7,
+      "documentoId": "DOC-0108",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 10,
+      "produto": null,
+      "descricaoCompleta": "10. * O preço de aquisição é o estabelecido no Edital da Chamada Pública TOTAL DO PROJETO DE VENDAS => Declaro estar de acordo com as condições estabelecidas neste projeto e que as informações acima conferem com as condições de fornecimento. Local e Data: Nome / Assinatura do Representante do Grupo Formal: Fone ou e-mail: Importante Informar: número do banco, agência e número da conta bancária e chave Pix. DECLARAÇÃO DE PRODUÇÃO PRÓPRIA – GRUPO FORMAL",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 21,
+      "documentoId": "DOC-0108",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado"
+    }
+  ],
+  "anexos": [],
+  "pendencias": [
+    {
+      "tipo": "resolucao_entidade_executora",
+      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
+      "origem": "snapshot institucional"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 3 (ABÓBORA PAULISTA): quantidade ambígua: \"1.443\"",
+      "origem": "DOC-0108"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 4 (AÇAFRÃO): quantidade ambígua: \"1.087\" | unidade comercial não identificada",
+      "origem": "DOC-0108"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 11 (BANANA NANICA): quantidade ambígua: \"2.940\"",
+      "origem": "DOC-0108"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 12 (BATATA DOCE): quantidade ambígua: \"1.023\"",
+      "origem": "DOC-0108"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 13 (BEBIDA LÁCTEA FERMENTADA SABOR COCO): quantidade ambígua: \"3.971\" | unidade comercial não identificada",
+      "origem": "DOC-0108"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 14 (BETERRABA): total informado na fonte difere de quantidade × preço unitário em 1.60",
+      "origem": "DOC-0108"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 17 (CENOURA): quantidade ambígua: \"3.183\"",
+      "origem": "DOC-0108"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 19 (COLORAU): quantidade ambígua: \"9.040\" | unidade comercial não identificada",
+      "origem": "DOC-0108"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 23 (LARANJA PÊRA): quantidade ambígua: \"4.990\"",
+      "origem": "DOC-0108"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 24 (LEITE PASTEURIZADO INTEGRAL LEITE DE VACA INTEGRAL): quantidade ambígua: \"29.674\"",
+      "origem": "DOC-0108"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 26 (MAMÃO FORMOSA): quantidade ambígua: \"1.948\"",
+      "origem": "DOC-0108"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 28 (MANDIOCA DESCASCADA CONGELADA): quantidade ambígua: \"2.106\"",
+      "origem": "DOC-0108"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 30 (MELANCIA): quantidade ambígua: \"3.236\"",
+      "origem": "DOC-0108"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 45 (REPOLHO BRANCO/VERDE): quantidade ambígua: \"3.200\"",
+      "origem": "DOC-0108"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 49 (TOMATE SALADA): quantidade ambígua: \"2.811\"",
+      "origem": "DOC-0108"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 50 (VAGEM): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0108"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 10 (s/produto): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0108"
+    }
+  ],
+  "metadadoExtracao": {
+    "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+    "documentosValidados": 1,
+    "itensDoManifesto": 0,
+    "itensExtraidosPdf": 20
+  }
+}

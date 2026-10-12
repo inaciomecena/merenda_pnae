@@ -1,0 +1,97 @@
+{
+  "schema": "importacao-historica-pnae/1.0",
+  "geradoEm": "2026-10-12T19:29:39.297Z",
+  "idPacote": "ED-0080",
+  "dre": "Tangará da Serra",
+  "chaveLogica": "fc7d1b27af09561ba4d97ba6271f27bd",
+  "decisao": "BLOQUEADO",
+  "motivosBloqueio": [
+    "elegibilidade \"PENDENTE_ARQUIVO\" bloqueia importação automática."
+  ],
+  "identificacao": {
+    "numeroBruto": "014/2024",
+    "numeroNormalizado": "014/2024",
+    "anoNumeracao": 2024,
+    "exercicio": null,
+    "exercicioEvidencia": [],
+    "processoAdministrativo": null,
+    "dreNome": "Tangará da Serra",
+    "camaraNegocios": "Tangará da Serra",
+    "municipioAtendido": "Sapezal",
+    "recorte": "NAO_IDENTIFICADO",
+    "dataPublicacao": null,
+    "dataSessao": null,
+    "objeto": "Aquisição de gêneros alimentícios para alimentação escolar da agricultura familiar",
+    "fundamentacaoLegal": null,
+    "prazos": null,
+    "habilitacao": null,
+    "criteriosSelecao": null,
+    "condicoesEntrega": null,
+    "condicoesPagamento": null,
+    "valorEstimado": null,
+    "observacoes": [
+      "identificação preenchida a partir do manifesto (extração de PDF não realizada ou indisponível)"
+    ]
+  },
+  "documentos": [
+    {
+      "idDocumento": "DOC-0088",
+      "papel": "EDITAL_PRINCIPAL",
+      "sha256": null,
+      "caminho": null,
+      "paginas": null,
+      "urls": [
+        "https://drive.google.com/file/d/1G0ElLv1VSiTCNWNCDSnDbahxi7EA5DIk/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1G0ElLv1VSiTCNWNCDSnDbahxi7EA5DIk",
+        "https://sites.google.com/edu.mt.gov.br/dre-tangaradaserra/institucional/coordenadorias/coadm/chamada-pública-em-andamento"
+      ],
+      "chaveVersao": "e5b8ed9a4d3b84daf65359a5198ae1cb"
+    }
+  ],
+  "vinculosInstitucionais": {
+    "dre": {
+      "nomePacote": "Tangará da Serra",
+      "dreId": "b744c17a-c5e2-11f1-8f2d-6451061ac5e7",
+      "codigo": "TGA",
+      "status": "CONFIRMADO",
+      "detalhe": "DRE \"DRE Tangará da Serra\" (TGA)"
+    },
+    "municipio": {
+      "nomePacote": "Sapezal",
+      "municipioId": "4b18a310-16a6-4b29-b25e-d2d000f2a5dd",
+      "codigoIbge": "5107875",
+      "status": "CONFIRMADO",
+      "detalhe": "\"Sapezal\" (IBGE 5107875)"
+    },
+    "escolas": [],
+    "unidadesExecutoras": [
+      {
+        "nome": "Tangará da Serra",
+        "cnpj": null,
+        "entidadeExecutoraId": null,
+        "status": "PENDENTE",
+        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+      }
+    ]
+  },
+  "itens": [],
+  "anexos": [],
+  "pendencias": [
+    {
+      "tipo": "PENDENTE_ARQUIVO",
+      "descricao": "Download retornou HTTP 404",
+      "origem": "manifesto:Tangará da Serra"
+    },
+    {
+      "tipo": "resolucao_entidade_executora",
+      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
+      "origem": "snapshot institucional"
+    }
+  ],
+  "metadadoExtracao": {
+    "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+    "documentosValidados": 0,
+    "itensDoManifesto": 0,
+    "itensExtraidosPdf": 0
+  }
+}

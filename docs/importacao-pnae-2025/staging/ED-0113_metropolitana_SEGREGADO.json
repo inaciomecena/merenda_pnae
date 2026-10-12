@@ -1,0 +1,92 @@
+{
+  "schema": "importacao-historica-pnae/1.0",
+  "geradoEm": "2026-10-12T19:29:43.786Z",
+  "idPacote": "ED-0113",
+  "dre": "Metropolitana",
+  "chaveLogica": "993bde724fcda124f50f227174a3ecab",
+  "decisao": "SEGREGADO",
+  "motivosBloqueio": [
+    "PREGAO_2025: pregão não é chamada pública da agricultura familiar; segregado da importação."
+  ],
+  "identificacao": {
+    "numeroBruto": "010/2024",
+    "numeroNormalizado": "010/2024",
+    "anoNumeracao": 2024,
+    "exercicio": 2025,
+    "exercicioEvidencia": [],
+    "processoAdministrativo": null,
+    "dreNome": "Metropolitana",
+    "camaraNegocios": "Metropolitana",
+    "municipioAtendido": "Poconé",
+    "recorte": "NAO_IDENTIFICADO",
+    "dataPublicacao": null,
+    "dataSessao": null,
+    "objeto": "Aquisição de gêneros alimentícios para alimentação escolar",
+    "fundamentacaoLegal": null,
+    "prazos": null,
+    "habilitacao": null,
+    "criteriosSelecao": null,
+    "condicoesEntrega": null,
+    "condicoesPagamento": null,
+    "valorEstimado": null,
+    "observacoes": [
+      "identificação preenchida a partir do manifesto (extração de PDF não realizada ou indisponível)"
+    ]
+  },
+  "documentos": [
+    {
+      "idDocumento": "DOC-0123",
+      "papel": "EDITAL_PRINCIPAL",
+      "sha256": "6d708f227fbda446c892ad1ca60a5e370cde12f5be69f5757de2525c0ee7fcd2",
+      "caminho": "PNAE_MT_2025/08_METROPOLITANA/DOC-0123_2004f4_f869b5af3e7a42e58206e5a5f70a15f0.pdf",
+      "paginas": 172,
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_f869b5af3e7a42e58206e5a5f70a15f0.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_f869b5af3e7a42e58206e5a5f70a15f0.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "chaveVersao": "73e219b988176942d7c96fe4896e0989"
+    }
+  ],
+  "vinculosInstitucionais": {
+    "dre": {
+      "nomePacote": "Metropolitana",
+      "dreId": "b73fc8eb-c5e2-11f1-8f2d-6451061ac5e7",
+      "codigo": "CBA",
+      "status": "CONFIRMADO",
+      "detalhe": "DRE \"DRE Metropolitana\" (CBA)"
+    },
+    "municipio": {
+      "nomePacote": "Poconé",
+      "municipioId": "5d61e1b3-4f23-4ac3-8e5c-1dbec91cbac2",
+      "codigoIbge": "5106505",
+      "status": "CONFIRMADO",
+      "detalhe": "\"Poconé\" (IBGE 5106505)"
+    },
+    "escolas": [],
+    "unidadesExecutoras": [
+      {
+        "nome": "Metropolitana",
+        "cnpj": null,
+        "entidadeExecutoraId": null,
+        "status": "PENDENTE",
+        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+      }
+    ]
+  },
+  "itens": [],
+  "anexos": [],
+  "pendencias": [
+    {
+      "tipo": "resolucao_entidade_executora",
+      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
+      "origem": "snapshot institucional"
+    }
+  ],
+  "metadadoExtracao": {
+    "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+    "documentosValidados": 1,
+    "itensDoManifesto": 0,
+    "itensExtraidosPdf": 0
+  }
+}

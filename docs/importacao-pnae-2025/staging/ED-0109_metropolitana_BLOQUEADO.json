@@ -1,0 +1,97 @@
+{
+  "schema": "importacao-historica-pnae/1.0",
+  "geradoEm": "2026-10-12T19:29:43.784Z",
+  "idPacote": "ED-0109",
+  "dre": "Metropolitana",
+  "chaveLogica": "5c4c6497beb1465e7b766c871a7367d7",
+  "decisao": "BLOQUEADO",
+  "motivosBloqueio": [
+    "elegibilidade \"CONFLITO_EXERCICIO\" bloqueia importação automática."
+  ],
+  "identificacao": {
+    "numeroBruto": "009/2026",
+    "numeroNormalizado": "009/2026",
+    "anoNumeracao": 2026,
+    "exercicio": null,
+    "exercicioEvidencia": [],
+    "processoAdministrativo": null,
+    "dreNome": "Metropolitana",
+    "camaraNegocios": "Metropolitana",
+    "municipioAtendido": "Nova Brasilândia",
+    "recorte": "NAO_IDENTIFICADO",
+    "dataPublicacao": null,
+    "dataSessao": null,
+    "objeto": "Aquisição de gêneros alimentícios para alimentação escolar da agricultura familiar",
+    "fundamentacaoLegal": null,
+    "prazos": null,
+    "habilitacao": null,
+    "criteriosSelecao": null,
+    "condicoesEntrega": null,
+    "condicoesPagamento": null,
+    "valorEstimado": null,
+    "observacoes": [
+      "identificação preenchida a partir do manifesto (extração de PDF não realizada ou indisponível)"
+    ]
+  },
+  "documentos": [
+    {
+      "idDocumento": "DOC-0119",
+      "papel": "EDITAL_PRINCIPAL",
+      "sha256": "c4b087e06a58c44293cab6df797c02167300f11ceffeb43b89f9346c19e5bcfc",
+      "caminho": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0119_2004f4_bd417cb1a36a4509975aedce74924758.pdf",
+      "paginas": 69,
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_bd417cb1a36a4509975aedce74924758.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_bd417cb1a36a4509975aedce74924758.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "chaveVersao": "c89e615200f568bc927be1795e08046f"
+    }
+  ],
+  "vinculosInstitucionais": {
+    "dre": {
+      "nomePacote": "Metropolitana",
+      "dreId": "b73fc8eb-c5e2-11f1-8f2d-6451061ac5e7",
+      "codigo": "CBA",
+      "status": "CONFIRMADO",
+      "detalhe": "DRE \"DRE Metropolitana\" (CBA)"
+    },
+    "municipio": {
+      "nomePacote": "Nova Brasilândia",
+      "municipioId": "3aa998c2-a714-44bb-823a-5839e471fec6",
+      "codigoIbge": "5106208",
+      "status": "CONFIRMADO",
+      "detalhe": "\"Nova Brasilândia\" (IBGE 5106208)"
+    },
+    "escolas": [],
+    "unidadesExecutoras": [
+      {
+        "nome": "Metropolitana",
+        "cnpj": null,
+        "entidadeExecutoraId": null,
+        "status": "PENDENTE",
+        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+      }
+    ]
+  },
+  "itens": [],
+  "anexos": [],
+  "pendencias": [
+    {
+      "tipo": "CONFLITO_EXERCICIO",
+      "descricao": "Portal associa à rodada de fim de 2025; processo/datas 2026 ou normas de setembro de 2025 conflitam com ano letivo 2025 no modelo. Não resolver automaticamente.",
+      "origem": "manifesto:Metropolitana"
+    },
+    {
+      "tipo": "resolucao_entidade_executora",
+      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
+      "origem": "snapshot institucional"
+    }
+  ],
+  "metadadoExtracao": {
+    "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+    "documentosValidados": 1,
+    "itensDoManifesto": 0,
+    "itensExtraidosPdf": 0
+  }
+}

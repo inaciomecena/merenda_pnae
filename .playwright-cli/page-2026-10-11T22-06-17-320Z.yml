@@ -1,0 +1,93 @@
+- generic [ref=f1e1]:
+  - generic [ref=f1e3]:
+    - generic [ref=f1e5]:
+      - generic [ref=f1e6]:
+        - img "SEAF PNAE" [ref=f1e7]
+        - generic [ref=f1e8]: Gestão da Alimentação Escolar
+      - navigation "Menu principal" [ref=f1e9]:
+        - list [ref=f1e10]:
+          - generic [ref=f1e11]:
+            - button "Visão geral" [expanded] [ref=f1e12] [cursor=pointer]
+            - list [ref=f1e23]:
+              - link "Painel geral" [ref=f1e229] [cursor=pointer]:
+                - /url: /dashboard
+              - link "Mapa de Mato Grosso" [ref=f1e230] [cursor=pointer]:
+                - /url: /mapa
+              - link "Relatórios gerenciais" [ref=f1e231] [cursor=pointer]:
+                - /url: /relatorios
+          - button "Cadastros" [ref=f1e46] [cursor=pointer]
+          - button "Chamadas públicas" [ref=f1e55] [cursor=pointer]
+          - button "Execução contratual" [ref=f1e64] [cursor=pointer]
+          - button "Gestão fiscal e financeira" [ref=f1e73] [cursor=pointer]
+          - generic [ref=f1e81]:
+            - button "Administração" [expanded] [ref=f1e82] [cursor=pointer]
+            - list [ref=f1e295]:
+              - button "Usuários e acessos" [ref=f1e297] [cursor=pointer]
+              - generic [ref=f1e305]:
+                - button "Controle do sistema" [expanded] [active] [ref=f1e306] [cursor=pointer]
+                - list [ref=f1e319]:
+                  - link "Auditoria" [ref=f1e321] [cursor=pointer]:
+                    - /url: /auditoria
+                  - link "Configurações" [ref=f1e328] [cursor=pointer]:
+                    - /url: /configuracoes
+                  - link "Homologação técnica" [ref=f1e335] [cursor=pointer]:
+                    - /url: /homologacao
+      - generic [ref=f1e91]:
+        - text: Perfil atual
+        - paragraph [ref=f1e92]: Administrador
+        - text: As opções exibidas respeitam suas permissões e seu vínculo institucional.
+    - generic [ref=f1e93]:
+      - banner [ref=f1e94]:
+        - generic [ref=f1e95]:
+          - generic [ref=f1e96]: Administrador
+          - paragraph [ref=f1e98]: Administrador PNAE
+          - separator [ref=f1e99]
+          - button "Sair" [ref=f1e100] [cursor=pointer]
+      - main [ref=f1e101]:
+        - generic [ref=f1e102]:
+          - generic [ref=f1e103]:
+            - navigation "Navegação estrutural" [ref=f1e104]:
+              - list [ref=f1e105]:
+                - listitem [ref=f1e106]:
+                  - link "Início" [ref=f1e107] [cursor=pointer]:
+                    - /url: /dashboard
+                - listitem [aria-hidden] [ref=f1e108]: /
+                - listitem [ref=f1e109]:
+                  - paragraph [ref=f1e110]: Painel geral
+            - generic [ref=f1e111]: "Código da tela: PNAE-DSH-001"
+          - generic [ref=f1e113]:
+            - heading "Painel administrativo" [level=4] [ref=f1e114]
+            - generic [ref=f1e115]:
+              - generic [ref=f1e118]:
+                - paragraph [ref=f1e119]: Editais no escopo
+                - heading "2" [level=5] [ref=f1e120]
+              - generic [ref=f1e123]:
+                - paragraph [ref=f1e124]: Escolas no escopo
+                - heading "2727" [level=5] [ref=f1e125]
+              - generic [ref=f1e128]:
+                - paragraph [ref=f1e129]: Produtores no escopo
+                - heading "5" [level=5] [ref=f1e130]
+              - generic [ref=f1e133]:
+                - paragraph [ref=f1e134]: Propostas no escopo
+                - heading "0" [level=5] [ref=f1e135]
+              - generic [ref=f1e138]:
+                - paragraph [ref=f1e139]: Valor das propostas
+                - heading "R$ 0,00" [level=5] [ref=f1e140]
+            - generic [ref=f1e142]:
+              - heading "Produtos solicitados em editais do escopo" [level=6] [ref=f1e143]
+              - application [ref=f1e146]:
+                - generic [ref=f1e207]:
+                  - generic [ref=f1e208]:
+                    - generic [ref=f1e278]: BANANA NANICA
+                    - generic [ref=f1e280]: CENOURA
+                    - generic [ref=f1e282]: AÇAFRÃO
+                    - generic [ref=f1e284]: BETERRABA
+                    - generic [ref=f1e286]: ALMEIRÃO
+                    - generic [ref=f1e288]: PIMENTÃO VERDE
+                  - generic [ref=f1e217]:
+                    - generic [ref=f1e218]: "0"
+                    - generic [ref=f1e220]: "0.5"
+                    - generic [ref=f1e222]: "1"
+                    - generic [ref=f1e224]: "1.5"
+                    - generic [ref=f1e226]: "2"
+  - generic [aria-hidden] [ref=f1e228]: CENOURA

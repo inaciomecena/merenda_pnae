@@ -1,0 +1,110 @@
+{
+  "schema": "importacao-historica-pnae/1.0",
+  "geradoEm": "2026-10-12T19:29:39.302Z",
+  "idPacote": "ED-0089",
+  "dre": "Cáceres",
+  "chaveLogica": "4efe6d334ebf288cb102d20833d750c6",
+  "decisao": "SEGREGADO",
+  "motivosBloqueio": [
+    "PREGAO_2025: pregão não é chamada pública da agricultura familiar; segregado da importação."
+  ],
+  "identificacao": {
+    "numeroBruto": "015/2024",
+    "numeroNormalizado": "015/2024",
+    "anoNumeracao": 2024,
+    "exercicio": 2025,
+    "exercicioEvidencia": [],
+    "processoAdministrativo": null,
+    "dreNome": "Cáceres",
+    "camaraNegocios": "Cáceres",
+    "municipioAtendido": "Glória D’Oeste",
+    "recorte": "NAO_IDENTIFICADO",
+    "dataPublicacao": null,
+    "dataSessao": null,
+    "objeto": "Aquisição de gêneros alimentícios para alimentação escolar",
+    "fundamentacaoLegal": null,
+    "prazos": null,
+    "habilitacao": null,
+    "criteriosSelecao": null,
+    "condicoesEntrega": null,
+    "condicoesPagamento": null,
+    "valorEstimado": null,
+    "observacoes": [
+      "identificação preenchida a partir do manifesto (extração de PDF não realizada ou indisponível)"
+    ]
+  },
+  "documentos": [
+    {
+      "idDocumento": "DOC-0097",
+      "papel": "EDITAL_PRINCIPAL",
+      "sha256": "886a8ccd47a8216fb4e5bd2302889412d10ec58fa9fe002030df358c5ba032a4",
+      "caminho": "PNAE_MT_2025/03_CACERES/DOC-0097_DOC-0097.pdf",
+      "paginas": 171,
+      "urls": [
+        "https://drive.google.com/file/d/1j8USo6mX-z2qdQiot-c6bLJpSVuk500h/view?usp=sharing",
+        "https://drive.google.com/uc?export=download&id=1j8USo6mX-z2qdQiot-c6bLJpSVuk500h",
+        "https://www.drecaceres.com.br/edital.php?id=233"
+      ],
+      "chaveVersao": "9eb9eaa867838d5dece960f58d7bcf97"
+    },
+    {
+      "idDocumento": "DOC-0100",
+      "papel": "EDITAL_PRINCIPAL",
+      "sha256": "13a71d868e7393ffb2d84ad922b170f469ebf41fda7533cb7a6410448fb4e2d7",
+      "caminho": "PNAE_MT_2025/03_CACERES/DOC-0100_DOC-0100.pdf",
+      "paginas": 171,
+      "urls": [
+        "https://drive.google.com/file/d/1wCzU3VdqfhLMmlMwAvvtQm3WKVwzkRUP/view?usp=sharing",
+        "https://drive.google.com/uc?export=download&id=1wCzU3VdqfhLMmlMwAvvtQm3WKVwzkRUP",
+        "https://www.drecaceres.com.br/edital.php?id=233"
+      ],
+      "chaveVersao": "c7addabcb1f874205e4e1358e7d24e81"
+    }
+  ],
+  "vinculosInstitucionais": {
+    "dre": {
+      "nomePacote": "Cáceres",
+      "dreId": "b73910dc-c5e2-11f1-8f2d-6451061ac5e7",
+      "codigo": "CCR",
+      "status": "CONFIRMADO",
+      "detalhe": "DRE \"DRE Cáceres\" (CCR)"
+    },
+    "municipio": {
+      "nomePacote": "Glória D’Oeste",
+      "municipioId": null,
+      "codigoIbge": null,
+      "status": "NAO_ENCONTRADO",
+      "detalhe": "nenhum município cadastrado corresponde a \"Glória D’Oeste\""
+    },
+    "escolas": [],
+    "unidadesExecutoras": [
+      {
+        "nome": "Cáceres",
+        "cnpj": null,
+        "entidadeExecutoraId": null,
+        "status": "PENDENTE",
+        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+      }
+    ]
+  },
+  "itens": [],
+  "anexos": [],
+  "pendencias": [
+    {
+      "tipo": "resolucao_municipio",
+      "descricao": "nenhum município cadastrado corresponde a \"Glória D’Oeste\"",
+      "origem": "snapshot institucional"
+    },
+    {
+      "tipo": "resolucao_entidade_executora",
+      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
+      "origem": "snapshot institucional"
+    }
+  ],
+  "metadadoExtracao": {
+    "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+    "documentosValidados": 2,
+    "itensDoManifesto": 0,
+    "itensExtraidosPdf": 0
+  }
+}

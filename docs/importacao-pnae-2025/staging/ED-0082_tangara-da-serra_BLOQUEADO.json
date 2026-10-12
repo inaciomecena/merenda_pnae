@@ -1,0 +1,97 @@
+{
+  "schema": "importacao-historica-pnae/1.0",
+  "geradoEm": "2026-10-12T19:29:39.298Z",
+  "idPacote": "ED-0082",
+  "dre": "Tangará da Serra",
+  "chaveLogica": "0f2f176179b41395d6c88ea39c01508c",
+  "decisao": "BLOQUEADO",
+  "motivosBloqueio": [
+    "elegibilidade \"PENDENTE_ARQUIVO\" bloqueia importação automática."
+  ],
+  "identificacao": {
+    "numeroBruto": "012/2024",
+    "numeroNormalizado": "012/2024",
+    "anoNumeracao": 2024,
+    "exercicio": null,
+    "exercicioEvidencia": [],
+    "processoAdministrativo": null,
+    "dreNome": "Tangará da Serra",
+    "camaraNegocios": "Tangará da Serra",
+    "municipioAtendido": "Porto Estrela",
+    "recorte": "NAO_IDENTIFICADO",
+    "dataPublicacao": null,
+    "dataSessao": null,
+    "objeto": "Aquisição de gêneros alimentícios para alimentação escolar da agricultura familiar",
+    "fundamentacaoLegal": null,
+    "prazos": null,
+    "habilitacao": null,
+    "criteriosSelecao": null,
+    "condicoesEntrega": null,
+    "condicoesPagamento": null,
+    "valorEstimado": null,
+    "observacoes": [
+      "identificação preenchida a partir do manifesto (extração de PDF não realizada ou indisponível)"
+    ]
+  },
+  "documentos": [
+    {
+      "idDocumento": "DOC-0090",
+      "papel": "EDITAL_PRINCIPAL",
+      "sha256": null,
+      "caminho": null,
+      "paginas": null,
+      "urls": [
+        "https://drive.google.com/file/d/1xAysEQ2u520IYvXlbAJszLnxCjLWy1Gz/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1xAysEQ2u520IYvXlbAJszLnxCjLWy1Gz",
+        "https://sites.google.com/edu.mt.gov.br/dre-tangaradaserra/institucional/coordenadorias/coadm/chamada-pública-concluídas"
+      ],
+      "chaveVersao": "5cffba5c3f68719396b2d6e0ef1c0289"
+    }
+  ],
+  "vinculosInstitucionais": {
+    "dre": {
+      "nomePacote": "Tangará da Serra",
+      "dreId": "b744c17a-c5e2-11f1-8f2d-6451061ac5e7",
+      "codigo": "TGA",
+      "status": "CONFIRMADO",
+      "detalhe": "DRE \"DRE Tangará da Serra\" (TGA)"
+    },
+    "municipio": {
+      "nomePacote": "Porto Estrela",
+      "municipioId": "8b596117-dc77-4a0a-8fb7-48087a5ad091",
+      "codigoIbge": "5106851",
+      "status": "CONFIRMADO",
+      "detalhe": "\"Porto Estrela\" (IBGE 5106851)"
+    },
+    "escolas": [],
+    "unidadesExecutoras": [
+      {
+        "nome": "Tangará da Serra",
+        "cnpj": null,
+        "entidadeExecutoraId": null,
+        "status": "PENDENTE",
+        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+      }
+    ]
+  },
+  "itens": [],
+  "anexos": [],
+  "pendencias": [
+    {
+      "tipo": "PENDENTE_ARQUIVO",
+      "descricao": "Download retornou HTTP 404",
+      "origem": "manifesto:Tangará da Serra"
+    },
+    {
+      "tipo": "resolucao_entidade_executora",
+      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
+      "origem": "snapshot institucional"
+    }
+  ],
+  "metadadoExtracao": {
+    "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+    "documentosValidados": 0,
+    "itensDoManifesto": 0,
+    "itensExtraidosPdf": 0
+  }
+}

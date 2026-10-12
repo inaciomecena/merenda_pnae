@@ -1,0 +1,19 @@
+{
+  "databaseUrl": "mysql://root:@localhost:3306/merenda_pnae_sdd005_regressao_20261012?charset=utf8mb4",
+  "contratoId": "98edec20-cc91-437a-b219-28e62cb2b499",
+  "fornecedorId": "3551dbf3-4786-42cc-8b8d-1be04df8465a",
+  "contratoItemId": "3c9512b8-6562-477a-97b0-b3a5bc367b57",
+  "entregaId": "16d366b4-ed74-4ff6-b373-12a9932fcd9b",
+  "entregaItemId": "f25061de-a3a6-4baa-81c2-4122746ddf9e",
+  "dreAId": "55bf3b81-38e0-4d00-b3d4-cecbc60db2e8",
+  "dreBId": "7bacae08-8d49-4c38-a349-565d87304d4f",
+  "escolaId": "d56637e2-c4a4-411d-9bb6-fb65e4724d85",
+  "municipioId": "71ee2dd2-c666-11f1-8f2d-6451061ac5e7",
+  "users": {
+    "admin@seaf.gov.br": "643efe3f-2f39-4a6e-a8cc-87ed665f8992",
+    "dre@seaf.gov.br": "1a05ee39-1e5a-4df7-9392-9c274a914b26",
+    "dre-a@seaf.gov.br": "a94d365a-3840-443a-b8ae-c7d2d43eaf47",
+    "escola@seaf.gov.br": "28a0a4f5-d71f-4439-a521-5af11035541e",
+    "extensionista@seaf.gov.br": "1982a68b-0ecb-4a1c-86b0-17a9b8381c07"
+  }
+}

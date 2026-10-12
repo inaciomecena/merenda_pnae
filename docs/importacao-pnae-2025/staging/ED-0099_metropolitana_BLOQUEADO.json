@@ -1,0 +1,97 @@
+{
+  "schema": "importacao-historica-pnae/1.0",
+  "geradoEm": "2026-10-12T19:29:43.779Z",
+  "idPacote": "ED-0099",
+  "dre": "Metropolitana",
+  "chaveLogica": "7530cfbf756d4bb5a378c18274a71cba",
+  "decisao": "BLOQUEADO",
+  "motivosBloqueio": [
+    "elegibilidade \"FORA_ESCOPO_2026\" bloqueia importação automática."
+  ],
+  "identificacao": {
+    "numeroBruto": "003/2025",
+    "numeroNormalizado": "003/2025",
+    "anoNumeracao": 2025,
+    "exercicio": 2026,
+    "exercicioEvidencia": [],
+    "processoAdministrativo": null,
+    "dreNome": "Metropolitana",
+    "camaraNegocios": "Metropolitana",
+    "municipioAtendido": "Cuiabá",
+    "recorte": "NAO_IDENTIFICADO",
+    "dataPublicacao": null,
+    "dataSessao": null,
+    "objeto": "Aquisição de gêneros alimentícios para alimentação escolar da agricultura familiar",
+    "fundamentacaoLegal": null,
+    "prazos": null,
+    "habilitacao": null,
+    "criteriosSelecao": null,
+    "condicoesEntrega": null,
+    "condicoesPagamento": null,
+    "valorEstimado": null,
+    "observacoes": [
+      "identificação preenchida a partir do manifesto (extração de PDF não realizada ou indisponível)"
+    ]
+  },
+  "documentos": [
+    {
+      "idDocumento": "DOC-0109",
+      "papel": "EDITAL_PRINCIPAL",
+      "sha256": "0b3d41f027b1f2e96ce2884195d6ea51e673758db4ad84273c80ccdea4cb3a4e",
+      "caminho": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0109_2004f4_a29852589efd42ed8e069f3abcffbbc7.pdf",
+      "paginas": 70,
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_a29852589efd42ed8e069f3abcffbbc7.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_a29852589efd42ed8e069f3abcffbbc7.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "chaveVersao": "5cf5e71e6c445e0dfd7383fe00117ba7"
+    }
+  ],
+  "vinculosInstitucionais": {
+    "dre": {
+      "nomePacote": "Metropolitana",
+      "dreId": "b73fc8eb-c5e2-11f1-8f2d-6451061ac5e7",
+      "codigo": "CBA",
+      "status": "CONFIRMADO",
+      "detalhe": "DRE \"DRE Metropolitana\" (CBA)"
+    },
+    "municipio": {
+      "nomePacote": "Cuiabá",
+      "municipioId": "800b5c0a-8b1f-41fc-a356-43b37a714397",
+      "codigoIbge": "5103403",
+      "status": "CONFIRMADO",
+      "detalhe": "\"Cuiabá\" (IBGE 5103403)"
+    },
+    "escolas": [],
+    "unidadesExecutoras": [
+      {
+        "nome": "Metropolitana",
+        "cnpj": null,
+        "entidadeExecutoraId": null,
+        "status": "PENDENTE",
+        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+      }
+    ]
+  },
+  "itens": [],
+  "anexos": [],
+  "pendencias": [
+    {
+      "tipo": "FORA_ESCOPO_2026",
+      "descricao": "Portal associa à rodada de fim de 2025; processo/datas 2026 ou normas de setembro de 2025 conflitam com ano letivo 2025 no modelo. Não resolver automaticamente.",
+      "origem": "manifesto:Metropolitana"
+    },
+    {
+      "tipo": "resolucao_entidade_executora",
+      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
+      "origem": "snapshot institucional"
+    }
+  ],
+  "metadadoExtracao": {
+    "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+    "documentosValidados": 1,
+    "itensDoManifesto": 0,
+    "itensExtraidosPdf": 0
+  }
+}

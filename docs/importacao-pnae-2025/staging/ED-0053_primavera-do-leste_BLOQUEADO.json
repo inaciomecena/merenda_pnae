@@ -1,0 +1,97 @@
+{
+  "schema": "importacao-historica-pnae/1.0",
+  "geradoEm": "2026-10-12T19:29:29.161Z",
+  "idPacote": "ED-0053",
+  "dre": "Primavera do Leste",
+  "chaveLogica": "11b4c935255a6b863df1671b24f628d7",
+  "decisao": "BLOQUEADO",
+  "motivosBloqueio": [
+    "elegibilidade \"PENDENTE_EDITAL_COMPLETO\" bloqueia importação automática."
+  ],
+  "identificacao": {
+    "numeroBruto": "010/2024",
+    "numeroNormalizado": "010/2024",
+    "anoNumeracao": 2024,
+    "exercicio": null,
+    "exercicioEvidencia": [],
+    "processoAdministrativo": null,
+    "dreNome": "Primavera do Leste",
+    "camaraNegocios": "Primavera do Leste",
+    "municipioAtendido": "Primavera do Leste",
+    "recorte": "NAO_IDENTIFICADO",
+    "dataPublicacao": null,
+    "dataSessao": null,
+    "objeto": "Aquisição de gêneros alimentícios para alimentação escolar da agricultura familiar",
+    "fundamentacaoLegal": null,
+    "prazos": null,
+    "habilitacao": null,
+    "criteriosSelecao": null,
+    "condicoesEntrega": null,
+    "condicoesPagamento": null,
+    "valorEstimado": null,
+    "observacoes": [
+      "identificação preenchida a partir do manifesto (extração de PDF não realizada ou indisponível)"
+    ]
+  },
+  "documentos": [
+    {
+      "idDocumento": "DOC-0058",
+      "papel": "AVISO",
+      "sha256": "f54c7bef910089b0188853f7a3c3c0dd41dcb031b379eb58d5c3d2adbc2c35fb",
+      "caminho": "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0058_DOC-0058.pdf",
+      "paginas": 1,
+      "urls": [
+        "https://drive.google.com/file/d/1dtNrtzLzqkJuIbrhMuc4slA3lF2xIX5M/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1dtNrtzLzqkJuIbrhMuc4slA3lF2xIX5M",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "chaveVersao": "75c066baee861caf6028f0cb4457d431"
+    }
+  ],
+  "vinculosInstitucionais": {
+    "dre": {
+      "nomePacote": "Primavera do Leste",
+      "dreId": "b741d30a-c5e2-11f1-8f2d-6451061ac5e7",
+      "codigo": "PVL",
+      "status": "CONFIRMADO",
+      "detalhe": "DRE \"DRE Primavera do Leste\" (PVL)"
+    },
+    "municipio": {
+      "nomePacote": "Primavera do Leste",
+      "municipioId": "77ce2e85-007b-4b36-af39-6453f85e1096",
+      "codigoIbge": "5107040",
+      "status": "CONFIRMADO",
+      "detalhe": "\"Primavera do Leste\" (IBGE 5107040)"
+    },
+    "escolas": [],
+    "unidadesExecutoras": [
+      {
+        "nome": "Primavera do Leste",
+        "cnpj": null,
+        "entidadeExecutoraId": null,
+        "status": "PENDENTE",
+        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+      }
+    ]
+  },
+  "itens": [],
+  "anexos": [],
+  "pendencias": [
+    {
+      "tipo": "PENDENTE_EDITAL_COMPLETO",
+      "descricao": "Página do Diário Oficial com múltiplos avisos. Vínculo vem do contexto da publicação; falta conferir o edital integral.",
+      "origem": "manifesto:Primavera do Leste"
+    },
+    {
+      "tipo": "resolucao_entidade_executora",
+      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
+      "origem": "snapshot institucional"
+    }
+  ],
+  "metadadoExtracao": {
+    "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+    "documentosValidados": 1,
+    "itensDoManifesto": 0,
+    "itensExtraidosPdf": 0
+  }
+}

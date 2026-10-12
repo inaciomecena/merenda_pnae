@@ -1,0 +1,97 @@
+{
+  "schema": "importacao-historica-pnae/1.0",
+  "geradoEm": "2026-10-12T19:29:45.179Z",
+  "idPacote": "ED-0124",
+  "dre": "Rondonópolis",
+  "chaveLogica": "1994f0e525d0e6de80f20ce248ce608e",
+  "decisao": "BLOQUEADO",
+  "motivosBloqueio": [
+    "elegibilidade \"REFERENCIA_HISTORICA\" bloqueia importação automática."
+  ],
+  "identificacao": {
+    "numeroBruto": "024/2024",
+    "numeroNormalizado": "024/2024",
+    "anoNumeracao": 2024,
+    "exercicio": null,
+    "exercicioEvidencia": [],
+    "processoAdministrativo": null,
+    "dreNome": "Rondonópolis",
+    "camaraNegocios": "Rondonópolis",
+    "municipioAtendido": "Rondonópolis",
+    "recorte": "NAO_IDENTIFICADO",
+    "dataPublicacao": null,
+    "dataSessao": null,
+    "objeto": "Aquisição de gêneros alimentícios para alimentação escolar da agricultura familiar",
+    "fundamentacaoLegal": null,
+    "prazos": null,
+    "habilitacao": null,
+    "criteriosSelecao": null,
+    "condicoesEntrega": null,
+    "condicoesPagamento": null,
+    "valorEstimado": null,
+    "observacoes": [
+      "identificação preenchida a partir do manifesto (extração de PDF não realizada ou indisponível)"
+    ]
+  },
+  "documentos": [
+    {
+      "idDocumento": "DOC-0134",
+      "papel": "EXTRATO",
+      "sha256": "d24278ecb0055227d7eac8f8baf8e3212ed1a963bf8a4bb4ab01567405bf1807",
+      "caminho": "PNAE_MT_2025/11_RONDONOPOLIS/DOC-0134_902650.pdf",
+      "paginas": 3,
+      "urls": [
+        "https://www.iomat.mt.gov.br/legislacao/diario_oficial/download/902650",
+        "https://www.iomat.mt.gov.br/legislacao/diario_oficial/download/902650",
+        "https://www.iomat.mt.gov.br/legislacao/diario_oficial/detalhes/902650"
+      ],
+      "chaveVersao": "769aae72f216fc6eaf7f798c0bfbbae4"
+    }
+  ],
+  "vinculosInstitucionais": {
+    "dre": {
+      "nomePacote": "Rondonópolis",
+      "dreId": "b742a4de-c5e2-11f1-8f2d-6451061ac5e7",
+      "codigo": "ROO",
+      "status": "CONFIRMADO",
+      "detalhe": "DRE \"DRE Rondonópolis\" (ROO)"
+    },
+    "municipio": {
+      "nomePacote": "Rondonópolis",
+      "municipioId": "2233ef00-736a-4e99-971f-976fc6dded9c",
+      "codigoIbge": "5107602",
+      "status": "CONFIRMADO",
+      "detalhe": "\"Rondonópolis\" (IBGE 5107602)"
+    },
+    "escolas": [],
+    "unidadesExecutoras": [
+      {
+        "nome": "Rondonópolis",
+        "cnpj": null,
+        "entidadeExecutoraId": null,
+        "status": "PENDENTE",
+        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+      }
+    ]
+  },
+  "itens": [],
+  "anexos": [],
+  "pendencias": [
+    {
+      "tipo": "REFERENCIA_HISTORICA",
+      "descricao": "Extrato de contrato publicado em 2025. Comprova referência ao procedimento, mas não substitui edital nem prova sozinho o exercício de atendimento.",
+      "origem": "manifesto:Rondonópolis"
+    },
+    {
+      "tipo": "resolucao_entidade_executora",
+      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
+      "origem": "snapshot institucional"
+    }
+  ],
+  "metadadoExtracao": {
+    "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+    "documentosValidados": 1,
+    "itensDoManifesto": 0,
+    "itensExtraidosPdf": 0
+  }
+}

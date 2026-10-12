@@ -1,0 +1,31 @@
+
+> @seaf-pnae/backend@1.0.0 predev
+> prisma generate
+
+Environment variables loaded from .env
+Prisma schema loaded from prisma\schema.prisma
+
+✔ Generated Prisma Client (v5.22.0) to .\..\..\node_modules\@prisma\client in 1.88s
+
+Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+
+Tip: Curious about the SQL queries Prisma ORM generates? Optimize helps you enhance your visibility: https://pris.ly/tip-2-optimize
+
+
+> @seaf-pnae/backend@1.0.0 dev
+> prisma migrate deploy && nest start --watch
+
+Environment variables loaded from .env
+Prisma schema loaded from prisma\schema.prisma
+Datasource "db": MySQL database "merenda_pnae" at "localhost:3306"
+
+24 migrations found in prisma/migrations
+
+
+No pending migrations to apply.
+[2J[3J[H[[90m12:02:03[0m] Starting compilation in watch mode...
+
+[91merror[0m[90m TS5033: [0mCould not write file 'C:/Projetos/merenda_pnae/apps/backend/dist/modules/produtores/presentation/controllers/produtores.controller.d.ts': UNKNOWN: unknown error, open 'C:\Projetos\merenda_pnae\apps\backend\dist\modules\produtores\presentation\controllers\produtores.controller.d.ts'.
+
+[[90m12:02:20[0m] Found 1 error. Watching for file changes.
+

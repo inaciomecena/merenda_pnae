@@ -11,13 +11,13 @@ export declare class ProdutosReferenciaService {
     }): Promise<{
         items: {
             id: string;
-            ativo: boolean;
             createdAt: Date;
             updatedAt: Date;
+            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            deletedAt: Date | null;
             nome: string;
+            ativo: boolean;
             categoria: string | null;
             subcategoria: string | null;
             unidadePadrao: string | null;
@@ -32,13 +32,13 @@ export declare class ProdutosReferenciaService {
     }>;
     findOne(id: string): Promise<{
         id: string;
-        ativo: boolean;
         createdAt: Date;
         updatedAt: Date;
+        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        deletedAt: Date | null;
         nome: string;
+        ativo: boolean;
         categoria: string | null;
         subcategoria: string | null;
         unidadePadrao: string | null;
@@ -48,13 +48,13 @@ export declare class ProdutosReferenciaService {
     }>;
     create(dto: CreateProdutoReferenciaDto): Promise<{
         id: string;
-        ativo: boolean;
         createdAt: Date;
         updatedAt: Date;
+        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        deletedAt: Date | null;
         nome: string;
+        ativo: boolean;
         categoria: string | null;
         subcategoria: string | null;
         unidadePadrao: string | null;
@@ -64,13 +64,13 @@ export declare class ProdutosReferenciaService {
     }>;
     update(id: string, dto: UpdateProdutoReferenciaDto): Promise<{
         id: string;
-        ativo: boolean;
         createdAt: Date;
         updatedAt: Date;
+        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        deletedAt: Date | null;
         nome: string;
+        ativo: boolean;
         categoria: string | null;
         subcategoria: string | null;
         unidadePadrao: string | null;
@@ -80,13 +80,13 @@ export declare class ProdutosReferenciaService {
     }>;
     remove(id: string): Promise<{
         id: string;
-        ativo: boolean;
         createdAt: Date;
         updatedAt: Date;
+        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        deletedAt: Date | null;
         nome: string;
+        ativo: boolean;
         categoria: string | null;
         subcategoria: string | null;
         unidadePadrao: string | null;

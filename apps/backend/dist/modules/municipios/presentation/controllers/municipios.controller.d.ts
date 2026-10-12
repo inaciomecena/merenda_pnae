@@ -6,13 +6,13 @@ export declare class MunicipiosController {
     findAll(query: any): Promise<{
         items: {
             id: string;
-            ativo: boolean;
             createdAt: Date;
             updatedAt: Date;
+            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            deletedAt: Date | null;
             nome: string;
+            ativo: boolean;
             nomeNormalizado: string | null;
             uf: string;
             codigoIbge: string | null;
@@ -24,52 +24,52 @@ export declare class MunicipiosController {
     }>;
     findOne(id: string): Promise<{
         id: string;
-        ativo: boolean;
         createdAt: Date;
         updatedAt: Date;
+        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        deletedAt: Date | null;
         nome: string;
+        ativo: boolean;
         nomeNormalizado: string | null;
         uf: string;
         codigoIbge: string | null;
     }>;
     create(dto: CreateMunicipioDto): Promise<{
         id: string;
-        ativo: boolean;
         createdAt: Date;
         updatedAt: Date;
+        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        deletedAt: Date | null;
         nome: string;
+        ativo: boolean;
         nomeNormalizado: string | null;
         uf: string;
         codigoIbge: string | null;
     }>;
     update(id: string, dto: UpdateMunicipioDto): Promise<{
         id: string;
-        ativo: boolean;
         createdAt: Date;
         updatedAt: Date;
+        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        deletedAt: Date | null;
         nome: string;
+        ativo: boolean;
         nomeNormalizado: string | null;
         uf: string;
         codigoIbge: string | null;
     }>;
     remove(id: string): Promise<{
         id: string;
-        ativo: boolean;
         createdAt: Date;
         updatedAt: Date;
+        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        deletedAt: Date | null;
         nome: string;
+        ativo: boolean;
         nomeNormalizado: string | null;
         uf: string;
         codigoIbge: string | null;

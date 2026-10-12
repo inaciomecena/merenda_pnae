@@ -1,12 +1,18 @@
-import { Injectable } from '@nestjs/common';
+import { ForbiddenException, Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../../infrastructure/prisma/prisma.service';
 import * as fs from 'fs';
 import * as path from 'path';
-import { execSync } from 'child_process';
+import { execFileSync } from 'child_process';
 
 @Injectable()
 export class HomologacaoService {
   constructor(private readonly prisma: PrismaService) {}
+
+  private ambienteAtual() {
+    if (process.env.AMBIENTE_HOMOLOGACAO === 'true') return 'HOMOLOGACAO';
+    if (process.env.NODE_ENV === 'production') return 'PRODUCAO';
+    return 'DESENVOLVIMENTO';
+  }
 
   async getStatus() {
     const [
@@ -52,7 +58,7 @@ export class HomologacaoService {
 
     return {
       timestamp: new Date().toISOString(),
-      ambiente: process.env.AMBIENTE_HOMOLOGACAO === 'true' ? 'HOMOLOGACAO' : 'PRODUCAO',
+      ambiente: this.ambienteAtual(),
       db: dbStatus,
       counts: {
         editais, editalItens, produtores, produtosRef, matches, propostas,
@@ -180,15 +186,20 @@ export class HomologacaoService {
   }
 
   async executarSeedTeste() {
+    if (this.ambienteAtual() === 'PRODUCAO') {
+      throw new ForbiddenException('Seed de teste indisponível em produção.');
+    }
+
     try {
-      const seedPath = path.join(process.cwd(), 'prisma', 'seed-test.ts');
+      const projectRoot = path.resolve(__dirname, '../../../../..');
+      const seedPath = path.join(projectRoot, 'prisma', 'seed-test.ts');
       if (!fs.existsSync(seedPath)) {
         return { success: false, message: 'Arquivo seed-test.ts nao encontrado' };
       }
 
-      execSync(`npx ts-node ${seedPath}`, {
-        cwd: process.cwd(),
-        timeout: 30000,
+      execFileSync(process.execPath, [require.resolve('ts-node/dist/bin.js'), seedPath], {
+        cwd: projectRoot,
+        timeout: 60000,
         stdio: 'pipe',
       });
 

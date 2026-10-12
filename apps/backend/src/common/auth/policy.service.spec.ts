@@ -63,4 +63,15 @@ describe('SDD-002 autorização dinâmica', () => {
     expect(await guard.canActivate(context)).toBe(true);
     expect(await guard.canActivate(context)).toBe(false);
   });
+
+  it('ADMIN global não recebe pendência de vínculo institucional', async () => {
+    const prisma: any = {
+      vinculoUsuario: { findMany: jest.fn().mockResolvedValue([]) },
+      representacaoFornecedor: { findMany: jest.fn().mockResolvedValue([]) },
+    };
+    const context = await new PolicyService(prisma).getUserContext({ sub: 'u-admin', role: 'ADMIN' });
+
+    expect(context.pendencias).toEqual([]);
+    expect(context.vinculos).toEqual([]);
+  });
 });

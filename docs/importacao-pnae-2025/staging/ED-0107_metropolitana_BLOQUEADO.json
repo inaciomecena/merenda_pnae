@@ -1,0 +1,97 @@
+{
+  "schema": "importacao-historica-pnae/1.0",
+  "geradoEm": "2026-10-12T19:29:43.783Z",
+  "idPacote": "ED-0107",
+  "dre": "Metropolitana",
+  "chaveLogica": "dbcbdf18fcb40a9b59d58aa09328c1d6",
+  "decisao": "BLOQUEADO",
+  "motivosBloqueio": [
+    "elegibilidade \"CONFLITO_EXERCICIO\" bloqueia importação automática."
+  ],
+  "identificacao": {
+    "numeroBruto": "007/2025",
+    "numeroNormalizado": "007/2025",
+    "anoNumeracao": 2025,
+    "exercicio": null,
+    "exercicioEvidencia": [],
+    "processoAdministrativo": null,
+    "dreNome": "Metropolitana",
+    "camaraNegocios": "Metropolitana",
+    "municipioAtendido": "Chapada dos Guimarães",
+    "recorte": "NAO_IDENTIFICADO",
+    "dataPublicacao": null,
+    "dataSessao": null,
+    "objeto": "Aquisição de gêneros alimentícios para alimentação escolar da agricultura familiar",
+    "fundamentacaoLegal": null,
+    "prazos": null,
+    "habilitacao": null,
+    "criteriosSelecao": null,
+    "condicoesEntrega": null,
+    "condicoesPagamento": null,
+    "valorEstimado": null,
+    "observacoes": [
+      "identificação preenchida a partir do manifesto (extração de PDF não realizada ou indisponível)"
+    ]
+  },
+  "documentos": [
+    {
+      "idDocumento": "DOC-0117",
+      "papel": "EDITAL_PRINCIPAL",
+      "sha256": "89c326babdc02973be897aed40480258fdcf5a2f568df123c0f5c915b961912a",
+      "caminho": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0117_2004f4_a40cb2d0ef534c7d8b8153fb4c5c9697.pdf",
+      "paginas": 68,
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_a40cb2d0ef534c7d8b8153fb4c5c9697.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_a40cb2d0ef534c7d8b8153fb4c5c9697.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "chaveVersao": "baa267d5bf5f82dd28bc117d92ec02bc"
+    }
+  ],
+  "vinculosInstitucionais": {
+    "dre": {
+      "nomePacote": "Metropolitana",
+      "dreId": "b73fc8eb-c5e2-11f1-8f2d-6451061ac5e7",
+      "codigo": "CBA",
+      "status": "CONFIRMADO",
+      "detalhe": "DRE \"DRE Metropolitana\" (CBA)"
+    },
+    "municipio": {
+      "nomePacote": "Chapada dos Guimarães",
+      "municipioId": "6066e680-e137-426b-8827-d815b3856e30",
+      "codigoIbge": "5103007",
+      "status": "CONFIRMADO",
+      "detalhe": "\"Chapada dos Guimarães\" (IBGE 5103007)"
+    },
+    "escolas": [],
+    "unidadesExecutoras": [
+      {
+        "nome": "Metropolitana",
+        "cnpj": null,
+        "entidadeExecutoraId": null,
+        "status": "PENDENTE",
+        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+      }
+    ]
+  },
+  "itens": [],
+  "anexos": [],
+  "pendencias": [
+    {
+      "tipo": "CONFLITO_EXERCICIO",
+      "descricao": "Portal associa à rodada de fim de 2025; processo/datas 2026 ou normas de setembro de 2025 conflitam com ano letivo 2025 no modelo. Não resolver automaticamente.",
+      "origem": "manifesto:Metropolitana"
+    },
+    {
+      "tipo": "resolucao_entidade_executora",
+      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
+      "origem": "snapshot institucional"
+    }
+  ],
+  "metadadoExtracao": {
+    "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+    "documentosValidados": 1,
+    "itensDoManifesto": 0,
+    "itensExtraidosPdf": 0
+  }
+}

@@ -1,0 +1,426 @@
+- generic [ref=e1]:
+  - generic [ref=e30]:
+    - generic [ref=e32]:
+      - generic [ref=e33]:
+        - img "SEAF PNAE" [ref=e34]
+        - generic [ref=e35]: Gestão da Alimentação Escolar
+      - navigation "Menu principal" [ref=e36]:
+        - list [ref=e37]:
+          - generic [ref=e38]:
+            - button "Visão geral" [expanded] [ref=e39] [cursor=pointer]
+            - list [ref=e50]:
+              - link "Painel geral" [ref=e52] [cursor=pointer]:
+                - /url: /dashboard
+              - link "Mapa de Mato Grosso" [ref=e59] [cursor=pointer]:
+                - /url: /mapa
+              - link "Relatórios gerenciais" [ref=e66] [cursor=pointer]:
+                - /url: /relatorios
+          - generic [ref=e72]:
+            - button "Cadastros" [expanded] [ref=e73] [cursor=pointer]
+            - list [ref=e84]:
+              - generic [ref=e85]:
+                - button "Estrutura institucional" [expanded] [ref=e86] [cursor=pointer]
+                - list [ref=e97]:
+                  - link "Organização" [ref=e99] [cursor=pointer]:
+                    - /url: /organizacao
+                  - link "Municípios" [ref=e106] [cursor=pointer]:
+                    - /url: /municipios
+                  - link "Escolas" [ref=e113] [cursor=pointer]:
+                    - /url: /escolas
+              - button "Fornecedores e produtos" [ref=e120] [cursor=pointer]
+              - link "Modelos de documentos" [ref=e129] [cursor=pointer]:
+                - /url: /templates-anexos
+          - button "Chamadas públicas" [ref=e136] [cursor=pointer]
+          - button "Execução contratual" [ref=e145] [cursor=pointer]
+          - button "Gestão fiscal e financeira" [ref=e154] [cursor=pointer]
+          - button "Administração" [ref=e163] [cursor=pointer]
+      - generic [ref=e172]:
+        - text: Perfil atual
+        - paragraph [ref=e173]: Administrador
+        - text: As opções exibidas respeitam suas permissões e seu vínculo institucional.
+    - generic [ref=e174]:
+      - banner [ref=e175]:
+        - generic [ref=e176]:
+          - generic [ref=e177]: Administrador
+          - paragraph [ref=e179]: Administrador PNAE
+          - separator [ref=e180]
+          - button "Sair" [ref=e181] [cursor=pointer]
+      - main [ref=e182]:
+        - generic [ref=e183]:
+          - navigation "Navegação estrutural" [ref=e185]:
+            - list [ref=e186]:
+              - listitem [ref=e187]:
+                - link "Início" [ref=e188] [cursor=pointer]:
+                  - /url: /dashboard
+              - listitem [aria-hidden] [ref=e189]: /
+              - listitem [ref=e190]:
+                - paragraph [ref=e191]: Escolas
+          - generic [ref=e265]:
+            - generic [ref=e266]:
+              - generic [ref=e267]:
+                - heading "Escolas" [level=5] [ref=e268]
+                - paragraph [ref=e269]: Filtre a lista e abra uma escola para consultar os dados completos.
+              - generic [ref=e270]:
+                - button [ref=e271] [cursor=pointer]
+                - button [ref=e275] [cursor=pointer]
+            - tablist "Tipos de escola" [ref=e283]:
+              - tab "Todas as escolas" [ref=e284] [cursor=pointer]
+              - tab "Escolas municipais" [active] [selected] [ref=e285] [cursor=pointer]
+              - tab "Escolas estaduais" [ref=e286] [cursor=pointer]
+              - tab "Escolas privadas" [ref=e287] [cursor=pointer]
+            - generic [ref=e289]:
+              - table [ref=e290]:
+                - rowgroup [ref=e291]:
+                  - row [ref=e292]:
+                    - columnheader "Escola" [ref=e293]
+                    - columnheader "Código INEP" [ref=e294]
+                    - columnheader "Município" [ref=e295]
+                    - columnheader "DRE vinculada" [ref=e296]
+                    - columnheader "Localização" [ref=e297]
+                    - columnheader "Categoria administrativa" [ref=e298]
+                    - columnheader "Restrição de atendimento" [ref=e299]
+                    - columnheader "Status" [ref=e300]
+                    - columnheader "Ações" [ref=e301]
+                  - row [ref=e302]:
+                    - columnheader [ref=e303]:
+                      - generic [ref=e305]:
+                        - textbox "Filtrar por Nome" [ref=e306]:
+                          - /placeholder: Nome
+                        - group [aria-hidden]
+                    - columnheader [ref=e307]:
+                      - generic [ref=e309]:
+                        - textbox "Filtrar por INEP" [ref=e310]:
+                          - /placeholder: INEP
+                        - group [aria-hidden]
+                    - columnheader [ref=e311]:
+                      - generic [ref=e313]:
+                        - combobox [ref=e314] [cursor=pointer]
+                        - textbox [aria-hidden]
+                        - group [aria-hidden]
+                    - columnheader [ref=e315]
+                    - columnheader [ref=e316]:
+                      - generic [ref=e318]:
+                        - textbox "Filtrar por Localização" [ref=e319]:
+                          - /placeholder: Localização
+                        - group [aria-hidden]
+                    - columnheader [ref=e320]:
+                      - generic [ref=e322]:
+                        - textbox "Filtrar por Categoria" [ref=e323]:
+                          - /placeholder: Categoria
+                        - group [aria-hidden]
+                    - columnheader [ref=e324]:
+                      - generic [ref=e326]:
+                        - textbox "Filtrar por Atendimento" [ref=e327]:
+                          - /placeholder: Atendimento
+                        - group [aria-hidden]
+                    - columnheader [ref=e328]:
+                      - generic [ref=e330]:
+                        - combobox [ref=e331] [cursor=pointer]
+                        - textbox [aria-hidden]
+                        - group [aria-hidden]
+                    - columnheader [ref=e332]:
+                      - button "Limpar filtros" [ref=e333] [cursor=pointer]: Limpar
+                - rowgroup [ref=e334]:
+                  - row [ref=e1380]:
+                    - cell [ref=e1381]:
+                      - link "EMPG CARUMBE" [ref=e1382] [cursor=pointer]:
+                        - /url: /escolas/fc1668cb-3b67-4074-a27b-5a2e99ae177d
+                    - cell "51033801" [ref=e1383]
+                    - cell "Acorizal - MT (IBGE 5100102)" [ref=e1384]
+                    - cell "Não vinculada" [ref=e1385]
+                    - cell "Rural" [ref=e1386]
+                    - cell "Pública" [ref=e1387]
+                    - cell "ESCOLA PARALISADA" [ref=e1388]
+                    - cell "Inativa" [ref=e1389]
+                    - cell [ref=e1390]:
+                      - button "Editar" [ref=e1391] [cursor=pointer]
+                      - button "Excluir" [ref=e1394] [cursor=pointer]
+                  - row [ref=e1397]:
+                    - cell [ref=e1398]:
+                      - link "EMPG CHAPADA DA VACARIA" [ref=e1399] [cursor=pointer]:
+                        - /url: /escolas/8fc4be50-36d0-4c36-804f-7eb456b7299f
+                    - cell "51033810" [ref=e1400]
+                    - cell "Acorizal - MT (IBGE 5100102)" [ref=e1401]
+                    - cell "Não vinculada" [ref=e1402]
+                    - cell "Rural" [ref=e1403]
+                    - cell "Pública" [ref=e1404]
+                    - cell "ESCOLA PARALISADA" [ref=e1405]
+                    - cell "Inativa" [ref=e1406]
+                    - cell [ref=e1407]:
+                      - button "Editar" [ref=e1408] [cursor=pointer]
+                      - button "Excluir" [ref=e1411] [cursor=pointer]
+                  - row [ref=e1414]:
+                    - cell [ref=e1415]:
+                      - link "EMPG DE ALEIXO" [ref=e1416] [cursor=pointer]:
+                        - /url: /escolas/4546a8f3-c0fa-4143-ab1b-c0db39cff0e5
+                    - cell "51033828" [ref=e1417]
+                    - cell "Acorizal - MT (IBGE 5100102)" [ref=e1418]
+                    - cell "Não vinculada" [ref=e1419]
+                    - cell "Rural" [ref=e1420]
+                    - cell "Pública" [ref=e1421]
+                    - cell "ESCOLA EM FUNCIONAMENTO E SEM RESTRIÇÃO DE ATENDIMENTO" [ref=e1422]
+                    - cell "Ativa" [ref=e1423]
+                    - cell [ref=e1424]:
+                      - button "Editar" [ref=e1425] [cursor=pointer]
+                      - button "Excluir" [ref=e1428] [cursor=pointer]
+                  - row [ref=e1431]:
+                    - cell [ref=e1432]:
+                      - link "EMPG DE CAMPO LIMPO" [ref=e1433] [cursor=pointer]:
+                        - /url: /escolas/096d7b00-095f-4e2c-bf01-63f1366cc2a0
+                    - cell "51033879" [ref=e1434]
+                    - cell "Acorizal - MT (IBGE 5100102)" [ref=e1435]
+                    - cell "Não vinculada" [ref=e1436]
+                    - cell "Rural" [ref=e1437]
+                    - cell "Pública" [ref=e1438]
+                    - cell "ESCOLA EM FUNCIONAMENTO E SEM RESTRIÇÃO DE ATENDIMENTO" [ref=e1439]
+                    - cell "Ativa" [ref=e1440]
+                    - cell [ref=e1441]:
+                      - button "Editar" [ref=e1442] [cursor=pointer]
+                      - button "Excluir" [ref=e1445] [cursor=pointer]
+                  - row [ref=e1448]:
+                    - cell [ref=e1449]:
+                      - link "EMPG DE CHAPEU DE SOL" [ref=e1450] [cursor=pointer]:
+                        - /url: /escolas/b613fbeb-1fde-436a-b948-9df9b37048bb
+                    - cell "51033887" [ref=e1451]
+                    - cell "Acorizal - MT (IBGE 5100102)" [ref=e1452]
+                    - cell "Não vinculada" [ref=e1453]
+                    - cell "Rural" [ref=e1454]
+                    - cell "Pública" [ref=e1455]
+                    - cell "ESCOLA PARALISADA" [ref=e1456]
+                    - cell "Inativa" [ref=e1457]
+                    - cell [ref=e1458]:
+                      - button "Editar" [ref=e1459] [cursor=pointer]
+                      - button "Excluir" [ref=e1462] [cursor=pointer]
+                  - row [ref=e1465]:
+                    - cell [ref=e1466]:
+                      - link "EMPG DE RIBEIRAO DO PRATA" [ref=e1467] [cursor=pointer]:
+                        - /url: /escolas/327863eb-8497-4621-b216-f8d6d09d9af4
+                    - cell "51033925" [ref=e1468]
+                    - cell "Acorizal - MT (IBGE 5100102)" [ref=e1469]
+                    - cell "Não vinculada" [ref=e1470]
+                    - cell "Rural" [ref=e1471]
+                    - cell "Pública" [ref=e1472]
+                    - cell "ESCOLA PARALISADA" [ref=e1473]
+                    - cell "Inativa" [ref=e1474]
+                    - cell [ref=e1475]:
+                      - button "Editar" [ref=e1476] [cursor=pointer]
+                      - button "Excluir" [ref=e1479] [cursor=pointer]
+                  - row [ref=e1482]:
+                    - cell [ref=e1483]:
+                      - link "EMPG DE SALGADO" [ref=e1484] [cursor=pointer]:
+                        - /url: /escolas/9a550a6d-7c96-4870-a68f-2c8aa8f61768
+                    - cell "51033933" [ref=e1485]
+                    - cell "Acorizal - MT (IBGE 5100102)" [ref=e1486]
+                    - cell "Não vinculada" [ref=e1487]
+                    - cell "Rural" [ref=e1488]
+                    - cell "Pública" [ref=e1489]
+                    - cell "ESCOLA PARALISADA" [ref=e1490]
+                    - cell "Inativa" [ref=e1491]
+                    - cell [ref=e1492]:
+                      - button "Editar" [ref=e1493] [cursor=pointer]
+                      - button "Excluir" [ref=e1496] [cursor=pointer]
+                  - row [ref=e1499]:
+                    - cell [ref=e1500]:
+                      - link "EMPG DE XAVIER" [ref=e1501] [cursor=pointer]:
+                        - /url: /escolas/7962ce83-466d-4b66-adff-a9b2aea14cd9
+                    - cell "51033968" [ref=e1502]
+                    - cell "Acorizal - MT (IBGE 5100102)" [ref=e1503]
+                    - cell "Não vinculada" [ref=e1504]
+                    - cell "Rural" [ref=e1505]
+                    - cell "Pública" [ref=e1506]
+                    - cell "ESCOLA PARALISADA" [ref=e1507]
+                    - cell "Inativa" [ref=e1508]
+                    - cell [ref=e1509]:
+                      - button "Editar" [ref=e1510] [cursor=pointer]
+                      - button "Excluir" [ref=e1513] [cursor=pointer]
+                  - row [ref=e1516]:
+                    - cell [ref=e1517]:
+                      - link "EMPG ED INF EJA AMANCIO R DE ARRUDA" [ref=e1518] [cursor=pointer]:
+                        - /url: /escolas/783d2ec0-c6bd-4b6d-b7ab-84054856327a
+                    - cell "51088312" [ref=e1519]
+                    - cell "Acorizal - MT (IBGE 5100102)" [ref=e1520]
+                    - cell "Não vinculada" [ref=e1521]
+                    - cell "Urbana" [ref=e1522]
+                    - cell "Pública" [ref=e1523]
+                    - cell "ESCOLA EM FUNCIONAMENTO E SEM RESTRIÇÃO DE ATENDIMENTO" [ref=e1524]
+                    - cell "Ativa" [ref=e1525]
+                    - cell [ref=e1526]:
+                      - button "Editar" [ref=e1527] [cursor=pointer]
+                      - button "Excluir" [ref=e1530] [cursor=pointer]
+                  - row [ref=e1533]:
+                    - cell [ref=e1534]:
+                      - link "ESC MUN DA COM DE PEDREGULHO" [ref=e1535] [cursor=pointer]:
+                        - /url: /escolas/ea21b157-2f5a-492e-89f1-bee54c685de6
+                    - cell "51059959" [ref=e1536]
+                    - cell "Acorizal - MT (IBGE 5100102)" [ref=e1537]
+                    - cell "Não vinculada" [ref=e1538]
+                    - cell "Rural" [ref=e1539]
+                    - cell "Pública" [ref=e1540]
+                    - cell "ESCOLA EM FUNCIONAMENTO E SEM RESTRIÇÃO DE ATENDIMENTO" [ref=e1541]
+                    - cell "Ativa" [ref=e1542]
+                    - cell [ref=e1543]:
+                      - button "Editar" [ref=e1544] [cursor=pointer]
+                      - button "Excluir" [ref=e1547] [cursor=pointer]
+                  - row [ref=e1550]:
+                    - cell [ref=e1551]:
+                      - link "EM BOM PRINCIPIO" [ref=e1552] [cursor=pointer]:
+                        - /url: /escolas/c334b55e-7ae4-4eed-b6ae-be200d112949
+                    - cell "51021633" [ref=e1553]
+                    - cell "Água Boa - MT (IBGE 5100201)" [ref=e1554]
+                    - cell "Não vinculada" [ref=e1555]
+                    - cell "Rural" [ref=e1556]
+                    - cell "Pública" [ref=e1557]
+                    - cell "ESCOLA EM FUNCIONAMENTO E SEM RESTRIÇÃO DE ATENDIMENTO" [ref=e1558]
+                    - cell "Ativa" [ref=e1559]
+                    - cell [ref=e1560]:
+                      - button "Editar" [ref=e1561] [cursor=pointer]
+                      - button "Excluir" [ref=e1564] [cursor=pointer]
+                  - row [ref=e1567]:
+                    - cell [ref=e1568]:
+                      - link "EM GUARUJA" [ref=e1569] [cursor=pointer]:
+                        - /url: /escolas/0d7ce45c-83cc-48a2-a6c0-b528b86454f5
+                    - cell "51021706" [ref=e1570]
+                    - cell "Água Boa - MT (IBGE 5100201)" [ref=e1571]
+                    - cell "Não vinculada" [ref=e1572]
+                    - cell "Urbana" [ref=e1573]
+                    - cell "Pública" [ref=e1574]
+                    - cell "ESCOLA EM FUNCIONAMENTO E SEM RESTRIÇÃO DE ATENDIMENTO" [ref=e1575]
+                    - cell "Ativa" [ref=e1576]
+                    - cell [ref=e1577]:
+                      - button "Editar" [ref=e1578] [cursor=pointer]
+                      - button "Excluir" [ref=e1581] [cursor=pointer]
+                  - row [ref=e1584]:
+                    - cell [ref=e1585]:
+                      - link "EM JANDIRA" [ref=e1586] [cursor=pointer]:
+                        - /url: /escolas/bfe410ee-62ed-44c2-b749-a30406dc9903
+                    - cell "51065070" [ref=e1587]
+                    - cell "Água Boa - MT (IBGE 5100201)" [ref=e1588]
+                    - cell "Não vinculada" [ref=e1589]
+                    - cell "Rural" [ref=e1590]
+                    - cell "Pública" [ref=e1591]
+                    - cell "ESCOLA EM FUNCIONAMENTO E SEM RESTRIÇÃO DE ATENDIMENTO" [ref=e1592]
+                    - cell "Ativa" [ref=e1593]
+                    - cell [ref=e1594]:
+                      - button "Editar" [ref=e1595] [cursor=pointer]
+                      - button "Excluir" [ref=e1598] [cursor=pointer]
+                  - row [ref=e1601]:
+                    - cell [ref=e1602]:
+                      - link "EM PROFª SIMONE F DA S FREITAS" [ref=e1603] [cursor=pointer]:
+                        - /url: /escolas/eb80cf80-6ebc-4ffd-8fa2-0281e74c7789
+                    - cell "51021617" [ref=e1604]
+                    - cell "Água Boa - MT (IBGE 5100201)" [ref=e1605]
+                    - cell "Não vinculada" [ref=e1606]
+                    - cell "Rural" [ref=e1607]
+                    - cell "Pública" [ref=e1608]
+                    - cell "ESCOLA EM FUNCIONAMENTO E SEM RESTRIÇÃO DE ATENDIMENTO" [ref=e1609]
+                    - cell "Ativa" [ref=e1610]
+                    - cell [ref=e1611]:
+                      - button "Editar" [ref=e1612] [cursor=pointer]
+                      - button "Excluir" [ref=e1615] [cursor=pointer]
+                  - row [ref=e1618]:
+                    - cell [ref=e1619]:
+                      - link "EM PROFº ANTONIO EDUARDO PINHEIRO" [ref=e1620] [cursor=pointer]:
+                        - /url: /escolas/693c6c13-271a-40c2-a9ca-9bedeba95d49
+                    - cell "51021609" [ref=e1621]
+                    - cell "Água Boa - MT (IBGE 5100201)" [ref=e1622]
+                    - cell "Não vinculada" [ref=e1623]
+                    - cell "Rural" [ref=e1624]
+                    - cell "Pública" [ref=e1625]
+                    - cell "ESCOLA EM FUNCIONAMENTO E SEM RESTRIÇÃO DE ATENDIMENTO" [ref=e1626]
+                    - cell "Ativa" [ref=e1627]
+                    - cell [ref=e1628]:
+                      - button "Editar" [ref=e1629] [cursor=pointer]
+                      - button "Excluir" [ref=e1632] [cursor=pointer]
+                  - row [ref=e1635]:
+                    - cell [ref=e1636]:
+                      - link "EM VILA NOVA" [ref=e1637] [cursor=pointer]:
+                        - /url: /escolas/06843bcb-a93b-4c22-ba41-a7540b1338a0
+                    - cell "51055155" [ref=e1638]
+                    - cell "Água Boa - MT (IBGE 5100201)" [ref=e1639]
+                    - cell "Não vinculada" [ref=e1640]
+                    - cell "Urbana" [ref=e1641]
+                    - cell "Pública" [ref=e1642]
+                    - cell "ESCOLA EM FUNCIONAMENTO E SEM RESTRIÇÃO DE ATENDIMENTO" [ref=e1643]
+                    - cell "Ativa" [ref=e1644]
+                    - cell [ref=e1645]:
+                      - button "Editar" [ref=e1646] [cursor=pointer]
+                      - button "Excluir" [ref=e1649] [cursor=pointer]
+                  - row [ref=e1652]:
+                    - cell [ref=e1653]:
+                      - link "EMAGROVILA CENTRAL" [ref=e1654] [cursor=pointer]:
+                        - /url: /escolas/4e873b51-4a5b-4661-a7eb-a09fcb78b1c4
+                    - cell "51086859" [ref=e1655]
+                    - cell "Água Boa - MT (IBGE 5100201)" [ref=e1656]
+                    - cell "Não vinculada" [ref=e1657]
+                    - cell "Rural" [ref=e1658]
+                    - cell "Pública" [ref=e1659]
+                    - cell "ESCOLA EM FUNCIONAMENTO E SEM RESTRIÇÃO DE ATENDIMENTO" [ref=e1660]
+                    - cell "Ativa" [ref=e1661]
+                    - cell [ref=e1662]:
+                      - button "Editar" [ref=e1663] [cursor=pointer]
+                      - button "Excluir" [ref=e1666] [cursor=pointer]
+                  - row [ref=e1669]:
+                    - cell [ref=e1670]:
+                      - link "EMEI CANTINHO DA ALEGRIA" [ref=e1671] [cursor=pointer]:
+                        - /url: /escolas/40541c86-2469-4781-b2a5-8363825aa50d
+                    - cell "51091763" [ref=e1672]
+                    - cell "Água Boa - MT (IBGE 5100201)" [ref=e1673]
+                    - cell "Não vinculada" [ref=e1674]
+                    - cell "Urbana" [ref=e1675]
+                    - cell "Pública" [ref=e1676]
+                    - cell "ESCOLA EM FUNCIONAMENTO E SEM RESTRIÇÃO DE ATENDIMENTO" [ref=e1677]
+                    - cell "Ativa" [ref=e1678]
+                    - cell [ref=e1679]:
+                      - button "Editar" [ref=e1680] [cursor=pointer]
+                      - button "Excluir" [ref=e1683] [cursor=pointer]
+                  - row [ref=e1686]:
+                    - cell [ref=e1687]:
+                      - link "EMEI CATARINA LUCIA ZANDONA" [ref=e1688] [cursor=pointer]:
+                        - /url: /escolas/df434ca9-cdf3-4c30-a0a7-fdbc80863043
+                    - cell "51066769" [ref=e1689]
+                    - cell "Água Boa - MT (IBGE 5100201)" [ref=e1690]
+                    - cell "Não vinculada" [ref=e1691]
+                    - cell "Urbana" [ref=e1692]
+                    - cell "Pública" [ref=e1693]
+                    - cell "ESCOLA EM FUNCIONAMENTO E SEM RESTRIÇÃO DE ATENDIMENTO" [ref=e1694]
+                    - cell "Ativa" [ref=e1695]
+                    - cell [ref=e1696]:
+                      - button "Editar" [ref=e1697] [cursor=pointer]
+                      - button "Excluir" [ref=e1700] [cursor=pointer]
+                  - row [ref=e1703]:
+                    - cell [ref=e1704]:
+                      - link "EMEI GISSELDA TRENTIN" [ref=e1705] [cursor=pointer]:
+                        - /url: /escolas/895c50b6-12f8-44dc-a3a3-cd73796faa27
+                    - cell "51066777" [ref=e1706]
+                    - cell "Água Boa - MT (IBGE 5100201)" [ref=e1707]
+                    - cell "Não vinculada" [ref=e1708]
+                    - cell "Urbana" [ref=e1709]
+                    - cell "Pública" [ref=e1710]
+                    - cell "ESCOLA EM FUNCIONAMENTO E SEM RESTRIÇÃO DE ATENDIMENTO" [ref=e1711]
+                    - cell "Ativa" [ref=e1712]
+                    - cell [ref=e1713]:
+                      - button "Editar" [ref=e1714] [cursor=pointer]
+                      - button "Excluir" [ref=e1717] [cursor=pointer]
+              - generic [ref=e675]:
+                - generic [ref=e676]: Página 1 de 91
+                - navigation "pagination navigation" [ref=e677]:
+                  - list [ref=e678]:
+                    - listitem [ref=e679]:
+                      - button "Go to previous page" [disabled]
+                    - listitem [ref=e680]:
+                      - button "page 1" [ref=e681] [cursor=pointer]: "1"
+                    - listitem [ref=e682]:
+                      - button "Go to page 2" [ref=e683] [cursor=pointer]: "2"
+                    - listitem [ref=e684]:
+                      - button "Go to page 3" [ref=e685] [cursor=pointer]: "3"
+                    - listitem [ref=e686]:
+                      - button "Go to page 4" [ref=e687] [cursor=pointer]: "4"
+                    - listitem [ref=e688]:
+                      - button "Go to page 5" [ref=e689] [cursor=pointer]: "5"
+                    - listitem [ref=e690]:
+                      - generic [ref=e691]: …
+                    - listitem [ref=e692]:
+                      - button "Go to page 91" [ref=e1720] [cursor=pointer]: "91"
+                    - listitem [ref=e694]:
+                      - button "Go to next page" [ref=e695] [cursor=pointer]
+  - generic [aria-hidden] [ref=e264]: MANDIOCA DESCASCADA CONGELADA

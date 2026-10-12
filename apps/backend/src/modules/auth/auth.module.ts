@@ -23,6 +23,6 @@ import { PolicyService } from '../../common/auth/policy.service';
     { provide: APP_GUARD, useClass: JwtAuthGuard },
     { provide: APP_GUARD, useClass: RolesGuard },
   ],
-  exports: [PolicyService],
+  exports: [PolicyService, JwtModule],
 })
 export class AuthModule {}

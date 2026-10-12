@@ -9,6 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.VinculosModule = void 0;
 const common_1 = require("@nestjs/common");
 const vinculos_service_1 = require("./application/services/vinculos.service");
+const bootstrap_vinculo_service_1 = require("./application/services/bootstrap-vinculo.service");
 const vinculos_controller_1 = require("./presentation/controllers/vinculos.controller");
 const prisma_module_1 = require("../../infrastructure/prisma/prisma.module");
 const audit_module_1 = require("../audit/audit.module");
@@ -19,7 +20,7 @@ exports.VinculosModule = VinculosModule = __decorate([
     (0, common_1.Module)({
         imports: [prisma_module_1.PrismaModule, audit_module_1.AuditModule],
         controllers: [vinculos_controller_1.VinculosController, vinculos_controller_1.RepresentacoesController],
-        providers: [vinculos_service_1.VinculosService],
+        providers: [vinculos_service_1.VinculosService, bootstrap_vinculo_service_1.BootstrapVinculoService],
         exports: [vinculos_service_1.VinculosService],
     })
 ], VinculosModule);

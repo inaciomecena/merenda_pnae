@@ -1,0 +1,18 @@
+{
+  "cookies": [],
+  "origins": [
+    {
+      "origin": "http://localhost:5173",
+      "localStorage": [
+        {
+          "name": "seaf_refresh",
+          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNmQwNTIxMy01NTY3LTRkMGItODFiYS0xZTEzMTUxZjAxNmYiLCJlbWFpbCI6ImFkbWluQHNlYWYuZ292LmJyIiwicm9sZSI6IkFETUlOIiwiZXNjb2xhSWQiOm51bGwsIm11bmljaXBpb0lkIjpudWxsLCJpYXQiOjE3OTE3NTYyNTcsImV4cCI6MTc5MjM2MTA1N30.5Dsxfwxk7WScyIDIL1UzV3igckMXguo1Tfhahg2LtRY"
+        },
+        {
+          "name": "seaf_token",
+          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNmQwNTIxMy01NTY3LTRkMGItODFiYS0xZTEzMTUxZjAxNmYiLCJlbWFpbCI6ImFkbWluQHNlYWYuZ292LmJyIiwicm9sZSI6IkFETUlOIiwiZXNjb2xhSWQiOm51bGwsIm11bmljaXBpb0lkIjpudWxsLCJpYXQiOjE3OTE3NTYyNTcsImV4cCI6MTc5MTc1OTg1N30.OOt7c0ERPLwx79vqFhzSXYsnP8jsFs1ZXNSEDptjWHk"
+        }
+      ]
+    }
+  ]
+}

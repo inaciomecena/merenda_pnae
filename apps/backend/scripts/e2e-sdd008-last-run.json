@@ -1,0 +1,493 @@
+{
+  "base": "http://localhost:3208/api/v1",
+  "chamadaId": "3ada325f-ffb8-4878-a82d-eb0c2042a25d",
+  "contratoIds": [
+    "96113faf-3c20-4e04-b562-9c318d5b6748",
+    "3fd79d37-df0c-4e85-8830-11cfa20b3592"
+  ],
+  "generatedAt": "2026-10-12T18:07:32.936Z",
+  "passed": 80,
+  "total": 80,
+  "results": [
+    {
+      "caso": "login admin@seaf.gov.br",
+      "ok": true,
+      "esperado": "201 + accessToken",
+      "obtido": 201
+    },
+    {
+      "caso": "login extensionista@seaf.gov.br",
+      "ok": true,
+      "esperado": "201 + accessToken",
+      "obtido": 201
+    },
+    {
+      "caso": "JWT invalido bloqueado",
+      "ok": true,
+      "esperado": "401",
+      "obtido": 401
+    },
+    {
+      "caso": "fontes institucionais e edital com item",
+      "ok": true,
+      "esperado": "edital/item + 3 produtores + DRE + 2 escolas",
+      "obtido": "3/true/true/true/2"
+    },
+    {
+      "caso": "vinculo escola/DRE 5ad5c9da-c197-4a9f-8bf9-b0704878619f",
+      "ok": true,
+      "esperado": "2xx ou 409 se ja existente",
+      "obtido": 409
+    },
+    {
+      "caso": "vinculo escola/DRE c4ed7f06-4110-4332-bc9b-e208607604e6",
+      "ok": true,
+      "esperado": "2xx ou 409 se ja existente",
+      "obtido": 409
+    },
+    {
+      "caso": "criar chamada publica",
+      "ok": true,
+      "esperado": "201/RASCUNHO",
+      "obtido": 201
+    },
+    {
+      "caso": "editar chamada em rascunho com versao",
+      "ok": true,
+      "esperado": "200",
+      "obtido": 200
+    },
+    {
+      "caso": "transicao chamada PUBLICADA",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 201
+    },
+    {
+      "caso": "transicao chamada INSCRICOES_ABERTAS",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 201
+    },
+    {
+      "caso": "inscricao categoria INDIVIDUAL",
+      "ok": true,
+      "esperado": "201",
+      "obtido": 201
+    },
+    {
+      "caso": "duplicidade inscricao INDIVIDUAL",
+      "ok": true,
+      "esperado": "409",
+      "obtido": 409
+    },
+    {
+      "caso": "projeto de venda 1",
+      "ok": true,
+      "esperado": "201 + id",
+      "obtido": 201
+    },
+    {
+      "caso": "enviar projeto 1",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 201
+    },
+    {
+      "caso": "inscricao categoria GRUPO_INFORMAL",
+      "ok": true,
+      "esperado": "201",
+      "obtido": 201
+    },
+    {
+      "caso": "duplicidade inscricao GRUPO_INFORMAL",
+      "ok": true,
+      "esperado": "409",
+      "obtido": 409
+    },
+    {
+      "caso": "projeto de venda 2",
+      "ok": true,
+      "esperado": "201 + id",
+      "obtido": 201
+    },
+    {
+      "caso": "enviar projeto 2",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 201
+    },
+    {
+      "caso": "inscricao categoria GRUPO_FORMAL",
+      "ok": true,
+      "esperado": "201",
+      "obtido": 201
+    },
+    {
+      "caso": "duplicidade inscricao GRUPO_FORMAL",
+      "ok": true,
+      "esperado": "409",
+      "obtido": 409
+    },
+    {
+      "caso": "projeto de venda 3",
+      "ok": true,
+      "esperado": "201 + id",
+      "obtido": 201
+    },
+    {
+      "caso": "enviar projeto 3",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 201
+    },
+    {
+      "caso": "habilitacao projeto 1",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 201
+    },
+    {
+      "caso": "habilitacao projeto 2",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 201
+    },
+    {
+      "caso": "habilitacao projeto 3",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 201
+    },
+    {
+      "caso": "correcao de pendencia documental",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 201
+    },
+    {
+      "caso": "classificacao projeto 1",
+      "ok": true,
+      "esperado": "201 + id",
+      "obtido": 201
+    },
+    {
+      "caso": "selecao parcial projeto 1",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 201
+    },
+    {
+      "caso": "classificacao projeto 2",
+      "ok": true,
+      "esperado": "201 + id",
+      "obtido": 201
+    },
+    {
+      "caso": "selecao parcial projeto 2",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 201
+    },
+    {
+      "caso": "registrar recurso",
+      "ok": true,
+      "esperado": "201 + id",
+      "obtido": 201
+    },
+    {
+      "caso": "decidir recurso",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 201
+    },
+    {
+      "caso": "homologar chamada",
+      "ok": true,
+      "esperado": "201",
+      "obtido": 201
+    },
+    {
+      "caso": "encaminhar contrato 1",
+      "ok": true,
+      "esperado": "201 + id",
+      "obtido": 201
+    },
+    {
+      "caso": "qualificar contrato 1",
+      "ok": true,
+      "esperado": "200 + escopo",
+      "obtido": 200
+    },
+    {
+      "caso": "gerar minuta contrato 1",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 201
+    },
+    {
+      "caso": "validar contrato 1",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 201
+    },
+    {
+      "caso": "encaminhar conferencia contrato 1",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 201
+    },
+    {
+      "caso": "enviar assinatura contrato 1",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 201
+    },
+    {
+      "caso": "anexar documento contrato 1",
+      "ok": true,
+      "esperado": "2xx + documento",
+      "obtido": 201
+    },
+    {
+      "caso": "formalizar contrato 1",
+      "ok": true,
+      "esperado": "2xx/VIGENTE",
+      "obtido": "201/VIGENTE"
+    },
+    {
+      "caso": "encaminhar contrato 2",
+      "ok": true,
+      "esperado": "201 + id",
+      "obtido": 201
+    },
+    {
+      "caso": "qualificar contrato 2",
+      "ok": true,
+      "esperado": "200 + escopo",
+      "obtido": 200
+    },
+    {
+      "caso": "gerar minuta contrato 2",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 201
+    },
+    {
+      "caso": "validar contrato 2",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 201
+    },
+    {
+      "caso": "encaminhar conferencia contrato 2",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 201
+    },
+    {
+      "caso": "enviar assinatura contrato 2",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 201
+    },
+    {
+      "caso": "anexar documento contrato 2",
+      "ok": true,
+      "esperado": "2xx + documento",
+      "obtido": 201
+    },
+    {
+      "caso": "formalizar contrato 2",
+      "ok": true,
+      "esperado": "2xx/VIGENTE",
+      "obtido": "201/VIGENTE"
+    },
+    {
+      "caso": "programar entrega 1",
+      "ok": true,
+      "esperado": "201 + id",
+      "obtido": "201/{\"id\":\"e96ed1af-32aa-4b47-bbfa-3f681f7010bf\",\"numero\":\"SDD008-P-1791828443624-0\",\"contratoId\":\"96113faf-3c20-4e04-b562-9c318d5b6748\",\"fornecedorId\":\"a7c4e1f9-dd44-42d2-9d15-0d6f4690874e\",\"unidadeEscolarId\":\"5ad5c9da-c197-4a9f-8bf9-b0704878619f\",\"dreId\":\"3b75bf57-5c2f-4ce6-92d4-7122cee2e8db\",\"municipioId\":\"9428f042-c661-11f1-8f2d-6451061ac5e7\",\"dataPrevista\":\"2026-10-15T12:00:00.000Z\",\"periodoEntrega\":null,\"status\":\"RASCUNHO\",\"observacoes\":null,\"confirmadaEm\":null,\"confirmadaPor\":null,\"canceladaEm\":null,\"canceladaPor\":null,\"motivoCancelamento\":null,\"versao\":1,\"createdAt\":\"2026-10-12T18:07:28.648Z\",\"updatedAt\":\"2026-10-12T18:07:28.648Z\",\"deletedAt\":null,\"createdBy\":\"05ba9bbd-7eda-4869-8fdc-ff7d5111a7fa\",\"updatedBy\":null,\"contrato\":{\"numero\":\"SDD008-1791828443624-0\",\"exercicio\":2026,\"objeto\":\"Contrato ficticio SDD-008\",\"status\":\"VIGENTE\"},\"fornecedor\":{\"id\":\"a7c4e1f9-dd44-42d2-9d15-0d6f4690874e\",\"nome\":\"Pedro Souza\",\"cpfCnpj\":\"456.789.123-00\"},\"unidadeEscolar\":{\"id\":\"5ad5c9da-c197-4a9f-8bf9-b0704878619f\",\"nome\":\"Escola Municipal Bela Vista\",\"codigo\":\"51001022\"},\"dre\":{\"id\":\"3b75bf57-5c2f-4ce6-92d4-7122cee2e8db\",\"nome\":\"DRE E2E SDD-008\",\"codigo\":\"DRE-SDD008\"},\"municipio\":{\"id\":\"9428f042-c661-11f1-8f2d-6451061ac5e7\",\"nome\":\"Alto Paraguai\",\"uf\":\"MT\"},\"itens\":[{\"id\":\"142e9c57-8d20-4d85-9736-c27f59924b43\",\"programacaoId\":\"e96ed1af-32aa-4b47-bbfa-3f681f7010bf\",\"contratoItemId\":\"b3007397-b88b-4ec1-a0f2-98b6a007313f\",\"produto\":\"AÇAFRÃO\",\"unidadeMedida\":\"KG\",\"quantidadeProgramada\":\"1\",\"valorUnitarioContratual\":\"10\",\"valorTotalPrevisto\":\"10\",\"quantidadeReservada\":\"1\",\"createdAt\":\"2026-10-12T18:07:28.656Z\",\"updatedAt\":\"2026-10-12T18:07:28.656Z\",\"deletedAt\":null,\"createdBy\":\"05ba9bbd-7eda-4869-8fdc-ff7d5111a7fa\",\"updatedBy\":null,\"contratoItem\":{\"produto\":\"AÇAFRÃO\",\"unidade\":\"KG\",\"valorUnitario\":\"10\"}}],\"entregas\":[]}"
+    },
+    {
+      "caso": "marcar programacao 1 como programada",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 200
+    },
+    {
+      "caso": "confirmar programacao 1",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 200
+    },
+    {
+      "caso": "registrar recebimento parcial 1",
+      "ok": true,
+      "esperado": "201 + id",
+      "obtido": 201
+    },
+    {
+      "caso": "aceitar recebimento 1",
+      "ok": true,
+      "esperado": "3x 2xx",
+      "obtido": "200/200/200"
+    },
+    {
+      "caso": "cadastrar nota fiscal manual",
+      "ok": true,
+      "esperado": "201 + id",
+      "obtido": "201/{\"id\":\"cbe02c5c-b342-41a2-8f0a-05c5b3bfb239\",\"numero\":\"NF-1791828443624\",\"serie\":\"1\",\"modelo\":\"55\",\"chaveAcesso\":null,\"dataEmissao\":\"2026-10-16T10:00:00.000Z\",\"dataRecebimento\":\"2026-10-12T18:07:29.492Z\",\"cnpjEmitente\":null,\"nomeEmitente\":\"Pedro Souza\",\"cnpjDestinatario\":null,\"valorProdutos\":\"10\",\"valorTotal\":\"10\",\"valorDesconto\":\"0\",\"valorFrete\":\"0\",\"status\":\"PENDENTE_PROCESSAMENTO\",\"resultadoConciliacao\":null,\"fornecedorId\":\"a7c4e1f9-dd44-42d2-9d15-0d6f4690874e\",\"fornecedorNome\":\"Pedro Souza\",\"fornecedorCpfCnpj\":\"456.789.123-00\",\"contratoId\":\"96113faf-3c20-4e04-b562-9c318d5b6748\",\"contratoNumero\":\"SDD008-1791828443624-0\",\"contratoExercicio\":2026,\"xmlDocumentoId\":null,\"pdfDocumentoId\":null,\"createdAt\":\"2026-10-12T18:07:29.494Z\",\"fornecedor\":{\"id\":\"a7c4e1f9-dd44-42d2-9d15-0d6f4690874e\",\"nome\":\"Pedro Souza\",\"cpfCnpj\":\"456.789.123-00\"},\"contrato\":{\"id\":\"96113faf-3c20-4e04-b562-9c318d5b6748\",\"numero\":\"SDD008-1791828443624-0\",\"exercicio\":2026},\"itens\":[{\"id\":\"0761a737-d5af-4230-922a-93c56189e412\",\"numeroItem\":1,\"codigoProduto\":null,\"descricao\":\"AÇAFRÃO\",\"ncm\":null,\"cfop\":null,\"unidadeComercial\":\"KG\",\"quantidade\":\"1\",\"valorUnitario\":\"10\",\"valorTotal\":\"10\",\"contratoItemId\":\"b3007397-b88b-4ec1-a0f2-98b6a007313f\",\"contratoItemProduto\":\"AÇAFRÃO\",\"contratoItemUnidade\":\"KG\"}],\"divergencias\":[],\"conferencias\":[],\"atestos\":[],\"valorOutrasDespesas\":\"0\",\"documentoDestinatario\":null,\"observacoes\":null,\"documentos\":[],\"recebimentos\":[],\"vinculos\":[],\"conciliacao\":null}"
+    },
+    {
+      "caso": "associar recebimento a nota",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 201
+    },
+    {
+      "caso": "processar nota fiscal manual",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 200
+    },
+    {
+      "caso": "conciliar nota",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 201
+    },
+    {
+      "caso": "aprovar conferencia fiscal",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": "201/{\"id\":\"a9816467-321d-44a1-b73a-d155f5b4a5e4\",\"notaFiscalId\":\"cbe02c5c-b342-41a2-8f0a-05c5b3bfb239\",\"status\":\"APROVADA\",\"dataConferencia\":\"2026-10-12T18:07:30.368Z\",\"conferente\":\"admin@seaf.gov.br\",\"justificativa\":null,\"ressalvas\":null,\"checklist\":[{\"item\":\"Documento ficticio\",\"conforme\":true,\"observacao\":null}]}"
+    },
+    {
+      "caso": "atestar nota",
+      "ok": true,
+      "esperado": "2xx + id",
+      "obtido": "201/{\"id\":\"4fe5193e-27f4-447f-9674-ccc3cfc222e6\",\"notaFiscalId\":\"cbe02c5c-b342-41a2-8f0a-05c5b3bfb239\",\"tipo\":\"INTEGRAL\",\"valorAtestado\":\"10\",\"dataAtesto\":\"2026-10-16T00:00:00.000Z\",\"status\":\"ATESTADO\",\"justificativa\":null,\"responsavelId\":\"05ba9bbd-7eda-4869-8fdc-ff7d5111a7fa\",\"comprovante\":null}"
+    },
+    {
+      "caso": "liquidar nota",
+      "ok": true,
+      "esperado": "2xx + id",
+      "obtido": "201/{\"id\":\"1474e5a0-b732-4d39-bd53-42c5d35f5568\",\"numeroProcesso\":\"PROC-1791828443624\",\"numeroLiquidacao\":null,\"notaFiscalId\":\"cbe02c5c-b342-41a2-8f0a-05c5b3bfb239\",\"notaFiscal\":{\"numero\":\"NF-1791828443624\",\"serie\":\"1\",\"fornecedor\":{\"nome\":\"Pedro Souza\"}},\"atestoId\":null,\"atesto\":{\"valorAtestado\":\"10\",\"dataAtesto\":\"2026-10-16T00:00:00.000Z\"},\"valorLiquidado\":\"10\",\"dataLiquidacao\":\"2026-10-17T00:00:00.000Z\",\"observacoes\":null,\"status\":\"REGISTRADA\",\"comprovante\":null}"
+    },
+    {
+      "caso": "pagamentos parciais e saldo",
+      "ok": true,
+      "esperado": "2x 2xx",
+      "obtido": "201/{\"id\":\"0658c299-8e70-4749-80fa-3c0655627d87\",\"liquidacaoId\":\"1474e5a0-b732-4d39-bd53-42c5d35f5568\",\"liquidacao\":{\"numeroProcesso\":\"PROC-1791828443624\",\"notaFiscal\":{\"numero\":\"NF-1791828443624\",\"fornecedor\":{\"nome\":\"Pedro Souza\"}}},\"numeroOrdemPagamento\":\"OP-1791828443624-1\",\"valorPago\":\"4\",\"dataPagamento\":\"2026-10-18T00:00:00.000Z\",\"observacoes\":null,\"status\":\"REGISTRADO\",\"tipo\":\"PARCIAL\",\"comprovante\":null}/201/{\"id\":\"382c5989-de99-4f0e-a9b9-9b9f7970daae\",\"liquidacaoId\":\"1474e5a0-b732-4d39-bd53-42c5d35f5568\",\"liquidacao\":{\"numeroProcesso\":\"PROC-1791828443624\",\"notaFiscal\":{\"numero\":\"NF-1791828443624\",\"fornecedor\":{\"nome\":\"Pedro Souza\"}}},\"numeroOrdemPagamento\":\"OP-1791828443624-2\",\"valorPago\":\"6\",\"dataPagamento\":\"2026-10-19T00:00:00.000Z\",\"observacoes\":null,\"status\":\"CONFIRMADO\",\"tipo\":\"INTEGRAL\",\"comprovante\":null}"
+    },
+    {
+      "caso": "programar entrega 2",
+      "ok": true,
+      "esperado": "201 + id",
+      "obtido": "201/{\"id\":\"81a513ee-f212-4dd6-8e19-922ab76d2d5e\",\"numero\":\"SDD008-P-1791828443624-1\",\"contratoId\":\"3fd79d37-df0c-4e85-8830-11cfa20b3592\",\"fornecedorId\":\"b9c39fdb-0988-4b45-b9aa-b283b7f3daae\",\"unidadeEscolarId\":\"c4ed7f06-4110-4332-bc9b-e208607604e6\",\"dreId\":\"3b75bf57-5c2f-4ce6-92d4-7122cee2e8db\",\"municipioId\":\"9428f042-c661-11f1-8f2d-6451061ac5e7\",\"dataPrevista\":\"2026-10-15T12:00:00.000Z\",\"periodoEntrega\":null,\"status\":\"RASCUNHO\",\"observacoes\":null,\"confirmadaEm\":null,\"confirmadaPor\":null,\"canceladaEm\":null,\"canceladaPor\":null,\"motivoCancelamento\":null,\"versao\":1,\"createdAt\":\"2026-10-12T18:07:31.281Z\",\"updatedAt\":\"2026-10-12T18:07:31.281Z\",\"deletedAt\":null,\"createdBy\":\"05ba9bbd-7eda-4869-8fdc-ff7d5111a7fa\",\"updatedBy\":null,\"contrato\":{\"numero\":\"SDD008-1791828443624-1\",\"exercicio\":2026,\"objeto\":\"Contrato ficticio SDD-008\",\"status\":\"VIGENTE\"},\"fornecedor\":{\"id\":\"b9c39fdb-0988-4b45-b9aa-b283b7f3daae\",\"nome\":\"Maria das Gracas\",\"cpfCnpj\":\"987.654.321-00\"},\"unidadeEscolar\":{\"id\":\"c4ed7f06-4110-4332-bc9b-e208607604e6\",\"nome\":\"Escola Municipal Pedro Duarte de Miranda Lima\",\"codigo\":\"51001021\"},\"dre\":{\"id\":\"3b75bf57-5c2f-4ce6-92d4-7122cee2e8db\",\"nome\":\"DRE E2E SDD-008\",\"codigo\":\"DRE-SDD008\"},\"municipio\":{\"id\":\"9428f042-c661-11f1-8f2d-6451061ac5e7\",\"nome\":\"Alto Paraguai\",\"uf\":\"MT\"},\"itens\":[{\"id\":\"dddd2bf3-0a75-479a-977f-45ab55899cc2\",\"programacaoId\":\"81a513ee-f212-4dd6-8e19-922ab76d2d5e\",\"contratoItemId\":\"131f6372-783c-4ee1-822f-f28fd8dff27d\",\"produto\":\"AÇAFRÃO\",\"unidadeMedida\":\"KG\",\"quantidadeProgramada\":\"1\",\"valorUnitarioContratual\":\"11\",\"valorTotalPrevisto\":\"11\",\"quantidadeReservada\":\"1\",\"createdAt\":\"2026-10-12T18:07:31.284Z\",\"updatedAt\":\"2026-10-12T18:07:31.284Z\",\"deletedAt\":null,\"createdBy\":\"05ba9bbd-7eda-4869-8fdc-ff7d5111a7fa\",\"updatedBy\":null,\"contratoItem\":{\"produto\":\"AÇAFRÃO\",\"unidade\":\"KG\",\"valorUnitario\":\"11\"}}],\"entregas\":[]}"
+    },
+    {
+      "caso": "marcar programacao 2 como programada",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 200
+    },
+    {
+      "caso": "confirmar programacao 2",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 200
+    },
+    {
+      "caso": "registrar recebimento parcial 2",
+      "ok": true,
+      "esperado": "201 + id",
+      "obtido": 201
+    },
+    {
+      "caso": "aceitar recebimento 2",
+      "ok": true,
+      "esperado": "3x 2xx",
+      "obtido": "200/200/200"
+    },
+    {
+      "caso": "estorno real sem exclusao fisica",
+      "ok": true,
+      "esperado": "2xx + status CANCELADA",
+      "obtido": "201/CANCELADA"
+    },
+    {
+      "caso": "estorno bloqueado para EXTENSIONISTA",
+      "ok": true,
+      "esperado": "403",
+      "obtido": 403
+    },
+    {
+      "caso": "demonstrativo confere contrato de origem",
+      "ok": true,
+      "esperado": "200 + linha do contrato",
+      "obtido": 200
+    },
+    {
+      "caso": "exportacao csv",
+      "ok": true,
+      "esperado": "200 + assinatura valida",
+      "obtido": "200/442/﻿"
+    },
+    {
+      "caso": "exportacao xlsx",
+      "ok": true,
+      "esperado": "200 + assinatura valida",
+      "obtido": "200/17282/PK"
+    },
+    {
+      "caso": "exportacao pdf",
+      "ok": true,
+      "esperado": "200 + assinatura valida",
+      "obtido": "200/1414/%PDF"
+    },
+    {
+      "caso": "criar prestacao de contas",
+      "ok": true,
+      "esperado": "201 + id",
+      "obtido": 201
+    },
+    {
+      "caso": "prestacao EM_CONFERENCIA",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 201
+    },
+    {
+      "caso": "prestacao ENVIADA",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 201
+    },
+    {
+      "caso": "prestacao EM_ANALISE",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 201
+    },
+    {
+      "caso": "prestacao APROVADA",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": 201
+    },
+    {
+      "caso": "trilha de auditoria integrada",
+      "ok": true,
+      "esperado": "200 + logs",
+      "obtido": 200
+    },
+    {
+      "caso": "transparencia publica sanitizada",
+      "ok": true,
+      "esperado": "200 sem dados restritos",
+      "obtido": 200
+    }
+  ]
+}

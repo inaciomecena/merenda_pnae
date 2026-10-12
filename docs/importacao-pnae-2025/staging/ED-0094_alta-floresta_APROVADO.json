@@ -1,0 +1,229 @@
+{
+  "schema": "importacao-historica-pnae/1.0",
+  "geradoEm": "2026-10-12T19:29:41.543Z",
+  "idPacote": "ED-0094",
+  "dre": "Alta Floresta",
+  "chaveLogica": "90007927895cd267d3c8d8a6055132fc",
+  "decisao": "APROVADO",
+  "motivosBloqueio": [],
+  "identificacao": {
+    "numeroBruto": "012/2024",
+    "numeroNormalizado": "012/2024",
+    "anoNumeracao": 2024,
+    "exercicio": 2025,
+    "exercicioEvidencia": [
+      {
+        "pagina": 3,
+        "trecho": "ano letivo de 2025"
+      },
+      {
+        "pagina": 22,
+        "trecho": "ano\nletivo de 2025"
+      }
+    ],
+    "processoAdministrativo": "SEDUC-PRO-2024",
+    "dreNome": "Alta Floresta",
+    "camaraNegocios": "Cáceres",
+    "municipioAtendido": "APIACÁS",
+    "recorte": "NAO_IDENTIFICADO",
+    "dataPublicacao": null,
+    "dataSessao": "14 de janeiro de 2025",
+    "objeto": "Aquisição de gêneros alimentícios",
+    "fundamentacaoLegal": "Resolução/FNDE/CD nº 06 de 08/05/2020",
+    "prazos": null,
+    "habilitacao": null,
+    "criteriosSelecao": null,
+    "condicoesEntrega": null,
+    "condicoesPagamento": null,
+    "valorEstimado": null,
+    "observacoes": []
+  },
+  "documentos": [
+    {
+      "idDocumento": "DOC-0104",
+      "papel": "EDITAL_PRINCIPAL",
+      "sha256": "1a24966f54e1d488794a12ae0f1a8a6e3300d563ba17606ac50d943b995b2d97",
+      "caminho": "PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0104_EDITAL-CHAMADA-PUBLICA-012-24-APIACAS-ano-letivo-2025-1.pdf",
+      "paginas": 30,
+      "urls": [
+        "https://drealtafloresta.com.br/drealtafloresta/wp-content/uploads/2024/12/EDITAL-CHAMADA-PUBLICA-012-24-APIACAS-ano-letivo-2025-1.pdf",
+        "https://drealtafloresta.com.br/drealtafloresta/wp-content/uploads/2024/12/EDITAL-CHAMADA-PUBLICA-012-24-APIACAS-ano-letivo-2025-1.pdf",
+        "https://drealtafloresta.com.br/drealtafloresta/aviso-de-chamada-publica-no-012-2024-p-o-municipio-de-apiacas-mt-ano-letivo-de-2025/"
+      ],
+      "chaveVersao": "e5146f89c510765514fd169b27c2db93"
+    }
+  ],
+  "vinculosInstitucionais": {
+    "dre": {
+      "nomePacote": "Alta Floresta",
+      "dreId": "b733bfc6-c5e2-11f1-8f2d-6451061ac5e7",
+      "codigo": "ATF",
+      "status": "CONFIRMADO",
+      "detalhe": "DRE \"DRE Alta Floresta\" (ATF)"
+    },
+    "municipio": {
+      "nomePacote": "Apiacás",
+      "municipioId": "fb05fbe5-14e3-4cfb-8f0c-94813cff7a2a",
+      "codigoIbge": "5100805",
+      "status": "CONFIRMADO",
+      "detalhe": "\"Apiacás\" (IBGE 5100805)"
+    },
+    "escolas": [],
+    "unidadesExecutoras": [
+      {
+        "nome": "Alta Floresta",
+        "cnpj": null,
+        "entidadeExecutoraId": null,
+        "status": "PENDENTE",
+        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+      }
+    ]
+  },
+  "itens": [
+    {
+      "sequencia": 1,
+      "produto": "ABACATE",
+      "descricaoCompleta": "1. ABACATE, inteiro, livre de sujidades, insetos, larvas, fungos, isento de podridões, não se apresentar desidratado, murcho ou congelado. Consistência firme, cascas intactas, de forma que não deixem exposta a polpa, em grau de maturação adequado para consumo, não se apresentar excessivamente maduro ou passado. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionado em saco plástico atóxico, transparente",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "28",
+        "normalizado": "28.00",
+        "pagina": 3,
+        "documentoId": "DOC-0104",
+        "sha256": "1a24966f54e1d488794a12ae0f1a8a6e3300d563ba17606ac50d943b995b2d97",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "27,74",
+        "normalizado": "27.74",
+        "pagina": 3,
+        "documentoId": "DOC-0104",
+        "sha256": "1a24966f54e1d488794a12ae0f1a8a6e3300d563ba17606ac50d943b995b2d97",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "776,72",
+        "normalizado": "776.72",
+        "pagina": 3,
+        "documentoId": "DOC-0104",
+        "sha256": "1a24966f54e1d488794a12ae0f1a8a6e3300d563ba17606ac50d943b995b2d97",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "776.72",
+      "divergencia": "0.00",
+      "pagina": 3,
+      "documentoId": "DOC-0104",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "extraido",
+      "pendencia": null
+    },
+    {
+      "sequencia": 4,
+      "produto": "AÇAFRÃO",
+      "descricaoCompleta": "4. AÇAFRÃO, torrado, em pó fino e homogêneo, com aspecto, cor, cheiro e sabor próprios, isenta de impurezas e umidade. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionado em embalagem de polietileno de 30g, íntegro, atóxico, resistente, vedado hermeticamente e limpo, contendo os dados de identificação do fabricante, data de fabricação, data de validade e quantidade do produto. Validade mínima de 6 meses 30g",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "224",
+        "normalizado": "224.00",
+        "pagina": 3,
+        "documentoId": "DOC-0104",
+        "sha256": "1a24966f54e1d488794a12ae0f1a8a6e3300d563ba17606ac50d943b995b2d97",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "2,97",
+        "normalizado": "2.97",
+        "pagina": 3,
+        "documentoId": "DOC-0104",
+        "sha256": "1a24966f54e1d488794a12ae0f1a8a6e3300d563ba17606ac50d943b995b2d97",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "665,28",
+        "normalizado": "665.28",
+        "pagina": 3,
+        "documentoId": "DOC-0104",
+        "sha256": "1a24966f54e1d488794a12ae0f1a8a6e3300d563ba17606ac50d943b995b2d97",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "665.28",
+      "divergencia": "0.00",
+      "pagina": 3,
+      "documentoId": "DOC-0104",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada"
+    },
+    {
+      "sequencia": 33,
+      "produto": "VAGEM",
+      "descricaoCompleta": "33. VAGEM, inteira, livre de sujidades, insetos, larvas e fungos. Consistência firme, apresentando desenvolvimento completo, isenta de odores estranhos e deformidades, isenta de podridões e amarelados, não se apresentar desidratada, murcha ou congelada. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionada em saco plástico atóxico, transparente e resistente.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 5,
+      "documentoId": "DOC-0104",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 10,
+      "produto": null,
+      "descricaoCompleta": "10. * O preço de aquisição é o estabelecido no Edital da Chamada Pública TOTAL DO PROJETO DE VENDAS => Declaro estar de acordo com as condições estabelecidas neste projeto e que as informações acima conferem com as condições de fornecimento. Local e Data: Nome / Assinatura do Representante do Grupo Formal: Fone ou e-mail: Importante Informar: número do banco, agência e número da conta bancária e chave Pix. DECLARAÇÃO DE PRODUÇÃO PRÓPRIA (Grupo Formal)",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 18,
+      "documentoId": "DOC-0104",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado"
+    }
+  ],
+  "anexos": [],
+  "pendencias": [
+    {
+      "tipo": "resolucao_entidade_executora",
+      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
+      "origem": "snapshot institucional"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 4 (AÇAFRÃO): unidade comercial não identificada",
+      "origem": "DOC-0104"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 33 (VAGEM): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0104"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 10 (s/produto): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0104"
+    }
+  ],
+  "metadadoExtracao": {
+    "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+    "documentosValidados": 1,
+    "itensDoManifesto": 0,
+    "itensExtraidosPdf": 4
+  }
+}

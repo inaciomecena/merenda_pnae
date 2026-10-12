@@ -1,0 +1,85 @@
+{
+  "totalProcedimentos": 125,
+  "aprovados": 51,
+  "segregados": 37,
+  "bloqueados": 37,
+  "pendentes": 0,
+  "itensExtraidos": 1944,
+  "itensManifesto": 553,
+  "errosExtracao": [],
+  "duplicados": [
+    {
+      "sha256": "625e24224b3632854e6df1c9a2a8afc8ed76d64a4cb3f09b898f254d48ce5dab",
+      "ids": [
+        "DOC-0019",
+        "DOC-0020"
+      ],
+      "urls": [
+        "https://www.drejuina.com.br/uploads/editais/cotriguacuedital--chamada-pUblica-2025-t7Br.pdf",
+        "https://www.drejuina.com.br/uploads/editais/cotriguacuedital--chamada-pUblica-2025-t7Br.pdf",
+        "https://www.drejuina.com.br/editals",
+        "https://www.drejuina.com.br/uploads/editais/cotriguacuedital--chamada-pUblica-2025-2-MbYw.pdf",
+        "https://www.drejuina.com.br/uploads/editais/cotriguacuedital--chamada-pUblica-2025-2-MbYw.pdf",
+        "https://www.drejuina.com.br/editals"
+      ],
+      "mesmoCaminho": false
+    },
+    {
+      "sha256": "a3e9ff86e055e0baecd4ba22e1b7736d0d2969b707d3e44c70aa7526ba65af21",
+      "ids": [
+        "DOC-0026",
+        "DOC-0027"
+      ],
+      "urls": [
+        "https://www.drejuina.com.br/uploads/editais/aripuana-edital--chamada-pUblica-2025pos-parecerdocx-1-gKjW.pdf",
+        "https://www.drejuina.com.br/uploads/editais/aripuana-edital--chamada-pUblica-2025pos-parecerdocx-1-gKjW.pdf",
+        "https://www.drejuina.com.br/editals",
+        "https://www.drejuina.com.br/uploads/editais/aripuana-edital--chamada-pUblica-2025pos-parecerdocx-1-xI4f.pdf",
+        "https://www.drejuina.com.br/uploads/editais/aripuana-edital--chamada-pUblica-2025pos-parecerdocx-1-xI4f.pdf",
+        "https://www.drejuina.com.br/editals"
+      ],
+      "mesmoCaminho": false
+    },
+    {
+      "sha256": "9add7924e69099a37e4f5a208489e533a5d9216891ad604d81e51184feb0745e",
+      "ids": [
+        "DOC-0055",
+        "DOC-0059",
+        "DOC-0060"
+      ],
+      "urls": [
+        "https://drive.google.com/file/d/1ZOyOp4RM83qtRR9bmDlTKbPBme1_gTQH/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1ZOyOp4RM83qtRR9bmDlTKbPBme1_gTQH",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025",
+        "https://drive.google.com/file/d/1Wjo67zqWJI8qfXZK9Y2pW5gBldH0eelK/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1Wjo67zqWJI8qfXZK9Y2pW5gBldH0eelK",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025",
+        "https://drive.google.com/file/d/1g3_xIr5sW6SvM_nkHxgpULhhPnpQb0Us/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1g3_xIr5sW6SvM_nkHxgpULhhPnpQb0Us",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "mesmoCaminho": false
+    },
+    {
+      "sha256": "f54c7bef910089b0188853f7a3c3c0dd41dcb031b379eb58d5c3d2adbc2c35fb",
+      "ids": [
+        "DOC-0056",
+        "DOC-0057",
+        "DOC-0058"
+      ],
+      "urls": [
+        "https://drive.google.com/file/d/1Y_315oY6TdY8OgRLwb159dQbj6z_sHZR/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1Y_315oY6TdY8OgRLwb159dQbj6z_sHZR",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025",
+        "https://drive.google.com/file/d/1FTJ9Bu_XxE5WkradLZtsquDo3YF36RU2/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1FTJ9Bu_XxE5WkradLZtsquDo3YF36RU2",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025",
+        "https://drive.google.com/file/d/1dtNrtzLzqkJuIbrhMuc4slA3lF2xIX5M/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1dtNrtzLzqkJuIbrhMuc4slA3lF2xIX5M",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "mesmoCaminho": false
+    }
+  ],
+  "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16"
+}

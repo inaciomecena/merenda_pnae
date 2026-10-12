@@ -1,0 +1,19 @@
+- generic [ref=f5e4]:
+  - banner [ref=f5e5]:
+    - button "Abrir menu" [ref=f5e6] [cursor=pointer]
+    - generic [ref=f5e9]:
+      - generic [ref=f5e10]: VISITANTE
+      - paragraph [ref=f5e12]: Usuario
+      - paragraph [ref=f5e13]: ▾
+      - paragraph [ref=f5e14] [cursor=pointer]: Sair
+  - main [ref=f5e15]:
+    - generic [ref=f5e16]:
+      - navigation "breadcrumb" [ref=f5e17]:
+        - list [ref=f5e18]:
+          - listitem [ref=f5e19]:
+            - link "Inicio" [ref=f5e20] [cursor=pointer]:
+              - /url: /dashboard
+          - listitem [aria-hidden] [ref=f5e21]: /
+          - listitem [ref=f5e22]:
+            - paragraph [ref=f5e23]: contratos
+      - progressbar [ref=f5e25]

@@ -1,0 +1,201 @@
+- generic [ref=e1]:
+  - generic [ref=e30]:
+    - generic [ref=e32]:
+      - generic [ref=e33]:
+        - img "SEAF PNAE" [ref=e34]
+        - generic [ref=e35]: Gestão da Alimentação Escolar
+      - navigation "Menu principal" [ref=e36]:
+        - list [ref=e37]:
+          - generic [ref=e38]:
+            - button "Visão geral" [expanded] [ref=e39] [cursor=pointer]
+            - list [ref=e50]:
+              - link "Painel geral" [ref=e52] [cursor=pointer]:
+                - /url: /dashboard
+              - link "Mapa de Mato Grosso" [ref=e59] [cursor=pointer]:
+                - /url: /mapa
+              - link "Relatórios gerenciais" [ref=e66] [cursor=pointer]:
+                - /url: /relatorios
+          - generic [ref=e72]:
+            - button "Cadastros" [expanded] [ref=e73] [cursor=pointer]
+            - list [ref=e84]:
+              - generic [ref=e85]:
+                - button "Estrutura institucional" [expanded] [ref=e86] [cursor=pointer]
+                - list [ref=e97]:
+                  - link "Organização" [active] [ref=e99] [cursor=pointer]:
+                    - /url: /organizacao
+                  - link "Municípios" [ref=e106] [cursor=pointer]:
+                    - /url: /municipios
+                  - link "Escolas" [ref=e113] [cursor=pointer]:
+                    - /url: /escolas
+              - button "Fornecedores e produtos" [ref=e120] [cursor=pointer]
+              - link "Modelos de documentos" [ref=e129] [cursor=pointer]:
+                - /url: /templates-anexos
+          - button "Chamadas públicas" [ref=e136] [cursor=pointer]
+          - button "Execução contratual" [ref=e145] [cursor=pointer]
+          - button "Gestão fiscal e financeira" [ref=e154] [cursor=pointer]
+          - button "Administração" [ref=e163] [cursor=pointer]
+      - generic [ref=e172]:
+        - text: Perfil atual
+        - paragraph [ref=e173]: Administrador
+        - text: As opções exibidas respeitam suas permissões e seu vínculo institucional.
+    - generic [ref=e174]:
+      - banner [ref=e175]:
+        - generic [ref=e176]:
+          - generic [ref=e177]: Administrador
+          - paragraph [ref=e179]: Administrador PNAE
+          - separator [ref=e180]
+          - button "Sair" [ref=e181] [cursor=pointer]
+      - main [ref=e182]:
+        - generic [ref=e183]:
+          - navigation "Navegação estrutural" [ref=e185]:
+            - list [ref=e186]:
+              - listitem [ref=e187]:
+                - link "Início" [ref=e188] [cursor=pointer]:
+                  - /url: /dashboard
+              - listitem [aria-hidden] [ref=e189]: /
+              - listitem [ref=e190]:
+                - paragraph [ref=e191]: Organização
+          - generic [ref=e1796]:
+            - generic [ref=e1797]:
+              - generic [ref=e1798]:
+                - generic [ref=e1799]:
+                  - heading "Organização educacional" [level=4] [ref=e1800]
+                  - paragraph [ref=e1801]: Entidades executoras, Diretorias Regionais de Educação e escolas vinculadas.
+                - generic [ref=e1802]:
+                  - button [ref=e1803] [cursor=pointer]
+                  - button [ref=e1807] [cursor=pointer]
+                  - button [ref=e1811] [cursor=pointer]
+              - paragraph [ref=e1815]:
+                - text: "Fonte institucional:"
+                - link "SEDUC Mato Grosso" [ref=e1816] [cursor=pointer]:
+                  - /url: https://www3.seduc.mt.gov.br/dres-apresentacao
+                - text: .
+            - generic [ref=e1817]:
+              - generic [ref=e1820]:
+                - heading "1" [level=5] [ref=e1823]
+                - paragraph [ref=e1824]: Entidades executoras
+              - generic [ref=e1827]:
+                - heading "13" [level=5] [ref=e1830]
+                - paragraph [ref=e1831]: DREs cadastradas
+              - generic [ref=e1834]:
+                - heading "497" [level=5] [ref=e1837]
+                - paragraph [ref=e1838]: Vínculos escolares ativos
+            - generic [ref=e1840]:
+              - heading "Diretorias Regionais de Educação" [level=6] [ref=e1841]
+              - paragraph [ref=e1842]: Abra uma DRE para consultar ou administrar suas escolas.
+              - table [ref=e1844]:
+                - rowgroup [ref=e1845]:
+                  - row [ref=e1846]:
+                    - columnheader "Código" [ref=e1847]
+                    - columnheader "DRE" [ref=e1848]
+                    - columnheader "Município sede" [ref=e1849]
+                    - columnheader "Entidade executora" [ref=e1850]
+                    - columnheader "Escolas" [ref=e1851]
+                    - columnheader "Ações" [ref=e1852]
+                - rowgroup [ref=e1853]:
+                  - row [ref=e1854]:
+                    - cell "ATF" [ref=e1855]
+                    - cell "DRE Alta Floresta" [ref=e1858]
+                    - cell "Alta Floresta" [ref=e1859]
+                    - cell "Secretaria de Estado de Educação de Mato Grosso" [ref=e1860]
+                    - cell "24" [ref=e1861]
+                    - cell [ref=e1862]:
+                      - button "Gerenciar escolas" [ref=e1863] [cursor=pointer]
+                  - row [ref=e1864]:
+                    - cell "BGA" [ref=e1865]
+                    - cell "DRE Barra do Garças" [ref=e1868]
+                    - cell "Barra do Garças" [ref=e1869]
+                    - cell "Secretaria de Estado de Educação de Mato Grosso" [ref=e1870]
+                    - cell "43" [ref=e1871]
+                    - cell [ref=e1872]:
+                      - button "Gerenciar escolas" [ref=e1873] [cursor=pointer]
+                  - row [ref=e1874]:
+                    - cell "CCR" [ref=e1875]
+                    - cell "DRE Cáceres" [ref=e1878]
+                    - cell "Cáceres" [ref=e1879]
+                    - cell "Secretaria de Estado de Educação de Mato Grosso" [ref=e1880]
+                    - cell "25" [ref=e1881]
+                    - cell [ref=e1882]:
+                      - button "Gerenciar escolas" [ref=e1883] [cursor=pointer]
+                  - row [ref=e1884]:
+                    - cell "CFS" [ref=e1885]
+                    - cell "DRE Confresa" [ref=e1888]
+                    - cell "Confresa" [ref=e1889]
+                    - cell "Secretaria de Estado de Educação de Mato Grosso" [ref=e1890]
+                    - cell "30" [ref=e1891]
+                    - cell [ref=e1892]:
+                      - button "Gerenciar escolas" [ref=e1893] [cursor=pointer]
+                  - row [ref=e1894]:
+                    - cell "DMT" [ref=e1895]
+                    - cell "DRE Diamantino" [ref=e1898]
+                    - cell "Diamantino" [ref=e1899]
+                    - cell "Secretaria de Estado de Educação de Mato Grosso" [ref=e1900]
+                    - cell "33" [ref=e1901]
+                    - cell [ref=e1902]:
+                      - button "Gerenciar escolas" [ref=e1903] [cursor=pointer]
+                  - row [ref=e1904]:
+                    - cell "JNA" [ref=e1905]
+                    - cell "DRE Juína" [ref=e1908]
+                    - cell "Juína" [ref=e1909]
+                    - cell "Secretaria de Estado de Educação de Mato Grosso" [ref=e1910]
+                    - cell "36" [ref=e1911]
+                    - cell [ref=e1912]:
+                      - button "Gerenciar escolas" [ref=e1913] [cursor=pointer]
+                  - row [ref=e1914]:
+                    - cell "MTP" [ref=e1915]
+                    - cell "DRE Matupá" [ref=e1918]
+                    - cell "Matupá" [ref=e1919]
+                    - cell "Secretaria de Estado de Educação de Mato Grosso" [ref=e1920]
+                    - cell "18" [ref=e1921]
+                    - cell [ref=e1922]:
+                      - button "Gerenciar escolas" [ref=e1923] [cursor=pointer]
+                  - row [ref=e1924]:
+                    - cell "CBA" [ref=e1925]
+                    - cell "DRE Metropolitana" [ref=e1928]
+                    - cell "Cuiabá" [ref=e1929]
+                    - cell "Secretaria de Estado de Educação de Mato Grosso" [ref=e1930]
+                    - cell "108" [ref=e1931]
+                    - cell [ref=e1932]:
+                      - button "Gerenciar escolas" [ref=e1933] [cursor=pointer]
+                  - row [ref=e1934]:
+                    - cell "PLA" [ref=e1935]
+                    - cell "DRE Pontes e Lacerda" [ref=e1938]
+                    - cell "Pontes e Lacerda" [ref=e1939]
+                    - cell "Secretaria de Estado de Educação de Mato Grosso" [ref=e1940]
+                    - cell "12" [ref=e1941]
+                    - cell [ref=e1942]:
+                      - button "Gerenciar escolas" [ref=e1943] [cursor=pointer]
+                  - row [ref=e1944]:
+                    - cell "PVL" [ref=e1945]
+                    - cell "DRE Primavera do Leste" [ref=e1948]
+                    - cell "Primavera do Leste" [ref=e1949]
+                    - cell "Secretaria de Estado de Educação de Mato Grosso" [ref=e1950]
+                    - cell "32" [ref=e1951]
+                    - cell [ref=e1952]:
+                      - button "Gerenciar escolas" [ref=e1953] [cursor=pointer]
+                  - row [ref=e1954]:
+                    - cell "ROO" [ref=e1955]
+                    - cell "DRE Rondonópolis" [ref=e1958]
+                    - cell "Rondonópolis" [ref=e1959]
+                    - cell "Secretaria de Estado de Educação de Mato Grosso" [ref=e1960]
+                    - cell "52" [ref=e1961]
+                    - cell [ref=e1962]:
+                      - button "Gerenciar escolas" [ref=e1963] [cursor=pointer]
+                  - row [ref=e1964]:
+                    - cell "SNP" [ref=e1965]
+                    - cell "DRE Sinop" [ref=e1968]
+                    - cell "Sinop" [ref=e1969]
+                    - cell "Secretaria de Estado de Educação de Mato Grosso" [ref=e1970]
+                    - cell "51" [ref=e1971]
+                    - cell [ref=e1972]:
+                      - button "Gerenciar escolas" [ref=e1973] [cursor=pointer]
+                  - row [ref=e1974]:
+                    - cell "TGA" [ref=e1975]
+                    - cell "DRE Tangará da Serra" [ref=e1978]
+                    - cell "Tangará da Serra" [ref=e1979]
+                    - cell "Secretaria de Estado de Educação de Mato Grosso" [ref=e1980]
+                    - cell "33" [ref=e1981]
+                    - cell [ref=e1982]:
+                      - button "Gerenciar escolas" [ref=e1983] [cursor=pointer]
+  - generic [aria-hidden] [ref=e264]: MANDIOCA DESCASCADA CONGELADA
+  - tooltip "Entidades executoras e diretorias regionais" [ref=e1984]

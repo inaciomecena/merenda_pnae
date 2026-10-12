@@ -1,0 +1,455 @@
+{
+  "dre": "Primavera do Leste",
+  "geradoEm": "2026-10-12T19:29:45.449Z",
+  "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+  "procedimentos": [
+    {
+      "idPacote": "ED-0025",
+      "chaveLogica": "9c17cc69fbb1f687936b828eb71ec61a",
+      "decisao": "SEGREGADO",
+      "numero": "011/2025",
+      "municipio": "Primavera do Leste",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0029_DOC-0029.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0026",
+      "chaveLogica": "d7550087231fbe38dedb1c5641f80505",
+      "decisao": "SEGREGADO",
+      "numero": "010/2025",
+      "municipio": "Gaúcha do Norte",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0030_DOC-0030.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0027",
+      "chaveLogica": "be3b771b9a4bc9c062174c206ffab7de",
+      "decisao": "SEGREGADO",
+      "numero": null,
+      "municipio": "Nova Nazaré",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0031_DOC-0031.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0028",
+      "chaveLogica": "c5cf131b7e1ca4fc9adc01471db75ac3",
+      "decisao": "SEGREGADO",
+      "numero": "009/2025",
+      "municipio": "Paranatinga Indígenas",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0032_DOC-0032.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0029",
+      "chaveLogica": "edb87f9746e9f1cd680f445ab3580c5f",
+      "decisao": "SEGREGADO",
+      "numero": "009/2025",
+      "municipio": "Brasnorte",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0033_DOC-0033.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0030",
+      "chaveLogica": "68e537965459259778d64c806da8b202",
+      "decisao": "SEGREGADO",
+      "numero": "008/2025",
+      "municipio": "Paranatinga",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0034_DOC-0034.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0031",
+      "chaveLogica": "ed82b250af1b53b3d633ad409ddf7d22",
+      "decisao": "SEGREGADO",
+      "numero": "007/2025",
+      "municipio": "Santo Antônio do Leste",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0035_DOC-0035.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0032",
+      "chaveLogica": "8b89880cf1ee586469dbb8c4e1e2c5d2",
+      "decisao": "SEGREGADO",
+      "numero": "006/2025",
+      "municipio": "Campo Verde",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0036_DOC-0036.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0033",
+      "chaveLogica": "e50196a339176c725ab70a0ef4da0f6f",
+      "decisao": "SEGREGADO",
+      "numero": "005/2025",
+      "municipio": "Poxoréo",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0037_DOC-0037.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0034",
+      "chaveLogica": "9207a8beb04c16b5e28a37577278632d",
+      "decisao": "SEGREGADO",
+      "numero": "004/2025",
+      "municipio": "Primavera do Leste",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0038_DOC-0038.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0035",
+      "chaveLogica": "6ee35fe2a2f22a89b5019c6017c5ae4e",
+      "decisao": "BLOQUEADO",
+      "numero": "009/2025",
+      "municipio": "Primavera do Leste",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0039_DOC-0039.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0036",
+      "chaveLogica": "78207681902f2b4cc7319bcfcb1e4aa0",
+      "decisao": "BLOQUEADO",
+      "numero": "008/2025",
+      "municipio": "Primavera do Leste",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0040_DOC-0040.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0037",
+      "chaveLogica": "def7f9b04b6b8108e20b1394ec0adcf4",
+      "decisao": "BLOQUEADO",
+      "numero": "007/2025",
+      "municipio": "Primavera do Leste",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0041_DOC-0041.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0038",
+      "chaveLogica": "4ee7f9eeebad14af93581eb3aa0e70a7",
+      "decisao": "BLOQUEADO",
+      "numero": "006/2025",
+      "municipio": "Primavera do Leste",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0042_DOC-0042.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0039",
+      "chaveLogica": "9768b142645a670d1a98582e3a99a6b5",
+      "decisao": "BLOQUEADO",
+      "numero": "005/2025",
+      "municipio": "Primavera do Leste",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0043_DOC-0043.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0040",
+      "chaveLogica": "8075b03ac2ee4ef891f661032117caa7",
+      "decisao": "BLOQUEADO",
+      "numero": "003/2025",
+      "municipio": "Carlinda",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0044_DOC-0044.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0041",
+      "chaveLogica": "16d74c7e5d1ffff10ec5392e7e015542",
+      "decisao": "BLOQUEADO",
+      "numero": "004/2025",
+      "municipio": "Primavera do Leste",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0045_DOC-0045.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0042",
+      "chaveLogica": "8075b03ac2ee4ef891f661032117caa7",
+      "decisao": "BLOQUEADO",
+      "numero": "003/2025",
+      "municipio": "Primavera do Leste",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0046_DOC-0046.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0043",
+      "chaveLogica": "bef59e2309ce93144e9ee233725ca2e7",
+      "decisao": "BLOQUEADO",
+      "numero": "002/2025",
+      "municipio": "Primavera do Leste",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0047_DOC-0047.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0044",
+      "chaveLogica": "30e0fd4630724370e4de780c47cd38a1",
+      "decisao": "SEGREGADO",
+      "numero": "003/2025",
+      "municipio": "Paranatinga - urbana",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0048_DOC-0048.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0045",
+      "chaveLogica": "adac6147447ca1ffdb723f73f930d12c",
+      "decisao": "SEGREGADO",
+      "numero": null,
+      "municipio": "Primavera do Leste",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0049_DOC-0049.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0046",
+      "chaveLogica": "c97db1051affb16b6bd4bfb4ff6cbb4d",
+      "decisao": "APROVADO",
+      "numero": "001/2025",
+      "municipio": "Poxoréu",
+      "itens": 49,
+      "pendencias": 26,
+      "arquivos": [
+        "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0050_DOC-0050.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0047",
+      "chaveLogica": "3956d85fe71e49a8a383c7798b8dadc7",
+      "decisao": "SEGREGADO",
+      "numero": "002/2025",
+      "municipio": "Primavera do Leste",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0051_DOC-0051.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0048",
+      "chaveLogica": "debf20f1b91d6eac08a8760d6598f0b0",
+      "decisao": "SEGREGADO",
+      "numero": "001/2025",
+      "municipio": "Santo Antônio do Leste",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0052_DOC-0052.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0049",
+      "chaveLogica": "e16e1608e549c281984fd85bc1660573",
+      "decisao": "SEGREGADO",
+      "numero": "012/2024",
+      "municipio": "Santo Antônio do Leste",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0053_DOC-0053.pdf",
+        "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0054_DOC-0054.pdf",
+        "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0065_DOC-0065.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0050",
+      "chaveLogica": "ccf161b80996e67513a9211ba8facdb5",
+      "decisao": "BLOQUEADO",
+      "numero": "009/2024",
+      "municipio": "Santo Antônio do Leste",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0055_DOC-0055.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0051",
+      "chaveLogica": "cc47dca78b101a0869012340f4bbc903",
+      "decisao": "SEGREGADO",
+      "numero": "014/2024",
+      "municipio": "Paranatinga - urbana",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0056_DOC-0056.pdf",
+        "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0066_DOC-0066.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0052",
+      "chaveLogica": "19f4b23292fc635c538e1b3baae47008",
+      "decisao": "BLOQUEADO",
+      "numero": "013/2024",
+      "municipio": "Paranatinga - urbana",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0057_DOC-0057.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0053",
+      "chaveLogica": "11b4c935255a6b863df1671b24f628d7",
+      "decisao": "BLOQUEADO",
+      "numero": "010/2024",
+      "municipio": "Primavera do Leste",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0058_DOC-0058.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0054",
+      "chaveLogica": "44b18316006545971eb581d1e326ff97",
+      "decisao": "BLOQUEADO",
+      "numero": "011/2024",
+      "municipio": "Poxoréu",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0059_DOC-0059.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0055",
+      "chaveLogica": "e137b818d9b92604f379f9d89fb530e0",
+      "decisao": "BLOQUEADO",
+      "numero": "012/2024",
+      "municipio": "Campo Verde",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0060_DOC-0060.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0056",
+      "chaveLogica": "7b01595791b331e1b5580a37af99648c",
+      "decisao": "SEGREGADO",
+      "numero": "009/2024",
+      "municipio": "Gaúcha do Norte",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0061_DOC-0061.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0057",
+      "chaveLogica": "1df88abd45b71be906ec8a8cd9c6c6db",
+      "decisao": "SEGREGADO",
+      "numero": "010/2024",
+      "municipio": "Primavera do Leste",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0062_DOC-0062.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0058",
+      "chaveLogica": "04c1c7782c68e4ffe35f885924ece0b1",
+      "decisao": "SEGREGADO",
+      "numero": "011/2024",
+      "municipio": "Poxoréu",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0063_DOC-0063.pdf",
+        "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0064_DOC-0064.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0059",
+      "chaveLogica": "a587abbbdcbb9f3f449c4e846a526035",
+      "decisao": "SEGREGADO",
+      "numero": "015/2024",
+      "municipio": "Paranatinga - indígena",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0067_DOC-0067.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0060",
+      "chaveLogica": "41e5c54f590aa8c2980dcdd621832620",
+      "decisao": "SEGREGADO",
+      "numero": "013/2024",
+      "municipio": "Campo Verde",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0068_DOC-0068.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0061",
+      "chaveLogica": "841289584fff62e03a9f5d474d22d70b",
+      "decisao": "APROVADO",
+      "numero": "016/2024",
+      "municipio": "Gaúcha do Norte",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0069_DOC-0069.pdf"
+      ]
+    }
+  ]
+}

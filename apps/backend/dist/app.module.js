@@ -31,6 +31,13 @@ const users_module_1 = require("./modules/users/users.module");
 const composicao_editais_module_1 = require("./modules/composicao-editais/composicao-editais.module");
 const dre_module_1 = require("./modules/dre/dre.module");
 const vinculos_module_1 = require("./modules/vinculos/vinculos.module");
+const contratos_module_1 = require("./modules/contratos/contratos.module");
+const entregas_module_1 = require("./modules/entregas/entregas.module");
+const fiscal_module_1 = require("./modules/fiscal/fiscal.module");
+const prestacao_contas_module_1 = require("./modules/prestacao-contas/prestacao-contas.module");
+const chamadas_publicas_module_1 = require("./modules/chamadas-publicas/chamadas-publicas.module");
+const gestao_operacional_module_1 = require("./modules/gestao-operacional/gestao-operacional.module");
+const produtor_painel_module_1 = require("./modules/produtor-painel/produtor-painel.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -61,6 +68,13 @@ exports.AppModule = AppModule = __decorate([
             composicao_editais_module_1.ComposicaoEditaisModule,
             dre_module_1.DREModule,
             vinculos_module_1.VinculosModule,
+            contratos_module_1.ContratosModule,
+            entregas_module_1.EntregasModule,
+            fiscal_module_1.FiscalModule,
+            prestacao_contas_module_1.PrestacaoContasModule,
+            chamadas_publicas_module_1.ChamadasPublicasModule,
+            gestao_operacional_module_1.GestaoOperacionalModule,
+            produtor_painel_module_1.ProdutorPainelModule,
         ],
         controllers: [health_controller_1.HealthController],
         providers: [

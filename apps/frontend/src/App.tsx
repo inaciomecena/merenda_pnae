@@ -30,8 +30,24 @@ const LogsPage = lazy(() => import('./pages/LogsPage'));
 const ConfigPage = lazy(() => import('./pages/ConfigPage'));
 const HomologacaoPage = lazy(() => import('./pages/HomologacaoPage'));
 const OrganizacaoPage = lazy(() => import('./pages/OrganizacaoPage'));
+const DreEscolasPage = lazy(() => import('./pages/DreEscolasPage'));
 const VinculosPage = lazy(() => import('./pages/VinculosPage'));
 const EditalConsultaPage = lazy(() => import('./pages/EditalConsultaPage'));
+const ContratosPage = lazy(() => import('./pages/ContratosPage'));
+const ContratoDetalhesPage = lazy(() => import('./pages/ContratoDetalhesPage'));
+const ContratoFormPage = lazy(() => import('./pages/ContratoFormPage'));
+const EntregasPage = lazy(() => import('./pages/EntregasPage'));
+const NotasFiscaisPage = lazy(() => import('./pages/NotasFiscaisPage'));
+const NotaFiscalFormPage = lazy(() => import('./pages/NotaFiscalFormPage'));
+const NotaFiscalDetalhesPage = lazy(() => import('./pages/NotaFiscalDetalhesPage'));
+const ConferenciaFiscalPage = lazy(() => import('./pages/ConferenciaFiscalPage'));
+const AtestoPage = lazy(() => import('./pages/AtestoPage'));
+const LiquidacaoPage = lazy(() => import('./pages/LiquidacaoPage'));
+const PagamentosPage = lazy(() => import('./pages/PagamentosPage'));
+const DashboardFinanceiroPage = lazy(() => import('./pages/DashboardFinanceiroPage'));
+const PrestacaoContasPage = lazy(() => import('./pages/PrestacaoContasPage'));
+const ChamadasPublicasPage = lazy(() => import('./pages/ChamadasPublicasPage'));
+const GestaoOperacionalPage = lazy(() => import('./pages/GestaoOperacionalPage'));
 
 function Loading() {
   return (
@@ -63,7 +79,7 @@ function AppRoutes() {
           <Route path="/relatorios" element={<ProtectedRoute allowedRoles={['ADMIN']}><RelatoriosPage /></ProtectedRoute>} />
           <Route path="/municipios" element={<ProtectedRoute allowedRoles={['ADMIN']}><MunicipiosPage /></ProtectedRoute>} />
           <Route path="/escolas" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE', 'ESCOLA']}><EscolasPage /></ProtectedRoute>} />
-          <Route path="/escolas/:id" element={<ProtectedRoute allowedRoles={['ADMIN', 'ESCOLA']}><EscolaDetalhesPage /></ProtectedRoute>} />
+          <Route path="/escolas/:id" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE', 'ESCOLA']}><EscolaDetalhesPage /></ProtectedRoute>} />
           <Route path="/editais" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE', 'ESCOLA']}><EditaisPage /></ProtectedRoute>} />
           <Route path="/editais/:id" element={<ProtectedRoute allowedRoles={['ADMIN']}><EditalComposicaoPage /></ProtectedRoute>} />
           <Route path="/editais/:id/consulta" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE', 'ESCOLA']}><EditalConsultaPage /></ProtectedRoute>} />
@@ -78,11 +94,31 @@ function AppRoutes() {
           <Route path="/importacoes/:id/conferencia" element={<ProtectedRoute allowedRoles={['ADMIN']}><ImportacaoConferenciaPage /></ProtectedRoute>} />
           <Route path="/importacoes/:id/estrutura" element={<ProtectedRoute allowedRoles={['ADMIN']}><EngenhariaReversaPage /></ProtectedRoute>} />
           <Route path="/organizacao" element={<ProtectedRoute allowedRoles={['ADMIN']}><OrganizacaoPage /></ProtectedRoute>} />
+          <Route path="/organizacao/dres/:id/escolas" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE']}><DreEscolasPage /></ProtectedRoute>} />
           <Route path="/vinculos" element={<ProtectedRoute allowedRoles={['ADMIN']}><VinculosPage /></ProtectedRoute>} />
           <Route path="/usuarios" element={<ProtectedRoute allowedRoles={['ADMIN']}><UsuariosPage /></ProtectedRoute>} />
           <Route path="/auditoria" element={<ProtectedRoute allowedRoles={['ADMIN']}><LogsPage /></ProtectedRoute>} />
           <Route path="/configuracoes" element={<ProtectedRoute allowedRoles={['ADMIN']}><ConfigPage /></ProtectedRoute>} />
           <Route path="/homologacao" element={<ProtectedRoute allowedRoles={['ADMIN']}><HomologacaoPage /></ProtectedRoute>} />
+          <Route path="/contratos" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR']}><ContratosPage /></ProtectedRoute>} />
+          <Route path="/contratos/novo" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE']}><ContratoFormPage /></ProtectedRoute>} />
+          <Route path="/contratos/:id" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR']}><ContratoDetalhesPage /></ProtectedRoute>} />
+          <Route path="/contratos/:id/editar" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE']}><ContratoFormPage /></ProtectedRoute>} />
+          <Route path="/contratos/:id/auditoria" element={<ProtectedRoute allowedRoles={['ADMIN']}><ContratoDetalhesPage /></ProtectedRoute>} />
+          <Route path="/entregas" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR']}><EntregasPage /></ProtectedRoute>} />
+          <Route path="/notas-fiscais" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR']}><NotasFiscaisPage /></ProtectedRoute>} />
+          <Route path="/notas-fiscais/nova" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE']}><NotaFiscalFormPage /></ProtectedRoute>} />
+          <Route path="/notas-fiscais/:id" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR']}><NotaFiscalDetalhesPage /></ProtectedRoute>} />
+          <Route path="/conferencia-fiscal" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE']}><ConferenciaFiscalPage /></ProtectedRoute>} />
+          <Route path="/atestos" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE']}><AtestoPage /></ProtectedRoute>} />
+          <Route path="/liquidacoes" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE']}><LiquidacaoPage /></ProtectedRoute>} />
+          <Route path="/pagamentos" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE']}><PagamentosPage /></ProtectedRoute>} />
+          <Route path="/financeiro" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR']}><DashboardFinanceiroPage /></ProtectedRoute>} />
+          <Route path="/prestacao-contas" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE', 'ESCOLA']}><PrestacaoContasPage /></ProtectedRoute>} />
+          <Route path="/chamadas-publicas" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE', 'ESCOLA']}><ChamadasPublicasPage /></ProtectedRoute>} />
+          <Route path="/gestao-operacional" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE', 'ESCOLA']}><GestaoOperacionalPage /></ProtectedRoute>} />
+          <Route path="/pendencias" element={<ProtectedRoute allowedRoles={['ADMIN', 'DRE', 'ESCOLA']}><GestaoOperacionalPage /></ProtectedRoute>} />
+          <Route path="/monitoramento" element={<ProtectedRoute allowedRoles={['ADMIN']}><GestaoOperacionalPage /></ProtectedRoute>} />
         </Route>
         <Route path="*" element={<Navigate to="/dashboard" replace />} />
       </Routes>

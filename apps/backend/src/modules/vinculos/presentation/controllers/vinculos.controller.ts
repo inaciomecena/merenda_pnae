@@ -1,7 +1,14 @@
 import { Controller, Get, Post, Put, Delete, Body, Param, Req } from '@nestjs/common';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
 import { VinculosService } from '../../application/services/vinculos.service';
-import { CreateVinculoDto, CreateRepresentacaoDto, RevokeRepresentacaoDto, UpdateRepresentacaoDto } from '../dto/vinculo.dto';
+import { BootstrapVinculoService } from '../../application/services/bootstrap-vinculo.service';
+import {
+  BootstrapVinculoDto,
+  CreateVinculoDto,
+  CreateRepresentacaoDto,
+  RevokeRepresentacaoDto,
+  UpdateRepresentacaoDto,
+} from '../dto/vinculo.dto';
 import { Roles } from '../../../../common/decorators/roles.decorator';
 import { Request } from 'express';
 import { AuthenticatedUser } from '../../../../common/auth/user-scope';
@@ -9,7 +16,27 @@ import { AuthenticatedUser } from '../../../../common/auth/user-scope';
 @ApiTags('vinculos')
 @Controller({ path: 'vinculos', version: '1' })
 export class VinculosController {
-  constructor(private readonly vinculosService: VinculosService) {}
+  constructor(
+    private readonly vinculosService: VinculosService,
+    private readonly bootstrapService: BootstrapVinculoService,
+  ) {}
+
+  /**
+   * Bootstrap institucional (SDD-005): cria o primeiro vínculo ADMIN.
+   *
+   * Não usa @Roles de propósito: o RolesGuard exige vínculo ativo, o que
+   * impediria o primeiro vínculo (dependência circular). A proteção fica na
+   * combinação JWT obrigatório (guard global) + papel ADMIN + token secreto
+   * de BOOTSTRAP_ADMIN_TOKEN + execução única (recusa se já houver vínculo
+   * ADMIN ativo). Ver BootstrapVinculoService.
+   */
+  @Post('bootstrap')
+  @ApiOperation({
+    summary: 'Bootstrap institucional de UMA vez: cria o primeiro vínculo ADMIN (requer token secreto)',
+  })
+  bootstrap(@Body() dto: BootstrapVinculoDto, @Req() req: Request) {
+    return this.bootstrapService.executar(dto.token, req.user as AuthenticatedUser);
+  }
 
   @Post()
   @Roles('ADMIN')

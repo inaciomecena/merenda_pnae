@@ -1,0 +1,271 @@
+{
+  "dre": "Metropolitana",
+  "geradoEm": "2026-10-12T19:29:45.453Z",
+  "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+  "procedimentos": [
+    {
+      "idPacote": "ED-0099",
+      "chaveLogica": "7530cfbf756d4bb5a378c18274a71cba",
+      "decisao": "BLOQUEADO",
+      "numero": "003/2025",
+      "municipio": "Cuiabá",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0109_2004f4_a29852589efd42ed8e069f3abcffbbc7.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0100",
+      "chaveLogica": "c010d50fd0a34fc06083720042c2ece7",
+      "decisao": "BLOQUEADO",
+      "numero": "002/2025",
+      "municipio": "Várzea Grande",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0110_2004f4_d275f8ff4df34f22aac00f2ef72077a1.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0101",
+      "chaveLogica": "5fb8fe08b7b92d427a4c7d8e22cc0812",
+      "decisao": "BLOQUEADO",
+      "numero": "001/2026",
+      "municipio": "Santo Antônio do Leverger",
+      "itens": 0,
+      "pendencias": 3,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0111_2004f4_7e7f9188a88349d28235ca65582376ca.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0102",
+      "chaveLogica": "3a00ffbe601fe578cec047f2b547979a",
+      "decisao": "BLOQUEADO",
+      "numero": "005/2026",
+      "municipio": "Nossa Senhora do Livramento",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0112_2004f4_e84cb3a0d1f64507beff5c292c9fac5e.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0103",
+      "chaveLogica": "501d0b3700c2957d697f5257b051b956",
+      "decisao": "BLOQUEADO",
+      "numero": "006/2026",
+      "municipio": "Poconé",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0113_2004f4_88a5d1caedc34dde8c02a2ce8321076d.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0104",
+      "chaveLogica": "3e233cd19b78b3af6114c44005d47ba9",
+      "decisao": "BLOQUEADO",
+      "numero": "004/2026",
+      "municipio": "Jangada",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0114_2004f4_42c1768cd2454f29a14f5e8b51c5c509.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0105",
+      "chaveLogica": "a4cd8a70d67a61ebfc8d004355c0e938",
+      "decisao": "BLOQUEADO",
+      "numero": "003/2026",
+      "municipio": "Acorizal",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0115_2004f4_fcf2491bb40c4f5ca34e34cc02490f53.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0106",
+      "chaveLogica": "cfb3a7e2bf47fd4eee3f902cf53f34bf",
+      "decisao": "BLOQUEADO",
+      "numero": "002/2026",
+      "municipio": "Barão de Melgaço",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0116_2004f4_c48619e9ff29426d9ad5922b1a9474d8.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0107",
+      "chaveLogica": "dbcbdf18fcb40a9b59d58aa09328c1d6",
+      "decisao": "BLOQUEADO",
+      "numero": "007/2025",
+      "municipio": "Chapada dos Guimarães",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0117_2004f4_a40cb2d0ef534c7d8b8153fb4c5c9697.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0108",
+      "chaveLogica": "74d009ac2b8d0c64d248301e5c1e6788",
+      "decisao": "BLOQUEADO",
+      "numero": "008/2026",
+      "municipio": "Planalto da Serra",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0118_2004f4_c959216226f846ae8cd20addd9412c18.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0109",
+      "chaveLogica": "5c4c6497beb1465e7b766c871a7367d7",
+      "decisao": "BLOQUEADO",
+      "numero": "009/2026",
+      "municipio": "Nova Brasilândia",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0119_2004f4_bd417cb1a36a4509975aedce74924758.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0110",
+      "chaveLogica": "6ff9bc1c0accaf731f0e1f9abb6af88d",
+      "decisao": "SEGREGADO",
+      "numero": "007/2024",
+      "municipio": "Cuiabá",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "PNAE_MT_2025/08_METROPOLITANA/DOC-0120_2004f4_dea8716823c14c04a061631b6fd19025.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0111",
+      "chaveLogica": "1b4efb4a7498dc95610154944165007f",
+      "decisao": "SEGREGADO",
+      "numero": "008/2024",
+      "municipio": "Várzea Grande",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "PNAE_MT_2025/08_METROPOLITANA/DOC-0121_2004f4_8bb54366edc047cc91e143616c8418c9.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0112",
+      "chaveLogica": "ec331d2f172597d911ff66e070d3f5ca",
+      "decisao": "SEGREGADO",
+      "numero": "009/2024",
+      "municipio": "Santo Antônio do Leverger",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "PNAE_MT_2025/08_METROPOLITANA/DOC-0122_2004f4_87ed7fac89b54734a58548ab9bf6741b.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0113",
+      "chaveLogica": "993bde724fcda124f50f227174a3ecab",
+      "decisao": "SEGREGADO",
+      "numero": "010/2024",
+      "municipio": "Poconé",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "PNAE_MT_2025/08_METROPOLITANA/DOC-0123_2004f4_f869b5af3e7a42e58206e5a5f70a15f0.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0114",
+      "chaveLogica": "7e8a6fd6eb198aaf515126916990b6b6",
+      "decisao": "SEGREGADO",
+      "numero": "011/2024",
+      "municipio": "Nossa Senhora do Livramento",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "PNAE_MT_2025/08_METROPOLITANA/DOC-0124_2004f4_a8813c38b6e34b8880bad6dada1b622d.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0115",
+      "chaveLogica": "5c6d9985c6ea42b40e10d628af010fb7",
+      "decisao": "SEGREGADO",
+      "numero": "012/2024",
+      "municipio": "Jangada",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "PNAE_MT_2025/08_METROPOLITANA/DOC-0125_2004f4_df2e8ee18b594ee6a5b25064c8856c92.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0116",
+      "chaveLogica": "9d0f7c41a57a2f36e289cb692cef97a8",
+      "decisao": "SEGREGADO",
+      "numero": "013/2024",
+      "municipio": "Acorizal",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "PNAE_MT_2025/08_METROPOLITANA/DOC-0126_2004f4_3c327a18a5fc41f89b2df665bfad91f9.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0117",
+      "chaveLogica": "7f2a60d5643d28a1932292b695c4914a",
+      "decisao": "SEGREGADO",
+      "numero": "014/2024",
+      "municipio": "Barão de Melgaço",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "PNAE_MT_2025/08_METROPOLITANA/DOC-0127_2004f4_0c038f727d3b419d8213275738c38c2c.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0118",
+      "chaveLogica": "5fa2d7743b2ae23f47884189470d37a7",
+      "decisao": "SEGREGADO",
+      "numero": "015/2024",
+      "municipio": "Chapada dos Guimarães",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "PNAE_MT_2025/08_METROPOLITANA/DOC-0128_2004f4_ee4640c9dee7474fafbf9b9e6778221a.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0119",
+      "chaveLogica": "a38eef5f1a3cc39601f48e890d566d72",
+      "decisao": "SEGREGADO",
+      "numero": "016/2024",
+      "municipio": "Planalto da Serra",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "PNAE_MT_2025/08_METROPOLITANA/DOC-0129_2004f4_32158461ac7442b09680f673b655e0c5.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0120",
+      "chaveLogica": "856c1a250a6c349f2fe6c5e04d8e4112",
+      "decisao": "SEGREGADO",
+      "numero": "017/2024",
+      "municipio": "Nova Brasilândia",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "PNAE_MT_2025/08_METROPOLITANA/DOC-0130_2004f4_34e70caf91d04da28c0b0e2a68144bc3.pdf"
+      ]
+    }
+  ]
+}

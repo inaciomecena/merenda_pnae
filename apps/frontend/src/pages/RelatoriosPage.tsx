@@ -6,8 +6,8 @@ import { Download, Assessment, School, People, Assignment, LocalShipping, Person
 import api from '../services/api';
 
 const REPORT_TYPES = [
-  { value: 'geral', label: 'Relatorio Geral', icon: <Assessment /> },
-  { value: 'municipio', label: 'Por Municipio', icon: <Assessment /> },
+  { value: 'geral', label: 'Relatório geral', icon: <Assessment /> },
+  { value: 'municipio', label: 'Por município', icon: <Assessment /> },
   { value: 'escola', label: 'Por Escola', icon: <School /> },
   { value: 'edital', label: 'Por Edital', icon: <Assignment /> },
   { value: 'produtor', label: 'Por Produtor', icon: <People /> },
@@ -36,7 +36,7 @@ export default function RelatoriosPage() {
       const { data } = await api.get(`/reports/${tipo}?${params.toString()}`);
       setResultado(data);
     } catch {
-      setError('Erro ao gerar relatorio.');
+      setError('Erro ao gerar relatório.');
     } finally {
       setLoading(false);
     }
@@ -72,17 +72,17 @@ export default function RelatoriosPage() {
 
   return (
     <Stack spacing={3}>
-      <Typography variant="h4" fontWeight={700}>Relatorios Gerenciais</Typography>
+      <Typography variant="h4" fontWeight={700}>Relatórios gerenciais</Typography>
 
       <Card>
         <CardContent>
           <Stack spacing={2}>
-            <Typography variant="h6">Configurar Relatorio</Typography>
+            <Typography variant="h6">Configurar relatório</Typography>
             <Grid container spacing={2}>
               <Grid item xs={12} md={3}>
                 <FormControl fullWidth size="small">
-                  <InputLabel>Tipo de Relatorio</InputLabel>
-                  <Select value={tipo} label="Tipo de Relatorio" onChange={e => { setTipo(e.target.value); setId(''); setNome(''); }}>
+                  <InputLabel>Tipo de relatório</InputLabel>
+                  <Select value={tipo} label="Tipo de relatório" onChange={e => { setTipo(e.target.value); setId(''); setNome(''); }}>
                     {REPORT_TYPES.map(r => <MenuItem key={r.value} value={r.value}>{r.label}</MenuItem>)}
                   </Select>
                 </FormControl>
@@ -142,7 +142,7 @@ export default function RelatoriosPage() {
 
       <Card>
         <CardContent>
-          <Typography variant="h6" gutterBottom>Tipos de Relatorio Disponiveis</Typography>
+          <Typography variant="h6" gutterBottom>Tipos de relatório disponíveis</Typography>
           <Grid container spacing={2}>
             {REPORT_TYPES.map(r => (
               <Grid item xs={12} sm={6} md={4} key={r.value}>

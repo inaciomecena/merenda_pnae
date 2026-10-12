@@ -35,7 +35,7 @@ exports.AuthModule = AuthModule = __decorate([
             { provide: core_1.APP_GUARD, useClass: jwt_auth_guard_1.JwtAuthGuard },
             { provide: core_1.APP_GUARD, useClass: roles_guard_1.RolesGuard },
         ],
-        exports: [policy_service_1.PolicyService],
+        exports: [policy_service_1.PolicyService, jwt_1.JwtModule],
     })
 ], AuthModule);
 //# sourceMappingURL=auth.module.js.map

@@ -283,7 +283,9 @@ export class PolicyService {
         email: user.email,
         role: user.role,
       },
-      pendencias: vinculos.some(v => v.funcao === user.role) ? [] : ['Vínculo de função e escopo pendente de autorização'],
+      pendencias: user.role === 'ADMIN' || vinculos.some(v => v.funcao === user.role)
+        ? []
+        : ['Vínculo de função e escopo pendente de autorização'],
       vinculos: vinculos.map(v => ({
         id: v.id,
         funcao: v.funcao,

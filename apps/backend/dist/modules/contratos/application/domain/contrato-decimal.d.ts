@@ -1,0 +1,10 @@
+import { Prisma } from '@prisma/client';
+export type DecimalEntrada = Prisma.Decimal | string | number | null | undefined;
+export declare function paraDecimal(valor: DecimalEntrada): Prisma.Decimal;
+export declare function decimalExato(valor: DecimalEntrada, escala: number): Prisma.Decimal;
+export declare function dinheiro(valor: DecimalEntrada): Prisma.Decimal;
+export declare function quantidadeDecimal(valor: DecimalEntrada): Prisma.Decimal;
+export declare function multiplicar(qtd: DecimalEntrada, unitario: DecimalEntrada): Prisma.Decimal;
+export declare function somar(valores: DecimalEntrada[], escala?: number): Prisma.Decimal;
+export declare function minimo(a: Prisma.Decimal, b: Prisma.Decimal): Prisma.Decimal;
+export declare function textoDecimal(valor: Prisma.Decimal, escala: number): string;

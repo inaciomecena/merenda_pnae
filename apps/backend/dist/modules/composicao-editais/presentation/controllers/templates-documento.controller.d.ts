@@ -14,11 +14,11 @@ export declare class TemplatesDocumentoController {
             id: string;
             createdAt: Date;
             createdBy: string | null;
+            vigenciaInicio: Date | null;
+            vigenciaFim: Date | null;
             numero: number;
             titulo: string;
             formato: import(".prisma/client").$Enums.FormatoTemplate;
-            vigenciaInicio: Date | null;
-            vigenciaFim: Date | null;
             arquivoBase: string | null;
             conteudo: string | null;
             templateId: string;
@@ -32,6 +32,8 @@ export declare class TemplatesDocumentoController {
         createdBy: string | null;
         updatedBy: string | null;
         ativo: boolean;
+        vigenciaInicio: Date | null;
+        vigenciaFim: Date | null;
         titulo: string;
         descricao: string | null;
         versaoAtual: number;
@@ -42,8 +44,6 @@ export declare class TemplatesDocumentoController {
         codigoModelo: string | null;
         ordem: number;
         formato: import(".prisma/client").$Enums.FormatoTemplate;
-        vigenciaInicio: Date | null;
-        vigenciaFim: Date | null;
         arquivoBase: string | null;
         conteudo: string | null;
     })[]>;
@@ -60,11 +60,11 @@ export declare class TemplatesDocumentoController {
             id: string;
             createdAt: Date;
             createdBy: string | null;
+            vigenciaInicio: Date | null;
+            vigenciaFim: Date | null;
             numero: number;
             titulo: string;
             formato: import(".prisma/client").$Enums.FormatoTemplate;
-            vigenciaInicio: Date | null;
-            vigenciaFim: Date | null;
             arquivoBase: string | null;
             conteudo: string | null;
             templateId: string;
@@ -78,8 +78,8 @@ export declare class TemplatesDocumentoController {
             tipo: string;
             ordem: number;
             templateId: string;
-            obrigatorio: boolean;
             valorPadrao: string | null;
+            obrigatorio: boolean;
             repetitivo: boolean;
             anexoTipo: import(".prisma/client").$Enums.TipoDocumentoTemplate | null;
         }[];
@@ -91,6 +91,8 @@ export declare class TemplatesDocumentoController {
         createdBy: string | null;
         updatedBy: string | null;
         ativo: boolean;
+        vigenciaInicio: Date | null;
+        vigenciaFim: Date | null;
         titulo: string;
         descricao: string | null;
         versaoAtual: number;
@@ -101,8 +103,6 @@ export declare class TemplatesDocumentoController {
         codigoModelo: string | null;
         ordem: number;
         formato: import(".prisma/client").$Enums.FormatoTemplate;
-        vigenciaInicio: Date | null;
-        vigenciaFim: Date | null;
         arquivoBase: string | null;
         conteudo: string | null;
     }>;
@@ -111,11 +111,11 @@ export declare class TemplatesDocumentoController {
             id: string;
             createdAt: Date;
             createdBy: string | null;
+            vigenciaInicio: Date | null;
+            vigenciaFim: Date | null;
             numero: number;
             titulo: string;
             formato: import(".prisma/client").$Enums.FormatoTemplate;
-            vigenciaInicio: Date | null;
-            vigenciaFim: Date | null;
             arquivoBase: string | null;
             conteudo: string | null;
             templateId: string;
@@ -129,8 +129,8 @@ export declare class TemplatesDocumentoController {
             tipo: string;
             ordem: number;
             templateId: string;
-            obrigatorio: boolean;
             valorPadrao: string | null;
+            obrigatorio: boolean;
             repetitivo: boolean;
             anexoTipo: import(".prisma/client").$Enums.TipoDocumentoTemplate | null;
         }[];
@@ -142,6 +142,8 @@ export declare class TemplatesDocumentoController {
         createdBy: string | null;
         updatedBy: string | null;
         ativo: boolean;
+        vigenciaInicio: Date | null;
+        vigenciaFim: Date | null;
         titulo: string;
         descricao: string | null;
         versaoAtual: number;
@@ -152,8 +154,6 @@ export declare class TemplatesDocumentoController {
         codigoModelo: string | null;
         ordem: number;
         formato: import(".prisma/client").$Enums.FormatoTemplate;
-        vigenciaInicio: Date | null;
-        vigenciaFim: Date | null;
         arquivoBase: string | null;
         conteudo: string | null;
     }>;
@@ -162,11 +162,11 @@ export declare class TemplatesDocumentoController {
             id: string;
             createdAt: Date;
             createdBy: string | null;
+            vigenciaInicio: Date | null;
+            vigenciaFim: Date | null;
             numero: number;
             titulo: string;
             formato: import(".prisma/client").$Enums.FormatoTemplate;
-            vigenciaInicio: Date | null;
-            vigenciaFim: Date | null;
             arquivoBase: string | null;
             conteudo: string | null;
             templateId: string;
@@ -180,8 +180,8 @@ export declare class TemplatesDocumentoController {
             tipo: string;
             ordem: number;
             templateId: string;
-            obrigatorio: boolean;
             valorPadrao: string | null;
+            obrigatorio: boolean;
             repetitivo: boolean;
             anexoTipo: import(".prisma/client").$Enums.TipoDocumentoTemplate | null;
         }[];
@@ -193,6 +193,8 @@ export declare class TemplatesDocumentoController {
         createdBy: string | null;
         updatedBy: string | null;
         ativo: boolean;
+        vigenciaInicio: Date | null;
+        vigenciaFim: Date | null;
         titulo: string;
         descricao: string | null;
         versaoAtual: number;
@@ -203,8 +205,6 @@ export declare class TemplatesDocumentoController {
         codigoModelo: string | null;
         ordem: number;
         formato: import(".prisma/client").$Enums.FormatoTemplate;
-        vigenciaInicio: Date | null;
-        vigenciaFim: Date | null;
         arquivoBase: string | null;
         conteudo: string | null;
     }>;
@@ -213,11 +213,11 @@ export declare class TemplatesDocumentoController {
             id: string;
             createdAt: Date;
             createdBy: string | null;
+            vigenciaInicio: Date | null;
+            vigenciaFim: Date | null;
             numero: number;
             titulo: string;
             formato: import(".prisma/client").$Enums.FormatoTemplate;
-            vigenciaInicio: Date | null;
-            vigenciaFim: Date | null;
             arquivoBase: string | null;
             conteudo: string | null;
             templateId: string;
@@ -231,8 +231,8 @@ export declare class TemplatesDocumentoController {
             tipo: string;
             ordem: number;
             templateId: string;
-            obrigatorio: boolean;
             valorPadrao: string | null;
+            obrigatorio: boolean;
             repetitivo: boolean;
             anexoTipo: import(".prisma/client").$Enums.TipoDocumentoTemplate | null;
         }[];
@@ -244,6 +244,8 @@ export declare class TemplatesDocumentoController {
         createdBy: string | null;
         updatedBy: string | null;
         ativo: boolean;
+        vigenciaInicio: Date | null;
+        vigenciaFim: Date | null;
         titulo: string;
         descricao: string | null;
         versaoAtual: number;
@@ -254,8 +256,6 @@ export declare class TemplatesDocumentoController {
         codigoModelo: string | null;
         ordem: number;
         formato: import(".prisma/client").$Enums.FormatoTemplate;
-        vigenciaInicio: Date | null;
-        vigenciaFim: Date | null;
         arquivoBase: string | null;
         conteudo: string | null;
     }>;
@@ -267,6 +267,8 @@ export declare class TemplatesDocumentoController {
         createdBy: string | null;
         updatedBy: string | null;
         ativo: boolean;
+        vigenciaInicio: Date | null;
+        vigenciaFim: Date | null;
         titulo: string;
         descricao: string | null;
         versaoAtual: number;
@@ -277,8 +279,6 @@ export declare class TemplatesDocumentoController {
         codigoModelo: string | null;
         ordem: number;
         formato: import(".prisma/client").$Enums.FormatoTemplate;
-        vigenciaInicio: Date | null;
-        vigenciaFim: Date | null;
         arquivoBase: string | null;
         conteudo: string | null;
     }>;
@@ -287,11 +287,11 @@ export declare class TemplatesDocumentoController {
             id: string;
             createdAt: Date;
             createdBy: string | null;
+            vigenciaInicio: Date | null;
+            vigenciaFim: Date | null;
             numero: number;
             titulo: string;
             formato: import(".prisma/client").$Enums.FormatoTemplate;
-            vigenciaInicio: Date | null;
-            vigenciaFim: Date | null;
             arquivoBase: string | null;
             conteudo: string | null;
             templateId: string;
@@ -305,8 +305,8 @@ export declare class TemplatesDocumentoController {
             tipo: string;
             ordem: number;
             templateId: string;
-            obrigatorio: boolean;
             valorPadrao: string | null;
+            obrigatorio: boolean;
             repetitivo: boolean;
             anexoTipo: import(".prisma/client").$Enums.TipoDocumentoTemplate | null;
         }[];
@@ -318,6 +318,8 @@ export declare class TemplatesDocumentoController {
         createdBy: string | null;
         updatedBy: string | null;
         ativo: boolean;
+        vigenciaInicio: Date | null;
+        vigenciaFim: Date | null;
         titulo: string;
         descricao: string | null;
         versaoAtual: number;
@@ -328,8 +330,6 @@ export declare class TemplatesDocumentoController {
         codigoModelo: string | null;
         ordem: number;
         formato: import(".prisma/client").$Enums.FormatoTemplate;
-        vigenciaInicio: Date | null;
-        vigenciaFim: Date | null;
         arquivoBase: string | null;
         conteudo: string | null;
     }>;
@@ -342,6 +342,8 @@ export declare class TemplatesDocumentoController {
         createdBy: string | null;
         updatedBy: string | null;
         ativo: boolean;
+        vigenciaInicio: Date | null;
+        vigenciaFim: Date | null;
         titulo: string;
         descricao: string | null;
         versaoAtual: number;
@@ -352,8 +354,6 @@ export declare class TemplatesDocumentoController {
         codigoModelo: string | null;
         ordem: number;
         formato: import(".prisma/client").$Enums.FormatoTemplate;
-        vigenciaInicio: Date | null;
-        vigenciaFim: Date | null;
         arquivoBase: string | null;
         conteudo: string | null;
     }>;

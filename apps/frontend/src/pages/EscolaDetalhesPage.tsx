@@ -13,6 +13,7 @@ type SchoolDetail = {
   porteEscola?: string | null; etapasModalidades?: string | null; outrasOfertasEducacionais?: string | null;
   latitude?: string | number | null; longitude?: string | number | null;
   municipio?: { nome: string; uf: string; codigoIbge?: string | null } | null;
+  vinculosDRE?: Array<{ dre: { id: string; nome: string; codigo?: string | null } }>;
 };
 
 export default function EscolaDetalhesPage() {
@@ -31,6 +32,7 @@ export default function EscolaDetalhesPage() {
 
   const details: Array<[string, string | number | null | undefined]> = school ? [
     ['Código INEP', school.codigo], ['Município', school.municipio ? `${school.municipio.nome} - ${school.municipio.uf}` : null],
+    ['DRE vinculada', school.vinculosDRE?.[0]?.dre ? `${school.vinculosDRE[0].dre.nome}${school.vinculosDRE[0].dre.codigo ? ` (${school.vinculosDRE[0].dre.codigo})` : ''}` : 'Não vinculada'],
     ['Situação', school.active ? 'Ativa' : 'Inativa'], ['Restrição de atendimento', school.restricaoAtendimento],
     ['Localização', school.localizacao], ['Localidade diferenciada', school.localidadeDiferenciada],
     ['Categoria administrativa', school.categoriaAdministrativa], ['Dependência administrativa', school.dependenciaAdministrativa],

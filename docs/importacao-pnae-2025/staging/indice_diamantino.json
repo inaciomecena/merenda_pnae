@@ -1,0 +1,176 @@
+{
+  "dre": "Diamantino",
+  "geradoEm": "2026-10-12T19:29:45.447Z",
+  "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+  "procedimentos": [
+    {
+      "idPacote": "ED-0001",
+      "chaveLogica": "fe8b348c6e191887d579a177f51257ee",
+      "decisao": "APROVADO",
+      "numero": "030/2024",
+      "municipio": "Rosário Oeste",
+      "itens": 71,
+      "pendencias": 49,
+      "arquivos": [
+        "PNAE_MT_2025/05_DIAMANTINO/DOC-0001_DOC-0001.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0002",
+      "chaveLogica": "b282b2e5db8561dd5b479be25e991d2b",
+      "decisao": "BLOQUEADO",
+      "numero": "029/2024",
+      "municipio": "Nobres",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "PNAE_MT_2025/05_DIAMANTINO/DOC-0002_DOC-0002.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0003",
+      "chaveLogica": "66b88124775afa739c835ddde34a72af",
+      "decisao": "APROVADO",
+      "numero": "028/2024",
+      "municipio": "Santo Afonso",
+      "itens": 68,
+      "pendencias": 36,
+      "arquivos": [
+        "PNAE_MT_2025/05_DIAMANTINO/DOC-0003_DOC-0003.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0004",
+      "chaveLogica": "a28a6b6a4905653beb8e3979063f6030",
+      "decisao": "APROVADO",
+      "numero": "027/2024",
+      "municipio": "Nova Marilândia",
+      "itens": 37,
+      "pendencias": 27,
+      "arquivos": [
+        "PNAE_MT_2025/05_DIAMANTINO/DOC-0004_DOC-0004.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0005",
+      "chaveLogica": "1bc569285ded3bee96e8ec241f122045",
+      "decisao": "APROVADO",
+      "numero": "026/2024",
+      "municipio": "Nortelândia",
+      "itens": 38,
+      "pendencias": 30,
+      "arquivos": [
+        "PNAE_MT_2025/05_DIAMANTINO/DOC-0005_DOC-0005.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0006",
+      "chaveLogica": "0de789a695208a83b44887935f5f79ce",
+      "decisao": "APROVADO",
+      "numero": "025/2024",
+      "municipio": "Arenápolis",
+      "itens": 31,
+      "pendencias": 29,
+      "arquivos": [
+        "PNAE_MT_2025/05_DIAMANTINO/DOC-0006_DOC-0006.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0007",
+      "chaveLogica": "93c1c9dc48309d95262738a6cc1387e5",
+      "decisao": "APROVADO",
+      "numero": "024/2024",
+      "municipio": "Alto Paraguai",
+      "itens": 36,
+      "pendencias": 31,
+      "arquivos": [
+        "PNAE_MT_2025/05_DIAMANTINO/DOC-0007_DOC-0007.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0008",
+      "chaveLogica": "1e7dc5f9b979dbb35551f102354d5245",
+      "decisao": "APROVADO",
+      "numero": "022/2024",
+      "municipio": "Nova Mutum",
+      "itens": 62,
+      "pendencias": 32,
+      "arquivos": [
+        "PNAE_MT_2025/05_DIAMANTINO/DOC-0008_DOC-0008.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0009",
+      "chaveLogica": "48674e953930f13062dc9df0417ddec5",
+      "decisao": "APROVADO",
+      "numero": "023/2024",
+      "municipio": "Nova Mutum",
+      "itens": 52,
+      "pendencias": 29,
+      "arquivos": [
+        "PNAE_MT_2025/05_DIAMANTINO/DOC-0009_DOC-0009.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0010",
+      "chaveLogica": "28186ea0ace7e15ca989acff9984c8b8",
+      "decisao": "APROVADO",
+      "numero": "021/2024",
+      "municipio": "Santa Rita do Trivelato",
+      "itens": 62,
+      "pendencias": 36,
+      "arquivos": [
+        "PNAE_MT_2025/05_DIAMANTINO/DOC-0010_DOC-0010.pdf",
+        "PNAE_MT_2025/05_DIAMANTINO/DOC-0011_DOC-0011.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0011",
+      "chaveLogica": "eff83f12cba907af2d9edce759198bea",
+      "decisao": "APROVADO",
+      "numero": "019/2024",
+      "municipio": "Alto Paraguai",
+      "itens": 42,
+      "pendencias": 28,
+      "arquivos": [
+        "PNAE_MT_2025/05_DIAMANTINO/DOC-0012_DOC-0012.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0012",
+      "chaveLogica": "41990333287ca0b2fd86fe535927349b",
+      "decisao": "APROVADO",
+      "numero": "020/2024",
+      "municipio": "Diamantino",
+      "itens": 27,
+      "pendencias": 28,
+      "arquivos": [
+        "PNAE_MT_2025/05_DIAMANTINO/DOC-0013_DOC-0013.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0013",
+      "chaveLogica": "e30f9900b89307e3f8b6c4d07e959529",
+      "decisao": "APROVADO",
+      "numero": "018/2024",
+      "municipio": "Nova Maringá",
+      "itens": 34,
+      "pendencias": 35,
+      "arquivos": [
+        "PNAE_MT_2025/05_DIAMANTINO/DOC-0014_DOC-0014.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0014",
+      "chaveLogica": "2c08445f4948b1d869d954aa1d7978f4",
+      "decisao": "APROVADO",
+      "numero": "017/2024",
+      "municipio": "São José do Rio Claro",
+      "itens": 33,
+      "pendencias": 32,
+      "arquivos": [
+        "PNAE_MT_2025/05_DIAMANTINO/DOC-0015_DOC-0015.pdf"
+      ]
+    }
+  ]
+}

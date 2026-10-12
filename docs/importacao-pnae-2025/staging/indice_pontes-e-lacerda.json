@@ -1,0 +1,19 @@
+{
+  "dre": "Pontes e Lacerda",
+  "geradoEm": "2026-10-12T19:29:45.457Z",
+  "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+  "procedimentos": [
+    {
+      "idPacote": "ED-0121",
+      "chaveLogica": "acda3534118772f032903a12e512b184",
+      "decisao": "APROVADO",
+      "numero": "014/2024",
+      "municipio": "Pontes e Lacerda",
+      "itens": 41,
+      "pendencias": 27,
+      "arquivos": [
+        "PNAE_MT_2025/09_PONTES_E_LACERDA/DOC-0131_edital-downloadPDF.php.pdf"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "schema": "importacao-historica-pnae/1.0",
+  "geradoEm": "2026-10-12T19:29:43.792Z",
+  "idPacote": "ED-0116",
+  "dre": "Metropolitana",
+  "chaveLogica": "9d0f7c41a57a2f36e289cb692cef97a8",
+  "decisao": "SEGREGADO",
+  "motivosBloqueio": [
+    "PREGAO_2025: pregão não é chamada pública da agricultura familiar; segregado da importação."
+  ],
+  "identificacao": {
+    "numeroBruto": "013/2024",
+    "numeroNormalizado": "013/2024",
+    "anoNumeracao": 2024,
+    "exercicio": 2025,
+    "exercicioEvidencia": [],
+    "processoAdministrativo": null,
+    "dreNome": "Metropolitana",
+    "camaraNegocios": "Metropolitana",
+    "municipioAtendido": "Acorizal",
+    "recorte": "NAO_IDENTIFICADO",
+    "dataPublicacao": null,
+    "dataSessao": null,
+    "objeto": "Aquisição de gêneros alimentícios para alimentação escolar",
+    "fundamentacaoLegal": null,
+    "prazos": null,
+    "habilitacao": null,
+    "criteriosSelecao": null,
+    "condicoesEntrega": null,
+    "condicoesPagamento": null,
+    "valorEstimado": null,
+    "observacoes": [
+      "identificação preenchida a partir do manifesto (extração de PDF não realizada ou indisponível)"
+    ]
+  },
+  "documentos": [
+    {
+      "idDocumento": "DOC-0126",
+      "papel": "EDITAL_PRINCIPAL",
+      "sha256": "f5488e9579970cb9eed7512dc5d02846859ae3613a2b0db2126aa1112ea71b7a",
+      "caminho": "PNAE_MT_2025/08_METROPOLITANA/DOC-0126_2004f4_3c327a18a5fc41f89b2df665bfad91f9.pdf",
+      "paginas": 162,
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_3c327a18a5fc41f89b2df665bfad91f9.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_3c327a18a5fc41f89b2df665bfad91f9.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "chaveVersao": "ea3ce5ab803d27f35b387d591eff9865"
+    }
+  ],
+  "vinculosInstitucionais": {
+    "dre": {
+      "nomePacote": "Metropolitana",
+      "dreId": "b73fc8eb-c5e2-11f1-8f2d-6451061ac5e7",
+      "codigo": "CBA",
+      "status": "CONFIRMADO",
+      "detalhe": "DRE \"DRE Metropolitana\" (CBA)"
+    },
+    "municipio": {
+      "nomePacote": "Acorizal",
+      "municipioId": "d6509ed0-9c5f-416f-b425-94acea009669",
+      "codigoIbge": "5100102",
+      "status": "CONFIRMADO",
+      "detalhe": "\"Acorizal\" (IBGE 5100102)"
+    },
+    "escolas": [],
+    "unidadesExecutoras": [
+      {
+        "nome": "Metropolitana",
+        "cnpj": null,
+        "entidadeExecutoraId": null,
+        "status": "PENDENTE",
+        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+      }
+    ]
+  },
+  "itens": [],
+  "anexos": [],
+  "pendencias": [
+    {
+      "tipo": "resolucao_entidade_executora",
+      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
+      "origem": "snapshot institucional"
+    }
+  ],
+  "metadadoExtracao": {
+    "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+    "documentosValidados": 1,
+    "itensDoManifesto": 0,
+    "itensExtraidosPdf": 0
+  }
+}

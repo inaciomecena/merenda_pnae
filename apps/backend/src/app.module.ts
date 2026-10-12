@@ -22,6 +22,13 @@ import { UsersModule } from './modules/users/users.module';
 import { ComposicaoEditaisModule } from './modules/composicao-editais/composicao-editais.module';
 import { DREModule } from './modules/dre/dre.module';
 import { VinculosModule } from './modules/vinculos/vinculos.module';
+import { ContratosModule } from './modules/contratos/contratos.module';
+import { EntregasModule } from './modules/entregas/entregas.module';
+import { FiscalModule } from './modules/fiscal/fiscal.module';
+import { PrestacaoContasModule } from './modules/prestacao-contas/prestacao-contas.module';
+import { ChamadasPublicasModule } from './modules/chamadas-publicas/chamadas-publicas.module';
+import { GestaoOperacionalModule } from './modules/gestao-operacional/gestao-operacional.module';
+import { ProdutorPainelModule } from './modules/produtor-painel/produtor-painel.module';
 
 @Module({
   imports: [
@@ -49,6 +56,13 @@ import { VinculosModule } from './modules/vinculos/vinculos.module';
     ComposicaoEditaisModule,
     DREModule,
     VinculosModule,
+    ContratosModule,
+    EntregasModule,
+    FiscalModule,
+    PrestacaoContasModule,
+    ChamadasPublicasModule,
+    GestaoOperacionalModule,
+    ProdutorPainelModule,
   ],
   controllers: [HealthController],
   providers: [

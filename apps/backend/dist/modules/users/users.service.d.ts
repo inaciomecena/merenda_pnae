@@ -11,12 +11,12 @@ export declare class UsersService {
     }): Promise<{
         items: {
             id: string;
-            escolaId: string | null;
-            municipioId: string | null;
             name: string;
             email: string;
             role: import(".prisma/client").$Enums.Role;
             active: boolean;
+            escolaId: string | null;
+            municipioId: string | null;
         }[];
         total: number;
         page: number;
@@ -25,36 +25,36 @@ export declare class UsersService {
     }>;
     create(body: any): Promise<{
         id: string;
-        escolaId: string | null;
-        municipioId: string | null;
         name: string;
         email: string;
         role: import(".prisma/client").$Enums.Role;
         active: boolean;
+        escolaId: string | null;
+        municipioId: string | null;
     }>;
     update(id: string, body: any, actor?: AuthenticatedUser): Promise<{
         id: string;
-        escolaId: string | null;
-        municipioId: string | null;
         name: string;
         email: string;
         role: import(".prisma/client").$Enums.Role;
         active: boolean;
+        escolaId: string | null;
+        municipioId: string | null;
     }>;
     remove(id: string, actor?: AuthenticatedUser): Promise<{
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
-        createdBy: string | null;
-        updatedBy: string | null;
-        escolaId: string | null;
-        municipioId: string | null;
         name: string;
         email: string;
         passwordHash: string;
         role: import(".prisma/client").$Enums.Role;
         active: boolean;
+        createdAt: Date;
+        updatedAt: Date;
         deletedAt: Date | null;
+        createdBy: string | null;
+        updatedBy: string | null;
+        escolaId: string | null;
+        municipioId: string | null;
     }>;
     private validateScope;
 }

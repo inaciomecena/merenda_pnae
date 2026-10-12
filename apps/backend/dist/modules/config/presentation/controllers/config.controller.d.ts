@@ -6,10 +6,10 @@ export declare class ConfigController {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        tipo: string;
         descricao: string | null;
         chave: string;
         valor: string;
+        tipo: string;
     }[]>;
     get(chave: string): Promise<string | null>;
     set(chave: string, body: {
@@ -20,10 +20,10 @@ export declare class ConfigController {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        tipo: string;
         descricao: string | null;
         chave: string;
         valor: string;
+        tipo: string;
     }>;
     setMany(body: Array<{
         chave: string;
@@ -34,18 +34,18 @@ export declare class ConfigController {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        tipo: string;
         descricao: string | null;
         chave: string;
         valor: string;
+        tipo: string;
     }[]>;
     initDefaults(): Promise<{
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        tipo: string;
         descricao: string | null;
         chave: string;
         valor: string;
+        tipo: string;
     }[]>;
 }

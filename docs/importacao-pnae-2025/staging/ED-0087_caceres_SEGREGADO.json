@@ -1,0 +1,92 @@
+{
+  "schema": "importacao-historica-pnae/1.0",
+  "geradoEm": "2026-10-12T19:29:39.301Z",
+  "idPacote": "ED-0087",
+  "dre": "Cáceres",
+  "chaveLogica": "cfcb1198c9051ce4f0adce5a962b972b",
+  "decisao": "SEGREGADO",
+  "motivosBloqueio": [
+    "PREGAO_2025: pregão não é chamada pública da agricultura familiar; segregado da importação."
+  ],
+  "identificacao": {
+    "numeroBruto": "013/2024",
+    "numeroNormalizado": "013/2024",
+    "anoNumeracao": 2024,
+    "exercicio": 2025,
+    "exercicioEvidencia": [],
+    "processoAdministrativo": null,
+    "dreNome": "Cáceres",
+    "camaraNegocios": "Cáceres",
+    "municipioAtendido": "Curvelândia",
+    "recorte": "NAO_IDENTIFICADO",
+    "dataPublicacao": null,
+    "dataSessao": null,
+    "objeto": "Aquisição de gêneros alimentícios para alimentação escolar",
+    "fundamentacaoLegal": null,
+    "prazos": null,
+    "habilitacao": null,
+    "criteriosSelecao": null,
+    "condicoesEntrega": null,
+    "condicoesPagamento": null,
+    "valorEstimado": null,
+    "observacoes": [
+      "identificação preenchida a partir do manifesto (extração de PDF não realizada ou indisponível)"
+    ]
+  },
+  "documentos": [
+    {
+      "idDocumento": "DOC-0095",
+      "papel": "EDITAL_PRINCIPAL",
+      "sha256": "8445360ae81c8f4e864a8de533d56a25ceecb491c8a9f18590f646866dee7a9b",
+      "caminho": "PNAE_MT_2025/03_CACERES/DOC-0095_DOC-0095.pdf",
+      "paginas": 172,
+      "urls": [
+        "https://drive.google.com/file/d/1RPraEuk2hI9FQBZoJVwmMYSC-G6IsKq-/view",
+        "https://drive.google.com/uc?export=download&id=1RPraEuk2hI9FQBZoJVwmMYSC-G6IsKq-",
+        "https://www.drecaceres.com.br/edital.php?id=233"
+      ],
+      "chaveVersao": "f7c60433a82bc225d4212ffb65944905"
+    }
+  ],
+  "vinculosInstitucionais": {
+    "dre": {
+      "nomePacote": "Cáceres",
+      "dreId": "b73910dc-c5e2-11f1-8f2d-6451061ac5e7",
+      "codigo": "CCR",
+      "status": "CONFIRMADO",
+      "detalhe": "DRE \"DRE Cáceres\" (CCR)"
+    },
+    "municipio": {
+      "nomePacote": "Curvelândia",
+      "municipioId": "810e129a-7c94-4043-8344-96250af5ee17",
+      "codigoIbge": "5103437",
+      "status": "CONFIRMADO",
+      "detalhe": "\"Curvelândia\" (IBGE 5103437)"
+    },
+    "escolas": [],
+    "unidadesExecutoras": [
+      {
+        "nome": "Cáceres",
+        "cnpj": null,
+        "entidadeExecutoraId": null,
+        "status": "PENDENTE",
+        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+      }
+    ]
+  },
+  "itens": [],
+  "anexos": [],
+  "pendencias": [
+    {
+      "tipo": "resolucao_entidade_executora",
+      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
+      "origem": "snapshot institucional"
+    }
+  ],
+  "metadadoExtracao": {
+    "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+    "documentosValidados": 1,
+    "itensDoManifesto": 0,
+    "itensExtraidosPdf": 0
+  }
+}

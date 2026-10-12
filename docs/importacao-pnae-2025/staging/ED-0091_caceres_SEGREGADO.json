@@ -1,0 +1,92 @@
+{
+  "schema": "importacao-historica-pnae/1.0",
+  "geradoEm": "2026-10-12T19:29:39.302Z",
+  "idPacote": "ED-0091",
+  "dre": "Cáceres",
+  "chaveLogica": "d0564084f3ca6de2c103d7305f180cbb",
+  "decisao": "SEGREGADO",
+  "motivosBloqueio": [
+    "PREGAO_2025: pregão não é chamada pública da agricultura familiar; segregado da importação."
+  ],
+  "identificacao": {
+    "numeroBruto": "016/2024",
+    "numeroNormalizado": "016/2024",
+    "anoNumeracao": 2024,
+    "exercicio": 2025,
+    "exercicioEvidencia": [],
+    "processoAdministrativo": null,
+    "dreNome": "Cáceres",
+    "camaraNegocios": "Cáceres",
+    "municipioAtendido": "Porto Esperidião",
+    "recorte": "NAO_IDENTIFICADO",
+    "dataPublicacao": null,
+    "dataSessao": null,
+    "objeto": "Aquisição de gêneros alimentícios para alimentação escolar",
+    "fundamentacaoLegal": null,
+    "prazos": null,
+    "habilitacao": null,
+    "criteriosSelecao": null,
+    "condicoesEntrega": null,
+    "condicoesPagamento": null,
+    "valorEstimado": null,
+    "observacoes": [
+      "identificação preenchida a partir do manifesto (extração de PDF não realizada ou indisponível)"
+    ]
+  },
+  "documentos": [
+    {
+      "idDocumento": "DOC-0101",
+      "papel": "EDITAL_PRINCIPAL",
+      "sha256": "13bdedd466e9f2471ee8e18c8ac5ff2322f319975e3ae5175d065a7aa330451f",
+      "caminho": "PNAE_MT_2025/03_CACERES/DOC-0101_DOC-0101.pdf",
+      "paginas": 170,
+      "urls": [
+        "https://drive.google.com/file/d/1Ky3eb9ihi1dvUE6o29vA_JjwKJbV5gnj/view?usp=sharing",
+        "https://drive.google.com/uc?export=download&id=1Ky3eb9ihi1dvUE6o29vA_JjwKJbV5gnj",
+        "https://www.drecaceres.com.br/edital.php?id=233"
+      ],
+      "chaveVersao": "ea6e415d416ddad4afbd1d6c052f6446"
+    }
+  ],
+  "vinculosInstitucionais": {
+    "dre": {
+      "nomePacote": "Cáceres",
+      "dreId": "b73910dc-c5e2-11f1-8f2d-6451061ac5e7",
+      "codigo": "CCR",
+      "status": "CONFIRMADO",
+      "detalhe": "DRE \"DRE Cáceres\" (CCR)"
+    },
+    "municipio": {
+      "nomePacote": "Porto Esperidião",
+      "municipioId": "ec64c193-e832-4663-9316-c50924e3ed50",
+      "codigoIbge": "5106828",
+      "status": "CONFIRMADO",
+      "detalhe": "\"Porto Esperidião\" (IBGE 5106828)"
+    },
+    "escolas": [],
+    "unidadesExecutoras": [
+      {
+        "nome": "Cáceres",
+        "cnpj": null,
+        "entidadeExecutoraId": null,
+        "status": "PENDENTE",
+        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+      }
+    ]
+  },
+  "itens": [],
+  "anexos": [],
+  "pendencias": [
+    {
+      "tipo": "resolucao_entidade_executora",
+      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
+      "origem": "snapshot institucional"
+    }
+  ],
+  "metadadoExtracao": {
+    "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+    "documentosValidados": 1,
+    "itensDoManifesto": 0,
+    "itensExtraidosPdf": 0
+  }
+}

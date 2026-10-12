@@ -1,0 +1,223 @@
+{
+  "dre": "Sinop",
+  "geradoEm": "2026-10-12T19:29:45.450Z",
+  "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+  "procedimentos": [
+    {
+      "idPacote": "ED-0062",
+      "chaveLogica": "72e921d93788d6dc0107f6170b1d90de",
+      "decisao": "APROVADO",
+      "numero": "020/2024",
+      "municipio": "SINOP",
+      "itens": 24,
+      "pendencias": 25,
+      "arquivos": [
+        "PNAE_MT_2025/12_SINOP/DOC-0070_f8345a8a-c33f-4788-bfe9-fb15c23010b8.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0063",
+      "chaveLogica": "f5d7f155285e40627d42650cb0ecdf7f",
+      "decisao": "APROVADO",
+      "numero": "021/2024",
+      "municipio": "COLÍDER",
+      "itens": 29,
+      "pendencias": 30,
+      "arquivos": [
+        "PNAE_MT_2025/12_SINOP/DOC-0071_d239737c-aa5b-4aa5-8c4f-98a1c89d4007.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0064",
+      "chaveLogica": "af94e46e59343159a5c87272c62b56c2",
+      "decisao": "APROVADO",
+      "numero": "022/2024",
+      "municipio": "NOVA SANTA HELENA",
+      "itens": 37,
+      "pendencias": 38,
+      "arquivos": [
+        "PNAE_MT_2025/12_SINOP/DOC-0072_d8539333-10b0-436d-be50-4bc6b6c5b940.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0065",
+      "chaveLogica": "dcf5f661f78e6ca1cc6c8a7dfac14c96",
+      "decisao": "APROVADO",
+      "numero": "23/2024",
+      "municipio": "ITAÚBA",
+      "itens": 42,
+      "pendencias": 43,
+      "arquivos": [
+        "PNAE_MT_2025/12_SINOP/DOC-0073_61522d8f-5478-4cdb-b7cf-0d7a17c56a27.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0066",
+      "chaveLogica": "fd2df3d7ca412f4983508160abe7b933",
+      "decisao": "APROVADO",
+      "numero": "024/2024",
+      "municipio": "CLÁUDIA",
+      "itens": 41,
+      "pendencias": 42,
+      "arquivos": [
+        "PNAE_MT_2025/12_SINOP/DOC-0074_1291cecc-6aa7-43bb-a549-a33b65843df9.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0067",
+      "chaveLogica": "a1de1dee6d7d14602964ac7d1288cb08",
+      "decisao": "APROVADO",
+      "numero": "025/224",
+      "municipio": "SANTA CARMEM",
+      "itens": 64,
+      "pendencias": 65,
+      "arquivos": [
+        "PNAE_MT_2025/12_SINOP/DOC-0075_bd759726-7290-4133-976b-096fd05bfc1b.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0068",
+      "chaveLogica": "87af1f64a9da4e4c27fd8030c846f1e6",
+      "decisao": "APROVADO",
+      "numero": "026/2024",
+      "municipio": "IPIRANGA DO NORTE",
+      "itens": 63,
+      "pendencias": 64,
+      "arquivos": [
+        "PNAE_MT_2025/12_SINOP/DOC-0076_807e87cd-6ca6-45b4-be56-587562a0b377.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0069",
+      "chaveLogica": "a5b59fed8eaf755bfd10499b609d8cbf",
+      "decisao": "APROVADO",
+      "numero": "027/2024",
+      "municipio": "Tabaporã",
+      "itens": 51,
+      "pendencias": 52,
+      "arquivos": [
+        "PNAE_MT_2025/12_SINOP/DOC-0077_762c78d9-033d-49a2-81cc-9952333825e8.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0070",
+      "chaveLogica": "d523a49a2771fd3f4b65b321da99a2c0",
+      "decisao": "APROVADO",
+      "numero": "028/2024",
+      "municipio": "UNIÃO DO SUL",
+      "itens": 43,
+      "pendencias": 44,
+      "arquivos": [
+        "PNAE_MT_2025/12_SINOP/DOC-0078_7272d1c5-14fa-4d35-9416-fa978aae122e.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0071",
+      "chaveLogica": "eb39171f3c76dc4894620614111e8903",
+      "decisao": "APROVADO",
+      "numero": "029/2024",
+      "municipio": "ITANHANGÁ",
+      "itens": 41,
+      "pendencias": 42,
+      "arquivos": [
+        "PNAE_MT_2025/12_SINOP/DOC-0079_dc2650b4-75f5-4259-83e4-67d7ac91d586.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0072",
+      "chaveLogica": "25dc5de12c6024d7025ac65b09fe1300",
+      "decisao": "APROVADO",
+      "numero": "030/2024",
+      "municipio": "TAPURAH",
+      "itens": 36,
+      "pendencias": 37,
+      "arquivos": [
+        "PNAE_MT_2025/12_SINOP/DOC-0080_912f5800-b74c-4a39-8a20-e86bacc363b1.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0073",
+      "chaveLogica": "8acedef610fff47d4b03bd802c48d197",
+      "decisao": "APROVADO",
+      "numero": "031/2024",
+      "municipio": "LUCAS DO RIO VERDE",
+      "itens": 60,
+      "pendencias": 61,
+      "arquivos": [
+        "PNAE_MT_2025/12_SINOP/DOC-0081_bd8b8e50-3336-4f3c-b477-295a07c42a73.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0074",
+      "chaveLogica": "b5cbb9eb26ad8e54a3524340e49130c1",
+      "decisao": "APROVADO",
+      "numero": "032/2024",
+      "municipio": "SORRISO",
+      "itens": 24,
+      "pendencias": 25,
+      "arquivos": [
+        "PNAE_MT_2025/12_SINOP/DOC-0082_b3b243ae-9c6f-465d-b616-bbe843f76a0a.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0075",
+      "chaveLogica": "24aab02b99529ceb68b86107dced3d23",
+      "decisao": "APROVADO",
+      "numero": "033/2024",
+      "municipio": "Nova Ubiratã",
+      "itens": 39,
+      "pendencias": 40,
+      "arquivos": [
+        "PNAE_MT_2025/12_SINOP/DOC-0083_60ecd063-24c4-4325-8689-129e23d2e25b.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0076",
+      "chaveLogica": "10d3c7da0e0627adfce8fb3969d02562",
+      "decisao": "APROVADO",
+      "numero": "034/2024",
+      "municipio": "BOA ESPERANÇA DO NORTE",
+      "itens": 45,
+      "pendencias": 46,
+      "arquivos": [
+        "PNAE_MT_2025/12_SINOP/DOC-0084_a27aaf3d-adc9-4b34-ba88-5755ae46e194.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0077",
+      "chaveLogica": "6f92eacfa30f94b7bd70b27bc621faa6",
+      "decisao": "APROVADO",
+      "numero": "035/2024",
+      "municipio": "Tabaporã",
+      "itens": 46,
+      "pendencias": 47,
+      "arquivos": [
+        "PNAE_MT_2025/12_SINOP/DOC-0085_754dca13-1a2d-4733-83a5-4bde5f1235ff.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0078",
+      "chaveLogica": "e44efd925273f6fc97a242eeabc66c17",
+      "decisao": "APROVADO",
+      "numero": "036/2024",
+      "municipio": "VERA",
+      "itens": 56,
+      "pendencias": 57,
+      "arquivos": [
+        "PNAE_MT_2025/12_SINOP/DOC-0086_8fdbdccf-4aac-4d5d-ab2a-951abaf48b1a.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0079",
+      "chaveLogica": "f759e070e5dff7c5b37d1ad767555f6e",
+      "decisao": "APROVADO",
+      "numero": "037/2024",
+      "municipio": "FELIZ NATAL",
+      "itens": 63,
+      "pendencias": 64,
+      "arquivos": [
+        "PNAE_MT_2025/12_SINOP/DOC-0087_ef4983ae-d7b6-4e0d-85e2-21406a4505c3.pdf"
+      ]
+    }
+  ]
+}

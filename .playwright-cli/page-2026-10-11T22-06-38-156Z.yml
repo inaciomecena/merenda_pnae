@@ -1,0 +1,148 @@
+- generic [ref=f1e1]:
+  - generic [ref=f1e3]:
+    - generic [ref=f1e5]:
+      - generic [ref=f1e6]:
+        - img "SEAF PNAE" [ref=f1e7]
+        - generic [ref=f1e8]: Gestão da Alimentação Escolar
+      - navigation "Menu principal" [ref=f1e9]:
+        - list [ref=f1e10]:
+          - generic [ref=f1e11]:
+            - button "Visão geral" [expanded] [ref=f1e12] [cursor=pointer]
+            - list [ref=f1e23]:
+              - link "Painel geral" [ref=f1e229] [cursor=pointer]:
+                - /url: /dashboard
+              - link "Mapa de Mato Grosso" [ref=f1e230] [cursor=pointer]:
+                - /url: /mapa
+              - link "Relatórios gerenciais" [ref=f1e231] [cursor=pointer]:
+                - /url: /relatorios
+          - button "Cadastros" [ref=f1e46] [cursor=pointer]
+          - button "Chamadas públicas" [ref=f1e55] [cursor=pointer]
+          - button "Execução contratual" [ref=f1e64] [cursor=pointer]
+          - button "Gestão fiscal e financeira" [ref=f1e73] [cursor=pointer]
+          - generic [ref=f1e81]:
+            - button "Administração" [expanded] [ref=f1e82] [cursor=pointer]
+            - list [ref=f1e295]:
+              - button "Usuários e acessos" [ref=f1e297] [cursor=pointer]
+              - generic [ref=f1e305]:
+                - button "Controle do sistema" [expanded] [ref=f1e306] [cursor=pointer]
+                - list [ref=f1e319]:
+                  - link "Auditoria" [ref=f1e321] [cursor=pointer]:
+                    - /url: /auditoria
+                  - link "Configurações" [active] [ref=f1e328] [cursor=pointer]:
+                    - /url: /configuracoes
+                  - link "Homologação técnica" [ref=f1e335] [cursor=pointer]:
+                    - /url: /homologacao
+      - generic [ref=f1e91]:
+        - text: Perfil atual
+        - paragraph [ref=f1e92]: Administrador
+        - text: As opções exibidas respeitam suas permissões e seu vínculo institucional.
+    - generic [ref=f1e93]:
+      - banner [ref=f1e94]:
+        - generic [ref=f1e95]:
+          - generic [ref=f1e96]: Administrador
+          - paragraph [ref=f1e98]: Administrador PNAE
+          - separator [ref=f1e99]
+          - button "Sair" [ref=f1e100] [cursor=pointer]
+      - main [ref=f1e101]:
+        - generic [ref=f1e102]:
+          - generic [ref=f1e103]:
+            - navigation "Navegação estrutural" [ref=f1e104]:
+              - list [ref=f1e105]:
+                - listitem [ref=f1e106]:
+                  - link "Início" [ref=f1e107] [cursor=pointer]:
+                    - /url: /dashboard
+                - listitem [aria-hidden] [ref=f1e108]: /
+                - listitem [ref=f1e109]:
+                  - paragraph [ref=f1e110]: Configurações
+            - generic [ref=f1e111]: "Código da tela: PNAE-CFG-001"
+          - generic [ref=f1e341]:
+            - generic [ref=f1e342]:
+              - heading "Configurações" [level=4] [ref=f1e343]
+              - generic [ref=f1e344]:
+                - button [ref=f1e345] [cursor=pointer]
+                - button "Restaurar padrões" [ref=f1e349] [cursor=pointer]
+                - button [ref=f1e350] [cursor=pointer]
+            - generic [ref=f1e355]:
+              - heading "Sistema" [level=6] [ref=f1e356]
+              - separator [ref=f1e357]
+              - generic [ref=f1e358]:
+                - generic [ref=f1e360]:
+                  - generic: Sistema nome
+                  - generic [ref=f1e361]:
+                    - textbox "Sistema nome" [ref=f1e362]
+                    - group [aria-hidden]:
+                      - generic: Sistema nome
+                  - paragraph [ref=f1e363]: "Parâmetro: Sistema nome"
+                - generic [ref=f1e365]:
+                  - generic: Sistema versao
+                  - generic [ref=f1e366]:
+                    - textbox "Sistema versao" [ref=f1e367]
+                    - group [aria-hidden]:
+                      - generic: Sistema versao
+                  - paragraph [ref=f1e368]: "Parâmetro: Sistema versao"
+            - generic [ref=f1e370]:
+              - heading "Órgão" [level=6] [ref=f1e371]
+              - separator [ref=f1e372]
+              - generic [ref=f1e373]:
+                - generic [ref=f1e375]:
+                  - generic: Órgão nome
+                  - generic [ref=f1e376]:
+                    - textbox "Órgão nome" [ref=f1e377]
+                    - group [aria-hidden]:
+                      - generic: Órgão nome
+                  - paragraph [ref=f1e378]: "Parâmetro: Órgão nome"
+                - generic [ref=f1e380]:
+                  - generic: Órgão secretaria
+                  - generic [ref=f1e381]:
+                    - textbox "Órgão secretaria" [ref=f1e382]
+                    - group [aria-hidden]:
+                      - generic: Órgão secretaria
+                  - paragraph [ref=f1e383]: "Parâmetro: Órgão secretaria"
+                - generic [ref=f1e385]:
+                  - generic: Órgão programa
+                  - generic [ref=f1e386]:
+                    - textbox "Órgão programa" [ref=f1e387]
+                    - group [aria-hidden]:
+                      - generic: Órgão programa
+                  - paragraph [ref=f1e388]: "Parâmetro: Órgão programa"
+            - generic [ref=f1e390]:
+              - heading "Documentos" [level=6] [ref=f1e391]
+              - separator [ref=f1e392]
+              - generic [ref=f1e393]:
+                - generic [ref=f1e395]:
+                  - generic: Documento validade padrão
+                  - generic [ref=f1e396]:
+                    - textbox "Documento validade padrão" [ref=f1e397]
+                    - group [aria-hidden]:
+                      - generic: Documento validade padrão
+                  - paragraph [ref=f1e398]: "Parâmetro: Documento validade padrão"
+                - generic [ref=f1e400]:
+                  - generic: Documento prazo entrega padrão
+                  - generic [ref=f1e401]:
+                    - textbox "Documento prazo entrega padrão" [ref=f1e402]
+                    - group [aria-hidden]:
+                      - generic: Documento prazo entrega padrão
+                  - paragraph [ref=f1e403]: "Parâmetro: Documento prazo entrega padrão"
+            - generic [ref=f1e405]:
+              - heading "Upload" [level=6] [ref=f1e406]
+              - separator [ref=f1e407]
+              - generic [ref=f1e408]:
+                - generic [ref=f1e410]:
+                  - generic: Upload tamanho maximo mb
+                  - generic [ref=f1e411]:
+                    - textbox "Upload tamanho maximo mb" [ref=f1e412]
+                    - group [aria-hidden]:
+                      - generic: Upload tamanho maximo mb
+                  - paragraph [ref=f1e413]: "Parâmetro: Upload tamanho maximo mb"
+                - generic [ref=f1e415]:
+                  - generic: Upload tipos permitidos
+                  - generic [ref=f1e416]:
+                    - textbox "Upload tipos permitidos" [ref=f1e417]
+                    - group [aria-hidden]:
+                      - generic: Upload tipos permitidos
+                  - paragraph [ref=f1e418]: "Parâmetro: Upload tipos permitidos"
+            - generic [ref=f1e421]:
+              - heading "Configurações adicionais" [level=6] [ref=f1e422]
+              - button [ref=f1e423] [cursor=pointer]
+  - generic [aria-hidden] [ref=f1e228]: CENOURA
+  - tooltip "Parâmetros gerais da plataforma" [ref=f1e427]

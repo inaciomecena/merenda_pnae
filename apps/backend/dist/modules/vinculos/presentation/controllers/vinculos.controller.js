@@ -16,12 +16,18 @@ exports.RepresentacoesController = exports.VinculosController = void 0;
 const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
 const vinculos_service_1 = require("../../application/services/vinculos.service");
+const bootstrap_vinculo_service_1 = require("../../application/services/bootstrap-vinculo.service");
 const vinculo_dto_1 = require("../dto/vinculo.dto");
 const roles_decorator_1 = require("../../../../common/decorators/roles.decorator");
 let VinculosController = class VinculosController {
     vinculosService;
-    constructor(vinculosService) {
+    bootstrapService;
+    constructor(vinculosService, bootstrapService) {
         this.vinculosService = vinculosService;
+        this.bootstrapService = bootstrapService;
+    }
+    bootstrap(dto, req) {
+        return this.bootstrapService.executar(dto.token, req.user);
     }
     createVinculo(dto, req) {
         const user = req.user;
@@ -40,6 +46,17 @@ let VinculosController = class VinculosController {
     }
 };
 exports.VinculosController = VinculosController;
+__decorate([
+    (0, common_1.Post)('bootstrap'),
+    (0, swagger_1.ApiOperation)({
+        summary: 'Bootstrap institucional de UMA vez: cria o primeiro vínculo ADMIN (requer token secreto)',
+    }),
+    __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [vinculo_dto_1.BootstrapVinculoDto, Object]),
+    __metadata("design:returntype", void 0)
+], VinculosController.prototype, "bootstrap", null);
 __decorate([
     (0, common_1.Post)(),
     (0, roles_decorator_1.Roles)('ADMIN'),
@@ -72,7 +89,8 @@ __decorate([
 exports.VinculosController = VinculosController = __decorate([
     (0, swagger_1.ApiTags)('vinculos'),
     (0, common_1.Controller)({ path: 'vinculos', version: '1' }),
-    __metadata("design:paramtypes", [vinculos_service_1.VinculosService])
+    __metadata("design:paramtypes", [vinculos_service_1.VinculosService,
+        bootstrap_vinculo_service_1.BootstrapVinculoService])
 ], VinculosController);
 let RepresentacoesController = class RepresentacoesController {
     vinculosService;

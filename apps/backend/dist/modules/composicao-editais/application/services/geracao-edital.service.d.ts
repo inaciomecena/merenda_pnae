@@ -22,15 +22,28 @@ export declare class GeracaoEditalService {
         nome?: string;
         ip?: string;
     }): Promise<{
-        escola: {
+        municipio: {
             id: string;
             createdAt: Date;
             updatedAt: Date;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
+            nome: string;
+            ativo: boolean;
+            nomeNormalizado: string | null;
+            uf: string;
+            codigoIbge: string | null;
+        } | null;
+        escola: {
+            id: string;
+            active: boolean;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
             municipioId: string;
-            active: boolean;
-            deletedAt: Date | null;
             nome: string;
             codigo: string | null;
             endereco: string | null;
@@ -50,50 +63,16 @@ export declare class GeracaoEditalService {
             latitude: import("@prisma/client/runtime/library").Decimal | null;
             longitude: import("@prisma/client/runtime/library").Decimal | null;
         } | null;
-        municipio: {
-            id: string;
-            ativo: boolean;
-            createdAt: Date;
-            updatedAt: Date;
-            createdBy: string | null;
-            updatedBy: string | null;
-            deletedAt: Date | null;
-            nome: string;
-            nomeNormalizado: string | null;
-            uf: string;
-            codigoIbge: string | null;
-        } | null;
-        itens: {
-            id: string;
-            createdAt: Date;
-            updatedAt: Date;
-            createdBy: string | null;
-            updatedBy: string | null;
-            deletedAt: Date | null;
-            editalId: string;
-            status: import(".prisma/client").$Enums.StatusItemEdital;
-            valorTotal: import("@prisma/client/runtime/library").Decimal | null;
-            observacoes: string | null;
-            especificacao: string | null;
-            quantidade: import("@prisma/client/runtime/library").Decimal | null;
-            unidade: string | null;
-            precoUnitario: import("@prisma/client/runtime/library").Decimal | null;
-            produtoReferenciaId: string | null;
-            numeroItem: number | null;
-            produtoOriginal: string;
-            pendenteEdicao: boolean;
-            importadoAutomaticamente: boolean;
-        }[];
         escolasVinculadas: ({
             escola: {
                 id: string;
+                active: boolean;
                 createdAt: Date;
                 updatedAt: Date;
+                deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
                 municipioId: string;
-                active: boolean;
-                deletedAt: Date | null;
                 nome: string;
                 codigo: string | null;
                 endereco: string | null;
@@ -119,6 +98,27 @@ export declare class GeracaoEditalService {
             escolaId: string;
             editalId: string;
         })[];
+        itens: {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
+            status: import(".prisma/client").$Enums.StatusItemEdital;
+            observacoes: string | null;
+            editalId: string;
+            numeroItem: number | null;
+            produtoOriginal: string;
+            especificacao: string | null;
+            quantidade: import("@prisma/client/runtime/library").Decimal | null;
+            unidade: string | null;
+            precoUnitario: import("@prisma/client/runtime/library").Decimal | null;
+            valorTotal: import("@prisma/client/runtime/library").Decimal | null;
+            produtoReferenciaId: string | null;
+            pendenteEdicao: boolean;
+            importadoAutomaticamente: boolean;
+        }[];
         documento: ({
             versoes: {
                 id: string;
@@ -127,53 +127,38 @@ export declare class GeracaoEditalService {
                 numero: number;
                 statusComposicao: import(".prisma/client").$Enums.StatusComposicaoEdital;
                 documentoId: string;
-                motivo: string | null;
                 snapshot: string;
-            }[];
-            variaveis: {
-                id: string;
-                createdAt: Date;
-                updatedAt: Date;
-                origem: string;
-                documentoId: string;
-                chave: string;
-                valor: string | null;
-                valorExtraido: string | null;
-                confianca: string | null;
-                paginaOrigem: number | null;
-                obrigatorio: boolean;
-                sensivel: boolean;
-                escopo: string;
-                statusRevisao: string;
+                motivo: string | null;
             }[];
             anexos: ({
                 templateVersao: {
                     id: string;
-                    vigenciaInicio: Date | null;
-                    vigenciaFim: Date | null;
                     createdAt: Date;
                     createdBy: string | null;
+                    vigenciaInicio: Date | null;
+                    vigenciaFim: Date | null;
                     numero: number;
-                    observacao: string | null;
                     titulo: string;
                     formato: import(".prisma/client").$Enums.FormatoTemplate;
                     arquivoBase: string | null;
                     conteudo: string | null;
                     templateId: string;
+                    observacao: string | null;
                 } | null;
                 template: {
                     id: string;
-                    vigenciaInicio: Date | null;
-                    vigenciaFim: Date | null;
-                    ativo: boolean;
                     createdAt: Date;
                     updatedAt: Date;
+                    deletedAt: Date | null;
                     createdBy: string | null;
                     updatedBy: string | null;
-                    deletedAt: Date | null;
-                    tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
+                    ativo: boolean;
+                    vigenciaInicio: Date | null;
+                    vigenciaFim: Date | null;
                     titulo: string;
                     descricao: string | null;
+                    versaoAtual: number;
+                    tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
                     numeroAnexo: number | null;
                     finalidade: string;
                     perfilFornecedor: string | null;
@@ -182,35 +167,50 @@ export declare class GeracaoEditalService {
                     formato: import(".prisma/client").$Enums.FormatoTemplate;
                     arquivoBase: string | null;
                     conteudo: string | null;
-                    versaoAtual: number;
                 } | null;
             } & {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
                 titulo: string;
-                ordem: number;
                 conteudoManual: string | null;
-                documentoId: string;
+                tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
+                ordem: number;
                 templateId: string | null;
-                templateVersaoId: string | null;
                 incluido: boolean;
+                templateVersaoId: string | null;
+                documentoId: string;
             })[];
+            variaveis: {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                origem: string;
+                chave: string;
+                valor: string | null;
+                obrigatorio: boolean;
+                documentoId: string;
+                valorExtraido: string | null;
+                confianca: string | null;
+                paginaOrigem: number | null;
+                sensivel: boolean;
+                escopo: string;
+                statusRevisao: string;
+            }[];
             geracoes: {
                 id: string;
                 createdAt: Date;
-                editalId: string;
                 status: import(".prisma/client").$Enums.StatusGeracaoDocumento;
+                editalId: string;
+                ipAddress: string | null;
                 formato: string;
                 documentoId: string;
+                versaoId: string | null;
                 versaoNumero: number;
                 usuarioId: string | null;
                 usuarioNome: string | null;
                 arquivoPath: string | null;
                 mensagem: string | null;
-                ipAddress: string | null;
-                versaoId: string | null;
             }[];
         } & {
             id: string;
@@ -218,9 +218,8 @@ export declare class GeracaoEditalService {
             updatedAt: Date;
             createdBy: string | null;
             updatedBy: string | null;
-            editalId: string;
             arquivoFonte: string | null;
-            versaoAtual: number;
+            editalId: string;
             statusComposicao: import(".prisma/client").$Enums.StatusComposicaoEdital;
             processoAdministrativo: string | null;
             localRecebimento: string | null;
@@ -239,26 +238,27 @@ export declare class GeracaoEditalService {
             origem: string;
             importacaoId: string | null;
             conteudoManual: string | null;
+            versaoAtual: number;
             publicadoEm: Date | null;
         }) | null;
     } & {
         id: string;
         createdAt: Date;
         updatedAt: Date;
+        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
         escolaId: string | null;
         municipioId: string | null;
-        deletedAt: Date | null;
         numero: string;
-        status: import(".prisma/client").$Enums.StatusEdital;
         ano: number;
         titulo: string;
         descricao: string | null;
+        status: import(".prisma/client").$Enums.StatusEdital;
+        dataPublicacao: Date | null;
         objeto: string | null;
         arquivoFonte: string | null;
         observacoes: string | null;
-        dataPublicacao: Date | null;
     }>;
     private renderPacotePdf;
     arquivo(editalId: string, formato: string): Promise<{

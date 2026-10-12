@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Link as RouterLink, useParams } from 'react-router-dom';
 import api from '../services/api';
 import type { ApiResponse, Importacao } from '../types';
+import { humanizeSystemValue } from '../lib/display-text';
 
 function moeda(value?: number | null) {
   if (value == null) return '-';
@@ -45,7 +46,7 @@ export default function ImportacaoDetalhesPage() {
           <Card>
             <CardContent>
               <Grid container spacing={2}>
-                <Info label="Status" value={<Chip size="small" label={data.status} color={data.status === 'ERRO' ? 'error' : data.status === 'PENDENTE_CONFERENCIA' ? 'warning' : 'success'} />} />
+                <Info label="Status" value={<Chip size="small" label={humanizeSystemValue(data.status)} color={data.status === 'ERRO' ? 'error' : data.status === 'PENDENTE_CONFERENCIA' ? 'warning' : 'success'} />} />
                 <Info label="Título" value={data.tituloExtraido || data.edital?.titulo || '-'} />
                 <Info label="Número/Ano" value={`${data.numeroExtraido || data.edital?.numero || '-'} / ${data.anoExtraido || data.edital?.ano || '-'}`} />
                 <Info label="Município" value={data.municipioNome || data.edital?.municipio?.nome || '-'} />
@@ -102,7 +103,7 @@ export default function ImportacaoDetalhesPage() {
                       <TableCell>{item.unidade || '-'}</TableCell>
                       <TableCell>{moeda(item.precoUnitario)}</TableCell>
                       <TableCell>{moeda(item.valorTotal)}</TableCell>
-                      <TableCell>{item.status}</TableCell>
+                      <TableCell>{humanizeSystemValue(item.status)}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>

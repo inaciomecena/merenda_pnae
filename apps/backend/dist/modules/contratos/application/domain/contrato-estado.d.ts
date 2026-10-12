@@ -1,0 +1,10 @@
+export declare const STATUS_CONTRATO: readonly ["RASCUNHO", "EM_CONFERENCIA", "AGUARDANDO_ASSINATURA", "VIGENTE", "SUSPENSO", "ENCERRADO", "RESCINDIDO", "CANCELADO"];
+export type StatusContrato = (typeof STATUS_CONTRATO)[number];
+export declare const TRANSICOES: Record<StatusContrato, readonly StatusContrato[]>;
+export declare const STATUS_TERMINAIS: readonly StatusContrato[];
+export declare const STATUS_COMPROMETEM_SALDO: readonly StatusContrato[];
+export type OperacaoContrato = 'EDITAR' | 'MINUTA' | 'ADITIVO' | 'FORMALIZAR' | 'EXECUCAO' | 'DOCUMENTO';
+export declare function statusValido(valor: string): valor is StatusContrato;
+export declare function podeTransicionar(de: StatusContrato, para: StatusContrato): boolean;
+export declare function contemStatusDireto(corpo: Record<string, unknown>): boolean;
+export declare function motivoOperacaoBloqueada(status: StatusContrato, operacao: OperacaoContrato): string | null;

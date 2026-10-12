@@ -53,6 +53,13 @@ let HomologacaoService = class HomologacaoService {
     constructor(prisma) {
         this.prisma = prisma;
     }
+    ambienteAtual() {
+        if (process.env.AMBIENTE_HOMOLOGACAO === 'true')
+            return 'HOMOLOGACAO';
+        if (process.env.NODE_ENV === 'production')
+            return 'PRODUCAO';
+        return 'DESENVOLVIMENTO';
+    }
     async getStatus() {
         const [editais, editalItens, produtores, produtosRef, matches, propostas, users, escolas, municipios, auditLogs,] = await Promise.all([
             this.prisma.edital.count({ where: { deletedAt: null } }),
@@ -88,7 +95,7 @@ let HomologacaoService = class HomologacaoService {
         const dbStatus = await this.checkDatabase();
         return {
             timestamp: new Date().toISOString(),
-            ambiente: process.env.AMBIENTE_HOMOLOGACAO === 'true' ? 'HOMOLOGACAO' : 'PRODUCAO',
+            ambiente: this.ambienteAtual(),
             db: dbStatus,
             counts: {
                 editais, editalItens, produtores, produtosRef, matches, propostas,
@@ -197,14 +204,18 @@ let HomologacaoService = class HomologacaoService {
         }
     }
     async executarSeedTeste() {
+        if (this.ambienteAtual() === 'PRODUCAO') {
+            throw new common_1.ForbiddenException('Seed de teste indisponível em produção.');
+        }
         try {
-            const seedPath = path.join(process.cwd(), 'prisma', 'seed-test.ts');
+            const projectRoot = path.resolve(__dirname, '../../../../..');
+            const seedPath = path.join(projectRoot, 'prisma', 'seed-test.ts');
             if (!fs.existsSync(seedPath)) {
                 return { success: false, message: 'Arquivo seed-test.ts nao encontrado' };
             }
-            (0, child_process_1.execSync)(`npx ts-node ${seedPath}`, {
-                cwd: process.cwd(),
-                timeout: 30000,
+            (0, child_process_1.execFileSync)(process.execPath, [require.resolve('ts-node/dist/bin.js'), seedPath], {
+                cwd: projectRoot,
+                timeout: 60000,
                 stdio: 'pipe',
             });
             return { success: true, message: 'Seed de teste executado com sucesso' };

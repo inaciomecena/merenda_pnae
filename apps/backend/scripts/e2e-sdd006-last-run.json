@@ -1,0 +1,237 @@
+{
+  "base": "http://localhost:3000/api/v1",
+  "id": "0ef72699-18ab-4ec6-8d38-44f0128023fd",
+  "generatedAt": "2026-10-12T18:03:33.792Z",
+  "passed": 38,
+  "total": 38,
+  "results": [
+    {
+      "caso": "login admin@seaf.gov.br",
+      "ok": true,
+      "esperado": "2xx + token",
+      "obtido": "201"
+    },
+    {
+      "caso": "login dre@seaf.gov.br",
+      "ok": true,
+      "esperado": "2xx + token",
+      "obtido": "201"
+    },
+    {
+      "caso": "login dre-b@seaf.gov.br",
+      "ok": true,
+      "esperado": "2xx + token",
+      "obtido": "201"
+    },
+    {
+      "caso": "criar prestacao",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": "201"
+    },
+    {
+      "caso": "rascunho e versao inicial",
+      "ok": true,
+      "esperado": "RASCUNHO/v1",
+      "obtido": "{\"id\":\"0ef72699-18ab-4ec6-8d38-44f0128023fd\",\"exercicio\":2026,\"periodoInicio\":\"2026-01-01T00:00:00.000Z\",\"periodoFim\":\"2026-12-31T23:59:59.000Z\",\"dreId\":null,\"escolaId\":null,\"observacoes\":\"E2E SDD-006\",\"status\":\"RASCUNHO\",\"versao\":1,\"enviadoEm\":null,\"analisadoEm\":null,\"aprovadoEm\":null,\"devolvidoEm\":null,\"justificativa\":null,\"createdAt\":\"2026-10-12T18:03:32.514Z\",\"updatedAt\":\"2026-10-12T18:03:32.514Z\",\"createdBy\":\"16d05213-5567-4d0b-81ba-1e13151f016f\",\"updatedBy\":\"16d05213-5567-4d0b-81ba-1e13151f016f\"}"
+    },
+    {
+      "caso": "editar rascunho",
+      "ok": true,
+      "esperado": "200",
+      "obtido": "200"
+    },
+    {
+      "caso": "versionamento apos edicao",
+      "ok": true,
+      "esperado": "v2",
+      "obtido": "2"
+    },
+    {
+      "caso": "bloquear concorrencia com versao antiga",
+      "ok": true,
+      "esperado": "409",
+      "obtido": "409"
+    },
+    {
+      "caso": "transicao EM_CONFERENCIA",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": "201"
+    },
+    {
+      "caso": "transicao ENVIADA",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": "201"
+    },
+    {
+      "caso": "transicao EM_ANALISE",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": "201"
+    },
+    {
+      "caso": "devolver com justificativa",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": "201"
+    },
+    {
+      "caso": "transicao invalida a partir de DEVOLVIDA",
+      "ok": true,
+      "esperado": "400",
+      "obtido": "400"
+    },
+    {
+      "caso": "reenvio/aprovacao RASCUNHO",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": "201"
+    },
+    {
+      "caso": "reenvio/aprovacao EM_CONFERENCIA",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": "201"
+    },
+    {
+      "caso": "reenvio/aprovacao ENVIADA",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": "201"
+    },
+    {
+      "caso": "reenvio/aprovacao EM_ANALISE",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": "201"
+    },
+    {
+      "caso": "reenvio/aprovacao APROVADA",
+      "ok": true,
+      "esperado": "2xx",
+      "obtido": "201"
+    },
+    {
+      "caso": "bloquear transicao de aprovado",
+      "ok": true,
+      "esperado": "400",
+      "obtido": "400"
+    },
+    {
+      "caso": "demonstrativo por periodo",
+      "ok": true,
+      "esperado": "200 + linhas",
+      "obtido": "200"
+    },
+    {
+      "caso": "fonte de verdade de contratos",
+      "ok": true,
+      "esperado": "contrato existente",
+      "obtido": "200"
+    },
+    {
+      "caso": "filtro contrato",
+      "ok": true,
+      "esperado": "200 + escopo filtrado",
+      "obtido": "200/1"
+    },
+    {
+      "caso": "filtro edital",
+      "ok": true,
+      "esperado": "200 + escopo filtrado",
+      "obtido": "200/1"
+    },
+    {
+      "caso": "filtro fornecedor",
+      "ok": true,
+      "esperado": "200 + escopo filtrado",
+      "obtido": "200/1"
+    },
+    {
+      "caso": "filtro DRE",
+      "ok": true,
+      "esperado": "campo nao aplicavel",
+      "obtido": "sem campo"
+    },
+    {
+      "caso": "filtro escola",
+      "ok": true,
+      "esperado": "campo nao aplicavel",
+      "obtido": "sem campo"
+    },
+    {
+      "caso": "filtro municipio",
+      "ok": true,
+      "esperado": "campo nao aplicavel",
+      "obtido": "sem campo"
+    },
+    {
+      "caso": "comportamento sem dados",
+      "ok": true,
+      "esperado": "200 + zero linhas",
+      "obtido": "200"
+    },
+    {
+      "caso": "indicadores contra fonte financeira",
+      "ok": true,
+      "esperado": "contratado consistente",
+      "obtido": "1425.00/1425"
+    },
+    {
+      "caso": "saldos e pagamentos parciais",
+      "ok": true,
+      "esperado": "200 + aPagar",
+      "obtido": "200"
+    },
+    {
+      "caso": "pendencias documentais expostas",
+      "ok": true,
+      "esperado": "contador documental",
+      "obtido": "200"
+    },
+    {
+      "caso": "exportar csv",
+      "ok": true,
+      "esperado": "200 + arquivo valido",
+      "obtido": "200/638/﻿"
+    },
+    {
+      "caso": "exportar xlsx",
+      "ok": true,
+      "esperado": "200 + arquivo valido",
+      "obtido": "200/17884/PK"
+    },
+    {
+      "caso": "exportar pdf",
+      "ok": true,
+      "esperado": "200 + arquivo valido",
+      "obtido": "200/1457/%PDF"
+    },
+    {
+      "caso": "trilha de auditoria",
+      "ok": true,
+      "esperado": "log da prestacao",
+      "obtido": "84"
+    },
+    {
+      "caso": "transparencia publica sanitizada",
+      "ok": true,
+      "esperado": "200 sem dados restritos",
+      "obtido": "200"
+    },
+    {
+      "caso": "isolamento institucional DRE",
+      "ok": true,
+      "esperado": "200 com escopo",
+      "obtido": "200"
+    },
+    {
+      "caso": "bloqueio entre DREs",
+      "ok": true,
+      "esperado": "sem contrato de outra DRE",
+      "obtido": "200/0"
+    }
+  ]
+}

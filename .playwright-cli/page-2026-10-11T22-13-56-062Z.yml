@@ -1,0 +1,76 @@
+- generic [ref=f1e1]:
+  - generic [ref=f1e12]:
+    - banner [ref=f1e13]:
+      - button [ref=f1e147] [cursor=pointer]
+      - generic [ref=f1e14]:
+        - generic [ref=f1e15]: Administrador
+        - paragraph [ref=f1e17]: Administrador PNAE
+        - separator [ref=f1e18]
+        - button [ref=f1e148] [cursor=pointer]: Sair
+    - main [ref=f1e20]:
+      - generic [ref=f1e21]:
+        - generic [ref=f1e22]:
+          - navigation [ref=f1e149]:
+            - list [ref=f1e24]:
+              - listitem [ref=f1e25]:
+                - link [ref=f1e150] [cursor=pointer]:
+                  - /url: /dashboard
+                  - text: Início
+              - listitem [aria-hidden] [ref=f1e27]: /
+              - listitem [ref=f1e28]:
+                - paragraph [ref=f1e29]: Painel geral
+          - generic [ref=f1e30]: "Código da tela: PNAE-DSH-001"
+        - generic [ref=f1e39]:
+          - heading [level=4] [ref=f1e151]: Painel administrativo
+          - generic [ref=f1e41]:
+            - generic [ref=f1e44]:
+              - paragraph [ref=f1e45]: Editais no escopo
+              - heading [level=5] [ref=f1e152]: "2"
+            - generic [ref=f1e49]:
+              - paragraph [ref=f1e50]: Escolas no escopo
+              - heading [level=5] [ref=f1e153]: "2727"
+            - generic [ref=f1e54]:
+              - paragraph [ref=f1e55]: Produtores no escopo
+              - heading [level=5] [ref=f1e154]: "5"
+            - generic [ref=f1e59]:
+              - paragraph [ref=f1e60]: Propostas no escopo
+              - heading [level=5] [ref=f1e155]: "0"
+            - generic [ref=f1e64]:
+              - paragraph [ref=f1e65]: Valor das propostas
+              - heading [level=5] [ref=f1e156]: R$ 0,00
+          - generic [ref=f1e68]:
+            - heading [level=6] [ref=f1e157]: Produtos solicitados em editais do escopo
+            - application [ref=f1e72]:
+              - generic [ref=f1e131]:
+                - generic [ref=f1e132]: PIMENTÃO VERDE
+                - generic [ref=f1e135]:
+                  - generic [ref=f1e136]: "0"
+                  - generic [ref=f1e138]: "0.5"
+                  - generic [ref=f1e140]: "1"
+                  - generic [ref=f1e142]: "1.5"
+                  - generic [ref=f1e144]: "2"
+  - generic [aria-hidden] [ref=f1e146]: BANANA NANICA
+  - generic [active] [ref=f1e159]:
+    - generic [ref=f1e160]:
+      - img "SEAF PNAE" [ref=f1e161]
+      - generic [ref=f1e162]: Gestão da Alimentação Escolar
+    - navigation "Menu principal" [ref=f1e163]:
+      - list [ref=f1e164]:
+        - generic [ref=f1e165]:
+          - button "Visão geral" [expanded] [ref=f1e166] [cursor=pointer]
+          - list [ref=f1e177]:
+            - link "Painel geral" [ref=f1e179] [cursor=pointer]:
+              - /url: /dashboard
+            - link "Mapa de Mato Grosso" [ref=f1e186] [cursor=pointer]:
+              - /url: /mapa
+            - link "Relatórios gerenciais" [ref=f1e193] [cursor=pointer]:
+              - /url: /relatorios
+        - button "Cadastros" [ref=f1e200] [cursor=pointer]
+        - button "Chamadas públicas" [ref=f1e209] [cursor=pointer]
+        - button "Execução contratual" [ref=f1e218] [cursor=pointer]
+        - button "Gestão fiscal e financeira" [ref=f1e227] [cursor=pointer]
+        - button "Administração" [ref=f1e236] [cursor=pointer]
+    - generic [ref=f1e245]:
+      - text: Perfil atual
+      - paragraph [ref=f1e246]: Administrador
+      - text: As opções exibidas respeitam suas permissões e seu vínculo institucional.

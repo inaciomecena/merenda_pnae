@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UpdateRepresentacaoDto = exports.RevokeRepresentacaoDto = exports.CreateRepresentacaoDto = exports.CreateVinculoDto = void 0;
+exports.UpdateRepresentacaoDto = exports.BootstrapVinculoDto = exports.RevokeRepresentacaoDto = exports.CreateRepresentacaoDto = exports.CreateVinculoDto = void 0;
 const swagger_1 = require("@nestjs/swagger");
 const class_validator_1 = require("class-validator");
 class CreateVinculoDto {
@@ -130,6 +130,18 @@ __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
 ], RevokeRepresentacaoDto.prototype, "motivo", void 0);
+class BootstrapVinculoDto {
+    token;
+}
+exports.BootstrapVinculoDto = BootstrapVinculoDto;
+__decorate([
+    (0, swagger_1.ApiProperty)({
+        description: 'Token de bootstrap configurado em BOOTSTRAP_ADMIN_TOKEN (uso único, restrito a ADMIN sem vínculo ativo)',
+    }),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", String)
+], BootstrapVinculoDto.prototype, "token", void 0);
 class UpdateRepresentacaoDto {
     permissoes;
     vigenciaFim;

@@ -95,7 +95,7 @@ export default function ProdutoresPageV2() {
       setItems(data.data.items ?? []);
       setTotalPages(data.data.totalPages ?? 1);
     } catch {
-      setError('Nao foi possivel carregar os produtores.');
+      setError('Não foi possível carregar os produtores.');
     } finally {
       setLoading(false);
     }
@@ -166,7 +166,7 @@ export default function ProdutoresPageV2() {
       setProdutoEditing(null);
       setProdutoForm(produtoInicial);
       await fetchProdutos(produtorSelecionado.id);
-      setSuccess('Produto do produtor salvo com periodo de producao.');
+      setSuccess('Produto do produtor salvo com período de produção.');
     } catch (err: any) {
       setError(err?.response?.data?.message || 'Falha ao salvar produto produzido.');
     }
@@ -214,9 +214,9 @@ export default function ProdutoresPageV2() {
               <TableHead>
                 <TableRow>
                   <TableCell>Produtor</TableCell>
-                  <TableCell>Municipio</TableCell>
+                  <TableCell>Município</TableCell>
                   <TableCell>Contato</TableCell>
-                  <TableCell align="right">Acoes</TableCell>
+                  <TableCell align="right">Ações</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -255,7 +255,7 @@ export default function ProdutoresPageV2() {
             <Grid item xs={12} md={6}><TextField label="Nome" fullWidth value={form.nome} onChange={(e) => setForm({ ...form, nome: e.target.value })} /></Grid>
             <Grid item xs={12} md={6}><TextField label="CPF/CNPJ" fullWidth value={form.cpfCnpj} onChange={(e) => setForm({ ...form, cpfCnpj: e.target.value })} /></Grid>
             <Grid item xs={12} md={6}>
-              <TextField select label="Municipio" fullWidth disabled={user?.role === 'EXTENSIONISTA'} value={form.municipioId} onChange={(e) => setForm({ ...form, municipioId: e.target.value })}>
+              <TextField select label="Município" fullWidth disabled={user?.role === 'EXTENSIONISTA'} value={form.municipioId} onChange={(e) => setForm({ ...form, municipioId: e.target.value })}>
                 {municipios.map((option) => <MenuItem key={option.value} value={option.value}>{option.label}</MenuItem>)}
               </TextField>
             </Grid>
@@ -278,13 +278,13 @@ export default function ProdutoresPageV2() {
         <DialogTitle>Produtos produzidos - {produtorSelecionado?.nome}</DialogTitle>
         <DialogContent>
           <Alert severity="info" sx={{ mb: 2 }}>
-            Registre a sazonalidade no campo Periodo de producao. Exemplos: Ano todo, Jan-Mar, Abr-Jul, Safra das aguas, Entressafra.
+            Registre a sazonalidade no campo Período de produção. Exemplos: ano todo, jan.–mar., abr.–jul., safra das águas ou entressafra.
           </Alert>
           {produtorSelecionado && canEdit(produtorSelecionado.id) && <Grid container spacing={2} sx={{ mb: 2 }}>
             <Grid item xs={12} md={3}><TextField label="Produto" fullWidth value={produtoForm.produto} onChange={(e) => setProdutoForm({ ...produtoForm, produto: e.target.value })} /></Grid>
             <Grid item xs={12} md={2}><TextField label="Capacidade" fullWidth value={produtoForm.capacidade} onChange={(e) => setProdutoForm({ ...produtoForm, capacidade: e.target.value })} /></Grid>
             <Grid item xs={12} md={1.5}><TextField label="Unidade" fullWidth value={produtoForm.unidade} onChange={(e) => setProdutoForm({ ...produtoForm, unidade: e.target.value })} /></Grid>
-            <Grid item xs={12} md={3}><TextField label="Periodo de producao" fullWidth value={produtoForm.periodoProducao} onChange={(e) => setProdutoForm({ ...produtoForm, periodoProducao: e.target.value })} /></Grid>
+            <Grid item xs={12} md={3}><TextField label="Período de produção" fullWidth value={produtoForm.periodoProducao} onChange={(e) => setProdutoForm({ ...produtoForm, periodoProducao: e.target.value })} /></Grid>
             <Grid item xs={12} md={1.5}><TextField label="Preco sugerido" type="number" fullWidth value={produtoForm.precoSugerido} onChange={(e) => setProdutoForm({ ...produtoForm, precoSugerido: e.target.value })} /></Grid>
             <Grid item xs={12} md={1}>
               <Button fullWidth variant="contained" sx={{ height: '100%' }} onClick={() => void submitProduto()} disabled={!produtoForm.produto}>
@@ -298,9 +298,9 @@ export default function ProdutoresPageV2() {
               <TableRow>
                 <TableCell>Produto</TableCell>
                 <TableCell>Capacidade</TableCell>
-                <TableCell>Periodo</TableCell>
+                <TableCell>Período</TableCell>
                 <TableCell>Preco</TableCell>
-                <TableCell align="right">Acoes</TableCell>
+                <TableCell align="right">Ações</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -308,7 +308,7 @@ export default function ProdutoresPageV2() {
                 <TableRow key={item.id}>
                   <TableCell>{item.produto}</TableCell>
                   <TableCell>{item.capacidade || '-'} {item.unidade || ''}</TableCell>
-                  <TableCell><Chip size="small" color={item.periodoProducao ? 'success' : 'warning'} label={item.periodoProducao || 'Nao informado'} /></TableCell>
+                  <TableCell><Chip size="small" color={item.periodoProducao ? 'success' : 'warning'} label={item.periodoProducao || 'Não informado'} /></TableCell>
                   <TableCell>{item.precoSugerido ? `R$ ${Number(item.precoSugerido).toFixed(2)}` : '-'}</TableCell>
                   <TableCell align="right">
                     {produtorSelecionado && canEdit(produtorSelecionado.id) && <IconButton onClick={() => editProduto(item)}><Edit /></IconButton>}

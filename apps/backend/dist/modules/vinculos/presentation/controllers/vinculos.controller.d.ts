@@ -1,16 +1,25 @@
 import { VinculosService } from '../../application/services/vinculos.service';
-import { CreateVinculoDto, CreateRepresentacaoDto, RevokeRepresentacaoDto, UpdateRepresentacaoDto } from '../dto/vinculo.dto';
+import { BootstrapVinculoService } from '../../application/services/bootstrap-vinculo.service';
+import { BootstrapVinculoDto, CreateVinculoDto, CreateRepresentacaoDto, RevokeRepresentacaoDto, UpdateRepresentacaoDto } from '../dto/vinculo.dto';
 import { Request } from 'express';
 export declare class VinculosController {
     private readonly vinculosService;
-    constructor(vinculosService: VinculosService);
+    private readonly bootstrapService;
+    constructor(vinculosService: VinculosService, bootstrapService: BootstrapVinculoService);
+    bootstrap(dto: BootstrapVinculoDto, req: Request): Promise<{
+        id: string;
+        ativo: boolean;
+        userId: string;
+        funcao: import(".prisma/client").$Enums.Role;
+        vigenciaInicio: Date;
+    }>;
     createVinculo(dto: CreateVinculoDto, req: Request): Promise<{
         user: {
             id: string;
             name: string;
             email: string;
         };
-        dre: {
+        municipio: {
             id: string;
             nome: string;
         } | null;
@@ -18,56 +27,56 @@ export declare class VinculosController {
             id: string;
             nome: string;
         } | null;
-        municipio: {
+        dre: {
             id: string;
             nome: string;
         } | null;
     } & {
         id: string;
-        userId: string;
-        funcao: import(".prisma/client").$Enums.Role;
-        dreId: string | null;
-        escolaId: string | null;
-        municipioId: string | null;
-        produtorId: string | null;
-        vigenciaInicio: Date;
-        vigenciaFim: Date | null;
-        ativo: boolean;
         createdAt: Date;
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
+        escolaId: string | null;
+        municipioId: string | null;
+        ativo: boolean;
+        userId: string;
+        funcao: import(".prisma/client").$Enums.Role;
+        dreId: string | null;
+        produtorId: string | null;
+        vigenciaInicio: Date;
+        vigenciaFim: Date | null;
     }>;
     getVinculosUsuario(userId: string): Promise<({
-        dre: {
+        municipio: {
             id: string;
             nome: string;
-            codigo: string | null;
         } | null;
         escola: {
             id: string;
             nome: string;
             codigo: string | null;
         } | null;
-        municipio: {
+        dre: {
             id: string;
             nome: string;
+            codigo: string | null;
         } | null;
     } & {
         id: string;
-        userId: string;
-        funcao: import(".prisma/client").$Enums.Role;
-        dreId: string | null;
-        escolaId: string | null;
-        municipioId: string | null;
-        produtorId: string | null;
-        vigenciaInicio: Date;
-        vigenciaFim: Date | null;
-        ativo: boolean;
         createdAt: Date;
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
+        escolaId: string | null;
+        municipioId: string | null;
+        ativo: boolean;
+        userId: string;
+        funcao: import(".prisma/client").$Enums.Role;
+        dreId: string | null;
+        produtorId: string | null;
+        vigenciaInicio: Date;
+        vigenciaFim: Date | null;
     })[]>;
     revokeVinculo(vinculoId: string, req: Request): Promise<{
         message: string;
@@ -89,15 +98,15 @@ export declare class RepresentacoesController {
         };
     } & {
         id: string;
-        userId: string;
-        produtorId: string;
-        vigenciaInicio: Date;
-        vigenciaFim: Date | null;
-        ativo: boolean;
         createdAt: Date;
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
+        ativo: boolean;
+        userId: string;
+        produtorId: string;
+        vigenciaInicio: Date;
+        vigenciaFim: Date | null;
         tipoRepresentacao: string;
         permissoes: string;
         autorizacaoDocumento: string | null;
@@ -113,15 +122,15 @@ export declare class RepresentacoesController {
         };
     } & {
         id: string;
-        userId: string;
-        produtorId: string;
-        vigenciaInicio: Date;
-        vigenciaFim: Date | null;
-        ativo: boolean;
         createdAt: Date;
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
+        ativo: boolean;
+        userId: string;
+        produtorId: string;
+        vigenciaInicio: Date;
+        vigenciaFim: Date | null;
         tipoRepresentacao: string;
         permissoes: string;
         autorizacaoDocumento: string | null;
@@ -134,15 +143,15 @@ export declare class RepresentacoesController {
     }>;
     atualizarRepresentacao(id: string, dto: UpdateRepresentacaoDto, req: Request): Promise<{
         id: string;
-        userId: string;
-        produtorId: string;
-        vigenciaInicio: Date;
-        vigenciaFim: Date | null;
-        ativo: boolean;
         createdAt: Date;
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
+        ativo: boolean;
+        userId: string;
+        produtorId: string;
+        vigenciaInicio: Date;
+        vigenciaFim: Date | null;
         tipoRepresentacao: string;
         permissoes: string;
         autorizacaoDocumento: string | null;

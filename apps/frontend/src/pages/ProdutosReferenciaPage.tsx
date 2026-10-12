@@ -3,7 +3,7 @@ import { CrudPage } from './CrudPage';
 export default function ProdutosReferenciaPage() {
   return (
     <CrudPage
-      title="Produtos de referência"
+      title="Produtos dos editais de referência"
       endpoint="/produtos-referencia"
       initialValues={{ nome: '', categoria: '', subcategoria: '', unidadePadrao: '', palavrasChave: '', sinonimos: '', agriculturaFamiliar: true, ativo: true }}
       fields={[

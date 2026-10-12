@@ -84,6 +84,16 @@ export class RevokeRepresentacaoDto {
   motivo!: string;
 }
 
+export class BootstrapVinculoDto {
+  @ApiProperty({
+    description:
+      'Token de bootstrap configurado em BOOTSTRAP_ADMIN_TOKEN (uso único, restrito a ADMIN sem vínculo ativo)',
+  })
+  @IsString()
+  @IsNotEmpty()
+  token!: string;
+}
+
 export class UpdateRepresentacaoDto {
   @IsString() @IsOptional() permissoes?: string;
   @IsDateString() @IsOptional() vigenciaFim?: string;

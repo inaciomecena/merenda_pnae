@@ -1,0 +1,191 @@
+{
+  "suite": "SDD-009",
+  "startedAt": "2026-10-12T19:01:13.068Z",
+  "cases": [
+    {
+      "name": "login administrativo",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "health público sanitizado",
+      "status": 200,
+      "expected": 200,
+      "ok": true
+    },
+    {
+      "name": "painel operacional derivado",
+      "status": 200,
+      "expected": 200,
+      "ok": true
+    },
+    {
+      "name": "central de pendências derivada",
+      "status": 200,
+      "expected": 200,
+      "ok": true
+    },
+    {
+      "name": "configuração global",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "resolução por precedência global",
+      "status": 200,
+      "expected": 200,
+      "ok": true
+    },
+    {
+      "name": "parâmetro operacional pendente de validação",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "nova versão do parâmetro",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "notificação interna",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "deduplicação de notificação",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "listar notificações",
+      "status": 200,
+      "expected": 200,
+      "ok": true
+    },
+    {
+      "name": "marcar notificação lida",
+      "status": 200,
+      "expected": 200,
+      "ok": true
+    },
+    {
+      "name": "criar checklist de implantação",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "bloquear homologação com pendências",
+      "status": 409,
+      "expected": 409,
+      "ok": true
+    },
+    {
+      "name": "concluir item aceite_institucional",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "concluir item auditoria",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "concluir item backup",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "concluir item dados_institucionais",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "concluir item parametros",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "concluir item permissoes",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "concluir item templates",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "concluir item testes",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "concluir item usuarios_vinculos",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "homologar checklist completo",
+      "status": 200,
+      "expected": 200,
+      "ok": true
+    },
+    {
+      "name": "relatório de prontidão",
+      "status": 200,
+      "expected": 200,
+      "ok": true
+    },
+    {
+      "name": "diagnóstico restrito",
+      "status": 200,
+      "expected": 200,
+      "ok": true
+    },
+    {
+      "name": "diagnóstico sem autenticação bloqueado",
+      "status": 401,
+      "expected": 401,
+      "ok": true
+    },
+    {
+      "name": "auditoria administrativa",
+      "status": 200,
+      "expected": 200,
+      "ok": true
+    }
+  ],
+  "dashboard": {
+    "indicadores": {
+      "editaisEmElaboracao": 2,
+      "editaisPublicados": 1,
+      "chamadasAbertas": 0,
+      "inscricoesPendentes": 1,
+      "contratosEmRascunho": 3,
+      "entregasPendentes": 0,
+      "prestacoesContasPendentes": 0
+    },
+    "escopo": "ADMIN",
+    "atualizadoEm": "2026-10-12T19:01:13.366Z"
+  },
+  "checklistId": "c64c2d1f-d951-4998-8101-114a5882920e",
+  "configurationId": "6a2932b6-ad6e-436f-b00d-17faae899762",
+  "finishedAt": "2026-10-12T19:01:13.841Z",
+  "result": "PASS"
+}

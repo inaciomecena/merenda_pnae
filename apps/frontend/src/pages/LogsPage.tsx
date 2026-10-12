@@ -7,6 +7,7 @@ import {
 import { Refresh, Visibility, FilterList, Clear } from '@mui/icons-material';
 import api from '../services/api';
 import type { ApiResponse, PaginationResponse } from '../types';
+import { humanizeSystemValue } from '../lib/display-text';
 
 interface AuditLog {
   id: string;
@@ -50,8 +51,8 @@ const actionLabels: Record<string, string> = {
 
 const entityLabels: Record<string, string> = {
   editais: 'Edital', edital_itens: 'Item do Edital', produtores: 'Produtor',
-  escolas: 'Escola', municipios: 'Municipio', matches: 'Match', propostas: 'Proposta',
-  users: 'Usuario', import_logs: 'Importacao', audit_logs: 'Auditoria',
+  escolas: 'Escola', municipios: 'Município', matches: 'Correspondência', propostas: 'Proposta',
+  users: 'Usuário', import_logs: 'Importação', audit_logs: 'Auditoria',
 };
 
 export default function LogsPage() {
@@ -72,6 +73,7 @@ export default function LogsPage() {
 
   const fetchLogs = useCallback(async () => {
     setLoading(true);
+    setError('');
     try {
       const params = new URLSearchParams({ page: String(page), limit: '50' });
       if (filterAction) params.set('action', filterAction);
@@ -82,7 +84,7 @@ export default function LogsPage() {
       setItems(data.data.items ?? []);
       setTotalPages(data.data.totalPages ?? 1);
     } catch {
-      setError('Nao foi possivel carregar os logs de auditoria.');
+      setError('Não foi possível carregar os registros de auditoria.');
     } finally {
       setLoading(false);
     }
@@ -91,7 +93,12 @@ export default function LogsPage() {
   const fetchStats = async () => {
     try {
       const { data } = await api.get<ApiResponse<AuditStats>>('/audit/stats');
-      setStats(data as any);
+      setStats({
+        ...data.data,
+        recentActions: data.data.recentActions ?? [],
+        topUsers: data.data.topUsers ?? [],
+        topEntities: data.data.topEntities ?? [],
+      });
     } catch { /* ignore */ }
   };
 
@@ -143,7 +150,7 @@ export default function LogsPage() {
           <Grid item xs={12} md={3}>
             <Card>
               <CardContent>
-                <Typography variant="subtitle2" color="text.secondary">Acoes Mais Frequentes</Typography>
+                <Typography variant="subtitle2" color="text.secondary">Ações mais frequentes</Typography>
                 {stats.recentActions.slice(0, 3).map(a => (
                   <Typography key={a.action} variant="body2">{actionLabels[a.action] || a.action}: {a.count}</Typography>
                 ))}
@@ -168,7 +175,7 @@ export default function LogsPage() {
           <CardContent>
             <Grid container spacing={2} alignItems="center">
               <Grid item xs={12} md={3}>
-                <TextField select label="Acao" fullWidth size="small" value={filterAction} onChange={e => { setFilterAction(e.target.value); setPage(1); }}>
+                <TextField select label="Ação" fullWidth size="small" value={filterAction} onChange={e => { setFilterAction(e.target.value); setPage(1); }}>
                   <MenuItem value="">Todas</MenuItem>
                   {Object.entries(actionLabels).map(([k, v]) => <MenuItem key={k} value={k}>{v}</MenuItem>)}
                 </TextField>
@@ -180,7 +187,7 @@ export default function LogsPage() {
                 </TextField>
               </Grid>
               <Grid item xs={12} md={2}>
-                <TextField label="Data Inicio" type="date" fullWidth size="small" value={startDate} onChange={e => setStartDate(e.target.value)} InputLabelProps={{ shrink: true }} />
+                <TextField label="Data inicial" type="date" fullWidth size="small" value={startDate} onChange={e => setStartDate(e.target.value)} InputLabelProps={{ shrink: true }} />
               </Grid>
               <Grid item xs={12} md={2}>
                 <TextField label="Data Fim" type="date" fullWidth size="small" value={endDate} onChange={e => setEndDate(e.target.value)} InputLabelProps={{ shrink: true }} />
@@ -201,12 +208,12 @@ export default function LogsPage() {
                 <TableHead>
                   <TableRow>
                     <TableCell>Data/Hora</TableCell>
-                    <TableCell>Usuario</TableCell>
-                    <TableCell>Acao</TableCell>
+                    <TableCell>Usuário</TableCell>
+                    <TableCell>Ação</TableCell>
                     <TableCell>Entidade</TableCell>
                     <TableCell>Detalhe</TableCell>
                     <TableCell>Endpoint</TableCell>
-                    <TableCell align="right">Acoes</TableCell>
+                    <TableCell align="right">Ações</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -218,7 +225,7 @@ export default function LogsPage() {
                       </TableCell>
                       <TableCell>
                         <Typography variant="body2" fontWeight={500}>{log.userName || '—'}</Typography>
-                        <Typography variant="caption" color="text.secondary">{log.userRole || ''}</Typography>
+                        <Typography variant="caption" color="text.secondary">{log.userRole ? humanizeSystemValue(log.userRole) : ''}</Typography>
                       </TableCell>
                       <TableCell><Chip size="small" color={actionColors[log.action] || 'default'} label={actionLabels[log.action] || log.action} /></TableCell>
                       <TableCell>{entityLabels[log.entity] || log.entity}</TableCell>
@@ -250,13 +257,13 @@ export default function LogsPage() {
             <Stack spacing={2}>
               <Grid container spacing={2}>
                 <Grid item xs={6}><Typography variant="subtitle2" color="text.secondary">Data/Hora</Typography><Typography>{new Date(detailLog.createdAt).toLocaleString('pt-BR')}</Typography></Grid>
-                <Grid item xs={6}><Typography variant="subtitle2" color="text.secondary">Acao</Typography><Chip color={actionColors[detailLog.action] || 'default'} label={actionLabels[detailLog.action] || detailLog.action} /></Grid>
-                <Grid item xs={6}><Typography variant="subtitle2" color="text.secondary">Usuario</Typography><Typography>{detailLog.userName || '—'} ({detailLog.userRole || '—'})</Typography></Grid>
+                <Grid item xs={6}><Typography variant="subtitle2" color="text.secondary">Ação</Typography><Chip color={actionColors[detailLog.action] || 'default'} label={actionLabels[detailLog.action] || detailLog.action} /></Grid>
+                <Grid item xs={6}><Typography variant="subtitle2" color="text.secondary">Usuário</Typography><Typography>{detailLog.userName || '—'} ({detailLog.userRole ? humanizeSystemValue(detailLog.userRole) : '—'})</Typography></Grid>
                 <Grid item xs={6}><Typography variant="subtitle2" color="text.secondary">Email</Typography><Typography>{detailLog.userEmail || '—'}</Typography></Grid>
                 <Grid item xs={6}><Typography variant="subtitle2" color="text.secondary">Entidade</Typography><Typography>{entityLabels[detailLog.entity] || detailLog.entity} ({detailLog.entityId || '—'})</Typography></Grid>
                 <Grid item xs={6}><Typography variant="subtitle2" color="text.secondary">Endpoint</Typography><Typography>{detailLog.method} {detailLog.endpoint}</Typography></Grid>
                 <Grid item xs={6}><Typography variant="subtitle2" color="text.secondary">Status</Typography><Typography>{detailLog.statusCode || '—'}</Typography></Grid>
-                <Grid item xs={6}><Typography variant="subtitle2" color="text.secondary">Duracao</Typography><Typography>{detailLog.durationMs ? `${detailLog.durationMs}ms` : '—'}</Typography></Grid>
+                <Grid item xs={6}><Typography variant="subtitle2" color="text.secondary">Duração</Typography><Typography>{detailLog.durationMs ? `${detailLog.durationMs} ms` : '—'}</Typography></Grid>
                 <Grid item xs={6}><Typography variant="subtitle2" color="text.secondary">IP</Typography><Typography>{detailLog.ipAddress || '—'}</Typography></Grid>
               </Grid>
               {detailLog.newValues && (

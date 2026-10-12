@@ -1,0 +1,69 @@
+{
+  "dre": "Cáceres",
+  "geradoEm": "2026-10-12T19:29:45.452Z",
+  "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+  "procedimentos": [
+    {
+      "idPacote": "ED-0087",
+      "chaveLogica": "cfcb1198c9051ce4f0adce5a962b972b",
+      "decisao": "SEGREGADO",
+      "numero": "013/2024",
+      "municipio": "Curvelândia",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "PNAE_MT_2025/03_CACERES/DOC-0095_DOC-0095.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0088",
+      "chaveLogica": "f4ee888577eee8f78fed0ec2db10f136",
+      "decisao": "SEGREGADO",
+      "numero": "014/2024",
+      "municipio": "Mirassol D’Oeste",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "PNAE_MT_2025/03_CACERES/DOC-0096_DOC-0096.pdf",
+        "PNAE_MT_2025/03_CACERES/DOC-0099_DOC-0099.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0089",
+      "chaveLogica": "4efe6d334ebf288cb102d20833d750c6",
+      "decisao": "SEGREGADO",
+      "numero": "015/2024",
+      "municipio": "Glória D’Oeste",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "PNAE_MT_2025/03_CACERES/DOC-0097_DOC-0097.pdf",
+        "PNAE_MT_2025/03_CACERES/DOC-0100_DOC-0100.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0090",
+      "chaveLogica": "61c528892a02b30aa5375dc724f80222",
+      "decisao": "SEGREGADO",
+      "numero": "017/2024",
+      "municipio": "Cáceres",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "PNAE_MT_2025/03_CACERES/DOC-0098_DOC-0098.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0091",
+      "chaveLogica": "d0564084f3ca6de2c103d7305f180cbb",
+      "decisao": "SEGREGADO",
+      "numero": "016/2024",
+      "municipio": "Porto Esperidião",
+      "itens": 0,
+      "pendencias": 1,
+      "arquivos": [
+        "PNAE_MT_2025/03_CACERES/DOC-0101_DOC-0101.pdf"
+      ]
+    }
+  ]
+}

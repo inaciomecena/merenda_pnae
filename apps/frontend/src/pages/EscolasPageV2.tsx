@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Alert, Box, Button, CircularProgress, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, LinearProgress, MenuItem, Pagination, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Tooltip, Typography } from '@mui/material';
+import { Alert, Box, Button, CircularProgress, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, LinearProgress, MenuItem, Pagination, Paper, Stack, Tab, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Tabs, TextField, Tooltip, Typography } from '@mui/material';
 import { Add, DeleteOutline, Edit, UploadFile } from '@mui/icons-material';
 import api from '../services/api';
 import { useAuth } from '../contexts/AuthContext';
@@ -11,6 +11,7 @@ type School = {
   telefone?: string | null; responsavel?: string | null; active: boolean;
   localizacao?: string | null; categoriaAdministrativa?: string | null; dependenciaAdministrativa?: string | null;
   restricaoAtendimento?: string | null; municipio?: { id: string; nome: string; uf: string; codigoIbge?: string | null };
+  vinculosDRE?: Array<{ dre: { id: string; nome: string; codigo?: string | null } }>;
 };
 type Municipality = { id: string; nome: string; uf: string; codigoIbge?: string };
 type SchoolForm = { nome: string; codigo: string; municipioId: string; endereco: string; telefone: string; responsavel: string };
@@ -27,7 +28,8 @@ export default function EscolasPageV2() {
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
   const [refresh, setRefresh] = useState(0);
-  const [filters, setFilters] = useState({ nome: '', codigo: '', municipioId: '', localizacao: '', categoriaAdministrativa: '', dependenciaAdministrativa: '', restricaoAtendimento: '', active: '' });
+  const [schoolType, setSchoolType] = useState('TODAS');
+  const [filters, setFilters] = useState({ nome: '', codigo: '', municipioId: '', localizacao: '', categoriaAdministrativa: '', restricaoAtendimento: '', active: '' });
   const [uploadProgress, setUploadProgress] = useState<number | null>(null);
   const [processing, setProcessing] = useState(false);
   const [editing, setEditing] = useState<School | null>(null);
@@ -49,7 +51,7 @@ export default function EscolasPageV2() {
       if (filters.municipioId) params.set('municipioId', filters.municipioId);
       if (filters.localizacao.trim()) params.set('localizacao', filters.localizacao.trim());
       if (filters.categoriaAdministrativa.trim()) params.set('categoriaAdministrativa', filters.categoriaAdministrativa.trim());
-      if (filters.dependenciaAdministrativa.trim()) params.set('dependenciaAdministrativa', filters.dependenciaAdministrativa.trim());
+      if (schoolType !== 'TODAS') params.set('dependenciaAdministrativa', schoolType);
       if (filters.restricaoAtendimento.trim()) params.set('restricaoAtendimento', filters.restricaoAtendimento.trim());
       if (filters.active) params.set('active', filters.active);
       setLoading(true); setError('');
@@ -59,7 +61,7 @@ export default function EscolasPageV2() {
         .finally(() => setLoading(false));
     }, 250);
     return () => window.clearTimeout(timer);
-  }, [page, filters, refresh]);
+  }, [page, filters, refresh, schoolType]);
 
   const setFilter = (key: keyof typeof filters, value: string) => {
     setPage(1); setFilters((current) => ({ ...current, [key]: value }));
@@ -129,13 +131,22 @@ export default function EscolasPageV2() {
       {message && <Alert severity="success" onClose={() => setMessage('')}>{message}</Alert>}
       {error && <Alert severity="error" onClose={() => setError('')}>{error}</Alert>}
 
+      <Paper variant="outlined">
+        <Tabs value={schoolType} onChange={(_, value) => { setSchoolType(value); setPage(1); }} variant="scrollable" scrollButtons="auto" aria-label="Tipos de escola">
+          <Tab value="TODAS" label="Todas as escolas" />
+          <Tab value="Municipal" label="Escolas municipais" />
+          <Tab value="Estadual" label="Escolas estaduais" />
+          <Tab value="Privada" label="Escolas privadas" />
+        </Tabs>
+      </Paper>
+
       <TableContainer component={Paper} variant="outlined">
         <Table size="small" sx={{ minWidth: 1100 }}>
           <TableHead>
             <TableRow>
               <TableCell>Escola</TableCell><TableCell>Código INEP</TableCell><TableCell>Município</TableCell>
-              <TableCell>Localização</TableCell><TableCell>Categoria administrativa</TableCell>
-              <TableCell>Dependência</TableCell><TableCell>Restrição de atendimento</TableCell>
+              <TableCell>DRE vinculada</TableCell><TableCell>Localização</TableCell><TableCell>Categoria administrativa</TableCell>
+              <TableCell>Restrição de atendimento</TableCell>
               <TableCell>Status</TableCell>{isAdmin && <TableCell align="right">Ações</TableCell>}
             </TableRow>
             <TableRow>
@@ -144,14 +155,14 @@ export default function EscolasPageV2() {
               <TableCell><TextField select size="small" value={filters.municipioId} onChange={(event) => setFilter('municipioId', event.target.value)} sx={{ minWidth: 160 }}>
                 <MenuItem value="">Todos</MenuItem>{municipalities.map((municipality) => <MenuItem key={municipality.id} value={municipality.id}>{municipality.nome}{municipality.codigoIbge ? ` - IBGE ${municipality.codigoIbge}` : ''}</MenuItem>)}
               </TextField></TableCell>
+              <TableCell />
               <TableCell>{inputFilter('localizacao', 'Localização')}</TableCell>
               <TableCell>{inputFilter('categoriaAdministrativa', 'Categoria')}</TableCell>
-              <TableCell>{inputFilter('dependenciaAdministrativa', 'Dependência')}</TableCell>
               <TableCell>{inputFilter('restricaoAtendimento', 'Atendimento')}</TableCell>
               <TableCell><TextField select size="small" value={filters.active} onChange={(event) => setFilter('active', event.target.value)} sx={{ minWidth: 115 }}>
                 <MenuItem value="">Todos</MenuItem><MenuItem value="true">Ativa</MenuItem><MenuItem value="false">Inativa</MenuItem>
               </TextField></TableCell>
-              {isAdmin && <TableCell><Tooltip title="Limpar filtros"><Button size="small" onClick={() => { setFilters({ nome: '', codigo: '', municipioId: '', localizacao: '', categoriaAdministrativa: '', dependenciaAdministrativa: '', restricaoAtendimento: '', active: '' }); setPage(1); }}>Limpar</Button></Tooltip></TableCell>}
+              {isAdmin && <TableCell><Tooltip title="Limpar filtros"><Button size="small" onClick={() => { setFilters({ nome: '', codigo: '', municipioId: '', localizacao: '', categoriaAdministrativa: '', restricaoAtendimento: '', active: '' }); setPage(1); }}>Limpar</Button></Tooltip></TableCell>}
             </TableRow>
           </TableHead>
           <TableBody>
@@ -159,8 +170,9 @@ export default function EscolasPageV2() {
               : schools.length ? schools.map((school) => <TableRow key={school.id} hover>
                 <TableCell><Link to={`/escolas/${school.id}`} style={{ fontWeight: 600, textDecoration: 'none' }}>{school.nome}</Link></TableCell>
                 <TableCell>{school.codigo || '—'}</TableCell><TableCell>{school.municipio?.nome || '—'}{school.municipio?.uf ? ` - ${school.municipio.uf}` : ''}{school.municipio?.codigoIbge ? ` (IBGE ${school.municipio.codigoIbge})` : ''}</TableCell>
+                <TableCell>{school.vinculosDRE?.[0]?.dre ? `${school.vinculosDRE[0].dre.nome}${school.vinculosDRE[0].dre.codigo ? ` (${school.vinculosDRE[0].dre.codigo})` : ''}` : 'Não vinculada'}</TableCell>
                 <TableCell>{school.localizacao || '—'}</TableCell><TableCell>{school.categoriaAdministrativa || '—'}</TableCell>
-                <TableCell>{school.dependenciaAdministrativa || '—'}</TableCell><TableCell>{school.restricaoAtendimento || '—'}</TableCell>
+                <TableCell>{school.restricaoAtendimento || '—'}</TableCell>
                 <TableCell>{school.active ? 'Ativa' : 'Inativa'}</TableCell>
                 {isAdmin && <TableCell align="right" sx={{ whiteSpace: 'nowrap' }}><Tooltip title="Editar"><IconButton size="small" onClick={() => openEdit(school)}><Edit fontSize="small" /></IconButton></Tooltip><Tooltip title="Excluir"><IconButton size="small" color="error" onClick={() => void deleteSchool(school)}><DeleteOutline fontSize="small" /></IconButton></Tooltip></TableCell>}
               </TableRow>)

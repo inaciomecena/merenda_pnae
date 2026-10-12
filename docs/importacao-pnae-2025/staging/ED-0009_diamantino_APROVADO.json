@@ -1,0 +1,1914 @@
+{
+  "schema": "importacao-historica-pnae/1.0",
+  "geradoEm": "2026-10-12T19:29:12.180Z",
+  "idPacote": "ED-0009",
+  "dre": "Diamantino",
+  "chaveLogica": "48674e953930f13062dc9df0417ddec5",
+  "decisao": "APROVADO",
+  "motivosBloqueio": [],
+  "identificacao": {
+    "numeroBruto": "023/2024",
+    "numeroNormalizado": "023/2024",
+    "anoNumeracao": 2024,
+    "exercicio": 2025,
+    "exercicioEvidencia": [
+      {
+        "pagina": 2,
+        "trecho": "ano letivo\nde 2025"
+      },
+      {
+        "pagina": 37,
+        "trecho": "ano letivo de 2025"
+      }
+    ],
+    "processoAdministrativo": "SEDUC-PRO-2024/180076",
+    "dreNome": "Diamantino",
+    "camaraNegocios": "DIAMANTINO",
+    "municipioAtendido": "Nova Mutum",
+    "recorte": "NAO_IDENTIFICADO",
+    "dataPublicacao": null,
+    "dataSessao": "29 de janeiro de 2025",
+    "objeto": "Aquisição de gêneros alimentícios",
+    "fundamentacaoLegal": "IN nº 011/2024/GS/SEDUC/MT",
+    "prazos": null,
+    "habilitacao": null,
+    "criteriosSelecao": null,
+    "condicoesEntrega": null,
+    "condicoesPagamento": null,
+    "valorEstimado": null,
+    "observacoes": []
+  },
+  "documentos": [
+    {
+      "idDocumento": "DOC-0009",
+      "papel": "EDITAL_PRINCIPAL",
+      "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+      "caminho": "PNAE_MT_2025/05_DIAMANTINO/DOC-0009_DOC-0009.pdf",
+      "paginas": 46,
+      "urls": [
+        "https://drive.google.com/file/d/1l23MmDMY2xhil3ElaXwTmdVUTuyn7Nkz/view?usp=drivesdk",
+        "https://drive.google.com/uc?export=download&id=1l23MmDMY2xhil3ElaXwTmdVUTuyn7Nkz",
+        "https://sites.google.com/edu.mt.gov.br/drediamantino/chamada-pública"
+      ],
+      "chaveVersao": "b2cd672a7f837fb0bfa1c93644a87f6c"
+    }
+  ],
+  "vinculosInstitucionais": {
+    "dre": {
+      "nomePacote": "Diamantino",
+      "dreId": "b73ccaab-c5e2-11f1-8f2d-6451061ac5e7",
+      "codigo": "DMT",
+      "status": "CONFIRMADO",
+      "detalhe": "DRE \"DRE Diamantino\" (DMT)"
+    },
+    "municipio": {
+      "nomePacote": "Nova Mutum - urbano",
+      "municipioId": "e9d1a9a1-92d5-4444-abfe-439288e4db39",
+      "codigoIbge": "5106224",
+      "status": "CONFIRMADO",
+      "detalhe": "\"Nova Mutum\" (IBGE 5106224)"
+    },
+    "escolas": [],
+    "unidadesExecutoras": [
+      {
+        "nome": "Diamantino",
+        "cnpj": null,
+        "entidadeExecutoraId": null,
+        "status": "PENDENTE",
+        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+      }
+    ]
+  },
+  "itens": [
+    {
+      "sequencia": 3,
+      "produto": "DE FORMA QUE NÃO DEIXEM EXPOSTA A POLPA",
+      "descricaoCompleta": "3 de forma que não deixem exposta a polpa, em grau de maturação adequado para consumo, não se apresentar excessivamente maduro ou passado. As características deverão",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "184",
+        "normalizado": "184.00",
+        "pagina": 3,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "12,21",
+        "normalizado": "12.21",
+        "pagina": 3,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "2.246,64",
+        "normalizado": "2246.64",
+        "pagina": 3,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "2246.64",
+      "divergencia": "0.00",
+      "pagina": 3,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "extraido",
+      "pendencia": null
+    },
+    {
+      "sequencia": 2,
+      "produto": "ABÓBORA CABOTIÃ",
+      "descricaoCompleta": "2. ABÓBORA CABOTIÃ, inteira, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. Consistência firme, cascas",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "138",
+        "normalizado": "138.00",
+        "pagina": 3,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "5,01",
+        "normalizado": "5.01",
+        "pagina": 3,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "691,38",
+        "normalizado": "691.38",
+        "pagina": 3,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "691.38",
+      "divergencia": "0.00",
+      "pagina": 3,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "extraido",
+      "pendencia": null
+    },
+    {
+      "sequencia": 92,
+      "produto": null,
+      "descricaoCompleta": null,
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "92",
+        "normalizado": "92.00",
+        "pagina": 3,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "2,88",
+        "normalizado": "2.88",
+        "pagina": 3,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "264,96",
+        "normalizado": "264.96",
+        "pagina": 3,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "264.96",
+      "divergencia": "0.00",
+      "pagina": 3,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 4,
+      "produto": "ACELGA",
+      "descricaoCompleta": "4. ACELGA, com folhas inteiras, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. As características deverão atender aos",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "46",
+        "normalizado": "46.00",
+        "pagina": 4,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "9,29",
+        "normalizado": "9.29",
+        "pagina": 4,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "427,34",
+        "normalizado": "427.34",
+        "pagina": 4,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "427.34",
+      "divergencia": "0.00",
+      "pagina": 4,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "extraido",
+      "pendencia": null
+    },
+    {
+      "sequencia": 6,
+      "produto": "ALFACE CRESPA",
+      "descricaoCompleta": "6. ALFACE CRESPA, com folhas inteiras, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. As características",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "392",
+        "normalizado": "392.00",
+        "pagina": 4,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "24,67",
+        "normalizado": "24.67",
+        "pagina": 4,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "9.670,64",
+        "normalizado": "9670.64",
+        "pagina": 4,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "9670.64",
+      "divergencia": "0.00",
+      "pagina": 4,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "extraido",
+      "pendencia": null
+    },
+    {
+      "sequencia": 7,
+      "produto": "ALMEIRÃO",
+      "descricaoCompleta": "7. ALMEIRÃO, com folhas inteiras, livre de sujidades, insetos, larvas, fungos, isento de podridões, não se apresentar desidratado, murcho ou congelado. As características deverão",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "134",
+        "normalizado": "134.00",
+        "pagina": 4,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "18,76",
+        "normalizado": "18.76",
+        "pagina": 4,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "2.513,84",
+        "normalizado": "2513.84",
+        "pagina": 4,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "2513.84",
+      "divergencia": "0.00",
+      "pagina": 4,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "extraido",
+      "pendencia": null
+    },
+    {
+      "sequencia": 8,
+      "produto": "BANANA DA TERRA",
+      "descricaoCompleta": "8. BANANA DA TERRA, inteira, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. Consistência firme, cascas intactas,",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "161",
+        "normalizado": "161.00",
+        "pagina": 5,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "10,74",
+        "normalizado": "10.74",
+        "pagina": 5,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "1.729,14",
+        "normalizado": "1729.14",
+        "pagina": 5,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "1729.14",
+      "divergencia": "0.00",
+      "pagina": 5,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "extraido",
+      "pendencia": null
+    },
+    {
+      "sequencia": 9,
+      "produto": "BANANA NANICA",
+      "descricaoCompleta": "9. BANANA NANICA, inteira, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. Consistência firme, cascas intactas,",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "737",
+        "normalizado": "737.00",
+        "pagina": 5,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "9,27",
+        "normalizado": "9.27",
+        "pagina": 5,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "6.831,99",
+        "normalizado": "6831.99",
+        "pagina": 5,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "6831.99",
+      "divergencia": "0.00",
+      "pagina": 5,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "extraido",
+      "pendencia": null
+    },
+    {
+      "sequencia": 10,
+      "produto": "BATATA DOCE",
+      "descricaoCompleta": "10. BATATA DOCE, inteira, livre de sujidades, insetos, larvas e fungos. Consistência firme, apresentando desenvolvimento completo, isenta de odores estranhos e deformidades,",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "69",
+        "normalizado": "69.00",
+        "pagina": 5,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "6,68",
+        "normalizado": "6.68",
+        "pagina": 5,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "460,92",
+        "normalizado": "460.92",
+        "pagina": 5,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "460.92",
+      "divergencia": "0.00",
+      "pagina": 5,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "extraido",
+      "pendencia": null
+    },
+    {
+      "sequencia": 7,
+      "produto": "ISENTA DE PODRIDÕES",
+      "descricaoCompleta": "7 isenta de podridões, não se apresentar desidratada, murcha ou congelada. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "69",
+        "normalizado": "69.00",
+        "pagina": 7,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "6,14",
+        "normalizado": "6.14",
+        "pagina": 7,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "423,66",
+        "normalizado": "423.66",
+        "pagina": 7,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "423.66",
+      "divergencia": "0.00",
+      "pagina": 7,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "extraido",
+      "pendencia": null
+    },
+    {
+      "sequencia": 46,
+      "produto": null,
+      "descricaoCompleta": null,
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "46",
+        "normalizado": "46.00",
+        "pagina": 7,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "22,45",
+        "normalizado": "22.45",
+        "pagina": 7,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "1.032,70",
+        "normalizado": "1032.70",
+        "pagina": 7,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "1032.70",
+      "divergencia": "0.00",
+      "pagina": 7,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 15,
+      "produto": "CEBOLINHA",
+      "descricaoCompleta": "15. CEBOLINHA, verde, com folhas inteiras, livre de sujidades, isenta de pragas, odores estranhos, danos profundos, podridões e amarelados, não se apresentar desidratada, murcha",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "81",
+        "normalizado": "81.00",
+        "pagina": 7,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "29,00",
+        "normalizado": "29.00",
+        "pagina": 7,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "2.349,00",
+        "normalizado": "2349.00",
+        "pagina": 7,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "2349.00",
+      "divergencia": "0.00",
+      "pagina": 7,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "extraido",
+      "pendencia": null
+    },
+    {
+      "sequencia": 16,
+      "produto": "CENOURA",
+      "descricaoCompleta": "16. CENOURA, inteira, livre de sujidades, insetos, larvas e fungos. Consistência firme, apresentando desenvolvimento completo, isenta de odores estranhos e deformidades,",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "350",
+        "normalizado": "350.00",
+        "pagina": 7,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "5,99",
+        "normalizado": "5.99",
+        "pagina": 7,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "2.096,50",
+        "normalizado": "2096.50",
+        "pagina": 7,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "2096.50",
+      "divergencia": "0.00",
+      "pagina": 7,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "extraido",
+      "pendencia": null
+    },
+    {
+      "sequencia": 799,
+      "produto": null,
+      "descricaoCompleta": null,
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "799",
+        "normalizado": "799.00",
+        "pagina": 8,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "3,67",
+        "normalizado": "3.67",
+        "pagina": 8,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "2.932,33",
+        "normalizado": "2932.33",
+        "pagina": 8,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "2932.33",
+      "divergencia": "0.00",
+      "pagina": 8,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 19,
+      "produto": "COUVE",
+      "descricaoCompleta": "19. COUVE, manteiga com folhas inteiras, livre de sujidades, insetos, larvas, fungos, isenta de podridões e amarelados, não se apresentar desidratada, murcha ou congelada. As",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "366",
+        "normalizado": "366.00",
+        "pagina": 9,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "21,03",
+        "normalizado": "21.03",
+        "pagina": 9,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "7.696,98",
+        "normalizado": "7696.98",
+        "pagina": 9,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "7696.98",
+      "divergencia": "0.00",
+      "pagina": 9,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "extraido",
+      "pendencia": null
+    },
+    {
+      "sequencia": 138,
+      "produto": null,
+      "descricaoCompleta": null,
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "138",
+        "normalizado": "138.00",
+        "pagina": 9,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "10,26",
+        "normalizado": "10.26",
+        "pagina": 9,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "1.415,88",
+        "normalizado": "1415.88",
+        "pagina": 9,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "1415.88",
+      "divergencia": "0.00",
+      "pagina": 9,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 69,
+      "produto": "R$ 13",
+      "descricaoCompleta": "69 R$ 13,69 R$ 944,61",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 9,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 502,
+      "produto": null,
+      "descricaoCompleta": null,
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "502",
+        "normalizado": "502.00",
+        "pagina": 10,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "10,64",
+        "normalizado": "10.64",
+        "pagina": 10,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "5.341,28",
+        "normalizado": "5341.28",
+        "pagina": 10,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "5341.28",
+      "divergencia": "0.00",
+      "pagina": 10,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 945,
+      "produto": null,
+      "descricaoCompleta": null,
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "945",
+        "normalizado": "945.00",
+        "pagina": 10,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "6,07",
+        "normalizado": "6.07",
+        "pagina": 10,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "5.736,15",
+        "normalizado": "5736.15",
+        "pagina": 10,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "5736.15",
+      "divergencia": "0.00",
+      "pagina": 10,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 27,
+      "produto": "LIMÃO TAHITI",
+      "descricaoCompleta": "27. LIMÃO TAHITI, inteiro, livre de sujidades, insetos, larvas, fungos, isento de podridões, não se apresentar desidratado, murcho ou congelado. Consistência firme, cascas intactas,",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "106",
+        "normalizado": "106.00",
+        "pagina": 10,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "12,78",
+        "normalizado": "12.78",
+        "pagina": 10,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "1.354,68",
+        "normalizado": "1354.68",
+        "pagina": 10,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "1354.68",
+      "divergencia": "0.00",
+      "pagina": 10,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "extraido",
+      "pendencia": null
+    },
+    {
+      "sequencia": 25,
+      "produto": "MAMÃO FORMOSA",
+      "descricaoCompleta": "25. MAMÃO FORMOSA, livre de sujidades, insetos, larvas, fungos, isento de podridões, não se apresentar desidratado, murcho ou congelado. Consistência firme, cascas intactas,",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "567",
+        "normalizado": "567.00",
+        "pagina": 11,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "9,59",
+        "normalizado": "9.59",
+        "pagina": 11,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "5.437,53",
+        "normalizado": "5437.53",
+        "pagina": 11,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "5437.53",
+      "divergencia": "0.00",
+      "pagina": 11,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "extraido",
+      "pendencia": null
+    },
+    {
+      "sequencia": 192,
+      "produto": null,
+      "descricaoCompleta": null,
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "192",
+        "normalizado": "192.00",
+        "pagina": 11,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "29,95",
+        "normalizado": "29.95",
+        "pagina": 11,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "5.750,40",
+        "normalizado": "5750.40",
+        "pagina": 11,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "5750.40",
+      "divergencia": "0.00",
+      "pagina": 11,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 30,
+      "produto": "MELÃO",
+      "descricaoCompleta": "30. MELÃO, inteiro, livre de sujidades, insetos, larvas, fungos, isento de podridões, não se apresentar desidratado, murcho ou congelado. Consistência firme, cascas intactas,",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "115",
+        "normalizado": "115.00",
+        "pagina": 12,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "8,87",
+        "normalizado": "8.87",
+        "pagina": 12,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "1.020,05",
+        "normalizado": "1020.05",
+        "pagina": 12,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "1020.05",
+      "divergencia": "0.00",
+      "pagina": 12,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "extraido",
+      "pendencia": null
+    },
+    {
+      "sequencia": 31,
+      "produto": "PÃO CASEIRO",
+      "descricaoCompleta": "31. PÃO CASEIRO, de boa qualidade, com miolo branco e casca de cor dourada brilhante e homogênea. A embalagem deverá conter externamente os dados de",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "184",
+        "normalizado": "184.00",
+        "pagina": 13,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "19,35",
+        "normalizado": "19.35",
+        "pagina": 13,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "3.560,40",
+        "normalizado": "3560.40",
+        "pagina": 13,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "3560.40",
+      "divergencia": "0.00",
+      "pagina": 13,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "extraido",
+      "pendencia": null
+    },
+    {
+      "sequencia": 33,
+      "produto": "PEPINO",
+      "descricaoCompleta": "33. PEPINO, inteiro, livre de sujidades, insetos, larvas e fungos. Consistência firme, apresentando desenvolvimento completo, isento de odores estranhos e deformidades, isento de podridões,",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "46",
+        "normalizado": "46.00",
+        "pagina": 13,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "7,69",
+        "normalizado": "7.69",
+        "pagina": 13,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "353,74",
+        "normalizado": "353.74",
+        "pagina": 13,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "353.74",
+      "divergencia": "0.00",
+      "pagina": 13,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "extraido",
+      "pendencia": null
+    },
+    {
+      "sequencia": 34,
+      "produto": "PIMENTA DE CHEIRO",
+      "descricaoCompleta": "34. PIMENTA DE CHEIRO, inteira, livre de sujidades, consistência firme, isenta de pragas, isenta de odores estranhos, isenta de danos profundos e podridões, não se apresentar",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "30",
+        "normalizado": "30.00",
+        "pagina": 14,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "36,77",
+        "normalizado": "36.77",
+        "pagina": 14,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "1.103,10",
+        "normalizado": "1103.10",
+        "pagina": 14,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "1103.10",
+      "divergencia": "0.00",
+      "pagina": 14,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "extraido",
+      "pendencia": null
+    },
+    {
+      "sequencia": 35,
+      "produto": "PIMENTÃO VERDE",
+      "descricaoCompleta": "35. PIMENTÃO VERDE, inteiro, livre de sujidades, insetos, larvas e fungos. Consistência firme, apresentando desenvolvimento completo, isento de odores estranhos e deformidades,",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "28",
+        "normalizado": "28.00",
+        "pagina": 14,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "10,63",
+        "normalizado": "10.63",
+        "pagina": 14,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "297,64",
+        "normalizado": "297.64",
+        "pagina": 14,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "297.64",
+      "divergencia": "0.00",
+      "pagina": 14,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "extraido",
+      "pendencia": null
+    },
+    {
+      "sequencia": 40,
+      "produto": null,
+      "descricaoCompleta": null,
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "40",
+        "normalizado": "40.00",
+        "pagina": 14,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "29,23",
+        "normalizado": "29.23",
+        "pagina": 14,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "1.169,20",
+        "normalizado": "1169.20",
+        "pagina": 14,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "1169.20",
+      "divergencia": "0.00",
+      "pagina": 14,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 29,
+      "produto": null,
+      "descricaoCompleta": null,
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "29",
+        "normalizado": "29.00",
+        "pagina": 15,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "30,97",
+        "normalizado": "30.97",
+        "pagina": 15,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "898,13",
+        "normalizado": "898.13",
+        "pagina": 15,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "898.13",
+      "divergencia": "0.00",
+      "pagina": 15,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 38,
+      "produto": "QUEIJO MUSSARELA",
+      "descricaoCompleta": "38. QUEIJO MUSSARELA, obtido através do leite de vaca pasteurizado integral, contendo estabilizante, conservador, fermento lácteo e coagulante. Cor branco creme",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "120",
+        "normalizado": "120.00",
+        "pagina": 15,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "59,12",
+        "normalizado": "59.12",
+        "pagina": 15,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "7.094,40",
+        "normalizado": "7094.40",
+        "pagina": 15,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "7094.40",
+      "divergencia": "0.00",
+      "pagina": 15,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "extraido",
+      "pendencia": null
+    },
+    {
+      "sequencia": 39,
+      "produto": "REPOLHO BRANCO/VERDE",
+      "descricaoCompleta": "39. REPOLHO BRANCO/VERDE, inteiro, livre de sujidades, insetos, larvas e fungos, apresentando desenvolvimento completo, isento de odores estranhos e deformidades,",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "438",
+        "normalizado": "438.00",
+        "pagina": 16,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "3,99",
+        "normalizado": "3.99",
+        "pagina": 16,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "1.747,62",
+        "normalizado": "1747.62",
+        "pagina": 16,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "1747.62",
+      "divergencia": "0.00",
+      "pagina": 16,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "extraido",
+      "pendencia": null
+    },
+    {
+      "sequencia": 40,
+      "produto": "RÚCULA",
+      "descricaoCompleta": "40. RÚCULA, com folhas inteiras, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. As características deverão atender aos",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "161",
+        "normalizado": "161.00",
+        "pagina": 16,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "24,75",
+        "normalizado": "24.75",
+        "pagina": 16,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "3.984,75",
+        "normalizado": "3984.75",
+        "pagina": 16,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "3984.75",
+      "divergencia": "0.00",
+      "pagina": 16,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "extraido",
+      "pendencia": null
+    },
+    {
+      "sequencia": 41,
+      "produto": "SALSA",
+      "descricaoCompleta": "41. SALSA, com talos e folhas inteiros, livre de sujidades, isenta de pragas, odores estranhos, danos profundos, podridões e amarelados, não se apresentar desidratada, murcha ou",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "81",
+        "normalizado": "81.00",
+        "pagina": 16,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "27,50",
+        "normalizado": "27.50",
+        "pagina": 16,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "2.227,50",
+        "normalizado": "2227.50",
+        "pagina": 16,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "2227.50",
+      "divergencia": "0.00",
+      "pagina": 16,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "extraido",
+      "pendencia": null
+    },
+    {
+      "sequencia": 43,
+      "produto": "VAGEM",
+      "descricaoCompleta": "43. VAGEM, inteira, livre de sujidades, insetos, larvas e fungos. Consistência firme, apresentando desenvolvimento completo, isenta de odores estranhos e deformidades, isenta de podridões e",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "55",
+        "normalizado": "55.00",
+        "pagina": 17,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "20,23",
+        "normalizado": "20.23",
+        "pagina": 17,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "1.112,65",
+        "normalizado": "1112.65",
+        "pagina": 17,
+        "documentoId": "DOC-0009",
+        "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "1112.65",
+      "divergencia": "0.00",
+      "pagina": 17,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "extraido",
+      "pendencia": null
+    },
+    {
+      "sequencia": 18,
+      "produto": "4. FONTE DE RECURSO 4.1. AS DESPESAS DECORRENTES DA CONTRATAÇÃO",
+      "descricaoCompleta": "18 4. FONTE DE RECURSO 4.1. As despesas decorrentes da contratação, objeto deste edital, correrão à conta dos recursos específicos consignados no orçamento do Programa Nacional de Alimentação Escolar, a serem repassados às Entidades Executoras pelo Programa de Escolarização dos Recursos Financeiros da Alimentação Escolar/FNDE/CDCE’s e correrão na seguinte dotação orçamentária:",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 18,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 19,
+      "produto": null,
+      "descricaoCompleta": "19 6.1. Os Fornecedores da Agricultura Familiar e/ou Empreendedor Familiar Rural poderão comercializar sua produção agrícola na forma de Fornecedores Individuais, Grupos Informais e Grupos Formais, de acordo com o Art. 36 da Resolução FNDE nº 06/2020. 6.2. ENVELOPE Nº 01 - HABILITAÇÃO DO FORNECEDOR INDIVIDUAL OU EMPREENDEDOR FAMILIAR RURAL (não organizado em grupo):",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 19,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 20,
+      "produto": null,
+      "descricaoCompleta": "20 I – A prova de inscrição no Cadastro Nacional de Pessoa Jurídica - CNPJ; II – O extrato da DAP/CAF Jurídica para associações e cooperativas, ativa e válida, emitido nos últimos 60 dias; III – A prova de regularidade com a Fazenda Federal relativa à Seguridade Social e ao Fundo de Garantia por Tempo de Serviço - FGTS;",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 20,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 21,
+      "produto": null,
+      "descricaoCompleta": "21 Alimentícios da Agricultura Familiar dos grupos informais para Alimentação Escolar deverá conter a assinatura de todos os agricultores participantes e o Projeto de Venda apresentados por grupos formais ou empreendedor familiar rural deve estar assinado pelo representante legal, conforme os Anexos I, II e III; 7.3. O Projeto de Venda será apresentado em Sessão Pública no Envelope nº 02 e registrado em ata pela Câmara de Negócios (CNAE).",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 21,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 22,
+      "produto": "A) NO CASO DE EMPATE ENTRE GRUPOS FORMAIS E EMPREENDEDOR FAMILIAR RURAL",
+      "descricaoCompleta": "22 a) no caso de empate entre Grupos Formais e Empreendedor Familiar Rural, em referência ao disposto no §4º inciso III do artigo 35 da Resolução CD/FNDE nº 06/2020, têm prioridade organizações produtivas com maior porcentagem de agricultores familiares e/ou empreendedores familiares rurais no seu quadro de associados/ cooperados, conforme DAP/CAF Jurídica; b) em caso de persistência de empate, deve ser realizado sorteio ou, em havendo consenso entre as partes,",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 22,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 24,
+      "produto": "11.4. OS GÊNEROS ALIMENTÍCIOS ADQUIRIDOS DEVERÃO ESTAR EM PERFEITAS CONDIÇÕES",
+      "descricaoCompleta": "24 11.4. Os gêneros alimentícios adquiridos deverão estar em perfeitas condições, devidamente acondicionados e identificados. Devem ser transportados em meios de transporte adequados e em condições corretas de temperatura, embalagem e demais exigências previstas e necessárias de proteção contra contaminação e deterioração dos gêneros alimentícios, considerando os dispositivos da Lei nº 11.947/2009 e da Resolução CD/FNDE nº 06/2020 e demais normas que regem o Programa Nacional de Alimentação Escolar – PNAE.",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 24,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 25,
+      "produto": "14.6. QUANTO AOS FORNECEDORES E/OU ENTREGADORES DOS PRODUTOS ALIMENTÍCIOS",
+      "descricaoCompleta": "25 14.6. Quanto aos fornecedores e/ou entregadores dos produtos alimentícios, estes devem estar com uniforme adequado e limpo, avental, sapato fechado, proteção para o cabelo (rede, gorro ou boné) e para as mãos usar luvas, quando necessário, com identificação do fornecedor. 14.7. As entregas deverão ser acompanhadas das Notas Fiscais, contendo assinatura e RG e/ou Nº de Matrícula do fiscal do contrato designado pela unidade.",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 25,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 26,
+      "produto": null,
+      "descricaoCompleta": "26 14.21. A CONTRATADA deverá informar imediatamente à CONTRATANTE da suspensão ou desistência do fornecimento através de correio eletrônico, declaração ou ofício, com a motivação da suspensão de entrega, sejam problemas gerados por sazonalidade, problemas com plantio, outros e/ou quando ocorrerem casos fortuitos 15. DAS OBRIGAÇÕES DA CONTRATANTE",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 26,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 30,
+      "produto": null,
+      "descricaoCompleta": "30 ANEXO II PROJETO DE VENDAS PARA OS GRUPOS INFORMAIS PROJETO DE VENDA DE GÊNEROS ALIMENTÍCIOS DA AGRICULTURA FAMILIAR PARA ALIMENTAÇÃO ESCOLAR/PNAE IDENTIFICAÇÃO DA PROPOSTA DE ATENDIMENTO AO EDITAL/CHAMADA PÚBLICA Nº I - IDENTIFICAÇÃO DOS FORNECEDORES - GRUPO INFORMAL",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 30,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 36,
+      "produto": null,
+      "descricaoCompleta": "36 ANEXO IV RELAÇÃO DAS UNIDADES ESCOLARES CONTEMPLADAS UNIDADE ESCOLAR ENDEREÇO DA UNIDADE ESCOLAR/TELEFONE/EMAIL EE Pe Johannes Berthold Henning Rua Bela Vista, Comunidade Ranchão, (65) 99250-5549, escola.114553@edu.mt.gov.br",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 36,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 37,
+      "produto": "VALOR TOTAL DA CHAMADA PÚBLICA R$ ___________________ _____________________",
+      "descricaoCompleta": "37 VALOR TOTAL DA CHAMADA PÚBLICA R$ ___________________ _____________________, ____ de__________de _______. ___________________________________________________ Câmara de Negócios da Alimentação Escolar ANEXO VI",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 37,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 39,
+      "produto": "SEJA ATESTADA PELO RESPONSÁVEL TÉCNICO",
+      "descricaoCompleta": "39 seja atestada pelo Responsável Técnico, que poderá contar com o respaldo do CAE, de acordo com o art. 33 da Resolução CD/FNDE nº 06/2020 do FNDE. 6.3. O fornecedor se compromete a fornecer os gêneros alimentícios para as Escolas e suas Salas Anexas, nas Unidades Escolares e nas suas Sala (s) anexa(s), conforme relação e endereços constantes no ANEXO I em estrita conformidade à solicitação de cada Unidade Escolar.",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 39,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 40,
+      "produto": "8.2. O PAGAMENTO SERÁ REALIZADO MEDIANTE PIX",
+      "descricaoCompleta": "40 8.2. O pagamento será realizado mediante pix, transferência bancária ou cheque (este em último caso), no valor correspondente, a ser realizada em conta-corrente do contratado e por ele indicada, sendo efetuada após a apresentação da nota fiscal/fatura e no valor correspondente. 8.2.1. Dados bancários do contratado: Agência nº [...], Conta-Corrente nº [...], Banco [...], PIX: [...].",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 40,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 41,
+      "produto": null,
+      "descricaoCompleta": "41 estaduais e municipais pertinentes e responsabilizar-se por todos prejuízos decorrentes de infrações a que houver dado causa. 9.13. Garantir o atendimento extraordinário requisitado pela CONTRATANTE em situações excepcionais, como feriados e finais de semana. 9.14. Comunicar no prazo de até 02 (dois) dias úteis ao contratante qualquer alteração ocorrida no",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 41,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 42,
+      "produto": "10.7. FISCALIZAR A QUALIDADE",
+      "descricaoCompleta": "42 10.7. Fiscalizar a qualidade, quantidades e preços, dos produtos entregues e o cumprimento da entrega no prazo, junto às Unidades Escolares, via Fiscal e Gestor do Contrato, acompanhar o entregador da empresa fornecedora, para supervisão das entregas e conferência de peso, notificando a empresa contratada e a Câmara de Negócios, sobre situações irregulares; 10.8. Proceder na abertura de Processo Administrativo junto à Câmara de Negócios, ante ao não",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 42,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 43,
+      "produto": null,
+      "descricaoCompleta": "43 a) Advertência - A sanção de advertência será aplicável nas hipóteses de inexecução parcial do contrato que não implique em prejuízo ou dano à administração, bem como na hipótese de descumprimento de pequena relevância praticado pelo licitante ou fornecedor e que não justifique imposição de penalidade mais grave. b) Multa - A multa será calculada na forma prevista no edital ou no contrato, e não poderá ser",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 43,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 44,
+      "produto": "ENDEREÇADOS VIA CORREIO E OUTROS",
+      "descricaoCompleta": "44 endereçados via correio e outros, a fim de confirmação de que o contratado esteja ciente, e possa apresentar seus contraditórios ou reparar a falhas. 11.5.3. Persistindo as irregularidades, juntar-se-á todo os documentos para instauração de processo para a Aplicação das penalidades previstas nos incisos II, III e IV do Item 11.4, realizar-se-á em processo administrativo autuado em volume próprio, sendo assegurado o contraditório e a ampla defesa,",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 44,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 45,
+      "produto": "F) MANTER CONTROLE ATUALIZADO DOS PAGAMENTOS EFETUADOS",
+      "descricaoCompleta": "45 f) Manter controle atualizado dos pagamentos efetuados, em ordem cronológica, observando para que o valor do contrato não seja ultrapassado; g) Confrontar os preços e quantidades constantes da nota fiscal com os estabelecidos no contrato; h) Comunicar à CNAE, por escrito, de qualquer ocorrência em desconformidade por parte da Contratada, quanto às cláusulas contratuais.",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 45,
+      "documentoId": "DOC-0009",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    }
+  ],
+  "anexos": [],
+  "pendencias": [
+    {
+      "tipo": "resolucao_entidade_executora",
+      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
+      "origem": "snapshot institucional"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 92 (s/produto): unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0009"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 46 (s/produto): unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0009"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 799 (s/produto): unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0009"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 138 (s/produto): unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0009"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 69 (R$ 13): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0009"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 502 (s/produto): unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0009"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 945 (s/produto): unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0009"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 192 (s/produto): unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0009"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 40 (s/produto): unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0009"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 29 (s/produto): unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0009"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 18 (4. FONTE DE RECURSO 4.1. AS DESPESAS DECORRENTES DA CONTRATAÇÃO): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0009"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 19 (s/produto): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0009"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 20 (s/produto): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0009"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 21 (s/produto): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0009"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 22 (A) NO CASO DE EMPATE ENTRE GRUPOS FORMAIS E EMPREENDEDOR FAMILIAR RURAL): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0009"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 24 (11.4. OS GÊNEROS ALIMENTÍCIOS ADQUIRIDOS DEVERÃO ESTAR EM PERFEITAS CONDIÇÕES): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0009"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 25 (14.6. QUANTO AOS FORNECEDORES E/OU ENTREGADORES DOS PRODUTOS ALIMENTÍCIOS): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0009"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 26 (s/produto): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0009"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 30 (s/produto): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0009"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 36 (s/produto): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0009"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 37 (VALOR TOTAL DA CHAMADA PÚBLICA R$ ___________________ _____________________): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0009"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 39 (SEJA ATESTADA PELO RESPONSÁVEL TÉCNICO): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0009"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 40 (8.2. O PAGAMENTO SERÁ REALIZADO MEDIANTE PIX): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0009"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 41 (s/produto): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0009"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 42 (10.7. FISCALIZAR A QUALIDADE): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0009"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 43 (s/produto): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0009"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 44 (ENDEREÇADOS VIA CORREIO E OUTROS): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0009"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 45 (F) MANTER CONTROLE ATUALIZADO DOS PAGAMENTOS EFETUADOS): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0009"
+    }
+  ],
+  "metadadoExtracao": {
+    "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+    "documentosValidados": 1,
+    "itensDoManifesto": 1,
+    "itensExtraidosPdf": 52
+  }
+}

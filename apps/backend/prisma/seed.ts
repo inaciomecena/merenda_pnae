@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import * as bcrypt from 'bcryptjs';
+import { seedReferenceData } from './seed-reference';
 
 const prisma = new PrismaClient();
 
@@ -65,7 +66,7 @@ async function main() {
 
   // ─── MUNICÍPIOS ─────────────────────────────────────────────
   const municipios = [
-    { nome: 'Alto Paraguai', uf: 'MT', codigoIbge: '5100102' },
+    { nome: 'Alto Paraguai', uf: 'MT', codigoIbge: '5100508' },
     { nome: 'Cáceres', uf: 'MT', codigoIbge: '5102524' },
     { nome: 'Pontes e Lacerda', uf: 'MT', codigoIbge: '5106756' },
   ];
@@ -100,7 +101,7 @@ async function main() {
 
   // ─── ESCOLAS DEMONSTRATIVAS ────────────────────────────────
   // Escolas oficiais devem ser importadas pelo script `import:inep:mt`.
-  const altoParaguai = await prisma.municipio.findUnique({ where: { codigoIbge: '5100102' } });
+  const altoParaguai = await prisma.municipio.findUnique({ where: { codigoIbge: '5100508' } });
   const caceres = await prisma.municipio.findUnique({ where: { codigoIbge: '5102524' } });
   const pontes = await prisma.municipio.findUnique({ where: { codigoIbge: '5106756' } });
   if (process.env.SEED_DEMO_SCHOOLS === 'true') {
@@ -204,6 +205,16 @@ async function main() {
     }
   }
 
+  const referenceReport = await seedReferenceData(prisma);
+  console.log('Referências oficiais carregadas:', {
+    municipios: referenceReport.municipios,
+    produtos: referenceReport.produtos,
+    dres: referenceReport.dres,
+    escolasVinculadas: referenceReport.escolasVinculadas,
+    escolasJaVinculadas: referenceReport.escolasJaVinculadas,
+    escolasNaoEncontradas: referenceReport.escolasNaoEncontradas.length,
+    escolasAmbiguas: referenceReport.escolasAmbiguas.length,
+  });
   console.log('Seed concluído!');
   console.log('Credenciais de teste:');
   console.log('  Admin:         admin@seaf.gov.br / Admin@123');

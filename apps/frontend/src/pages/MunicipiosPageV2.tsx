@@ -3,7 +3,7 @@ import { CrudPage } from './CrudPage';
 export default function MunicipiosPageV2() {
   return (
     <CrudPage
-      title="Municipios"
+      title="Municípios"
       endpoint="/municipios"
       initialValues={{ nome: '', uf: 'MT', codigoIbge: '' }}
       fields={[

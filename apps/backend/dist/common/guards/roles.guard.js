@@ -28,6 +28,8 @@ let RolesGuard = class RolesGuard {
         const { user } = context.switchToHttp().getRequest();
         if (!user || !requiredRoles.includes(user.role))
             return false;
+        if (user.role === 'ADMIN')
+            return true;
         const now = new Date();
         const binding = await this.prisma.vinculoUsuario.findFirst({
             where: {

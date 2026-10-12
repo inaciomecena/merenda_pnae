@@ -1,0 +1,97 @@
+{
+  "schema": "importacao-historica-pnae/1.0",
+  "geradoEm": "2026-10-12T19:29:45.179Z",
+  "idPacote": "ED-0125",
+  "dre": "Matupá",
+  "chaveLogica": "de16fa4b58f07bf0816b92af6f260b0d",
+  "decisao": "BLOQUEADO",
+  "motivosBloqueio": [
+    "elegibilidade \"REFERENCIA_HISTORICA\" bloqueia importação automática."
+  ],
+  "identificacao": {
+    "numeroBruto": "001/2025",
+    "numeroNormalizado": "001/2025",
+    "anoNumeracao": 2025,
+    "exercicio": null,
+    "exercicioEvidencia": [],
+    "processoAdministrativo": null,
+    "dreNome": "Matupá",
+    "camaraNegocios": "Matupá",
+    "municipioAtendido": "Matupá",
+    "recorte": "NAO_IDENTIFICADO",
+    "dataPublicacao": null,
+    "dataSessao": null,
+    "objeto": "Aquisição de gêneros alimentícios para alimentação escolar da agricultura familiar",
+    "fundamentacaoLegal": null,
+    "prazos": null,
+    "habilitacao": null,
+    "criteriosSelecao": null,
+    "condicoesEntrega": null,
+    "condicoesPagamento": null,
+    "valorEstimado": null,
+    "observacoes": [
+      "identificação preenchida a partir do manifesto (extração de PDF não realizada ou indisponível)"
+    ]
+  },
+  "documentos": [
+    {
+      "idDocumento": "DOC-0135",
+      "papel": "EXTRATO",
+      "sha256": "0e6ca13db611dbd459784de98c39e48d69ffe4912afd45aa49a37840bbb1049b",
+      "caminho": "PNAE_MT_2025/07_MATUPA/DOC-0135_885190.pdf",
+      "paginas": 1,
+      "urls": [
+        "https://www.iomat.mt.gov.br/legislacao/diario_oficial/download/885190",
+        "https://www.iomat.mt.gov.br/legislacao/diario_oficial/download/885190",
+        "https://www.iomat.mt.gov.br/legislacao/diario_oficial/detalhes/885190"
+      ],
+      "chaveVersao": "304f7932d79dd788d7672c405245949b"
+    }
+  ],
+  "vinculosInstitucionais": {
+    "dre": {
+      "nomePacote": "Matupá",
+      "dreId": "b73e5918-c5e2-11f1-8f2d-6451061ac5e7",
+      "codigo": "MTP",
+      "status": "CONFIRMADO",
+      "detalhe": "DRE \"DRE Matupá\" (MTP)"
+    },
+    "municipio": {
+      "nomePacote": "Matupá",
+      "municipioId": "8811bbe9-bb0a-43aa-8bcc-732cd59b6de5",
+      "codigoIbge": "5105606",
+      "status": "CONFIRMADO",
+      "detalhe": "\"Matupá\" (IBGE 5105606)"
+    },
+    "escolas": [],
+    "unidadesExecutoras": [
+      {
+        "nome": "Matupá",
+        "cnpj": null,
+        "entidadeExecutoraId": null,
+        "status": "PENDENTE",
+        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+      }
+    ]
+  },
+  "itens": [],
+  "anexos": [],
+  "pendencias": [
+    {
+      "tipo": "REFERENCIA_HISTORICA",
+      "descricao": "Extrato de contrato publicado em 2025. Comprova referência ao procedimento, mas não substitui edital nem prova sozinho o exercício de atendimento.",
+      "origem": "manifesto:Matupá"
+    },
+    {
+      "tipo": "resolucao_entidade_executora",
+      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
+      "origem": "snapshot institucional"
+    }
+  ],
+  "metadadoExtracao": {
+    "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+    "documentosValidados": 1,
+    "itensDoManifesto": 0,
+    "itensExtraidosPdf": 0
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "schema": "importacao-historica-pnae/1.0",
+  "geradoEm": "2026-10-12T19:29:45.176Z",
+  "idPacote": "ED-0122",
+  "dre": "Confresa",
+  "chaveLogica": "0c11c883d8f007471c9eeddb39dcdfae",
+  "decisao": "BLOQUEADO",
+  "motivosBloqueio": [
+    "elegibilidade \"REFERENCIA_HISTORICA\" bloqueia importação automática."
+  ],
+  "identificacao": {
+    "numeroBruto": "018/2024",
+    "numeroNormalizado": "018/2024",
+    "anoNumeracao": 2024,
+    "exercicio": null,
+    "exercicioEvidencia": [],
+    "processoAdministrativo": null,
+    "dreNome": "Confresa",
+    "camaraNegocios": "Confresa",
+    "municipioAtendido": "Canabrava do Norte",
+    "recorte": "NAO_IDENTIFICADO",
+    "dataPublicacao": null,
+    "dataSessao": null,
+    "objeto": "Aquisição de gêneros alimentícios para alimentação escolar da agricultura familiar",
+    "fundamentacaoLegal": null,
+    "prazos": null,
+    "habilitacao": null,
+    "criteriosSelecao": null,
+    "condicoesEntrega": null,
+    "condicoesPagamento": null,
+    "valorEstimado": null,
+    "observacoes": [
+      "identificação preenchida a partir do manifesto (extração de PDF não realizada ou indisponível)"
+    ]
+  },
+  "documentos": [
+    {
+      "idDocumento": "DOC-0132",
+      "papel": "EXTRATO",
+      "sha256": "4303ee72424a39be5db7b0283d037f02265695638b539b8a89e458922d7b2c05",
+      "caminho": "PNAE_MT_2025/04_CONFRESA/DOC-0132_873816.pdf",
+      "paginas": 1,
+      "urls": [
+        "https://www.iomat.mt.gov.br/legislacao/diario_oficial/download/873816",
+        "https://www.iomat.mt.gov.br/legislacao/diario_oficial/download/873816",
+        "https://www.iomat.mt.gov.br/legislacao/diario_oficial/detalhes/873816"
+      ],
+      "chaveVersao": "15d7d75897f1c4abcb0eb7bc126d6651"
+    }
+  ],
+  "vinculosInstitucionais": {
+    "dre": {
+      "nomePacote": "Confresa",
+      "dreId": "b73a3b01-c5e2-11f1-8f2d-6451061ac5e7",
+      "codigo": "CFS",
+      "status": "CONFIRMADO",
+      "detalhe": "DRE \"DRE Confresa\" (CFS)"
+    },
+    "municipio": {
+      "nomePacote": "Canabrava do Norte",
+      "municipioId": "377c186d-7d18-4b81-a6ab-9892e7aa7d10",
+      "codigoIbge": "5102694",
+      "status": "CONFIRMADO",
+      "detalhe": "\"Canabrava do Norte\" (IBGE 5102694)"
+    },
+    "escolas": [],
+    "unidadesExecutoras": [
+      {
+        "nome": "Confresa",
+        "cnpj": null,
+        "entidadeExecutoraId": null,
+        "status": "PENDENTE",
+        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+      }
+    ]
+  },
+  "itens": [],
+  "anexos": [],
+  "pendencias": [
+    {
+      "tipo": "REFERENCIA_HISTORICA",
+      "descricao": "Extrato de contrato publicado em 2025. Comprova referência ao procedimento, mas não substitui edital nem prova sozinho o exercício de atendimento.",
+      "origem": "manifesto:Confresa"
+    },
+    {
+      "tipo": "resolucao_entidade_executora",
+      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
+      "origem": "snapshot institucional"
+    }
+  ],
+  "metadadoExtracao": {
+    "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+    "documentosValidados": 1,
+    "itensDoManifesto": 0,
+    "itensExtraidosPdf": 0
+  }
+}

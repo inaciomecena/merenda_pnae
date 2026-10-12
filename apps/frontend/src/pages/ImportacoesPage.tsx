@@ -6,6 +6,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import api from '../services/api';
 import { useAuth } from '../contexts/AuthContext';
 import type { ApiResponse, Importacao, PaginationResponse } from '../types';
+import { humanizeSystemValue } from '../lib/display-text';
 
 function formatDate(value?: string | null) {
   if (!value) return '-';
@@ -282,7 +283,7 @@ export default function ImportacoesPage() {
                         </Typography>
                       </TableCell>
                       <TableCell>
-                        <Chip size="small" color={statusColor(item.status)} label={item.status} />
+                        <Chip size="small" color={statusColor(item.status)} label={humanizeSystemValue(item.status)} />
                       </TableCell>
                       <TableCell>{item.quantidadeItens || item.edital?.itens?.length || 0}</TableCell>
                       <TableCell>

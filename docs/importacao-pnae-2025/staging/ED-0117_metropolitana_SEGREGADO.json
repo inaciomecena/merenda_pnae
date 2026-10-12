@@ -1,0 +1,92 @@
+{
+  "schema": "importacao-historica-pnae/1.0",
+  "geradoEm": "2026-10-12T19:29:43.794Z",
+  "idPacote": "ED-0117",
+  "dre": "Metropolitana",
+  "chaveLogica": "7f2a60d5643d28a1932292b695c4914a",
+  "decisao": "SEGREGADO",
+  "motivosBloqueio": [
+    "PREGAO_2025: pregão não é chamada pública da agricultura familiar; segregado da importação."
+  ],
+  "identificacao": {
+    "numeroBruto": "014/2024",
+    "numeroNormalizado": "014/2024",
+    "anoNumeracao": 2024,
+    "exercicio": 2025,
+    "exercicioEvidencia": [],
+    "processoAdministrativo": null,
+    "dreNome": "Metropolitana",
+    "camaraNegocios": "Metropolitana",
+    "municipioAtendido": "Barão de Melgaço",
+    "recorte": "NAO_IDENTIFICADO",
+    "dataPublicacao": null,
+    "dataSessao": null,
+    "objeto": "Aquisição de gêneros alimentícios para alimentação escolar",
+    "fundamentacaoLegal": null,
+    "prazos": null,
+    "habilitacao": null,
+    "criteriosSelecao": null,
+    "condicoesEntrega": null,
+    "condicoesPagamento": null,
+    "valorEstimado": null,
+    "observacoes": [
+      "identificação preenchida a partir do manifesto (extração de PDF não realizada ou indisponível)"
+    ]
+  },
+  "documentos": [
+    {
+      "idDocumento": "DOC-0127",
+      "papel": "EDITAL_PRINCIPAL",
+      "sha256": "f7c9c31ca5c278bf0db9adc3b958af9f0d8a5bb7ca253e468e06207f80f69c18",
+      "caminho": "PNAE_MT_2025/08_METROPOLITANA/DOC-0127_2004f4_0c038f727d3b419d8213275738c38c2c.pdf",
+      "paginas": 170,
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_0c038f727d3b419d8213275738c38c2c.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_0c038f727d3b419d8213275738c38c2c.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "chaveVersao": "7e89e1eaf9fe1a6976f4e4965e0188ac"
+    }
+  ],
+  "vinculosInstitucionais": {
+    "dre": {
+      "nomePacote": "Metropolitana",
+      "dreId": "b73fc8eb-c5e2-11f1-8f2d-6451061ac5e7",
+      "codigo": "CBA",
+      "status": "CONFIRMADO",
+      "detalhe": "DRE \"DRE Metropolitana\" (CBA)"
+    },
+    "municipio": {
+      "nomePacote": "Barão de Melgaço",
+      "municipioId": "0f8bbcec-a90f-4f9b-9768-426e4724a159",
+      "codigoIbge": "5101605",
+      "status": "CONFIRMADO",
+      "detalhe": "\"Barão de Melgaço\" (IBGE 5101605)"
+    },
+    "escolas": [],
+    "unidadesExecutoras": [
+      {
+        "nome": "Metropolitana",
+        "cnpj": null,
+        "entidadeExecutoraId": null,
+        "status": "PENDENTE",
+        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+      }
+    ]
+  },
+  "itens": [],
+  "anexos": [],
+  "pendencias": [
+    {
+      "tipo": "resolucao_entidade_executora",
+      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
+      "origem": "snapshot institucional"
+    }
+  ],
+  "metadadoExtracao": {
+    "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+    "documentosValidados": 1,
+    "itensDoManifesto": 0,
+    "itensExtraidosPdf": 0
+  }
+}

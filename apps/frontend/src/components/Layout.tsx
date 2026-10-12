@@ -1,126 +1,69 @@
-﻿import { Alert, Box, Breadcrumbs, Container, CssBaseline, Drawer, List, ListItemButton, ListItemIcon, ListItemText, Typography, Divider, Stack, Chip, IconButton, MenuItem, Select, useMediaQuery, useTheme } from '@mui/material';
-import type { ReactNode } from 'react';
+import {
+  Alert, Box, Breadcrumbs, Chip, Container, CssBaseline, Divider, Drawer,
+  IconButton, MenuItem, Select, Stack, Typography, useMediaQuery, useTheme,
+} from '@mui/material';
+import { Menu } from '@mui/icons-material';
 import { useState } from 'react';
-import { Home, School, Map, Description, Inventory2, People, Gavel, Assignment, Group, UploadFile, History, Settings, Science, Assessment, Article, Map as MapIcon, Menu } from '@mui/icons-material';
-import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import type { UserRole } from '../types';
+import { getAuthorizedMenuItems, keepMenuPath } from '../config/menu.config';
+import { HierarchicalMenu } from './HierarchicalMenu';
+import { useScreenTracker } from '../hooks/useScreenTracker';
+import { humanizeSystemValue } from '../lib/display-text';
 
-const drawerWidth = 240;
-
-const routes: { label: string; path: string; icon: ReactNode; roles: UserRole[] }[] = [
-  { label: 'Dashboard', path: '/dashboard', icon: <Home />, roles: ['ADMIN', 'DRE', 'ESCOLA', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR'] },
-  { label: 'Mapa MT', path: '/mapa', icon: <MapIcon />, roles: ['ADMIN'] },
-  { label: 'Relatorios', path: '/relatorios', icon: <Assessment />, roles: ['ADMIN'] },
-  { label: 'Municipios', path: '/municipios', icon: <Map />, roles: ['ADMIN'] },
-  { label: 'Escolas', path: '/escolas', icon: <School />, roles: ['ADMIN', 'DRE', 'ESCOLA'] },
-  { label: 'Editais', path: '/editais', icon: <Description />, roles: ['ADMIN', 'DRE', 'ESCOLA'] },
-  { label: 'Templates de Anexos', path: '/templates-anexos', icon: <Article />, roles: ['ADMIN'] },
-  { label: 'Produtos de referencia', path: '/produtos-referencia', icon: <Inventory2 />, roles: ['ADMIN'] },
-  { label: 'Produtores', path: '/produtores', icon: <People />, roles: ['ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR'] },
-  { label: 'Balizamento', path: '/balizamento', icon: <Gavel />, roles: ['ADMIN'] },
-  { label: 'Propostas', path: '/propostas', icon: <Assignment />, roles: ['ADMIN', 'EXTENSIONISTA', 'REPRESENTANTE', 'PRODUTOR'] },
-  { label: 'Importacoes', path: '/importacoes', icon: <UploadFile />, roles: ['ADMIN'] },
-  { label: 'Organização', path: '/organizacao', icon: <School />, roles: ['ADMIN'] },
-  { label: 'Vínculos', path: '/vinculos', icon: <Group />, roles: ['ADMIN'] },
-  { label: 'Usuarios', path: '/usuarios', icon: <Group />, roles: ['ADMIN'] },
-  { label: 'Auditoria', path: '/auditoria', icon: <History />, roles: ['ADMIN'] },
-  { label: 'Configuracoes', path: '/configuracoes', icon: <Settings />, roles: ['ADMIN'] },
-  { label: 'Homologacao', path: '/homologacao', icon: <Science />, roles: ['ADMIN'] },
-];
+const drawerWidth = 292;
 
 export default function Layout() {
   const theme = useTheme();
-  const compacto = useMediaQuery(theme.breakpoints.down('md'));
-  const [menuAberto, setMenuAberto] = useState(false);
-  const location = useLocation();
+  const compact = useMediaQuery(theme.breakpoints.down('md'));
+  const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
   const { user, context, selectedVinculo, selectVinculo, logout } = useAuth();
-  const visibleRoutes = routes.filter((item) => user && item.roles.includes(user.role) && (!context?.pendencias.length || item.path === '/dashboard'));
+  const { screenCode, screenLabel } = useScreenTracker();
 
-  const breadcrumbs = location.pathname
-    .split('/')
-    .filter(Boolean)
-    .map((segment) => segment.replace(/-/g, ' '));
+  const authorizedItems = getAuthorizedMenuItems(user?.role);
+  const visibleItems = context?.pendencias.length
+    ? keepMenuPath(authorizedItems, '/dashboard')
+    : authorizedItems;
 
   return (
     <Box sx={{ display: 'flex', minHeight: '100vh', bgcolor: '#f5f8fc' }}>
       <CssBaseline />
-
       <Drawer
-        variant={compacto ? 'temporary' : 'permanent'}
-        open={!compacto || menuAberto}
-        onClose={() => setMenuAberto(false)}
+        variant={compact ? 'temporary' : 'permanent'}
+        open={compact ? menuOpen : true}
+        onClose={() => setMenuOpen(false)}
+        ModalProps={{ keepMounted: true }}
         sx={{
-          width: compacto ? 0 : drawerWidth,
+          width: compact ? 0 : drawerWidth,
           flexShrink: 0,
           '& .MuiDrawer-paper': {
             width: drawerWidth,
             boxSizing: 'border-box',
-            bgcolor: 'white',
-            borderRight: '1px solid #e8e8e8',
-            overflow: 'auto',
+            bgcolor: '#fff',
+            borderRight: '1px solid #e4e7ec',
           },
         }}
       >
-        <Box sx={{ p: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', borderBottom: '1px solid #f0f0f0' }}>
-          <Box component="img" src="/logo.png" alt="SEAF" sx={{ height: 50, width: 'auto', objectFit: 'contain' }} />
-        </Box>
-
-        <Box sx={{ flex: 1, pt: 1 }}>
-          <List sx={{ px: 1 }}>
-            {visibleRoutes.map((item) => {
-              const isActive = location.pathname === item.path;
-              return (
-                <ListItemButton
-                  key={item.path}
-                  component={Link}
-                  to={item.path}
-                  onClick={() => setMenuAberto(false)}
-                  selected={isActive}
-                  sx={{
-                    borderRadius: 1,
-                    mb: 0.25,
-                    minHeight: 38,
-                    px: 1.5,
-                    '&.Mui-selected': {
-                      bgcolor: '#e8eaf6',
-                      '&:hover': { bgcolor: '#c5cae9' },
-                      '& .MuiListItemIcon-root': { color: '#01287C' },
-                      '& .MuiListItemText-primary': { color: '#01287C', fontWeight: 600 },
-                    },
-                    '&:hover': { bgcolor: '#f5f5f5' },
-                  }}
-                >
-                  <ListItemIcon sx={{ minWidth: 32, color: isActive ? '#01287C' : '#666' }}>
-                    {item.icon}
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={item.label}
-                    primaryTypographyProps={{ fontSize: 13, fontWeight: isActive ? 600 : 400, color: isActive ? '#01287C' : '#333' }}
-                  />
-                </ListItemButton>
-              );
-            })}
-          </List>
-        </Box>
-
-        <Divider sx={{ mx: 2 }} />
-        <Box sx={{ p: 2 }}>
-          <Typography variant="caption" sx={{ color: '#999', fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5 }}>
-            Fluxos por perfil
+        <Box sx={{ px: 2, py: 1.5, borderBottom: '1px solid #e4e7ec' }}>
+          <Box component="img" src="/logo.png" alt="SEAF PNAE" sx={{ display: 'block', height: 48, maxWidth: '100%', mx: 'auto', objectFit: 'contain' }} />
+          <Typography align="center" variant="caption" color="text.secondary" sx={{ display: 'block', mt: 0.75 }}>
+            Gestão da Alimentação Escolar
           </Typography>
-          <Stack spacing={0.3} sx={{ mt: 0.5 }}>
-            <Typography variant="caption" sx={{ color: '#666', fontSize: 11 }}>
-              <Box component="span" sx={{ fontWeight: 600 }}>Admin:</Box> acesso total
-            </Typography>
-            <Typography variant="caption" sx={{ color: '#666', fontSize: 11 }}>
-              <Box component="span" sx={{ fontWeight: 600 }}>Escola:</Box> editais e conferencia
-            </Typography>
-            <Typography variant="caption" sx={{ color: '#666', fontSize: 11 }}>
-              <Box component="span" sx={{ fontWeight: 600 }}>Extensionista:</Box> balizamento e propostas
-            </Typography>
-          </Stack>
+        </Box>
+
+        <Box component="nav" aria-label="Menu principal" sx={{ flexGrow: 1, overflowY: 'auto', py: 1 }}>
+          <HierarchicalMenu items={visibleItems} onItemClick={() => setMenuOpen(false)} />
+        </Box>
+
+        <Box sx={{ px: 2, py: 1.5, borderTop: '1px solid #e4e7ec', bgcolor: '#fafafa' }}>
+          <Typography variant="overline" color="text.secondary" sx={{ lineHeight: 1.4 }}>
+            Perfil atual
+          </Typography>
+          <Typography variant="body2" fontWeight={600}>{humanizeSystemValue(user?.role || 'VISITANTE')}</Typography>
+          <Typography variant="caption" color="text.secondary">
+            As opções exibidas respeitam suas permissões e seu vínculo institucional.
+          </Typography>
         </Box>
       </Drawer>
 
@@ -128,44 +71,39 @@ export default function Layout() {
         <Box
           component="header"
           sx={{
-            height: 56,
-            minHeight: 56,
-            bgcolor: 'white',
-            borderBottom: '1px solid #e8e8e8',
+            minHeight: 64,
+            bgcolor: '#fff',
+            borderBottom: '1px solid #e4e7ec',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'flex-end',
-            px: 3,
+            px: { xs: 2, md: 3 },
           }}
         >
-          {compacto ? <IconButton aria-label="Abrir menu" onClick={() => setMenuAberto(true)} sx={{ mr: 'auto' }}><Menu /></IconButton> : null}
-          <Stack direction="row" spacing={1.5} alignItems="center">
-            {context && context.vinculos.filter(v => v.funcao === user?.role).length > 1 && <Select size="small" displayEmpty value={selectedVinculo} onChange={e => { selectVinculo(e.target.value); window.location.reload(); }}>
-              <MenuItem value="">Todos os vínculos</MenuItem>
-              {context.vinculos.filter(v => v.funcao === user?.role).map(v => <MenuItem key={v.id} value={v.id}>{v.dre?.nome || v.escola?.nome || v.produtor?.nome || v.funcao}</MenuItem>)}
-            </Select>}
-            <Chip
-              label={user?.role || 'VISITANTE'}
-              size="small"
-              sx={{
-                bgcolor: '#e8eaf6',
-                color: '#01287C',
-                fontWeight: 600,
-                fontSize: 11,
-                height: 24,
-              }}
-            />
-            <Typography variant="body2" sx={{ color: '#333', fontWeight: 500, fontSize: 13 }}>
-              {user?.name || 'Usuario'}
-            </Typography>
-            <Typography variant="body2" sx={{ color: '#999', fontSize: 12 }}>
-              ▾
-            </Typography>
-            <Box sx={{ width: 1, height: 20, bgcolor: '#e0e0e0' }} />
+          {compact ? <IconButton aria-label="Abrir menu" onClick={() => setMenuOpen(true)} sx={{ mr: 'auto' }}><Menu /></IconButton> : null}
+          <Stack direction="row" spacing={1.25} alignItems="center">
+            {context && context.vinculos.filter(v => v.funcao === user?.role).length > 1 ? (
+              <Select
+                size="small"
+                displayEmpty
+                value={selectedVinculo}
+                onChange={event => { selectVinculo(event.target.value); window.location.reload(); }}
+                aria-label="Vínculo institucional ativo"
+              >
+                <MenuItem value="">Todos os vínculos</MenuItem>
+                {context.vinculos.filter(v => v.funcao === user?.role).map(v => (
+                  <MenuItem key={v.id} value={v.id}>{v.dre?.nome || v.escola?.nome || v.produtor?.nome || v.funcao}</MenuItem>
+                ))}
+              </Select>
+            ) : null}
+            <Chip label={humanizeSystemValue(user?.role || 'VISITANTE')} size="small" sx={{ bgcolor: '#e8eaf6', color: '#01287c', fontWeight: 700 }} />
+            <Typography variant="body2" fontWeight={500}>{user?.name || 'Usuário'}</Typography>
+            <Divider orientation="vertical" flexItem />
             <Typography
-              variant="body2"
+              component="button"
+              type="button"
               onClick={() => { logout(); navigate('/login'); }}
-              sx={{ color: '#666', cursor: 'pointer', fontSize: 13, '&:hover': { color: '#d32f2f' } }}
+              sx={{ border: 0, bgcolor: 'transparent', color: 'text.secondary', cursor: 'pointer', fontSize: 13, '&:hover': { color: 'error.main' } }}
             >
               Sair
             </Typography>
@@ -173,21 +111,27 @@ export default function Layout() {
         </Box>
 
         <Box component="main" sx={{ flexGrow: 1, p: { xs: 2, md: 3 }, overflow: 'auto' }}>
-          <Container maxWidth={false} sx={{ px: 0, width: '100%' }}>
-            {context?.pendencias.length ? <Alert severity="warning" sx={{ mb: 2 }}>{context.pendencias.join('. ')}. Solicite ao administrador a regularização.</Alert> : null}
-            <Breadcrumbs aria-label="breadcrumb" sx={{ mb: 2 }}>
-              <Link
-                to="/dashboard"
-                style={{ textDecoration: 'none', color: '#01287C', fontSize: 13, fontWeight: 500 }}
-              >
-                Inicio
-              </Link>
-              {breadcrumbs.map((item, index) => (
-                <Typography key={index} color="text.primary" textTransform="capitalize" sx={{ fontSize: 13 }}>
-                  {item}
-                </Typography>
-              ))}
-            </Breadcrumbs>
+          <Container maxWidth={false} sx={{ px: '0 !important', width: '100%' }}>
+            {context?.pendencias.length ? (
+              <Alert severity="warning" sx={{ mb: 2 }}>
+                {context.pendencias.join('. ')}. Solicite ao administrador a regularização.
+              </Alert>
+            ) : null}
+
+            <Stack direction={{ xs: 'column', sm: 'row' }} alignItems={{ sm: 'center' }} justifyContent="space-between" spacing={1} sx={{ mb: 2 }}>
+              <Breadcrumbs aria-label="Navegação estrutural">
+                <Link to="/dashboard" style={{ textDecoration: 'none', color: '#01287c', fontSize: 13, fontWeight: 500 }}>
+                  Início
+                </Link>
+                <Typography color="text.primary" sx={{ fontSize: 13 }}>{screenLabel}</Typography>
+              </Breadcrumbs>
+              <Chip
+                label={screenCode}
+                size="small"
+                variant="outlined"
+                sx={{ alignSelf: { xs: 'flex-start', sm: 'center' }, fontFamily: 'monospace', fontSize: 11, color: '#344054' }}
+              />
+            </Stack>
             <Outlet />
           </Container>
         </Box>
@@ -195,4 +139,3 @@ export default function Layout() {
     </Box>
   );
 }
-

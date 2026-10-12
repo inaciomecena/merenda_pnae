@@ -20,6 +20,9 @@ export declare class CreateRepresentacaoDto {
 export declare class RevokeRepresentacaoDto {
     motivo: string;
 }
+export declare class BootstrapVinculoDto {
+    token: string;
+}
 export declare class UpdateRepresentacaoDto {
     permissoes?: string;
     vigenciaFim?: string;

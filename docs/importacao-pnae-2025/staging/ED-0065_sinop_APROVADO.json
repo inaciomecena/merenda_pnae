@@ -1,0 +1,1264 @@
+{
+  "schema": "importacao-historica-pnae/1.0",
+  "geradoEm": "2026-10-12T19:29:31.832Z",
+  "idPacote": "ED-0065",
+  "dre": "Sinop",
+  "chaveLogica": "dcf5f661f78e6ca1cc6c8a7dfac14c96",
+  "decisao": "APROVADO",
+  "motivosBloqueio": [],
+  "identificacao": {
+    "numeroBruto": "23/2024",
+    "numeroNormalizado": "23/2024",
+    "anoNumeracao": 2024,
+    "exercicio": 2025,
+    "exercicioEvidencia": [
+      {
+        "pagina": 2,
+        "trecho": "ano letivo de 2025"
+      },
+      {
+        "pagina": 36,
+        "trecho": "ano letivo de 2025"
+      }
+    ],
+    "processoAdministrativo": null,
+    "dreNome": "Sinop",
+    "camaraNegocios": "SINOP",
+    "municipioAtendido": "ITAÚBA",
+    "recorte": "NAO_IDENTIFICADO",
+    "dataPublicacao": null,
+    "dataSessao": "29 de janeiro de 2025",
+    "objeto": "Aquisição de gêneros alimentícios",
+    "fundamentacaoLegal": "IN nº 011/2024/GS/SEDUC/MT",
+    "prazos": null,
+    "habilitacao": null,
+    "criteriosSelecao": null,
+    "condicoesEntrega": null,
+    "condicoesPagamento": null,
+    "valorEstimado": null,
+    "observacoes": [
+      "número lido no PDF (\"23/2024\", página 1) difere do manifesto (\"023/2024\"); grafia original preservada"
+    ]
+  },
+  "documentos": [
+    {
+      "idDocumento": "DOC-0073",
+      "papel": "EDITAL_PRINCIPAL",
+      "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+      "caminho": "PNAE_MT_2025/12_SINOP/DOC-0073_61522d8f-5478-4cdb-b7cf-0d7a17c56a27.pdf",
+      "paginas": 45,
+      "urls": [
+        "https://dresinop.com.br/arquivos/61522d8f-5478-4cdb-b7cf-0d7a17c56a27",
+        "https://dresinop.com.br/arquivos/61522d8f-5478-4cdb-b7cf-0d7a17c56a27",
+        "https://dresinop.com.br/editais/993c9e6b-8ed8-4697-81b6-2fbf4cfedf2d"
+      ],
+      "chaveVersao": "5fa31ba8cfcf7d3de04fd82e70dc63e7"
+    }
+  ],
+  "vinculosInstitucionais": {
+    "dre": {
+      "nomePacote": "Sinop",
+      "dreId": "b7441646-c5e2-11f1-8f2d-6451061ac5e7",
+      "codigo": "SNP",
+      "status": "CONFIRMADO",
+      "detalhe": "DRE \"DRE Sinop\" (SNP)"
+    },
+    "municipio": {
+      "nomePacote": "Itaúba",
+      "municipioId": "94a1ce10-c833-4ebc-982a-dd7cc518c860",
+      "codigoIbge": "5104559",
+      "status": "CONFIRMADO",
+      "detalhe": "\"Itaúba\" (IBGE 5104559)"
+    },
+    "escolas": [],
+    "unidadesExecutoras": [
+      {
+        "nome": "Sinop",
+        "cnpj": null,
+        "entidadeExecutoraId": null,
+        "status": "PENDENTE",
+        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+      }
+    ]
+  },
+  "itens": [
+    {
+      "sequencia": 238,
+      "produto": "R$ 10",
+      "descricaoCompleta": "238 R$ 10,91 R$ 2.596,58",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 2,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 50,
+      "produto": null,
+      "descricaoCompleta": null,
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "50",
+        "normalizado": "50.00",
+        "pagina": 3,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "5,83",
+        "normalizado": "5.83",
+        "pagina": 3,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "291,50",
+        "normalizado": "291.50",
+        "pagina": 3,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "291.50",
+      "divergencia": "0.00",
+      "pagina": 3,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 81,
+      "produto": null,
+      "descricaoCompleta": null,
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "81",
+        "normalizado": "81.00",
+        "pagina": 3,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "8,16",
+        "normalizado": "8.16",
+        "pagina": 3,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "661,23",
+        "normalizado": "661.23",
+        "pagina": 3,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "660.96",
+      "divergencia": "0.27",
+      "pagina": 3,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada | produto não identificado | total informado na fonte difere de quantidade × preço unitário em 0.27"
+    },
+    {
+      "sequencia": 60,
+      "produto": "R$ 23",
+      "descricaoCompleta": "60 R$ 23,97 R$ 1.438,20",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 4,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 89,
+      "produto": null,
+      "descricaoCompleta": null,
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "89",
+        "normalizado": "89.00",
+        "pagina": 5,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "6,99",
+        "normalizado": "6.99",
+        "pagina": 5,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "622,11",
+        "normalizado": "622.11",
+        "pagina": 5,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "622.11",
+      "divergencia": "0.00",
+      "pagina": 5,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 197,
+      "produto": "R$ 8",
+      "descricaoCompleta": "197 R$ 8,12 R$ 1.599,64",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 6,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 60,
+      "produto": null,
+      "descricaoCompleta": null,
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "60",
+        "normalizado": "60.00",
+        "pagina": 7,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "6,62",
+        "normalizado": "6.62",
+        "pagina": 7,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "396,90",
+        "normalizado": "396.90",
+        "pagina": 7,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "397.20",
+      "divergencia": "-0.30",
+      "pagina": 7,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada | produto não identificado | total informado na fonte difere de quantidade × preço unitário em 0.30"
+    },
+    {
+      "sequencia": 268,
+      "produto": "R$ 7",
+      "descricaoCompleta": "268 R$ 7,44 R$ 1.993,92",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 7,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 12,
+      "produto": null,
+      "descricaoCompleta": null,
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "12",
+        "normalizado": "12.00",
+        "pagina": 8,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "30,99",
+        "normalizado": "30.99",
+        "pagina": 8,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "371,88",
+        "normalizado": "371.88",
+        "pagina": 8,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "371.88",
+      "divergencia": "0.00",
+      "pagina": 8,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 192,
+      "produto": "R$ 8",
+      "descricaoCompleta": "192 R$ 8,79 R$ 1.687,68",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 8,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 173,
+      "produto": "R$ 12",
+      "descricaoCompleta": "173 R$ 12,99 R$ 2.247,27",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 9,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 71,
+      "produto": null,
+      "descricaoCompleta": null,
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "71",
+        "normalizado": "71.00",
+        "pagina": 10,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "12,99",
+        "normalizado": "12.99",
+        "pagina": 10,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "922,29",
+        "normalizado": "922.29",
+        "pagina": 10,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "922.29",
+      "divergencia": "0.00",
+      "pagina": 10,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 68,
+      "produto": null,
+      "descricaoCompleta": null,
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "68",
+        "normalizado": "68.00",
+        "pagina": 11,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "8,75",
+        "normalizado": "8.75",
+        "pagina": 11,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "594,77",
+        "normalizado": "594.77",
+        "pagina": 11,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "595.00",
+      "divergencia": "-0.23",
+      "pagina": 11,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada | produto não identificado | total informado na fonte difere de quantidade × preço unitário em 0.23"
+    },
+    {
+      "sequencia": 208,
+      "produto": "R$ 9",
+      "descricaoCompleta": "208 R$ 9,16 R$ 1.905,97",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 11,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 238,
+      "produto": "R$ 9",
+      "descricaoCompleta": "238 R$ 9,37 R$ 2.228,87",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 12,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 83,
+      "produto": "R$ 61",
+      "descricaoCompleta": "83 R$ 61,55 R$ 5.108,65",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 13,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 71,
+      "produto": null,
+      "descricaoCompleta": null,
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "71",
+        "normalizado": "71.00",
+        "pagina": 14,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "7,81",
+        "normalizado": "7.81",
+        "pagina": 14,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "554,51",
+        "normalizado": "554.51",
+        "pagina": 14,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "554.51",
+      "divergencia": "0.00",
+      "pagina": 14,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 24,
+      "produto": null,
+      "descricaoCompleta": null,
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "24",
+        "normalizado": "24.00",
+        "pagina": 14,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "22,90",
+        "normalizado": "22.90",
+        "pagina": 14,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "549,48",
+        "normalizado": "549.48",
+        "pagina": 14,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "549.60",
+      "divergencia": "-0.12",
+      "pagina": 14,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada | produto não identificado | total informado na fonte difere de quantidade × preço unitário em 0.12"
+    },
+    {
+      "sequencia": 18,
+      "produto": null,
+      "descricaoCompleta": null,
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": {
+        "bruto": "18",
+        "normalizado": "18.00",
+        "pagina": 15,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "precoUnitario": {
+        "bruto": "15,99",
+        "normalizado": "15.99",
+        "pagina": 15,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalFonte": {
+        "bruto": "287,82",
+        "normalizado": "287.82",
+        "pagina": 15,
+        "documentoId": "DOC-0073",
+        "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+        "metodo": "pdf_texto_regex",
+        "statusRevisao": "extraido"
+      },
+      "totalCalculado": "287.82",
+      "divergencia": "0.00",
+      "pagina": 15,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 217,
+      "produto": "R$ 53",
+      "descricaoCompleta": "217 R$ 53,95 R$ 11.707,15",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 15,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 238,
+      "produto": "R$ 5",
+      "descricaoCompleta": "238 R$ 5,49 R$ 1.306,62",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 16,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 92,
+      "produto": "R$ 34",
+      "descricaoCompleta": "92 R$ 34,50 R$ 3.173,54",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 17,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 71,
+      "produto": "R$ 21",
+      "descricaoCompleta": "71 R$ 21,49 R$ 1.525,79 2. FUNDAMENTAÇÃO LEGAL 2.1. O presente Edital da Chamada Pública de nº 023/2024, rege-se pela Lei nº 11.947/2009, Resolução/FNDE nº 06 de maio de 2020, e demais dispositivos legais, nos casos de omissão.",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 18,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 19,
+      "produto": "4.1. AS DESPESAS DECORRENTES DA CONTRATAÇÃO",
+      "descricaoCompleta": "19 4.1. As despesas decorrentes da contratação, objeto deste edital, correrão à conta dos recursos específicos consignados no orçamento do Programa Nacional de Alimentação Escolar, a serem repassados às Entidades Executoras pelo Programa de Escolarização dos Recursos Financeiros da Alimentação Escolar/FNDE/CDCE’s e correrão na seguinte dotação orçamentária: 4.2. DOTAÇÃO ORÇAMENTÁRIA",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 19,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 20,
+      "produto": null,
+      "descricaoCompleta": "20 6.2. ENVELOPE Nº 01 - HABILITAÇÃO DO FORNECEDOR INDIVIDUAL OU EMPREENDEDOR FAMILIAR RURAL (não organizado em grupo): 6.3. O Fornecedor Individual deverá apresentar no Envelope nº 01 os documentos abaixo relacionados, sob pena de inabilitação: I – A prova de inscrição no Cadastro de Pessoa Física – CPF;",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 20,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 21,
+      "produto": null,
+      "descricaoCompleta": "21 IV – As cópias do estatuto e ata de posse da atual diretoria da entidade registrada no órgão competente, não aplicado para empreendedor familiar rural; V – A prova de atendimento de requisitos higiênicos-sanitários, previstos em lei/normativa específica, quando for o caso, conforme disposto no item 6.4; VI – A declaração de que os gêneros alimentícios a serem entregues são produzidos pelos",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 21,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 22,
+      "produto": null,
+      "descricaoCompleta": "22 7.4. O (s) projeto (s) de venda a ser (em) contratado (s) será (ão) selecionado (s) conforme critérios estabelecidos pelo art. 35 da Resolução nº 06/2020/FNDE/CD. 7.5. Devem constar nos Projetos de Venda de Gêneros Alimentícios da Agricultura Familiar o Nome, o CPF e DAP/CAF Física de cada agricultor familiar fornecedor quando se tratar de Fornecedor Individual ou Grupo Informal, e o CNPJ e DAP/CAF jurídica da organização produtiva quando se tratar de Empreendedor",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 22,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 23,
+      "produto": null,
+      "descricaoCompleta": "23 8.4. Caso a EEx. não obtenha as quantidades necessárias de produtos oriundos do grupo de projetos de fornecedores locais, estas deverão ser complementadas com os projetos dos demais grupos, em acordo com os critérios de seleção e priorização citados nos itens 8.2. e 8.3. 8.5. Finalizado a sessão pública, o participante que quiser não concordar com os critérios de desempate deverá interpor recurso manifestando-se imediata e motivadamente a sua intenção, com registro em ata da síntese",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 23,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 24,
+      "produto": null,
+      "descricaoCompleta": "24 Farinha de Mandioca Iogurte Mandioca descascada congelada Polpa de Fruta Polvilho doce",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 24,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 25,
+      "produto": null,
+      "descricaoCompleta": "25 12. DOS PREÇOS DE AQUISIÇÃO DOS GÊNEROS ALIMENTÍCIOS 12.1. O preço de compra dos gêneros alimentícios, será o valor publicado no item 1.1 deste Edital, qual seja, o preço de aquisição, o qual irá constar no Termo de Contrato, em conformidade com a demanda de cada Unidade Escolar. Não há disputa nem negociação de preços. 12.2. Serão utilizados para composição do preço de aquisição:",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 25,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 26,
+      "produto": null,
+      "descricaoCompleta": "26 14.10. Entregar os produtos dentro dos parâmetros pedidos e rotinas estabelecidas pela Unidade Escolar, se comprometendo a fornecer os gêneros alimentícios para as escolas, de acordo com o pedido realizado, para a entrega nos locais e Unidades definidas pela Unidade Escolar. 14.11. Observar conduta adequada no manuseio e conservação dos produtos, nos Termos do Previsto na Legislação vigente nº 11.947/2009, no que tange ao Controle de Qualidade e Manuseio de Alimentos, e",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 26,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 27,
+      "produto": "15.3. NO CASO DO FORNECEDOR INDIVIDUAL",
+      "descricaoCompleta": "27 15.3. No caso do FORNECEDOR INDIVIDUAL, deverá reter o valor de 1,5%, a título de Seguridade Social (INSS, GILRAT) e SENAR, sobre o total da receita bruta proveniente da comercialização com o Produtor Rural pessoa física ou segurado especial, por força do art. 30, inciso IV, da Lei nº 8.212, de 24 de julho de 1991. 15.4. Informar as retenções de INSS do produtor rural individual, no sistema de Escrituração Fiscal Digital",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 27,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 31,
+      "produto": null,
+      "descricaoCompleta": "31 ANEXO II PROJETO DE VENDAS PARA OS GRUPOS INFORMAIS PROJETO DE VENDA DE GÊNEROS ALIMENTÍCIOS DA AGRICULTURA FAMILIAR PARA ALIMENTAÇÃO ESCOLAR/PNAE IDENTIFICAÇÃO DA PROPOSTA DE ATENDIMENTO AO EDITAL/CHAMADA PÚBLICA Nº I - IDENTIFICAÇÃO DOS FORNECEDORES - GRUPO INFORMAL",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 31,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 35,
+      "produto": null,
+      "descricaoCompleta": "35 ANEXO V RESULTADO DA CHAMADA PÚBLICA A CÂMARA DE NEGÓCIOS DA ALIMENTAÇÃO ESCOLAR DA DIRETORIA REGIONAL DO MUNICÍPIO DE ________________________________, torna público para conhecimento dos interessados o Resultado da Chamada Pública n° ____/___ para Aquisição de Gêneros Alimentícios da Agricultura",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 35,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 37,
+      "produto": null,
+      "descricaoCompleta": "37 2.2. O valor total do presente Contrato é de R$ [...] (...). 2.3. O referido valor poderá sofrer alterações a qualquer tempo, para mais ou para menos, via Processo de Termo Aditivo, haja vista que, o presente objeto emana do número de alunos efetivamente matriculados e do valor total transferido a cada Conselho Deliberativo da Comunidade Escolar. CLÁUSULA TERCEIRA – DA FUNDAMENTAÇÃO LEGAL",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 37,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 38,
+      "produto": "E INTACTOS. NÃO SERÃO COMPUTADOS NO MONTANTE RECEBIDO",
+      "descricaoCompleta": "38 e intactos. Não serão computados no montante recebido, os produtos que após a seleção forem considerados de segunda linha ou impróprios para o consumo, sendo devolvidos ao fornecedor. 6.6. Quanto aos fornecedores e/ou entregadores dos produtos alimentícios, estes devem estar com uniforme adequado e limpo, avental, sapato fechado, proteção para o cabelo (rede, gorro ou boné) e para as mãos usar luvas quando necessário e devidamente identificado.",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 38,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 39,
+      "produto": "9.2. ASSINAR O CONTRATO IMEDIATAMENTE APÓS CONVOCAÇÃO OFICIAL",
+      "descricaoCompleta": "39 9.2. Assinar o Contrato imediatamente após convocação Oficial, no prazo de 5 (cinco) dias após a homologação, pelo ordenador de despesas, ou em prazo estipulado pela comissão. 9.3. O fornecedor compromete-se a fornecer os gêneros alimentícios nas Escolas e nas suas Salas Anexas, conforme endereço e pedido de entrega definido pela Unidade Escolar. Os produtos serão pesados, ou realizada a conferência, no ato da entrega, para que não haja dúvidas sobre a quantidade",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 39,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 40,
+      "produto": "ESTA LIMPEZA DEVE INCLUIR AS PAREDES",
+      "descricaoCompleta": "40 esta limpeza deve incluir as paredes, o teto, barras e ganchos, piso e estrados. Os recipientes que transportam produtos alimentares também devem ser lavados diariamente. 9.18. O limite individual de venda do agricultor familiar e do empreendedor familiar rural deve respeitar o valor máximo de R$40.000,00 (quarenta mil reais) por Declaração de Aptidão ao PRONAF ou Cadastro Nacional da Agricultura Familiar (DAP/CAF/ano).",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 40,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 41,
+      "produto": "QUAISQUER EVENTUALIDADES",
+      "descricaoCompleta": "41 quaisquer eventualidades, na prestação dos serviços, com a aplicação de Multa diária, sem prejuízos das demais penalidades legalmente previstas no ordenamento jurídico. CLÁUSULA DÉCIMA PRIMEIRA – DAS SANÇÕES 11.1. De acordo com o Decreto Estadual nº 1.525/2022 no seu Art. 366 O licitante ou a contratada que incorra nas infrações previstas no art. 155, da Lei Federal nº 14.133, de 1º de abril de 2021, apuradas",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 41,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 42,
+      "produto": null,
+      "descricaoCompleta": "42 c) Impedimento de Licitar ou contratar - A sanção de impedimento de licitar e contratar será aplicada, quando não se justificar a imposição de penalidade mais grave, àquele que: I - Dar causa à inexecução parcial do contrato que cause grave dano à Administração, ao funcionamento dos serviços públicos ou ao interesse coletivo; II - Dar causa à inexecução total do contrato;",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 42,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado"
+    },
+    {
+      "sequencia": 43,
+      "produto": "14.133/2021 E SUAS ALTERAÇÕES",
+      "descricaoCompleta": "43 14.133/2021 e suas alterações, inclusive com demonstração em planilhas de custos, nos termos do artigo 265 do Decreto 1.525/2022, com as devidas justificativas e mediante interesse da Contratante. 12.2. O reajuste do preço contratado poderá ser concedido a requerimento do contratado e depois de transcorrido um ano do termo inicial, definido em contrato, desde que observado o saldo de quantitativo e o limite de DAP/CAF a qual está inserido o fornecedor.",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 43,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    },
+    {
+      "sequencia": 44,
+      "produto": "F) COMUNICAR E JUSTIFICAR FORMALMENTE À CAE/SEDUC",
+      "descricaoCompleta": "44 f) Comunicar e justificar formalmente à CAE/SEDUC, via Câmara de Negócios, da necessidade de alterações contratuais; g) Comunicar à Câmara, quando forem constatados inadimplementos contratuais, via ocorrências registradas pelo Fiscal de Contrato, ou que tenha tomado conhecimento, e, obedecidos os prazos legais de defesa, solucionar o problema;",
+      "unidadeComercial": null,
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 44,
+      "documentoId": "DOC-0073",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada"
+    }
+  ],
+  "anexos": [],
+  "pendencias": [
+    {
+      "tipo": "resolucao_entidade_executora",
+      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
+      "origem": "snapshot institucional"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 238 (R$ 10): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 50 (s/produto): unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 81 (s/produto): unidade comercial não identificada | produto não identificado | total informado na fonte difere de quantidade × preço unitário em 0.27",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 60 (R$ 23): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 89 (s/produto): unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 197 (R$ 8): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 60 (s/produto): unidade comercial não identificada | produto não identificado | total informado na fonte difere de quantidade × preço unitário em 0.30",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 268 (R$ 7): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 12 (s/produto): unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 192 (R$ 8): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 173 (R$ 12): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 71 (s/produto): unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 68 (s/produto): unidade comercial não identificada | produto não identificado | total informado na fonte difere de quantidade × preço unitário em 0.23",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 208 (R$ 9): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 238 (R$ 9): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 83 (R$ 61): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 71 (s/produto): unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 24 (s/produto): unidade comercial não identificada | produto não identificado | total informado na fonte difere de quantidade × preço unitário em 0.12",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 18 (s/produto): unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 217 (R$ 53): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 238 (R$ 5): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 92 (R$ 34): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 71 (R$ 21): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 19 (4.1. AS DESPESAS DECORRENTES DA CONTRATAÇÃO): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 20 (s/produto): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 21 (s/produto): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 22 (s/produto): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 23 (s/produto): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 24 (s/produto): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 25 (s/produto): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 26 (s/produto): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 27 (15.3. NO CASO DO FORNECEDOR INDIVIDUAL): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 31 (s/produto): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 35 (s/produto): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 37 (s/produto): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 38 (E INTACTOS. NÃO SERÃO COMPUTADOS NO MONTANTE RECEBIDO): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 39 (9.2. ASSINAR O CONTRATO IMEDIATAMENTE APÓS CONVOCAÇÃO OFICIAL): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 40 (ESTA LIMPEZA DEVE INCLUIR AS PAREDES): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 41 (QUAISQUER EVENTUALIDADES): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 42 (s/produto): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 43 (14.133/2021 E SUAS ALTERAÇÕES): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0073"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 44 (F) COMUNICAR E JUSTIFICAR FORMALMENTE À CAE/SEDUC): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada",
+      "origem": "DOC-0073"
+    }
+  ],
+  "metadadoExtracao": {
+    "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+    "documentosValidados": 1,
+    "itensDoManifesto": 0,
+    "itensExtraidosPdf": 42
+  }
+}

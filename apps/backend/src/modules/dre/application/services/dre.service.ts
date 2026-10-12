@@ -60,6 +60,7 @@ export class DREService {
       },
       include: {
         entidadeExecutora: { select: { id: true, nome: true } },
+        _count: { select: { vinculosEscolas: { where: { ativo: true } } } },
       },
     });
 
@@ -87,6 +88,7 @@ export class DREService {
         where: { deletedAt: null },
         include: {
           entidadeExecutora: { select: { id: true, nome: true } },
+          _count: { select: { vinculosEscolas: { where: { ativo: true } } } },
         },
         orderBy: { nome: 'asc' },
       });
@@ -97,6 +99,7 @@ export class DREService {
       where: { id: { in: authorizedIds }, deletedAt: null },
       include: {
         entidadeExecutora: { select: { id: true, nome: true } },
+        _count: { select: { vinculosEscolas: { where: { ativo: true } } } },
       },
       orderBy: { nome: 'asc' },
     });
@@ -119,7 +122,7 @@ export class DREService {
             ],
           },
           include: {
-            escola: { select: { id: true, nome: true, codigo: true } },
+            escola: { select: { id: true, nome: true, codigo: true, municipio: { select: { nome: true } } } },
           },
         },
       },

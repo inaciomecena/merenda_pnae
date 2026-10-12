@@ -3,6 +3,7 @@ import { FormatAlignCenter, FormatAlignJustify, FormatAlignLeft, FormatAlignRigh
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useEffect, useRef, useState } from 'react';
 import api from '../services/api';
+import { humanizeSystemValue } from '../lib/display-text';
 
 const TIPOS = [
   ['EDITAL_PRINCIPAL', 'Edital principal'],
@@ -142,10 +143,10 @@ export default function TemplatesAnexosPage() {
                 <Typography fontWeight={700}>{item.titulo}</Typography>
                 <Typography variant="body2" color="text.secondary">{item.descricao || 'Sem descrição'}</Typography>
                 <Stack direction="row" spacing={1} sx={{ mt: 1 }} flexWrap="wrap">
-                  <Chip size="small" label={item.tipo} />
+                  <Chip size="small" label={humanizeSystemValue(item.tipo)} />
                   <Chip size="small" label={item.ativo ? 'Ativo' : 'Inativo'} color={item.ativo ? 'success' : 'default'} />
                   <Chip size="small" label={`Versão ${item.versaoAtual}`} />
-                  <Chip size="small" label={item.formato} />
+                  <Chip size="small" label={humanizeSystemValue(item.formato)} />
                   <Chip size="small" label={`Ordem ${item.ordem}`} />
                 </Stack>
               </Box>

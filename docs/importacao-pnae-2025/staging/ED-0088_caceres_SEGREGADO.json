@@ -1,0 +1,110 @@
+{
+  "schema": "importacao-historica-pnae/1.0",
+  "geradoEm": "2026-10-12T19:29:39.301Z",
+  "idPacote": "ED-0088",
+  "dre": "Cáceres",
+  "chaveLogica": "f4ee888577eee8f78fed0ec2db10f136",
+  "decisao": "SEGREGADO",
+  "motivosBloqueio": [
+    "PREGAO_2025: pregão não é chamada pública da agricultura familiar; segregado da importação."
+  ],
+  "identificacao": {
+    "numeroBruto": "014/2024",
+    "numeroNormalizado": "014/2024",
+    "anoNumeracao": 2024,
+    "exercicio": 2025,
+    "exercicioEvidencia": [],
+    "processoAdministrativo": null,
+    "dreNome": "Cáceres",
+    "camaraNegocios": "Cáceres",
+    "municipioAtendido": "Mirassol D’Oeste",
+    "recorte": "NAO_IDENTIFICADO",
+    "dataPublicacao": null,
+    "dataSessao": null,
+    "objeto": "Aquisição de gêneros alimentícios para alimentação escolar",
+    "fundamentacaoLegal": null,
+    "prazos": null,
+    "habilitacao": null,
+    "criteriosSelecao": null,
+    "condicoesEntrega": null,
+    "condicoesPagamento": null,
+    "valorEstimado": null,
+    "observacoes": [
+      "identificação preenchida a partir do manifesto (extração de PDF não realizada ou indisponível)"
+    ]
+  },
+  "documentos": [
+    {
+      "idDocumento": "DOC-0096",
+      "papel": "EDITAL_PRINCIPAL",
+      "sha256": "d3c93e9005ded8ff810bafe2be1cb4f82e56da9076fc81641a3eb05c69fcc030",
+      "caminho": "PNAE_MT_2025/03_CACERES/DOC-0096_DOC-0096.pdf",
+      "paginas": 169,
+      "urls": [
+        "https://drive.google.com/file/d/1DLSem3a2G6qp_HVFAj6-37RRpgyjgEqH/view?usp=sharing",
+        "https://drive.google.com/uc?export=download&id=1DLSem3a2G6qp_HVFAj6-37RRpgyjgEqH",
+        "https://www.drecaceres.com.br/edital.php?id=233"
+      ],
+      "chaveVersao": "bc4e96d1fa573c728b4759f90de39730"
+    },
+    {
+      "idDocumento": "DOC-0099",
+      "papel": "EDITAL_PRINCIPAL",
+      "sha256": "90512d41981b8e362e096c8c257ac8cb5a6d37a8e64695381098bcf22880d3a2",
+      "caminho": "PNAE_MT_2025/03_CACERES/DOC-0099_DOC-0099.pdf",
+      "paginas": 169,
+      "urls": [
+        "https://drive.google.com/file/d/1-_Iev2cSlCQPr-Q1-eTOlBQIEZpPJslQ/view?usp=sharing",
+        "https://drive.google.com/uc?export=download&id=1-_Iev2cSlCQPr-Q1-eTOlBQIEZpPJslQ",
+        "https://www.drecaceres.com.br/edital.php?id=233"
+      ],
+      "chaveVersao": "84c6fbb9655c781ae01be87913eea770"
+    }
+  ],
+  "vinculosInstitucionais": {
+    "dre": {
+      "nomePacote": "Cáceres",
+      "dreId": "b73910dc-c5e2-11f1-8f2d-6451061ac5e7",
+      "codigo": "CCR",
+      "status": "CONFIRMADO",
+      "detalhe": "DRE \"DRE Cáceres\" (CCR)"
+    },
+    "municipio": {
+      "nomePacote": "Mirassol D’Oeste",
+      "municipioId": null,
+      "codigoIbge": null,
+      "status": "NAO_ENCONTRADO",
+      "detalhe": "nenhum município cadastrado corresponde a \"Mirassol D’Oeste\""
+    },
+    "escolas": [],
+    "unidadesExecutoras": [
+      {
+        "nome": "Cáceres",
+        "cnpj": null,
+        "entidadeExecutoraId": null,
+        "status": "PENDENTE",
+        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+      }
+    ]
+  },
+  "itens": [],
+  "anexos": [],
+  "pendencias": [
+    {
+      "tipo": "resolucao_municipio",
+      "descricao": "nenhum município cadastrado corresponde a \"Mirassol D’Oeste\"",
+      "origem": "snapshot institucional"
+    },
+    {
+      "tipo": "resolucao_entidade_executora",
+      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
+      "origem": "snapshot institucional"
+    }
+  ],
+  "metadadoExtracao": {
+    "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+    "documentosValidados": 2,
+    "itensDoManifesto": 0,
+    "itensExtraidosPdf": 0
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "schema": "importacao-historica-pnae/1.0",
+  "geradoEm": "2026-10-12T19:29:29.159Z",
+  "idPacote": "ED-0049",
+  "dre": "Primavera do Leste",
+  "chaveLogica": "e16e1608e549c281984fd85bc1660573",
+  "decisao": "SEGREGADO",
+  "motivosBloqueio": [
+    "PREGAO_2025: pregão não é chamada pública da agricultura familiar; segregado da importação."
+  ],
+  "identificacao": {
+    "numeroBruto": "012/2024",
+    "numeroNormalizado": "012/2024",
+    "anoNumeracao": 2024,
+    "exercicio": 2025,
+    "exercicioEvidencia": [],
+    "processoAdministrativo": null,
+    "dreNome": "Primavera do Leste",
+    "camaraNegocios": "Primavera do Leste",
+    "municipioAtendido": "Santo Antônio do Leste",
+    "recorte": "NAO_IDENTIFICADO",
+    "dataPublicacao": null,
+    "dataSessao": null,
+    "objeto": "Aquisição de gêneros alimentícios para alimentação escolar",
+    "fundamentacaoLegal": null,
+    "prazos": null,
+    "habilitacao": null,
+    "criteriosSelecao": null,
+    "condicoesEntrega": null,
+    "condicoesPagamento": null,
+    "valorEstimado": null,
+    "observacoes": [
+      "identificação preenchida a partir do manifesto (extração de PDF não realizada ou indisponível)"
+    ]
+  },
+  "documentos": [
+    {
+      "idDocumento": "DOC-0053",
+      "papel": "AVISO",
+      "sha256": "47fa2257ce1fc068e977226f152e17110108eda8537bc8fcab6f78c5cbba2afa",
+      "caminho": "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0053_DOC-0053.pdf",
+      "paginas": 1,
+      "urls": [
+        "https://drive.google.com/file/d/1ePJTFohNmZnvFdVFJflQwj3KFWYzvtl_/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1ePJTFohNmZnvFdVFJflQwj3KFWYzvtl_",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "chaveVersao": "f2a3f720c116f38a4f35f77e0744ff1c"
+    },
+    {
+      "idDocumento": "DOC-0054",
+      "papel": "EDITAL_PRINCIPAL",
+      "sha256": "61ba989e6aa96ef533f8dd3ac54482fe0aa4cd5ad58e68480e9176826b3ca576",
+      "caminho": "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0054_DOC-0054.pdf",
+      "paginas": 161,
+      "urls": [
+        "https://drive.google.com/file/d/1r7EBKU6sk3EQq4lAIMwymE9d8Xbq9Ztf/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1r7EBKU6sk3EQq4lAIMwymE9d8Xbq9Ztf",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "chaveVersao": "2bdb5157732618785151b1bd1c06a3dc"
+    },
+    {
+      "idDocumento": "DOC-0065",
+      "papel": "EDITAL_PRINCIPAL",
+      "sha256": "9e9cce92e2f1af5ed987925f966272f2bd670ef2e28e4f88a393dbf029c89901",
+      "caminho": "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0065_DOC-0065.pdf",
+      "paginas": 172,
+      "urls": [
+        "https://drive.google.com/file/d/1jvcAeDDGc-PaBDXrTRLiD2QbzJjaOhvE/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1jvcAeDDGc-PaBDXrTRLiD2QbzJjaOhvE",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "chaveVersao": "fab38f39744e2b395a47355056aaa7af"
+    }
+  ],
+  "vinculosInstitucionais": {
+    "dre": {
+      "nomePacote": "Primavera do Leste",
+      "dreId": "b741d30a-c5e2-11f1-8f2d-6451061ac5e7",
+      "codigo": "PVL",
+      "status": "CONFIRMADO",
+      "detalhe": "DRE \"DRE Primavera do Leste\" (PVL)"
+    },
+    "municipio": {
+      "nomePacote": "Santo Antônio do Leste",
+      "municipioId": "058d1d33-99f3-4c27-8e54-31979c5cb06b",
+      "codigoIbge": "5107792",
+      "status": "CONFIRMADO",
+      "detalhe": "\"Santo Antônio do Leste\" (IBGE 5107792)"
+    },
+    "escolas": [],
+    "unidadesExecutoras": [
+      {
+        "nome": "Primavera do Leste",
+        "cnpj": null,
+        "entidadeExecutoraId": null,
+        "status": "PENDENTE",
+        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+      }
+    ]
+  },
+  "itens": [],
+  "anexos": [],
+  "pendencias": [
+    {
+      "tipo": "resolucao_entidade_executora",
+      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
+      "origem": "snapshot institucional"
+    }
+  ],
+  "metadadoExtracao": {
+    "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+    "documentosValidados": 3,
+    "itensDoManifesto": 0,
+    "itensExtraidosPdf": 0
+  }
+}

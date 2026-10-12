@@ -1,0 +1,27 @@
+export declare const StatusNotaFiscal: {
+    readonly PENDENTE_PROCESSAMENTO: "PENDENTE_PROCESSAMENTO";
+    readonly PROCESSADA: "PROCESSADA";
+    readonly PENDENTE_CONFERENCIA: "PENDENTE_CONFERENCIA";
+    readonly EM_CONFERENCIA: "EM_CONFERENCIA";
+    readonly CONFERIDA: "CONFERIDA";
+    readonly AGUARDANDO_ATESTO: "AGUARDANDO_ATESTO";
+    readonly ATESTADA: "ATESTADA";
+    readonly REJEITADA: "REJEITADA";
+    readonly CANCELADA: "CANCELADA";
+};
+export type StatusNotaFiscal = (typeof StatusNotaFiscal)[keyof typeof StatusNotaFiscal];
+export declare const STATUS_NOTA_FISCAL: StatusNotaFiscal[];
+export declare const RESULTADO_CONCILIACAO: readonly ["CONCILIADA", "CONCILIADA_COM_RESSALVAS", "DIVERGENTE", "PENDENTE", "NAO_CONCILIADA"];
+export type ResultadoConciliacaoFiscal = (typeof RESULTADO_CONCILIACAO)[number];
+export declare const STATUS_CONFERENCIA_FISCAL: readonly ["APROVADA", "REJEITADA", "PENDENTE_CORRECAO", "COM_RESSALVAS"];
+export type StatusConferenciaFiscal = (typeof STATUS_CONFERENCIA_FISCAL)[number];
+export declare const STATUS_ATESTO: readonly ["RASCUNHO", "AGUARDANDO_VALIDACAO", "ATESTADO", "RETIFICADO", "CANCELADO"];
+export type StatusAtesto = (typeof STATUS_ATESTO)[number];
+export declare const STATUS_LIQUIDACAO: readonly ["REGISTRADA", "CONFIRMADA", "RETIFICADA", "CANCELADA"];
+export type StatusLiquidacao = (typeof STATUS_LIQUIDACAO)[number];
+export declare const STATUS_PAGAMENTO: readonly ["REGISTRADO", "CONFIRMADO", "PARCIAL", "ESTORNADO", "CANCELADO"];
+export type StatusPagamento = (typeof STATUS_PAGAMENTO)[number];
+export declare const TRANSICOES_NOTA_FISCAL: Record<StatusNotaFiscal, readonly StatusNotaFiscal[]>;
+export declare const TRANSICOES_ATESTO: Record<StatusAtesto, readonly StatusAtesto[]>;
+export declare const TRANSICOES_LIQUIDACAO: Record<StatusLiquidacao, readonly StatusLiquidacao[]>;
+export declare const TRANSICOES_PAGAMENTO: Record<StatusPagamento, readonly StatusPagamento[]>;

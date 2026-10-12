@@ -1,0 +1,21 @@
+- generic [ref=e5]:
+  - img "SEAF PNAE" [ref=e7]
+  - paragraph [ref=e8]: Acesse o sistema PNAE
+  - generic [ref=e10]:
+    - generic [ref=e11]:
+      - generic [ref=e12]:
+        - text: E-mail
+        - generic [aria-hidden] [ref=e13]: "*"
+      - generic [ref=e14]:
+        - textbox "E-mail" [ref=e15]: admin@seaf.gov.br
+        - group [aria-hidden]:
+          - generic: E-mail *
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - text: Senha
+        - generic [aria-hidden] [ref=e18]: "*"
+      - generic [ref=e19]:
+        - textbox "Senha" [ref=e20]: Admin@123
+        - group [aria-hidden]:
+          - generic: Senha *
+    - button "Entrar" [ref=e21] [cursor=pointer]

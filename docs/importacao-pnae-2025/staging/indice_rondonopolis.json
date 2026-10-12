@@ -1,0 +1,19 @@
+{
+  "dre": "Rondonópolis",
+  "geradoEm": "2026-10-12T19:29:45.459Z",
+  "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+  "procedimentos": [
+    {
+      "idPacote": "ED-0124",
+      "chaveLogica": "1994f0e525d0e6de80f20ce248ce608e",
+      "decisao": "BLOQUEADO",
+      "numero": "024/2024",
+      "municipio": "Rondonópolis",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": [
+        "PNAE_MT_2025/11_RONDONOPOLIS/DOC-0134_902650.pdf"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "dre": "Tangará da Serra",
+  "geradoEm": "2026-10-12T19:29:45.451Z",
+  "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+  "procedimentos": [
+    {
+      "idPacote": "ED-0080",
+      "chaveLogica": "fc7d1b27af09561ba4d97ba6271f27bd",
+      "decisao": "BLOQUEADO",
+      "numero": "014/2024",
+      "municipio": "Sapezal",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": []
+    },
+    {
+      "idPacote": "ED-0081",
+      "chaveLogica": "30e3a215422ba2cafdc1af29173443de",
+      "decisao": "BLOQUEADO",
+      "numero": "013/2024",
+      "municipio": "Tangará da Serra",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": []
+    },
+    {
+      "idPacote": "ED-0082",
+      "chaveLogica": "0f2f176179b41395d6c88ea39c01508c",
+      "decisao": "BLOQUEADO",
+      "numero": "012/2024",
+      "municipio": "Porto Estrela",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": []
+    },
+    {
+      "idPacote": "ED-0083",
+      "chaveLogica": "c2978f9b6cc657d363bc6a10a7be8601",
+      "decisao": "BLOQUEADO",
+      "numero": "011/2024",
+      "municipio": "Nova Olímpia",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": []
+    },
+    {
+      "idPacote": "ED-0084",
+      "chaveLogica": "fa5fdda3a7f80f509eb40e34d45ec005",
+      "decisao": "BLOQUEADO",
+      "numero": "010/2024",
+      "municipio": "Denise",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": []
+    },
+    {
+      "idPacote": "ED-0085",
+      "chaveLogica": "0b0e3104b197331dfc63a9c8199415d4",
+      "decisao": "BLOQUEADO",
+      "numero": "009/2024",
+      "municipio": "Campo Novo do Parecis",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": []
+    },
+    {
+      "idPacote": "ED-0086",
+      "chaveLogica": "b92fd934b7f41ce25b2ee7b696b33c26",
+      "decisao": "BLOQUEADO",
+      "numero": "008/2024",
+      "municipio": "Barra do Bugres",
+      "itens": 0,
+      "pendencias": 2,
+      "arquivos": []
+    }
+  ]
+}

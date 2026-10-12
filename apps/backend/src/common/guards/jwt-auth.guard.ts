@@ -28,7 +28,9 @@ export class JwtAuthGuard implements CanActivate {
     const token = authHeader.split(' ')[1];
     let payload: { sub: string };
     try {
-      payload = this.jwtService.verify(token, { secret: process.env.JWT_SECRET || 'dev-secret' });
+      // Use the key configured by JwtModule. Passing process.env here can race
+      // ConfigModule loading and make tokens signed during bootstrap invalid.
+      payload = this.jwtService.verify(token);
       if (typeof payload.sub !== 'string') throw new Error('Sessão sem usuário');
     } catch {
       throw new UnauthorizedException('Sua sessão expirou ou é inválida. Entre novamente no sistema.');

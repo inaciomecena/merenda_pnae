@@ -1,0 +1,91 @@
+{
+  "dre": "Alta Floresta",
+  "geradoEm": "2026-10-12T19:29:45.453Z",
+  "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+  "procedimentos": [
+    {
+      "idPacote": "ED-0092",
+      "chaveLogica": "da0d9daac8f34878bdeaa61f7bb08ce4",
+      "decisao": "APROVADO",
+      "numero": "012/2024",
+      "municipio": "Nova Monte Verde",
+      "itens": 24,
+      "pendencias": 24,
+      "arquivos": [
+        "PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0102_EDITAL-CHAMADA-PUBLICA-2025-Nova-Monte-Verde.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0093",
+      "chaveLogica": "73b5c5802aedc1282cb552e66990396b",
+      "decisao": "APROVADO",
+      "numero": "012/2024",
+      "municipio": "Nova Bandeirantes",
+      "itens": 33,
+      "pendencias": 32,
+      "arquivos": [
+        "PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0103_EDITAL-CHAMADA-PUBLICA-N.-BANDEIRANTES-014-24-ano-letivo-2025.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0094",
+      "chaveLogica": "90007927895cd267d3c8d8a6055132fc",
+      "decisao": "APROVADO",
+      "numero": "012/2024",
+      "municipio": "APIACÁS",
+      "itens": 4,
+      "pendencias": 4,
+      "arquivos": [
+        "PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0104_EDITAL-CHAMADA-PUBLICA-012-24-APIACAS-ano-letivo-2025-1.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0095",
+      "chaveLogica": "7a17a0024adfb4de3ab50705f7b75e62",
+      "decisao": "APROVADO",
+      "numero": "010/2024",
+      "municipio": "Nova Canaã do Norte",
+      "itens": 42,
+      "pendencias": 34,
+      "arquivos": [
+        "PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0105_EDITAL-CHAMADA-PUBLICA-NCN-010-24-ano-letivo-2025.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0096",
+      "chaveLogica": "7e97ec132534477da32477646dbf7725",
+      "decisao": "APROVADO",
+      "numero": "012/2024",
+      "municipio": "CARLINDA",
+      "itens": 9,
+      "pendencias": 8,
+      "arquivos": [
+        "PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0106_EDITAL-CHAMADA-PUBLICA-No-009-24-CARLINDA-Ano-letivo-2025-1.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0097",
+      "chaveLogica": "4034cba58abf7d2c2df53df274292fda",
+      "decisao": "APROVADO",
+      "numero": "011/2024",
+      "municipio": "Paranaíta",
+      "itens": 6,
+      "pendencias": 6,
+      "arquivos": [
+        "PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0107_EDITAL-CHAMADA-PUBLICA-011-24-PTA-ano-letivo-2025-1.pdf"
+      ]
+    },
+    {
+      "idPacote": "ED-0098",
+      "chaveLogica": "3e9a7de30d0059b3123f3c889a8ae5f8",
+      "decisao": "APROVADO",
+      "numero": "008/2024",
+      "municipio": "Alta Floresta",
+      "itens": 20,
+      "pendencias": 18,
+      "arquivos": [
+        "PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0108_EDITAL-CHAMADA-PUBLICA-008-24-AF-ano-letivo-2025.pdf"
+      ]
+    }
+  ]
+}

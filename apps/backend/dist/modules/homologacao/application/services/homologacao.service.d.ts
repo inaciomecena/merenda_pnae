@@ -2,6 +2,7 @@ import { PrismaService } from '../../../../infrastructure/prisma/prisma.service'
 export declare class HomologacaoService {
     private readonly prisma;
     constructor(prisma: PrismaService);
+    private ambienteAtual;
     getStatus(): Promise<{
         timestamp: string;
         ambiente: string;
@@ -31,7 +32,6 @@ export declare class HomologacaoService {
             id: string;
             createdAt: Date;
             userId: string | null;
-            ipAddress: string | null;
             userName: string | null;
             userEmail: string | null;
             userRole: string | null;
@@ -41,6 +41,7 @@ export declare class HomologacaoService {
             entityLabel: string | null;
             oldValues: string | null;
             newValues: string | null;
+            ipAddress: string | null;
             userAgent: string | null;
             endpoint: string | null;
             method: string | null;
@@ -52,7 +53,6 @@ export declare class HomologacaoService {
             id: string;
             createdAt: Date;
             userId: string | null;
-            ipAddress: string | null;
             userName: string | null;
             userEmail: string | null;
             userRole: string | null;
@@ -62,6 +62,7 @@ export declare class HomologacaoService {
             entityLabel: string | null;
             oldValues: string | null;
             newValues: string | null;
+            ipAddress: string | null;
             userAgent: string | null;
             endpoint: string | null;
             method: string | null;

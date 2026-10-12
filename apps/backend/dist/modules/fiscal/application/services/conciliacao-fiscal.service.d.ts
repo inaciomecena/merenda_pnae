@@ -1,0 +1,47 @@
+import { Prisma } from '@prisma/client';
+import { PrismaService } from '../../../../infrastructure/prisma/prisma.service';
+import { AuditService } from '../../../audit/application/services/audit.service';
+import { AuthenticatedUser } from '../../../../common/auth/user-scope';
+import { FiscalAcessoService } from './fiscal-acesso.service';
+export declare class ConciliacaoFiscalService {
+    private readonly prisma;
+    private readonly audit;
+    private readonly acesso;
+    private readonly TOLERANCIA_VALOR_PERCENTUAL;
+    constructor(prisma: PrismaService, audit: AuditService, acesso: FiscalAcessoService);
+    conciliar(notaFiscalId: string, user: AuthenticatedUser): Promise<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        deletedAt: Date | null;
+        createdBy: string | null;
+        updatedBy: string | null;
+        numero: string;
+        status: import(".prisma/client").$Enums.StatusNotaFiscal;
+        observacoes: string | null;
+        valorTotal: Prisma.Decimal;
+        dataRecebimento: Date;
+        contratoId: string;
+        fornecedorId: string;
+        chaveAcesso: string | null;
+        dataEmissao: Date;
+        serie: string | null;
+        modelo: string | null;
+        cnpjEmitente: string | null;
+        cpfEmitente: string | null;
+        valorProdutos: Prisma.Decimal;
+        valorDesconto: Prisma.Decimal;
+        valorFrete: Prisma.Decimal;
+        valorOutrasDespesas: Prisma.Decimal;
+        documentoDestinatario: string | null;
+        resultadoConciliacao: import(".prisma/client").$Enums.ResultadoConciliacaoFiscal | null;
+        xmlDocumentoId: string | null;
+        pdfDocumentoId: string | null;
+    }>;
+    private verificarFaturamentoDuplicado;
+    private verificarFornecedor;
+    private verificarContrato;
+    private verificarItem;
+    private verificarRecebimento;
+    private classificarResultado;
+}

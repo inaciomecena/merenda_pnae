@@ -1,0 +1,97 @@
+{
+  "schema": "importacao-historica-pnae/1.0",
+  "geradoEm": "2026-10-12T19:29:43.780Z",
+  "idPacote": "ED-0100",
+  "dre": "Metropolitana",
+  "chaveLogica": "c010d50fd0a34fc06083720042c2ece7",
+  "decisao": "BLOQUEADO",
+  "motivosBloqueio": [
+    "elegibilidade \"CONFLITO_EXERCICIO\" bloqueia importação automática."
+  ],
+  "identificacao": {
+    "numeroBruto": "002/2025",
+    "numeroNormalizado": "002/2025",
+    "anoNumeracao": 2025,
+    "exercicio": null,
+    "exercicioEvidencia": [],
+    "processoAdministrativo": null,
+    "dreNome": "Metropolitana",
+    "camaraNegocios": "Metropolitana",
+    "municipioAtendido": "Várzea Grande",
+    "recorte": "NAO_IDENTIFICADO",
+    "dataPublicacao": null,
+    "dataSessao": null,
+    "objeto": "Aquisição de gêneros alimentícios para alimentação escolar da agricultura familiar",
+    "fundamentacaoLegal": null,
+    "prazos": null,
+    "habilitacao": null,
+    "criteriosSelecao": null,
+    "condicoesEntrega": null,
+    "condicoesPagamento": null,
+    "valorEstimado": null,
+    "observacoes": [
+      "identificação preenchida a partir do manifesto (extração de PDF não realizada ou indisponível)"
+    ]
+  },
+  "documentos": [
+    {
+      "idDocumento": "DOC-0110",
+      "papel": "EDITAL_PRINCIPAL",
+      "sha256": "178cb745712794fc6b7d9aa62d7e60ff7b33841ff7d8fa00cf0e68894a2bc427",
+      "caminho": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0110_2004f4_d275f8ff4df34f22aac00f2ef72077a1.pdf",
+      "paginas": 67,
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_d275f8ff4df34f22aac00f2ef72077a1.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_d275f8ff4df34f22aac00f2ef72077a1.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "chaveVersao": "0901936452016b76b0f9bebba8b30b6f"
+    }
+  ],
+  "vinculosInstitucionais": {
+    "dre": {
+      "nomePacote": "Metropolitana",
+      "dreId": "b73fc8eb-c5e2-11f1-8f2d-6451061ac5e7",
+      "codigo": "CBA",
+      "status": "CONFIRMADO",
+      "detalhe": "DRE \"DRE Metropolitana\" (CBA)"
+    },
+    "municipio": {
+      "nomePacote": "Várzea Grande",
+      "municipioId": "ac45384b-2c3f-44b1-ad08-af01cefa4fcc",
+      "codigoIbge": "5108402",
+      "status": "CONFIRMADO",
+      "detalhe": "\"Várzea Grande\" (IBGE 5108402)"
+    },
+    "escolas": [],
+    "unidadesExecutoras": [
+      {
+        "nome": "Metropolitana",
+        "cnpj": null,
+        "entidadeExecutoraId": null,
+        "status": "PENDENTE",
+        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+      }
+    ]
+  },
+  "itens": [],
+  "anexos": [],
+  "pendencias": [
+    {
+      "tipo": "CONFLITO_EXERCICIO",
+      "descricao": "Portal associa à rodada de fim de 2025; processo/datas 2026 ou normas de setembro de 2025 conflitam com ano letivo 2025 no modelo. Não resolver automaticamente.",
+      "origem": "manifesto:Metropolitana"
+    },
+    {
+      "tipo": "resolucao_entidade_executora",
+      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
+      "origem": "snapshot institucional"
+    }
+  ],
+  "metadadoExtracao": {
+    "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+    "documentosValidados": 1,
+    "itensDoManifesto": 0,
+    "itensExtraidosPdf": 0
+  }
+}

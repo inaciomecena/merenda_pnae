@@ -13,6 +13,13 @@ export class RolesGuard implements CanActivate {
 
     const { user } = context.switchToHttp().getRequest();
     if (!user || !requiredRoles.includes(user.role)) return false;
+
+    // ADMIN is a global role. The JWT guard has already reloaded the account
+    // from the database and confirmed that it is active, so an institutional
+    // binding would add no scope and would create a circular authorization
+    // dependency for administration routes.
+    if (user.role === 'ADMIN') return true;
+
     const now = new Date();
     const binding = await this.prisma.vinculoUsuario.findFirst({
       where: {

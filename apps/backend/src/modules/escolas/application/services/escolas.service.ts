@@ -29,7 +29,25 @@ export class EscolasService {
     if (user && user.role !== 'ADMIN') where.id = { in: await this.policy.getAuthorizedEscolaIds(user) };
 
     const [items, total] = await this.prisma.$transaction([
-      this.prisma.escola.findMany({ where, skip: (page - 1) * limit, take: limit, include: { municipio: true }, orderBy: [{ municipio: { nome: 'asc' } }, { nome: 'asc' }] }),
+      this.prisma.escola.findMany({
+        where,
+        skip: (page - 1) * limit,
+        take: limit,
+        include: {
+          municipio: true,
+          vinculosDRE: {
+            where: {
+              ativo: true,
+              vigenciaInicio: { lte: new Date() },
+              OR: [{ vigenciaFim: null }, { vigenciaFim: { gte: new Date() } }],
+            },
+            include: { dre: { select: { id: true, nome: true, codigo: true } } },
+            orderBy: { vigenciaInicio: 'desc' },
+            take: 1,
+          },
+        },
+        orderBy: [{ municipio: { nome: 'asc' } }, { nome: 'asc' }],
+      }),
       this.prisma.escola.count({ where }),
     ]);
 
@@ -39,7 +57,22 @@ export class EscolasService {
   async findOne(id: string, user?: AuthenticatedUser) {
     const where: any = { id, deletedAt: null };
     if (user && user.role !== 'ADMIN') await this.policy.requireEscolaAccess(user, id);
-    const item = await this.prisma.escola.findFirst({ where, include: { municipio: true } });
+    const item = await this.prisma.escola.findFirst({
+      where,
+      include: {
+        municipio: true,
+        vinculosDRE: {
+          where: {
+            ativo: true,
+            vigenciaInicio: { lte: new Date() },
+            OR: [{ vigenciaFim: null }, { vigenciaFim: { gte: new Date() } }],
+          },
+          include: { dre: { select: { id: true, nome: true, codigo: true } } },
+          orderBy: { vigenciaInicio: 'desc' },
+          take: 1,
+        },
+      },
+    });
     if (!item) throw new NotFoundException('Escola não encontrada');
     return item;
   }

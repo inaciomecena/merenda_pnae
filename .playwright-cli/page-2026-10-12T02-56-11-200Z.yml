@@ -1,0 +1,278 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e30]:
+    - generic [ref=e32]:
+      - generic [ref=e33]:
+        - img "SEAF PNAE" [ref=e34]
+        - generic [ref=e35]: Gestão da Alimentação Escolar
+      - navigation "Menu principal" [ref=e36]:
+        - list [ref=e37]:
+          - generic [ref=e38]:
+            - button "Visão geral" [expanded] [ref=e39] [cursor=pointer]
+            - list [ref=e50]:
+              - link "Painel geral" [ref=e52] [cursor=pointer]:
+                - /url: /dashboard
+              - link "Mapa de Mato Grosso" [ref=e59] [cursor=pointer]:
+                - /url: /mapa
+              - link "Relatórios gerenciais" [ref=e66] [cursor=pointer]:
+                - /url: /relatorios
+          - generic [ref=e72]:
+            - button "Cadastros" [expanded] [ref=e73] [cursor=pointer]
+            - list [ref=e84]:
+              - generic [ref=e85]:
+                - button "Estrutura institucional" [expanded] [ref=e86] [cursor=pointer]
+                - list [ref=e97]:
+                  - link "Organização" [ref=e99] [cursor=pointer]:
+                    - /url: /organizacao
+                  - link "Municípios" [ref=e106] [cursor=pointer]:
+                    - /url: /municipios
+                  - link "Escolas" [ref=e113] [cursor=pointer]:
+                    - /url: /escolas
+              - button "Fornecedores e produtos" [ref=e120] [cursor=pointer]
+              - link "Modelos de documentos" [ref=e129] [cursor=pointer]:
+                - /url: /templates-anexos
+          - button "Chamadas públicas" [ref=e136] [cursor=pointer]
+          - button "Execução contratual" [ref=e145] [cursor=pointer]
+          - button "Gestão fiscal e financeira" [ref=e154] [cursor=pointer]
+          - button "Administração" [ref=e163] [cursor=pointer]
+      - generic [ref=e172]:
+        - text: Perfil atual
+        - paragraph [ref=e173]: Administrador
+        - text: As opções exibidas respeitam suas permissões e seu vínculo institucional.
+    - generic [ref=e174]:
+      - banner [ref=e175]:
+        - generic [ref=e176]:
+          - generic [ref=e177]: Administrador
+          - paragraph [ref=e179]: Administrador PNAE
+          - separator [ref=e180]
+          - button "Sair" [ref=e181] [cursor=pointer]
+      - main [ref=e182]:
+        - generic [ref=e183]:
+          - navigation "Navegação estrutural" [ref=e185]:
+            - list [ref=e186]:
+              - listitem [ref=e187]:
+                - link "Início" [ref=e188] [cursor=pointer]:
+                  - /url: /dashboard
+              - listitem [aria-hidden] [ref=e189]: /
+              - listitem [ref=e190]:
+                - paragraph [ref=e191]: Escolas da DRE
+          - generic [ref=e1987]:
+            - generic [ref=e1988]:
+              - button [ref=e1989] [cursor=pointer]
+              - heading "Escolas da DRE Alta Floresta" [level=4] [ref=e1993]
+              - paragraph [ref=e1994]: Código ATF · Sede em Alta Floresta · Secretaria de Estado de Educação de Mato Grosso
+            - generic [ref=e1997]:
+              - generic [ref=e1998]:
+                - heading "Vincular escola" [level=6] [ref=e1999]
+                - paragraph [ref=e2000]: Pesquise por nome, código INEP ou município.
+              - generic [ref=e2001]:
+                - generic [ref=e2003]:
+                  - generic: Pesquisar escola
+                  - generic [ref=e2004]:
+                    - combobox "Pesquisar escola" [ref=e2005]
+                    - button "Open" [ref=e2007] [cursor=pointer]
+                    - group [aria-hidden]:
+                      - generic: Pesquisar escola
+                - button "Vincular escola" [disabled]
+              - separator [ref=e2010]
+              - heading "Escolas vinculadas (24)" [level=6] [ref=e2011]
+              - table [ref=e2013]:
+                - rowgroup [ref=e2014]:
+                  - row [ref=e2015]:
+                    - columnheader "Escola" [ref=e2016]
+                    - columnheader "Código INEP" [ref=e2017]
+                    - columnheader "Município" [ref=e2018]
+                    - columnheader "Ação" [ref=e2019]
+                - rowgroup [ref=e2020]:
+                  - row [ref=e2021]:
+                    - cell [ref=e2022]:
+                      - link "ESCOLA ESTADUAL INDIGENA ITAWYAK" [ref=e2023] [cursor=pointer]:
+                        - /url: /escolas/25a9633d-03c4-4bf6-bab8-c0d2cd101da6
+                    - cell "51110814" [ref=e2024]
+                    - cell "Apiacás" [ref=e2025]
+                    - cell [ref=e2026]:
+                      - button "Encerrar vínculo" [ref=e2027] [cursor=pointer]
+                  - row [ref=e2028]:
+                    - cell [ref=e2029]:
+                      - link "EE 19 DE MAIO" [ref=e2030] [cursor=pointer]:
+                        - /url: /escolas/7208473a-710d-4ca6-9c29-ca94343d8cdb
+                    - cell "51003813" [ref=e2031]
+                    - cell "Alta Floresta" [ref=e2032]
+                    - cell [ref=e2033]:
+                      - button "Encerrar vínculo" [ref=e2034] [cursor=pointer]
+                  - row [ref=e2035]:
+                    - cell [ref=e2036]:
+                      - link "EE LUDOVICO DA RIVA NETO" [ref=e2037] [cursor=pointer]:
+                        - /url: /escolas/e51d53d2-1c78-45e6-8ae3-6377e45bf0b5
+                    - cell "51003724" [ref=e2038]
+                    - cell "Alta Floresta" [ref=e2039]
+                    - cell [ref=e2040]:
+                      - button "Encerrar vínculo" [ref=e2041] [cursor=pointer]
+                  - row [ref=e2042]:
+                    - cell [ref=e2043]:
+                      - link "EE JAYME VERISSIMO DE CAMPOS JUNIOR" [ref=e2044] [cursor=pointer]:
+                        - /url: /escolas/2de1bda5-c8d2-438d-aebf-cc88a2870dc8
+                    - cell "51003457" [ref=e2045]
+                    - cell "Alta Floresta" [ref=e2046]
+                    - cell [ref=e2047]:
+                      - button "Encerrar vínculo" [ref=e2048] [cursor=pointer]
+                  - row [ref=e2049]:
+                    - cell [ref=e2050]:
+                      - link "EE NOVA CANAA" [ref=e2051] [cursor=pointer]:
+                        - /url: /escolas/f6f066cc-f96d-437f-aebc-969b6dfd03ba
+                    - cell "51008602" [ref=e2052]
+                    - cell "Nova Canaã do Norte" [ref=e2053]
+                    - cell [ref=e2054]:
+                      - button "Encerrar vínculo" [ref=e2055] [cursor=pointer]
+                  - row [ref=e2056]:
+                    - cell [ref=e2057]:
+                      - link "EE TANCREDO DE ALMEIDA NEVES" [ref=e2058] [cursor=pointer]:
+                        - /url: /escolas/ee2e03ec-8b10-4927-856e-8d6b646b40e4
+                    - cell "51004356" [ref=e2059]
+                    - cell "Carlinda" [ref=e2060]
+                    - cell [ref=e2061]:
+                      - button "Encerrar vínculo" [ref=e2062] [cursor=pointer]
+                  - row [ref=e2063]:
+                    - cell [ref=e2064]:
+                      - link "EE FREI CANECA" [ref=e2065] [cursor=pointer]:
+                        - /url: /escolas/b42f931f-0674-48fd-912e-f92ccbb24c03
+                    - cell "51004348" [ref=e2066]
+                    - cell "Carlinda" [ref=e2067]
+                    - cell [ref=e2068]:
+                      - button "Encerrar vínculo" [ref=e2069] [cursor=pointer]
+                  - row [ref=e2070]:
+                    - cell [ref=e2071]:
+                      - link "EE JARDIM UNIVERSITARIO" [ref=e2072] [cursor=pointer]:
+                        - /url: /escolas/e8a9a417-81df-4870-ad43-38b2a677c3b0
+                    - cell "51110610" [ref=e2073]
+                    - cell "Alta Floresta" [ref=e2074]
+                    - cell [ref=e2075]:
+                      - button "Encerrar vínculo" [ref=e2076] [cursor=pointer]
+                  - row [ref=e2077]:
+                    - cell [ref=e2078]:
+                      - link "EE CECILIA MEIRELES" [ref=e2079] [cursor=pointer]:
+                        - /url: /escolas/f56edb29-f784-4148-80ac-4cf246bfc3c9
+                    - cell "51090317" [ref=e2080]
+                    - cell "Alta Floresta" [ref=e2081]
+                    - cell [ref=e2082]:
+                      - button "Encerrar vínculo" [ref=e2083] [cursor=pointer]
+                  - row [ref=e2084]:
+                    - cell [ref=e2085]:
+                      - link "ESCOLA ESTADUAL CEREJEIRAS" [ref=e2086] [cursor=pointer]:
+                        - /url: /escolas/4101441a-78bd-425e-af73-db3c3f96b8e4
+                    - cell "51110024" [ref=e2087]
+                    - cell "Nova Bandeirantes" [ref=e2088]
+                    - cell [ref=e2089]:
+                      - button "Encerrar vínculo" [ref=e2090] [cursor=pointer]
+                  - row [ref=e2091]:
+                    - cell [ref=e2092]:
+                      - link "EE PROF VALDOMIRO TEODORO CANDIDO" [ref=e2093] [cursor=pointer]:
+                        - /url: /escolas/5161cf1b-5d2c-4fe8-be2f-27a01340c806
+                    - cell "51004968" [ref=e2094]
+                    - cell "Nova Bandeirantes" [ref=e2095]
+                    - cell [ref=e2096]:
+                      - button "Encerrar vínculo" [ref=e2097] [cursor=pointer]
+                  - row [ref=e2098]:
+                    - cell [ref=e2099]:
+                      - link "EE MUNDO NOVO" [ref=e2100] [cursor=pointer]:
+                        - /url: /escolas/286b878e-7384-433b-8eb7-d37798e460d5
+                    - cell "51003554" [ref=e2101]
+                    - cell "Alta Floresta" [ref=e2102]
+                    - cell [ref=e2103]:
+                      - button "Encerrar vínculo" [ref=e2104] [cursor=pointer]
+                  - row [ref=e2105]:
+                    - cell [ref=e2106]:
+                      - link "EE RUI BARBOSA" [ref=e2107] [cursor=pointer]:
+                        - /url: /escolas/d7d7bc3f-d279-4597-9838-95699fe86d26
+                    - cell "51003562" [ref=e2108]
+                    - cell "Alta Floresta" [ref=e2109]
+                    - cell [ref=e2110]:
+                      - button "Encerrar vínculo" [ref=e2111] [cursor=pointer]
+                  - row [ref=e2112]:
+                    - cell [ref=e2113]:
+                      - link "EE JOAO PAULO I" [ref=e2114] [cursor=pointer]:
+                        - /url: /escolas/8700c59e-8939-4f68-a8b9-7ab899d0cbc7
+                    - cell "51005409" [ref=e2115]
+                    - cell "Paranaíta" [ref=e2116]
+                    - cell [ref=e2117]:
+                      - button "Encerrar vínculo" [ref=e2118] [cursor=pointer]
+                  - row [ref=e2119]:
+                    - cell [ref=e2120]:
+                      - link "EE PROFESSORA NEIDE ENARA SIMA" [ref=e2121] [cursor=pointer]:
+                        - /url: /escolas/be6e9bd0-169f-473b-b351-458eacae1fef
+                    - cell "51065983" [ref=e2122]
+                    - cell "Nova Monte Verde" [ref=e2123]
+                    - cell [ref=e2124]:
+                      - button "Encerrar vínculo" [ref=e2125] [cursor=pointer]
+                  - row [ref=e2126]:
+                    - cell [ref=e2127]:
+                      - link "EE OURO VERDE" [ref=e2128] [cursor=pointer]:
+                        - /url: /escolas/de53f98a-08fa-45bd-b9e3-242aa3f3266e
+                    - cell "51003694" [ref=e2129]
+                    - cell "Alta Floresta" [ref=e2130]
+                    - cell [ref=e2131]:
+                      - button "Encerrar vínculo" [ref=e2132] [cursor=pointer]
+                  - row [ref=e2133]:
+                    - cell [ref=e2134]:
+                      - link "EE VINICIUS DE MORAES" [ref=e2135] [cursor=pointer]:
+                        - /url: /escolas/c9a9d4c9-5d04-479a-877e-09a94af03370
+                    - cell "51004836" [ref=e2136]
+                    - cell "Apiacás" [ref=e2137]
+                    - cell [ref=e2138]:
+                      - button "Encerrar vínculo" [ref=e2139] [cursor=pointer]
+                  - row [ref=e2140]:
+                    - cell [ref=e2141]:
+                      - link "EE BOA ESPERANCA" [ref=e2142] [cursor=pointer]:
+                        - /url: /escolas/25306dce-618d-4e6e-bb66-b9bed395e19d
+                    - cell "51110407" [ref=e2143]
+                    - cell "Alta Floresta" [ref=e2144]
+                    - cell [ref=e2145]:
+                      - button "Encerrar vínculo" [ref=e2146] [cursor=pointer]
+                  - row [ref=e2147]:
+                    - cell [ref=e2148]:
+                      - link "EE PORTAL DA AMAZONIA" [ref=e2149] [cursor=pointer]:
+                        - /url: /escolas/4379b44e-9fd9-4f10-8873-9bffd1bd99cb
+                    - cell "51097206" [ref=e2150]
+                    - cell "Apiacás" [ref=e2151]
+                    - cell [ref=e2152]:
+                      - button "Encerrar vínculo" [ref=e2153] [cursor=pointer]
+                  - row [ref=e2154]:
+                    - cell [ref=e2155]:
+                      - link "EE SAO PEDRO" [ref=e2156] [cursor=pointer]:
+                        - /url: /escolas/769f038a-8ba3-4b9d-88c6-1a8635edf26b
+                    - cell "51173808" [ref=e2157]
+                    - cell "Paranaíta" [ref=e2158]
+                    - cell [ref=e2159]:
+                      - button "Encerrar vínculo" [ref=e2160] [cursor=pointer]
+                  - row [ref=e2161]:
+                    - cell [ref=e2162]:
+                      - link "EE DR MARIO CORREA DA COSTA" [ref=e2163] [cursor=pointer]:
+                        - /url: /escolas/1991f0e8-0ba3-450b-b767-404a5a3efece
+                    - cell "51005433" [ref=e2164]
+                    - cell "Paranaíta" [ref=e2165]
+                    - cell [ref=e2166]:
+                      - button "Encerrar vínculo" [ref=e2167] [cursor=pointer]
+                  - row [ref=e2168]:
+                    - cell [ref=e2169]:
+                      - link "EE IVONE BORKWSKI DE LIMA" [ref=e2170] [cursor=pointer]:
+                        - /url: /escolas/13cf14d8-f002-46e4-9a86-223ae1fd921c
+                    - cell "51098407" [ref=e2171]
+                    - cell "Nova Canaã do Norte" [ref=e2172]
+                    - cell [ref=e2173]:
+                      - button "Encerrar vínculo" [ref=e2174] [cursor=pointer]
+                  - row [ref=e2175]:
+                    - cell [ref=e2176]:
+                      - link "EE PROF MARINES FATIMA DE SA TEIXEIRA" [ref=e2177] [cursor=pointer]:
+                        - /url: /escolas/9c45ab03-48bb-4437-9c17-de3e889fe48d
+                    - cell "51003830" [ref=e2178]
+                    - cell "Alta Floresta" [ref=e2179]
+                    - cell [ref=e2180]:
+                      - button "Encerrar vínculo" [ref=e2181] [cursor=pointer]
+                  - row [ref=e2182]:
+                    - cell [ref=e2183]:
+                      - link "EE DOM BOSCO" [ref=e2184] [cursor=pointer]:
+                        - /url: /escolas/df4e7aec-f3ad-46b5-8a12-48e3c6498986
+                    - cell "51064090" [ref=e2185]
+                    - cell "Alta Floresta" [ref=e2186]
+                    - cell [ref=e2187]:
+                      - button "Encerrar vínculo" [ref=e2188] [cursor=pointer]
+  - generic [aria-hidden] [ref=e264]: MANDIOCA DESCASCADA CONGELADA

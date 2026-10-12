@@ -1,0 +1,16 @@
+export declare const STATUS_PROGRAMACAO: readonly ["RASCUNHO", "PROGRAMADA", "CONFIRMADA", "EM_ENTREGA", "PARCIALMENTE_RECEBIDA", "RECEBIDA", "CANCELADA"];
+export type StatusProgramacao = (typeof STATUS_PROGRAMACAO)[number];
+export declare const TRANSICOES_PROGRAMACAO: Record<StatusProgramacao, readonly StatusProgramacao[]>;
+export declare const STATUS_ENTREGA: readonly ["REGISTRADA", "EM_CONFERENCIA", "CONFERIDA", "ACEITA", "COM_DIVERGENCIA", "CANCELADA"];
+export type StatusEntrega = (typeof STATUS_ENTREGA)[number];
+export declare const TRANSICOES_ENTREGA: Record<StatusEntrega, readonly StatusEntrega[]>;
+export declare const STATUS_OCORRENCIA: readonly ["ABERTA", "EM_TRATATIVA", "RESOLVIDA", "NAO_APLICAVEL"];
+export type StatusOcorrencia = (typeof STATUS_OCORRENCIA)[number];
+export declare const TRANSICOES_OCORRENCIA: Record<StatusOcorrencia, readonly StatusOcorrencia[]>;
+export declare function statusValidoProgramacao(valor: string): valor is StatusProgramacao;
+export declare function statusValidoEntrega(valor: string): valor is StatusEntrega;
+export declare function statusValidoOcorrencia(valor: string): valor is StatusOcorrencia;
+export declare function podeTransicionarProgramacao(de: StatusProgramacao, para: StatusProgramacao): boolean;
+export declare function podeTransicionarEntrega(de: StatusEntrega, para: StatusEntrega): boolean;
+export declare function podeTransicionarOcorrencia(de: StatusOcorrencia, para: StatusOcorrencia): boolean;
+export declare function contemStatusDireto(corpo: Record<string, unknown>): boolean;

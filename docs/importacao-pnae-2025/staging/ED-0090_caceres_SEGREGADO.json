@@ -1,0 +1,92 @@
+{
+  "schema": "importacao-historica-pnae/1.0",
+  "geradoEm": "2026-10-12T19:29:39.302Z",
+  "idPacote": "ED-0090",
+  "dre": "Cáceres",
+  "chaveLogica": "61c528892a02b30aa5375dc724f80222",
+  "decisao": "SEGREGADO",
+  "motivosBloqueio": [
+    "PREGAO_2025: pregão não é chamada pública da agricultura familiar; segregado da importação."
+  ],
+  "identificacao": {
+    "numeroBruto": "017/2024",
+    "numeroNormalizado": "017/2024",
+    "anoNumeracao": 2024,
+    "exercicio": 2025,
+    "exercicioEvidencia": [],
+    "processoAdministrativo": null,
+    "dreNome": "Cáceres",
+    "camaraNegocios": "Cáceres",
+    "municipioAtendido": "Cáceres",
+    "recorte": "NAO_IDENTIFICADO",
+    "dataPublicacao": null,
+    "dataSessao": null,
+    "objeto": "Aquisição de gêneros alimentícios para alimentação escolar",
+    "fundamentacaoLegal": null,
+    "prazos": null,
+    "habilitacao": null,
+    "criteriosSelecao": null,
+    "condicoesEntrega": null,
+    "condicoesPagamento": null,
+    "valorEstimado": null,
+    "observacoes": [
+      "identificação preenchida a partir do manifesto (extração de PDF não realizada ou indisponível)"
+    ]
+  },
+  "documentos": [
+    {
+      "idDocumento": "DOC-0098",
+      "papel": "EDITAL_PRINCIPAL",
+      "sha256": "d574e764d69d716290c27d79ec53c88461d6cc32fae95d363fd989923ba682ca",
+      "caminho": "PNAE_MT_2025/03_CACERES/DOC-0098_DOC-0098.pdf",
+      "paginas": 173,
+      "urls": [
+        "https://drive.google.com/file/d/1BDnloUNQArc6mq0YhfpAHz8Xjcz5E_sh/view?usp=sharing",
+        "https://drive.google.com/uc?export=download&id=1BDnloUNQArc6mq0YhfpAHz8Xjcz5E_sh",
+        "https://www.drecaceres.com.br/edital.php?id=233"
+      ],
+      "chaveVersao": "658f2eb8aad354619d6aa1d8cf46e11e"
+    }
+  ],
+  "vinculosInstitucionais": {
+    "dre": {
+      "nomePacote": "Cáceres",
+      "dreId": "b73910dc-c5e2-11f1-8f2d-6451061ac5e7",
+      "codigo": "CCR",
+      "status": "CONFIRMADO",
+      "detalhe": "DRE \"DRE Cáceres\" (CCR)"
+    },
+    "municipio": {
+      "nomePacote": "Cáceres",
+      "municipioId": "778f3ff1-0c80-47da-9815-ccce3a07885c",
+      "codigoIbge": "5102504",
+      "status": "CONFIRMADO",
+      "detalhe": "\"Cáceres\" (IBGE 5102504)"
+    },
+    "escolas": [],
+    "unidadesExecutoras": [
+      {
+        "nome": "Cáceres",
+        "cnpj": null,
+        "entidadeExecutoraId": null,
+        "status": "PENDENTE",
+        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+      }
+    ]
+  },
+  "itens": [],
+  "anexos": [],
+  "pendencias": [
+    {
+      "tipo": "resolucao_entidade_executora",
+      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
+      "origem": "snapshot institucional"
+    }
+  ],
+  "metadadoExtracao": {
+    "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+    "documentosValidados": 1,
+    "itensDoManifesto": 0,
+    "itensExtraidosPdf": 0
+  }
+}

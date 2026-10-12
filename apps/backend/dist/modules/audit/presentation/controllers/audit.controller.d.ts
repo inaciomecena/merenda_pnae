@@ -10,7 +10,6 @@ export declare class AuditController {
             id: string;
             createdAt: Date;
             userId: string | null;
-            ipAddress: string | null;
             userName: string | null;
             userEmail: string | null;
             userRole: string | null;
@@ -18,6 +17,7 @@ export declare class AuditController {
             entity: string;
             entityId: string | null;
             entityLabel: string | null;
+            ipAddress: string | null;
             userAgent: string | null;
             endpoint: string | null;
             method: string | null;

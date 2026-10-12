@@ -6,6 +6,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { Link as RouterLink, useNavigate, useParams } from 'react-router-dom';
 import api from '../services/api';
 import type { ApiResponse, Importacao, ImportacaoItem } from '../types';
+import { humanizeSystemValue } from '../lib/display-text';
 
 interface EditableItem extends ImportacaoItem {}
 
@@ -308,7 +309,7 @@ export default function ImportacaoConferenciaPage() {
                   <Box sx={{ mt: 0.5 }}>
                     <Chip
                       size="small"
-                      label={data.status}
+                      label={humanizeSystemValue(data.status)}
                       color={data.status === 'ERRO' ? 'error' : data.status === 'PENDENTE_CONFERENCIA' ? 'warning' : 'success'}
                     />
                   </Box>

@@ -6,6 +6,7 @@ import { DeleteOutline } from '@mui/icons-material';
 import { useAuth } from '../contexts/AuthContext';
 import { moverAnexo, podeEditarComposicao, rotuloStatus } from '../lib/composicao-ui';
 import api from '../services/api';
+import { humanizeSystemValue } from '../lib/display-text';
 
 const TIPOS = ['EDITAL_PRINCIPAL', 'ANEXO_I', 'ANEXO_II', 'ANEXO_III', 'ANEXO_IV', 'ANEXO_V', 'ANEXO_VI', 'ANEXO_VII'];
 
@@ -289,7 +290,7 @@ export default function EditalComposicaoPage() {
         <Box key={`${anexo.templateId || anexo.tipo}-${index}`} data-anexo sx={{ p: 2, bgcolor: 'white', border: '1px solid', borderColor: 'divider', borderRadius: 1 }}>
           <Stack direction="row" spacing={1} alignItems="center" flexWrap="wrap" useFlexGap sx={{ mb: 2 }}>
             <Chip size="small" label={anexo.incluido ? 'Selecionado' : 'Fora do edital'} color={anexo.incluido ? 'success' : 'default'} disabled={!editavel || carregando || salvando} onClick={() => setAnexos(anexos.map((item, i) => i === index ? { ...item, incluido: !item.incluido } : item))} />
-            <Typography variant="body2" sx={{ flexGrow: 1 }}>{anexo.tipo.replaceAll('_', ' ')} · posição {index + 1}</Typography>
+            <Typography variant="body2" sx={{ flexGrow: 1 }}>{humanizeSystemValue(anexo.tipo)} · posição {index + 1}</Typography>
             <Button disabled={!editavel || carregando || salvando || index === 0} onClick={() => setAnexos(moverAnexo(anexos, index, -1))}>Subir</Button>
             <Button disabled={!editavel || carregando || salvando || index === anexos.length - 1} onClick={() => setAnexos(moverAnexo(anexos, index, 1))}>Descer</Button>
             {editavel ? <Button color="error" startIcon={<DeleteOutline />} aria-label={`Remover anexo ${index + 1}`} disabled={carregando || salvando} onClick={() => setAnexos(anexos.filter((_, i) => i !== index))}>Remover</Button> : null}

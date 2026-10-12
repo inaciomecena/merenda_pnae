@@ -9,20 +9,20 @@ export declare class ImportacoesRepository {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
+                deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                deletedAt: Date | null;
-                editalId: string;
                 status: import(".prisma/client").$Enums.StatusItemEdital;
-                valorTotal: Prisma.Decimal | null;
                 observacoes: string | null;
+                editalId: string;
+                numeroItem: number | null;
+                produtoOriginal: string;
                 especificacao: string | null;
                 quantidade: Prisma.Decimal | null;
                 unidade: string | null;
                 precoUnitario: Prisma.Decimal | null;
+                valorTotal: Prisma.Decimal | null;
                 produtoReferenciaId: string | null;
-                numeroItem: number | null;
-                produtoOriginal: string;
                 pendenteEdicao: boolean;
                 importadoAutomaticamente: boolean;
             }[];
@@ -30,31 +30,31 @@ export declare class ImportacoesRepository {
             id: string;
             createdAt: Date;
             updatedAt: Date;
+            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
             escolaId: string | null;
             municipioId: string | null;
-            deletedAt: Date | null;
             numero: string;
-            status: import(".prisma/client").$Enums.StatusEdital;
             ano: number;
             titulo: string;
             descricao: string | null;
+            status: import(".prisma/client").$Enums.StatusEdital;
+            dataPublicacao: Date | null;
             objeto: string | null;
             arquivoFonte: string | null;
             observacoes: string | null;
-            dataPublicacao: Date | null;
         }) | null;
     } & {
         id: string;
         createdAt: Date;
         updatedAt: Date;
+        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        deletedAt: Date | null;
-        editalId: string | null;
         status: import(".prisma/client").$Enums.StatusImportacao;
         objeto: string | null;
+        editalId: string | null;
         origem: string;
         arquivoNome: string;
         arquivoCaminho: string;
@@ -72,15 +72,28 @@ export declare class ImportacoesRepository {
     }) | null, null, import("@prisma/client/runtime/library").DefaultArgs>;
     findById(id: string): Prisma.Prisma__ImportLogClient<({
         edital: ({
-            escola: {
+            municipio: {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
+                deletedAt: Date | null;
+                createdBy: string | null;
+                updatedBy: string | null;
+                nome: string;
+                ativo: boolean;
+                nomeNormalizado: string | null;
+                uf: string;
+                codigoIbge: string | null;
+            } | null;
+            escola: {
+                id: string;
+                active: boolean;
+                createdAt: Date;
+                updatedAt: Date;
+                deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
                 municipioId: string;
-                active: boolean;
-                deletedAt: Date | null;
                 nome: string;
                 codigo: string | null;
                 endereco: string | null;
@@ -100,64 +113,30 @@ export declare class ImportacoesRepository {
                 latitude: Prisma.Decimal | null;
                 longitude: Prisma.Decimal | null;
             } | null;
-            municipio: {
-                id: string;
-                ativo: boolean;
-                createdAt: Date;
-                updatedAt: Date;
-                createdBy: string | null;
-                updatedBy: string | null;
-                deletedAt: Date | null;
-                nome: string;
-                nomeNormalizado: string | null;
-                uf: string;
-                codigoIbge: string | null;
-            } | null;
-            itens: {
-                id: string;
-                createdAt: Date;
-                updatedAt: Date;
-                createdBy: string | null;
-                updatedBy: string | null;
-                deletedAt: Date | null;
-                editalId: string;
-                status: import(".prisma/client").$Enums.StatusItemEdital;
-                valorTotal: Prisma.Decimal | null;
-                observacoes: string | null;
-                especificacao: string | null;
-                quantidade: Prisma.Decimal | null;
-                unidade: string | null;
-                precoUnitario: Prisma.Decimal | null;
-                produtoReferenciaId: string | null;
-                numeroItem: number | null;
-                produtoOriginal: string;
-                pendenteEdicao: boolean;
-                importadoAutomaticamente: boolean;
-            }[];
             escolasVinculadas: ({
                 escola: {
                     municipio: {
                         id: string;
-                        ativo: boolean;
                         createdAt: Date;
                         updatedAt: Date;
+                        deletedAt: Date | null;
                         createdBy: string | null;
                         updatedBy: string | null;
-                        deletedAt: Date | null;
                         nome: string;
+                        ativo: boolean;
                         nomeNormalizado: string | null;
                         uf: string;
                         codigoIbge: string | null;
                     };
                 } & {
                     id: string;
+                    active: boolean;
                     createdAt: Date;
                     updatedAt: Date;
+                    deletedAt: Date | null;
                     createdBy: string | null;
                     updatedBy: string | null;
                     municipioId: string;
-                    active: boolean;
-                    deletedAt: Date | null;
                     nome: string;
                     codigo: string | null;
                     endereco: string | null;
@@ -183,35 +162,56 @@ export declare class ImportacoesRepository {
                 escolaId: string;
                 editalId: string;
             })[];
+            itens: {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                deletedAt: Date | null;
+                createdBy: string | null;
+                updatedBy: string | null;
+                status: import(".prisma/client").$Enums.StatusItemEdital;
+                observacoes: string | null;
+                editalId: string;
+                numeroItem: number | null;
+                produtoOriginal: string;
+                especificacao: string | null;
+                quantidade: Prisma.Decimal | null;
+                unidade: string | null;
+                precoUnitario: Prisma.Decimal | null;
+                valorTotal: Prisma.Decimal | null;
+                produtoReferenciaId: string | null;
+                pendenteEdicao: boolean;
+                importadoAutomaticamente: boolean;
+            }[];
         } & {
             id: string;
             createdAt: Date;
             updatedAt: Date;
+            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
             escolaId: string | null;
             municipioId: string | null;
-            deletedAt: Date | null;
             numero: string;
-            status: import(".prisma/client").$Enums.StatusEdital;
             ano: number;
             titulo: string;
             descricao: string | null;
+            status: import(".prisma/client").$Enums.StatusEdital;
+            dataPublicacao: Date | null;
             objeto: string | null;
             arquivoFonte: string | null;
             observacoes: string | null;
-            dataPublicacao: Date | null;
         }) | null;
     } & {
         id: string;
         createdAt: Date;
         updatedAt: Date;
+        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        deletedAt: Date | null;
-        editalId: string | null;
         status: import(".prisma/client").$Enums.StatusImportacao;
         objeto: string | null;
+        editalId: string | null;
         origem: string;
         arquivoNome: string;
         arquivoCaminho: string;
@@ -234,15 +234,28 @@ export declare class ImportacoesRepository {
     }): Promise<{
         items: ({
             edital: ({
-                escola: {
+                municipio: {
                     id: string;
                     createdAt: Date;
                     updatedAt: Date;
+                    deletedAt: Date | null;
+                    createdBy: string | null;
+                    updatedBy: string | null;
+                    nome: string;
+                    ativo: boolean;
+                    nomeNormalizado: string | null;
+                    uf: string;
+                    codigoIbge: string | null;
+                } | null;
+                escola: {
+                    id: string;
+                    active: boolean;
+                    createdAt: Date;
+                    updatedAt: Date;
+                    deletedAt: Date | null;
                     createdBy: string | null;
                     updatedBy: string | null;
                     municipioId: string;
-                    active: boolean;
-                    deletedAt: Date | null;
                     nome: string;
                     codigo: string | null;
                     endereco: string | null;
@@ -262,19 +275,6 @@ export declare class ImportacoesRepository {
                     latitude: Prisma.Decimal | null;
                     longitude: Prisma.Decimal | null;
                 } | null;
-                municipio: {
-                    id: string;
-                    ativo: boolean;
-                    createdAt: Date;
-                    updatedAt: Date;
-                    createdBy: string | null;
-                    updatedBy: string | null;
-                    deletedAt: Date | null;
-                    nome: string;
-                    nomeNormalizado: string | null;
-                    uf: string;
-                    codigoIbge: string | null;
-                } | null;
                 _count: {
                     itens: number;
                 };
@@ -282,26 +282,26 @@ export declare class ImportacoesRepository {
                     escola: {
                         municipio: {
                             id: string;
-                            ativo: boolean;
                             createdAt: Date;
                             updatedAt: Date;
+                            deletedAt: Date | null;
                             createdBy: string | null;
                             updatedBy: string | null;
-                            deletedAt: Date | null;
                             nome: string;
+                            ativo: boolean;
                             nomeNormalizado: string | null;
                             uf: string;
                             codigoIbge: string | null;
                         };
                     } & {
                         id: string;
+                        active: boolean;
                         createdAt: Date;
                         updatedAt: Date;
+                        deletedAt: Date | null;
                         createdBy: string | null;
                         updatedBy: string | null;
                         municipioId: string;
-                        active: boolean;
-                        deletedAt: Date | null;
                         nome: string;
                         codigo: string | null;
                         endereco: string | null;
@@ -331,31 +331,31 @@ export declare class ImportacoesRepository {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
+                deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
                 escolaId: string | null;
                 municipioId: string | null;
-                deletedAt: Date | null;
                 numero: string;
-                status: import(".prisma/client").$Enums.StatusEdital;
                 ano: number;
                 titulo: string;
                 descricao: string | null;
+                status: import(".prisma/client").$Enums.StatusEdital;
+                dataPublicacao: Date | null;
                 objeto: string | null;
                 arquivoFonte: string | null;
                 observacoes: string | null;
-                dataPublicacao: Date | null;
             }) | null;
         } & {
             id: string;
             createdAt: Date;
             updatedAt: Date;
+            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            deletedAt: Date | null;
-            editalId: string | null;
             status: import(".prisma/client").$Enums.StatusImportacao;
             objeto: string | null;
+            editalId: string | null;
             origem: string;
             arquivoNome: string;
             arquivoCaminho: string;
@@ -380,12 +380,12 @@ export declare class ImportacoesRepository {
         id: string;
         createdAt: Date;
         updatedAt: Date;
+        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        deletedAt: Date | null;
-        editalId: string | null;
         status: import(".prisma/client").$Enums.StatusImportacao;
         objeto: string | null;
+        editalId: string | null;
         origem: string;
         arquivoNome: string;
         arquivoCaminho: string;
@@ -413,12 +413,12 @@ export declare class ImportacoesRepository {
         id: string;
         createdAt: Date;
         updatedAt: Date;
+        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        deletedAt: Date | null;
-        editalId: string | null;
         status: import(".prisma/client").$Enums.StatusImportacao;
         objeto: string | null;
+        editalId: string | null;
         origem: string;
         arquivoNome: string;
         arquivoCaminho: string;
@@ -438,46 +438,46 @@ export declare class ImportacoesRepository {
         id: string;
         createdAt: Date;
         updatedAt: Date;
+        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
         escolaId: string | null;
         municipioId: string | null;
-        deletedAt: Date | null;
         numero: string;
-        status: import(".prisma/client").$Enums.StatusEdital;
         ano: number;
         titulo: string;
         descricao: string | null;
+        status: import(".prisma/client").$Enums.StatusEdital;
+        dataPublicacao: Date | null;
         objeto: string | null;
         arquivoFonte: string | null;
         observacoes: string | null;
-        dataPublicacao: Date | null;
     }, never, import("@prisma/client/runtime/library").DefaultArgs>;
     syncEditalEscolas(editalId: string, escolaIds: string[]): Promise<void>;
     getEditalEscolas(editalId: string): Prisma.PrismaPromise<({
         escola: {
             municipio: {
                 id: string;
-                ativo: boolean;
                 createdAt: Date;
                 updatedAt: Date;
+                deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                deletedAt: Date | null;
                 nome: string;
+                ativo: boolean;
                 nomeNormalizado: string | null;
                 uf: string;
                 codigoIbge: string | null;
             };
         } & {
             id: string;
+            active: boolean;
             createdAt: Date;
             updatedAt: Date;
+            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
             municipioId: string;
-            active: boolean;
-            deletedAt: Date | null;
             nome: string;
             codigo: string | null;
             endereco: string | null;
@@ -505,26 +505,26 @@ export declare class ImportacoesRepository {
     })[]>;
     resolveMunicipioByName(nome?: string): Promise<{
         id: string;
-        ativo: boolean;
         createdAt: Date;
         updatedAt: Date;
+        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        deletedAt: Date | null;
         nome: string;
+        ativo: boolean;
         nomeNormalizado: string | null;
         uf: string;
         codigoIbge: string | null;
     } | null>;
     resolveEscolaByName(nome?: string, municipioId?: string | null): Promise<{
         id: string;
+        active: boolean;
         createdAt: Date;
         updatedAt: Date;
+        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
         municipioId: string;
-        active: boolean;
-        deletedAt: Date | null;
         nome: string;
         codigo: string | null;
         endereco: string | null;
@@ -559,20 +559,20 @@ export declare class ImportacoesRepository {
         id: string;
         createdAt: Date;
         updatedAt: Date;
+        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
         escolaId: string | null;
         municipioId: string | null;
-        deletedAt: Date | null;
         numero: string;
-        status: import(".prisma/client").$Enums.StatusEdital;
         ano: number;
         titulo: string;
         descricao: string | null;
+        status: import(".prisma/client").$Enums.StatusEdital;
+        dataPublicacao: Date | null;
         objeto: string | null;
         arquivoFonte: string | null;
         observacoes: string | null;
-        dataPublicacao: Date | null;
     }>;
     createEditalItems(editalId: string, items: Array<Prisma.EditalItemUncheckedCreateInput>): Prisma.PrismaPromise<Prisma.BatchPayload>;
     confirmImportacao(importacaoId: string, editalId: string, items: Array<{
@@ -586,15 +586,28 @@ export declare class ImportacoesRepository {
         observacoes?: string;
     }>): Promise<({
         edital: ({
-            escola: {
+            municipio: {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
+                deletedAt: Date | null;
+                createdBy: string | null;
+                updatedBy: string | null;
+                nome: string;
+                ativo: boolean;
+                nomeNormalizado: string | null;
+                uf: string;
+                codigoIbge: string | null;
+            } | null;
+            escola: {
+                id: string;
+                active: boolean;
+                createdAt: Date;
+                updatedAt: Date;
+                deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
                 municipioId: string;
-                active: boolean;
-                deletedAt: Date | null;
                 nome: string;
                 codigo: string | null;
                 endereco: string | null;
@@ -614,37 +627,24 @@ export declare class ImportacoesRepository {
                 latitude: Prisma.Decimal | null;
                 longitude: Prisma.Decimal | null;
             } | null;
-            municipio: {
-                id: string;
-                ativo: boolean;
-                createdAt: Date;
-                updatedAt: Date;
-                createdBy: string | null;
-                updatedBy: string | null;
-                deletedAt: Date | null;
-                nome: string;
-                nomeNormalizado: string | null;
-                uf: string;
-                codigoIbge: string | null;
-            } | null;
             itens: {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
+                deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
-                deletedAt: Date | null;
-                editalId: string;
                 status: import(".prisma/client").$Enums.StatusItemEdital;
-                valorTotal: Prisma.Decimal | null;
                 observacoes: string | null;
+                editalId: string;
+                numeroItem: number | null;
+                produtoOriginal: string;
                 especificacao: string | null;
                 quantidade: Prisma.Decimal | null;
                 unidade: string | null;
                 precoUnitario: Prisma.Decimal | null;
+                valorTotal: Prisma.Decimal | null;
                 produtoReferenciaId: string | null;
-                numeroItem: number | null;
-                produtoOriginal: string;
                 pendenteEdicao: boolean;
                 importadoAutomaticamente: boolean;
             }[];
@@ -652,31 +652,31 @@ export declare class ImportacoesRepository {
             id: string;
             createdAt: Date;
             updatedAt: Date;
+            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
             escolaId: string | null;
             municipioId: string | null;
-            deletedAt: Date | null;
             numero: string;
-            status: import(".prisma/client").$Enums.StatusEdital;
             ano: number;
             titulo: string;
             descricao: string | null;
+            status: import(".prisma/client").$Enums.StatusEdital;
+            dataPublicacao: Date | null;
             objeto: string | null;
             arquivoFonte: string | null;
             observacoes: string | null;
-            dataPublicacao: Date | null;
         }) | null;
     } & {
         id: string;
         createdAt: Date;
         updatedAt: Date;
+        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        deletedAt: Date | null;
-        editalId: string | null;
         status: import(".prisma/client").$Enums.StatusImportacao;
         objeto: string | null;
+        editalId: string | null;
         origem: string;
         arquivoNome: string;
         arquivoCaminho: string;

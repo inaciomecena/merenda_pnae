@@ -56,6 +56,7 @@ let DREService = class DREService {
             },
             include: {
                 entidadeExecutora: { select: { id: true, nome: true } },
+                _count: { select: { vinculosEscolas: { where: { ativo: true } } } },
             },
         });
         await this.auditService.log({
@@ -78,6 +79,7 @@ let DREService = class DREService {
                 where: { deletedAt: null },
                 include: {
                     entidadeExecutora: { select: { id: true, nome: true } },
+                    _count: { select: { vinculosEscolas: { where: { ativo: true } } } },
                 },
                 orderBy: { nome: 'asc' },
             });
@@ -86,6 +88,7 @@ let DREService = class DREService {
             where: { id: { in: authorizedIds }, deletedAt: null },
             include: {
                 entidadeExecutora: { select: { id: true, nome: true } },
+                _count: { select: { vinculosEscolas: { where: { ativo: true } } } },
             },
             orderBy: { nome: 'asc' },
         });
@@ -106,7 +109,7 @@ let DREService = class DREService {
                         ],
                     },
                     include: {
-                        escola: { select: { id: true, nome: true, codigo: true } },
+                        escola: { select: { id: true, nome: true, codigo: true, municipio: { select: { nome: true } } } },
                     },
                 },
             },

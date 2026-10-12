@@ -1,0 +1,97 @@
+{
+  "schema": "importacao-historica-pnae/1.0",
+  "geradoEm": "2026-10-12T19:29:08.082Z",
+  "idPacote": "ED-0002",
+  "dre": "Diamantino",
+  "chaveLogica": "b282b2e5db8561dd5b479be25e991d2b",
+  "decisao": "BLOQUEADO",
+  "motivosBloqueio": [
+    "conflito documental não resolvido: FORMATO_NUMERICO_AMBIGUO."
+  ],
+  "identificacao": {
+    "numeroBruto": "029/2024",
+    "numeroNormalizado": "029/2024",
+    "anoNumeracao": 2024,
+    "exercicio": 2025,
+    "exercicioEvidencia": [],
+    "processoAdministrativo": null,
+    "dreNome": "Diamantino",
+    "camaraNegocios": "Diamantino",
+    "municipioAtendido": "Nobres",
+    "recorte": "NAO_IDENTIFICADO",
+    "dataPublicacao": null,
+    "dataSessao": null,
+    "objeto": "Aquisição de gêneros alimentícios para alimentação escolar da agricultura familiar",
+    "fundamentacaoLegal": null,
+    "prazos": null,
+    "habilitacao": null,
+    "criteriosSelecao": null,
+    "condicoesEntrega": null,
+    "condicoesPagamento": null,
+    "valorEstimado": null,
+    "observacoes": [
+      "identificação preenchida a partir do manifesto (extração de PDF não realizada ou indisponível)"
+    ]
+  },
+  "documentos": [
+    {
+      "idDocumento": "DOC-0002",
+      "papel": "EDITAL_PRINCIPAL",
+      "sha256": "233b2234e647f3dd94f95a61692e56602fba235f4ca11fc26be738b21647dd1e",
+      "caminho": "PNAE_MT_2025/05_DIAMANTINO/DOC-0002_DOC-0002.pdf",
+      "paginas": 55,
+      "urls": [
+        "https://drive.google.com/file/d/1zCzXCy_6UQ-wp3fF82YbY2eXyOdWj-LR/view?usp=drivesdk",
+        "https://drive.google.com/uc?export=download&id=1zCzXCy_6UQ-wp3fF82YbY2eXyOdWj-LR",
+        "https://sites.google.com/edu.mt.gov.br/drediamantino/chamada-pública"
+      ],
+      "chaveVersao": "0780683664080993939d6e8e3bbe9349"
+    }
+  ],
+  "vinculosInstitucionais": {
+    "dre": {
+      "nomePacote": "Diamantino",
+      "dreId": "b73ccaab-c5e2-11f1-8f2d-6451061ac5e7",
+      "codigo": "DMT",
+      "status": "CONFIRMADO",
+      "detalhe": "DRE \"DRE Diamantino\" (DMT)"
+    },
+    "municipio": {
+      "nomePacote": "Nobres",
+      "municipioId": "6d5240aa-e9c8-49f0-b853-5ccc5bf16d69",
+      "codigoIbge": "5105903",
+      "status": "CONFIRMADO",
+      "detalhe": "\"Nobres\" (IBGE 5105903)"
+    },
+    "escolas": [],
+    "unidadesExecutoras": [
+      {
+        "nome": "Diamantino",
+        "cnpj": null,
+        "entidadeExecutoraId": null,
+        "status": "PENDENTE",
+        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+      }
+    ]
+  },
+  "itens": [],
+  "anexos": [],
+  "pendencias": [
+    {
+      "tipo": "FORMATO_NUMERICO_AMBIGUO",
+      "descricao": "Item 37, Pepino, página 18: valor total grafado R$ 2,205,70. Separadores ambíguos; não convertido automaticamente.",
+      "origem": "manifesto:Diamantino"
+    },
+    {
+      "tipo": "resolucao_entidade_executora",
+      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
+      "origem": "snapshot institucional"
+    }
+  ],
+  "metadadoExtracao": {
+    "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+    "documentosValidados": 1,
+    "itensDoManifesto": 49,
+    "itensExtraidosPdf": 0
+  }
+}

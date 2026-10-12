@@ -6,6 +6,7 @@ import {
 import { Save, Refresh, Add } from '@mui/icons-material';
 import api from '../services/api';
 import type { ApiResponse } from '../types';
+import { configKeyLabel } from '../lib/display-text';
 
 interface ConfigItem {
   id: string;
@@ -17,7 +18,7 @@ interface ConfigItem {
 
 const groups: Record<string, string[]> = {
   'Sistema': ['sistema.nome', 'sistema.versao'],
-  'Orgao': ['orgao.nome', 'orgao.secretaria', 'orgao.programa'],
+  'Órgão': ['orgao.nome', 'orgao.secretaria', 'orgao.programa'],
   'Documentos': ['documento.validade_padrao', 'documento.prazo_entrega_padrao'],
   'Upload': ['upload.tamanho_maximo_mb', 'upload.tipos_permitidos'],
 };
@@ -42,7 +43,7 @@ export default function ConfigPage() {
       items.forEach(c => { vals[c.chave] = c.valor; });
       setEditedValues(vals);
     } catch {
-      setError('Nao foi possivel carregar as configuracoes.');
+      setError('Não foi possível carregar as configurações.');
     } finally {
       setLoading(false);
     }
@@ -61,10 +62,10 @@ export default function ConfigPage() {
         tipo: c.tipo,
       }));
       await api.put('/config', updates);
-      setSuccess('Configuracoes salvas com sucesso!');
+      setSuccess('Configurações salvas com sucesso.');
       void fetchConfigs();
     } catch (err: any) {
-      setError(err?.response?.data?.message || 'Erro ao salvar configuracoes');
+      setError(err?.response?.data?.message || 'Erro ao salvar configurações.');
     } finally {
       setSaving(false);
     }
@@ -77,19 +78,19 @@ export default function ConfigPage() {
     }
     try {
       await api.put(`/config/${newConfig.chave}`, newConfig);
-      setSuccess('Configuracao criada!');
+      setSuccess('Configuração criada.');
       setNewConfig({ chave: '', valor: '', descricao: '', tipo: 'texto' });
       setShowNew(false);
       void fetchConfigs();
     } catch (err: any) {
-      setError(err?.response?.data?.message || 'Erro ao criar configuracao');
+      setError(err?.response?.data?.message || 'Erro ao criar configuração.');
     }
   };
 
   const handleInitDefaults = async () => {
     try {
       await api.post('/config/init');
-      setSuccess('Configuracoes padrao inicializadas!');
+      setSuccess('Configurações padrão inicializadas.');
       void fetchConfigs();
     } catch (err: any) {
       setError(err?.response?.data?.message || 'Erro ao inicializar');
@@ -99,10 +100,10 @@ export default function ConfigPage() {
   return (
     <Stack spacing={3}>
       <Stack direction="row" justifyContent="space-between" alignItems="center">
-        <Typography variant="h4" fontWeight={700}>Configuracoes</Typography>
+        <Typography variant="h4" fontWeight={700}>Configurações</Typography>
         <Stack direction="row" spacing={1}>
           <Button variant="outlined" startIcon={<Refresh />} onClick={() => void fetchConfigs()}>Atualizar</Button>
-          <Button variant="outlined" onClick={() => void handleInitDefaults()}>Restaurar Padroes</Button>
+          <Button variant="outlined" onClick={() => void handleInitDefaults()}>Restaurar padrões</Button>
           <Button variant="contained" startIcon={saving ? <CircularProgress size={16} /> : <Save />} onClick={handleSave} disabled={saving}>Salvar</Button>
         </Stack>
       </Stack>
@@ -122,12 +123,12 @@ export default function ConfigPage() {
                   return (
                     <Grid item xs={12} md={6} key={key}>
                       <TextField
-                        label={config?.descricao || key}
+                        label={config?.descricao || configKeyLabel(key)}
                         fullWidth
                         size="small"
                         value={editedValues[key] || ''}
                         onChange={e => setEditedValues({ ...editedValues, [key]: e.target.value })}
-                        helperText={key}
+                        helperText={`Parâmetro: ${configKeyLabel(key)}`}
                         type={config?.tipo === 'numero' ? 'number' : 'text'}
                       />
                     </Grid>
@@ -142,7 +143,7 @@ export default function ConfigPage() {
       <Card>
         <CardContent>
           <Stack direction="row" justifyContent="space-between" alignItems="center">
-            <Typography variant="h6" fontWeight={600}>Configuracoes Adicionais</Typography>
+            <Typography variant="h6" fontWeight={600}>Configurações adicionais</Typography>
             <Button size="small" startIcon={<Add />} onClick={() => setShowNew(!showNew)}>Adicionar</Button>
           </Stack>
           {showNew && (
@@ -154,7 +155,7 @@ export default function ConfigPage() {
                 <TextField label="Valor" fullWidth size="small" value={newConfig.valor} onChange={e => setNewConfig({ ...newConfig, valor: e.target.value })} />
               </Grid>
               <Grid item xs={12} md={3}>
-                <TextField label="Descricao" fullWidth size="small" value={newConfig.descricao} onChange={e => setNewConfig({ ...newConfig, descricao: e.target.value })} />
+                <TextField label="Descrição" fullWidth size="small" value={newConfig.descricao} onChange={e => setNewConfig({ ...newConfig, descricao: e.target.value })} />
               </Grid>
               <Grid item xs={12} md={3}>
                 <Button variant="contained" onClick={handleAddConfig} fullWidth>Salvar</Button>
@@ -164,7 +165,7 @@ export default function ConfigPage() {
           <Box sx={{ mt: 2 }}>
             {configs.filter(c => !Object.values(groups).flat().includes(c.chave)).map(c => (
               <Stack key={c.id} direction="row" spacing={2} alignItems="center" sx={{ py: 1 }}>
-                <Typography variant="body2" sx={{ minWidth: 200 }}>{c.chave}</Typography>
+                <Typography variant="body2" sx={{ minWidth: 200 }}>{configKeyLabel(c.chave)}</Typography>
                 <TextField
                   size="small"
                   value={editedValues[c.chave] || ''}

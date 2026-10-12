@@ -1,0 +1,3930 @@
+{
+  "gerado_em": "2026-10-12T18:07:33.089Z",
+  "package_dir": "C:\\Projetos\\merenda_pnae\\docs\\PNAE_MT_2025_PACOTE_IMPORTACAO",
+  "manifesto": {
+    "caminho": "C:\\Projetos\\merenda_pnae\\docs\\PNAE_MT_2025_PACOTE_IMPORTACAO\\MANIFESTO_DOCUMENTOS.json",
+    "sha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+    "bytes": 864285,
+    "data_pesquisa": "2026-10-12",
+    "status": "LEVANTAMENTO_COM_LACUNAS"
+  },
+  "contagens": {
+    "portais": 13,
+    "editais": 125,
+    "documentos": 135,
+    "itens": 553,
+    "anexos": 312,
+    "pendencias": 44,
+    "urls_com_caminho": 128,
+    "urls_sem_caminho": 7,
+    "hashes_unicos": 122,
+    "grupos_duplicados": 4
+  },
+  "editais_por_elegibilidade": {
+    "ELEGIVEL_2025": 52,
+    "CONFLITO_EXERCICIO": 19,
+    "FORA_ESCOPO_2026": 11,
+    "PREGAO_2025": 27,
+    "PENDENTE_EDITAL_COMPLETO": 5,
+    "PENDENTE_ARQUIVO": 7,
+    "REFERENCIA_HISTORICA": 4
+  },
+  "edital_para_documentos": {
+    "ED-0001": [
+      "DOC-0001"
+    ],
+    "ED-0002": [
+      "DOC-0002"
+    ],
+    "ED-0003": [
+      "DOC-0003"
+    ],
+    "ED-0004": [
+      "DOC-0004"
+    ],
+    "ED-0005": [
+      "DOC-0005"
+    ],
+    "ED-0006": [
+      "DOC-0006"
+    ],
+    "ED-0007": [
+      "DOC-0007"
+    ],
+    "ED-0008": [
+      "DOC-0008"
+    ],
+    "ED-0009": [
+      "DOC-0009"
+    ],
+    "ED-0010": [
+      "DOC-0010",
+      "DOC-0011"
+    ],
+    "ED-0011": [
+      "DOC-0012"
+    ],
+    "ED-0012": [
+      "DOC-0013"
+    ],
+    "ED-0013": [
+      "DOC-0014"
+    ],
+    "ED-0014": [
+      "DOC-0015"
+    ],
+    "ED-0015": [
+      "DOC-0016"
+    ],
+    "ED-0016": [
+      "DOC-0017"
+    ],
+    "ED-0017": [
+      "DOC-0018"
+    ],
+    "ED-0018": [
+      "DOC-0019",
+      "DOC-0020"
+    ],
+    "ED-0019": [
+      "DOC-0021"
+    ],
+    "ED-0020": [
+      "DOC-0022"
+    ],
+    "ED-0021": [
+      "DOC-0023"
+    ],
+    "ED-0022": [
+      "DOC-0024"
+    ],
+    "ED-0023": [
+      "DOC-0025"
+    ],
+    "ED-0024": [
+      "DOC-0026",
+      "DOC-0027"
+    ],
+    "ED-0025": [
+      "DOC-0029"
+    ],
+    "ED-0026": [
+      "DOC-0030"
+    ],
+    "ED-0027": [
+      "DOC-0031"
+    ],
+    "ED-0028": [
+      "DOC-0032"
+    ],
+    "ED-0029": [
+      "DOC-0033"
+    ],
+    "ED-0030": [
+      "DOC-0034"
+    ],
+    "ED-0031": [
+      "DOC-0035"
+    ],
+    "ED-0032": [
+      "DOC-0036"
+    ],
+    "ED-0033": [
+      "DOC-0037"
+    ],
+    "ED-0034": [
+      "DOC-0038"
+    ],
+    "ED-0035": [
+      "DOC-0039"
+    ],
+    "ED-0036": [
+      "DOC-0040"
+    ],
+    "ED-0037": [
+      "DOC-0041"
+    ],
+    "ED-0038": [
+      "DOC-0042"
+    ],
+    "ED-0039": [
+      "DOC-0043"
+    ],
+    "ED-0040": [
+      "DOC-0044"
+    ],
+    "ED-0041": [
+      "DOC-0045"
+    ],
+    "ED-0042": [
+      "DOC-0046"
+    ],
+    "ED-0043": [
+      "DOC-0047"
+    ],
+    "ED-0044": [
+      "DOC-0048"
+    ],
+    "ED-0045": [
+      "DOC-0049"
+    ],
+    "ED-0046": [
+      "DOC-0050"
+    ],
+    "ED-0047": [
+      "DOC-0051"
+    ],
+    "ED-0048": [
+      "DOC-0052"
+    ],
+    "ED-0049": [
+      "DOC-0053",
+      "DOC-0054",
+      "DOC-0065"
+    ],
+    "ED-0050": [
+      "DOC-0055"
+    ],
+    "ED-0051": [
+      "DOC-0056",
+      "DOC-0066"
+    ],
+    "ED-0052": [
+      "DOC-0057"
+    ],
+    "ED-0053": [
+      "DOC-0058"
+    ],
+    "ED-0054": [
+      "DOC-0059"
+    ],
+    "ED-0055": [
+      "DOC-0060"
+    ],
+    "ED-0056": [
+      "DOC-0061"
+    ],
+    "ED-0057": [
+      "DOC-0062"
+    ],
+    "ED-0058": [
+      "DOC-0063",
+      "DOC-0064"
+    ],
+    "ED-0059": [
+      "DOC-0067"
+    ],
+    "ED-0060": [
+      "DOC-0068"
+    ],
+    "ED-0061": [
+      "DOC-0069"
+    ],
+    "ED-0062": [
+      "DOC-0070"
+    ],
+    "ED-0063": [
+      "DOC-0071"
+    ],
+    "ED-0064": [
+      "DOC-0072"
+    ],
+    "ED-0065": [
+      "DOC-0073"
+    ],
+    "ED-0066": [
+      "DOC-0074"
+    ],
+    "ED-0067": [
+      "DOC-0075"
+    ],
+    "ED-0068": [
+      "DOC-0076"
+    ],
+    "ED-0069": [
+      "DOC-0077"
+    ],
+    "ED-0070": [
+      "DOC-0078"
+    ],
+    "ED-0071": [
+      "DOC-0079"
+    ],
+    "ED-0072": [
+      "DOC-0080"
+    ],
+    "ED-0073": [
+      "DOC-0081"
+    ],
+    "ED-0074": [
+      "DOC-0082"
+    ],
+    "ED-0075": [
+      "DOC-0083"
+    ],
+    "ED-0076": [
+      "DOC-0084"
+    ],
+    "ED-0077": [
+      "DOC-0085"
+    ],
+    "ED-0078": [
+      "DOC-0086"
+    ],
+    "ED-0079": [
+      "DOC-0087"
+    ],
+    "ED-0080": [
+      "DOC-0088"
+    ],
+    "ED-0081": [
+      "DOC-0089"
+    ],
+    "ED-0082": [
+      "DOC-0090"
+    ],
+    "ED-0083": [
+      "DOC-0091"
+    ],
+    "ED-0084": [
+      "DOC-0092"
+    ],
+    "ED-0085": [
+      "DOC-0093"
+    ],
+    "ED-0086": [
+      "DOC-0094"
+    ],
+    "ED-0087": [
+      "DOC-0095"
+    ],
+    "ED-0088": [
+      "DOC-0096",
+      "DOC-0099"
+    ],
+    "ED-0089": [
+      "DOC-0097",
+      "DOC-0100"
+    ],
+    "ED-0090": [
+      "DOC-0098"
+    ],
+    "ED-0091": [
+      "DOC-0101"
+    ],
+    "ED-0092": [
+      "DOC-0102"
+    ],
+    "ED-0093": [
+      "DOC-0103"
+    ],
+    "ED-0094": [
+      "DOC-0104"
+    ],
+    "ED-0095": [
+      "DOC-0105"
+    ],
+    "ED-0096": [
+      "DOC-0106"
+    ],
+    "ED-0097": [
+      "DOC-0107"
+    ],
+    "ED-0098": [
+      "DOC-0108"
+    ],
+    "ED-0099": [
+      "DOC-0109"
+    ],
+    "ED-0100": [
+      "DOC-0110"
+    ],
+    "ED-0101": [
+      "DOC-0111"
+    ],
+    "ED-0102": [
+      "DOC-0112"
+    ],
+    "ED-0103": [
+      "DOC-0113"
+    ],
+    "ED-0104": [
+      "DOC-0114"
+    ],
+    "ED-0105": [
+      "DOC-0115"
+    ],
+    "ED-0106": [
+      "DOC-0116"
+    ],
+    "ED-0107": [
+      "DOC-0117"
+    ],
+    "ED-0108": [
+      "DOC-0118"
+    ],
+    "ED-0109": [
+      "DOC-0119"
+    ],
+    "ED-0110": [
+      "DOC-0120"
+    ],
+    "ED-0111": [
+      "DOC-0121"
+    ],
+    "ED-0112": [
+      "DOC-0122"
+    ],
+    "ED-0113": [
+      "DOC-0123"
+    ],
+    "ED-0114": [
+      "DOC-0124"
+    ],
+    "ED-0115": [
+      "DOC-0125"
+    ],
+    "ED-0116": [
+      "DOC-0126"
+    ],
+    "ED-0117": [
+      "DOC-0127"
+    ],
+    "ED-0118": [
+      "DOC-0128"
+    ],
+    "ED-0119": [
+      "DOC-0129"
+    ],
+    "ED-0120": [
+      "DOC-0130"
+    ],
+    "ED-0121": [
+      "DOC-0131"
+    ],
+    "ED-0122": [
+      "DOC-0132"
+    ],
+    "ED-0123": [
+      "DOC-0133"
+    ],
+    "ED-0124": [
+      "DOC-0134"
+    ],
+    "ED-0125": [
+      "DOC-0135"
+    ]
+  },
+  "documentos_elegiveis": [
+    {
+      "id_edital": "ED-0001",
+      "dre": "Diamantino",
+      "municipio": "Rosário Oeste",
+      "numero": "030/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0001"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0002",
+      "dre": "Diamantino",
+      "municipio": "Nobres",
+      "numero": "029/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0002"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0003",
+      "dre": "Diamantino",
+      "municipio": "Santo Afonso",
+      "numero": "028/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0003"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0004",
+      "dre": "Diamantino",
+      "municipio": "Nova Marilândia",
+      "numero": "027/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0004"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0005",
+      "dre": "Diamantino",
+      "municipio": "Nortelândia",
+      "numero": "026/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0005"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0006",
+      "dre": "Diamantino",
+      "municipio": "Arenápolis",
+      "numero": "025/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0006"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0007",
+      "dre": "Diamantino",
+      "municipio": "Alto Paraguai - urbano",
+      "numero": "024/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0007"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0008",
+      "dre": "Diamantino",
+      "municipio": "Nova Mutum - campo",
+      "numero": "022/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0008"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0009",
+      "dre": "Diamantino",
+      "municipio": "Nova Mutum - urbano",
+      "numero": "023/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0009"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0010",
+      "dre": "Diamantino",
+      "municipio": "Santa Rita do Trivelato",
+      "numero": "021/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0010",
+        "DOC-0011"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0011",
+      "dre": "Diamantino",
+      "municipio": "Alto Paraguai - campo",
+      "numero": "019/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0012"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0012",
+      "dre": "Diamantino",
+      "municipio": "Diamantino",
+      "numero": "020/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0013"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0013",
+      "dre": "Diamantino",
+      "municipio": "Nova Maringá",
+      "numero": "018/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0014"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0014",
+      "dre": "Diamantino",
+      "municipio": "São José do Rio Claro",
+      "numero": "017/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0015"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0015",
+      "dre": "Juína",
+      "municipio": "Castanheira",
+      "numero": "026/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0016"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0016",
+      "dre": "Juína",
+      "municipio": "Brasnorte",
+      "numero": "017/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0017"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0017",
+      "dre": "Juína",
+      "municipio": "Juína",
+      "numero": "020/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0018"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0018",
+      "dre": "Juína",
+      "municipio": "Cotriguaçu",
+      "numero": "019/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0019",
+        "DOC-0020"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0019",
+      "dre": "Juína",
+      "municipio": "Novo Horizonte do Norte",
+      "numero": "025/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0021"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0020",
+      "dre": "Juína",
+      "municipio": "Porto dos Gaúchos",
+      "numero": "024/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0022"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0021",
+      "dre": "Juína",
+      "municipio": "Juara - indígena",
+      "numero": "022/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0023"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0022",
+      "dre": "Juína",
+      "municipio": "Juara",
+      "numero": "021/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0024"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0023",
+      "dre": "Juína",
+      "municipio": "Colniza",
+      "numero": "018/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0025"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0024",
+      "dre": "Juína",
+      "municipio": "Aripuanã",
+      "numero": "015/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0026",
+        "DOC-0027"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0046",
+      "dre": "Primavera do Leste",
+      "municipio": "Poxoréu",
+      "numero": "001/2025",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0050"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0061",
+      "dre": "Primavera do Leste",
+      "municipio": "Gaúcha do Norte - urbana",
+      "numero": "016/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0069"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0062",
+      "dre": "Sinop",
+      "municipio": "Sinop",
+      "numero": "020/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0070"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0063",
+      "dre": "Sinop",
+      "municipio": "Colíder",
+      "numero": "021/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0071"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0064",
+      "dre": "Sinop",
+      "municipio": "Nova Santa Helena",
+      "numero": "022/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0072"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0065",
+      "dre": "Sinop",
+      "municipio": "Itaúba",
+      "numero": "023/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0073"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0066",
+      "dre": "Sinop",
+      "municipio": "Cláudia",
+      "numero": "024/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0074"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0067",
+      "dre": "Sinop",
+      "municipio": "Santa Carmem",
+      "numero": "025/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0075"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0068",
+      "dre": "Sinop",
+      "municipio": "Ipiranga do Norte",
+      "numero": "026/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0076"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0069",
+      "dre": "Sinop",
+      "municipio": "Tabaporã - distrito",
+      "numero": "027/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0077"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0070",
+      "dre": "Sinop",
+      "municipio": "União do Sul",
+      "numero": "028/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0078"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0071",
+      "dre": "Sinop",
+      "municipio": "Itanhangá",
+      "numero": "029/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0079"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0072",
+      "dre": "Sinop",
+      "municipio": "Tapurah",
+      "numero": "030/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0080"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0073",
+      "dre": "Sinop",
+      "municipio": "Lucas do Rio Verde",
+      "numero": "031/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0081"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0074",
+      "dre": "Sinop",
+      "municipio": "Sorriso",
+      "numero": "032/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0082"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0075",
+      "dre": "Sinop",
+      "municipio": "Nova Ubiratã - sede",
+      "numero": "033/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0083"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0076",
+      "dre": "Sinop",
+      "municipio": "Boa Esperança do Norte",
+      "numero": "034/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0084"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0077",
+      "dre": "Sinop",
+      "municipio": "Tabaporã - sede",
+      "numero": "035/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0085"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0078",
+      "dre": "Sinop",
+      "municipio": "Vera",
+      "numero": "036/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0086"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0079",
+      "dre": "Sinop",
+      "municipio": "Feliz Natal",
+      "numero": "037/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0087"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0092",
+      "dre": "Alta Floresta",
+      "municipio": "Nova Monte Verde",
+      "numero": "013/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0102"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0093",
+      "dre": "Alta Floresta",
+      "municipio": "Nova Bandeirantes",
+      "numero": "014/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0103"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0094",
+      "dre": "Alta Floresta",
+      "municipio": "Apiacás",
+      "numero": "012/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0104"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0095",
+      "dre": "Alta Floresta",
+      "municipio": "Nova Canaã do Norte",
+      "numero": "010/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0105"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0096",
+      "dre": "Alta Floresta",
+      "municipio": "Carlinda",
+      "numero": "009/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0106"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0097",
+      "dre": "Alta Floresta",
+      "municipio": "Paranaíta",
+      "numero": "011/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0107"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0098",
+      "dre": "Alta Floresta",
+      "municipio": "Alta Floresta",
+      "numero": "008/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0108"
+      ],
+      "todos_integros": true
+    },
+    {
+      "id_edital": "ED-0121",
+      "dre": "Pontes e Lacerda",
+      "municipio": "Pontes e Lacerda",
+      "numero": "014/2024",
+      "exercicio": 2025,
+      "documentos": [
+        "DOC-0131"
+      ],
+      "todos_integros": true
+    }
+  ],
+  "resumo_classificacao": {
+    "INTEIRO": 128,
+    "AUSENTE": 7
+  },
+  "tentativas_de_traversal": [],
+  "duplicados_binarios": [
+    {
+      "sha256": "625e24224b3632854e6df1c9a2a8afc8ed76d64a4cb3f09b898f254d48ce5dab",
+      "ids": [
+        "DOC-0019",
+        "DOC-0020"
+      ],
+      "total_ids": 2,
+      "urls_proveniencia": [
+        "https://www.drejuina.com.br/uploads/editais/cotriguacuedital--chamada-pUblica-2025-t7Br.pdf",
+        "https://www.drejuina.com.br/uploads/editais/cotriguacuedital--chamada-pUblica-2025-t7Br.pdf",
+        "https://www.drejuina.com.br/editals",
+        "https://www.drejuina.com.br/uploads/editais/cotriguacuedital--chamada-pUblica-2025-2-MbYw.pdf",
+        "https://www.drejuina.com.br/uploads/editais/cotriguacuedital--chamada-pUblica-2025-2-MbYw.pdf",
+        "https://www.drejuina.com.br/editals"
+      ],
+      "dre": "Juína",
+      "mesmo_caminho": false,
+      "caminhos": [
+        "PNAE_MT_2025/06_JUINA/DOC-0019_cotriguacuedital--chamada-pUblica-2025-t7Br.pdf",
+        "PNAE_MT_2025/06_JUINA/DOC-0020_cotriguacuedital--chamada-pUblica-2025-2-MbYw.pdf"
+      ]
+    },
+    {
+      "sha256": "a3e9ff86e055e0baecd4ba22e1b7736d0d2969b707d3e44c70aa7526ba65af21",
+      "ids": [
+        "DOC-0026",
+        "DOC-0027"
+      ],
+      "total_ids": 2,
+      "urls_proveniencia": [
+        "https://www.drejuina.com.br/uploads/editais/aripuana-edital--chamada-pUblica-2025pos-parecerdocx-1-gKjW.pdf",
+        "https://www.drejuina.com.br/uploads/editais/aripuana-edital--chamada-pUblica-2025pos-parecerdocx-1-gKjW.pdf",
+        "https://www.drejuina.com.br/editals",
+        "https://www.drejuina.com.br/uploads/editais/aripuana-edital--chamada-pUblica-2025pos-parecerdocx-1-xI4f.pdf",
+        "https://www.drejuina.com.br/uploads/editais/aripuana-edital--chamada-pUblica-2025pos-parecerdocx-1-xI4f.pdf",
+        "https://www.drejuina.com.br/editals"
+      ],
+      "dre": "Juína",
+      "mesmo_caminho": false,
+      "caminhos": [
+        "PNAE_MT_2025/06_JUINA/DOC-0026_aripuana-edital--chamada-pUblica-2025pos-parecerdocx-1-gKjW.pdf",
+        "PNAE_MT_2025/06_JUINA/DOC-0027_aripuana-edital--chamada-pUblica-2025pos-parecerdocx-1-xI4f.pdf"
+      ]
+    },
+    {
+      "sha256": "9add7924e69099a37e4f5a208489e533a5d9216891ad604d81e51184feb0745e",
+      "ids": [
+        "DOC-0055",
+        "DOC-0059",
+        "DOC-0060"
+      ],
+      "total_ids": 3,
+      "urls_proveniencia": [
+        "https://drive.google.com/file/d/1ZOyOp4RM83qtRR9bmDlTKbPBme1_gTQH/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1ZOyOp4RM83qtRR9bmDlTKbPBme1_gTQH",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025",
+        "https://drive.google.com/file/d/1Wjo67zqWJI8qfXZK9Y2pW5gBldH0eelK/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1Wjo67zqWJI8qfXZK9Y2pW5gBldH0eelK",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025",
+        "https://drive.google.com/file/d/1g3_xIr5sW6SvM_nkHxgpULhhPnpQb0Us/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1g3_xIr5sW6SvM_nkHxgpULhhPnpQb0Us",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "dre": "Primavera do Leste",
+      "mesmo_caminho": false,
+      "caminhos": [
+        "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0055_DOC-0055.pdf",
+        "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0059_DOC-0059.pdf",
+        "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0060_DOC-0060.pdf"
+      ]
+    },
+    {
+      "sha256": "f54c7bef910089b0188853f7a3c3c0dd41dcb031b379eb58d5c3d2adbc2c35fb",
+      "ids": [
+        "DOC-0056",
+        "DOC-0057",
+        "DOC-0058"
+      ],
+      "total_ids": 3,
+      "urls_proveniencia": [
+        "https://drive.google.com/file/d/1Y_315oY6TdY8OgRLwb159dQbj6z_sHZR/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1Y_315oY6TdY8OgRLwb159dQbj6z_sHZR",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025",
+        "https://drive.google.com/file/d/1FTJ9Bu_XxE5WkradLZtsquDo3YF36RU2/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1FTJ9Bu_XxE5WkradLZtsquDo3YF36RU2",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025",
+        "https://drive.google.com/file/d/1dtNrtzLzqkJuIbrhMuc4slA3lF2xIX5M/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1dtNrtzLzqkJuIbrhMuc4slA3lF2xIX5M",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "dre": "Primavera do Leste",
+      "mesmo_caminho": false,
+      "caminhos": [
+        "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0056_DOC-0056.pdf",
+        "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0057_DOC-0057.pdf",
+        "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0058_DOC-0058.pdf"
+      ]
+    }
+  ],
+  "documentos": [
+    {
+      "id_documento": "DOC-0001",
+      "caminho_manifesto": "PNAE_MT_2025/05_DIAMANTINO/DOC-0001_DOC-0001.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\05_DIAMANTINO\\DOC-0001_DOC-0001.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Diamantino",
+      "urls": [
+        "https://drive.google.com/file/d/1c78ZFNNYoccuvL0jU8rWp_R_xz1xMS4Z/view?usp=drivesdk",
+        "https://drive.google.com/uc?export=download&id=1c78ZFNNYoccuvL0jU8rWp_R_xz1xMS4Z",
+        "https://sites.google.com/edu.mt.gov.br/drediamantino/chamada-pública"
+      ],
+      "sha256_manifesto": "36fc7bd46c53ab4012b7b287ada26d1cacf2e6aab10fe5705a0aa83e7f7319db",
+      "bytes_manifesto": 498042,
+      "paginas_manifesto": 52,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 498042,
+      "header_pdf": true,
+      "sha256_calculado": "36fc7bd46c53ab4012b7b287ada26d1cacf2e6aab10fe5705a0aa83e7f7319db"
+    },
+    {
+      "id_documento": "DOC-0002",
+      "caminho_manifesto": "PNAE_MT_2025/05_DIAMANTINO/DOC-0002_DOC-0002.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\05_DIAMANTINO\\DOC-0002_DOC-0002.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Diamantino",
+      "urls": [
+        "https://drive.google.com/file/d/1zCzXCy_6UQ-wp3fF82YbY2eXyOdWj-LR/view?usp=drivesdk",
+        "https://drive.google.com/uc?export=download&id=1zCzXCy_6UQ-wp3fF82YbY2eXyOdWj-LR",
+        "https://sites.google.com/edu.mt.gov.br/drediamantino/chamada-pública"
+      ],
+      "sha256_manifesto": "233b2234e647f3dd94f95a61692e56602fba235f4ca11fc26be738b21647dd1e",
+      "bytes_manifesto": 552328,
+      "paginas_manifesto": 55,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 552328,
+      "header_pdf": true,
+      "sha256_calculado": "233b2234e647f3dd94f95a61692e56602fba235f4ca11fc26be738b21647dd1e"
+    },
+    {
+      "id_documento": "DOC-0003",
+      "caminho_manifesto": "PNAE_MT_2025/05_DIAMANTINO/DOC-0003_DOC-0003.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\05_DIAMANTINO\\DOC-0003_DOC-0003.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Diamantino",
+      "urls": [
+        "https://drive.google.com/file/d/1fCfEBhm8epesXks5VK9fFLLFTKhYCGWF/view?usp=drivesdk",
+        "https://drive.google.com/uc?export=download&id=1fCfEBhm8epesXks5VK9fFLLFTKhYCGWF",
+        "https://sites.google.com/edu.mt.gov.br/drediamantino/chamada-pública"
+      ],
+      "sha256_manifesto": "d2173033704b06f61407f183b076ce7d759aa4eedab4f61c94b995d829f94189",
+      "bytes_manifesto": 522598,
+      "paginas_manifesto": 52,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 522598,
+      "header_pdf": true,
+      "sha256_calculado": "d2173033704b06f61407f183b076ce7d759aa4eedab4f61c94b995d829f94189"
+    },
+    {
+      "id_documento": "DOC-0004",
+      "caminho_manifesto": "PNAE_MT_2025/05_DIAMANTINO/DOC-0004_DOC-0004.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\05_DIAMANTINO\\DOC-0004_DOC-0004.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Diamantino",
+      "urls": [
+        "https://drive.google.com/file/d/1C0P8--EuzFhoFNhYrgXsDBxoLLu1n0d9/view?usp=drivesdk",
+        "https://drive.google.com/uc?export=download&id=1C0P8--EuzFhoFNhYrgXsDBxoLLu1n0d9",
+        "https://sites.google.com/edu.mt.gov.br/drediamantino/chamada-pública"
+      ],
+      "sha256_manifesto": "14af5f5ac60ae02a81154723a757623e02a36d47ceffaeccd23bab31d89f78e7",
+      "bytes_manifesto": 480305,
+      "paginas_manifesto": 49,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 480305,
+      "header_pdf": true,
+      "sha256_calculado": "14af5f5ac60ae02a81154723a757623e02a36d47ceffaeccd23bab31d89f78e7"
+    },
+    {
+      "id_documento": "DOC-0005",
+      "caminho_manifesto": "PNAE_MT_2025/05_DIAMANTINO/DOC-0005_DOC-0005.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\05_DIAMANTINO\\DOC-0005_DOC-0005.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Diamantino",
+      "urls": [
+        "https://drive.google.com/file/d/1tTAVdECBY5ZvvdzVyxeay_bBqctcchwf/view?usp=drivesdk",
+        "https://drive.google.com/uc?export=download&id=1tTAVdECBY5ZvvdzVyxeay_bBqctcchwf",
+        "https://sites.google.com/edu.mt.gov.br/drediamantino/chamada-pública"
+      ],
+      "sha256_manifesto": "da6449cbfd5a1dfc459111b12e6b6b090eca35c8a31da7a240e52bcc524e5e9c",
+      "bytes_manifesto": 482644,
+      "paginas_manifesto": 49,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 482644,
+      "header_pdf": true,
+      "sha256_calculado": "da6449cbfd5a1dfc459111b12e6b6b090eca35c8a31da7a240e52bcc524e5e9c"
+    },
+    {
+      "id_documento": "DOC-0006",
+      "caminho_manifesto": "PNAE_MT_2025/05_DIAMANTINO/DOC-0006_DOC-0006.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\05_DIAMANTINO\\DOC-0006_DOC-0006.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Diamantino",
+      "urls": [
+        "https://drive.google.com/file/d/1jxuJW5kNzwha3Fi061AMXFEQlu_d-n41/view?usp=drivesdk",
+        "https://drive.google.com/uc?export=download&id=1jxuJW5kNzwha3Fi061AMXFEQlu_d-n41",
+        "https://sites.google.com/edu.mt.gov.br/drediamantino/chamada-pública"
+      ],
+      "sha256_manifesto": "6688938e5647fc8318935199990a3044db61c8d3a9dfbf55f60c0c7484f3656d",
+      "bytes_manifesto": 489580,
+      "paginas_manifesto": 49,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 489580,
+      "header_pdf": true,
+      "sha256_calculado": "6688938e5647fc8318935199990a3044db61c8d3a9dfbf55f60c0c7484f3656d"
+    },
+    {
+      "id_documento": "DOC-0007",
+      "caminho_manifesto": "PNAE_MT_2025/05_DIAMANTINO/DOC-0007_DOC-0007.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\05_DIAMANTINO\\DOC-0007_DOC-0007.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Diamantino",
+      "urls": [
+        "https://drive.google.com/file/d/10rhsdxf-aU1663wDNiq3zHTRxT23wPI0/view?usp=drivesdk",
+        "https://drive.google.com/uc?export=download&id=10rhsdxf-aU1663wDNiq3zHTRxT23wPI0",
+        "https://sites.google.com/edu.mt.gov.br/drediamantino/chamada-pública"
+      ],
+      "sha256_manifesto": "1301ce85f28bb9ea23af3ddd55213ce6f2938177ad043753522b9fa550f4627a",
+      "bytes_manifesto": 487164,
+      "paginas_manifesto": 48,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 487164,
+      "header_pdf": true,
+      "sha256_calculado": "1301ce85f28bb9ea23af3ddd55213ce6f2938177ad043753522b9fa550f4627a"
+    },
+    {
+      "id_documento": "DOC-0008",
+      "caminho_manifesto": "PNAE_MT_2025/05_DIAMANTINO/DOC-0008_DOC-0008.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\05_DIAMANTINO\\DOC-0008_DOC-0008.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Diamantino",
+      "urls": [
+        "https://drive.google.com/file/d/1DKNfN8WjoU90Qoe6Mc200hVpIrlpV9V8/view?usp=drivesdk",
+        "https://drive.google.com/uc?export=download&id=1DKNfN8WjoU90Qoe6Mc200hVpIrlpV9V8",
+        "https://sites.google.com/edu.mt.gov.br/drediamantino/chamada-pública"
+      ],
+      "sha256_manifesto": "b84d2f79ef3b7fe9947b9f26221bc6b39582c63aa60962d031391bc9edb4e862",
+      "bytes_manifesto": 568514,
+      "paginas_manifesto": 48,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 568514,
+      "header_pdf": true,
+      "sha256_calculado": "b84d2f79ef3b7fe9947b9f26221bc6b39582c63aa60962d031391bc9edb4e862"
+    },
+    {
+      "id_documento": "DOC-0009",
+      "caminho_manifesto": "PNAE_MT_2025/05_DIAMANTINO/DOC-0009_DOC-0009.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\05_DIAMANTINO\\DOC-0009_DOC-0009.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Diamantino",
+      "urls": [
+        "https://drive.google.com/file/d/1l23MmDMY2xhil3ElaXwTmdVUTuyn7Nkz/view?usp=drivesdk",
+        "https://drive.google.com/uc?export=download&id=1l23MmDMY2xhil3ElaXwTmdVUTuyn7Nkz",
+        "https://sites.google.com/edu.mt.gov.br/drediamantino/chamada-pública"
+      ],
+      "sha256_manifesto": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a",
+      "bytes_manifesto": 542687,
+      "paginas_manifesto": 46,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 542687,
+      "header_pdf": true,
+      "sha256_calculado": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a"
+    },
+    {
+      "id_documento": "DOC-0010",
+      "caminho_manifesto": "PNAE_MT_2025/05_DIAMANTINO/DOC-0010_DOC-0010.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\05_DIAMANTINO\\DOC-0010_DOC-0010.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Diamantino",
+      "urls": [
+        "https://drive.google.com/file/d/19CirP-lpUU2rFgsXRoXjuHz8riBBT2Z7/view?usp=sharing",
+        "https://drive.google.com/uc?export=download&id=19CirP-lpUU2rFgsXRoXjuHz8riBBT2Z7",
+        "https://sites.google.com/edu.mt.gov.br/drediamantino/chamada-pública"
+      ],
+      "sha256_manifesto": "a0774d41a83df07b45f3756c368471a12c22cc4544fa624d914c220e74626ea0",
+      "bytes_manifesto": 504058,
+      "paginas_manifesto": 49,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 504058,
+      "header_pdf": true,
+      "sha256_calculado": "a0774d41a83df07b45f3756c368471a12c22cc4544fa624d914c220e74626ea0"
+    },
+    {
+      "id_documento": "DOC-0011",
+      "caminho_manifesto": "PNAE_MT_2025/05_DIAMANTINO/DOC-0011_DOC-0011.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\05_DIAMANTINO\\DOC-0011_DOC-0011.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Diamantino",
+      "urls": [
+        "https://drive.google.com/file/d/1sK9unX8lNltPkCd7Saymwhyx0niIYyk1/view?usp=drivesdk",
+        "https://drive.google.com/uc?export=download&id=1sK9unX8lNltPkCd7Saymwhyx0niIYyk1",
+        "https://sites.google.com/edu.mt.gov.br/drediamantino/chamada-pública"
+      ],
+      "sha256_manifesto": "3a846eb4175d4d30712e15819ddd22c40fde8b44df6dd51796b1121bff3b2182",
+      "bytes_manifesto": 504100,
+      "paginas_manifesto": 49,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 504100,
+      "header_pdf": true,
+      "sha256_calculado": "3a846eb4175d4d30712e15819ddd22c40fde8b44df6dd51796b1121bff3b2182"
+    },
+    {
+      "id_documento": "DOC-0012",
+      "caminho_manifesto": "PNAE_MT_2025/05_DIAMANTINO/DOC-0012_DOC-0012.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\05_DIAMANTINO\\DOC-0012_DOC-0012.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Diamantino",
+      "urls": [
+        "https://drive.google.com/file/d/15Q4vZ2MBLMQnBSvxZYzipIfVArnTMOAs/view?usp=drivesdk",
+        "https://drive.google.com/uc?export=download&id=15Q4vZ2MBLMQnBSvxZYzipIfVArnTMOAs",
+        "https://sites.google.com/edu.mt.gov.br/drediamantino/chamada-pública"
+      ],
+      "sha256_manifesto": "c907f31ca15340543392c90cd9bb78cfecb305defeb3cdccfeec4feb23b9b932",
+      "bytes_manifesto": 483318,
+      "paginas_manifesto": 48,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 483318,
+      "header_pdf": true,
+      "sha256_calculado": "c907f31ca15340543392c90cd9bb78cfecb305defeb3cdccfeec4feb23b9b932"
+    },
+    {
+      "id_documento": "DOC-0013",
+      "caminho_manifesto": "PNAE_MT_2025/05_DIAMANTINO/DOC-0013_DOC-0013.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\05_DIAMANTINO\\DOC-0013_DOC-0013.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Diamantino",
+      "urls": [
+        "https://drive.google.com/file/d/19yUaeovVMqUo_PZOOxBKKSoG74iSMpW5/view?usp=drivesdk",
+        "https://drive.google.com/uc?export=download&id=19yUaeovVMqUo_PZOOxBKKSoG74iSMpW5",
+        "https://sites.google.com/edu.mt.gov.br/drediamantino/chamada-pública"
+      ],
+      "sha256_manifesto": "e6cfd02cefffce60b09a71174d3237748d64ed360c6ace39e1b1c5d91d43f1a9",
+      "bytes_manifesto": 496426,
+      "paginas_manifesto": 50,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 496426,
+      "header_pdf": true,
+      "sha256_calculado": "e6cfd02cefffce60b09a71174d3237748d64ed360c6ace39e1b1c5d91d43f1a9"
+    },
+    {
+      "id_documento": "DOC-0014",
+      "caminho_manifesto": "PNAE_MT_2025/05_DIAMANTINO/DOC-0014_DOC-0014.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\05_DIAMANTINO\\DOC-0014_DOC-0014.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Diamantino",
+      "urls": [
+        "https://drive.google.com/file/d/1Zi9-sR8YW0YToVfPQb1pnEQeAk-xgPJA/view?usp=drivesdk",
+        "https://drive.google.com/uc?export=download&id=1Zi9-sR8YW0YToVfPQb1pnEQeAk-xgPJA",
+        "https://sites.google.com/edu.mt.gov.br/drediamantino/chamada-pública"
+      ],
+      "sha256_manifesto": "cd0dfff0a6098a16a44dda3d44b3e0a8aa69733220d149d25bf05efdfcec9806",
+      "bytes_manifesto": 535107,
+      "paginas_manifesto": 46,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 535107,
+      "header_pdf": true,
+      "sha256_calculado": "cd0dfff0a6098a16a44dda3d44b3e0a8aa69733220d149d25bf05efdfcec9806"
+    },
+    {
+      "id_documento": "DOC-0015",
+      "caminho_manifesto": "PNAE_MT_2025/05_DIAMANTINO/DOC-0015_DOC-0015.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\05_DIAMANTINO\\DOC-0015_DOC-0015.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Diamantino",
+      "urls": [
+        "https://drive.google.com/file/d/1a5ZMBmaaMcymd9NyW_cxUh8axSsYgOZa/view?usp=drivesdk",
+        "https://drive.google.com/uc?export=download&id=1a5ZMBmaaMcymd9NyW_cxUh8axSsYgOZa",
+        "https://sites.google.com/edu.mt.gov.br/drediamantino/chamada-pública"
+      ],
+      "sha256_manifesto": "869f159fb1f3ec762bbc359fd984f7779529b48a250ce5b841888f4cd0c00569",
+      "bytes_manifesto": 489547,
+      "paginas_manifesto": 49,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 489547,
+      "header_pdf": true,
+      "sha256_calculado": "869f159fb1f3ec762bbc359fd984f7779529b48a250ce5b841888f4cd0c00569"
+    },
+    {
+      "id_documento": "DOC-0016",
+      "caminho_manifesto": "PNAE_MT_2025/06_JUINA/DOC-0016_castanheiraedital--chamada-pUblica-2025docx-PO0m.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\06_JUINA\\DOC-0016_castanheiraedital--chamada-pUblica-2025docx-PO0m.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Juína",
+      "urls": [
+        "https://www.drejuina.com.br/uploads/editais/castanheiraedital--chamada-pUblica-2025docx-PO0m.pdf",
+        "https://www.drejuina.com.br/uploads/editais/castanheiraedital--chamada-pUblica-2025docx-PO0m.pdf",
+        "https://www.drejuina.com.br/editals"
+      ],
+      "sha256_manifesto": "5dee0ffc29892b8a578828478fa6641600815dd316d4f6ac4312399bd51087e3",
+      "bytes_manifesto": 667446,
+      "paginas_manifesto": 69,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 667446,
+      "header_pdf": true,
+      "sha256_calculado": "5dee0ffc29892b8a578828478fa6641600815dd316d4f6ac4312399bd51087e3"
+    },
+    {
+      "id_documento": "DOC-0017",
+      "caminho_manifesto": "PNAE_MT_2025/06_JUINA/DOC-0017_brasnorteedital--chamada-pUblica-2025docx-ZQmt.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\06_JUINA\\DOC-0017_brasnorteedital--chamada-pUblica-2025docx-ZQmt.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Juína",
+      "urls": [
+        "https://www.drejuina.com.br/uploads/editais/brasnorteedital--chamada-pUblica-2025docx-ZQmt.pdf",
+        "https://www.drejuina.com.br/uploads/editais/brasnorteedital--chamada-pUblica-2025docx-ZQmt.pdf",
+        "https://www.drejuina.com.br/editals"
+      ],
+      "sha256_manifesto": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3",
+      "bytes_manifesto": 704883,
+      "paginas_manifesto": 71,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 704883,
+      "header_pdf": true,
+      "sha256_calculado": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3"
+    },
+    {
+      "id_documento": "DOC-0018",
+      "caminho_manifesto": "PNAE_MT_2025/06_JUINA/DOC-0018_juinaedital--chamada-pUblica-2025-juinadocx-d5go.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\06_JUINA\\DOC-0018_juinaedital--chamada-pUblica-2025-juinadocx-d5go.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Juína",
+      "urls": [
+        "https://www.drejuina.com.br/uploads/editais/juinaedital--chamada-pUblica-2025-juinadocx-d5go.pdf",
+        "https://www.drejuina.com.br/uploads/editais/juinaedital--chamada-pUblica-2025-juinadocx-d5go.pdf",
+        "https://www.drejuina.com.br/editals"
+      ],
+      "sha256_manifesto": "16dd9336f6f19c5b11a6fd96f910d3f33b57fcfbade7ac004c52765f8f4606ab",
+      "bytes_manifesto": 710359,
+      "paginas_manifesto": 71,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 710359,
+      "header_pdf": true,
+      "sha256_calculado": "16dd9336f6f19c5b11a6fd96f910d3f33b57fcfbade7ac004c52765f8f4606ab"
+    },
+    {
+      "id_documento": "DOC-0019",
+      "caminho_manifesto": "PNAE_MT_2025/06_JUINA/DOC-0019_cotriguacuedital--chamada-pUblica-2025-t7Br.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\06_JUINA\\DOC-0019_cotriguacuedital--chamada-pUblica-2025-t7Br.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Juína",
+      "urls": [
+        "https://www.drejuina.com.br/uploads/editais/cotriguacuedital--chamada-pUblica-2025-t7Br.pdf",
+        "https://www.drejuina.com.br/uploads/editais/cotriguacuedital--chamada-pUblica-2025-t7Br.pdf",
+        "https://www.drejuina.com.br/editals"
+      ],
+      "sha256_manifesto": "625e24224b3632854e6df1c9a2a8afc8ed76d64a4cb3f09b898f254d48ce5dab",
+      "bytes_manifesto": 664105,
+      "paginas_manifesto": 66,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 664105,
+      "header_pdf": true,
+      "sha256_calculado": "625e24224b3632854e6df1c9a2a8afc8ed76d64a4cb3f09b898f254d48ce5dab"
+    },
+    {
+      "id_documento": "DOC-0020",
+      "caminho_manifesto": "PNAE_MT_2025/06_JUINA/DOC-0020_cotriguacuedital--chamada-pUblica-2025-2-MbYw.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\06_JUINA\\DOC-0020_cotriguacuedital--chamada-pUblica-2025-2-MbYw.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Juína",
+      "urls": [
+        "https://www.drejuina.com.br/uploads/editais/cotriguacuedital--chamada-pUblica-2025-2-MbYw.pdf",
+        "https://www.drejuina.com.br/uploads/editais/cotriguacuedital--chamada-pUblica-2025-2-MbYw.pdf",
+        "https://www.drejuina.com.br/editals"
+      ],
+      "sha256_manifesto": "625e24224b3632854e6df1c9a2a8afc8ed76d64a4cb3f09b898f254d48ce5dab",
+      "bytes_manifesto": 664105,
+      "paginas_manifesto": 66,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 664105,
+      "header_pdf": true,
+      "sha256_calculado": "625e24224b3632854e6df1c9a2a8afc8ed76d64a4cb3f09b898f254d48ce5dab"
+    },
+    {
+      "id_documento": "DOC-0021",
+      "caminho_manifesto": "PNAE_MT_2025/06_JUINA/DOC-0021_novo-horizonte-edital--chamada-pUblica-2025pos-parecer-2docx-FGAB.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\06_JUINA\\DOC-0021_novo-horizonte-edital--chamada-pUblica-2025pos-parecer-2docx-FGAB.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Juína",
+      "urls": [
+        "https://www.drejuina.com.br/uploads/editais/novo-horizonte-edital--chamada-pUblica-2025pos-parecer-2docx-FGAB.pdf",
+        "https://www.drejuina.com.br/uploads/editais/novo-horizonte-edital--chamada-pUblica-2025pos-parecer-2docx-FGAB.pdf",
+        "https://www.drejuina.com.br/editals"
+      ],
+      "sha256_manifesto": "d9bee417ecfd9df0a6ed136b767cd52dd08733f7825bcd17185ffea8d30a603c",
+      "bytes_manifesto": 681031,
+      "paginas_manifesto": 70,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 681031,
+      "header_pdf": true,
+      "sha256_calculado": "d9bee417ecfd9df0a6ed136b767cd52dd08733f7825bcd17185ffea8d30a603c"
+    },
+    {
+      "id_documento": "DOC-0022",
+      "caminho_manifesto": "PNAE_MT_2025/06_JUINA/DOC-0022_porto-edital--chamada-pUblica-2025docx-1-zvmJ.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\06_JUINA\\DOC-0022_porto-edital--chamada-pUblica-2025docx-1-zvmJ.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Juína",
+      "urls": [
+        "https://www.drejuina.com.br/uploads/editais/porto-edital--chamada-pUblica-2025docx-1-zvmJ.pdf",
+        "https://www.drejuina.com.br/uploads/editais/porto-edital--chamada-pUblica-2025docx-1-zvmJ.pdf",
+        "https://www.drejuina.com.br/editals"
+      ],
+      "sha256_manifesto": "cb73a7ee80accbded632f1357516bb6157c9d163716e68675608a75386d8b185",
+      "bytes_manifesto": 657226,
+      "paginas_manifesto": 70,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 657226,
+      "header_pdf": true,
+      "sha256_calculado": "cb73a7ee80accbded632f1357516bb6157c9d163716e68675608a75386d8b185"
+    },
+    {
+      "id_documento": "DOC-0023",
+      "caminho_manifesto": "PNAE_MT_2025/06_JUINA/DOC-0023_juara-indigenaedital--chamada-pUblica-2025pos-parecer-1docx-5sZw.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\06_JUINA\\DOC-0023_juara-indigenaedital--chamada-pUblica-2025pos-parecer-1docx-5sZw.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Juína",
+      "urls": [
+        "https://www.drejuina.com.br/uploads/editais/juara-indigenaedital--chamada-pUblica-2025pos-parecer-1docx-5sZw.pdf",
+        "https://www.drejuina.com.br/uploads/editais/juara-indigenaedital--chamada-pUblica-2025pos-parecer-1docx-5sZw.pdf",
+        "https://www.drejuina.com.br/editals"
+      ],
+      "sha256_manifesto": "74d97afe3db7b00b0b11f43d1aac9b8c93ab9efca8f2423f654f0a473b2cd977",
+      "bytes_manifesto": 742542,
+      "paginas_manifesto": 71,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 742542,
+      "header_pdf": true,
+      "sha256_calculado": "74d97afe3db7b00b0b11f43d1aac9b8c93ab9efca8f2423f654f0a473b2cd977"
+    },
+    {
+      "id_documento": "DOC-0024",
+      "caminho_manifesto": "PNAE_MT_2025/06_JUINA/DOC-0024_juaraedital-docx-atRm.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\06_JUINA\\DOC-0024_juaraedital-docx-atRm.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Juína",
+      "urls": [
+        "https://www.drejuina.com.br/uploads/editais/juaraedital-docx-atRm.pdf",
+        "https://www.drejuina.com.br/uploads/editais/juaraedital-docx-atRm.pdf",
+        "https://www.drejuina.com.br/editals"
+      ],
+      "sha256_manifesto": "ce762815c672efc76f002354e776ca31f18ebf409ae8e7b5fc50abf3ac9173ef",
+      "bytes_manifesto": 693894,
+      "paginas_manifesto": 70,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 693894,
+      "header_pdf": true,
+      "sha256_calculado": "ce762815c672efc76f002354e776ca31f18ebf409ae8e7b5fc50abf3ac9173ef"
+    },
+    {
+      "id_documento": "DOC-0025",
+      "caminho_manifesto": "PNAE_MT_2025/06_JUINA/DOC-0025_colniza-chamada-pUblica-2025pos-parecer1docx-Wh1j.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\06_JUINA\\DOC-0025_colniza-chamada-pUblica-2025pos-parecer1docx-Wh1j.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Juína",
+      "urls": [
+        "https://www.drejuina.com.br/uploads/editais/colniza-chamada-pUblica-2025pos-parecer1docx-Wh1j.pdf",
+        "https://www.drejuina.com.br/uploads/editais/colniza-chamada-pUblica-2025pos-parecer1docx-Wh1j.pdf",
+        "https://www.drejuina.com.br/editals"
+      ],
+      "sha256_manifesto": "455f5658d11535a87865b000bee11b77317e3cda41af87a3c646323d9906971d",
+      "bytes_manifesto": 673950,
+      "paginas_manifesto": 70,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 673950,
+      "header_pdf": true,
+      "sha256_calculado": "455f5658d11535a87865b000bee11b77317e3cda41af87a3c646323d9906971d"
+    },
+    {
+      "id_documento": "DOC-0026",
+      "caminho_manifesto": "PNAE_MT_2025/06_JUINA/DOC-0026_aripuana-edital--chamada-pUblica-2025pos-parecerdocx-1-gKjW.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\06_JUINA\\DOC-0026_aripuana-edital--chamada-pUblica-2025pos-parecerdocx-1-gKjW.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Juína",
+      "urls": [
+        "https://www.drejuina.com.br/uploads/editais/aripuana-edital--chamada-pUblica-2025pos-parecerdocx-1-gKjW.pdf",
+        "https://www.drejuina.com.br/uploads/editais/aripuana-edital--chamada-pUblica-2025pos-parecerdocx-1-gKjW.pdf",
+        "https://www.drejuina.com.br/editals"
+      ],
+      "sha256_manifesto": "a3e9ff86e055e0baecd4ba22e1b7736d0d2969b707d3e44c70aa7526ba65af21",
+      "bytes_manifesto": 705081,
+      "paginas_manifesto": 71,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 705081,
+      "header_pdf": true,
+      "sha256_calculado": "a3e9ff86e055e0baecd4ba22e1b7736d0d2969b707d3e44c70aa7526ba65af21"
+    },
+    {
+      "id_documento": "DOC-0027",
+      "caminho_manifesto": "PNAE_MT_2025/06_JUINA/DOC-0027_aripuana-edital--chamada-pUblica-2025pos-parecerdocx-1-xI4f.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\06_JUINA\\DOC-0027_aripuana-edital--chamada-pUblica-2025pos-parecerdocx-1-xI4f.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Juína",
+      "urls": [
+        "https://www.drejuina.com.br/uploads/editais/aripuana-edital--chamada-pUblica-2025pos-parecerdocx-1-xI4f.pdf",
+        "https://www.drejuina.com.br/uploads/editais/aripuana-edital--chamada-pUblica-2025pos-parecerdocx-1-xI4f.pdf",
+        "https://www.drejuina.com.br/editals"
+      ],
+      "sha256_manifesto": "a3e9ff86e055e0baecd4ba22e1b7736d0d2969b707d3e44c70aa7526ba65af21",
+      "bytes_manifesto": 705081,
+      "paginas_manifesto": 71,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 705081,
+      "header_pdf": true,
+      "sha256_calculado": "a3e9ff86e055e0baecd4ba22e1b7736d0d2969b707d3e44c70aa7526ba65af21"
+    },
+    {
+      "id_documento": "DOC-0028",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0028_DOC-0028.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\10_PRIMAVERA_DO_LESTE\\DOC-0028_DOC-0028.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "MATERIAL_AUXILIAR",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1_YuTDB4xvqh3439JU2pSIsXOUMLon9Gu/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1_YuTDB4xvqh3439JU2pSIsXOUMLon9Gu",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "b89f2279f80028d475b46ee683fd57ef67da21adb8c6d22bafce8048ef78987e",
+      "bytes_manifesto": 150482,
+      "paginas_manifesto": 6,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 150482,
+      "header_pdf": true,
+      "sha256_calculado": "b89f2279f80028d475b46ee683fd57ef67da21adb8c6d22bafce8048ef78987e"
+    },
+    {
+      "id_documento": "DOC-0029",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0029_DOC-0029.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\10_PRIMAVERA_DO_LESTE\\DOC-0029_DOC-0029.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "CONFLITO_EXERCICIO",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1U2KHE7gQmPFL3AjpT0_koB6xrzva2Djq/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1U2KHE7gQmPFL3AjpT0_koB6xrzva2Djq",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "73588ec3c99df49d57ed49e9ebf3faa18edafc3a4930496c34c94809c0879f08",
+      "bytes_manifesto": 1608826,
+      "paginas_manifesto": 162,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1608826,
+      "header_pdf": true,
+      "sha256_calculado": "73588ec3c99df49d57ed49e9ebf3faa18edafc3a4930496c34c94809c0879f08"
+    },
+    {
+      "id_documento": "DOC-0030",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0030_DOC-0030.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\10_PRIMAVERA_DO_LESTE\\DOC-0030_DOC-0030.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "CONFLITO_EXERCICIO",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1u4viDkeR13vC8sY0_b83YVsERdtqQcdI/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1u4viDkeR13vC8sY0_b83YVsERdtqQcdI",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "b95e2630b4bfabf5aafcef9506d8a04991de92ab77dd9213d1405a1e15fbefd9",
+      "bytes_manifesto": 1868460,
+      "paginas_manifesto": 169,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1868460,
+      "header_pdf": true,
+      "sha256_calculado": "b95e2630b4bfabf5aafcef9506d8a04991de92ab77dd9213d1405a1e15fbefd9"
+    },
+    {
+      "id_documento": "DOC-0031",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0031_DOC-0031.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\10_PRIMAVERA_DO_LESTE\\DOC-0031_DOC-0031.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "FORA_ESCOPO_2026",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/11P2vQe6LDaw094XxMFfarykQGzPGw2RZ/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=11P2vQe6LDaw094XxMFfarykQGzPGw2RZ",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "20219b8e5a7863c79b363828286669dcc445a228ebe99ed25a0ec88ae323e2af",
+      "bytes_manifesto": 180563,
+      "paginas_manifesto": 1,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 180563,
+      "header_pdf": true,
+      "sha256_calculado": "20219b8e5a7863c79b363828286669dcc445a228ebe99ed25a0ec88ae323e2af"
+    },
+    {
+      "id_documento": "DOC-0032",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0032_DOC-0032.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\10_PRIMAVERA_DO_LESTE\\DOC-0032_DOC-0032.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "CONFLITO_EXERCICIO",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1IaKsTwt6oygKi3cNcuJiDBxHBm93HsGi/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1IaKsTwt6oygKi3cNcuJiDBxHBm93HsGi",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "e6c3731e7996166587f4f7fdd8e044b04d5ed5be5c63f85f3f78e8e8f5744e8f",
+      "bytes_manifesto": 1629603,
+      "paginas_manifesto": 165,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1629603,
+      "header_pdf": true,
+      "sha256_calculado": "e6c3731e7996166587f4f7fdd8e044b04d5ed5be5c63f85f3f78e8e8f5744e8f"
+    },
+    {
+      "id_documento": "DOC-0033",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0033_DOC-0033.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\10_PRIMAVERA_DO_LESTE\\DOC-0033_DOC-0033.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "FORA_ESCOPO_2026",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1A6ksWJbqRQdM9DkKbuW6ozKcjjJ_hm-B/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1A6ksWJbqRQdM9DkKbuW6ozKcjjJ_hm-B",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "547804d53d4503a3d06ad238423375982899acb24d8b4d8aaf6fc37668ec7b56",
+      "bytes_manifesto": 202604,
+      "paginas_manifesto": 1,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 202604,
+      "header_pdf": true,
+      "sha256_calculado": "547804d53d4503a3d06ad238423375982899acb24d8b4d8aaf6fc37668ec7b56"
+    },
+    {
+      "id_documento": "DOC-0034",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0034_DOC-0034.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\10_PRIMAVERA_DO_LESTE\\DOC-0034_DOC-0034.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "CONFLITO_EXERCICIO",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1N2WYR06Qz76_58Ty5MbZL19ILFVeY6Cr/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1N2WYR06Qz76_58Ty5MbZL19ILFVeY6Cr",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "0a935a8d38b9077dc2d449fdd4bb8f079a4e080d6d164b3823a40b7c98e1d5ce",
+      "bytes_manifesto": 1681046,
+      "paginas_manifesto": 170,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1681046,
+      "header_pdf": true,
+      "sha256_calculado": "0a935a8d38b9077dc2d449fdd4bb8f079a4e080d6d164b3823a40b7c98e1d5ce"
+    },
+    {
+      "id_documento": "DOC-0035",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0035_DOC-0035.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\10_PRIMAVERA_DO_LESTE\\DOC-0035_DOC-0035.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "CONFLITO_EXERCICIO",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1FOq4Eay9AaNQgqG3jtX1drPKFEYW_rQU/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1FOq4Eay9AaNQgqG3jtX1drPKFEYW_rQU",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "3e120754bbad3a3d5114de0c177e140274fbf80a7388d17fed5462c5598e4506",
+      "bytes_manifesto": 1655337,
+      "paginas_manifesto": 168,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1655337,
+      "header_pdf": true,
+      "sha256_calculado": "3e120754bbad3a3d5114de0c177e140274fbf80a7388d17fed5462c5598e4506"
+    },
+    {
+      "id_documento": "DOC-0036",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0036_DOC-0036.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\10_PRIMAVERA_DO_LESTE\\DOC-0036_DOC-0036.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "CONFLITO_EXERCICIO",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1uOCEwWVJSG8frRHa4VJcf7GuS_oI-bUl/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1uOCEwWVJSG8frRHa4VJcf7GuS_oI-bUl",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "3917b4aa6064d9e95ca2a928ed0908ea206897c2be3d4bbca0b8a6d144de4366",
+      "bytes_manifesto": 1805448,
+      "paginas_manifesto": 170,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1805448,
+      "header_pdf": true,
+      "sha256_calculado": "3917b4aa6064d9e95ca2a928ed0908ea206897c2be3d4bbca0b8a6d144de4366"
+    },
+    {
+      "id_documento": "DOC-0037",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0037_DOC-0037.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\10_PRIMAVERA_DO_LESTE\\DOC-0037_DOC-0037.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "CONFLITO_EXERCICIO",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/194zImK1prHxYLWtetHtbTQO2o1cblCEj/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=194zImK1prHxYLWtetHtbTQO2o1cblCEj",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "5c72f050499eb47361aa1cfee4d5c2e1f1b9698a87fb2b20a02ace7348350d89",
+      "bytes_manifesto": 1609656,
+      "paginas_manifesto": 161,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1609656,
+      "header_pdf": true,
+      "sha256_calculado": "5c72f050499eb47361aa1cfee4d5c2e1f1b9698a87fb2b20a02ace7348350d89"
+    },
+    {
+      "id_documento": "DOC-0038",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0038_DOC-0038.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\10_PRIMAVERA_DO_LESTE\\DOC-0038_DOC-0038.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "CONFLITO_EXERCICIO",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1GL-3TufRhzRAwncgIuYj5z4ejvyNIBrF/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1GL-3TufRhzRAwncgIuYj5z4ejvyNIBrF",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "04d3b4c9b4083ee4a8f5a5b52668ba321b5f1e4bcf29089f35b2a181be19c7aa",
+      "bytes_manifesto": 1685531,
+      "paginas_manifesto": 171,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1685531,
+      "header_pdf": true,
+      "sha256_calculado": "04d3b4c9b4083ee4a8f5a5b52668ba321b5f1e4bcf29089f35b2a181be19c7aa"
+    },
+    {
+      "id_documento": "DOC-0039",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0039_DOC-0039.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\10_PRIMAVERA_DO_LESTE\\DOC-0039_DOC-0039.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "FORA_ESCOPO_2026",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1_KMjEXJP4BdZk3uMexh4DOKOKY8WQF4X/view?usp=sharing",
+        "https://drive.google.com/uc?export=download&id=1_KMjEXJP4BdZk3uMexh4DOKOKY8WQF4X",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "bf3a95c181f75f8d79289949a37c546de19e22845bb10b2f254859ebde7a1671",
+      "bytes_manifesto": 1011266,
+      "paginas_manifesto": 42,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1011266,
+      "header_pdf": true,
+      "sha256_calculado": "bf3a95c181f75f8d79289949a37c546de19e22845bb10b2f254859ebde7a1671"
+    },
+    {
+      "id_documento": "DOC-0040",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0040_DOC-0040.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\10_PRIMAVERA_DO_LESTE\\DOC-0040_DOC-0040.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "FORA_ESCOPO_2026",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1hKjjjUAavvzqwoLRUv5XFkyE7VZ0tmp4/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1hKjjjUAavvzqwoLRUv5XFkyE7VZ0tmp4",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "c2abdcce3e0f37de8af544c47b7bddfa1ff6d91896aea75c0ea1b58e28340c4e",
+      "bytes_manifesto": 1047379,
+      "paginas_manifesto": 44,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1047379,
+      "header_pdf": true,
+      "sha256_calculado": "c2abdcce3e0f37de8af544c47b7bddfa1ff6d91896aea75c0ea1b58e28340c4e"
+    },
+    {
+      "id_documento": "DOC-0041",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0041_DOC-0041.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\10_PRIMAVERA_DO_LESTE\\DOC-0041_DOC-0041.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "CONFLITO_EXERCICIO",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/11WTxQ7cYjRQ36rin-umxWwmZPZRcj-QU/view?usp=sharing",
+        "https://drive.google.com/uc?export=download&id=11WTxQ7cYjRQ36rin-umxWwmZPZRcj-QU",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "b055034df0034f6ca3b89758d87c492d5b35050f82cb217e21c11ab249688165",
+      "bytes_manifesto": 1295773,
+      "paginas_manifesto": 49,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1295773,
+      "header_pdf": true,
+      "sha256_calculado": "b055034df0034f6ca3b89758d87c492d5b35050f82cb217e21c11ab249688165"
+    },
+    {
+      "id_documento": "DOC-0042",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0042_DOC-0042.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\10_PRIMAVERA_DO_LESTE\\DOC-0042_DOC-0042.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "CONFLITO_EXERCICIO",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1oshlg6_JFjkOBsfOCm9iThMWUKROxpXS/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1oshlg6_JFjkOBsfOCm9iThMWUKROxpXS",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "8622d5556025564a971714e5e64f8bb831b25c238d3501dc85f5c82edf731651",
+      "bytes_manifesto": 1249473,
+      "paginas_manifesto": 46,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1249473,
+      "header_pdf": true,
+      "sha256_calculado": "8622d5556025564a971714e5e64f8bb831b25c238d3501dc85f5c82edf731651"
+    },
+    {
+      "id_documento": "DOC-0043",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0043_DOC-0043.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\10_PRIMAVERA_DO_LESTE\\DOC-0043_DOC-0043.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "FORA_ESCOPO_2026",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1dJSfMI4DTtzf0iEWyeJgPXuJjGThhhQn/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1dJSfMI4DTtzf0iEWyeJgPXuJjGThhhQn",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "20df9ec0dacf9b5c51c40ffaa94250ef7d4c42ba88209ab137350ac596f705da",
+      "bytes_manifesto": 1280510,
+      "paginas_manifesto": 49,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1280510,
+      "header_pdf": true,
+      "sha256_calculado": "20df9ec0dacf9b5c51c40ffaa94250ef7d4c42ba88209ab137350ac596f705da"
+    },
+    {
+      "id_documento": "DOC-0044",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0044_DOC-0044.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\10_PRIMAVERA_DO_LESTE\\DOC-0044_DOC-0044.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "FORA_ESCOPO_2026",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1Apt0mpLmRSon4T6wJTwCpQLheRbVx5Bv/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1Apt0mpLmRSon4T6wJTwCpQLheRbVx5Bv",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "b65307bfc6fb008614d27fc9d12c8d2441081bd1eb6944655e36f32bb5805853",
+      "bytes_manifesto": 185561,
+      "paginas_manifesto": 1,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 185561,
+      "header_pdf": true,
+      "sha256_calculado": "b65307bfc6fb008614d27fc9d12c8d2441081bd1eb6944655e36f32bb5805853"
+    },
+    {
+      "id_documento": "DOC-0045",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0045_DOC-0045.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\10_PRIMAVERA_DO_LESTE\\DOC-0045_DOC-0045.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "FORA_ESCOPO_2026",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/155Ya79RS0h0Phrfr8W2FUMLSk25SUBUZ/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=155Ya79RS0h0Phrfr8W2FUMLSk25SUBUZ",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "d15b8d007cfaf5116f1a1d60baa17390e24b422bb020db36ccfa21c2ae5585a8",
+      "bytes_manifesto": 1313035,
+      "paginas_manifesto": 51,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1313035,
+      "header_pdf": true,
+      "sha256_calculado": "d15b8d007cfaf5116f1a1d60baa17390e24b422bb020db36ccfa21c2ae5585a8"
+    },
+    {
+      "id_documento": "DOC-0046",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0046_DOC-0046.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\10_PRIMAVERA_DO_LESTE\\DOC-0046_DOC-0046.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "FORA_ESCOPO_2026",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1FeVRDtsX6IrvS2jZ8OjU87z4A2pwQyRA/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1FeVRDtsX6IrvS2jZ8OjU87z4A2pwQyRA",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "503102052917fabba7d82dee60743c78fcf36602824394f1b128cfe6c5b15ca7",
+      "bytes_manifesto": 1366221,
+      "paginas_manifesto": 52,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1366221,
+      "header_pdf": true,
+      "sha256_calculado": "503102052917fabba7d82dee60743c78fcf36602824394f1b128cfe6c5b15ca7"
+    },
+    {
+      "id_documento": "DOC-0047",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0047_DOC-0047.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\10_PRIMAVERA_DO_LESTE\\DOC-0047_DOC-0047.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "FORA_ESCOPO_2026",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1vUp5LfrsB_Cz_szM9Zhpg-5oO7XckfF0/view?usp=sharing",
+        "https://drive.google.com/uc?export=download&id=1vUp5LfrsB_Cz_szM9Zhpg-5oO7XckfF0",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "0c45db6fea6314c9820932f067a135aff1af0eeb4a1f112e3126955f3b6faf67",
+      "bytes_manifesto": 1310299,
+      "paginas_manifesto": 58,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1310299,
+      "header_pdf": true,
+      "sha256_calculado": "0c45db6fea6314c9820932f067a135aff1af0eeb4a1f112e3126955f3b6faf67"
+    },
+    {
+      "id_documento": "DOC-0048",
+      "caminho_manifesto": "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0048_DOC-0048.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\10_PRIMAVERA_DO_LESTE\\DOC-0048_DOC-0048.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1ROfDZgd_0HFbAs_zga1X4lpu8wdWyKIb/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1ROfDZgd_0HFbAs_zga1X4lpu8wdWyKIb",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "03c2ad83a8fd167318ca1ee30fe507926074d38bb4a813baa2fc5db7cf9bf546",
+      "bytes_manifesto": 1217445,
+      "paginas_manifesto": 175,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1217445,
+      "header_pdf": true,
+      "sha256_calculado": "03c2ad83a8fd167318ca1ee30fe507926074d38bb4a813baa2fc5db7cf9bf546"
+    },
+    {
+      "id_documento": "DOC-0049",
+      "caminho_manifesto": "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0049_DOC-0049.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\10_PRIMAVERA_DO_LESTE\\DOC-0049_DOC-0049.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1Ff8DJ5Z458Y-Pqp5bTpMz-t_j4oUmEpn/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1Ff8DJ5Z458Y-Pqp5bTpMz-t_j4oUmEpn",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "fea64ebb5fcb580073d538122351deda929eff68f1116fef50bb7dfc2f6e8173",
+      "bytes_manifesto": 178156,
+      "paginas_manifesto": 1,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 178156,
+      "header_pdf": true,
+      "sha256_calculado": "fea64ebb5fcb580073d538122351deda929eff68f1116fef50bb7dfc2f6e8173"
+    },
+    {
+      "id_documento": "DOC-0050",
+      "caminho_manifesto": "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0050_DOC-0050.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\10_PRIMAVERA_DO_LESTE\\DOC-0050_DOC-0050.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1ankz-P-NgVCs0DfIGJVEswIzkyqATLOt/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1ankz-P-NgVCs0DfIGJVEswIzkyqATLOt",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "b862b9bb9b1e683e4a5a5f387de0322ca0d143c0dc1f06c4ce9aac5a1518b8a8",
+      "bytes_manifesto": 552954,
+      "paginas_manifesto": 42,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 552954,
+      "header_pdf": true,
+      "sha256_calculado": "b862b9bb9b1e683e4a5a5f387de0322ca0d143c0dc1f06c4ce9aac5a1518b8a8"
+    },
+    {
+      "id_documento": "DOC-0051",
+      "caminho_manifesto": "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0051_DOC-0051.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\10_PRIMAVERA_DO_LESTE\\DOC-0051_DOC-0051.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/16n6QQItwSAsgwoe4dX5Lovqa5cS8EOLe/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=16n6QQItwSAsgwoe4dX5Lovqa5cS8EOLe",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "8fb5bbb11f47cee6c300e6b88f88d614c0ee5d8a9a303ab984a8dbe454a1b0d8",
+      "bytes_manifesto": 1379195,
+      "paginas_manifesto": 177,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1379195,
+      "header_pdf": true,
+      "sha256_calculado": "8fb5bbb11f47cee6c300e6b88f88d614c0ee5d8a9a303ab984a8dbe454a1b0d8"
+    },
+    {
+      "id_documento": "DOC-0052",
+      "caminho_manifesto": "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0052_DOC-0052.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\10_PRIMAVERA_DO_LESTE\\DOC-0052_DOC-0052.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1lmzHuVSvCENKWZqtCnxoLugonYRk5q4b/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1lmzHuVSvCENKWZqtCnxoLugonYRk5q4b",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "7f7440235786f99f27231d9bc552119b2d32f9c345552d23609af401ba33a549",
+      "bytes_manifesto": 1217782,
+      "paginas_manifesto": 144,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1217782,
+      "header_pdf": true,
+      "sha256_calculado": "7f7440235786f99f27231d9bc552119b2d32f9c345552d23609af401ba33a549"
+    },
+    {
+      "id_documento": "DOC-0053",
+      "caminho_manifesto": "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0053_DOC-0053.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\10_PRIMAVERA_DO_LESTE\\DOC-0053_DOC-0053.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1ePJTFohNmZnvFdVFJflQwj3KFWYzvtl_/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1ePJTFohNmZnvFdVFJflQwj3KFWYzvtl_",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "47fa2257ce1fc068e977226f152e17110108eda8537bc8fcab6f78c5cbba2afa",
+      "bytes_manifesto": 176214,
+      "paginas_manifesto": 1,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 176214,
+      "header_pdf": true,
+      "sha256_calculado": "47fa2257ce1fc068e977226f152e17110108eda8537bc8fcab6f78c5cbba2afa"
+    },
+    {
+      "id_documento": "DOC-0054",
+      "caminho_manifesto": "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0054_DOC-0054.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\10_PRIMAVERA_DO_LESTE\\DOC-0054_DOC-0054.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1r7EBKU6sk3EQq4lAIMwymE9d8Xbq9Ztf/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1r7EBKU6sk3EQq4lAIMwymE9d8Xbq9Ztf",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "61ba989e6aa96ef533f8dd3ac54482fe0aa4cd5ad58e68480e9176826b3ca576",
+      "bytes_manifesto": 1330772,
+      "paginas_manifesto": 161,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1330772,
+      "header_pdf": true,
+      "sha256_calculado": "61ba989e6aa96ef533f8dd3ac54482fe0aa4cd5ad58e68480e9176826b3ca576"
+    },
+    {
+      "id_documento": "DOC-0055",
+      "caminho_manifesto": "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0055_DOC-0055.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\10_PRIMAVERA_DO_LESTE\\DOC-0055_DOC-0055.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PENDENTE_EDITAL_COMPLETO",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1ZOyOp4RM83qtRR9bmDlTKbPBme1_gTQH/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1ZOyOp4RM83qtRR9bmDlTKbPBme1_gTQH",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "9add7924e69099a37e4f5a208489e533a5d9216891ad604d81e51184feb0745e",
+      "bytes_manifesto": 174861,
+      "paginas_manifesto": 1,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 174861,
+      "header_pdf": true,
+      "sha256_calculado": "9add7924e69099a37e4f5a208489e533a5d9216891ad604d81e51184feb0745e"
+    },
+    {
+      "id_documento": "DOC-0056",
+      "caminho_manifesto": "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0056_DOC-0056.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\10_PRIMAVERA_DO_LESTE\\DOC-0056_DOC-0056.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1Y_315oY6TdY8OgRLwb159dQbj6z_sHZR/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1Y_315oY6TdY8OgRLwb159dQbj6z_sHZR",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "f54c7bef910089b0188853f7a3c3c0dd41dcb031b379eb58d5c3d2adbc2c35fb",
+      "bytes_manifesto": 174982,
+      "paginas_manifesto": 1,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 174982,
+      "header_pdf": true,
+      "sha256_calculado": "f54c7bef910089b0188853f7a3c3c0dd41dcb031b379eb58d5c3d2adbc2c35fb"
+    },
+    {
+      "id_documento": "DOC-0057",
+      "caminho_manifesto": "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0057_DOC-0057.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\10_PRIMAVERA_DO_LESTE\\DOC-0057_DOC-0057.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PENDENTE_EDITAL_COMPLETO",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1FTJ9Bu_XxE5WkradLZtsquDo3YF36RU2/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1FTJ9Bu_XxE5WkradLZtsquDo3YF36RU2",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "f54c7bef910089b0188853f7a3c3c0dd41dcb031b379eb58d5c3d2adbc2c35fb",
+      "bytes_manifesto": 174982,
+      "paginas_manifesto": 1,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 174982,
+      "header_pdf": true,
+      "sha256_calculado": "f54c7bef910089b0188853f7a3c3c0dd41dcb031b379eb58d5c3d2adbc2c35fb"
+    },
+    {
+      "id_documento": "DOC-0058",
+      "caminho_manifesto": "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0058_DOC-0058.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\10_PRIMAVERA_DO_LESTE\\DOC-0058_DOC-0058.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PENDENTE_EDITAL_COMPLETO",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1dtNrtzLzqkJuIbrhMuc4slA3lF2xIX5M/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1dtNrtzLzqkJuIbrhMuc4slA3lF2xIX5M",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "f54c7bef910089b0188853f7a3c3c0dd41dcb031b379eb58d5c3d2adbc2c35fb",
+      "bytes_manifesto": 174982,
+      "paginas_manifesto": 1,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 174982,
+      "header_pdf": true,
+      "sha256_calculado": "f54c7bef910089b0188853f7a3c3c0dd41dcb031b379eb58d5c3d2adbc2c35fb"
+    },
+    {
+      "id_documento": "DOC-0059",
+      "caminho_manifesto": "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0059_DOC-0059.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\10_PRIMAVERA_DO_LESTE\\DOC-0059_DOC-0059.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PENDENTE_EDITAL_COMPLETO",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1Wjo67zqWJI8qfXZK9Y2pW5gBldH0eelK/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1Wjo67zqWJI8qfXZK9Y2pW5gBldH0eelK",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "9add7924e69099a37e4f5a208489e533a5d9216891ad604d81e51184feb0745e",
+      "bytes_manifesto": 174861,
+      "paginas_manifesto": 1,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 174861,
+      "header_pdf": true,
+      "sha256_calculado": "9add7924e69099a37e4f5a208489e533a5d9216891ad604d81e51184feb0745e"
+    },
+    {
+      "id_documento": "DOC-0060",
+      "caminho_manifesto": "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0060_DOC-0060.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\10_PRIMAVERA_DO_LESTE\\DOC-0060_DOC-0060.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PENDENTE_EDITAL_COMPLETO",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1g3_xIr5sW6SvM_nkHxgpULhhPnpQb0Us/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1g3_xIr5sW6SvM_nkHxgpULhhPnpQb0Us",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "9add7924e69099a37e4f5a208489e533a5d9216891ad604d81e51184feb0745e",
+      "bytes_manifesto": 174861,
+      "paginas_manifesto": 1,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 174861,
+      "header_pdf": true,
+      "sha256_calculado": "9add7924e69099a37e4f5a208489e533a5d9216891ad604d81e51184feb0745e"
+    },
+    {
+      "id_documento": "DOC-0061",
+      "caminho_manifesto": "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0061_DOC-0061.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\10_PRIMAVERA_DO_LESTE\\DOC-0061_DOC-0061.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1ItBdCrs3RwVBz8I9cZelgals7sts8Xpo/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1ItBdCrs3RwVBz8I9cZelgals7sts8Xpo",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "581b745d79aa058f49880b605a5fbb173370d2fbfcac3d70efc0be1fe1bc44a9",
+      "bytes_manifesto": 2230984,
+      "paginas_manifesto": 153,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 2230984,
+      "header_pdf": true,
+      "sha256_calculado": "581b745d79aa058f49880b605a5fbb173370d2fbfcac3d70efc0be1fe1bc44a9"
+    },
+    {
+      "id_documento": "DOC-0062",
+      "caminho_manifesto": "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0062_DOC-0062.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\10_PRIMAVERA_DO_LESTE\\DOC-0062_DOC-0062.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1yVgl9BY0Wz6uLFZVFZ4dkGo9ce0Y5Rws/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1yVgl9BY0Wz6uLFZVFZ4dkGo9ce0Y5Rws",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "1ee3b4b03bb4bb879a21e2da6a48392f560178ad2d8a9aa127299c68fcfaa284",
+      "bytes_manifesto": 2268157,
+      "paginas_manifesto": 155,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 2268157,
+      "header_pdf": true,
+      "sha256_calculado": "1ee3b4b03bb4bb879a21e2da6a48392f560178ad2d8a9aa127299c68fcfaa284"
+    },
+    {
+      "id_documento": "DOC-0063",
+      "caminho_manifesto": "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0063_DOC-0063.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\10_PRIMAVERA_DO_LESTE\\DOC-0063_DOC-0063.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1emDxv5nWFjaoF8by6LBj_bf-V7XRkhWI/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1emDxv5nWFjaoF8by6LBj_bf-V7XRkhWI",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "607c56ba70d0464706a09766f0d06ff11251377ce0eb31e4d3eae7fdd2a25ae1",
+      "bytes_manifesto": 2269079,
+      "paginas_manifesto": 156,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 2269079,
+      "header_pdf": true,
+      "sha256_calculado": "607c56ba70d0464706a09766f0d06ff11251377ce0eb31e4d3eae7fdd2a25ae1"
+    },
+    {
+      "id_documento": "DOC-0064",
+      "caminho_manifesto": "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0064_DOC-0064.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\10_PRIMAVERA_DO_LESTE\\DOC-0064_DOC-0064.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/12WEnfdGO3zodvyV-VEijU-t4IwtXviro/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=12WEnfdGO3zodvyV-VEijU-t4IwtXviro",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "4d1c8c34b261b2f1d4cc49d9bba95b96a459635809d1be7017a5e360f7c70ce7",
+      "bytes_manifesto": 218153,
+      "paginas_manifesto": 1,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 218153,
+      "header_pdf": true,
+      "sha256_calculado": "4d1c8c34b261b2f1d4cc49d9bba95b96a459635809d1be7017a5e360f7c70ce7"
+    },
+    {
+      "id_documento": "DOC-0065",
+      "caminho_manifesto": "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0065_DOC-0065.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\10_PRIMAVERA_DO_LESTE\\DOC-0065_DOC-0065.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1jvcAeDDGc-PaBDXrTRLiD2QbzJjaOhvE/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1jvcAeDDGc-PaBDXrTRLiD2QbzJjaOhvE",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "9e9cce92e2f1af5ed987925f966272f2bd670ef2e28e4f88a393dbf029c89901",
+      "bytes_manifesto": 1339392,
+      "paginas_manifesto": 172,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1339392,
+      "header_pdf": true,
+      "sha256_calculado": "9e9cce92e2f1af5ed987925f966272f2bd670ef2e28e4f88a393dbf029c89901"
+    },
+    {
+      "id_documento": "DOC-0066",
+      "caminho_manifesto": "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0066_DOC-0066.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\10_PRIMAVERA_DO_LESTE\\DOC-0066_DOC-0066.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/10Goz6E9hSipACxJ1artyZEApT2JJcnuW/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=10Goz6E9hSipACxJ1artyZEApT2JJcnuW",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "b691d4486cf0ae6796be44f590dd994126b84498cccbae160deaf8dddc7baab4",
+      "bytes_manifesto": 1346149,
+      "paginas_manifesto": 147,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1346149,
+      "header_pdf": true,
+      "sha256_calculado": "b691d4486cf0ae6796be44f590dd994126b84498cccbae160deaf8dddc7baab4"
+    },
+    {
+      "id_documento": "DOC-0067",
+      "caminho_manifesto": "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0067_DOC-0067.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\10_PRIMAVERA_DO_LESTE\\DOC-0067_DOC-0067.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1v1ohSPNAWg3LbfVB1Cm6fjMFnLOaAlkF/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1v1ohSPNAWg3LbfVB1Cm6fjMFnLOaAlkF",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "822f7a5c0dac1f03c47fd8dbdcc1d0e720c512a8b5e6aeab939124ff42ceb8bb",
+      "bytes_manifesto": 1374160,
+      "paginas_manifesto": 151,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1374160,
+      "header_pdf": true,
+      "sha256_calculado": "822f7a5c0dac1f03c47fd8dbdcc1d0e720c512a8b5e6aeab939124ff42ceb8bb"
+    },
+    {
+      "id_documento": "DOC-0068",
+      "caminho_manifesto": "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0068_DOC-0068.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\10_PRIMAVERA_DO_LESTE\\DOC-0068_DOC-0068.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1c3mdaljKRtqfPkjJRLTdcDZ-poyAHTU6/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1c3mdaljKRtqfPkjJRLTdcDZ-poyAHTU6",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "1b773a5f9549228757412b3fd2301f7cd3356a19c9347a6a9060682e8c4fb6c2",
+      "bytes_manifesto": 2417635,
+      "paginas_manifesto": 180,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 2417635,
+      "header_pdf": true,
+      "sha256_calculado": "1b773a5f9549228757412b3fd2301f7cd3356a19c9347a6a9060682e8c4fb6c2"
+    },
+    {
+      "id_documento": "DOC-0069",
+      "caminho_manifesto": "PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0069_DOC-0069.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\10_PRIMAVERA_DO_LESTE\\DOC-0069_DOC-0069.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Primavera do Leste",
+      "urls": [
+        "https://drive.google.com/file/d/1t7mFIHJ17ZYchybLD1G5tdI7ckEUD56E/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1t7mFIHJ17ZYchybLD1G5tdI7ckEUD56E",
+        "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025"
+      ],
+      "sha256_manifesto": "9f319240ac4c2227935199b0a48138da5e03b3d40ac0ff141aa4e90707abedb6",
+      "bytes_manifesto": 623383,
+      "paginas_manifesto": 39,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 623383,
+      "header_pdf": true,
+      "sha256_calculado": "9f319240ac4c2227935199b0a48138da5e03b3d40ac0ff141aa4e90707abedb6"
+    },
+    {
+      "id_documento": "DOC-0070",
+      "caminho_manifesto": "PNAE_MT_2025/12_SINOP/DOC-0070_f8345a8a-c33f-4788-bfe9-fb15c23010b8.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\12_SINOP\\DOC-0070_f8345a8a-c33f-4788-bfe9-fb15c23010b8.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Sinop",
+      "urls": [
+        "https://dresinop.com.br/arquivos/f8345a8a-c33f-4788-bfe9-fb15c23010b8",
+        "https://dresinop.com.br/arquivos/f8345a8a-c33f-4788-bfe9-fb15c23010b8",
+        "https://dresinop.com.br/editais/993c9e6b-8ed8-4697-81b6-2fbf4cfedf2d"
+      ],
+      "sha256_manifesto": "0f76a0d34c00d2fdf780548cdaa05691d368b978dcd9e9429a3728598f046494",
+      "bytes_manifesto": 681235,
+      "paginas_manifesto": 48,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 681235,
+      "header_pdf": true,
+      "sha256_calculado": "0f76a0d34c00d2fdf780548cdaa05691d368b978dcd9e9429a3728598f046494"
+    },
+    {
+      "id_documento": "DOC-0071",
+      "caminho_manifesto": "PNAE_MT_2025/12_SINOP/DOC-0071_d239737c-aa5b-4aa5-8c4f-98a1c89d4007.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\12_SINOP\\DOC-0071_d239737c-aa5b-4aa5-8c4f-98a1c89d4007.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Sinop",
+      "urls": [
+        "https://dresinop.com.br/arquivos/d239737c-aa5b-4aa5-8c4f-98a1c89d4007",
+        "https://dresinop.com.br/arquivos/d239737c-aa5b-4aa5-8c4f-98a1c89d4007",
+        "https://dresinop.com.br/editais/993c9e6b-8ed8-4697-81b6-2fbf4cfedf2d"
+      ],
+      "sha256_manifesto": "03d9964a6bd6cc13756a96b30ff95942ae1314120fa11d858b1741171cf8e146",
+      "bytes_manifesto": 608896,
+      "paginas_manifesto": 48,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 608896,
+      "header_pdf": true,
+      "sha256_calculado": "03d9964a6bd6cc13756a96b30ff95942ae1314120fa11d858b1741171cf8e146"
+    },
+    {
+      "id_documento": "DOC-0072",
+      "caminho_manifesto": "PNAE_MT_2025/12_SINOP/DOC-0072_d8539333-10b0-436d-be50-4bc6b6c5b940.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\12_SINOP\\DOC-0072_d8539333-10b0-436d-be50-4bc6b6c5b940.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Sinop",
+      "urls": [
+        "https://dresinop.com.br/arquivos/d8539333-10b0-436d-be50-4bc6b6c5b940",
+        "https://dresinop.com.br/arquivos/d8539333-10b0-436d-be50-4bc6b6c5b940",
+        "https://dresinop.com.br/editais/993c9e6b-8ed8-4697-81b6-2fbf4cfedf2d"
+      ],
+      "sha256_manifesto": "ab31c1578f0b29725cf7a7b1eb9435e5623a4e7b84e60ea0e722650a226a0905",
+      "bytes_manifesto": 603490,
+      "paginas_manifesto": 46,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 603490,
+      "header_pdf": true,
+      "sha256_calculado": "ab31c1578f0b29725cf7a7b1eb9435e5623a4e7b84e60ea0e722650a226a0905"
+    },
+    {
+      "id_documento": "DOC-0073",
+      "caminho_manifesto": "PNAE_MT_2025/12_SINOP/DOC-0073_61522d8f-5478-4cdb-b7cf-0d7a17c56a27.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\12_SINOP\\DOC-0073_61522d8f-5478-4cdb-b7cf-0d7a17c56a27.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Sinop",
+      "urls": [
+        "https://dresinop.com.br/arquivos/61522d8f-5478-4cdb-b7cf-0d7a17c56a27",
+        "https://dresinop.com.br/arquivos/61522d8f-5478-4cdb-b7cf-0d7a17c56a27",
+        "https://dresinop.com.br/editais/993c9e6b-8ed8-4697-81b6-2fbf4cfedf2d"
+      ],
+      "sha256_manifesto": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4",
+      "bytes_manifesto": 603712,
+      "paginas_manifesto": 45,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 603712,
+      "header_pdf": true,
+      "sha256_calculado": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4"
+    },
+    {
+      "id_documento": "DOC-0074",
+      "caminho_manifesto": "PNAE_MT_2025/12_SINOP/DOC-0074_1291cecc-6aa7-43bb-a549-a33b65843df9.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\12_SINOP\\DOC-0074_1291cecc-6aa7-43bb-a549-a33b65843df9.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Sinop",
+      "urls": [
+        "https://dresinop.com.br/arquivos/1291cecc-6aa7-43bb-a549-a33b65843df9",
+        "https://dresinop.com.br/arquivos/1291cecc-6aa7-43bb-a549-a33b65843df9",
+        "https://dresinop.com.br/editais/993c9e6b-8ed8-4697-81b6-2fbf4cfedf2d"
+      ],
+      "sha256_manifesto": "bf22942ca40be8732567c762127f2468a42e6bbf1abe39fe8e0630302eb4d01c",
+      "bytes_manifesto": 607662,
+      "paginas_manifesto": 46,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 607662,
+      "header_pdf": true,
+      "sha256_calculado": "bf22942ca40be8732567c762127f2468a42e6bbf1abe39fe8e0630302eb4d01c"
+    },
+    {
+      "id_documento": "DOC-0075",
+      "caminho_manifesto": "PNAE_MT_2025/12_SINOP/DOC-0075_bd759726-7290-4133-976b-096fd05bfc1b.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\12_SINOP\\DOC-0075_bd759726-7290-4133-976b-096fd05bfc1b.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Sinop",
+      "urls": [
+        "https://dresinop.com.br/arquivos/bd759726-7290-4133-976b-096fd05bfc1b",
+        "https://dresinop.com.br/arquivos/bd759726-7290-4133-976b-096fd05bfc1b",
+        "https://dresinop.com.br/editais/993c9e6b-8ed8-4697-81b6-2fbf4cfedf2d"
+      ],
+      "sha256_manifesto": "8a16d34f9ab4358b448079e5cf6f7490f0ccb102dea7f378ec212ab7b888ce8a",
+      "bytes_manifesto": 605166,
+      "paginas_manifesto": 46,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 605166,
+      "header_pdf": true,
+      "sha256_calculado": "8a16d34f9ab4358b448079e5cf6f7490f0ccb102dea7f378ec212ab7b888ce8a"
+    },
+    {
+      "id_documento": "DOC-0076",
+      "caminho_manifesto": "PNAE_MT_2025/12_SINOP/DOC-0076_807e87cd-6ca6-45b4-be56-587562a0b377.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\12_SINOP\\DOC-0076_807e87cd-6ca6-45b4-be56-587562a0b377.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Sinop",
+      "urls": [
+        "https://dresinop.com.br/arquivos/807e87cd-6ca6-45b4-be56-587562a0b377",
+        "https://dresinop.com.br/arquivos/807e87cd-6ca6-45b4-be56-587562a0b377",
+        "https://dresinop.com.br/editais/993c9e6b-8ed8-4697-81b6-2fbf4cfedf2d"
+      ],
+      "sha256_manifesto": "6b9bdbd7f008c80d6a506143849121a8d0d8ab8156b85a011d75f6219d377d3c",
+      "bytes_manifesto": 620165,
+      "paginas_manifesto": 58,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 620165,
+      "header_pdf": true,
+      "sha256_calculado": "6b9bdbd7f008c80d6a506143849121a8d0d8ab8156b85a011d75f6219d377d3c"
+    },
+    {
+      "id_documento": "DOC-0077",
+      "caminho_manifesto": "PNAE_MT_2025/12_SINOP/DOC-0077_762c78d9-033d-49a2-81cc-9952333825e8.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\12_SINOP\\DOC-0077_762c78d9-033d-49a2-81cc-9952333825e8.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Sinop",
+      "urls": [
+        "https://dresinop.com.br/arquivos/762c78d9-033d-49a2-81cc-9952333825e8",
+        "https://dresinop.com.br/arquivos/762c78d9-033d-49a2-81cc-9952333825e8",
+        "https://dresinop.com.br/editais/993c9e6b-8ed8-4697-81b6-2fbf4cfedf2d"
+      ],
+      "sha256_manifesto": "ba01eeef6af084c0305148438e934110c4bdbe2dfd8d09cf0df871ae0e423417",
+      "bytes_manifesto": 609332,
+      "paginas_manifesto": 47,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 609332,
+      "header_pdf": true,
+      "sha256_calculado": "ba01eeef6af084c0305148438e934110c4bdbe2dfd8d09cf0df871ae0e423417"
+    },
+    {
+      "id_documento": "DOC-0078",
+      "caminho_manifesto": "PNAE_MT_2025/12_SINOP/DOC-0078_7272d1c5-14fa-4d35-9416-fa978aae122e.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\12_SINOP\\DOC-0078_7272d1c5-14fa-4d35-9416-fa978aae122e.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Sinop",
+      "urls": [
+        "https://dresinop.com.br/arquivos/7272d1c5-14fa-4d35-9416-fa978aae122e",
+        "https://dresinop.com.br/arquivos/7272d1c5-14fa-4d35-9416-fa978aae122e",
+        "https://dresinop.com.br/editais/993c9e6b-8ed8-4697-81b6-2fbf4cfedf2d"
+      ],
+      "sha256_manifesto": "40119a8a2cee41428e560c9eed04dc13357e112d1c104e7b8167acc4cd71a074",
+      "bytes_manifesto": 603624,
+      "paginas_manifesto": 46,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 603624,
+      "header_pdf": true,
+      "sha256_calculado": "40119a8a2cee41428e560c9eed04dc13357e112d1c104e7b8167acc4cd71a074"
+    },
+    {
+      "id_documento": "DOC-0079",
+      "caminho_manifesto": "PNAE_MT_2025/12_SINOP/DOC-0079_dc2650b4-75f5-4259-83e4-67d7ac91d586.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\12_SINOP\\DOC-0079_dc2650b4-75f5-4259-83e4-67d7ac91d586.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Sinop",
+      "urls": [
+        "https://dresinop.com.br/arquivos/dc2650b4-75f5-4259-83e4-67d7ac91d586",
+        "https://dresinop.com.br/arquivos/dc2650b4-75f5-4259-83e4-67d7ac91d586",
+        "https://dresinop.com.br/editais/993c9e6b-8ed8-4697-81b6-2fbf4cfedf2d"
+      ],
+      "sha256_manifesto": "977796e27d450458f19961befa7b22d21abfc60dc95b48f23eef9e7c10d188b3",
+      "bytes_manifesto": 601410,
+      "paginas_manifesto": 44,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 601410,
+      "header_pdf": true,
+      "sha256_calculado": "977796e27d450458f19961befa7b22d21abfc60dc95b48f23eef9e7c10d188b3"
+    },
+    {
+      "id_documento": "DOC-0080",
+      "caminho_manifesto": "PNAE_MT_2025/12_SINOP/DOC-0080_912f5800-b74c-4a39-8a20-e86bacc363b1.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\12_SINOP\\DOC-0080_912f5800-b74c-4a39-8a20-e86bacc363b1.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Sinop",
+      "urls": [
+        "https://dresinop.com.br/arquivos/912f5800-b74c-4a39-8a20-e86bacc363b1",
+        "https://dresinop.com.br/arquivos/912f5800-b74c-4a39-8a20-e86bacc363b1",
+        "https://dresinop.com.br/editais/993c9e6b-8ed8-4697-81b6-2fbf4cfedf2d"
+      ],
+      "sha256_manifesto": "221c671594b305a966ac3aa37341db920f36b30b0e6c7bdf7f5c8ded760d81bb",
+      "bytes_manifesto": 602325,
+      "paginas_manifesto": 45,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 602325,
+      "header_pdf": true,
+      "sha256_calculado": "221c671594b305a966ac3aa37341db920f36b30b0e6c7bdf7f5c8ded760d81bb"
+    },
+    {
+      "id_documento": "DOC-0081",
+      "caminho_manifesto": "PNAE_MT_2025/12_SINOP/DOC-0081_bd8b8e50-3336-4f3c-b477-295a07c42a73.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\12_SINOP\\DOC-0081_bd8b8e50-3336-4f3c-b477-295a07c42a73.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Sinop",
+      "urls": [
+        "https://dresinop.com.br/arquivos/bd8b8e50-3336-4f3c-b477-295a07c42a73",
+        "https://dresinop.com.br/arquivos/bd8b8e50-3336-4f3c-b477-295a07c42a73",
+        "https://dresinop.com.br/editais/993c9e6b-8ed8-4697-81b6-2fbf4cfedf2d"
+      ],
+      "sha256_manifesto": "eedadd961f9129edd005e460367735429c76ca279d077b0bbb32d137def036de",
+      "bytes_manifesto": 613539,
+      "paginas_manifesto": 46,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 613539,
+      "header_pdf": true,
+      "sha256_calculado": "eedadd961f9129edd005e460367735429c76ca279d077b0bbb32d137def036de"
+    },
+    {
+      "id_documento": "DOC-0082",
+      "caminho_manifesto": "PNAE_MT_2025/12_SINOP/DOC-0082_b3b243ae-9c6f-465d-b616-bbe843f76a0a.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\12_SINOP\\DOC-0082_b3b243ae-9c6f-465d-b616-bbe843f76a0a.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Sinop",
+      "urls": [
+        "https://dresinop.com.br/arquivos/b3b243ae-9c6f-465d-b616-bbe843f76a0a",
+        "https://dresinop.com.br/arquivos/b3b243ae-9c6f-465d-b616-bbe843f76a0a",
+        "https://dresinop.com.br/editais/993c9e6b-8ed8-4697-81b6-2fbf4cfedf2d"
+      ],
+      "sha256_manifesto": "8ce6ca5cd9c8b5ece6340d72b6beb8925aec01825e57cf3b61f7907c17c6c4a8",
+      "bytes_manifesto": 620827,
+      "paginas_manifesto": 49,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 620827,
+      "header_pdf": true,
+      "sha256_calculado": "8ce6ca5cd9c8b5ece6340d72b6beb8925aec01825e57cf3b61f7907c17c6c4a8"
+    },
+    {
+      "id_documento": "DOC-0083",
+      "caminho_manifesto": "PNAE_MT_2025/12_SINOP/DOC-0083_60ecd063-24c4-4325-8689-129e23d2e25b.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\12_SINOP\\DOC-0083_60ecd063-24c4-4325-8689-129e23d2e25b.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Sinop",
+      "urls": [
+        "https://dresinop.com.br/arquivos/60ecd063-24c4-4325-8689-129e23d2e25b",
+        "https://dresinop.com.br/arquivos/60ecd063-24c4-4325-8689-129e23d2e25b",
+        "https://dresinop.com.br/editais/993c9e6b-8ed8-4697-81b6-2fbf4cfedf2d"
+      ],
+      "sha256_manifesto": "e28cd7d28dce86a97d3fc6bdd1bff2d0e0a30b7a7ad519c78d97870d5663e2b7",
+      "bytes_manifesto": 601188,
+      "paginas_manifesto": 44,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 601188,
+      "header_pdf": true,
+      "sha256_calculado": "e28cd7d28dce86a97d3fc6bdd1bff2d0e0a30b7a7ad519c78d97870d5663e2b7"
+    },
+    {
+      "id_documento": "DOC-0084",
+      "caminho_manifesto": "PNAE_MT_2025/12_SINOP/DOC-0084_a27aaf3d-adc9-4b34-ba88-5755ae46e194.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\12_SINOP\\DOC-0084_a27aaf3d-adc9-4b34-ba88-5755ae46e194.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Sinop",
+      "urls": [
+        "https://dresinop.com.br/arquivos/a27aaf3d-adc9-4b34-ba88-5755ae46e194",
+        "https://dresinop.com.br/arquivos/a27aaf3d-adc9-4b34-ba88-5755ae46e194",
+        "https://dresinop.com.br/editais/993c9e6b-8ed8-4697-81b6-2fbf4cfedf2d"
+      ],
+      "sha256_manifesto": "263ac10389d8e45d378b8a41a32d6f148c08a4307d77a52cb1f529dfb60cf6b5",
+      "bytes_manifesto": 602390,
+      "paginas_manifesto": 45,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 602390,
+      "header_pdf": true,
+      "sha256_calculado": "263ac10389d8e45d378b8a41a32d6f148c08a4307d77a52cb1f529dfb60cf6b5"
+    },
+    {
+      "id_documento": "DOC-0085",
+      "caminho_manifesto": "PNAE_MT_2025/12_SINOP/DOC-0085_754dca13-1a2d-4733-83a5-4bde5f1235ff.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\12_SINOP\\DOC-0085_754dca13-1a2d-4733-83a5-4bde5f1235ff.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Sinop",
+      "urls": [
+        "https://dresinop.com.br/arquivos/754dca13-1a2d-4733-83a5-4bde5f1235ff",
+        "https://dresinop.com.br/arquivos/754dca13-1a2d-4733-83a5-4bde5f1235ff",
+        "https://dresinop.com.br/editais/993c9e6b-8ed8-4697-81b6-2fbf4cfedf2d"
+      ],
+      "sha256_manifesto": "0c72f3954b2570d240e7eb95620d340d5ccb266f3515f950de31e5ed5a981454",
+      "bytes_manifesto": 600835,
+      "paginas_manifesto": 44,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 600835,
+      "header_pdf": true,
+      "sha256_calculado": "0c72f3954b2570d240e7eb95620d340d5ccb266f3515f950de31e5ed5a981454"
+    },
+    {
+      "id_documento": "DOC-0086",
+      "caminho_manifesto": "PNAE_MT_2025/12_SINOP/DOC-0086_8fdbdccf-4aac-4d5d-ab2a-951abaf48b1a.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\12_SINOP\\DOC-0086_8fdbdccf-4aac-4d5d-ab2a-951abaf48b1a.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Sinop",
+      "urls": [
+        "https://dresinop.com.br/arquivos/8fdbdccf-4aac-4d5d-ab2a-951abaf48b1a",
+        "https://dresinop.com.br/arquivos/8fdbdccf-4aac-4d5d-ab2a-951abaf48b1a",
+        "https://dresinop.com.br/editais/993c9e6b-8ed8-4697-81b6-2fbf4cfedf2d"
+      ],
+      "sha256_manifesto": "12a864c79d6d329a76dcf25b6e8a9b648d5adb9c6d0e497e0c7a4a5c3e740006",
+      "bytes_manifesto": 600886,
+      "paginas_manifesto": 44,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 600886,
+      "header_pdf": true,
+      "sha256_calculado": "12a864c79d6d329a76dcf25b6e8a9b648d5adb9c6d0e497e0c7a4a5c3e740006"
+    },
+    {
+      "id_documento": "DOC-0087",
+      "caminho_manifesto": "PNAE_MT_2025/12_SINOP/DOC-0087_ef4983ae-d7b6-4e0d-85e2-21406a4505c3.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\12_SINOP\\DOC-0087_ef4983ae-d7b6-4e0d-85e2-21406a4505c3.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Sinop",
+      "urls": [
+        "https://dresinop.com.br/arquivos/ef4983ae-d7b6-4e0d-85e2-21406a4505c3",
+        "https://dresinop.com.br/arquivos/ef4983ae-d7b6-4e0d-85e2-21406a4505c3",
+        "https://dresinop.com.br/editais/993c9e6b-8ed8-4697-81b6-2fbf4cfedf2d"
+      ],
+      "sha256_manifesto": "12a7f0e02d237989baf558887cd545044fc89c4c03af6c1132942e935b12fdcf",
+      "bytes_manifesto": 600046,
+      "paginas_manifesto": 45,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 600046,
+      "header_pdf": true,
+      "sha256_calculado": "12a7f0e02d237989baf558887cd545044fc89c4c03af6c1132942e935b12fdcf"
+    },
+    {
+      "id_documento": "DOC-0088",
+      "caminho_manifesto": null,
+      "resolvido_rel": null,
+      "status_manifesto": "FALHA_DOWNLOAD",
+      "elegibilidade": "PENDENTE_ARQUIVO",
+      "dre": "Tangará da Serra",
+      "urls": [
+        "https://drive.google.com/file/d/1G0ElLv1VSiTCNWNCDSnDbahxi7EA5DIk/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1G0ElLv1VSiTCNWNCDSnDbahxi7EA5DIk",
+        "https://sites.google.com/edu.mt.gov.br/dre-tangaradaserra/institucional/coordenadorias/coadm/chamada-pública-em-andamento"
+      ],
+      "sha256_manifesto": null,
+      "bytes_manifesto": null,
+      "paginas_manifesto": null,
+      "classificacao": "AUSENTE",
+      "detalhes": [
+        "Sem caminho no manifesto (download falhou na pesquisa)."
+      ]
+    },
+    {
+      "id_documento": "DOC-0089",
+      "caminho_manifesto": null,
+      "resolvido_rel": null,
+      "status_manifesto": "FALHA_DOWNLOAD",
+      "elegibilidade": "PENDENTE_ARQUIVO",
+      "dre": "Tangará da Serra",
+      "urls": [
+        "https://drive.google.com/file/d/1pzC2qhTXj3QNZsbZ4fBSZSIkxT8H7X8_/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1pzC2qhTXj3QNZsbZ4fBSZSIkxT8H7X8_",
+        "https://sites.google.com/edu.mt.gov.br/dre-tangaradaserra/institucional/coordenadorias/coadm/chamada-pública-concluídas"
+      ],
+      "sha256_manifesto": null,
+      "bytes_manifesto": null,
+      "paginas_manifesto": null,
+      "classificacao": "AUSENTE",
+      "detalhes": [
+        "Sem caminho no manifesto (download falhou na pesquisa)."
+      ]
+    },
+    {
+      "id_documento": "DOC-0090",
+      "caminho_manifesto": null,
+      "resolvido_rel": null,
+      "status_manifesto": "FALHA_DOWNLOAD",
+      "elegibilidade": "PENDENTE_ARQUIVO",
+      "dre": "Tangará da Serra",
+      "urls": [
+        "https://drive.google.com/file/d/1xAysEQ2u520IYvXlbAJszLnxCjLWy1Gz/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1xAysEQ2u520IYvXlbAJszLnxCjLWy1Gz",
+        "https://sites.google.com/edu.mt.gov.br/dre-tangaradaserra/institucional/coordenadorias/coadm/chamada-pública-concluídas"
+      ],
+      "sha256_manifesto": null,
+      "bytes_manifesto": null,
+      "paginas_manifesto": null,
+      "classificacao": "AUSENTE",
+      "detalhes": [
+        "Sem caminho no manifesto (download falhou na pesquisa)."
+      ]
+    },
+    {
+      "id_documento": "DOC-0091",
+      "caminho_manifesto": null,
+      "resolvido_rel": null,
+      "status_manifesto": "FALHA_DOWNLOAD",
+      "elegibilidade": "PENDENTE_ARQUIVO",
+      "dre": "Tangará da Serra",
+      "urls": [
+        "https://drive.google.com/file/d/1BcSqSk-pcRGIqwD1yMcrXcuqKncBeNHw/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1BcSqSk-pcRGIqwD1yMcrXcuqKncBeNHw",
+        "https://sites.google.com/edu.mt.gov.br/dre-tangaradaserra/institucional/coordenadorias/coadm/chamada-pública-concluídas"
+      ],
+      "sha256_manifesto": null,
+      "bytes_manifesto": null,
+      "paginas_manifesto": null,
+      "classificacao": "AUSENTE",
+      "detalhes": [
+        "Sem caminho no manifesto (download falhou na pesquisa)."
+      ]
+    },
+    {
+      "id_documento": "DOC-0092",
+      "caminho_manifesto": null,
+      "resolvido_rel": null,
+      "status_manifesto": "FALHA_DOWNLOAD",
+      "elegibilidade": "PENDENTE_ARQUIVO",
+      "dre": "Tangará da Serra",
+      "urls": [
+        "https://drive.google.com/file/d/1lx7feury5GzGqaYu3fxkf0wkzaG8yuSj/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1lx7feury5GzGqaYu3fxkf0wkzaG8yuSj",
+        "https://sites.google.com/edu.mt.gov.br/dre-tangaradaserra/institucional/coordenadorias/coadm/chamada-pública-concluídas"
+      ],
+      "sha256_manifesto": null,
+      "bytes_manifesto": null,
+      "paginas_manifesto": null,
+      "classificacao": "AUSENTE",
+      "detalhes": [
+        "Sem caminho no manifesto (download falhou na pesquisa)."
+      ]
+    },
+    {
+      "id_documento": "DOC-0093",
+      "caminho_manifesto": null,
+      "resolvido_rel": null,
+      "status_manifesto": "FALHA_DOWNLOAD",
+      "elegibilidade": "PENDENTE_ARQUIVO",
+      "dre": "Tangará da Serra",
+      "urls": [
+        "https://drive.google.com/file/d/1ByAy0T06Y7QG9YNM4ZIZbk_eHmbidlDv/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1ByAy0T06Y7QG9YNM4ZIZbk_eHmbidlDv",
+        "https://sites.google.com/edu.mt.gov.br/dre-tangaradaserra/institucional/coordenadorias/coadm/chamada-pública-concluídas"
+      ],
+      "sha256_manifesto": null,
+      "bytes_manifesto": null,
+      "paginas_manifesto": null,
+      "classificacao": "AUSENTE",
+      "detalhes": [
+        "Sem caminho no manifesto (download falhou na pesquisa)."
+      ]
+    },
+    {
+      "id_documento": "DOC-0094",
+      "caminho_manifesto": null,
+      "resolvido_rel": null,
+      "status_manifesto": "FALHA_DOWNLOAD",
+      "elegibilidade": "PENDENTE_ARQUIVO",
+      "dre": "Tangará da Serra",
+      "urls": [
+        "https://drive.google.com/file/d/1QXgBS_ON4HEe4EP-0cBgF9LMN808hc0m/view?usp=drive_link",
+        "https://drive.google.com/uc?export=download&id=1QXgBS_ON4HEe4EP-0cBgF9LMN808hc0m",
+        "https://sites.google.com/edu.mt.gov.br/dre-tangaradaserra/institucional/coordenadorias/coadm/chamada-pública-concluídas"
+      ],
+      "sha256_manifesto": null,
+      "bytes_manifesto": null,
+      "paginas_manifesto": null,
+      "classificacao": "AUSENTE",
+      "detalhes": [
+        "Sem caminho no manifesto (download falhou na pesquisa)."
+      ]
+    },
+    {
+      "id_documento": "DOC-0095",
+      "caminho_manifesto": "PNAE_MT_2025/03_CACERES/DOC-0095_DOC-0095.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\03_CACERES\\DOC-0095_DOC-0095.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Cáceres",
+      "urls": [
+        "https://drive.google.com/file/d/1RPraEuk2hI9FQBZoJVwmMYSC-G6IsKq-/view",
+        "https://drive.google.com/uc?export=download&id=1RPraEuk2hI9FQBZoJVwmMYSC-G6IsKq-",
+        "https://www.drecaceres.com.br/edital.php?id=233"
+      ],
+      "sha256_manifesto": "8445360ae81c8f4e864a8de533d56a25ceecb491c8a9f18590f646866dee7a9b",
+      "bytes_manifesto": 1545479,
+      "paginas_manifesto": 172,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1545479,
+      "header_pdf": true,
+      "sha256_calculado": "8445360ae81c8f4e864a8de533d56a25ceecb491c8a9f18590f646866dee7a9b"
+    },
+    {
+      "id_documento": "DOC-0096",
+      "caminho_manifesto": "PNAE_MT_2025/03_CACERES/DOC-0096_DOC-0096.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\03_CACERES\\DOC-0096_DOC-0096.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Cáceres",
+      "urls": [
+        "https://drive.google.com/file/d/1DLSem3a2G6qp_HVFAj6-37RRpgyjgEqH/view?usp=sharing",
+        "https://drive.google.com/uc?export=download&id=1DLSem3a2G6qp_HVFAj6-37RRpgyjgEqH",
+        "https://www.drecaceres.com.br/edital.php?id=233"
+      ],
+      "sha256_manifesto": "d3c93e9005ded8ff810bafe2be1cb4f82e56da9076fc81641a3eb05c69fcc030",
+      "bytes_manifesto": 1450394,
+      "paginas_manifesto": 169,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1450394,
+      "header_pdf": true,
+      "sha256_calculado": "d3c93e9005ded8ff810bafe2be1cb4f82e56da9076fc81641a3eb05c69fcc030"
+    },
+    {
+      "id_documento": "DOC-0097",
+      "caminho_manifesto": "PNAE_MT_2025/03_CACERES/DOC-0097_DOC-0097.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\03_CACERES\\DOC-0097_DOC-0097.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Cáceres",
+      "urls": [
+        "https://drive.google.com/file/d/1j8USo6mX-z2qdQiot-c6bLJpSVuk500h/view?usp=sharing",
+        "https://drive.google.com/uc?export=download&id=1j8USo6mX-z2qdQiot-c6bLJpSVuk500h",
+        "https://www.drecaceres.com.br/edital.php?id=233"
+      ],
+      "sha256_manifesto": "886a8ccd47a8216fb4e5bd2302889412d10ec58fa9fe002030df358c5ba032a4",
+      "bytes_manifesto": 1495146,
+      "paginas_manifesto": 171,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1495146,
+      "header_pdf": true,
+      "sha256_calculado": "886a8ccd47a8216fb4e5bd2302889412d10ec58fa9fe002030df358c5ba032a4"
+    },
+    {
+      "id_documento": "DOC-0098",
+      "caminho_manifesto": "PNAE_MT_2025/03_CACERES/DOC-0098_DOC-0098.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\03_CACERES\\DOC-0098_DOC-0098.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Cáceres",
+      "urls": [
+        "https://drive.google.com/file/d/1BDnloUNQArc6mq0YhfpAHz8Xjcz5E_sh/view?usp=sharing",
+        "https://drive.google.com/uc?export=download&id=1BDnloUNQArc6mq0YhfpAHz8Xjcz5E_sh",
+        "https://www.drecaceres.com.br/edital.php?id=233"
+      ],
+      "sha256_manifesto": "d574e764d69d716290c27d79ec53c88461d6cc32fae95d363fd989923ba682ca",
+      "bytes_manifesto": 1464288,
+      "paginas_manifesto": 173,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1464288,
+      "header_pdf": true,
+      "sha256_calculado": "d574e764d69d716290c27d79ec53c88461d6cc32fae95d363fd989923ba682ca"
+    },
+    {
+      "id_documento": "DOC-0099",
+      "caminho_manifesto": "PNAE_MT_2025/03_CACERES/DOC-0099_DOC-0099.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\03_CACERES\\DOC-0099_DOC-0099.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Cáceres",
+      "urls": [
+        "https://drive.google.com/file/d/1-_Iev2cSlCQPr-Q1-eTOlBQIEZpPJslQ/view?usp=sharing",
+        "https://drive.google.com/uc?export=download&id=1-_Iev2cSlCQPr-Q1-eTOlBQIEZpPJslQ",
+        "https://www.drecaceres.com.br/edital.php?id=233"
+      ],
+      "sha256_manifesto": "90512d41981b8e362e096c8c257ac8cb5a6d37a8e64695381098bcf22880d3a2",
+      "bytes_manifesto": 1450761,
+      "paginas_manifesto": 169,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1450761,
+      "header_pdf": true,
+      "sha256_calculado": "90512d41981b8e362e096c8c257ac8cb5a6d37a8e64695381098bcf22880d3a2"
+    },
+    {
+      "id_documento": "DOC-0100",
+      "caminho_manifesto": "PNAE_MT_2025/03_CACERES/DOC-0100_DOC-0100.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\03_CACERES\\DOC-0100_DOC-0100.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Cáceres",
+      "urls": [
+        "https://drive.google.com/file/d/1wCzU3VdqfhLMmlMwAvvtQm3WKVwzkRUP/view?usp=sharing",
+        "https://drive.google.com/uc?export=download&id=1wCzU3VdqfhLMmlMwAvvtQm3WKVwzkRUP",
+        "https://www.drecaceres.com.br/edital.php?id=233"
+      ],
+      "sha256_manifesto": "13a71d868e7393ffb2d84ad922b170f469ebf41fda7533cb7a6410448fb4e2d7",
+      "bytes_manifesto": 1495947,
+      "paginas_manifesto": 171,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1495947,
+      "header_pdf": true,
+      "sha256_calculado": "13a71d868e7393ffb2d84ad922b170f469ebf41fda7533cb7a6410448fb4e2d7"
+    },
+    {
+      "id_documento": "DOC-0101",
+      "caminho_manifesto": "PNAE_MT_2025/03_CACERES/DOC-0101_DOC-0101.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\03_CACERES\\DOC-0101_DOC-0101.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Cáceres",
+      "urls": [
+        "https://drive.google.com/file/d/1Ky3eb9ihi1dvUE6o29vA_JjwKJbV5gnj/view?usp=sharing",
+        "https://drive.google.com/uc?export=download&id=1Ky3eb9ihi1dvUE6o29vA_JjwKJbV5gnj",
+        "https://www.drecaceres.com.br/edital.php?id=233"
+      ],
+      "sha256_manifesto": "13bdedd466e9f2471ee8e18c8ac5ff2322f319975e3ae5175d065a7aa330451f",
+      "bytes_manifesto": 1455566,
+      "paginas_manifesto": 170,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1455566,
+      "header_pdf": true,
+      "sha256_calculado": "13bdedd466e9f2471ee8e18c8ac5ff2322f319975e3ae5175d065a7aa330451f"
+    },
+    {
+      "id_documento": "DOC-0102",
+      "caminho_manifesto": "PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0102_EDITAL-CHAMADA-PUBLICA-2025-Nova-Monte-Verde.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\01_ALTA_FLORESTA\\DOC-0102_EDITAL-CHAMADA-PUBLICA-2025-Nova-Monte-Verde.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Alta Floresta",
+      "urls": [
+        "https://drealtafloresta.com.br/drealtafloresta/wp-content/uploads/2024/12/EDITAL-CHAMADA-PUBLICA-2025-Nova-Monte-Verde.pdf",
+        "https://drealtafloresta.com.br/drealtafloresta/wp-content/uploads/2024/12/EDITAL-CHAMADA-PUBLICA-2025-Nova-Monte-Verde.pdf",
+        "https://drealtafloresta.com.br/drealtafloresta/aviso-de-chamada-publica-no-013-2024-p-o-municipio-de-nova-monte-verde-mt-ano-letivo-de-2025/"
+      ],
+      "sha256_manifesto": "8fa60f754eec343f868e45d2bf4880a58bbe6ed997b8a5d4186a8c6abc2af0ed",
+      "bytes_manifesto": 471741,
+      "paginas_manifesto": 30,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 471741,
+      "header_pdf": true,
+      "sha256_calculado": "8fa60f754eec343f868e45d2bf4880a58bbe6ed997b8a5d4186a8c6abc2af0ed"
+    },
+    {
+      "id_documento": "DOC-0103",
+      "caminho_manifesto": "PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0103_EDITAL-CHAMADA-PUBLICA-N.-BANDEIRANTES-014-24-ano-letivo-2025.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\01_ALTA_FLORESTA\\DOC-0103_EDITAL-CHAMADA-PUBLICA-N.-BANDEIRANTES-014-24-ano-letivo-2025.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Alta Floresta",
+      "urls": [
+        "https://drealtafloresta.com.br/drealtafloresta/wp-content/uploads/2024/12/EDITAL-CHAMADA-PUBLICA-N.-BANDEIRANTES-014-24-ano-letivo-2025.pdf",
+        "https://drealtafloresta.com.br/drealtafloresta/wp-content/uploads/2024/12/EDITAL-CHAMADA-PUBLICA-N.-BANDEIRANTES-014-24-ano-letivo-2025.pdf",
+        "https://drealtafloresta.com.br/drealtafloresta/aviso-de-chamada-publica-no-014-2024-p-o-municipio-de-nova-bandeirantes-ano-letivo-de-2025/"
+      ],
+      "sha256_manifesto": "cecb1b75625b6af7b74086d871d5eb1d4a44a186d324ef50ca3eec8228f8c39e",
+      "bytes_manifesto": 473757,
+      "paginas_manifesto": 30,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 473757,
+      "header_pdf": true,
+      "sha256_calculado": "cecb1b75625b6af7b74086d871d5eb1d4a44a186d324ef50ca3eec8228f8c39e"
+    },
+    {
+      "id_documento": "DOC-0104",
+      "caminho_manifesto": "PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0104_EDITAL-CHAMADA-PUBLICA-012-24-APIACAS-ano-letivo-2025-1.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\01_ALTA_FLORESTA\\DOC-0104_EDITAL-CHAMADA-PUBLICA-012-24-APIACAS-ano-letivo-2025-1.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Alta Floresta",
+      "urls": [
+        "https://drealtafloresta.com.br/drealtafloresta/wp-content/uploads/2024/12/EDITAL-CHAMADA-PUBLICA-012-24-APIACAS-ano-letivo-2025-1.pdf",
+        "https://drealtafloresta.com.br/drealtafloresta/wp-content/uploads/2024/12/EDITAL-CHAMADA-PUBLICA-012-24-APIACAS-ano-letivo-2025-1.pdf",
+        "https://drealtafloresta.com.br/drealtafloresta/aviso-de-chamada-publica-no-012-2024-p-o-municipio-de-apiacas-mt-ano-letivo-de-2025/"
+      ],
+      "sha256_manifesto": "1a24966f54e1d488794a12ae0f1a8a6e3300d563ba17606ac50d943b995b2d97",
+      "bytes_manifesto": 511573,
+      "paginas_manifesto": 30,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 511573,
+      "header_pdf": true,
+      "sha256_calculado": "1a24966f54e1d488794a12ae0f1a8a6e3300d563ba17606ac50d943b995b2d97"
+    },
+    {
+      "id_documento": "DOC-0105",
+      "caminho_manifesto": "PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0105_EDITAL-CHAMADA-PUBLICA-NCN-010-24-ano-letivo-2025.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\01_ALTA_FLORESTA\\DOC-0105_EDITAL-CHAMADA-PUBLICA-NCN-010-24-ano-letivo-2025.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Alta Floresta",
+      "urls": [
+        "https://drealtafloresta.com.br/drealtafloresta/wp-content/uploads/2024/12/EDITAL-CHAMADA-PUBLICA-NCN-010-24-ano-letivo-2025.pdf",
+        "https://drealtafloresta.com.br/drealtafloresta/wp-content/uploads/2024/12/EDITAL-CHAMADA-PUBLICA-NCN-010-24-ano-letivo-2025.pdf",
+        "https://drealtafloresta.com.br/drealtafloresta/aviso-de-chamada-publica-no-010-2024-p-o-municipio-de-nova-canaa-do-norte-ano-letivo-2025/"
+      ],
+      "sha256_manifesto": "ff9472a959ebe19868079701f912ddc8dfe69692b8c11edd2ae12ac68fe8a0bf",
+      "bytes_manifesto": 476863,
+      "paginas_manifesto": 30,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 476863,
+      "header_pdf": true,
+      "sha256_calculado": "ff9472a959ebe19868079701f912ddc8dfe69692b8c11edd2ae12ac68fe8a0bf"
+    },
+    {
+      "id_documento": "DOC-0106",
+      "caminho_manifesto": "PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0106_EDITAL-CHAMADA-PUBLICA-No-009-24-CARLINDA-Ano-letivo-2025-1.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\01_ALTA_FLORESTA\\DOC-0106_EDITAL-CHAMADA-PUBLICA-No-009-24-CARLINDA-Ano-letivo-2025-1.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Alta Floresta",
+      "urls": [
+        "https://drealtafloresta.com.br/drealtafloresta/wp-content/uploads/2024/12/EDITAL-CHAMADA-PUBLICA-No-009-24-CARLINDA-Ano-letivo-2025-1.pdf",
+        "https://drealtafloresta.com.br/drealtafloresta/wp-content/uploads/2024/12/EDITAL-CHAMADA-PUBLICA-No-009-24-CARLINDA-Ano-letivo-2025-1.pdf",
+        "https://drealtafloresta.com.br/drealtafloresta/aviso-de-chamada-publica-no-009-2024-p-o-municipio-carlinda-mt-ano-letivo-de-2025/"
+      ],
+      "sha256_manifesto": "612af8380b6cf5c454384d432bd671f6ed9da90152fcf5518db57c8f5f6d38fe",
+      "bytes_manifesto": 481283,
+      "paginas_manifesto": 31,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 481283,
+      "header_pdf": true,
+      "sha256_calculado": "612af8380b6cf5c454384d432bd671f6ed9da90152fcf5518db57c8f5f6d38fe"
+    },
+    {
+      "id_documento": "DOC-0107",
+      "caminho_manifesto": "PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0107_EDITAL-CHAMADA-PUBLICA-011-24-PTA-ano-letivo-2025-1.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\01_ALTA_FLORESTA\\DOC-0107_EDITAL-CHAMADA-PUBLICA-011-24-PTA-ano-letivo-2025-1.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Alta Floresta",
+      "urls": [
+        "https://drealtafloresta.com.br/drealtafloresta/wp-content/uploads/2024/12/EDITAL-CHAMADA-PUBLICA-011-24-PTA-ano-letivo-2025-1.pdf",
+        "https://drealtafloresta.com.br/drealtafloresta/wp-content/uploads/2024/12/EDITAL-CHAMADA-PUBLICA-011-24-PTA-ano-letivo-2025-1.pdf",
+        "https://drealtafloresta.com.br/drealtafloresta/aviso-de-chamada-publica-no-011-2024-paranaita-2/"
+      ],
+      "sha256_manifesto": "45a017a877f7fcc5abe704cc89351b8cc85181434f62ed5f3f20fd1126137eb4",
+      "bytes_manifesto": 364533,
+      "paginas_manifesto": 31,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 364533,
+      "header_pdf": true,
+      "sha256_calculado": "45a017a877f7fcc5abe704cc89351b8cc85181434f62ed5f3f20fd1126137eb4"
+    },
+    {
+      "id_documento": "DOC-0108",
+      "caminho_manifesto": "PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0108_EDITAL-CHAMADA-PUBLICA-008-24-AF-ano-letivo-2025.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\01_ALTA_FLORESTA\\DOC-0108_EDITAL-CHAMADA-PUBLICA-008-24-AF-ano-letivo-2025.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Alta Floresta",
+      "urls": [
+        "https://drealtafloresta.com.br/drealtafloresta/wp-content/uploads/2024/12/EDITAL-CHAMADA-PUBLICA-008-24-AF-ano-letivo-2025.pdf",
+        "https://drealtafloresta.com.br/drealtafloresta/wp-content/uploads/2024/12/EDITAL-CHAMADA-PUBLICA-008-24-AF-ano-letivo-2025.pdf",
+        "https://drealtafloresta.com.br/drealtafloresta/aviso-de-chamada-publica-no-008-2024-alta-floresta/"
+      ],
+      "sha256_manifesto": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608",
+      "bytes_manifesto": 560775,
+      "paginas_manifesto": 34,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 560775,
+      "header_pdf": true,
+      "sha256_calculado": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608"
+    },
+    {
+      "id_documento": "DOC-0109",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0109_2004f4_a29852589efd42ed8e069f3abcffbbc7.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\08_METROPOLITANA\\DOC-0109_2004f4_a29852589efd42ed8e069f3abcffbbc7.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "FORA_ESCOPO_2026",
+      "dre": "Metropolitana",
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_a29852589efd42ed8e069f3abcffbbc7.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_a29852589efd42ed8e069f3abcffbbc7.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "sha256_manifesto": "0b3d41f027b1f2e96ce2884195d6ea51e673758db4ad84273c80ccdea4cb3a4e",
+      "bytes_manifesto": 1648846,
+      "paginas_manifesto": 70,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1648846,
+      "header_pdf": true,
+      "sha256_calculado": "0b3d41f027b1f2e96ce2884195d6ea51e673758db4ad84273c80ccdea4cb3a4e"
+    },
+    {
+      "id_documento": "DOC-0110",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0110_2004f4_d275f8ff4df34f22aac00f2ef72077a1.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\08_METROPOLITANA\\DOC-0110_2004f4_d275f8ff4df34f22aac00f2ef72077a1.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "CONFLITO_EXERCICIO",
+      "dre": "Metropolitana",
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_d275f8ff4df34f22aac00f2ef72077a1.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_d275f8ff4df34f22aac00f2ef72077a1.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "sha256_manifesto": "178cb745712794fc6b7d9aa62d7e60ff7b33841ff7d8fa00cf0e68894a2bc427",
+      "bytes_manifesto": 1714892,
+      "paginas_manifesto": 67,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1714892,
+      "header_pdf": true,
+      "sha256_calculado": "178cb745712794fc6b7d9aa62d7e60ff7b33841ff7d8fa00cf0e68894a2bc427"
+    },
+    {
+      "id_documento": "DOC-0111",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0111_2004f4_7e7f9188a88349d28235ca65582376ca.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\08_METROPOLITANA\\DOC-0111_2004f4_7e7f9188a88349d28235ca65582376ca.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "FORA_ESCOPO_2026",
+      "dre": "Metropolitana",
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_7e7f9188a88349d28235ca65582376ca.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_7e7f9188a88349d28235ca65582376ca.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "sha256_manifesto": "55fffc3a9c16e0bf4150d5c9914d6133f8c0d4e58f0e321083887203fcb05152",
+      "bytes_manifesto": 1520457,
+      "paginas_manifesto": 77,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1520457,
+      "header_pdf": true,
+      "sha256_calculado": "55fffc3a9c16e0bf4150d5c9914d6133f8c0d4e58f0e321083887203fcb05152"
+    },
+    {
+      "id_documento": "DOC-0112",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0112_2004f4_e84cb3a0d1f64507beff5c292c9fac5e.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\08_METROPOLITANA\\DOC-0112_2004f4_e84cb3a0d1f64507beff5c292c9fac5e.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "CONFLITO_EXERCICIO",
+      "dre": "Metropolitana",
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_e84cb3a0d1f64507beff5c292c9fac5e.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_e84cb3a0d1f64507beff5c292c9fac5e.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "sha256_manifesto": "3620f611b5684e2c85ecd6933d69d9491b226b4954f7d7813c94c79adf2ba124",
+      "bytes_manifesto": 1743631,
+      "paginas_manifesto": 73,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1743631,
+      "header_pdf": true,
+      "sha256_calculado": "3620f611b5684e2c85ecd6933d69d9491b226b4954f7d7813c94c79adf2ba124"
+    },
+    {
+      "id_documento": "DOC-0113",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0113_2004f4_88a5d1caedc34dde8c02a2ce8321076d.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\08_METROPOLITANA\\DOC-0113_2004f4_88a5d1caedc34dde8c02a2ce8321076d.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "CONFLITO_EXERCICIO",
+      "dre": "Metropolitana",
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_88a5d1caedc34dde8c02a2ce8321076d.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_88a5d1caedc34dde8c02a2ce8321076d.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "sha256_manifesto": "c92ffe495c947f52fb3306db7285bf0c6da2496ed8ca0b0180199c0497de4441",
+      "bytes_manifesto": 1682236,
+      "paginas_manifesto": 73,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1682236,
+      "header_pdf": true,
+      "sha256_calculado": "c92ffe495c947f52fb3306db7285bf0c6da2496ed8ca0b0180199c0497de4441"
+    },
+    {
+      "id_documento": "DOC-0114",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0114_2004f4_42c1768cd2454f29a14f5e8b51c5c509.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\08_METROPOLITANA\\DOC-0114_2004f4_42c1768cd2454f29a14f5e8b51c5c509.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "CONFLITO_EXERCICIO",
+      "dre": "Metropolitana",
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_42c1768cd2454f29a14f5e8b51c5c509.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_42c1768cd2454f29a14f5e8b51c5c509.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "sha256_manifesto": "e612a34d58d5e6a33d18a853e833ccaa71320c96404469573499e2b7ec6e8bdc",
+      "bytes_manifesto": 1523686,
+      "paginas_manifesto": 68,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1523686,
+      "header_pdf": true,
+      "sha256_calculado": "e612a34d58d5e6a33d18a853e833ccaa71320c96404469573499e2b7ec6e8bdc"
+    },
+    {
+      "id_documento": "DOC-0115",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0115_2004f4_fcf2491bb40c4f5ca34e34cc02490f53.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\08_METROPOLITANA\\DOC-0115_2004f4_fcf2491bb40c4f5ca34e34cc02490f53.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "CONFLITO_EXERCICIO",
+      "dre": "Metropolitana",
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_fcf2491bb40c4f5ca34e34cc02490f53.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_fcf2491bb40c4f5ca34e34cc02490f53.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "sha256_manifesto": "5697bf2099732b859d48ab8ac2bbcafc50ffc9d3ee455ede464c4892b7100a5a",
+      "bytes_manifesto": 1506288,
+      "paginas_manifesto": 66,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1506288,
+      "header_pdf": true,
+      "sha256_calculado": "5697bf2099732b859d48ab8ac2bbcafc50ffc9d3ee455ede464c4892b7100a5a"
+    },
+    {
+      "id_documento": "DOC-0116",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0116_2004f4_c48619e9ff29426d9ad5922b1a9474d8.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\08_METROPOLITANA\\DOC-0116_2004f4_c48619e9ff29426d9ad5922b1a9474d8.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "CONFLITO_EXERCICIO",
+      "dre": "Metropolitana",
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_c48619e9ff29426d9ad5922b1a9474d8.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_c48619e9ff29426d9ad5922b1a9474d8.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "sha256_manifesto": "3bd44fbf7598c964a729ca150444bd335213650494e26293412cd6abea4d6fb8",
+      "bytes_manifesto": 1498066,
+      "paginas_manifesto": 68,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1498066,
+      "header_pdf": true,
+      "sha256_calculado": "3bd44fbf7598c964a729ca150444bd335213650494e26293412cd6abea4d6fb8"
+    },
+    {
+      "id_documento": "DOC-0117",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0117_2004f4_a40cb2d0ef534c7d8b8153fb4c5c9697.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\08_METROPOLITANA\\DOC-0117_2004f4_a40cb2d0ef534c7d8b8153fb4c5c9697.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "CONFLITO_EXERCICIO",
+      "dre": "Metropolitana",
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_a40cb2d0ef534c7d8b8153fb4c5c9697.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_a40cb2d0ef534c7d8b8153fb4c5c9697.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "sha256_manifesto": "89c326babdc02973be897aed40480258fdcf5a2f568df123c0f5c915b961912a",
+      "bytes_manifesto": 1515235,
+      "paginas_manifesto": 68,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1515235,
+      "header_pdf": true,
+      "sha256_calculado": "89c326babdc02973be897aed40480258fdcf5a2f568df123c0f5c915b961912a"
+    },
+    {
+      "id_documento": "DOC-0118",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0118_2004f4_c959216226f846ae8cd20addd9412c18.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\08_METROPOLITANA\\DOC-0118_2004f4_c959216226f846ae8cd20addd9412c18.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "CONFLITO_EXERCICIO",
+      "dre": "Metropolitana",
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_c959216226f846ae8cd20addd9412c18.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_c959216226f846ae8cd20addd9412c18.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "sha256_manifesto": "a9471b853ff76b0e56025345569e5e480b46106034dbd93548697b0a349db060",
+      "bytes_manifesto": 1489133,
+      "paginas_manifesto": 68,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1489133,
+      "header_pdf": true,
+      "sha256_calculado": "a9471b853ff76b0e56025345569e5e480b46106034dbd93548697b0a349db060"
+    },
+    {
+      "id_documento": "DOC-0119",
+      "caminho_manifesto": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0119_2004f4_bd417cb1a36a4509975aedce74924758.pdf",
+      "resolvido_rel": "DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES\\08_METROPOLITANA\\DOC-0119_2004f4_bd417cb1a36a4509975aedce74924758.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "CONFLITO_EXERCICIO",
+      "dre": "Metropolitana",
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_bd417cb1a36a4509975aedce74924758.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_bd417cb1a36a4509975aedce74924758.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "sha256_manifesto": "c4b087e06a58c44293cab6df797c02167300f11ceffeb43b89f9346c19e5bcfc",
+      "bytes_manifesto": 1513401,
+      "paginas_manifesto": 69,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1513401,
+      "header_pdf": true,
+      "sha256_calculado": "c4b087e06a58c44293cab6df797c02167300f11ceffeb43b89f9346c19e5bcfc"
+    },
+    {
+      "id_documento": "DOC-0120",
+      "caminho_manifesto": "PNAE_MT_2025/08_METROPOLITANA/DOC-0120_2004f4_dea8716823c14c04a061631b6fd19025.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\08_METROPOLITANA\\DOC-0120_2004f4_dea8716823c14c04a061631b6fd19025.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Metropolitana",
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_dea8716823c14c04a061631b6fd19025.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_dea8716823c14c04a061631b6fd19025.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "sha256_manifesto": "4f0f01e6c7b809ca046238ba61dbda5a225d534eb565848b14576b72ef6debcd",
+      "bytes_manifesto": 1529550,
+      "paginas_manifesto": 176,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1529550,
+      "header_pdf": true,
+      "sha256_calculado": "4f0f01e6c7b809ca046238ba61dbda5a225d534eb565848b14576b72ef6debcd"
+    },
+    {
+      "id_documento": "DOC-0121",
+      "caminho_manifesto": "PNAE_MT_2025/08_METROPOLITANA/DOC-0121_2004f4_8bb54366edc047cc91e143616c8418c9.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\08_METROPOLITANA\\DOC-0121_2004f4_8bb54366edc047cc91e143616c8418c9.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Metropolitana",
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_8bb54366edc047cc91e143616c8418c9.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_8bb54366edc047cc91e143616c8418c9.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "sha256_manifesto": "e51703b65bb9031d4702e9810aeaad119c9758740d32f6a1616ced83486c9ef3",
+      "bytes_manifesto": 1281294,
+      "paginas_manifesto": 169,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1281294,
+      "header_pdf": true,
+      "sha256_calculado": "e51703b65bb9031d4702e9810aeaad119c9758740d32f6a1616ced83486c9ef3"
+    },
+    {
+      "id_documento": "DOC-0122",
+      "caminho_manifesto": "PNAE_MT_2025/08_METROPOLITANA/DOC-0122_2004f4_87ed7fac89b54734a58548ab9bf6741b.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\08_METROPOLITANA\\DOC-0122_2004f4_87ed7fac89b54734a58548ab9bf6741b.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Metropolitana",
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_87ed7fac89b54734a58548ab9bf6741b.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_87ed7fac89b54734a58548ab9bf6741b.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "sha256_manifesto": "0873439e7b272eac7c06c243b025d3ea0c623bb48e7564abe12a7989210ca3ae",
+      "bytes_manifesto": 1178426,
+      "paginas_manifesto": 174,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1178426,
+      "header_pdf": true,
+      "sha256_calculado": "0873439e7b272eac7c06c243b025d3ea0c623bb48e7564abe12a7989210ca3ae"
+    },
+    {
+      "id_documento": "DOC-0123",
+      "caminho_manifesto": "PNAE_MT_2025/08_METROPOLITANA/DOC-0123_2004f4_f869b5af3e7a42e58206e5a5f70a15f0.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\08_METROPOLITANA\\DOC-0123_2004f4_f869b5af3e7a42e58206e5a5f70a15f0.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Metropolitana",
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_f869b5af3e7a42e58206e5a5f70a15f0.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_f869b5af3e7a42e58206e5a5f70a15f0.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "sha256_manifesto": "6d708f227fbda446c892ad1ca60a5e370cde12f5be69f5757de2525c0ee7fcd2",
+      "bytes_manifesto": 1545392,
+      "paginas_manifesto": 172,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1545392,
+      "header_pdf": true,
+      "sha256_calculado": "6d708f227fbda446c892ad1ca60a5e370cde12f5be69f5757de2525c0ee7fcd2"
+    },
+    {
+      "id_documento": "DOC-0124",
+      "caminho_manifesto": "PNAE_MT_2025/08_METROPOLITANA/DOC-0124_2004f4_a8813c38b6e34b8880bad6dada1b622d.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\08_METROPOLITANA\\DOC-0124_2004f4_a8813c38b6e34b8880bad6dada1b622d.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Metropolitana",
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_a8813c38b6e34b8880bad6dada1b622d.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_a8813c38b6e34b8880bad6dada1b622d.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "sha256_manifesto": "afd1259846733c7454cf5084e0325ba0458db643bf9ad4225c2bc43197a6fa29",
+      "bytes_manifesto": 1187399,
+      "paginas_manifesto": 161,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1187399,
+      "header_pdf": true,
+      "sha256_calculado": "afd1259846733c7454cf5084e0325ba0458db643bf9ad4225c2bc43197a6fa29"
+    },
+    {
+      "id_documento": "DOC-0125",
+      "caminho_manifesto": "PNAE_MT_2025/08_METROPOLITANA/DOC-0125_2004f4_df2e8ee18b594ee6a5b25064c8856c92.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\08_METROPOLITANA\\DOC-0125_2004f4_df2e8ee18b594ee6a5b25064c8856c92.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Metropolitana",
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_df2e8ee18b594ee6a5b25064c8856c92.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_df2e8ee18b594ee6a5b25064c8856c92.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "sha256_manifesto": "6694e135995ae261fdd6bc32b626959dfdf4f7548593f6bcf714086f3712517b",
+      "bytes_manifesto": 1222033,
+      "paginas_manifesto": 172,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1222033,
+      "header_pdf": true,
+      "sha256_calculado": "6694e135995ae261fdd6bc32b626959dfdf4f7548593f6bcf714086f3712517b"
+    },
+    {
+      "id_documento": "DOC-0126",
+      "caminho_manifesto": "PNAE_MT_2025/08_METROPOLITANA/DOC-0126_2004f4_3c327a18a5fc41f89b2df665bfad91f9.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\08_METROPOLITANA\\DOC-0126_2004f4_3c327a18a5fc41f89b2df665bfad91f9.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Metropolitana",
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_3c327a18a5fc41f89b2df665bfad91f9.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_3c327a18a5fc41f89b2df665bfad91f9.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "sha256_manifesto": "f5488e9579970cb9eed7512dc5d02846859ae3613a2b0db2126aa1112ea71b7a",
+      "bytes_manifesto": 1206689,
+      "paginas_manifesto": 162,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1206689,
+      "header_pdf": true,
+      "sha256_calculado": "f5488e9579970cb9eed7512dc5d02846859ae3613a2b0db2126aa1112ea71b7a"
+    },
+    {
+      "id_documento": "DOC-0127",
+      "caminho_manifesto": "PNAE_MT_2025/08_METROPOLITANA/DOC-0127_2004f4_0c038f727d3b419d8213275738c38c2c.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\08_METROPOLITANA\\DOC-0127_2004f4_0c038f727d3b419d8213275738c38c2c.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Metropolitana",
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_0c038f727d3b419d8213275738c38c2c.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_0c038f727d3b419d8213275738c38c2c.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "sha256_manifesto": "f7c9c31ca5c278bf0db9adc3b958af9f0d8a5bb7ca253e468e06207f80f69c18",
+      "bytes_manifesto": 1407732,
+      "paginas_manifesto": 170,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1407732,
+      "header_pdf": true,
+      "sha256_calculado": "f7c9c31ca5c278bf0db9adc3b958af9f0d8a5bb7ca253e468e06207f80f69c18"
+    },
+    {
+      "id_documento": "DOC-0128",
+      "caminho_manifesto": "PNAE_MT_2025/08_METROPOLITANA/DOC-0128_2004f4_ee4640c9dee7474fafbf9b9e6778221a.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\08_METROPOLITANA\\DOC-0128_2004f4_ee4640c9dee7474fafbf9b9e6778221a.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Metropolitana",
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_ee4640c9dee7474fafbf9b9e6778221a.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_ee4640c9dee7474fafbf9b9e6778221a.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "sha256_manifesto": "41e2761043f7ab1c380d5274126b7383cee296063c94e335dbc2eaeb2ee20ca3",
+      "bytes_manifesto": 1097235,
+      "paginas_manifesto": 166,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1097235,
+      "header_pdf": true,
+      "sha256_calculado": "41e2761043f7ab1c380d5274126b7383cee296063c94e335dbc2eaeb2ee20ca3"
+    },
+    {
+      "id_documento": "DOC-0129",
+      "caminho_manifesto": "PNAE_MT_2025/08_METROPOLITANA/DOC-0129_2004f4_32158461ac7442b09680f673b655e0c5.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\08_METROPOLITANA\\DOC-0129_2004f4_32158461ac7442b09680f673b655e0c5.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Metropolitana",
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_32158461ac7442b09680f673b655e0c5.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_32158461ac7442b09680f673b655e0c5.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "sha256_manifesto": "9e91842d316730a83ddc88b4f73570a926994eec03d04f6d01967e5e21847213",
+      "bytes_manifesto": 1429561,
+      "paginas_manifesto": 168,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1429561,
+      "header_pdf": true,
+      "sha256_calculado": "9e91842d316730a83ddc88b4f73570a926994eec03d04f6d01967e5e21847213"
+    },
+    {
+      "id_documento": "DOC-0130",
+      "caminho_manifesto": "PNAE_MT_2025/08_METROPOLITANA/DOC-0130_2004f4_34e70caf91d04da28c0b0e2a68144bc3.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\08_METROPOLITANA\\DOC-0130_2004f4_34e70caf91d04da28c0b0e2a68144bc3.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "PREGAO_2025",
+      "dre": "Metropolitana",
+      "urls": [
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_34e70caf91d04da28c0b0e2a68144bc3.pdf",
+        "https://www.dmetropolitana.org/_files/ugd/2004f4_34e70caf91d04da28c0b0e2a68144bc3.pdf",
+        "https://www.dmetropolitana.org/pregao-2025"
+      ],
+      "sha256_manifesto": "e2a04e9cfab020ec18535bcd73fed8da7331bd1902a1fb0652c6818cf2b7a97d",
+      "bytes_manifesto": 1404297,
+      "paginas_manifesto": 168,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1404297,
+      "header_pdf": true,
+      "sha256_calculado": "e2a04e9cfab020ec18535bcd73fed8da7331bd1902a1fb0652c6818cf2b7a97d"
+    },
+    {
+      "id_documento": "DOC-0131",
+      "caminho_manifesto": "PNAE_MT_2025/09_PONTES_E_LACERDA/DOC-0131_edital-downloadPDF.php.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\09_PONTES_E_LACERDA\\DOC-0131_edital-downloadPDF.php.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "ELEGIVEL_2025",
+      "dre": "Pontes e Lacerda",
+      "urls": [
+        "https://dreponteselacerda.com.br/site/edital-downloadPDF.php?ideditais=113",
+        "https://dreponteselacerda.com.br/site/edital-downloadPDF.php?ideditais=113",
+        "https://dreponteselacerda.com.br/site/edital.php"
+      ],
+      "sha256_manifesto": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3",
+      "bytes_manifesto": 1968275,
+      "paginas_manifesto": 77,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 1968275,
+      "header_pdf": true,
+      "sha256_calculado": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3"
+    },
+    {
+      "id_documento": "DOC-0132",
+      "caminho_manifesto": "PNAE_MT_2025/04_CONFRESA/DOC-0132_873816.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\04_CONFRESA\\DOC-0132_873816.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "REFERENCIA_HISTORICA",
+      "dre": "Confresa",
+      "urls": [
+        "https://www.iomat.mt.gov.br/legislacao/diario_oficial/download/873816",
+        "https://www.iomat.mt.gov.br/legislacao/diario_oficial/download/873816",
+        "https://www.iomat.mt.gov.br/legislacao/diario_oficial/detalhes/873816"
+      ],
+      "sha256_manifesto": "4303ee72424a39be5db7b0283d037f02265695638b539b8a89e458922d7b2c05",
+      "bytes_manifesto": 57699,
+      "paginas_manifesto": 1,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 57699,
+      "header_pdf": true,
+      "sha256_calculado": "4303ee72424a39be5db7b0283d037f02265695638b539b8a89e458922d7b2c05"
+    },
+    {
+      "id_documento": "DOC-0133",
+      "caminho_manifesto": "PNAE_MT_2025/02_BARRA_DO_GARCAS/DOC-0133_884194.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\02_BARRA_DO_GARCAS\\DOC-0133_884194.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "REFERENCIA_HISTORICA",
+      "dre": "Barra do Garças",
+      "urls": [
+        "https://www.iomat.mt.gov.br/legislacao/diario_oficial/download/884194",
+        "https://www.iomat.mt.gov.br/legislacao/diario_oficial/download/884194",
+        "https://www.iomat.mt.gov.br/legislacao/diario_oficial/detalhes/884194"
+      ],
+      "sha256_manifesto": "1d1f52c1948d3c318b0245dfe9ca80afbd8293be36b95ee4c57a012ea8dadeff",
+      "bytes_manifesto": 72512,
+      "paginas_manifesto": 1,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 72512,
+      "header_pdf": true,
+      "sha256_calculado": "1d1f52c1948d3c318b0245dfe9ca80afbd8293be36b95ee4c57a012ea8dadeff"
+    },
+    {
+      "id_documento": "DOC-0134",
+      "caminho_manifesto": "PNAE_MT_2025/11_RONDONOPOLIS/DOC-0134_902650.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\11_RONDONOPOLIS\\DOC-0134_902650.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "REFERENCIA_HISTORICA",
+      "dre": "Rondonópolis",
+      "urls": [
+        "https://www.iomat.mt.gov.br/legislacao/diario_oficial/download/902650",
+        "https://www.iomat.mt.gov.br/legislacao/diario_oficial/download/902650",
+        "https://www.iomat.mt.gov.br/legislacao/diario_oficial/detalhes/902650"
+      ],
+      "sha256_manifesto": "d24278ecb0055227d7eac8f8baf8e3212ed1a963bf8a4bb4ab01567405bf1807",
+      "bytes_manifesto": 328908,
+      "paginas_manifesto": 3,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 328908,
+      "header_pdf": true,
+      "sha256_calculado": "d24278ecb0055227d7eac8f8baf8e3212ed1a963bf8a4bb4ab01567405bf1807"
+    },
+    {
+      "id_documento": "DOC-0135",
+      "caminho_manifesto": "PNAE_MT_2025/07_MATUPA/DOC-0135_885190.pdf",
+      "resolvido_rel": "PNAE_MT_2025\\07_MATUPA\\DOC-0135_885190.pdf",
+      "status_manifesto": "BAIXADO_VALIDADO",
+      "elegibilidade": "REFERENCIA_HISTORICA",
+      "dre": "Matupá",
+      "urls": [
+        "https://www.iomat.mt.gov.br/legislacao/diario_oficial/download/885190",
+        "https://www.iomat.mt.gov.br/legislacao/diario_oficial/download/885190",
+        "https://www.iomat.mt.gov.br/legislacao/diario_oficial/detalhes/885190"
+      ],
+      "sha256_manifesto": "0e6ca13db611dbd459784de98c39e48d69ffe4912afd45aa49a37840bbb1049b",
+      "bytes_manifesto": 79599,
+      "paginas_manifesto": 1,
+      "classificacao": "INTEIRO",
+      "detalhes": [],
+      "bytes_lidos": 79599,
+      "header_pdf": true,
+      "sha256_calculado": "0e6ca13db611dbd459784de98c39e48d69ffe4912afd45aa49a37840bbb1049b"
+    }
+  ]
+}

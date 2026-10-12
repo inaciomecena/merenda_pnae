@@ -38,7 +38,7 @@ let JwtAuthGuard = class JwtAuthGuard {
         const token = authHeader.split(' ')[1];
         let payload;
         try {
-            payload = this.jwtService.verify(token, { secret: process.env.JWT_SECRET || 'dev-secret' });
+            payload = this.jwtService.verify(token);
             if (typeof payload.sub !== 'string')
                 throw new Error('Sessão sem usuário');
         }

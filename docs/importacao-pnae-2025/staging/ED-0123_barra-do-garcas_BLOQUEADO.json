@@ -1,0 +1,97 @@
+{
+  "schema": "importacao-historica-pnae/1.0",
+  "geradoEm": "2026-10-12T19:29:45.178Z",
+  "idPacote": "ED-0123",
+  "dre": "Barra do Garças",
+  "chaveLogica": "59b5ad21382fbe95f8ad25bb5e0adb01",
+  "decisao": "BLOQUEADO",
+  "motivosBloqueio": [
+    "elegibilidade \"REFERENCIA_HISTORICA\" bloqueia importação automática."
+  ],
+  "identificacao": {
+    "numeroBruto": "004/2025",
+    "numeroNormalizado": "004/2025",
+    "anoNumeracao": 2025,
+    "exercicio": null,
+    "exercicioEvidencia": [],
+    "processoAdministrativo": null,
+    "dreNome": "Barra do Garças",
+    "camaraNegocios": "Barra do Garças",
+    "municipioAtendido": "Água Boa",
+    "recorte": "NAO_IDENTIFICADO",
+    "dataPublicacao": null,
+    "dataSessao": null,
+    "objeto": "Aquisição de gêneros alimentícios para alimentação escolar da agricultura familiar",
+    "fundamentacaoLegal": null,
+    "prazos": null,
+    "habilitacao": null,
+    "criteriosSelecao": null,
+    "condicoesEntrega": null,
+    "condicoesPagamento": null,
+    "valorEstimado": null,
+    "observacoes": [
+      "identificação preenchida a partir do manifesto (extração de PDF não realizada ou indisponível)"
+    ]
+  },
+  "documentos": [
+    {
+      "idDocumento": "DOC-0133",
+      "papel": "EXTRATO",
+      "sha256": "1d1f52c1948d3c318b0245dfe9ca80afbd8293be36b95ee4c57a012ea8dadeff",
+      "caminho": "PNAE_MT_2025/02_BARRA_DO_GARCAS/DOC-0133_884194.pdf",
+      "paginas": 1,
+      "urls": [
+        "https://www.iomat.mt.gov.br/legislacao/diario_oficial/download/884194",
+        "https://www.iomat.mt.gov.br/legislacao/diario_oficial/download/884194",
+        "https://www.iomat.mt.gov.br/legislacao/diario_oficial/detalhes/884194"
+      ],
+      "chaveVersao": "3dd3f21fb533ba111c8a9cca7789ba5e"
+    }
+  ],
+  "vinculosInstitucionais": {
+    "dre": {
+      "nomePacote": "Barra do Garças",
+      "dreId": "b7369e83-c5e2-11f1-8f2d-6451061ac5e7",
+      "codigo": "BGA",
+      "status": "CONFIRMADO",
+      "detalhe": "DRE \"DRE Barra do Garças\" (BGA)"
+    },
+    "municipio": {
+      "nomePacote": "Água Boa",
+      "municipioId": "94137f19-8dfd-4f9b-864e-618ea9114600",
+      "codigoIbge": "5100201",
+      "status": "CONFIRMADO",
+      "detalhe": "\"Água Boa\" (IBGE 5100201)"
+    },
+    "escolas": [],
+    "unidadesExecutoras": [
+      {
+        "nome": "Barra do Garças",
+        "cnpj": null,
+        "entidadeExecutoraId": null,
+        "status": "PENDENTE",
+        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+      }
+    ]
+  },
+  "itens": [],
+  "anexos": [],
+  "pendencias": [
+    {
+      "tipo": "REFERENCIA_HISTORICA",
+      "descricao": "Extrato de contrato publicado em 2025. Comprova referência ao procedimento, mas não substitui edital nem prova sozinho o exercício de atendimento.",
+      "origem": "manifesto:Barra do Garças"
+    },
+    {
+      "tipo": "resolucao_entidade_executora",
+      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
+      "origem": "snapshot institucional"
+    }
+  ],
+  "metadadoExtracao": {
+    "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
+    "documentosValidados": 1,
+    "itensDoManifesto": 0,
+    "itensExtraidosPdf": 0
+  }
+}

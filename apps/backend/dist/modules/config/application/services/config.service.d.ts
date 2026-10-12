@@ -6,10 +6,10 @@ export declare class ConfigService {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        tipo: string;
         descricao: string | null;
         chave: string;
         valor: string;
+        tipo: string;
     }[]>;
     get(chave: string): Promise<string | null>;
     getMany(chaves: string[]): Promise<Record<string, string>>;
@@ -17,10 +17,10 @@ export declare class ConfigService {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        tipo: string;
         descricao: string | null;
         chave: string;
         valor: string;
+        tipo: string;
     }>;
     setMany(configs: Array<{
         chave: string;
@@ -31,27 +31,27 @@ export declare class ConfigService {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        tipo: string;
         descricao: string | null;
         chave: string;
         valor: string;
+        tipo: string;
     }[]>;
     remove(chave: string): Promise<{
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        tipo: string;
         descricao: string | null;
         chave: string;
         valor: string;
+        tipo: string;
     }>;
     initDefaults(): Promise<{
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        tipo: string;
         descricao: string | null;
         chave: string;
         valor: string;
+        tipo: string;
     }[]>;
 }
