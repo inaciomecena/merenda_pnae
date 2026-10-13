@@ -2,15 +2,54 @@
 
 ## Fase atual
 
-**PREPARAÇÃO + SANEAMENTO CONCLUÍDOS — etapa encerrada antes da gravação definitiva.**
-Staging gerado, dry-run executado duas vezes (idempotente), saneamento dos 51 candidatos
-feito, análise da migração de unicidade e plano de homologação escritos. Suíte completa
-verde (453/453), `tsc --noEmit` limpo. **Banco ativo INTACTO: nenhuma escrita, nenhuma
-migration, nenhum `migrate reset`, nenhum seed destrutivo. Nenhuma importação definitiva.**
+**UNICIDADE DE CHAMADAS — SDD "DEFINIÇÃO DE UNICIDADE, CONSISTÊNCIA PRISMA E PROTEÇÃO DO
+BANCO ATIVO" EXECUTADO EM HOMOLOGAÇÃO ISOLADA (2026-10-13).**
 
-Próxima etapa (fora deste escopo, condicionada a autorização explícita): homologação
-isolada conforme `PLANO_HOMOLOGACAO_IMPORTACAO_2025.md`; `aplicar` continua um placeholder
-protegido que sai com exit 3.
+- Regra arquitetural implementada: número único por `(DRE, exercício)`; escopo ESTADUAL
+  (`dreId` NULL) protegido **no banco** via coluna gerada `dreEscopo =
+  IFNULL(dreId,'ESTADUAL')` + índice único (migration
+  `20261013120000_chamada_publica_unicidade_estadual`, versionada, **não aplicada no ativo**).
+- Services (`chamadas-publicas.service.ts`), simulador/executor da importação e DTO
+  alinhados (escopo, normalização canônica `trim`, P2002→409, mensagens por escopo).
+- Homologação isolada real: cenários **A–H todos conformes** no schema
+  `merenda_pnae_homolog_2025_unicidade` (`HOMOLOGACAO_UNICIDADE_ISOLADA.md`).
+- Documentos novos: `DECISAO_ARQUITETURAL_UNICIDADE.md`, `HOMOLOGACAO_UNICIDADE_ISOLADA.md`,
+  `PLANO_ALINHAMENTO_PRODUCAO.md`.
+- Guarda de migração: matriz de 16 casos + **12 testes jest** (`guardiar-migracao.spec.ts`);
+  rotas que contornam a guarda inventariadas (PLANO §6) com afirmação honesta de limites.
+- **Banco ativo INTACTO nesta etapa** (nada escrito, nenhuma migration, nenhum
+  `_prisma_migrations` tocado). Diagnóstico do ativo continua **BLOQUEADO** (host `HP`
+  inacessível desta máquina — schema `merenda_pnae` inexistente aqui). Incidente
+  `20261012180000` **não declarado resolvido**.
+- Próxima etapa (autorização explícita): aplicar `20261013120000` no ativo conforme
+  `PLANO_ALINHAMENTO_PRODUCAO.md` (com backup validado por restore e decisão sobre o
+  incidente).
+
+Estado anterior (etapa de preparação/saneamento da importação histórica) segue descrito
+nas seções abaixo.
+
+### Revisão de consistência (2026-10-13 — retomada da sessão)
+
+- **Estado do git corrigido nos entregáveis.** O `git pull --ff` das **15:10:17** (reflog
+  `HEAD@{…}`) moveu o `HEAD` de `4fb1656` para **`f61e6b4` (= `origin/main`)**. Os três
+  documentos de incidente foram gravados às **15:18:51** ainda afirmando `HEAD = 4fb1656`
+  "7 commits atrás de `origin/main`" e `git fetch` às `09:33:35` — ambas as afirmações já
+  estavam desatualizadas quando escritas e foram **corrigidas** (`INCIDENTE…` §2, §3, §5.1).
+  Nenhum branch, commit ou worktree foi criado.
+- **Contagem de schemas atualizada (31 → 34)**, com os três acrescentados documentados:
+  `merenda_pnae_homolog_2025_validacao` (desta validação), `merenda_pnae_homolog_2025_unicidade`
+  (SDD de unicidade) e **`$iso` — VAZIO (0 tabelas), origem não atribuída; confirmar a origem
+  antes de removê-lo.** O ativo `merenda_pnae` continua **inexistente** neste servidor.
+- **Atividade "alterações legítimas posteriores ao backup" formalizada**: checagens somente-SELECT
+  `7.7`/`7.8` (`INCIDENTE_…`) e `1.7` (`PLANO_RECUPERACAO_INDICES.md`), que condicionam a
+  validade do dump de 2026-10-12 como canal de rollback (baseline: 6 chamadas · 33 migrations ·
+  84 tabelas; corte em `2026-10-13 02:06:24Z`).
+- **Revalidação do código local:** `npx tsc --noEmit -p tsconfig.json` → **exit 0**;
+  `npx jest --runInBand` → **49 suites · 494 testes · 494 passed · 0 failed**.
+- **Evidências do isolado reconfirmadas (somente SELECT):** `…_validacao` segue com
+  `pnae_chamadas_publicas_numero_exercicio_key (numero,exercicio)` + `PRIMARY`, **32** migrations
+  e **0** linhas da migration `20261012180000_…` — a evidência da validação está íntegra.
+- **Banco ativo segue INTACTO e inacessível desta máquina. Incidente não declarado resolvido.**
 
 ## Contexto
 
@@ -98,7 +137,8 @@ Não existe `AGENTS.md` nem `CLAUDE.md` no repositório (verificado por glob).
 ## Testes
 
 - `npx tsc --noEmit -p tsconfig.json` → **exit 0**.
-- `npx jest --runInBand` → **46 suites · 453 testes · 453 passed · 0 failed** (inclui os 57 de `importacao-historica.spec.ts`).
+- `npx jest --runInBand` → **49 suites · 494 testes · 494 passed · 0 failed** (base da
+  preparação: 46/453; +12 guarda, +15 service, +14 escopo da importação).
 - `npx jest --runInBand src/modules/importacao-historica/importacao-historica.spec.ts` → **57/57**.
 - Mapeamento cenário × teste em `TESTES_IMPORTACAO_PNAE_2025.md`.
 
@@ -116,8 +156,13 @@ alteração não pertence a esta preparação**:
 - A preparação **PNAE 2025 não alterou o schema**: nenhuma linha foi adicionada,
   removida ou modificada por esta etapa, e nada foi revertido do SDD-010.1.
 - A alteração de `@@unique([numero, exercicio])` para `@@unique([dreId, numero, exercicio])`
-  no `ChamadaPublica` continua **apenas proposta** (análise em
-  `ANALISE_MIGRACAO_UNICIDADE.md`); **nenhuma migração foi gerada ou aplicada**.
+  era, na preparação, **apenas proposta** (`ANALISE_MIGRACAO_UNICIDADE.md`). **Atualizada
+  pelo SDD de unicidade (2026-10-13):** o modelo já declara `@@unique([dreId, numero,
+  exercicio])` (migration `20261012180000`), e o SDD acrescentou a proteção efetiva do
+  escopo estadual — coluna gerada `dreEscopo` (`@ignore`) + `@@unique([dreEscopo, numero,
+  exercicio])` + migration versionada `20261013120000_chamada_publica_unicidade_estadual`
+  (aplicada **apenas** no banco isolado de homologação). Ver
+  `DECISAO_ARQUITETURAL_UNICIDADE.md`.
 
 Os arquivos do SDD-010.1 (migration, modelos, docs `SDD-010.1-*`) foram preservados
 integralmente — não modificados nem revertidos.
@@ -172,14 +217,24 @@ npx jest --runInBand                                                    # 46 sui
    preencher `53.291.992/0001-10` + decisão administrativa.
 3. **`025/224`** (ED-0067_sinop) — normalização para `025/2024` depende de confirmação
    (muda a chave lógica/idempotência; resolver antes do `aplicar`).
-4. **`ChamadaPublica` unicidade** — proposta `@@unique([dreId, numero, exercicio])` exige
+4. **`ChamadaPublica` unicidade** — ~~proposta `@@unique([dreId, numero, exercicio])` exige
    também ajuste de `chamadas-publicas.service.ts` (validação global) e do simulador;
-   migração **não aplicada**.
+   migração **não aplicada**.~~ **RESOLVIDO EM CÓDIGO E HOMOLOGAÇÃO ISOLADA (2026-10-13)**
+   — service/simulador/executor/DTO ajustados, migration `20261013120000` validada no
+   isolado (cenários A–H). **Pendente apenas:** aplicar a migration no banco ativo, sob
+   autorização explícita (`PLANO_ALINHAMENTO_PRODUCAO.md`).
 5. **7 arquivos Tangará da Serra** (HTTP 404), **1038 itens sem valores** e **597 divergências**
    numéricas — lacunas/conferências documentais; resolver exigiria novo levantamento/OCR.
 
 ## Próxima ação
 
-Nenhuma automática. A homologação isolada (`PLANO_HOMOLOGACAO_IMPORTACAO_2025.md`) e a
-definição do `aplicar` (autorização, backup, ambiente isolado, reutilização dos services
-existentes e resolução dos bloqueios acima) é decisão do responsável técnico/administrativo.
+Nenhuma automática. Para a **importação definitiva**: homologação conforme
+`PLANO_HOMOLOGACAO_IMPORTACAO_2025.md` e definição do `aplicar` (autorização, backup,
+ambiente isolado, reutilização dos services existentes e resolução dos bloqueios acima)
+é decisão do responsável técnico/administrativo.
+
+Para o **alinhamento do banco ativo à arquitetura de unicidade**: seguir
+`PLANO_ALINHAMENTO_PRODUCAO.md` (backup validado por restore → pré-checks read-only no
+host `HP` → decisão sobre o incidente `20261012180000` → aplicação guardada de
+`20261013120000_chamada_publica_unicidade_estadual` → verificação). Enquanto não houver
+autorização escrita, o ativo permanece como está (sem a proteção estadual no banco).

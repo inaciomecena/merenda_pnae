@@ -182,7 +182,13 @@ export class ExecutorImportacaoHistorica {
   ): Promise<ResultadoProcedimento> {
     const dreId = s.vinculosInstitucionais.dre.dreId;
     const municipioId = s.vinculosInstitucionais.municipio.municipioId;
-    if (!dreId || !municipioId) {
+    // Escopo ESTADUAL: documento sem NENHUMA DRE identificada (nomePacote vazio).
+    // Uma DRE nomeada porém não resolvida (AMBIGUO/NAO_ENCONTRADO) NUNCA vira
+    // estadual — isso seria trocar o escopo institucional por inferência. Unicidade
+    // estadual (dreId NULL) é garantida no banco pelo índice sobre a coluna
+    // gerada dreEscopo (migration 20261013120000).
+    const escopoEstadual = !dreId && !(s.vinculosInstitucionais.dre.nomePacote ?? '').trim();
+    if ((!dreId && !escopoEstadual) || !municipioId) {
       return {
         idPacote: s.idPacote,
         decisao: 'BLOQUEADO',
@@ -206,14 +212,14 @@ export class ExecutorImportacaoHistorica {
           return { idPacote: s.idPacote, decisao: 'JA_EXISTENTE' as const, motivos: [`idempotencia ja registrada: ${chaveOperacao}`] };
         }
 
-        // --- colisão por unicidade (dreId, numero, exercicio) ---
-        const colisao = await tx.chamadaPublica.findFirst({ where: { dreId, numero, exercicio } });
+        // --- colisão por unicidade no escopo (dreId|null = DRE x ESTADUAL) ---
+        const colisao = await tx.chamadaPublica.findFirst({ where: { dreId: dreId ?? null, numero, exercicio } });
         if (colisao) {
           return {
             idPacote: s.idPacote,
             decisao: 'JA_EXISTENTE' as const,
             chamadaPublicaId: colisao.id,
-            motivos: [`ChamadaPublica (dreId=${dreId}, numero=${numero}, exercicio=${exercicio}) ja existe: ${colisao.id}`],
+            motivos: [`ChamadaPublica (dreId=${dreId ?? 'ESTADUAL'}, numero=${numero}, exercicio=${exercicio}) ja existe: ${colisao.id}`],
           };
         }
 

@@ -2175,6 +2175,15 @@ model ChamadaPublica {
   objeto              String                    @db.Text
   entidadeExecutoraId String?
   dreId               String?
+  // Coluna GERADA pelo banco (não inserível/editável): escopo sempre não-nulo
+  // usado pelo índice único de unicidade efetiva. Calculada como
+  // IFNULL(dreId, 'ESTADUAL') — linhas estaduais (dreId NULL) ganham o escopo
+  // sentinela 'ESTADUAL' (nunca colide com um dreId real, que é UUID da tabela
+  // `dres`). Criada pela migration `20261013120000_chamada_publica_unicidade_estadual`
+  // (SQL versionado — geração de coluna não é representável em PSL; `@ignore`
+  // mantém Prisma Migrate away de criá-la/descartá-la). Ver
+  // docs/importacao-pnae-2025/DECISAO_ARQUITETURAL_UNICIDADE.md.
+  dreEscopo           String?  @ignore @db.VarChar(191)
   municipioId         String?
   inscricoesInicio    DateTime
   inscricoesFim       DateTime
@@ -2206,13 +2215,23 @@ model ChamadaPublica {
   interessesOportunidade InteresseOportunidade[] @relation("InteresseChamada")
 
   // Unicidade POR DRE (importação histórica PNAE 2025): o mesmo `numero` pode
-  // existir em DREs diferentes do mesmo `exercicio`. ATENÇÃO: em MySQL um
-  // índice UNIQUE não restringe linhas com a coluna anulável NULL, então este
-  // índice sozinho NÃO impede duplicidade quando `dreId` é nulo — o caso
-  // `dreId = null` é tratado na camada de aplicação (ver
-  // ChamadasPublicasService#verificarUnicidade e
-  // docs/importacao-pnae-2025/AUDITORIA_UNICIDADE_2025.md).
+  // existir em DREs diferentes do mesmo `exercicio`. Este índice cobre o escopo
+  // com `dreId` preenchido. ATENÇÃO: em MySQL/MariaDB um índice UNIQUE não
+  // restringe linhas com coluna anulável NULL, então este índice sozinho NÃO
+  // impede duplicidade quando `dreId` é nulo. O escopo ESTADUAL é protegido no
+  // banco pelo índice único sobre a coluna gerada `dreEscopo`
+  // (`pnae_chamadas_publicas_dreEscopo_numero_exercicio_key`, criado pela
+  // migration `20261013120000_chamada_publica_unicidade_estadual`) — ver
+  // docs/importacao-pnae-2025/DECISAO_ARQUITETURAL_UNICIDADE.md.
+  // A validação em ChamadasPublicasService#verificarUnicidade é apenas
+  // UX/mensagem amigável; a garantia efetiva é do banco (índices acima).
   @@unique([dreId, numero, exercicio])
+  // Unicidade ESTADUAL efetiva no banco, via coluna gerada `dreEscopo`
+  // (@ignore). Declarada aqui para que `prisma migrate diff/dev` reconheça o
+  // índice existente e NÃO o descarte como drift. Nome gerado pelo Prisma
+  // (`pnae_chamadas_publicas_dreEscopo_numero_exercicio_key`) = nome criado
+  // pela migration 20261013120000 — coerência total.
+  @@unique([dreEscopo, numero, exercicio])
   @@index([editalId])
   @@index([dreId, municipioId])
   @@index([status, inscricoesFim])

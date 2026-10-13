@@ -5,6 +5,7 @@ import { PolicyService } from '../../../common/auth/policy.service';
 import { AuthenticatedUser } from '../../../common/auth/user-scope';
 import { AuditService } from '../../audit/application/services/audit.service';
 import { ClassificacaoDto, CreateChamadaDto, DecisaoRecursoDto, HabilitacaoDto, HomologacaoDto, InscricaoDto, ProjetoDto, RecursoDto, SelecaoDto, UpdateChamadaDto } from '../presentation/chamadas-publicas.dto';
+import { normalizarNumeroChamada } from '../../../common/util/numero-chamada';
 
 const ADMIN = ['ADMIN', 'DRE'];
 @Injectable()
@@ -12,28 +13,57 @@ export class ChamadasPublicasService {
   constructor(private readonly prisma: PrismaService, private readonly policy: PolicyService, private readonly audit: AuditService) {}
   private async scope(user: AuthenticatedUser): Promise<Prisma.ChamadaPublicaWhereInput> { if (user.role === 'ADMIN') return {}; if (user.role === 'DRE') return { dreId: { in: await this.policy.getAuthorizedDREIds(user) } }; if (user.role === 'ESCOLA') return { escolas: { some: { escolaId: { in: await this.policy.getAuthorizedEscolaIds(user) } } } }; return { id: { in: [] } }; }
   /**
-   * Unicidade POR DRE: (dreId, numero, exercicio).
+   * Unicidade POR DRE: (dreId, numero, exercicio) — e escopo ESTADUAL próprio
+   * quando `dreId` é nulo (duas chamadas sem DRE não repetem numero/exercicio
+   * entre si; uma estadual e uma da DRE com o mesmo numero/exercicio NÃO
+   * colidem, pois são escopos institucionais distintos).
    *
-   * Regra da regra: chamadas vinculadas a DRE são únicas dentro daquela DRE;
-   * chamadas sem DRE (`dreId = null`), inclusive as estaduais, formam um escopo
-   * próprio e também não podem duplicar (numero, exercicio) entre si.
-   *
-   * Por que a checagem aqui e não só no índice: em MySQL/MariaDB um índice
-   * UNIQUE não restringe linhas com coluna NULL, então o índice composto
-   * `@@unique([dreId, numero, exercicio])` NÃO impede duplicidade quando
-   * `dreId` é nulo. Esta consulta cobre esse caso. Ver
-   * docs/importacao-pnae-2025/AUDITORIA_UNICIDADE_2025.md.
+   * Papel desta checagem: UX (mensagem amigável ANTES da escrita). A garantia
+   * EFETIVA é do banco: índices únicos `..._dreId_numero_exercicio_key`
+   * (migration 20261012180000) e `..._dreEscopo_numero_exercicio_key` sobre a
+   * coluna gerada `dreEscopo = IFNULL(dreId,'ESTADUAL')` (migration
+   * 20261013120000) — este último cobre o escopo estadual que um índice sobre
+   * `dreId` NULL não alcança. Como esta consulta e o INSERT concorrem entre
+   * requisições, o conflito real que escapa da corrida é convertido em 409 por
+   * `tratarConflitoUnicidade` (P2002 do Prisma/1062 do MySQL).
+   * Ver docs/importacao-pnae-2025/DECISAO_ARQUITETURAL_UNICIDADE.md.
    */
   private async verificarUnicidade(numero: string, exercicio: number, dreId: string | null | undefined, excluindoId?: string): Promise<void> {
-    const escopo: Prisma.ChamadaPublicaWhereInput = { numero, exercicio, dreId: dreId ?? null };
+    const escopo: Prisma.ChamadaPublicaWhereInput = { numero: normalizarNumeroChamada(numero), exercicio, dreId: dreId ?? null };
     if (excluindoId) escopo.id = { not: excluindoId };
     const existente = await this.prisma.chamadaPublica.findFirst({ where: escopo, select: { id: true } });
-    if (existente) throw new ConflictException('Numero ja utilizado nesta DRE para o exercicio');
+    if (existente) throw new ConflictException(this.mensagemDuplicidade(dreId));
+  }
+  /** Mensagem de duplicidade clara e específica por escopo (DRE x estadual). */
+  private mensagemDuplicidade(dreId: string | null | undefined): string {
+    return dreId
+      ? 'Numero ja utilizado nesta DRE para o exercicio'
+      : 'Numero ja utilizado no escopo estadual para o exercicio';
+  }
+  /**
+   * Converte violação de unicidade detectada NA ESCRITA (corrida entre duas
+   * requisições que passaram pela checagem prévia) em 409 ConflictException com
+   * mensagem por escopo. Qualquer outro erro é re-lançado intacto.
+   *
+   * Detecção por duck-typing (sem depender do formato do erro do driver):
+   * - `P2002`  — erro conhecido do Prisma (unique constraint);
+   * - `ER_DUP_ENTRY` — código MySQL 1062;
+   * - `meta.target` — índices/colunas violados, quando presente.
+   */
+  private tratarConflitoUnicidade(erro: unknown, dreId: string | null | undefined): never {
+    const e = erro as { code?: string; meta?: { target?: unknown } };
+    const alvo = Array.isArray(e?.meta?.target) ? e.meta.target.map(String) : [];
+    const violouIndice =
+      e?.code === 'P2002' ||
+      e?.code === 'ER_DUP_ENTRY' ||
+      alvo.some((t) => t.includes('dreEscopo') || t.includes('dreId') || t.includes('numero_exercicio'));
+    if (violouIndice) throw new ConflictException(this.mensagemDuplicidade(dreId));
+    throw erro;
   }
   async obter(id: string, user: AuthenticatedUser): Promise<any> { const row = await this.prisma.chamadaPublica.findFirst({ where: { id, ...(await this.scope(user)) }, include: { edital: true, escolas: { include: { escola: true } }, inscricoes: true, projetos: { include: { produtor: true, itens: true } }, homologacao: true } }); if (!row) throw new NotFoundException('Chamada publica nao encontrada'); return row; }
   async listar(query: any, user: AuthenticatedUser) { const page = Math.max(1, Number(query.page || 1)); const limit = Math.min(100, Math.max(1, Number(query.limit || 20))); const where: any = { ...(await this.scope(user)), ...(query.status ? { status: query.status } : {}), ...(query.editalId ? { editalId: query.editalId } : {}) }; const [items, total] = await this.prisma.$transaction([this.prisma.chamadaPublica.findMany({ where, skip: (page - 1) * limit, take: limit, include: { edital: true, _count: { select: { inscricoes: true, projetos: true } } }, orderBy: { createdAt: 'desc' } }), this.prisma.chamadaPublica.count({ where })]); return { items, total, page, limit, totalPages: Math.ceil(total / limit) }; }
-  async criar(dto: CreateChamadaDto, user: AuthenticatedUser) { if (!ADMIN.includes(user.role)) throw new ForbiddenException('Operacao administrativa'); if (new Date(dto.inscricoesFim) <= new Date(dto.inscricoesInicio)) throw new BadRequestException('Periodo invalido'); if (user.role === 'DRE' && dto.dreId) await this.policy.requireDREAccess(user, dto.dreId); if (!await this.prisma.edital.findFirst({ where: { id: dto.editalId, deletedAt: null } })) throw new NotFoundException('Edital nao encontrado'); await this.verificarUnicidade(dto.numero, dto.exercicio, dto.dreId); const row = await this.prisma.chamadaPublica.create({ data: { editalId: dto.editalId, numero: dto.numero, exercicio: dto.exercicio, objeto: dto.objeto, entidadeExecutoraId: dto.entidadeExecutoraId, dreId: dto.dreId, municipioId: dto.municipioId, inscricoesInicio: new Date(dto.inscricoesInicio), inscricoesFim: new Date(dto.inscricoesFim), dataAbertura: dto.dataAbertura ? new Date(dto.dataAbertura) : undefined, prazoDocumentos: dto.prazoDocumentos ? new Date(dto.prazoDocumentos) : undefined, localApresentacao: dto.localApresentacao, formaApresentacao: dto.formaApresentacao, observacoes: dto.observacoes, createdBy: user.sub } }); await this.audit.log({ userId: user.sub, userRole: user.role, action: 'CREATE', entity: 'ChamadaPublica', entityId: row.id }); return this.obter(row.id, user); }
-  async atualizar(id: string, dto: UpdateChamadaDto, user: AuthenticatedUser) { if (!ADMIN.includes(user.role)) throw new ForbiddenException('Operacao administrativa'); const row = await this.obter(id, user); if (row.status !== StatusChamadaPublica.RASCUNHO && row.status !== StatusChamadaPublica.CANCELADA) throw new BadRequestException('Somente rascunho'); if (dto.versao && dto.versao !== row.versaoPublicada) throw new ConflictException('Versao desatualizada'); await this.verificarUnicidade(dto.numero, dto.exercicio, dto.dreId, id); await this.prisma.chamadaPublica.update({ where: { id }, data: { numero: dto.numero, exercicio: dto.exercicio, objeto: dto.objeto, dreId: dto.dreId, municipioId: dto.municipioId, entidadeExecutoraId: dto.entidadeExecutoraId, inscricoesInicio: new Date(dto.inscricoesInicio), inscricoesFim: new Date(dto.inscricoesFim), versaoPublicada: { increment: 1 }, updatedBy: user.sub } }); return this.obter(id, user); }
+  async criar(dto: CreateChamadaDto, user: AuthenticatedUser) { if (!ADMIN.includes(user.role)) throw new ForbiddenException('Operacao administrativa'); if (new Date(dto.inscricoesFim) <= new Date(dto.inscricoesInicio)) throw new BadRequestException('Periodo invalido'); if (user.role === 'DRE' && dto.dreId) await this.policy.requireDREAccess(user, dto.dreId); if (!await this.prisma.edital.findFirst({ where: { id: dto.editalId, deletedAt: null } })) throw new NotFoundException('Edital nao encontrado'); await this.verificarUnicidade(dto.numero, dto.exercicio, dto.dreId); let row; try { row = await this.prisma.chamadaPublica.create({ data: { editalId: dto.editalId, numero: normalizarNumeroChamada(dto.numero), exercicio: dto.exercicio, objeto: dto.objeto, entidadeExecutoraId: dto.entidadeExecutoraId, dreId: dto.dreId, municipioId: dto.municipioId, inscricoesInicio: new Date(dto.inscricoesInicio), inscricoesFim: new Date(dto.inscricoesFim), dataAbertura: dto.dataAbertura ? new Date(dto.dataAbertura) : undefined, prazoDocumentos: dto.prazoDocumentos ? new Date(dto.prazoDocumentos) : undefined, localApresentacao: dto.localApresentacao, formaApresentacao: dto.formaApresentacao, observacoes: dto.observacoes, createdBy: user.sub } }); } catch (erro) { this.tratarConflitoUnicidade(erro, dto.dreId); } await this.audit.log({ userId: user.sub, userRole: user.role, action: 'CREATE', entity: 'ChamadaPublica', entityId: row.id }); return this.obter(row.id, user); }
+  async atualizar(id: string, dto: UpdateChamadaDto, user: AuthenticatedUser) { if (!ADMIN.includes(user.role)) throw new ForbiddenException('Operacao administrativa'); const row = await this.obter(id, user); if (row.status !== StatusChamadaPublica.RASCUNHO && row.status !== StatusChamadaPublica.CANCELADA) throw new BadRequestException('Somente rascunho'); if (dto.versao && dto.versao !== row.versaoPublicada) throw new ConflictException('Versao desatualizada'); await this.verificarUnicidade(dto.numero, dto.exercicio, dto.dreId, id); try { await this.prisma.chamadaPublica.update({ where: { id }, data: { numero: normalizarNumeroChamada(dto.numero), exercicio: dto.exercicio, objeto: dto.objeto, dreId: dto.dreId, municipioId: dto.municipioId, entidadeExecutoraId: dto.entidadeExecutoraId, inscricoesInicio: new Date(dto.inscricoesInicio), inscricoesFim: new Date(dto.inscricoesFim), versaoPublicada: { increment: 1 }, updatedBy: user.sub } }); } catch (erro) { this.tratarConflitoUnicidade(erro, dto.dreId); } return this.obter(id, user); }
   async transicionar(id: string, status: StatusChamadaPublica, user: AuthenticatedUser) { if (!ADMIN.includes(user.role)) throw new ForbiddenException('Operacao administrativa'); const row = await this.obter(id, user); const allowed: Record<string, string[]> = { RASCUNHO: ['PUBLICADA', 'CANCELADA'], PUBLICADA: ['INSCRICOES_ABERTAS', 'CANCELADA'], INSCRICOES_ABERTAS: ['INSCRICOES_ENCERRADAS', 'CANCELADA'], INSCRICOES_ENCERRADAS: ['EM_HABILITACAO'], EM_HABILITACAO: ['EM_SELECAO'], EM_SELECAO: ['RESULTADO_PRELIMINAR'], RESULTADO_PRELIMINAR: ['EM_RECURSO', 'HOMOLOGADA'], EM_RECURSO: ['HOMOLOGADA'] }; if (!allowed[row.status]?.includes(status)) throw new BadRequestException('Transicao invalida'); await this.prisma.chamadaPublica.update({ where: { id }, data: { status, publicadaEm: status === 'PUBLICADA' ? new Date() : undefined, updatedBy: user.sub } }); return this.obter(id, user); }
   async listarInscricoes(id: string, user: AuthenticatedUser) { await this.obter(id, user); return this.prisma.inscricaoChamada.findMany({ where: { chamadaId: id }, include: { produtor: true } }); }
   async inscrever(id: string, dto: InscricaoDto, user: AuthenticatedUser) { const row = await this.obter(id, user); const now = new Date(); if (row.status !== StatusChamadaPublica.INSCRICOES_ABERTAS || now < row.inscricoesInicio || now > row.inscricoesFim) throw new BadRequestException('Inscricoes fora do prazo'); if (await this.prisma.inscricaoChamada.findUnique({ where: { chamadaId_produtorId: { chamadaId: id, produtorId: dto.produtorId } } })) throw new ConflictException('Participante ja inscrito'); return this.prisma.inscricaoChamada.create({ data: { chamadaId: id, produtorId: dto.produtorId, categoria: dto.categoria, representante: dto.representante, contato: dto.contato, observacoes: dto.observacoes } }); }

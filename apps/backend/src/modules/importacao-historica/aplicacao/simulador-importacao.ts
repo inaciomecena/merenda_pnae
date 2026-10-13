@@ -17,6 +17,7 @@
 
 import { StagingEdital } from '../dominio/tipos';
 import { chaveIdempotenciaOperacao } from '../dominio/chaves-logicas';
+import { normalizarNumeroChamada } from '../../../common/util/numero-chamada';
 
 /** Chaves já existentes no sistema (lidas com findMany somente leitura). */
 export interface ChavesExistentes {
@@ -61,10 +62,16 @@ export interface PlanoImportacao {
  *
  * `dreId` nulo usa o marcador literal `SEM_DRE`, formando um escopo próprio
  * (chamadas estaduais/sem DRE continuam únicas entre si, coerente com
- * ChamadasPublicasService#verificarUnicidade).
+ * ChamadasPublicasService#verificarUnicidade e com o índice único sobre a
+ * coluna gerada `dreEscopo`).
+ *
+ * O `numero` passa pela normalização canônica compartilhada
+ * (`normalizarNumeroChamada`, trim) + `.toUpperCase()` para similar em memória
+ * a insensibilidade a caixa da colação `utf8mb4_unicode_ci` do banco — mesma
+ * semântica de comparação em todos os lados.
  */
 export function chaveChamada(numero: string | null | undefined, exercicio: number | null | undefined, dreId: string | null | undefined): string {
-  return `${(dreId || 'SEM_DRE').trim()}|${(numero || '').trim().toUpperCase()}|${exercicio ?? 's/exercicio'}`;
+  return `${(dreId || 'SEM_DRE').trim()}|${normalizarNumeroChamada(numero).toUpperCase()}|${exercicio ?? 's/exercicio'}`;
 }
 
 /**
@@ -93,12 +100,19 @@ export function simularImportacao(staging: StagingEdital[], existentes: ChavesEx
 
     const dreId = s.vinculosInstitucionais.dre.dreId;
     const municipioId = s.vinculosInstitucionais.municipio.municipioId;
-    if (!dreId || !municipioId) {
+    // Escopo ESTADUAL: documento sem NENHUMA DRE identificada (nomePacote vazio).
+    // DRE nomeada porém não resolvida (AMBIGUO/NAO_ENCONTRADO) permanece
+    // BLOQUEADA — nunca se infere troca de escopo institucional. Unicidade do
+    // escopo estadual é garantida no banco pelo índice único sobre a coluna
+    // gerada `dreEscopo = IFNULL(dreId,'ESTADUAL')` (migration
+    // 20261013120000_chamada_publica_unicidade_estadual).
+    const escopoEstadual = !dreId && !(s.vinculosInstitucionais.dre.nomePacote ?? '').trim();
+    if ((!dreId && !escopoEstadual) || !municipioId) {
       bloqueios.push({
         idPacote: s.idPacote,
         decisao: s.decisao,
         motivos: [
-          !dreId ? `DRE não resolvida: ${s.vinculosInstitucionais.dre.detalhe}` : '',
+          !dreId && !escopoEstadual ? `DRE não resolvida: ${s.vinculosInstitucionais.dre.detalhe}` : '',
           !municipioId ? `Município não resolvido: ${s.vinculosInstitucionais.municipio.detalhe}` : '',
         ].filter(Boolean),
       });
@@ -107,7 +121,7 @@ export function simularImportacao(staging: StagingEdital[], existentes: ChavesEx
 
     const numero = s.identificacao.numeroNormalizado;
     const exercicio = s.identificacao.exercicio;
-    const chave = chaveChamada(numero, exercicio, dreId);
+    const chave = chaveChamada(numero, exercicio, dreId ?? null);
 
     const idempotencia = chaveIdempotenciaOperacao('importacao-historica-pnae-2025', s.chaveLogica);
     if (idempotenciasExistentes.has(idempotencia)) {
@@ -127,11 +141,11 @@ export function simularImportacao(staging: StagingEdital[], existentes: ChavesEx
       model: 'ChamadaPublica',
       operacao: 'CREATE',
       chaveLogica: s.chaveLogica,
-      resumo: `ChamadaPublica ${numero} (${exercicio}) — DRE ${s.vinculosInstitucionais.dre.nomePacote} / município ${s.vinculosInstitucionais.municipio.nomePacote}`,
+      resumo: `ChamadaPublica ${numero} (${exercicio}) — ${escopoEstadual ? 'escopo ESTADUAL (sem DRE)' : `DRE ${s.vinculosInstitucionais.dre.nomePacote}`} / município ${s.vinculosInstitucionais.municipio.nomePacote}`,
       payload: {
         numero,
         exercicio,
-        dreId,
+        dreId: dreId ?? null,
         municipioId,
         entidadeExecutoraId: s.vinculosInstitucionais.unidadesExecutoras[0]?.entidadeExecutoraId ?? null,
         objeto: s.identificacao.objeto,

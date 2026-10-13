@@ -9,7 +9,7 @@ echo.
 
 cd /d "%~dp0"
 
-echo [1/3] Verificando MySQL local...
+echo [1/4] Verificando MySQL local...
 powershell -NoProfile -Command "if (-not (Test-NetConnection 127.0.0.1 -Port 3306 -InformationLevel Quiet)) { exit 1 }"
 if %errorlevel% neq 0 (
     echo ERRO: MySQL local nao esta acessivel em 127.0.0.1:3306.
@@ -19,7 +19,17 @@ if %errorlevel% neq 0 (
 )
 
 echo.
-echo [2/3] Aplicando Prisma migrations...
+echo [2/4] Verificando o ALVO da migracao (guarda fail-closed)...
+node "%~dp0apps\backend\scripts\guardiar-migracao.js"
+if %errorlevel% neq 0 (
+    echo ERRO: Guarda de migracao BLOQUEOU a execucao (identidade do banco ou politica).
+    echo Nenhuma migration foi aplicada. Revise DATABASE_URL em apps\backend\.env.
+    pause
+    exit /b 1
+)
+
+echo.
+echo [3/4] Aplicando Prisma migrations...
 cd /d "%~dp0apps\backend"
 call npx prisma migrate deploy
 if %errorlevel% neq 0 (
@@ -29,7 +39,7 @@ if %errorlevel% neq 0 (
 )
 
 echo.
-echo [3/3] Iniciando Backend e Frontend...
+echo [4/4] Iniciando Backend e Frontend...
 start "SEAF-Backend" cmd /k "cd /d %~dp0apps\backend && npm run dev"
 timeout /t 3 /nobreak >nul
 start "SEAF-Frontend" cmd /k "cd /d %~dp0apps\frontend && npm run dev"

@@ -1,10 +1,13 @@
 import { Type } from 'class-transformer';
-import { IsArray, IsDateString, IsEnum, IsInt, IsNumber, IsOptional, IsString, Min, ValidateNested } from 'class-validator';
+import { IsArray, IsDateString, IsEnum, IsInt, IsNotEmpty, IsNumber, IsOptional, IsString, Length, Min, ValidateNested } from 'class-validator';
 import { CategoriaParticipante, StatusHabilitacaoChamada, StatusRecursoChamada, StatusSelecaoChamada } from '@prisma/client';
 
 export class CreateChamadaDto {
   @IsString() editalId!: string;
-  @IsString() numero!: string;
+  // `numero` é identificador documental: não há regra de formato (aceita
+  // `001/2025`, `025/224`, `E2E-...`); só obrigatoriedade e limite da coluna
+  // VARCHAR(191). Normalização de comparação: normalizarNumeroChamada (trim).
+  @IsString() @IsNotEmpty() @Length(1, 191) numero!: string;
   @IsInt() @Min(2000) exercicio!: number;
   @IsString() objeto!: string;
   @IsOptional() @IsString() entidadeExecutoraId?: string;
