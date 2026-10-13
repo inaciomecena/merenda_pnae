@@ -29,6 +29,7 @@ import { PrestacaoContasModule } from './modules/prestacao-contas/prestacao-cont
 import { ChamadasPublicasModule } from './modules/chamadas-publicas/chamadas-publicas.module';
 import { GestaoOperacionalModule } from './modules/gestao-operacional/gestao-operacional.module';
 import { ProdutorPainelModule } from './modules/produtor-painel/produtor-painel.module';
+import { OportunidadesPnaeModule } from './modules/oportunidades-pnae/oportunidades-pnae.module';
 
 @Module({
   imports: [
@@ -63,6 +64,7 @@ import { ProdutorPainelModule } from './modules/produtor-painel/produtor-painel.
     ChamadasPublicasModule,
     GestaoOperacionalModule,
     ProdutorPainelModule,
+    OportunidadesPnaeModule,
   ],
   controllers: [HealthController],
   providers: [

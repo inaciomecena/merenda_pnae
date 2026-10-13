@@ -134,8 +134,8 @@ export declare class ContratosController {
         observacao: string | null;
         arquivoNome: string | null;
         versao: number;
-        aditivoId: string | null;
         contratoId: string;
+        aditivoId: string | null;
         mimeType: string | null;
         tamanhoBytes: number | null;
         hashSha256: string | null;
@@ -190,10 +190,10 @@ export declare class ContratosController {
             id: string;
             aditivoId: string;
             contratoItemId: string;
-            quantidadeNova: import("@prisma/client/runtime/library").Decimal;
-            valorUnitarioNovo: import("@prisma/client/runtime/library").Decimal;
             quantidadeAnterior: import("@prisma/client/runtime/library").Decimal;
+            quantidadeNova: import("@prisma/client/runtime/library").Decimal;
             valorUnitarioAnterior: import("@prisma/client/runtime/library").Decimal;
+            valorUnitarioNovo: import("@prisma/client/runtime/library").Decimal;
             valorTotalAnterior: import("@prisma/client/runtime/library").Decimal;
             valorTotalNovo: import("@prisma/client/runtime/library").Decimal;
         }[];
@@ -210,11 +210,11 @@ export declare class ContratosController {
         data: Date | null;
         tipo: import(".prisma/client").$Enums.TipoAditivoContrato;
         responsavelId: string | null;
-        justificativa: string;
-        tipoOutro: string | null;
-        valorAlteracao: import("@prisma/client/runtime/library").Decimal;
         numeroSequencial: number;
         contratoId: string;
+        tipoOutro: string | null;
+        justificativa: string;
+        valorAlteracao: import("@prisma/client/runtime/library").Decimal;
         formalizadoEm: Date | null;
     }>;
     formalizarAditivo(id: string, aditivoId: string, req: Request): Promise<any>;

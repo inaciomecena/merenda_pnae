@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MapeamentoProdutoEditalDto = exports.CatalogoSolicitacaoDto = exports.AssistenciaTecnicaDto = exports.LogisticaDto = exports.DisponibilidadeDto = exports.SazonalidadeDto = exports.SafraProducaoDto = exports.ProdutoProdutorPainelDto = exports.UnidadeProdutivaDto = void 0;
+exports.MapeamentoProdutoEditalDto = exports.CatalogoSolicitacaoDto = exports.AssistenciaTecnicaDto = exports.LogisticaDto = exports.DisponibilidadeDto = exports.ListagemProdutorQueryDto = exports.SazonalidadeDto = exports.SafraProducaoDto = exports.ProdutoProdutorPainelDto = exports.UnidadeProdutivaDto = void 0;
 const class_transformer_1 = require("class-transformer");
 const class_validator_1 = require("class-validator");
 class UnidadeProdutivaDto {
@@ -232,6 +232,9 @@ __decorate([
 class SazonalidadeDto {
     produtoProdutorId;
     safraProducaoId;
+    anoReferencia;
+    unidadeProdutivaId;
+    tipoPeriodo;
     mes;
     quantidadePrevista;
     unidade;
@@ -247,6 +250,24 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], SazonalidadeDto.prototype, "safraProducaoId", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_transformer_1.Type)(() => Number),
+    (0, class_validator_1.IsInt)(),
+    (0, class_validator_1.Min)(1900),
+    (0, class_validator_1.Max)(2200),
+    __metadata("design:type", Number)
+], SazonalidadeDto.prototype, "anoReferencia", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], SazonalidadeDto.prototype, "unidadeProdutivaId", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsIn)(['PRODUCAO', 'COLHEITA', 'DISPONIBILIDADE']),
+    __metadata("design:type", String)
+], SazonalidadeDto.prototype, "tipoPeriodo", void 0);
 __decorate([
     (0, class_transformer_1.Type)(() => Number),
     (0, class_validator_1.IsInt)(),
@@ -269,6 +290,53 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], SazonalidadeDto.prototype, "observacoes", void 0);
+class ListagemProdutorQueryDto {
+    pagina;
+    limite;
+    busca;
+    unidadeProdutivaId;
+    ano;
+    status;
+}
+exports.ListagemProdutorQueryDto = ListagemProdutorQueryDto;
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_transformer_1.Type)(() => Number),
+    (0, class_validator_1.IsInt)(),
+    (0, class_validator_1.Min)(1),
+    __metadata("design:type", Number)
+], ListagemProdutorQueryDto.prototype, "pagina", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_transformer_1.Type)(() => Number),
+    (0, class_validator_1.IsInt)(),
+    (0, class_validator_1.Min)(1),
+    (0, class_validator_1.Max)(100),
+    __metadata("design:type", Number)
+], ListagemProdutorQueryDto.prototype, "limite", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], ListagemProdutorQueryDto.prototype, "busca", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], ListagemProdutorQueryDto.prototype, "unidadeProdutivaId", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_transformer_1.Type)(() => Number),
+    (0, class_validator_1.IsInt)(),
+    (0, class_validator_1.Min)(1900),
+    (0, class_validator_1.Max)(2200),
+    __metadata("design:type", Number)
+], ListagemProdutorQueryDto.prototype, "ano", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], ListagemProdutorQueryDto.prototype, "status", void 0);
 class DisponibilidadeDto {
     safraProducaoId;
     produtoProdutorId;

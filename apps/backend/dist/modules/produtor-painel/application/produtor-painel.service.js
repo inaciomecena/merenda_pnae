@@ -113,7 +113,8 @@ let ProdutorPainelService = class ProdutorPainelService {
         await this.audit.log({ userId: user.sub, userRole: user.role, action: 'UPDATE', entity: 'UnidadeProdutiva', entityId: id, metadata: { produtorId: row.produtorId } });
         return updated;
     }
-    async produtos(user, requested) { const produtorId = await this.produtorId(user, requested); return this.prisma.produtorProduto.findMany({ where: { produtorId, deletedAt: null }, include: { produtoReferencia: true, unidadeProdutiva: true }, orderBy: { produto: 'asc' } }); }
+    async produtos(user, requested, query) { const produtorId = await this.produtorId(user, requested); const where = { produtorId, deletedAt: null, ...(query?.unidadeProdutivaId ? { unidadeProdutivaId: query.unidadeProdutivaId } : {}), ...(query?.status ? { status: query.status } : {}), ...(query?.busca ? { OR: [{ produto: { contains: query.busca } }, { produtoReferencia: { nome: { contains: query.busca } } }] } : {}) }; const rows = await this.prisma.produtorProduto.findMany({ where, include: { produtoReferencia: true, unidadeProdutiva: true }, orderBy: [{ produto: 'asc' }, { id: 'asc' }], ...(query?.pagina ? { skip: ((query.pagina - 1) * (query.limite || 20)), take: query.limite || 20 } : {}) }); if (!query?.pagina)
+        return rows; return { items: rows, pagina: query.pagina, limite: query.limite || 20, total: await this.prisma.produtorProduto.count({ where }) }; }
     async criarProduto(dto, user, requested) {
         const produtorId = await this.produtorId(user, requested);
         await this.requireAction(user, produtorId);
@@ -144,7 +145,8 @@ let ProdutorPainelService = class ProdutorPainelService {
         await this.audit.log({ userId: user.sub, userRole: user.role, action: 'UPDATE', entity: 'ProdutoProdutor', entityId: id, metadata: { produtorId: row.produtorId } });
         return updated;
     }
-    async safras(user, requested) { const produtorId = await this.produtorId(user, requested); return this.prisma.safraProducao.findMany({ where: { produtorId, deletedAt: null }, include: { produtoProdutor: true, unidadeProdutiva: true }, orderBy: { inicio: 'desc' } }); }
+    async safras(user, requested, query) { const produtorId = await this.produtorId(user, requested); const where = { produtorId, deletedAt: null, ...(query?.unidadeProdutivaId ? { unidadeProdutivaId: query.unidadeProdutivaId } : {}), ...(query?.status ? { status: query.status } : {}) }; const rows = await this.prisma.safraProducao.findMany({ where, include: { produtoProdutor: true, unidadeProdutiva: true }, orderBy: [{ inicio: 'desc' }, { id: 'asc' }], ...(query?.pagina ? { skip: ((query.pagina - 1) * (query.limite || 20)), take: query.limite || 20 } : {}) }); if (!query?.pagina)
+        return rows; return { items: rows, pagina: query.pagina, limite: query.limite || 20, total: await this.prisma.safraProducao.count({ where }) }; }
     async criarSafra(dto, user, requested) {
         const produtorId = await this.produtorId(user, requested);
         await this.requireAction(user, produtorId);
@@ -181,12 +183,14 @@ let ProdutorPainelService = class ProdutorPainelService {
         await this.audit.log({ userId: user.sub, userRole: user.role, action: 'UPDATE', entity: 'SafraProducao', entityId: id, metadata: { produtorId: row.produtorId, versaoAnterior: row.versao } });
         return updated;
     }
-    async sazonalidade(user, requested) { const produtorId = await this.produtorId(user, requested); return this.prisma.sazonalidadeProducao.findMany({ where: { produtorId }, include: { produtoProdutor: true }, orderBy: [{ mes: 'asc' }, { createdAt: 'desc' }] }); }
-    async criarSazonalidade(dto, user, requested) { const produtorId = await this.produtorId(user, requested); await this.requireAction(user, produtorId); await this.ensureProduct(produtorId, dto.produtoProdutorId); if (dto.safraProducaoId) {
+    async sazonalidade(user, requested, query) { const produtorId = await this.produtorId(user, requested); const where = { produtorId, ...(query?.ano ? { anoReferencia: query.ano } : {}), ...(query?.unidadeProdutivaId ? { unidadeProdutivaId: query.unidadeProdutivaId } : {}) }; const rows = await this.prisma.sazonalidadeProducao.findMany({ where, include: { produtoProdutor: true, unidadeProdutiva: true }, orderBy: [{ anoReferencia: 'asc' }, { mes: 'asc' }, { createdAt: 'desc' }], ...(query?.pagina ? { skip: ((query.pagina - 1) * (query.limite || 20)), take: query.limite || 20 } : {}) }); if (!query?.pagina)
+        return rows; return { items: rows, pagina: query.pagina, limite: query.limite || 20, total: await this.prisma.sazonalidadeProducao.count({ where }) }; }
+    async criarSazonalidade(dto, user, requested) { const produtorId = await this.produtorId(user, requested); await this.requireAction(user, produtorId); await this.ensureProduct(produtorId, dto.produtoProdutorId); if (dto.unidadeProdutivaId)
+        await this.ensureUnit(produtorId, dto.unidadeProdutivaId); if (dto.safraProducaoId) {
         const safra = await this.ensureSafra(produtorId, dto.safraProducaoId);
         if (safra.produtoProdutorId !== dto.produtoProdutorId)
             throw new common_1.BadRequestException('Produto diferente da safra');
-    } const row = await this.prisma.sazonalidadeProducao.create({ data: { produtorId, ...dto, quantidadePrevista: dto.quantidadePrevista, createdBy: user.sub } }); await this.audit.log({ userId: user.sub, userRole: user.role, action: 'CREATE', entity: 'SazonalidadeProducao', entityId: row.id, metadata: { produtorId } }); return row; }
+    } const row = await this.prisma.sazonalidadeProducao.create({ data: { produtorId, produtoProdutorId: dto.produtoProdutorId, unidadeProdutivaId: dto.unidadeProdutivaId, safraProducaoId: dto.safraProducaoId, anoReferencia: dto.anoReferencia, tipoPeriodo: dto.tipoPeriodo, mes: dto.mes, quantidadePrevista: dto.quantidadePrevista, unidade: dto.unidade, observacoes: dto.observacoes, createdBy: user.sub } }); await this.audit.log({ userId: user.sub, userRole: user.role, action: 'CREATE', entity: 'SazonalidadeProducao', entityId: row.id, metadata: { produtorId } }); return row; }
     async disponibilidade(user, requested) {
         const produtorId = typeof requested === 'string' ? requested : await this.produtorId(user);
         await this.requireAccess(user, produtorId);
@@ -204,11 +208,17 @@ let ProdutorPainelService = class ProdutorPainelService {
         throw new common_1.NotFoundException('Configuração logística não encontrada'); await this.requireAction(user, row.produtorId); if (dto.versao === undefined)
         throw new common_1.BadRequestException('Versão da logística obrigatória'); const changed = await this.prisma.logisticaProdutor.updateMany({ where: { id, versao: dto.versao }, data: { modalidade: dto.modalidade, municipiosAtendidos: dto.municipiosAtendidos, capacidadeDiaria: dto.capacidadeDiaria, unidadeCapacidade: dto.unidadeCapacidade, raioKm: dto.raioKm, ativo: dto.ativo, observacoes: dto.observacoes, versao: { increment: 1 }, updatedBy: user.sub } }); if (!changed.count)
         throw new common_1.ConflictException('Versão desatualizada'); return this.prisma.logisticaProdutor.findUniqueOrThrow({ where: { id } }); }
-    async catalogo() { return this.prisma.produtoReferencia.findMany({ where: { ativo: true, deletedAt: null }, include: { informacoesNutricionais: { where: { status: 'VALIDADA' }, orderBy: { updatedAt: 'desc' }, take: 1 } }, orderBy: { nome: 'asc' } }); }
+    async catalogo(query) { const where = { deletedAt: null, ativo: query?.ativo === 'false' ? false : true, ...(query?.categoria ? { categoria: query.categoria } : {}), ...(query?.busca ? { OR: [{ nome: { contains: query.busca } }, { sinonimos: { contains: query.busca } }, { palavrasChave: { contains: query.busca } }] } : {}) }; const rows = await this.prisma.produtoReferencia.findMany({ where, include: { informacoesNutricionais: { where: { status: 'VALIDADA' }, orderBy: { updatedAt: 'desc' }, take: 1 } }, orderBy: [{ nome: 'asc' }, { id: 'asc' }], ...(query?.pagina ? { skip: (query.pagina - 1) * (query.limite || 20), take: query.limite || 20 } : {}) }); if (!query?.pagina)
+        return rows; return { items: rows, pagina: query.pagina, limite: query.limite || 20, total: await this.prisma.produtoReferencia.count({ where }) }; }
     async catalogoItem(id) { const row = await this.prisma.produtoReferencia.findFirst({ where: { id, ativo: true, deletedAt: null }, include: { informacoesNutricionais: { where: { status: 'VALIDADA' }, orderBy: { updatedAt: 'desc' } } } }); if (!row)
         throw new common_1.NotFoundException('Produto de referência não encontrado'); return row; }
     async nutricao(id) { const row = await this.catalogoItem(id); return row.informacoesNutricionais; }
     async solicitarCatalogo(dto, user) { const row = await this.prisma.solicitacaoCatalogoProduto.create({ data: { ...dto, solicitanteId: user.sub } }); await this.audit.log({ userId: user.sub, userRole: user.role, action: 'CREATE', entity: 'SolicitacaoCatalogoProduto', entityId: row.id }); return row; }
+    async solicitacoesCatalogo(user) { if (user.role !== 'ADMIN')
+        throw new common_1.ForbiddenException('Consulta administrativa requerida'); return this.prisma.solicitacaoCatalogoProduto.findMany({ orderBy: { createdAt: 'desc' }, include: { solicitante: { select: { id: true, name: true, email: true } } } }); }
+    async revisarSolicitacaoCatalogo(id, dto, user) { if (user.role !== 'ADMIN')
+        throw new common_1.ForbiddenException('Revisão administrativa requerida'); if (!['APROVADA', 'REJEITADA'].includes(dto.status))
+        throw new common_1.BadRequestException('Status de revisão inválido'); const row = await this.prisma.solicitacaoCatalogoProduto.update({ where: { id }, data: { status: dto.status, observacoes: dto.observacoes, analisadoPor: user.sub, analisadoEm: new Date() } }); await this.audit.log({ userId: user.sub, userRole: user.role, action: 'UPDATE', entity: 'SolicitacaoCatalogoProduto', entityId: id, metadata: { status: dto.status } }); return row; }
     async assistencias(user, requested) { const produtorId = await this.produtorId(user, requested); return this.prisma.vinculoAssistenciaTecnica.findMany({ where: { produtorId }, include: { extensionista: { select: { id: true, name: true, email: true } } }, orderBy: { vigenciaInicio: 'desc' } }); }
     async criarAssistencia(dto, user) { if (user.role !== 'ADMIN')
         throw new common_1.ForbiddenException('Concessão de assistência requer administrador'); const ext = await this.prisma.user.findFirst({ where: { id: dto.extensionistaId, role: 'EXTENSIONISTA', active: true, deletedAt: null } }); if (!ext)

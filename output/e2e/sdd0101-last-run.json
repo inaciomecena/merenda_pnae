@@ -1,0 +1,231 @@
+{
+  "result": "PASS_WITH_LIMITATIONS",
+  "generatedAt": "2026-10-13T00:01:20.418Z",
+  "source": "apps/backend/scripts/e2e-sdd010-last-run.json",
+  "database": "isolated database recorded by SDD-010 harness",
+  "scenarios": [
+    {
+      "name": "login admin-mv5w3eps@example.test",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "login owner-mv5w3eps@example.test",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "login other-mv5w3eps@example.test",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "login extensionista-mv5w3eps@example.test",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "JWT exigido",
+      "status": 401,
+      "expected": 401,
+      "ok": true
+    },
+    {
+      "name": "outro produtor bloqueado",
+      "status": 403,
+      "expected": 403,
+      "ok": true
+    },
+    {
+      "name": "extensionista sem vínculo bloqueado",
+      "status": 403,
+      "expected": 403,
+      "ok": true
+    },
+    {
+      "name": "auto concessão bloqueada",
+      "status": 403,
+      "expected": 403,
+      "ok": true
+    },
+    {
+      "name": "criar unidade",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "outro produtor não altera unidade",
+      "status": 403,
+      "expected": 403,
+      "ok": true
+    },
+    {
+      "name": "versão errada da unidade bloqueada",
+      "status": 409,
+      "expected": 409,
+      "ok": true
+    },
+    {
+      "name": "atualizar unidade com versão",
+      "status": 200,
+      "expected": 200,
+      "ok": true
+    },
+    {
+      "name": "coordenada inválida",
+      "status": 400,
+      "expected": 400,
+      "ok": true
+    },
+    {
+      "name": "cadastrar produto do catálogo",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "produto duplicado bloqueado",
+      "status": 409,
+      "expected": 409,
+      "ok": true
+    },
+    {
+      "name": "produto sem catálogo bloqueado",
+      "status": 400,
+      "expected": 400,
+      "ok": true
+    },
+    {
+      "name": "registrar safra",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "bloquear reserva sem operação",
+      "status": 400,
+      "expected": 400,
+      "ok": true
+    },
+    {
+      "name": "saldo confirmado",
+      "status": 200,
+      "expected": 200,
+      "ok": true
+    },
+    {
+      "name": "saldo 60 - 5 = 55",
+      "ok": true,
+      "expected": 55,
+      "status": 55
+    },
+    {
+      "name": "atualizar colheita com versão",
+      "status": 200,
+      "expected": 200,
+      "ok": true
+    },
+    {
+      "name": "versão antiga bloqueada",
+      "status": 409,
+      "expected": 409,
+      "ok": true
+    },
+    {
+      "name": "sazonalidade",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "logística",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "atualizar logística com versão",
+      "status": 200,
+      "expected": 200,
+      "ok": true
+    },
+    {
+      "name": "versão antiga da logística bloqueada",
+      "status": 409,
+      "expected": 409,
+      "ok": true
+    },
+    {
+      "name": "concessão administrativa pendente",
+      "status": 201,
+      "expected": 201,
+      "ok": true
+    },
+    {
+      "name": "pendente não autoriza",
+      "status": 403,
+      "expected": 403,
+      "ok": true
+    },
+    {
+      "name": "ativação administrativa",
+      "status": 200,
+      "expected": 200,
+      "ok": true
+    },
+    {
+      "name": "extensionista autorizado",
+      "status": 200,
+      "expected": 200,
+      "ok": true
+    },
+    {
+      "name": "lista de produtores assistidos",
+      "status": 200,
+      "expected": 200,
+      "ok": true
+    },
+    {
+      "name": "seletor contém somente produtor autorizado",
+      "ok": true,
+      "expected": "5d0374da-d5a3-437e-9b98-92e21e734463",
+      "status": [
+        "5d0374da-d5a3-437e-9b98-92e21e734463"
+      ]
+    },
+    {
+      "name": "extensionista outro produtor bloqueado",
+      "status": 403,
+      "expected": 403,
+      "ok": true
+    },
+    {
+      "name": "catálogo",
+      "status": 200,
+      "expected": 200,
+      "ok": true
+    },
+    {
+      "name": "nutrição ausente",
+      "status": 200,
+      "expected": 200,
+      "ok": true
+    },
+    {
+      "name": "auditoria persistida",
+      "ok": true,
+      "expected": ">=1",
+      "status": 2
+    }
+  ],
+  "limitations": [
+    "Playwright validation is recorded separately in output/e2e/sdd0101-mobile/.",
+    "This evidence runner consolidates the SDD-010 HTTP flow; it does not claim a separate 010.1 fixture suite.",
+    "Reservations remain blocked unless backed by a real business operation."
+  ]
+}

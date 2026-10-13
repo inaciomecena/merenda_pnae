@@ -20,7 +20,7 @@ import { chaveIdempotenciaOperacao } from '../dominio/chaves-logicas';
 
 /** Chaves já existentes no sistema (lidas com findMany somente leitura). */
 export interface ChavesExistentes {
-  /** `numero|exercicio` de ChamadaPublica (unique composto real no schema). */
+  /** `(dreId|numero|exercicio)` de ChamadaPublica (unique composto real no schema). */
   chamadasPublicas: Array<{ numero: string; exercicio: number; dreId: string | null }>;
   /** `numero|ano` de Edital. */
   editais: Array<{ numero: string; ano: number; municipioId: string | null }>;
@@ -52,8 +52,19 @@ export interface PlanoImportacao {
   };
 }
 
-function chaveChamada(numero: string | null | undefined, exercicio: number | null | undefined): string {
-  return `${(numero || '').trim().toUpperCase()}|${exercicio ?? 's/exercicio'}`;
+/**
+ * Chave de unicidade/idempotência de chamada.
+ *
+ * Passa a incluir `dreId` porque a regra de unicidade mudou de global
+ * `(numero, exercicio)` para **por DRE** `(dreId, numero, exercicio)` — o mesmo
+ * `numero` pode existir em DREs distintas do mesmo exercício.
+ *
+ * `dreId` nulo usa o marcador literal `SEM_DRE`, formando um escopo próprio
+ * (chamadas estaduais/sem DRE continuam únicas entre si, coerente com
+ * ChamadasPublicasService#verificarUnicidade).
+ */
+export function chaveChamada(numero: string | null | undefined, exercicio: number | null | undefined, dreId: string | null | undefined): string {
+  return `${(dreId || 'SEM_DRE').trim()}|${(numero || '').trim().toUpperCase()}|${exercicio ?? 's/exercicio'}`;
 }
 
 /**
@@ -65,7 +76,7 @@ export function simularImportacao(staging: StagingEdital[], existentes: ChavesEx
   const bloqueios: PlanoImportacao['bloqueios'] = [];
   const jaExistentes: PlanoImportacao['jaExistentes'] = [];
 
-  const chavesChamadaExistentes = new Set(existentes.chamadasPublicas.map((c) => chaveChamada(c.numero, c.exercicio)));
+  const chavesChamadaExistentes = new Set(existentes.chamadasPublicas.map((c) => chaveChamada(c.numero, c.exercicio, c.dreId)));
   const chavesEditalExistentes = new Set(existentes.editais.map((e) => `${(e.numero || '').trim().toUpperCase()}|${e.ano}`));
   const hashesExistentes = new Set(existentes.hashesDocumento);
   const idempotenciasExistentes = new Set(existentes.idempotencias);
@@ -80,24 +91,6 @@ export function simularImportacao(staging: StagingEdital[], existentes: ChavesEx
       continue;
     }
 
-    const numero = s.identificacao.numeroNormalizado;
-    const exercicio = s.identificacao.exercicio;
-    const chave = chaveChamada(numero, exercicio);
-
-    const idempotencia = chaveIdempotenciaOperacao('importacao-historica-pnae-2025', s.chaveLogica);
-    if (idempotenciasExistentes.has(idempotencia)) {
-      jaExistentes.push({ idPacote: s.idPacote, chave: idempotencia, motivo: 'IdempotenciaOperacao já registrada' });
-      continue;
-    }
-    if (chavesChamadaExistentes.has(chave)) {
-      jaExistentes.push({ idPacote: s.idPacote, chave, motivo: 'ChamadaPublica (numero|exercicio) já existe' });
-      continue;
-    }
-    if (chavesEditalExistentes.has(`${(numero || '').trim().toUpperCase()}|${s.identificacao.anoNumeracao ?? exercicio}`)) {
-      jaExistentes.push({ idPacote: s.idPacote, chave, motivo: 'Edital (numero|ano) já existe' });
-      continue;
-    }
-
     const dreId = s.vinculosInstitucionais.dre.dreId;
     const municipioId = s.vinculosInstitucionais.municipio.municipioId;
     if (!dreId || !municipioId) {
@@ -109,6 +102,24 @@ export function simularImportacao(staging: StagingEdital[], existentes: ChavesEx
           !municipioId ? `Município não resolvido: ${s.vinculosInstitucionais.municipio.detalhe}` : '',
         ].filter(Boolean),
       });
+      continue;
+    }
+
+    const numero = s.identificacao.numeroNormalizado;
+    const exercicio = s.identificacao.exercicio;
+    const chave = chaveChamada(numero, exercicio, dreId);
+
+    const idempotencia = chaveIdempotenciaOperacao('importacao-historica-pnae-2025', s.chaveLogica);
+    if (idempotenciasExistentes.has(idempotencia)) {
+      jaExistentes.push({ idPacote: s.idPacote, chave: idempotencia, motivo: 'IdempotenciaOperacao já registrada' });
+      continue;
+    }
+    if (chavesChamadaExistentes.has(chave)) {
+      jaExistentes.push({ idPacote: s.idPacote, chave, motivo: 'ChamadaPublica (dreId|numero|exercicio) já existe' });
+      continue;
+    }
+    if (chavesEditalExistentes.has(`${(numero || '').trim().toUpperCase()}|${s.identificacao.anoNumeracao ?? exercicio}`)) {
+      jaExistentes.push({ idPacote: s.idPacote, chave, motivo: 'Edital (numero|ano) já existe' });
       continue;
     }
 

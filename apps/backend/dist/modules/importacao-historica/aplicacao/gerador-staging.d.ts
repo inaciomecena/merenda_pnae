@@ -26,6 +26,7 @@ export interface ResultadoStaging {
         pendentes: number;
         itensExtraidos: number;
         itensManifesto: number;
+        blocosNaoItem: number;
         errosExtracao: Array<{
             documentoId: string;
             erro: string;

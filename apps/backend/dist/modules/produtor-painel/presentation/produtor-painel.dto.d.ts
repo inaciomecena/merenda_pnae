@@ -39,10 +39,21 @@ export declare class SafraProducaoDto {
 export declare class SazonalidadeDto {
     produtoProdutorId: string;
     safraProducaoId?: string;
+    anoReferencia?: number;
+    unidadeProdutivaId?: string;
+    tipoPeriodo?: string;
     mes: number;
     quantidadePrevista: number;
     unidade: string;
     observacoes?: string;
+}
+export declare class ListagemProdutorQueryDto {
+    pagina?: number;
+    limite?: number;
+    busca?: string;
+    unidadeProdutivaId?: string;
+    ano?: number;
+    status?: string;
 }
 export declare class DisponibilidadeDto {
     safraProducaoId: string;

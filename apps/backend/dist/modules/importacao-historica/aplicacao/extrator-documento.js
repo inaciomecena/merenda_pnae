@@ -175,19 +175,25 @@ function buscarUnidadeDeslocada(colunas, ignorar) {
 }
 const INICIO_ITEM_INLINE = /^(\d{1,3})\s+([A-ZÁÀÃÂÉÊÍÓÔÕÚÇ])/;
 const INICIO_ITEM_SOZINHO = /^(\d{1,3})\.?\s*$/;
+const EH_LINHA_VALORES_INLINE = /^\d{1,3}\s+R\$\s*\d/;
 function blocosDePagina(linhas, pagina, atual) {
     const blocos = [];
     let corrente = atual;
-    for (const linha of linhas) {
+    const ultima = linhas.length - 1;
+    for (let indice = 0; indice < linhas.length; indice++) {
+        const linha = linhas[indice];
         const inline = linha.match(INICIO_ITEM_INLINE);
         const sozinho = linha.match(INICIO_ITEM_SOZINHO);
-        if (inline && !/R\$\s*\d/.test(inline[2])) {
+        const bordaDePagina = indice === 0 || indice === ultima;
+        if (sozinho && !/\./.test(linha) && Number(sozinho[1]) === pagina && bordaDePagina)
+            continue;
+        if (inline && !EH_LINHA_VALORES_INLINE.test(linha)) {
             if (corrente)
                 blocos.push(corrente);
             corrente = { sequencia: Number(inline[1]), paginaInicio: pagina, linhas: [linha] };
             continue;
         }
-        if (sozinho) {
+        if (sozinho && !EH_LINHA_VALORES_INLINE.test(linha)) {
             if (corrente)
                 blocos.push(corrente);
             corrente = { sequencia: Number(sozinho[1]), paginaInicio: pagina, linhas: [linha] };
@@ -272,6 +278,30 @@ function finalizarBloco(bloco, documentoId, sha256) {
                 break;
             }
         }
+        if (layout === 'nenhum') {
+            for (let i = 0; i < texto.length; i++) {
+                const parcial = texto[i].match(/^(?<q>\d{1,3}(?:\.\d{3})*(?:,\d+)?)\s+R\$\s*(?<p>\d{1,3}(?:\.\d{3})*,\d{2}|\d+,\d{2})\s*$/);
+                if (!parcial?.groups)
+                    continue;
+                let totalBrutoEncontrado = null;
+                for (let j = i + 1; j < Math.min(i + 4, texto.length); j++) {
+                    const t = texto[j].match(/^(?:R\$\s*)?(?<t>\d{1,3}(?:\.\d{3})*,\d{2})\s*$/);
+                    if (t?.groups?.t) {
+                        totalBrutoEncontrado = t.groups.t;
+                        break;
+                    }
+                }
+                if (!totalBrutoEncontrado)
+                    continue;
+                quantidadeBruta = parcial.groups.q;
+                precoBruto = parcial.groups.p;
+                totalBruto = totalBrutoEncontrado;
+                unidade = buscarUnidadeDeslocada(colunas, -1);
+                prefixoResumo = '';
+                layout = 'valores_quebrados';
+                break;
+            }
+        }
     }
     const semResumo = texto.filter((_, i) => i !== indiceResumo);
     const cabecalho = semResumo.slice(0, 6).join(' ').trim();
@@ -283,13 +313,18 @@ function finalizarBloco(bloco, documentoId, sha256) {
         if (unidadeLinha)
             unidade = normalizarUnidade(unidadeLinha.split(/\s+/)[0]);
     }
+    if (!unidade) {
+        const linhaUnidade = texto.find((linha) => ehUnidadeConhecida(linha.trim()) || ehPrefixoUnidade(linha.trim()));
+        if (linhaUnidade)
+            unidade = normalizarUnidade(linhaUnidade.trim());
+    }
     const leituraQuantidade = (0, apoio_extracao_1.lerPossivel)(quantidadeBruta);
     const leituraPreco = (0, apoio_extracao_1.lerPossivel)(precoBruto);
     const leituraTotal = (0, apoio_extracao_1.lerPossivel)(totalBruto);
     const divergencia = (0, apoio_extracao_1.compararTotal)(leituraQuantidade.centavos, leituraPreco.centavos, leituraTotal);
     const pendencias = [];
     if (layout === 'nenhum')
-        pendencias.push('linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero');
+        pendencias.push('linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero');
     if (leituraQuantidade.ambiguo && quantidadeBruta)
         pendencias.push(`quantidade ambígua: "${quantidadeBruta}"`);
     if (leituraPreco.ambiguo && precoBruto)
@@ -335,13 +370,44 @@ function finalizarBloco(bloco, documentoId, sha256) {
         pendencia: pendencias.length > 0 ? pendencias.join(' | ') : null,
     };
 }
-function ehBlocoNaoItem(finalizado) {
-    return !finalizado.produto && !finalizado.unidadeComercial && !finalizado.totalFonte && !finalizado.quantidade;
+const SINAIS_CABECALHO = [
+    /ESPECIFICA[ÇC][ÃA]O\s+T[ÉE]CNICA/i,
+    /UNIDADE\s+(?:DE\s+)?MEDIDA/i,
+    /PRE[ÇC]O\s+(?:DE\s+)?AQUISI[ÇC][ÃA]O/i,
+    /VALOR\s+TOTAL/i,
+    /QUANTIDADE\s+ESTIMADA/i,
+];
+function ehBlocoCabecalhoTabela(linhasBrutas) {
+    const junto = linhasBrutas.join(' ').replace(/\s+/g, ' ');
+    return SINAIS_CABECALHO.filter((re) => re.test(junto)).length >= 2;
+}
+function ehBlocoNaoItem(finalizado, linhasBrutas) {
+    const temColuna = Boolean(finalizado.unidadeComercial || finalizado.quantidade || finalizado.precoUnitario || finalizado.totalFonte);
+    if (!temColuna)
+        return true;
+    return ehBlocoCabecalhoTabela(linhasBrutas);
 }
 function extrairItens(paginas, documentoId, sha256) {
     const itens = [];
+    const descartados = [];
     let blocoCorrente = null;
     let dentroDaTabela = false;
+    const registrar = (bloco) => {
+        const finalizado = finalizarBloco(bloco, documentoId, sha256);
+        if (ehBlocoNaoItem(finalizado, bloco.linhas)) {
+            descartados.push({
+                sequencia: finalizado.sequencia,
+                pagina: finalizado.pagina,
+                documentoId,
+                trecho: (finalizado.descricaoCompleta || bloco.linhas.map(limparLinha).join(' ').trim()).replace(/\s+/g, ' ').slice(0, 240),
+                motivo: ehBlocoCabecalhoTabela(bloco.linhas)
+                    ? 'cabeçalho de tabela (Nº/PRODUTO/ESPECIFICAÇÃO TÉCNICA/UNIDADE DE MEDIDA/QUANTIDADE/PREÇO/VALOR TOTAL), não uma linha de produto'
+                    : 'sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos',
+            });
+            return;
+        }
+        itens.push(finalizado);
+    };
     for (const pagina of paginas) {
         const linhas = (pagina.texto || '')
             .split(/\r?\n/)
@@ -355,29 +421,23 @@ function extrairItens(paginas, documentoId, sha256) {
         if (!dentroDaTabela)
             continue;
         const { blocos, atual } = blocosDePagina(linhas, pagina.numero, blocoCorrente);
-        for (const bloco of blocos) {
-            const finalizado = finalizarBloco(bloco, documentoId, sha256);
-            if (finalizado.totalFonte || finalizado.quantidade)
-                itens.push(finalizado);
-        }
+        for (const bloco of blocos)
+            registrar(bloco);
         if (atual && atual.linhas.length > 40) {
-            itens.push(finalizarBloco(atual, documentoId, sha256));
+            registrar(atual);
             blocoCorrente = null;
         }
         else {
             blocoCorrente = atual;
         }
         if (blocoCorrente && new RegExp(`^\\d{1,3}\\s+[A-ZÁÀÃÂÉÊÍÓÔÕÚÇ].*R\\$`).test(blocoCorrente.linhas.join(' '))) {
-            itens.push(finalizarBloco(blocoCorrente, documentoId, sha256));
+            registrar(blocoCorrente);
             blocoCorrente = null;
         }
     }
-    if (blocoCorrente) {
-        const finalizado = finalizarBloco(blocoCorrente, documentoId, sha256);
-        if (finalizado.totalFonte || finalizado.quantidade)
-            itens.push(finalizado);
-    }
-    return itens;
+    if (blocoCorrente)
+        registrar(blocoCorrente);
+    return { itens, descartados };
 }
 function normalizarUnidade(valor) {
     const chave = valor

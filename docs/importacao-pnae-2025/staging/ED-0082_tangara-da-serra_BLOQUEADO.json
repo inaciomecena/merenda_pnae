@@ -1,6 +1,6 @@
 {
   "schema": "importacao-historica-pnae/1.0",
-  "geradoEm": "2026-10-12T20:16:07.550Z",
+  "geradoEm": "2026-10-12T22:03:16.384Z",
   "idPacote": "ED-0082",
   "dre": "Tangará da Serra",
   "chaveLogica": "0f2f176179b41395d6c88ea39c01508c",
@@ -92,6 +92,7 @@
     "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
     "documentosValidados": 0,
     "itensDoManifesto": 0,
-    "itensExtraidosPdf": 0
+    "itensExtraidosPdf": 0,
+    "blocosNaoItem": 0
   }
 }

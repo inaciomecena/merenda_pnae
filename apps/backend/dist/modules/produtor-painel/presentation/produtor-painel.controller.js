@@ -29,13 +29,13 @@ let ProdutorPainelController = class ProdutorPainelController {
     unidades(id, req) { return this.service.unidades(this.u(req), id); }
     criarUnidade(dto, id, req) { return this.service.criarUnidade(dto, this.u(req), id); }
     atualizarUnidade(id, dto, req) { return this.service.atualizarUnidade(id, dto, this.u(req)); }
-    produtos(id, req) { return this.service.produtos(this.u(req), id); }
+    produtos(id, query, req) { return this.service.produtos(this.u(req), id, query); }
     criarProduto(dto, id, req) { return this.service.criarProduto(dto, this.u(req), id); }
     atualizarProduto(id, dto, req) { return this.service.atualizarProduto(id, dto, this.u(req)); }
-    safras(id, req) { return this.service.safras(this.u(req), id); }
+    safras(id, query, req) { return this.service.safras(this.u(req), id, query); }
     criarSafra(dto, id, req) { return this.service.criarSafra(dto, this.u(req), id); }
     atualizarSafra(id, dto, req) { return this.service.atualizarSafra(id, dto, this.u(req)); }
-    sazonalidade(id, req) { return this.service.sazonalidade(this.u(req), id); }
+    sazonalidade(id, query, req) { return this.service.sazonalidade(this.u(req), id, query); }
     criarSazonalidade(dto, id, req) { return this.service.criarSazonalidade(dto, this.u(req), id); }
     disponibilidade(id, req) { return this.service.disponibilidade(this.u(req), id); }
     criarDisponibilidade(dto, id, req) { return this.service.criarDisponibilidade(dto, this.u(req), id); }
@@ -99,9 +99,10 @@ __decorate([
     (0, common_1.Get)('meus-produtos'),
     (0, roles_decorator_1.Roles)(...PRODUCER_ROLES),
     __param(0, (0, common_1.Query)('produtorId')),
-    __param(1, (0, common_1.Req)()),
+    __param(1, (0, common_1.Query)()),
+    __param(2, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:paramtypes", [String, produtor_painel_dto_1.ListagemProdutorQueryDto, Object]),
     __metadata("design:returntype", void 0)
 ], ProdutorPainelController.prototype, "produtos", null);
 __decorate([
@@ -128,9 +129,10 @@ __decorate([
     (0, common_1.Get)('minhas-safras'),
     (0, roles_decorator_1.Roles)(...PRODUCER_ROLES),
     __param(0, (0, common_1.Query)('produtorId')),
-    __param(1, (0, common_1.Req)()),
+    __param(1, (0, common_1.Query)()),
+    __param(2, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:paramtypes", [String, produtor_painel_dto_1.ListagemProdutorQueryDto, Object]),
     __metadata("design:returntype", void 0)
 ], ProdutorPainelController.prototype, "safras", null);
 __decorate([
@@ -157,9 +159,10 @@ __decorate([
     (0, common_1.Get)('minha-sazonalidade'),
     (0, roles_decorator_1.Roles)(...PRODUCER_ROLES),
     __param(0, (0, common_1.Query)('produtorId')),
-    __param(1, (0, common_1.Req)()),
+    __param(1, (0, common_1.Query)()),
+    __param(2, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:paramtypes", [String, produtor_painel_dto_1.ListagemProdutorQueryDto, Object]),
     __metadata("design:returntype", void 0)
 ], ProdutorPainelController.prototype, "sazonalidade", null);
 __decorate([

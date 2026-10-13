@@ -1,6 +1,6 @@
 {
   "schema": "importacao-historica-pnae/1.0",
-  "geradoEm": "2026-10-12T20:16:12.215Z",
+  "geradoEm": "2026-10-12T22:03:18.394Z",
   "idPacote": "ED-0096",
   "dre": "Alta Floresta",
   "chaveLogica": "7e97ec132534477da32477646dbf7725",
@@ -124,6 +124,40 @@
       "pendencia": "total informado na fonte difere de quantidade × preço unitário em 0.08"
     },
     {
+      "sequencia": 2,
+      "produto": "ABACAXI PÉROLA",
+      "descricaoCompleta": "2. ABACAXI PÉROLA, inteiro, livre de sujidades, insetos, larvas, fungos, isento de podridões, não se apresentar desidratado, murcho ou congelado. Consistência firme, cascas intactas, de forma que não deixem exposta a polpa, em grau de maturação adequado para consumo, não se apresentar excessivamente maduro ou passado. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 3,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 3,
+      "produto": "ABÓBORA PAULISTA",
+      "descricaoCompleta": "3. ABÓBORA PAULISTA, inteira, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. Consistência firme, cascas intactas, de forma que não deixem exposta a polpa, em grau de maturação adequado para consumo, não se apresentar excessivamente madura ou passada. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 3,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
       "sequencia": 4,
       "produto": "AÇAFRÃO",
       "descricaoCompleta": "4. AÇAFRÃO, torrado, em pó fino e homogêneo, com aspecto, cor, cheiro e sabor próprios, isenta de impurezas e umidade. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionado em embalagem de polietileno de 30g, íntegro, atóxico, resistente, vedado hermeticamente e limpo, contendo os dados de identificação do fabricante, data de fabricação, data de validade e quantidade do 30g",
@@ -163,6 +197,125 @@
       "metodo": "pdf_texto_regex",
       "statusRevisao": "pendente_conferencia",
       "pendencia": "unidade comercial não identificada | total informado na fonte difere de quantidade × preço unitário em 0.45"
+    },
+    {
+      "sequencia": 5,
+      "produto": "ACELGA",
+      "descricaoCompleta": "5. ACELGA, com folhas inteiras, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionado em saco plástico atóxico, transparente e resistente. Quilograma 99 R$ 10,74 R$",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 3,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 6,
+      "produto": "AGRIÃO",
+      "descricaoCompleta": "6. AGRIÃO, com folhas inteiras, livre de sujidades, insetos, larvas, fungos, isento de podridões, não se apresentar desidratado, murcho ou congelado. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionado em saco plástico atóxico, transparente e resistente. Quilograma 115 R$ 27,58 R$",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 3,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 7,
+      "produto": "ALFACE CRESPA",
+      "descricaoCompleta": "7. ALFACE CRESPA, com folhas inteiras, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionado em saco plástico atóxico, transparente e resistente Quilograma 854 R$ 28,33 R$",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 3,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 8,
+      "produto": "ALMEIRÃO",
+      "descricaoCompleta": "8. ALMEIRÃO, com folhas inteiras, livre de sujidades, insetos, larvas, fungos, isento de podridões, não se apresentar desidratado, murcho ou congelado. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionado em saco plástico atóxico, transparente e resistente. Quilograma 235 R$ 28,07 R$",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 3,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 9,
+      "produto": "BANANA DA TERRA",
+      "descricaoCompleta": "9. BANANA DA TERRA, inteira, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. Consistência firme, cascas intactas, de forma que não deixem exposta a polpa, em grau de maturação adequado para consumo, não se apresentar excessivamente madura ou passada. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 4,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 10,
+      "produto": "BANANA NANICA",
+      "descricaoCompleta": "10. BANANA NANICA, inteira, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. Consistência firme, cascas intactas, de forma que não deixem exposta a polpa, em grau de maturação adequado para consumo, não se apresentar excessivamente madura ou passada. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 4,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 11,
+      "produto": "BATATA DOCE",
+      "descricaoCompleta": "11. BATATA DOCE, inteira, livre de sujidades, insetos, larvas e fungos. Consistência firme, apresentando desenvolvimento completo, isenta de odores estranhos e deformidades, isenta de podridões, não se apresentar desidratada, murcha ou congelada. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionada em saco plástico atóxico, transparente e resistente.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 4,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
     },
     {
       "sequencia": 12,
@@ -206,6 +359,40 @@
       "pendencia": "total informado na fonte difere de quantidade × preço unitário em 0.57"
     },
     {
+      "sequencia": 13,
+      "produto": "CEBOLINHA",
+      "descricaoCompleta": "13. CEBOLINHA, verde, com folhas inteiras, livre de sujidades, isenta de pragas, odores estranhos, danos profundos, podridões e amarelados, não se apresentar desidratada, murcha ou congelada. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionada em saco plástico atóxico, transparente e resistente.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 4,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 14,
+      "produto": "CENOURA",
+      "descricaoCompleta": "14. CENOURA, inteira, livre de sujidades, insetos, larvas e fungos. Consistência firme, apresentando desenvolvimento completo, isenta de odores estranhos e deformidades, isenta de podridões, não se apresentar desidratada, murcha ou congelada. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionada em saco plástico atóxico, transparente e resistente.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 4,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
       "sequencia": 15,
       "produto": "COENTRO",
       "descricaoCompleta": "15. COENTRO, com talos e folhas inteiros, livre de sujidades, isento de pragas, odores estranhos, danos profundos, podridões e amarelados, não se apresentar desidratado, murcho ou congelado. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionado em saco plástico atóxico, transparente e resistente.",
@@ -245,6 +432,142 @@
       "metodo": "pdf_texto_regex",
       "statusRevisao": "extraido",
       "pendencia": null
+    },
+    {
+      "sequencia": 17,
+      "produto": "COUVE",
+      "descricaoCompleta": "17. COUVE, manteiga com folhas inteiras, livre de sujidades, insetos, larvas, fungos, isenta de podridões e amarelados, não se apresentar desidratada, murcha ou congelada. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionada em saco plástico atóxico, transparente e resistente.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 4,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 18,
+      "produto": "INHAME",
+      "descricaoCompleta": "18. INHAME, in natura, tamanho e coloração uniforme, livres de sujidades, parasitas, larvas, fungos, isento de podridões e amarelados, não se apresentar desidratado, murcho ou congelado. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionada em saco plástico atóxico, transparente e resistente.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 4,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 19,
+      "produto": "LARANJA PÊRA",
+      "descricaoCompleta": "19. LARANJA PÊRA, inteira, livre de sujidades, insetos, larvas, fungos, isento de podridões, não se apresentar desidratado, murcho ou congelado. Consistência firme, cascas intactas, de forma que não deixem exposta a polpa, em grau de maturação adequado para consumo, não se apresentar excessivamente maduro ou passado. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 4,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 20,
+      "produto": "LIMÃO TAHITI",
+      "descricaoCompleta": "20. LIMÃO TAHITI, inteiro, livre de sujidades, insetos, larvas, fungos, isento de podridões, não se apresentar desidratado, murcho ou congelado. Consistência firme, cascas intactas, de forma que não deixem exposta a polpa, em grau de maturação adequado para consumo, não se apresentar excessivamente maduro ou passado. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 4,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 21,
+      "produto": "MAMÃO FORMOSA",
+      "descricaoCompleta": "21. MAMÃO FORMOSA, livre de sujidades, insetos, larvas, fungos, isento de podridões, não se apresentar desidratado, murcho ou congelado. Consistência firme, cascas intactas, de forma que não deixem exposta a polpa, em grau de maturação adequado para consumo, não se apresentar excessivamente maduro ou passado. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 5,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 23,
+      "produto": "MELANCIA",
+      "descricaoCompleta": "23. MELANCIA, inteira, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. Consistência firme, cascas intactas, de forma que não deixem exposta a polpa, em grau de maturação adequado para consumo, não se apresentar excessivamente madura ou passada. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 5,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 24,
+      "produto": "MELÃO",
+      "descricaoCompleta": "24. MELÃO, inteiro, livre de sujidades, insetos, larvas, fungos, isento de podridões, não se apresentar desidratado, murcho ou congelado. Consistência firme, cascas intactas, de forma que não deixem exposta a polpa, em grau de maturação adequado para consumo, não se apresentar excessivamente maduro ou passado. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 5,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 25,
+      "produto": "PEIXE PINTADO FILÉ ESPALMADO",
+      "descricaoCompleta": "25. PEIXE PINTADO FILÉ ESPALMADO, de água doce, pintado, eviscerado, sem cabeça, sem nadadeiras, sem cauda, sem espinha, sem pele, filé espalmado. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionado em saco de polietileno, íntegro, atóxico, resistente contendo externamente os dados de identificação do fabricante, informações nutricionais, número de lote, data de",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 5,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
     },
     {
       "sequencia": 26,
@@ -370,6 +693,176 @@
       "pendencia": "total informado na fonte difere de quantidade × preço unitário em 0.11"
     },
     {
+      "sequencia": 29,
+      "produto": "POLPA DE ABACAXI",
+      "descricaoCompleta": "29. POLPA DE ABACAXI, polpa integral de abacaxi SEM adição de açúcar e ausente de substâncias estranhas. Produto congelado, não fermentado e sem conservantes. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. A embalagem deverá conter externamente os dados de identificação do fabricante, informações nutricionais, número de lote, data de fabricação, data",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 5,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 30,
+      "produto": "POLPA DE ACEROLA",
+      "descricaoCompleta": "30. POLPA DE ACEROLA, de acerola SEM adição de açúcar e ausente de substâncias estranhas. Produto congelado, não fermentado e sem conservantes. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. A embalagem deverá conter externamente os dados de identificação do fabricante, informações nutricionais, número de lote, data de fabricação, data de validade, quantidade do produto e",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 5,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 31,
+      "produto": "POLPA DE CAJU",
+      "descricaoCompleta": "31. POLPA DE CAJU, Polpa integral de caju SEM adição de açúcar e ausente de substâncias estranhas. Produto congelado, não fermentado e sem conservantes. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Embalagem de polietileno atóxico, resistente, transparente. Validade mínima de 6 meses a contar da data de entrega.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 5,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 32,
+      "produto": "POLPA DE GOIABA",
+      "descricaoCompleta": "32. POLPA DE GOIABA, polpa integral de goiaba SEM adição de açúcar e ausente de substâncias estranhas. Produto congelado, não fermentado e sem conservantes. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. A embalagem deverá conter externamente os dados de identificação do fabricante, Quilograma 146 R$ 32,36 4.724,56",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 5,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 33,
+      "produto": "POLPA DE MARACUJÁ",
+      "descricaoCompleta": "33. POLPA DE MARACUJÁ, integral, SEM adição de açúcar e ausente de substâncias estranhas. Produto congelado, não fermentado e sem conservantes. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. A embalagem deverá conter externamente os dados de identificação do fabricante, informações nutricionais, número de lote, data de fabricação, data de validade, quantidade do produto e",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 6,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 34,
+      "produto": "PONCÃ",
+      "descricaoCompleta": "34. PONCÃ, inteiro, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. Consistência firme, cascas intactas, de forma que não deixem exposta a polpa, em grau de maturação adequado para consumo, não se apresentar excessivamente madura ou passada. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 6,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 35,
+      "produto": "REPOLHO BRANCO/VERDE",
+      "descricaoCompleta": "35. REPOLHO BRANCO/VERDE, inteiro, livre de sujidades, insetos, larvas e fungos, apresentando desenvolvimento completo, isento de odores estranhos e deformidades, isento de podridões, não se apresentar desidratado, murcho ou congelado. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionada em saco plástico atóxico, transparente e resistente.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 6,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 36,
+      "produto": "RÚCULA",
+      "descricaoCompleta": "36. RÚCULA, com folhas inteiras, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionado em saco plástico atóxico, transparente e resistente. Quilograma 263 R$ 31,66 R$",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 6,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 37,
+      "produto": "SALSA",
+      "descricaoCompleta": "37. SALSA, com talos e folhas inteiros, livre de sujidades, isenta de pragas, odores estranhos, danos profundos, podridões e amarelados, não se apresentar desidratada, murcha ou congelada. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionada em saco plástico atóxico, transparente e resistente.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 6,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 38,
+      "produto": "TOMATE SALADA",
+      "descricaoCompleta": "38. TOMATE SALADA, inteiros, sem ferimentos ou defeitos, livre de sujidades, insetos, larvas ou fungos, isento de odores estranhos, consistência firme, a pele deve estar intacta, de forma que não deixem expostas as polpas, em grau de maturação adequado para consumo, não se apresentar excessivamente maduro ou passado, isento de podridões, não se apresentar desidratado, murcho ou congelado. As características deverão atender aos requisitos mínimos",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 6,
+      "documentoId": "DOC-0106",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
       "sequencia": 39,
       "produto": "VAGEM",
       "descricaoCompleta": "39. VAGEM, inteira, livre de sujidades, insetos, larvas e fungos. Consistência firme, apresentando desenvolvimento completo, isenta de odores estranhos e deformidades, isenta de podridões e amarelados, não se apresentar desidratada, murcha ou congelada. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente. Acondicionada em saco plástico atóxico, transparente e resistente.",
@@ -384,24 +877,7 @@
       "documentoId": "DOC-0106",
       "metodo": "pdf_texto_regex",
       "statusRevisao": "pendente_conferencia",
-      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero"
-    },
-    {
-      "sequencia": 10,
-      "produto": null,
-      "descricaoCompleta": "10. * O preço de aquisição é o estabelecido no Edital da Chamada Pública TOTAL DO PROJETO DE VENDAS => Declaro estar de acordo com as condições estabelecidas neste projeto e que as informações acima conferem com as condições de fornecimento. Local e Data: Nome / Assinatura do Representante do Grupo Formal: Fone ou e-mail: Importante Informar: número do banco, agência e número da conta bancária e chave Pix. DECLARAÇÃO DE PRODUÇÃO PRÓPRIA (Grupo Formal)",
-      "unidadeComercial": null,
-      "embalagem": null,
-      "quantidade": null,
-      "precoUnitario": null,
-      "totalFonte": null,
-      "totalCalculado": null,
-      "divergencia": null,
-      "pagina": 19,
-      "documentoId": "DOC-0106",
-      "metodo": "pdf_texto_regex",
-      "statusRevisao": "pendente_conferencia",
-      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado"
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
     }
   ],
   "anexos": [],
@@ -418,12 +894,107 @@
     },
     {
       "tipo": "item_conferencia",
+      "descricao": "item 2 (ABACAXI PÉROLA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 3 (ABÓBORA PAULISTA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "item_conferencia",
       "descricao": "item 4 (AÇAFRÃO): unidade comercial não identificada | total informado na fonte difere de quantidade × preço unitário em 0.45",
       "origem": "DOC-0106"
     },
     {
       "tipo": "item_conferencia",
+      "descricao": "item 5 (ACELGA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 6 (AGRIÃO): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 7 (ALFACE CRESPA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 8 (ALMEIRÃO): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 9 (BANANA DA TERRA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 10 (BANANA NANICA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 11 (BATATA DOCE): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "item_conferencia",
       "descricao": "item 12 (BETERRABA): total informado na fonte difere de quantidade × preço unitário em 0.57",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 13 (CEBOLINHA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 14 (CENOURA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 17 (COUVE): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 18 (INHAME): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 19 (LARANJA PÊRA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 20 (LIMÃO TAHITI): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 21 (MAMÃO FORMOSA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 23 (MELANCIA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 24 (MELÃO): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 25 (PEIXE PINTADO FILÉ ESPALMADO): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
       "origem": "DOC-0106"
     },
     {
@@ -438,12 +1009,242 @@
     },
     {
       "tipo": "item_conferencia",
-      "descricao": "item 39 (VAGEM): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero",
+      "descricao": "item 29 (POLPA DE ABACAXI): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
       "origem": "DOC-0106"
     },
     {
       "tipo": "item_conferencia",
-      "descricao": "item 10 (s/produto): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado",
+      "descricao": "item 30 (POLPA DE ACEROLA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 31 (POLPA DE CAJU): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 32 (POLPA DE GOIABA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 33 (POLPA DE MARACUJÁ): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 34 (PONCÃ): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 35 (REPOLHO BRANCO/VERDE): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 36 (RÚCULA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 37 (SALSA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 38 (TOMATE SALADA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 39 (VAGEM): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 4 (numeral 16): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"16. COLORAU, corante, natural de urucum com aspecto, cor e cheiro próprio, podendo conter fubá de milho e óleo de soja. As características deverão atender aos requisitos mínimos de identidade e qualidade estabelecidos na legislação vigente.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 5 (numeral 22): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"22. MANDIOCA DESCASCADA CONGELADA, livre de sujidades, insetos, larvas e fungos, isenta de podridões, consistência firme. Acondicionada em saco plástico atóxico, transparente e resistente. As características deverão atender aos requisitos m\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 15 (numeral 1): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"1.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 15 (numeral 2): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"2.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 15 (numeral 3): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"3.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 15 (numeral 4): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"4.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 15 (numeral 5): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"5.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 15 (numeral 6): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"6.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 15 (numeral 7): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"7.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 15 (numeral 8): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"8.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 15 (numeral 9): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"9.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 15 (numeral 10): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"10. * O preço de aquisição é o estabelecido no Edital da Chamada Pública TOTAL DO PROJETO DE VENDAS => III - IDENTIFICAÇÃO DA ENTIDADE EXECUTORA DO PNAE/FNDE/MEC SECRETARIA DE ESTADO DE EDUCAÇÃO CNPJ: 53.291.992/0001-10 CUIABÁ/MT Endereço: \"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 17 (numeral 1): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"1.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 17 (numeral 2): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"2.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 17 (numeral 3): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"3. III- IDENTIFICAÇÃO DA ENTIDADE EXECUTORA DO PNAE/FNDE/MEC SECRETARIA DE ESTADO DE EDUCAÇÃO CNPJ: 53.291.992/0001-10 CUIABÁ/MT Endereço: RUA ENGENHEIRO EDGAR PRADO ARZE, 215 – CENTRO POLÍTICO ADMINISTRATIVO (65) 3613-6300 IV – IDENTIFICAÇ\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 17 (numeral 1): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"1.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 17 (numeral 2): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"2.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 17 (numeral 3): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"3.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 17 (numeral 4): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"4. 5. TOTAL POR PRODUTOR(A) => 2. Nome do(a) fornecedor(a): (digitar o nome completo do/a produtor/a) Assinatura: (assinatura por extenso do/a produtor/a) Nº Produto Unid.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 17 (numeral 1): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"1.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 17 (numeral 2): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"2.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 17 (numeral 3): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"3.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 17 (numeral 4): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"4. 5. TOTAL POR PRODUTOR(A) => 3. Nome do(a) fornecedor(a): (digitar o nome completo do/a produtor/a) Assinatura: (assinatura por extenso do/a produtor/a) Nº Produto Unid.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 17 (numeral 1): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"1.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 17 (numeral 2): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"2.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 17 (numeral 3): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"3.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 17 (numeral 4): cabeçalho de tabela (Nº/PRODUTO/ESPECIFICAÇÃO TÉCNICA/UNIDADE DE MEDIDA/QUANTIDADE/PREÇO/VALOR TOTAL), não uma linha de produto — \"4. 5. TOTAL POR PRODUTOR(A) => * O preço de aquisição é o estabelecido no Edital da Chamada Pública TOTAL GERAL DO PROJETO DE VENDAS DO GRUPO INFORMAL => Declaro estar de acordo com as condições estabelecidas neste projeto e que as informaç\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 19 (numeral 1): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"1.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 19 (numeral 2): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"2.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 19 (numeral 3): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"3.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 19 (numeral 4): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"4.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 19 (numeral 5): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"5.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 19 (numeral 6): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"6.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 19 (numeral 7): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"7.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 19 (numeral 8): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"8.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 19 (numeral 9): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"9.\"",
+      "origem": "DOC-0106"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 19 (numeral 10): cabeçalho de tabela (Nº/PRODUTO/ESPECIFICAÇÃO TÉCNICA/UNIDADE DE MEDIDA/QUANTIDADE/PREÇO/VALOR TOTAL), não uma linha de produto — \"10. * O preço de aquisição é o estabelecido no Edital da Chamada Pública TOTAL DO PROJETO DE VENDAS => Declaro estar de acordo com as condições estabelecidas neste projeto e que as informações acima conferem com as condições de fornecimento\"",
       "origem": "DOC-0106"
     }
   ],
@@ -451,6 +1252,7 @@
     "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
     "documentosValidados": 1,
     "itensDoManifesto": 0,
-    "itensExtraidosPdf": 9
+    "itensExtraidosPdf": 37,
+    "blocosNaoItem": 37
   }
 }

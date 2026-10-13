@@ -69,6 +69,7 @@ export declare class EditaisController {
                 updatedBy: string | null;
                 arquivoFonte: string | null;
                 editalId: string;
+                versaoAtual: number;
                 statusComposicao: import(".prisma/client").$Enums.StatusComposicaoEdital;
                 processoAdministrativo: string | null;
                 localRecebimento: string | null;
@@ -87,7 +88,6 @@ export declare class EditaisController {
                 origem: string;
                 importacaoId: string | null;
                 conteudoManual: string | null;
-                versaoAtual: number;
                 publicadoEm: Date | null;
             } | null;
         } & {
@@ -99,15 +99,15 @@ export declare class EditaisController {
             updatedBy: string | null;
             escolaId: string | null;
             municipioId: string | null;
-            numero: string;
-            ano: number;
             titulo: string;
-            descricao: string | null;
             status: import(".prisma/client").$Enums.StatusEdital;
-            dataPublicacao: Date | null;
+            ano: number;
+            numero: string;
+            descricao: string | null;
             objeto: string | null;
             arquivoFonte: string | null;
             observacoes: string | null;
+            dataPublicacao: Date | null;
         })[];
         total: number;
         page: number;
@@ -173,15 +173,15 @@ export declare class EditaisController {
         updatedBy: string | null;
         escolaId: string | null;
         municipioId: string | null;
-        numero: string;
-        ano: number;
         titulo: string;
-        descricao: string | null;
         status: import(".prisma/client").$Enums.StatusEdital;
-        dataPublicacao: Date | null;
+        ano: number;
+        numero: string;
+        descricao: string | null;
         objeto: string | null;
         arquivoFonte: string | null;
         observacoes: string | null;
+        dataPublicacao: Date | null;
     }>;
     findItens(id: string, req: Request): Promise<{
         id: string;
@@ -213,15 +213,15 @@ export declare class EditaisController {
         updatedBy: string | null;
         escolaId: string | null;
         municipioId: string | null;
-        numero: string;
-        ano: number;
         titulo: string;
-        descricao: string | null;
         status: import(".prisma/client").$Enums.StatusEdital;
-        dataPublicacao: Date | null;
+        ano: number;
+        numero: string;
+        descricao: string | null;
         objeto: string | null;
         arquivoFonte: string | null;
         observacoes: string | null;
+        dataPublicacao: Date | null;
     }>;
     update(id: string, dto: UpdateEditalDto, req: Request): Promise<{
         id: string;
@@ -232,15 +232,15 @@ export declare class EditaisController {
         updatedBy: string | null;
         escolaId: string | null;
         municipioId: string | null;
-        numero: string;
-        ano: number;
         titulo: string;
-        descricao: string | null;
         status: import(".prisma/client").$Enums.StatusEdital;
-        dataPublicacao: Date | null;
+        ano: number;
+        numero: string;
+        descricao: string | null;
         objeto: string | null;
         arquivoFonte: string | null;
         observacoes: string | null;
+        dataPublicacao: Date | null;
     }>;
     remove(id: string): Promise<{
         id: string;
@@ -251,14 +251,14 @@ export declare class EditaisController {
         updatedBy: string | null;
         escolaId: string | null;
         municipioId: string | null;
-        numero: string;
-        ano: number;
         titulo: string;
-        descricao: string | null;
         status: import(".prisma/client").$Enums.StatusEdital;
-        dataPublicacao: Date | null;
+        ano: number;
+        numero: string;
+        descricao: string | null;
         objeto: string | null;
         arquivoFonte: string | null;
         observacoes: string | null;
+        dataPublicacao: Date | null;
     }>;
 }

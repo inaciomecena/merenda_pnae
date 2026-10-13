@@ -18,7 +18,7 @@ import { classificarPacote, DecisaoClassificacao } from '../dominio/classificaca
 import { chaveLogicaEdital, chaveVersaoDocumento, classificarPapelDocumento, normalizarRecorte, separarMunicipioERecorte } from '../dominio/chaves-logicas';
 import { normalizarNumeroComJustificativa as normalizarNumeroEdital } from '../dominio/classificacao-pacote';
 import { PacoteCarregado, carregarPacote, agruparDuplicados } from './leitor-pacote';
-import { lerPaginasPdf, extrairItens, extrairIdentificacao, extrairAnexos } from './extrator-documento';
+import { lerPaginasPdf, extrairItens, extrairIdentificacao, extrairAnexos, BlocoDescartado } from './extrator-documento';
 import {
   SnapshotInstitucional,
   ResultadoResolucao,
@@ -53,6 +53,8 @@ export interface ResultadoStaging {
     pendentes: number;
     itensExtraidos: number;
     itensManifesto: number;
+    /** Blocos de texto descartados por não serem itens de produto. */
+    blocosNaoItem: number;
     errosExtracao: Array<{ documentoId: string; erro: string }>;
   };
 }
@@ -127,6 +129,7 @@ export async function gerarStaging(opcoes: OpcoesStaging): Promise<ResultadoStag
   const errosExtracao: ResultadoStaging['resumo']['errosExtracao'] = [];
   let itensExtraidos = 0;
   let itensManifesto = 0;
+  let blocosNaoItem = 0;
 
   for (const decisao of decisoes) {
     const editalPacote = manifesto.editais.find((e) => e.id === decisao.idEdital);
@@ -154,6 +157,7 @@ export async function gerarStaging(opcoes: OpcoesStaging): Promise<ResultadoStag
 
     let identificacao: StagingEdital['identificacao'];
     let itens: ItemExtraido[] = [];
+    let blocosDescartados: BlocoDescartado[] = [];
     let anexos: StagingEdital['anexos'] = [];
 
     if (aprovado && docPrincipal?.caminho) {
@@ -168,7 +172,9 @@ export async function gerarStaging(opcoes: OpcoesStaging): Promise<ResultadoStag
           exercicioManifesto: editalPacote.exercicio ?? null,
         });
         if (opcoes.extrairItensPdf !== false) {
-          itens = extrairItens(paginas, docPrincipal.id_documento, validacao.sha256_calculado);
+          const extraido = extrairItens(paginas, docPrincipal.id_documento, validacao.sha256_calculado);
+          itens = extraido.itens;
+          blocosDescartados = extraido.descartados;
         }
         anexos = extrairAnexos(paginas, docPrincipal.id_documento);
         // Normaliza o número lido no PDF (zero-pad) preservando a grafia bruta
@@ -233,6 +239,15 @@ export async function gerarStaging(opcoes: OpcoesStaging): Promise<ResultadoStag
         pendencias.push({ tipo: 'item_conferencia', descricao: `item ${item.sequencia ?? '?'} (${item.produto ?? 's/produto'}): ${item.pendencia}`, origem: item.documentoId });
       }
     }
+    // Blocos que NÃO são itens de produto (texto corrido/cláusula numerada)
+    // viram pendência explícita: nunca entram em `itens`, nunca viram zero.
+    for (const bloco of blocosDescartados) {
+      pendencias.push({
+        tipo: 'bloco_nao_item',
+        descricao: `pág. ${bloco.pagina ?? '?'} (numeral ${bloco.sequencia ?? '?'}): ${bloco.motivo} — "${bloco.trecho}"`,
+        origem: bloco.documentoId,
+      });
+    }
     if (decisao.decisao !== 'APROVADO' && pendencias.length === 0) {
       pendencias.push({ tipo: 'decisao', descricao: decisao.motivos.join(' '), origem: 'classificador' });
     }
@@ -242,6 +257,7 @@ export async function gerarStaging(opcoes: OpcoesStaging): Promise<ResultadoStag
 
     itensManifesto += manifesto.itens.filter((i) => i.id_edital === editalPacote.id).length;
     itensExtraidos += itens.length;
+    blocosNaoItem += blocosDescartados.length;
 
     staging.push({
       schema: 'importacao-historica-pnae/1.0',
@@ -262,6 +278,7 @@ export async function gerarStaging(opcoes: OpcoesStaging): Promise<ResultadoStag
         documentosValidados: docsDoEdital.filter((d) => pacote.validacoesPorId[d.id_documento]?.classificacao === 'INTEIRO').length,
         itensDoManifesto: manifesto.itens.filter((i) => i.id_edital === editalPacote.id).length,
         itensExtraidosPdf: itens.length,
+        blocosNaoItem: blocosDescartados.length,
       },
     });
   }
@@ -274,6 +291,7 @@ export async function gerarStaging(opcoes: OpcoesStaging): Promise<ResultadoStag
     pendentes: decisoes.filter((d) => d.decisao === 'PENDENTE').length,
     itensExtraidos,
     itensManifesto,
+    blocosNaoItem,
     errosExtracao,
   };
 

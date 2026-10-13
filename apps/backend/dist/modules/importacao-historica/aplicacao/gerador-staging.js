@@ -99,6 +99,7 @@ async function gerarStaging(opcoes) {
     const errosExtracao = [];
     let itensExtraidos = 0;
     let itensManifesto = 0;
+    let blocosNaoItem = 0;
     for (const decisao of decisoes) {
         const editalPacote = manifesto.editais.find((e) => e.id === decisao.idEdital);
         if (!editalPacote)
@@ -120,6 +121,7 @@ async function gerarStaging(opcoes) {
         const docPrincipal = docsDoEdital.find((d) => pacote.validacoesPorId[d.id_documento]?.classificacao === 'INTEIRO');
         let identificacao;
         let itens = [];
+        let blocosDescartados = [];
         let anexos = [];
         if (aprovado && docPrincipal?.caminho) {
             const validacao = pacote.validacoesPorId[docPrincipal.id_documento];
@@ -133,7 +135,9 @@ async function gerarStaging(opcoes) {
                     exercicioManifesto: editalPacote.exercicio ?? null,
                 });
                 if (opcoes.extrairItensPdf !== false) {
-                    itens = (0, extrator_documento_1.extrairItens)(paginas, docPrincipal.id_documento, validacao.sha256_calculado);
+                    const extraido = (0, extrator_documento_1.extrairItens)(paginas, docPrincipal.id_documento, validacao.sha256_calculado);
+                    itens = extraido.itens;
+                    blocosDescartados = extraido.descartados;
                 }
                 anexos = (0, extrator_documento_1.extrairAnexos)(paginas, docPrincipal.id_documento);
                 const numeroExtraido = (0, classificacao_pacote_2.normalizarNumeroComJustificativa)(identificacao.numeroBruto ?? editalPacote.numero ?? null);
@@ -194,12 +198,20 @@ async function gerarStaging(opcoes) {
                 pendencias.push({ tipo: 'item_conferencia', descricao: `item ${item.sequencia ?? '?'} (${item.produto ?? 's/produto'}): ${item.pendencia}`, origem: item.documentoId });
             }
         }
+        for (const bloco of blocosDescartados) {
+            pendencias.push({
+                tipo: 'bloco_nao_item',
+                descricao: `pág. ${bloco.pagina ?? '?'} (numeral ${bloco.sequencia ?? '?'}): ${bloco.motivo} — "${bloco.trecho}"`,
+                origem: bloco.documentoId,
+            });
+        }
         if (decisao.decisao !== 'APROVADO' && pendencias.length === 0) {
             pendencias.push({ tipo: 'decisao', descricao: decisao.motivos.join(' '), origem: 'classificador' });
         }
         const decisaoFinal = decisao.decisao === 'SEGREGADO' ? 'SEGREGADO' : decisao.decisao === 'APROVADO' ? 'APROVADO' : decisao.decisao === 'BLOQUEADO' ? 'BLOQUEADO' : 'PENDENTE';
         itensManifesto += manifesto.itens.filter((i) => i.id_edital === editalPacote.id).length;
         itensExtraidos += itens.length;
+        blocosNaoItem += blocosDescartados.length;
         staging.push({
             schema: 'importacao-historica-pnae/1.0',
             geradoEm: new Date().toISOString(),
@@ -219,6 +231,7 @@ async function gerarStaging(opcoes) {
                 documentosValidados: docsDoEdital.filter((d) => pacote.validacoesPorId[d.id_documento]?.classificacao === 'INTEIRO').length,
                 itensDoManifesto: manifesto.itens.filter((i) => i.id_edital === editalPacote.id).length,
                 itensExtraidosPdf: itens.length,
+                blocosNaoItem: blocosDescartados.length,
             },
         });
     }
@@ -230,6 +243,7 @@ async function gerarStaging(opcoes) {
         pendentes: decisoes.filter((d) => d.decisao === 'PENDENTE').length,
         itensExtraidos,
         itensManifesto,
+        blocosNaoItem,
         errosExtracao,
     };
     return { staging, decisoes, duplicados, manifestoSha256: pacote.manifestoSha256, resumo };

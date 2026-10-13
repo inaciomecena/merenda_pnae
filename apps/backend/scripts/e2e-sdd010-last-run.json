@@ -2,25 +2,25 @@
   "result": "PASS",
   "results": [
     {
-      "name": "login admin-mv5ov80n@example.test",
+      "name": "login admin-mv5w3eps@example.test",
       "status": 201,
       "expected": 201,
       "ok": true
     },
     {
-      "name": "login owner-mv5ov80n@example.test",
+      "name": "login owner-mv5w3eps@example.test",
       "status": 201,
       "expected": 201,
       "ok": true
     },
     {
-      "name": "login other-mv5ov80n@example.test",
+      "name": "login other-mv5w3eps@example.test",
       "status": 201,
       "expected": 201,
       "ok": true
     },
     {
-      "name": "login extensionista-mv5ov80n@example.test",
+      "name": "login extensionista-mv5w3eps@example.test",
       "status": 201,
       "expected": 201,
       "ok": true
@@ -180,6 +180,20 @@
       "status": 200,
       "expected": 200,
       "ok": true
+    },
+    {
+      "name": "lista de produtores assistidos",
+      "status": 200,
+      "expected": 200,
+      "ok": true
+    },
+    {
+      "name": "seletor contém somente produtor autorizado",
+      "ok": true,
+      "expected": "5d0374da-d5a3-437e-9b98-92e21e734463",
+      "status": [
+        "5d0374da-d5a3-437e-9b98-92e21e734463"
+      ]
     },
     {
       "name": "extensionista outro produtor bloqueado",

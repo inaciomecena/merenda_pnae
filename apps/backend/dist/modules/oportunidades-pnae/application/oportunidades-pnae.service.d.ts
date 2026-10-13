@@ -1,0 +1,144 @@
+import { PrismaService } from '../../../infrastructure/prisma/prisma.service';
+import { PolicyService } from '../../../common/auth/policy.service';
+import { AuthenticatedUser } from '../../../common/auth/user-scope';
+import { AuditService } from '../../audit/application/services/audit.service';
+import { InteresseOportunidadeDto, OportunidadesQueryDto } from '../presentation/oportunidades-pnae.dto';
+export declare class OportunidadesPnaeService {
+    private readonly prisma;
+    private readonly policy;
+    private readonly audit;
+    constructor(prisma: PrismaService, policy: PolicyService, audit: AuditService);
+    private producerId;
+    private data;
+    private match;
+    private evaluate;
+    private buildOpportunity;
+    listar(query: OportunidadesQueryDto, user: AuthenticatedUser, requested?: string): Promise<{
+        items: any[];
+        total: number;
+        page: number;
+        limit: number;
+        totalPages: number;
+        produtorId: string;
+        atualizadoEm: string;
+    }>;
+    obter(id: string, user: AuthenticatedUser, requested?: string): Promise<any>;
+    resumo(user: AuthenticatedUser, requested?: string): Promise<{
+        total: number;
+        alta: number;
+        parciais: number;
+        potenciais: number;
+        pendencias: number;
+    }>;
+    interesses(user: AuthenticatedUser, requested?: string): Promise<({
+        chamada: {
+            edital: {
+                id: string;
+                status: import(".prisma/client").$Enums.StatusEdital;
+                observacoes: string | null;
+                createdAt: Date;
+                updatedAt: Date;
+                createdBy: string | null;
+                updatedBy: string | null;
+                numero: string;
+                objeto: string | null;
+                municipioId: string | null;
+                ano: number;
+                titulo: string;
+                descricao: string | null;
+                escolaId: string | null;
+                arquivoFonte: string | null;
+                dataPublicacao: Date | null;
+                deletedAt: Date | null;
+            };
+        } & {
+            id: string;
+            status: import(".prisma/client").$Enums.StatusChamadaPublica;
+            observacoes: string | null;
+            createdAt: Date;
+            updatedAt: Date;
+            createdBy: string | null;
+            updatedBy: string | null;
+            editalId: string;
+            numero: string;
+            exercicio: number;
+            objeto: string;
+            entidadeExecutoraId: string | null;
+            dreId: string | null;
+            municipioId: string | null;
+            inscricoesInicio: Date;
+            inscricoesFim: Date;
+            dataAbertura: Date | null;
+            prazoDocumentos: Date | null;
+            localApresentacao: string | null;
+            formaApresentacao: string | null;
+            versaoPublicada: number;
+            publicadaEm: Date | null;
+            responsavelId: string | null;
+        };
+        editalItem: {
+            id: string;
+            status: import(".prisma/client").$Enums.StatusItemEdital;
+            observacoes: string | null;
+            createdAt: Date;
+            updatedAt: Date;
+            createdBy: string | null;
+            updatedBy: string | null;
+            editalId: string;
+            deletedAt: Date | null;
+            numeroItem: number | null;
+            produtoOriginal: string;
+            especificacao: string | null;
+            quantidade: import("@prisma/client/runtime/library").Decimal | null;
+            unidade: string | null;
+            precoUnitario: import("@prisma/client/runtime/library").Decimal | null;
+            valorTotal: import("@prisma/client/runtime/library").Decimal | null;
+            produtoReferenciaId: string | null;
+            pendenteEdicao: boolean;
+            importadoAutomaticamente: boolean;
+        };
+    } & {
+        id: string;
+        produtorId: string;
+        status: import(".prisma/client").$Enums.StatusInteresseOportunidade;
+        observacoes: string | null;
+        createdAt: Date;
+        updatedAt: Date;
+        createdBy: string | null;
+        updatedBy: string | null;
+        chamadaId: string;
+        editalItemId: string;
+        quantidadePretendida: import("@prisma/client/runtime/library").Decimal | null;
+        solicitarAssistencia: boolean;
+    })[]>;
+    criarInteresse(id: string, dto: InteresseOportunidadeDto, user: AuthenticatedUser, requested?: string): Promise<{
+        id: string;
+        produtorId: string;
+        status: import(".prisma/client").$Enums.StatusInteresseOportunidade;
+        observacoes: string | null;
+        createdAt: Date;
+        updatedAt: Date;
+        createdBy: string | null;
+        updatedBy: string | null;
+        chamadaId: string;
+        editalItemId: string;
+        quantidadePretendida: import("@prisma/client/runtime/library").Decimal | null;
+        solicitarAssistencia: boolean;
+    }>;
+    atualizarInteresse(id: string, dto: InteresseOportunidadeDto & {
+        status?: string;
+    }, user: AuthenticatedUser): Promise<{
+        id: string;
+        produtorId: string;
+        status: import(".prisma/client").$Enums.StatusInteresseOportunidade;
+        observacoes: string | null;
+        createdAt: Date;
+        updatedAt: Date;
+        createdBy: string | null;
+        updatedBy: string | null;
+        chamadaId: string;
+        editalItemId: string;
+        quantidadePretendida: import("@prisma/client/runtime/library").Decimal | null;
+        solicitarAssistencia: boolean;
+    }>;
+}

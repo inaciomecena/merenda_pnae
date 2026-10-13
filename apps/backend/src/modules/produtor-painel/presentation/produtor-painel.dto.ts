@@ -45,10 +45,22 @@ export class SafraProducaoDto {
 export class SazonalidadeDto {
   @IsString() produtoProdutorId!: string;
   @IsOptional() @IsString() safraProducaoId?: string;
+  @IsOptional() @Type(() => Number) @IsInt() @Min(1900) @Max(2200) anoReferencia?: number;
+  @IsOptional() @IsString() unidadeProdutivaId?: string;
+  @IsOptional() @IsIn(['PRODUCAO', 'COLHEITA', 'DISPONIBILIDADE']) tipoPeriodo?: string;
   @Type(() => Number) @IsInt() @Min(1) @Max(12) mes!: number;
   @Type(() => Number) @IsNumber() @Min(0) quantidadePrevista!: number;
   @IsString() unidade!: string;
   @IsOptional() @IsString() observacoes?: string;
+}
+
+export class ListagemProdutorQueryDto {
+  @IsOptional() @Type(() => Number) @IsInt() @Min(1) pagina?: number;
+  @IsOptional() @Type(() => Number) @IsInt() @Min(1) @Max(100) limite?: number;
+  @IsOptional() @IsString() busca?: string;
+  @IsOptional() @IsString() unidadeProdutivaId?: string;
+  @IsOptional() @Type(() => Number) @IsInt() @Min(1900) @Max(2200) ano?: number;
+  @IsOptional() @IsString() status?: string;
 }
 
 export class DisponibilidadeDto {
@@ -90,6 +102,19 @@ export class CatalogoSolicitacaoDto {
   @IsOptional() @IsString() categoria?: string;
   @IsOptional() @IsString() unidadePadrao?: string;
   @IsOptional() @IsString() justificativa?: string;
+}
+
+export class CatalogoQueryDto {
+  @IsOptional() @IsString() busca?: string;
+  @IsOptional() @IsString() categoria?: string;
+  @IsOptional() @IsIn(['true', 'false']) ativo?: string;
+  @IsOptional() @Type(() => Number) @IsInt() @Min(1) pagina?: number;
+  @IsOptional() @Type(() => Number) @IsInt() @Min(1) @Max(100) limite?: number;
+}
+
+export class CatalogoRevisaoDto {
+  @IsIn(['APROVADA', 'REJEITADA']) status!: string;
+  @IsOptional() @IsString() observacoes?: string;
 }
 
 export class MapeamentoProdutoEditalDto {

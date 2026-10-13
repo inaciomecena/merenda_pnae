@@ -1,0 +1,65 @@
+{
+  "generatedAt": "2026-10-13T01:15:29.665Z",
+  "database": "mysql://root:***@localhost:3306/<isolated>?charset=utf8mb4",
+  "migration": "20261012170000_sdd_011_interesses_oportunidade",
+  "result": "PASS",
+  "scenarios": [
+    {
+      "id": "valid-insert",
+      "result": "PASS",
+      "evidence": {
+        "id": "a63dfe8d-1eab-4403-8264-c76442b68f9e"
+      }
+    },
+    {
+      "id": "invalid-fk",
+      "result": "PASS",
+      "evidence": {
+        "code": "P2003"
+      }
+    },
+    {
+      "id": "duplicate",
+      "result": "PASS",
+      "evidence": {
+        "code": "P2002"
+      }
+    },
+    {
+      "id": "concurrency",
+      "result": "PASS",
+      "evidence": {
+        "statuses": [
+          "rejected",
+          "fulfilled"
+        ],
+        "rejectedCodes": [
+          "P2002"
+        ]
+      }
+    },
+    {
+      "id": "update",
+      "result": "PASS",
+      "evidence": {
+        "status": "ATUALIZADO"
+      }
+    },
+    {
+      "id": "cancel",
+      "result": "PASS",
+      "evidence": {
+        "status": "CANCELADO"
+      }
+    },
+    {
+      "id": "no-auto-proposal-reservation",
+      "result": "PASS",
+      "evidence": {
+        "interests": 5,
+        "proposals": 0,
+        "contracts": 0
+      }
+    }
+  ]
+}

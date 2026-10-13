@@ -78,6 +78,7 @@ export declare class EditaisService {
                 updatedBy: string | null;
                 arquivoFonte: string | null;
                 editalId: string;
+                versaoAtual: number;
                 statusComposicao: import(".prisma/client").$Enums.StatusComposicaoEdital;
                 processoAdministrativo: string | null;
                 localRecebimento: string | null;
@@ -96,7 +97,6 @@ export declare class EditaisService {
                 origem: string;
                 importacaoId: string | null;
                 conteudoManual: string | null;
-                versaoAtual: number;
                 publicadoEm: Date | null;
             } | null;
         } & {
@@ -108,15 +108,15 @@ export declare class EditaisService {
             updatedBy: string | null;
             escolaId: string | null;
             municipioId: string | null;
-            numero: string;
-            ano: number;
             titulo: string;
-            descricao: string | null;
             status: import(".prisma/client").$Enums.StatusEdital;
-            dataPublicacao: Date | null;
+            ano: number;
+            numero: string;
+            descricao: string | null;
             objeto: string | null;
             arquivoFonte: string | null;
             observacoes: string | null;
+            dataPublicacao: Date | null;
         })[];
         total: number;
         page: number;
@@ -182,15 +182,15 @@ export declare class EditaisService {
         updatedBy: string | null;
         escolaId: string | null;
         municipioId: string | null;
-        numero: string;
-        ano: number;
         titulo: string;
-        descricao: string | null;
         status: import(".prisma/client").$Enums.StatusEdital;
-        dataPublicacao: Date | null;
+        ano: number;
+        numero: string;
+        descricao: string | null;
         objeto: string | null;
         arquivoFonte: string | null;
         observacoes: string | null;
+        dataPublicacao: Date | null;
     }>;
     create(dto: CreateEditalDto, user?: AuthenticatedUser): Promise<{
         id: string;
@@ -201,15 +201,15 @@ export declare class EditaisService {
         updatedBy: string | null;
         escolaId: string | null;
         municipioId: string | null;
-        numero: string;
-        ano: number;
         titulo: string;
-        descricao: string | null;
         status: import(".prisma/client").$Enums.StatusEdital;
-        dataPublicacao: Date | null;
+        ano: number;
+        numero: string;
+        descricao: string | null;
         objeto: string | null;
         arquivoFonte: string | null;
         observacoes: string | null;
+        dataPublicacao: Date | null;
     }>;
     update(id: string, dto: UpdateEditalDto, user?: AuthenticatedUser): Promise<{
         id: string;
@@ -220,15 +220,15 @@ export declare class EditaisService {
         updatedBy: string | null;
         escolaId: string | null;
         municipioId: string | null;
-        numero: string;
-        ano: number;
         titulo: string;
-        descricao: string | null;
         status: import(".prisma/client").$Enums.StatusEdital;
-        dataPublicacao: Date | null;
+        ano: number;
+        numero: string;
+        descricao: string | null;
         objeto: string | null;
         arquivoFonte: string | null;
         observacoes: string | null;
+        dataPublicacao: Date | null;
     }>;
     remove(id: string): Promise<{
         id: string;
@@ -239,15 +239,15 @@ export declare class EditaisService {
         updatedBy: string | null;
         escolaId: string | null;
         municipioId: string | null;
-        numero: string;
-        ano: number;
         titulo: string;
-        descricao: string | null;
         status: import(".prisma/client").$Enums.StatusEdital;
-        dataPublicacao: Date | null;
+        ano: number;
+        numero: string;
+        descricao: string | null;
         objeto: string | null;
         arquivoFonte: string | null;
         observacoes: string | null;
+        dataPublicacao: Date | null;
     }>;
     findItens(editalId: string, user?: AuthenticatedUser): Promise<{
         id: string;

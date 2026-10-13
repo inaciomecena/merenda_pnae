@@ -124,8 +124,8 @@ export declare class ComposicaoEditalController {
                     createdBy: string | null;
                     vigenciaInicio: Date | null;
                     vigenciaFim: Date | null;
-                    numero: number;
                     titulo: string;
+                    numero: number;
                     formato: import(".prisma/client").$Enums.FormatoTemplate;
                     arquivoBase: string | null;
                     conteudo: string | null;
@@ -144,7 +144,6 @@ export declare class ComposicaoEditalController {
                     vigenciaFim: Date | null;
                     titulo: string;
                     descricao: string | null;
-                    versaoAtual: number;
                     tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
                     numeroAnexo: number | null;
                     finalidade: string;
@@ -154,16 +153,17 @@ export declare class ComposicaoEditalController {
                     formato: import(".prisma/client").$Enums.FormatoTemplate;
                     arquivoBase: string | null;
                     conteudo: string | null;
+                    versaoAtual: number;
                 } | null;
             } & {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
                 titulo: string;
-                conteudoManual: string | null;
                 tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
                 ordem: number;
                 templateId: string | null;
+                conteudoManual: string | null;
                 incluido: boolean;
                 templateVersaoId: string | null;
                 documentoId: string;
@@ -172,14 +172,14 @@ export declare class ComposicaoEditalController {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                origem: string;
                 chave: string;
                 valor: string | null;
-                obrigatorio: boolean;
+                origem: string;
                 documentoId: string;
                 valorExtraido: string | null;
                 confianca: string | null;
                 paginaOrigem: number | null;
+                obrigatorio: boolean;
                 sensivel: boolean;
                 escopo: string;
                 statusRevisao: string;
@@ -192,12 +192,12 @@ export declare class ComposicaoEditalController {
                 ipAddress: string | null;
                 formato: string;
                 documentoId: string;
-                versaoId: string | null;
                 versaoNumero: number;
                 usuarioId: string | null;
                 usuarioNome: string | null;
                 arquivoPath: string | null;
                 mensagem: string | null;
+                versaoId: string | null;
             }[];
         } & {
             id: string;
@@ -207,6 +207,7 @@ export declare class ComposicaoEditalController {
             updatedBy: string | null;
             arquivoFonte: string | null;
             editalId: string;
+            versaoAtual: number;
             statusComposicao: import(".prisma/client").$Enums.StatusComposicaoEdital;
             processoAdministrativo: string | null;
             localRecebimento: string | null;
@@ -225,7 +226,6 @@ export declare class ComposicaoEditalController {
             origem: string;
             importacaoId: string | null;
             conteudoManual: string | null;
-            versaoAtual: number;
             publicadoEm: Date | null;
         }) | null;
     } & {
@@ -237,15 +237,15 @@ export declare class ComposicaoEditalController {
         updatedBy: string | null;
         escolaId: string | null;
         municipioId: string | null;
-        numero: string;
-        ano: number;
         titulo: string;
-        descricao: string | null;
         status: import(".prisma/client").$Enums.StatusEdital;
-        dataPublicacao: Date | null;
+        ano: number;
+        numero: string;
+        descricao: string | null;
         objeto: string | null;
         arquivoFonte: string | null;
         observacoes: string | null;
+        dataPublicacao: Date | null;
     }>;
     obter(id: string): Promise<{
         municipio: {
@@ -363,8 +363,8 @@ export declare class ComposicaoEditalController {
                     createdBy: string | null;
                     vigenciaInicio: Date | null;
                     vigenciaFim: Date | null;
-                    numero: number;
                     titulo: string;
+                    numero: number;
                     formato: import(".prisma/client").$Enums.FormatoTemplate;
                     arquivoBase: string | null;
                     conteudo: string | null;
@@ -383,7 +383,6 @@ export declare class ComposicaoEditalController {
                     vigenciaFim: Date | null;
                     titulo: string;
                     descricao: string | null;
-                    versaoAtual: number;
                     tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
                     numeroAnexo: number | null;
                     finalidade: string;
@@ -393,16 +392,17 @@ export declare class ComposicaoEditalController {
                     formato: import(".prisma/client").$Enums.FormatoTemplate;
                     arquivoBase: string | null;
                     conteudo: string | null;
+                    versaoAtual: number;
                 } | null;
             } & {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
                 titulo: string;
-                conteudoManual: string | null;
                 tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
                 ordem: number;
                 templateId: string | null;
+                conteudoManual: string | null;
                 incluido: boolean;
                 templateVersaoId: string | null;
                 documentoId: string;
@@ -411,14 +411,14 @@ export declare class ComposicaoEditalController {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                origem: string;
                 chave: string;
                 valor: string | null;
-                obrigatorio: boolean;
+                origem: string;
                 documentoId: string;
                 valorExtraido: string | null;
                 confianca: string | null;
                 paginaOrigem: number | null;
+                obrigatorio: boolean;
                 sensivel: boolean;
                 escopo: string;
                 statusRevisao: string;
@@ -431,12 +431,12 @@ export declare class ComposicaoEditalController {
                 ipAddress: string | null;
                 formato: string;
                 documentoId: string;
-                versaoId: string | null;
                 versaoNumero: number;
                 usuarioId: string | null;
                 usuarioNome: string | null;
                 arquivoPath: string | null;
                 mensagem: string | null;
+                versaoId: string | null;
             }[];
         } & {
             id: string;
@@ -446,6 +446,7 @@ export declare class ComposicaoEditalController {
             updatedBy: string | null;
             arquivoFonte: string | null;
             editalId: string;
+            versaoAtual: number;
             statusComposicao: import(".prisma/client").$Enums.StatusComposicaoEdital;
             processoAdministrativo: string | null;
             localRecebimento: string | null;
@@ -464,7 +465,6 @@ export declare class ComposicaoEditalController {
             origem: string;
             importacaoId: string | null;
             conteudoManual: string | null;
-            versaoAtual: number;
             publicadoEm: Date | null;
         }) | null;
     } & {
@@ -476,15 +476,15 @@ export declare class ComposicaoEditalController {
         updatedBy: string | null;
         escolaId: string | null;
         municipioId: string | null;
-        numero: string;
-        ano: number;
         titulo: string;
-        descricao: string | null;
         status: import(".prisma/client").$Enums.StatusEdital;
-        dataPublicacao: Date | null;
+        ano: number;
+        numero: string;
+        descricao: string | null;
         objeto: string | null;
         arquivoFonte: string | null;
         observacoes: string | null;
+        dataPublicacao: Date | null;
     }>;
     atualizar(id: string, dto: UpdateComposicaoDto, req: Request): Promise<{
         municipio: {
@@ -602,8 +602,8 @@ export declare class ComposicaoEditalController {
                     createdBy: string | null;
                     vigenciaInicio: Date | null;
                     vigenciaFim: Date | null;
-                    numero: number;
                     titulo: string;
+                    numero: number;
                     formato: import(".prisma/client").$Enums.FormatoTemplate;
                     arquivoBase: string | null;
                     conteudo: string | null;
@@ -622,7 +622,6 @@ export declare class ComposicaoEditalController {
                     vigenciaFim: Date | null;
                     titulo: string;
                     descricao: string | null;
-                    versaoAtual: number;
                     tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
                     numeroAnexo: number | null;
                     finalidade: string;
@@ -632,16 +631,17 @@ export declare class ComposicaoEditalController {
                     formato: import(".prisma/client").$Enums.FormatoTemplate;
                     arquivoBase: string | null;
                     conteudo: string | null;
+                    versaoAtual: number;
                 } | null;
             } & {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
                 titulo: string;
-                conteudoManual: string | null;
                 tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
                 ordem: number;
                 templateId: string | null;
+                conteudoManual: string | null;
                 incluido: boolean;
                 templateVersaoId: string | null;
                 documentoId: string;
@@ -650,14 +650,14 @@ export declare class ComposicaoEditalController {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                origem: string;
                 chave: string;
                 valor: string | null;
-                obrigatorio: boolean;
+                origem: string;
                 documentoId: string;
                 valorExtraido: string | null;
                 confianca: string | null;
                 paginaOrigem: number | null;
+                obrigatorio: boolean;
                 sensivel: boolean;
                 escopo: string;
                 statusRevisao: string;
@@ -670,12 +670,12 @@ export declare class ComposicaoEditalController {
                 ipAddress: string | null;
                 formato: string;
                 documentoId: string;
-                versaoId: string | null;
                 versaoNumero: number;
                 usuarioId: string | null;
                 usuarioNome: string | null;
                 arquivoPath: string | null;
                 mensagem: string | null;
+                versaoId: string | null;
             }[];
         } & {
             id: string;
@@ -685,6 +685,7 @@ export declare class ComposicaoEditalController {
             updatedBy: string | null;
             arquivoFonte: string | null;
             editalId: string;
+            versaoAtual: number;
             statusComposicao: import(".prisma/client").$Enums.StatusComposicaoEdital;
             processoAdministrativo: string | null;
             localRecebimento: string | null;
@@ -703,7 +704,6 @@ export declare class ComposicaoEditalController {
             origem: string;
             importacaoId: string | null;
             conteudoManual: string | null;
-            versaoAtual: number;
             publicadoEm: Date | null;
         }) | null;
     } & {
@@ -715,15 +715,15 @@ export declare class ComposicaoEditalController {
         updatedBy: string | null;
         escolaId: string | null;
         municipioId: string | null;
-        numero: string;
-        ano: number;
         titulo: string;
-        descricao: string | null;
         status: import(".prisma/client").$Enums.StatusEdital;
-        dataPublicacao: Date | null;
+        ano: number;
+        numero: string;
+        descricao: string | null;
         objeto: string | null;
         arquivoFonte: string | null;
         observacoes: string | null;
+        dataPublicacao: Date | null;
     }>;
     itens(id: string, dto: SalvarItensDto, req: Request): Promise<{
         municipio: {
@@ -841,8 +841,8 @@ export declare class ComposicaoEditalController {
                     createdBy: string | null;
                     vigenciaInicio: Date | null;
                     vigenciaFim: Date | null;
-                    numero: number;
                     titulo: string;
+                    numero: number;
                     formato: import(".prisma/client").$Enums.FormatoTemplate;
                     arquivoBase: string | null;
                     conteudo: string | null;
@@ -861,7 +861,6 @@ export declare class ComposicaoEditalController {
                     vigenciaFim: Date | null;
                     titulo: string;
                     descricao: string | null;
-                    versaoAtual: number;
                     tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
                     numeroAnexo: number | null;
                     finalidade: string;
@@ -871,16 +870,17 @@ export declare class ComposicaoEditalController {
                     formato: import(".prisma/client").$Enums.FormatoTemplate;
                     arquivoBase: string | null;
                     conteudo: string | null;
+                    versaoAtual: number;
                 } | null;
             } & {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
                 titulo: string;
-                conteudoManual: string | null;
                 tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
                 ordem: number;
                 templateId: string | null;
+                conteudoManual: string | null;
                 incluido: boolean;
                 templateVersaoId: string | null;
                 documentoId: string;
@@ -889,14 +889,14 @@ export declare class ComposicaoEditalController {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                origem: string;
                 chave: string;
                 valor: string | null;
-                obrigatorio: boolean;
+                origem: string;
                 documentoId: string;
                 valorExtraido: string | null;
                 confianca: string | null;
                 paginaOrigem: number | null;
+                obrigatorio: boolean;
                 sensivel: boolean;
                 escopo: string;
                 statusRevisao: string;
@@ -909,12 +909,12 @@ export declare class ComposicaoEditalController {
                 ipAddress: string | null;
                 formato: string;
                 documentoId: string;
-                versaoId: string | null;
                 versaoNumero: number;
                 usuarioId: string | null;
                 usuarioNome: string | null;
                 arquivoPath: string | null;
                 mensagem: string | null;
+                versaoId: string | null;
             }[];
         } & {
             id: string;
@@ -924,6 +924,7 @@ export declare class ComposicaoEditalController {
             updatedBy: string | null;
             arquivoFonte: string | null;
             editalId: string;
+            versaoAtual: number;
             statusComposicao: import(".prisma/client").$Enums.StatusComposicaoEdital;
             processoAdministrativo: string | null;
             localRecebimento: string | null;
@@ -942,7 +943,6 @@ export declare class ComposicaoEditalController {
             origem: string;
             importacaoId: string | null;
             conteudoManual: string | null;
-            versaoAtual: number;
             publicadoEm: Date | null;
         }) | null;
     } & {
@@ -954,15 +954,15 @@ export declare class ComposicaoEditalController {
         updatedBy: string | null;
         escolaId: string | null;
         municipioId: string | null;
-        numero: string;
-        ano: number;
         titulo: string;
-        descricao: string | null;
         status: import(".prisma/client").$Enums.StatusEdital;
-        dataPublicacao: Date | null;
+        ano: number;
+        numero: string;
+        descricao: string | null;
         objeto: string | null;
         arquivoFonte: string | null;
         observacoes: string | null;
+        dataPublicacao: Date | null;
     }>;
     anexos(id: string, dto: SalvarAnexosDto, req: Request): Promise<{
         municipio: {
@@ -1080,8 +1080,8 @@ export declare class ComposicaoEditalController {
                     createdBy: string | null;
                     vigenciaInicio: Date | null;
                     vigenciaFim: Date | null;
-                    numero: number;
                     titulo: string;
+                    numero: number;
                     formato: import(".prisma/client").$Enums.FormatoTemplate;
                     arquivoBase: string | null;
                     conteudo: string | null;
@@ -1100,7 +1100,6 @@ export declare class ComposicaoEditalController {
                     vigenciaFim: Date | null;
                     titulo: string;
                     descricao: string | null;
-                    versaoAtual: number;
                     tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
                     numeroAnexo: number | null;
                     finalidade: string;
@@ -1110,16 +1109,17 @@ export declare class ComposicaoEditalController {
                     formato: import(".prisma/client").$Enums.FormatoTemplate;
                     arquivoBase: string | null;
                     conteudo: string | null;
+                    versaoAtual: number;
                 } | null;
             } & {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
                 titulo: string;
-                conteudoManual: string | null;
                 tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
                 ordem: number;
                 templateId: string | null;
+                conteudoManual: string | null;
                 incluido: boolean;
                 templateVersaoId: string | null;
                 documentoId: string;
@@ -1128,14 +1128,14 @@ export declare class ComposicaoEditalController {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                origem: string;
                 chave: string;
                 valor: string | null;
-                obrigatorio: boolean;
+                origem: string;
                 documentoId: string;
                 valorExtraido: string | null;
                 confianca: string | null;
                 paginaOrigem: number | null;
+                obrigatorio: boolean;
                 sensivel: boolean;
                 escopo: string;
                 statusRevisao: string;
@@ -1148,12 +1148,12 @@ export declare class ComposicaoEditalController {
                 ipAddress: string | null;
                 formato: string;
                 documentoId: string;
-                versaoId: string | null;
                 versaoNumero: number;
                 usuarioId: string | null;
                 usuarioNome: string | null;
                 arquivoPath: string | null;
                 mensagem: string | null;
+                versaoId: string | null;
             }[];
         } & {
             id: string;
@@ -1163,6 +1163,7 @@ export declare class ComposicaoEditalController {
             updatedBy: string | null;
             arquivoFonte: string | null;
             editalId: string;
+            versaoAtual: number;
             statusComposicao: import(".prisma/client").$Enums.StatusComposicaoEdital;
             processoAdministrativo: string | null;
             localRecebimento: string | null;
@@ -1181,7 +1182,6 @@ export declare class ComposicaoEditalController {
             origem: string;
             importacaoId: string | null;
             conteudoManual: string | null;
-            versaoAtual: number;
             publicadoEm: Date | null;
         }) | null;
     } & {
@@ -1193,15 +1193,15 @@ export declare class ComposicaoEditalController {
         updatedBy: string | null;
         escolaId: string | null;
         municipioId: string | null;
-        numero: string;
-        ano: number;
         titulo: string;
-        descricao: string | null;
         status: import(".prisma/client").$Enums.StatusEdital;
-        dataPublicacao: Date | null;
+        ano: number;
+        numero: string;
+        descricao: string | null;
         objeto: string | null;
         arquivoFonte: string | null;
         observacoes: string | null;
+        dataPublicacao: Date | null;
     }>;
     variaveis(id: string, dto: SalvarVariaveisDto, req: Request): Promise<{
         municipio: {
@@ -1319,8 +1319,8 @@ export declare class ComposicaoEditalController {
                     createdBy: string | null;
                     vigenciaInicio: Date | null;
                     vigenciaFim: Date | null;
-                    numero: number;
                     titulo: string;
+                    numero: number;
                     formato: import(".prisma/client").$Enums.FormatoTemplate;
                     arquivoBase: string | null;
                     conteudo: string | null;
@@ -1339,7 +1339,6 @@ export declare class ComposicaoEditalController {
                     vigenciaFim: Date | null;
                     titulo: string;
                     descricao: string | null;
-                    versaoAtual: number;
                     tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
                     numeroAnexo: number | null;
                     finalidade: string;
@@ -1349,16 +1348,17 @@ export declare class ComposicaoEditalController {
                     formato: import(".prisma/client").$Enums.FormatoTemplate;
                     arquivoBase: string | null;
                     conteudo: string | null;
+                    versaoAtual: number;
                 } | null;
             } & {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
                 titulo: string;
-                conteudoManual: string | null;
                 tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
                 ordem: number;
                 templateId: string | null;
+                conteudoManual: string | null;
                 incluido: boolean;
                 templateVersaoId: string | null;
                 documentoId: string;
@@ -1367,14 +1367,14 @@ export declare class ComposicaoEditalController {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                origem: string;
                 chave: string;
                 valor: string | null;
-                obrigatorio: boolean;
+                origem: string;
                 documentoId: string;
                 valorExtraido: string | null;
                 confianca: string | null;
                 paginaOrigem: number | null;
+                obrigatorio: boolean;
                 sensivel: boolean;
                 escopo: string;
                 statusRevisao: string;
@@ -1387,12 +1387,12 @@ export declare class ComposicaoEditalController {
                 ipAddress: string | null;
                 formato: string;
                 documentoId: string;
-                versaoId: string | null;
                 versaoNumero: number;
                 usuarioId: string | null;
                 usuarioNome: string | null;
                 arquivoPath: string | null;
                 mensagem: string | null;
+                versaoId: string | null;
             }[];
         } & {
             id: string;
@@ -1402,6 +1402,7 @@ export declare class ComposicaoEditalController {
             updatedBy: string | null;
             arquivoFonte: string | null;
             editalId: string;
+            versaoAtual: number;
             statusComposicao: import(".prisma/client").$Enums.StatusComposicaoEdital;
             processoAdministrativo: string | null;
             localRecebimento: string | null;
@@ -1420,7 +1421,6 @@ export declare class ComposicaoEditalController {
             origem: string;
             importacaoId: string | null;
             conteudoManual: string | null;
-            versaoAtual: number;
             publicadoEm: Date | null;
         }) | null;
     } & {
@@ -1432,15 +1432,15 @@ export declare class ComposicaoEditalController {
         updatedBy: string | null;
         escolaId: string | null;
         municipioId: string | null;
-        numero: string;
-        ano: number;
         titulo: string;
-        descricao: string | null;
         status: import(".prisma/client").$Enums.StatusEdital;
-        dataPublicacao: Date | null;
+        ano: number;
+        numero: string;
+        descricao: string | null;
         objeto: string | null;
         arquivoFonte: string | null;
         observacoes: string | null;
+        dataPublicacao: Date | null;
     }>;
     duplicar(id: string, req: Request): Promise<{
         municipio: {
@@ -1558,8 +1558,8 @@ export declare class ComposicaoEditalController {
                     createdBy: string | null;
                     vigenciaInicio: Date | null;
                     vigenciaFim: Date | null;
-                    numero: number;
                     titulo: string;
+                    numero: number;
                     formato: import(".prisma/client").$Enums.FormatoTemplate;
                     arquivoBase: string | null;
                     conteudo: string | null;
@@ -1578,7 +1578,6 @@ export declare class ComposicaoEditalController {
                     vigenciaFim: Date | null;
                     titulo: string;
                     descricao: string | null;
-                    versaoAtual: number;
                     tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
                     numeroAnexo: number | null;
                     finalidade: string;
@@ -1588,16 +1587,17 @@ export declare class ComposicaoEditalController {
                     formato: import(".prisma/client").$Enums.FormatoTemplate;
                     arquivoBase: string | null;
                     conteudo: string | null;
+                    versaoAtual: number;
                 } | null;
             } & {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
                 titulo: string;
-                conteudoManual: string | null;
                 tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
                 ordem: number;
                 templateId: string | null;
+                conteudoManual: string | null;
                 incluido: boolean;
                 templateVersaoId: string | null;
                 documentoId: string;
@@ -1606,14 +1606,14 @@ export declare class ComposicaoEditalController {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                origem: string;
                 chave: string;
                 valor: string | null;
-                obrigatorio: boolean;
+                origem: string;
                 documentoId: string;
                 valorExtraido: string | null;
                 confianca: string | null;
                 paginaOrigem: number | null;
+                obrigatorio: boolean;
                 sensivel: boolean;
                 escopo: string;
                 statusRevisao: string;
@@ -1626,12 +1626,12 @@ export declare class ComposicaoEditalController {
                 ipAddress: string | null;
                 formato: string;
                 documentoId: string;
-                versaoId: string | null;
                 versaoNumero: number;
                 usuarioId: string | null;
                 usuarioNome: string | null;
                 arquivoPath: string | null;
                 mensagem: string | null;
+                versaoId: string | null;
             }[];
         } & {
             id: string;
@@ -1641,6 +1641,7 @@ export declare class ComposicaoEditalController {
             updatedBy: string | null;
             arquivoFonte: string | null;
             editalId: string;
+            versaoAtual: number;
             statusComposicao: import(".prisma/client").$Enums.StatusComposicaoEdital;
             processoAdministrativo: string | null;
             localRecebimento: string | null;
@@ -1659,7 +1660,6 @@ export declare class ComposicaoEditalController {
             origem: string;
             importacaoId: string | null;
             conteudoManual: string | null;
-            versaoAtual: number;
             publicadoEm: Date | null;
         }) | null;
     } & {
@@ -1671,15 +1671,15 @@ export declare class ComposicaoEditalController {
         updatedBy: string | null;
         escolaId: string | null;
         municipioId: string | null;
-        numero: string;
-        ano: number;
         titulo: string;
-        descricao: string | null;
         status: import(".prisma/client").$Enums.StatusEdital;
-        dataPublicacao: Date | null;
+        ano: number;
+        numero: string;
+        descricao: string | null;
         objeto: string | null;
         arquivoFonte: string | null;
         observacoes: string | null;
+        dataPublicacao: Date | null;
     }>;
     novaVersao(id: string, req: Request): Promise<{
         municipio: {
@@ -1797,8 +1797,8 @@ export declare class ComposicaoEditalController {
                     createdBy: string | null;
                     vigenciaInicio: Date | null;
                     vigenciaFim: Date | null;
-                    numero: number;
                     titulo: string;
+                    numero: number;
                     formato: import(".prisma/client").$Enums.FormatoTemplate;
                     arquivoBase: string | null;
                     conteudo: string | null;
@@ -1817,7 +1817,6 @@ export declare class ComposicaoEditalController {
                     vigenciaFim: Date | null;
                     titulo: string;
                     descricao: string | null;
-                    versaoAtual: number;
                     tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
                     numeroAnexo: number | null;
                     finalidade: string;
@@ -1827,16 +1826,17 @@ export declare class ComposicaoEditalController {
                     formato: import(".prisma/client").$Enums.FormatoTemplate;
                     arquivoBase: string | null;
                     conteudo: string | null;
+                    versaoAtual: number;
                 } | null;
             } & {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
                 titulo: string;
-                conteudoManual: string | null;
                 tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
                 ordem: number;
                 templateId: string | null;
+                conteudoManual: string | null;
                 incluido: boolean;
                 templateVersaoId: string | null;
                 documentoId: string;
@@ -1845,14 +1845,14 @@ export declare class ComposicaoEditalController {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                origem: string;
                 chave: string;
                 valor: string | null;
-                obrigatorio: boolean;
+                origem: string;
                 documentoId: string;
                 valorExtraido: string | null;
                 confianca: string | null;
                 paginaOrigem: number | null;
+                obrigatorio: boolean;
                 sensivel: boolean;
                 escopo: string;
                 statusRevisao: string;
@@ -1865,12 +1865,12 @@ export declare class ComposicaoEditalController {
                 ipAddress: string | null;
                 formato: string;
                 documentoId: string;
-                versaoId: string | null;
                 versaoNumero: number;
                 usuarioId: string | null;
                 usuarioNome: string | null;
                 arquivoPath: string | null;
                 mensagem: string | null;
+                versaoId: string | null;
             }[];
         } & {
             id: string;
@@ -1880,6 +1880,7 @@ export declare class ComposicaoEditalController {
             updatedBy: string | null;
             arquivoFonte: string | null;
             editalId: string;
+            versaoAtual: number;
             statusComposicao: import(".prisma/client").$Enums.StatusComposicaoEdital;
             processoAdministrativo: string | null;
             localRecebimento: string | null;
@@ -1898,7 +1899,6 @@ export declare class ComposicaoEditalController {
             origem: string;
             importacaoId: string | null;
             conteudoManual: string | null;
-            versaoAtual: number;
             publicadoEm: Date | null;
         }) | null;
     } & {
@@ -1910,15 +1910,15 @@ export declare class ComposicaoEditalController {
         updatedBy: string | null;
         escolaId: string | null;
         municipioId: string | null;
-        numero: string;
-        ano: number;
         titulo: string;
-        descricao: string | null;
         status: import(".prisma/client").$Enums.StatusEdital;
-        dataPublicacao: Date | null;
+        ano: number;
+        numero: string;
+        descricao: string | null;
         objeto: string | null;
         arquivoFonte: string | null;
         observacoes: string | null;
+        dataPublicacao: Date | null;
     }>;
     publicar(id: string, req: Request): Promise<{
         municipio: {
@@ -2036,8 +2036,8 @@ export declare class ComposicaoEditalController {
                     createdBy: string | null;
                     vigenciaInicio: Date | null;
                     vigenciaFim: Date | null;
-                    numero: number;
                     titulo: string;
+                    numero: number;
                     formato: import(".prisma/client").$Enums.FormatoTemplate;
                     arquivoBase: string | null;
                     conteudo: string | null;
@@ -2056,7 +2056,6 @@ export declare class ComposicaoEditalController {
                     vigenciaFim: Date | null;
                     titulo: string;
                     descricao: string | null;
-                    versaoAtual: number;
                     tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
                     numeroAnexo: number | null;
                     finalidade: string;
@@ -2066,16 +2065,17 @@ export declare class ComposicaoEditalController {
                     formato: import(".prisma/client").$Enums.FormatoTemplate;
                     arquivoBase: string | null;
                     conteudo: string | null;
+                    versaoAtual: number;
                 } | null;
             } & {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
                 titulo: string;
-                conteudoManual: string | null;
                 tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
                 ordem: number;
                 templateId: string | null;
+                conteudoManual: string | null;
                 incluido: boolean;
                 templateVersaoId: string | null;
                 documentoId: string;
@@ -2084,14 +2084,14 @@ export declare class ComposicaoEditalController {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                origem: string;
                 chave: string;
                 valor: string | null;
-                obrigatorio: boolean;
+                origem: string;
                 documentoId: string;
                 valorExtraido: string | null;
                 confianca: string | null;
                 paginaOrigem: number | null;
+                obrigatorio: boolean;
                 sensivel: boolean;
                 escopo: string;
                 statusRevisao: string;
@@ -2104,12 +2104,12 @@ export declare class ComposicaoEditalController {
                 ipAddress: string | null;
                 formato: string;
                 documentoId: string;
-                versaoId: string | null;
                 versaoNumero: number;
                 usuarioId: string | null;
                 usuarioNome: string | null;
                 arquivoPath: string | null;
                 mensagem: string | null;
+                versaoId: string | null;
             }[];
         } & {
             id: string;
@@ -2119,6 +2119,7 @@ export declare class ComposicaoEditalController {
             updatedBy: string | null;
             arquivoFonte: string | null;
             editalId: string;
+            versaoAtual: number;
             statusComposicao: import(".prisma/client").$Enums.StatusComposicaoEdital;
             processoAdministrativo: string | null;
             localRecebimento: string | null;
@@ -2137,7 +2138,6 @@ export declare class ComposicaoEditalController {
             origem: string;
             importacaoId: string | null;
             conteudoManual: string | null;
-            versaoAtual: number;
             publicadoEm: Date | null;
         }) | null;
     } & {
@@ -2149,15 +2149,15 @@ export declare class ComposicaoEditalController {
         updatedBy: string | null;
         escolaId: string | null;
         municipioId: string | null;
-        numero: string;
-        ano: number;
         titulo: string;
-        descricao: string | null;
         status: import(".prisma/client").$Enums.StatusEdital;
-        dataPublicacao: Date | null;
+        ano: number;
+        numero: string;
+        descricao: string | null;
         objeto: string | null;
         arquivoFonte: string | null;
         observacoes: string | null;
+        dataPublicacao: Date | null;
     }>;
     cancelar(id: string, req: Request): Promise<{
         municipio: {
@@ -2275,8 +2275,8 @@ export declare class ComposicaoEditalController {
                     createdBy: string | null;
                     vigenciaInicio: Date | null;
                     vigenciaFim: Date | null;
-                    numero: number;
                     titulo: string;
+                    numero: number;
                     formato: import(".prisma/client").$Enums.FormatoTemplate;
                     arquivoBase: string | null;
                     conteudo: string | null;
@@ -2295,7 +2295,6 @@ export declare class ComposicaoEditalController {
                     vigenciaFim: Date | null;
                     titulo: string;
                     descricao: string | null;
-                    versaoAtual: number;
                     tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
                     numeroAnexo: number | null;
                     finalidade: string;
@@ -2305,16 +2304,17 @@ export declare class ComposicaoEditalController {
                     formato: import(".prisma/client").$Enums.FormatoTemplate;
                     arquivoBase: string | null;
                     conteudo: string | null;
+                    versaoAtual: number;
                 } | null;
             } & {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
                 titulo: string;
-                conteudoManual: string | null;
                 tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
                 ordem: number;
                 templateId: string | null;
+                conteudoManual: string | null;
                 incluido: boolean;
                 templateVersaoId: string | null;
                 documentoId: string;
@@ -2323,14 +2323,14 @@ export declare class ComposicaoEditalController {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                origem: string;
                 chave: string;
                 valor: string | null;
-                obrigatorio: boolean;
+                origem: string;
                 documentoId: string;
                 valorExtraido: string | null;
                 confianca: string | null;
                 paginaOrigem: number | null;
+                obrigatorio: boolean;
                 sensivel: boolean;
                 escopo: string;
                 statusRevisao: string;
@@ -2343,12 +2343,12 @@ export declare class ComposicaoEditalController {
                 ipAddress: string | null;
                 formato: string;
                 documentoId: string;
-                versaoId: string | null;
                 versaoNumero: number;
                 usuarioId: string | null;
                 usuarioNome: string | null;
                 arquivoPath: string | null;
                 mensagem: string | null;
+                versaoId: string | null;
             }[];
         } & {
             id: string;
@@ -2358,6 +2358,7 @@ export declare class ComposicaoEditalController {
             updatedBy: string | null;
             arquivoFonte: string | null;
             editalId: string;
+            versaoAtual: number;
             statusComposicao: import(".prisma/client").$Enums.StatusComposicaoEdital;
             processoAdministrativo: string | null;
             localRecebimento: string | null;
@@ -2376,7 +2377,6 @@ export declare class ComposicaoEditalController {
             origem: string;
             importacaoId: string | null;
             conteudoManual: string | null;
-            versaoAtual: number;
             publicadoEm: Date | null;
         }) | null;
     } & {
@@ -2388,15 +2388,15 @@ export declare class ComposicaoEditalController {
         updatedBy: string | null;
         escolaId: string | null;
         municipioId: string | null;
-        numero: string;
-        ano: number;
         titulo: string;
-        descricao: string | null;
         status: import(".prisma/client").$Enums.StatusEdital;
-        dataPublicacao: Date | null;
+        ano: number;
+        numero: string;
+        descricao: string | null;
         objeto: string | null;
         arquivoFonte: string | null;
         observacoes: string | null;
+        dataPublicacao: Date | null;
     }>;
     previa(id: string): Promise<{
         validacao: import("../../application/domain/validacao-geracao").ResultadoValidacao;
@@ -2527,8 +2527,8 @@ export declare class ComposicaoEditalController {
                     createdBy: string | null;
                     vigenciaInicio: Date | null;
                     vigenciaFim: Date | null;
-                    numero: number;
                     titulo: string;
+                    numero: number;
                     formato: import(".prisma/client").$Enums.FormatoTemplate;
                     arquivoBase: string | null;
                     conteudo: string | null;
@@ -2547,7 +2547,6 @@ export declare class ComposicaoEditalController {
                     vigenciaFim: Date | null;
                     titulo: string;
                     descricao: string | null;
-                    versaoAtual: number;
                     tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
                     numeroAnexo: number | null;
                     finalidade: string;
@@ -2557,16 +2556,17 @@ export declare class ComposicaoEditalController {
                     formato: import(".prisma/client").$Enums.FormatoTemplate;
                     arquivoBase: string | null;
                     conteudo: string | null;
+                    versaoAtual: number;
                 } | null;
             } & {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
                 titulo: string;
-                conteudoManual: string | null;
                 tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
                 ordem: number;
                 templateId: string | null;
+                conteudoManual: string | null;
                 incluido: boolean;
                 templateVersaoId: string | null;
                 documentoId: string;
@@ -2575,14 +2575,14 @@ export declare class ComposicaoEditalController {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                origem: string;
                 chave: string;
                 valor: string | null;
-                obrigatorio: boolean;
+                origem: string;
                 documentoId: string;
                 valorExtraido: string | null;
                 confianca: string | null;
                 paginaOrigem: number | null;
+                obrigatorio: boolean;
                 sensivel: boolean;
                 escopo: string;
                 statusRevisao: string;
@@ -2595,12 +2595,12 @@ export declare class ComposicaoEditalController {
                 ipAddress: string | null;
                 formato: string;
                 documentoId: string;
-                versaoId: string | null;
                 versaoNumero: number;
                 usuarioId: string | null;
                 usuarioNome: string | null;
                 arquivoPath: string | null;
                 mensagem: string | null;
+                versaoId: string | null;
             }[];
         } & {
             id: string;
@@ -2610,6 +2610,7 @@ export declare class ComposicaoEditalController {
             updatedBy: string | null;
             arquivoFonte: string | null;
             editalId: string;
+            versaoAtual: number;
             statusComposicao: import(".prisma/client").$Enums.StatusComposicaoEdital;
             processoAdministrativo: string | null;
             localRecebimento: string | null;
@@ -2628,7 +2629,6 @@ export declare class ComposicaoEditalController {
             origem: string;
             importacaoId: string | null;
             conteudoManual: string | null;
-            versaoAtual: number;
             publicadoEm: Date | null;
         }) | null;
     } & {
@@ -2640,15 +2640,15 @@ export declare class ComposicaoEditalController {
         updatedBy: string | null;
         escolaId: string | null;
         municipioId: string | null;
-        numero: string;
-        ano: number;
         titulo: string;
-        descricao: string | null;
         status: import(".prisma/client").$Enums.StatusEdital;
-        dataPublicacao: Date | null;
+        ano: number;
+        numero: string;
+        descricao: string | null;
         objeto: string | null;
         arquivoFonte: string | null;
         observacoes: string | null;
+        dataPublicacao: Date | null;
     }>;
     download(id: string, formato: string | undefined, res: Response): Promise<void>;
     private usuarioId;

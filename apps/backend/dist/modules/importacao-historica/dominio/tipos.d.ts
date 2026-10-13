@@ -211,6 +211,7 @@ export interface StagingEdital {
         documentosValidados: number;
         itensDoManifesto: number;
         itensExtraidosPdf: number;
+        blocosNaoItem: number;
     };
 }
 export interface VinculoInstitucional {

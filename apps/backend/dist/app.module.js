@@ -38,6 +38,7 @@ const prestacao_contas_module_1 = require("./modules/prestacao-contas/prestacao-
 const chamadas_publicas_module_1 = require("./modules/chamadas-publicas/chamadas-publicas.module");
 const gestao_operacional_module_1 = require("./modules/gestao-operacional/gestao-operacional.module");
 const produtor_painel_module_1 = require("./modules/produtor-painel/produtor-painel.module");
+const oportunidades_pnae_module_1 = require("./modules/oportunidades-pnae/oportunidades-pnae.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -75,6 +76,7 @@ exports.AppModule = AppModule = __decorate([
             chamadas_publicas_module_1.ChamadasPublicasModule,
             gestao_operacional_module_1.GestaoOperacionalModule,
             produtor_painel_module_1.ProdutorPainelModule,
+            oportunidades_pnae_module_1.OportunidadesPnaeModule,
         ],
         controllers: [health_controller_1.HealthController],
         providers: [

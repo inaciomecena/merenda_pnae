@@ -1,0 +1,21 @@
+CREATE TABLE `sdd011_interesses_oportunidade` (
+  `id` VARCHAR(191) NOT NULL,
+  `produtorId` VARCHAR(191) NOT NULL,
+  `chamadaId` VARCHAR(191) NOT NULL,
+  `editalItemId` VARCHAR(191) NOT NULL,
+  `quantidadePretendida` DECIMAL(14,4) NULL,
+  `observacoes` TEXT NULL,
+  `solicitarAssistencia` BOOLEAN NOT NULL DEFAULT false,
+  `status` ENUM('ATIVO','ATUALIZADO','CANCELADO') NOT NULL DEFAULT 'ATIVO',
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `updatedAt` DATETIME(3) NOT NULL,
+  `createdBy` VARCHAR(191) NULL,
+  `updatedBy` VARCHAR(191) NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `sdd011_interesse_unique` (`produtorId`,`chamadaId`,`editalItemId`),
+  KEY `sdd011_interesses_oportunidade_produtorId_status_updatedAt_idx` (`produtorId`,`status`,`updatedAt`),
+  KEY `sdd011_interesses_oportunidade_chamadaId_status_idx` (`chamadaId`,`status`),
+  CONSTRAINT `sdd011_interesse_produtor_fkey` FOREIGN KEY (`produtorId`) REFERENCES `produtores` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT `sdd011_interesse_chamada_fkey` FOREIGN KEY (`chamadaId`) REFERENCES `pnae_chamadas_publicas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `sdd011_interesse_item_fkey` FOREIGN KEY (`editalItemId`) REFERENCES `pnae_edital_itens` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

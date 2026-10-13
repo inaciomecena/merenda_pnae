@@ -1,6 +1,6 @@
 {
   "dre": "Juína",
-  "geradoEm": "2026-10-12T20:16:16.949Z",
+  "geradoEm": "2026-10-12T22:03:20.308Z",
   "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
   "procedimentos": [
     {
@@ -9,8 +9,8 @@
       "decisao": "APROVADO",
       "numero": "026/2024",
       "municipio": "Castanheira",
-      "itens": 40,
-      "pendencias": 27,
+      "itens": 105,
+      "pendencias": 124,
       "arquivos": [
         "PNAE_MT_2025/06_JUINA/DOC-0016_castanheiraedital--chamada-pUblica-2025docx-PO0m.pdf"
       ]
@@ -21,8 +21,8 @@
       "decisao": "APROVADO",
       "numero": "017/2024",
       "municipio": "Brasnorte",
-      "itens": 53,
-      "pendencias": 46,
+      "itens": 108,
+      "pendencias": 129,
       "arquivos": [
         "PNAE_MT_2025/06_JUINA/DOC-0017_brasnorteedital--chamada-pUblica-2025docx-ZQmt.pdf"
       ]
@@ -33,8 +33,8 @@
       "decisao": "APROVADO",
       "numero": "020/2024",
       "municipio": "Juína",
-      "itens": 43,
-      "pendencias": 37,
+      "itens": 108,
+      "pendencias": 130,
       "arquivos": [
         "PNAE_MT_2025/06_JUINA/DOC-0018_juinaedital--chamada-pUblica-2025-juinadocx-d5go.pdf"
       ]
@@ -45,8 +45,8 @@
       "decisao": "APROVADO",
       "numero": "019/2024",
       "municipio": "COTRIGUAÇU",
-      "itens": 44,
-      "pendencias": 36,
+      "itens": 106,
+      "pendencias": 128,
       "arquivos": [
         "PNAE_MT_2025/06_JUINA/DOC-0019_cotriguacuedital--chamada-pUblica-2025-t7Br.pdf",
         "PNAE_MT_2025/06_JUINA/DOC-0020_cotriguacuedital--chamada-pUblica-2025-2-MbYw.pdf"
@@ -58,8 +58,8 @@
       "decisao": "APROVADO",
       "numero": "025/2024",
       "municipio": "Novo Horizonte do Norte",
-      "itens": 42,
-      "pendencias": 35,
+      "itens": 107,
+      "pendencias": 129,
       "arquivos": [
         "PNAE_MT_2025/06_JUINA/DOC-0021_novo-horizonte-edital--chamada-pUblica-2025pos-parecer-2docx-FGAB.pdf"
       ]
@@ -70,8 +70,8 @@
       "decisao": "APROVADO",
       "numero": "024/2024",
       "municipio": "Porto dos Gaúchos",
-      "itens": 46,
-      "pendencias": 38,
+      "itens": 108,
+      "pendencias": 129,
       "arquivos": [
         "PNAE_MT_2025/06_JUINA/DOC-0022_porto-edital--chamada-pUblica-2025docx-1-zvmJ.pdf"
       ]
@@ -82,8 +82,8 @@
       "decisao": "APROVADO",
       "numero": "022/2024",
       "municipio": "JUARA",
-      "itens": 42,
-      "pendencias": 36,
+      "itens": 89,
+      "pendencias": 112,
       "arquivos": [
         "PNAE_MT_2025/06_JUINA/DOC-0023_juara-indigenaedital--chamada-pUblica-2025pos-parecer-1docx-5sZw.pdf"
       ]
@@ -94,8 +94,8 @@
       "decisao": "APROVADO",
       "numero": "021/2024",
       "municipio": "JUARA",
-      "itens": 47,
-      "pendencias": 42,
+      "itens": 107,
+      "pendencias": 125,
       "arquivos": [
         "PNAE_MT_2025/06_JUINA/DOC-0024_juaraedital-docx-atRm.pdf"
       ]
@@ -106,8 +106,8 @@
       "decisao": "APROVADO",
       "numero": "018/2024",
       "municipio": "Colniza",
-      "itens": 21,
-      "pendencias": 8,
+      "itens": 52,
+      "pendencias": 122,
       "arquivos": [
         "PNAE_MT_2025/06_JUINA/DOC-0025_colniza-chamada-pUblica-2025pos-parecer1docx-Wh1j.pdf"
       ]
@@ -118,8 +118,8 @@
       "decisao": "APROVADO",
       "numero": "015/2024",
       "municipio": "Aripuanã",
-      "itens": 46,
-      "pendencias": 40,
+      "itens": 107,
+      "pendencias": 130,
       "arquivos": [
         "PNAE_MT_2025/06_JUINA/DOC-0026_aripuana-edital--chamada-pUblica-2025pos-parecerdocx-1-gKjW.pdf",
         "PNAE_MT_2025/06_JUINA/DOC-0027_aripuana-edital--chamada-pUblica-2025pos-parecerdocx-1-xI4f.pdf"

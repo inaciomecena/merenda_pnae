@@ -266,6 +266,8 @@ export interface StagingEdital {
     documentosValidados: number;
     itensDoManifesto: number;
     itensExtraidosPdf: number;
+    /** Blocos descartados por não serem itens de produto (viram pendência). */
+    blocosNaoItem: number;
   };
 }
 

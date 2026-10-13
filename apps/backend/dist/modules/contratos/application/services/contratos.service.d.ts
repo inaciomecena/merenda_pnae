@@ -143,8 +143,8 @@ export declare class ContratosService {
         observacao: string | null;
         arquivoNome: string | null;
         versao: number;
-        aditivoId: string | null;
         contratoId: string;
+        aditivoId: string | null;
         mimeType: string | null;
         tamanhoBytes: number | null;
         hashSha256: string | null;
@@ -202,10 +202,10 @@ export declare class ContratosService {
             id: string;
             aditivoId: string;
             contratoItemId: string;
-            quantidadeNova: Prisma.Decimal;
-            valorUnitarioNovo: Prisma.Decimal;
             quantidadeAnterior: Prisma.Decimal;
+            quantidadeNova: Prisma.Decimal;
             valorUnitarioAnterior: Prisma.Decimal;
+            valorUnitarioNovo: Prisma.Decimal;
             valorTotalAnterior: Prisma.Decimal;
             valorTotalNovo: Prisma.Decimal;
         }[];
@@ -222,11 +222,11 @@ export declare class ContratosService {
         data: Date | null;
         tipo: import(".prisma/client").$Enums.TipoAditivoContrato;
         responsavelId: string | null;
-        justificativa: string;
-        tipoOutro: string | null;
-        valorAlteracao: Prisma.Decimal;
         numeroSequencial: number;
         contratoId: string;
+        tipoOutro: string | null;
+        justificativa: string;
+        valorAlteracao: Prisma.Decimal;
         formalizadoEm: Date | null;
     }>;
     formalizarAditivo(id: string, aditivoId: string, ctx: ContextoOperacao): Promise<any>;

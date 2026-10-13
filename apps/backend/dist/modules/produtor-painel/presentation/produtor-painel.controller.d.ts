@@ -1,6 +1,6 @@
 import { Request } from 'express';
 import { ProdutorPainelService } from '../application/produtor-painel.service';
-import { AssistenciaTecnicaDto, CatalogoSolicitacaoDto, DisponibilidadeDto, LogisticaDto, MapeamentoProdutoEditalDto, ProdutoProdutorPainelDto, SafraProducaoDto, SazonalidadeDto, UnidadeProdutivaDto } from './produtor-painel.dto';
+import { AssistenciaTecnicaDto, CatalogoQueryDto, CatalogoRevisaoDto, CatalogoSolicitacaoDto, DisponibilidadeDto, ListagemProdutorQueryDto, LogisticaDto, MapeamentoProdutoEditalDto, ProdutoProdutorPainelDto, SafraProducaoDto, SazonalidadeDto, UnidadeProdutivaDto } from './produtor-painel.dto';
 export declare class ProdutorPainelController {
     private readonly service;
     constructor(service: ProdutorPainelService);
@@ -13,12 +13,12 @@ export declare class ProdutorPainelController {
         produtor: {
             municipio: {
                 id: string;
-                nome: string;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
+                nome: string;
                 ativo: boolean;
                 nomeNormalizado: string | null;
                 uf: string;
@@ -26,18 +26,18 @@ export declare class ProdutorPainelController {
             };
         } & {
             id: string;
-            nome: string;
-            cpfCnpj: string | null;
-            municipioId: string;
-            endereco: string | null;
-            telefone: string | null;
-            dadosDocumentais: import("@prisma/client/runtime/library").JsonValue | null;
             active: boolean;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            municipioId: string;
+            nome: string;
+            endereco: string | null;
+            telefone: string | null;
+            cpfCnpj: string | null;
+            dadosDocumentais: import("@prisma/client/runtime/library").JsonValue | null;
         };
         indicadores: {
             unidades: number;
@@ -54,12 +54,12 @@ export declare class ProdutorPainelController {
     unidades(id: string, req: Request): Promise<({
         municipio: {
             id: string;
-            nome: string;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            nome: string;
             ativo: boolean;
             nomeNormalizado: string | null;
             uf: string;
@@ -67,85 +67,67 @@ export declare class ProdutorPainelController {
         };
     } & {
         id: string;
-        nome: string;
-        municipioId: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        municipioId: string;
+        nome: string;
         produtorId: string;
-        status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
-        comunidade: string | null;
-        descricao: string | null;
-        areaHectares: import("@prisma/client/runtime/library").Decimal | null;
         latitude: import("@prisma/client/runtime/library").Decimal | null;
         longitude: import("@prisma/client/runtime/library").Decimal | null;
+        status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
+        descricao: string | null;
         versao: number;
+        comunidade: string | null;
+        areaHectares: import("@prisma/client/runtime/library").Decimal | null;
     })[]>;
     criarUnidade(dto: UnidadeProdutivaDto, id: string, req: Request): Promise<{
         id: string;
-        nome: string;
-        municipioId: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        municipioId: string;
+        nome: string;
         produtorId: string;
-        status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
-        comunidade: string | null;
-        descricao: string | null;
-        areaHectares: import("@prisma/client/runtime/library").Decimal | null;
         latitude: import("@prisma/client/runtime/library").Decimal | null;
         longitude: import("@prisma/client/runtime/library").Decimal | null;
+        status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
+        descricao: string | null;
         versao: number;
+        comunidade: string | null;
+        areaHectares: import("@prisma/client/runtime/library").Decimal | null;
     }>;
     atualizarUnidade(id: string, dto: UnidadeProdutivaDto, req: Request): Promise<{
         id: string;
-        nome: string;
-        municipioId: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        municipioId: string;
+        nome: string;
         produtorId: string;
-        status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
-        comunidade: string | null;
-        descricao: string | null;
-        areaHectares: import("@prisma/client/runtime/library").Decimal | null;
         latitude: import("@prisma/client/runtime/library").Decimal | null;
         longitude: import("@prisma/client/runtime/library").Decimal | null;
+        status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
+        descricao: string | null;
         versao: number;
+        comunidade: string | null;
+        areaHectares: import("@prisma/client/runtime/library").Decimal | null;
     }>;
-    produtos(id: string, req: Request): Promise<({
-        unidadeProdutiva: {
-            id: string;
-            nome: string;
-            municipioId: string;
-            createdAt: Date;
-            updatedAt: Date;
-            deletedAt: Date | null;
-            createdBy: string | null;
-            updatedBy: string | null;
-            produtorId: string;
-            status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
-            comunidade: string | null;
-            descricao: string | null;
-            areaHectares: import("@prisma/client/runtime/library").Decimal | null;
-            latitude: import("@prisma/client/runtime/library").Decimal | null;
-            longitude: import("@prisma/client/runtime/library").Decimal | null;
-            versao: number;
-        } | null;
+    produtos(id: string, query: ListagemProdutorQueryDto, req: Request): Promise<({
         produtoReferencia: {
             id: string;
-            nome: string;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            nome: string;
             ativo: boolean;
             categoria: string | null;
             subcategoria: string | null;
@@ -153,6 +135,24 @@ export declare class ProdutorPainelController {
             palavrasChave: string | null;
             sinonimos: string | null;
             agriculturaFamiliar: boolean;
+        } | null;
+        unidadeProdutiva: {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
+            municipioId: string;
+            nome: string;
+            produtorId: string;
+            latitude: import("@prisma/client/runtime/library").Decimal | null;
+            longitude: import("@prisma/client/runtime/library").Decimal | null;
+            status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
+            descricao: string | null;
+            versao: number;
+            comunidade: string | null;
+            areaHectares: import("@prisma/client/runtime/library").Decimal | null;
         } | null;
     } & {
         id: string;
@@ -163,14 +163,70 @@ export declare class ProdutorPainelController {
         updatedBy: string | null;
         produtorId: string;
         status: import(".prisma/client").$Enums.StatusProdutoProdutor;
+        unidade: string | null;
+        produtoReferenciaId: string | null;
         produto: string;
         capacidade: string | null;
         periodoProducao: string | null;
         precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
-        unidade: string | null;
-        produtoReferenciaId: string | null;
         unidadeProdutivaId: string | null;
-    })[]>;
+    })[] | {
+        items: ({
+            produtoReferencia: {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                deletedAt: Date | null;
+                createdBy: string | null;
+                updatedBy: string | null;
+                nome: string;
+                ativo: boolean;
+                categoria: string | null;
+                subcategoria: string | null;
+                unidadePadrao: string | null;
+                palavrasChave: string | null;
+                sinonimos: string | null;
+                agriculturaFamiliar: boolean;
+            } | null;
+            unidadeProdutiva: {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                deletedAt: Date | null;
+                createdBy: string | null;
+                updatedBy: string | null;
+                municipioId: string;
+                nome: string;
+                produtorId: string;
+                latitude: import("@prisma/client/runtime/library").Decimal | null;
+                longitude: import("@prisma/client/runtime/library").Decimal | null;
+                status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
+                descricao: string | null;
+                versao: number;
+                comunidade: string | null;
+                areaHectares: import("@prisma/client/runtime/library").Decimal | null;
+            } | null;
+        } & {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
+            produtorId: string;
+            status: import(".prisma/client").$Enums.StatusProdutoProdutor;
+            unidade: string | null;
+            produtoReferenciaId: string | null;
+            produto: string;
+            capacidade: string | null;
+            periodoProducao: string | null;
+            precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
+            unidadeProdutivaId: string | null;
+        })[];
+        pagina: number;
+        limite: number;
+        total: number;
+    }>;
     criarProduto(dto: ProdutoProdutorPainelDto, id: string, req: Request): Promise<{
         id: string;
         createdAt: Date;
@@ -180,12 +236,12 @@ export declare class ProdutorPainelController {
         updatedBy: string | null;
         produtorId: string;
         status: import(".prisma/client").$Enums.StatusProdutoProdutor;
+        unidade: string | null;
+        produtoReferenciaId: string | null;
         produto: string;
         capacidade: string | null;
         periodoProducao: string | null;
         precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
-        unidade: string | null;
-        produtoReferenciaId: string | null;
         unidadeProdutivaId: string | null;
     }>;
     atualizarProduto(id: string, dto: ProdutoProdutorPainelDto, req: Request): Promise<{
@@ -197,32 +253,32 @@ export declare class ProdutorPainelController {
         updatedBy: string | null;
         produtorId: string;
         status: import(".prisma/client").$Enums.StatusProdutoProdutor;
+        unidade: string | null;
+        produtoReferenciaId: string | null;
         produto: string;
         capacidade: string | null;
         periodoProducao: string | null;
         precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
-        unidade: string | null;
-        produtoReferenciaId: string | null;
         unidadeProdutivaId: string | null;
     }>;
-    safras(id: string, req: Request): Promise<({
+    safras(id: string, query: ListagemProdutorQueryDto, req: Request): Promise<({
         unidadeProdutiva: {
             id: string;
-            nome: string;
-            municipioId: string;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            municipioId: string;
+            nome: string;
             produtorId: string;
-            status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
-            comunidade: string | null;
-            descricao: string | null;
-            areaHectares: import("@prisma/client/runtime/library").Decimal | null;
             latitude: import("@prisma/client/runtime/library").Decimal | null;
             longitude: import("@prisma/client/runtime/library").Decimal | null;
+            status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
+            descricao: string | null;
             versao: number;
+            comunidade: string | null;
+            areaHectares: import("@prisma/client/runtime/library").Decimal | null;
         } | null;
         produtoProdutor: {
             id: string;
@@ -233,84 +289,165 @@ export declare class ProdutorPainelController {
             updatedBy: string | null;
             produtorId: string;
             status: import(".prisma/client").$Enums.StatusProdutoProdutor;
+            unidade: string | null;
+            produtoReferenciaId: string | null;
             produto: string;
             capacidade: string | null;
             periodoProducao: string | null;
             precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
-            unidade: string | null;
-            produtoReferenciaId: string | null;
             unidadeProdutivaId: string | null;
         };
     } & {
         id: string;
-        nome: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        nome: string;
         produtorId: string;
         status: import(".prisma/client").$Enums.StatusSafraProducao;
-        versao: number;
+        observacoes: string | null;
         unidade: string;
         unidadeProdutivaId: string | null;
+        versao: number;
+        quantidadeReservada: import("@prisma/client/runtime/library").Decimal;
         produtoProdutorId: string;
         inicio: Date;
         fim: Date;
         quantidadePrevista: import("@prisma/client/runtime/library").Decimal;
         quantidadeColhida: import("@prisma/client/runtime/library").Decimal;
         perdas: import("@prisma/client/runtime/library").Decimal;
-        quantidadeReservada: import("@prisma/client/runtime/library").Decimal;
         quantidadeComprometida: import("@prisma/client/runtime/library").Decimal;
-        observacoes: string | null;
-    })[]>;
+    })[] | {
+        items: ({
+            unidadeProdutiva: {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                deletedAt: Date | null;
+                createdBy: string | null;
+                updatedBy: string | null;
+                municipioId: string;
+                nome: string;
+                produtorId: string;
+                latitude: import("@prisma/client/runtime/library").Decimal | null;
+                longitude: import("@prisma/client/runtime/library").Decimal | null;
+                status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
+                descricao: string | null;
+                versao: number;
+                comunidade: string | null;
+                areaHectares: import("@prisma/client/runtime/library").Decimal | null;
+            } | null;
+            produtoProdutor: {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                deletedAt: Date | null;
+                createdBy: string | null;
+                updatedBy: string | null;
+                produtorId: string;
+                status: import(".prisma/client").$Enums.StatusProdutoProdutor;
+                unidade: string | null;
+                produtoReferenciaId: string | null;
+                produto: string;
+                capacidade: string | null;
+                periodoProducao: string | null;
+                precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
+                unidadeProdutivaId: string | null;
+            };
+        } & {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
+            nome: string;
+            produtorId: string;
+            status: import(".prisma/client").$Enums.StatusSafraProducao;
+            observacoes: string | null;
+            unidade: string;
+            unidadeProdutivaId: string | null;
+            versao: number;
+            quantidadeReservada: import("@prisma/client/runtime/library").Decimal;
+            produtoProdutorId: string;
+            inicio: Date;
+            fim: Date;
+            quantidadePrevista: import("@prisma/client/runtime/library").Decimal;
+            quantidadeColhida: import("@prisma/client/runtime/library").Decimal;
+            perdas: import("@prisma/client/runtime/library").Decimal;
+            quantidadeComprometida: import("@prisma/client/runtime/library").Decimal;
+        })[];
+        pagina: number;
+        limite: number;
+        total: number;
+    }>;
     criarSafra(dto: SafraProducaoDto, id: string, req: Request): Promise<{
         id: string;
-        nome: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        nome: string;
         produtorId: string;
         status: import(".prisma/client").$Enums.StatusSafraProducao;
-        versao: number;
+        observacoes: string | null;
         unidade: string;
         unidadeProdutivaId: string | null;
+        versao: number;
+        quantidadeReservada: import("@prisma/client/runtime/library").Decimal;
         produtoProdutorId: string;
         inicio: Date;
         fim: Date;
         quantidadePrevista: import("@prisma/client/runtime/library").Decimal;
         quantidadeColhida: import("@prisma/client/runtime/library").Decimal;
         perdas: import("@prisma/client/runtime/library").Decimal;
-        quantidadeReservada: import("@prisma/client/runtime/library").Decimal;
         quantidadeComprometida: import("@prisma/client/runtime/library").Decimal;
-        observacoes: string | null;
     }>;
     atualizarSafra(id: string, dto: SafraProducaoDto, req: Request): Promise<{
         id: string;
-        nome: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        nome: string;
         produtorId: string;
         status: import(".prisma/client").$Enums.StatusSafraProducao;
-        versao: number;
+        observacoes: string | null;
         unidade: string;
         unidadeProdutivaId: string | null;
+        versao: number;
+        quantidadeReservada: import("@prisma/client/runtime/library").Decimal;
         produtoProdutorId: string;
         inicio: Date;
         fim: Date;
         quantidadePrevista: import("@prisma/client/runtime/library").Decimal;
         quantidadeColhida: import("@prisma/client/runtime/library").Decimal;
         perdas: import("@prisma/client/runtime/library").Decimal;
-        quantidadeReservada: import("@prisma/client/runtime/library").Decimal;
         quantidadeComprometida: import("@prisma/client/runtime/library").Decimal;
-        observacoes: string | null;
     }>;
-    sazonalidade(id: string, req: Request): Promise<({
+    sazonalidade(id: string, query: ListagemProdutorQueryDto, req: Request): Promise<({
+        unidadeProdutiva: {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
+            municipioId: string;
+            nome: string;
+            produtorId: string;
+            latitude: import("@prisma/client/runtime/library").Decimal | null;
+            longitude: import("@prisma/client/runtime/library").Decimal | null;
+            status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
+            descricao: string | null;
+            versao: number;
+            comunidade: string | null;
+            areaHectares: import("@prisma/client/runtime/library").Decimal | null;
+        } | null;
         produtoProdutor: {
             id: string;
             createdAt: Date;
@@ -320,12 +457,12 @@ export declare class ProdutorPainelController {
             updatedBy: string | null;
             produtorId: string;
             status: import(".prisma/client").$Enums.StatusProdutoProdutor;
+            unidade: string | null;
+            produtoReferenciaId: string | null;
             produto: string;
             capacidade: string | null;
             periodoProducao: string | null;
             precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
-            unidade: string | null;
-            produtoReferenciaId: string | null;
             unidadeProdutivaId: string | null;
         };
     } & {
@@ -335,13 +472,73 @@ export declare class ProdutorPainelController {
         createdBy: string | null;
         updatedBy: string | null;
         produtorId: string;
+        observacoes: string | null;
         unidade: string;
+        unidadeProdutivaId: string | null;
+        mes: number;
         produtoProdutorId: string;
         quantidadePrevista: import("@prisma/client/runtime/library").Decimal;
-        observacoes: string | null;
+        anoReferencia: number | null;
         safraProducaoId: string | null;
-        mes: number;
-    })[]>;
+        tipoPeriodo: string | null;
+    })[] | {
+        items: ({
+            unidadeProdutiva: {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                deletedAt: Date | null;
+                createdBy: string | null;
+                updatedBy: string | null;
+                municipioId: string;
+                nome: string;
+                produtorId: string;
+                latitude: import("@prisma/client/runtime/library").Decimal | null;
+                longitude: import("@prisma/client/runtime/library").Decimal | null;
+                status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
+                descricao: string | null;
+                versao: number;
+                comunidade: string | null;
+                areaHectares: import("@prisma/client/runtime/library").Decimal | null;
+            } | null;
+            produtoProdutor: {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                deletedAt: Date | null;
+                createdBy: string | null;
+                updatedBy: string | null;
+                produtorId: string;
+                status: import(".prisma/client").$Enums.StatusProdutoProdutor;
+                unidade: string | null;
+                produtoReferenciaId: string | null;
+                produto: string;
+                capacidade: string | null;
+                periodoProducao: string | null;
+                precoSugerido: import("@prisma/client/runtime/library").Decimal | null;
+                unidadeProdutivaId: string | null;
+            };
+        } & {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            createdBy: string | null;
+            updatedBy: string | null;
+            produtorId: string;
+            observacoes: string | null;
+            unidade: string;
+            unidadeProdutivaId: string | null;
+            mes: number;
+            produtoProdutorId: string;
+            quantidadePrevista: import("@prisma/client/runtime/library").Decimal;
+            anoReferencia: number | null;
+            safraProducaoId: string | null;
+            tipoPeriodo: string | null;
+        })[];
+        pagina: number;
+        limite: number;
+        total: number;
+    }>;
     criarSazonalidade(dto: SazonalidadeDto, id: string, req: Request): Promise<{
         id: string;
         createdAt: Date;
@@ -349,12 +546,15 @@ export declare class ProdutorPainelController {
         createdBy: string | null;
         updatedBy: string | null;
         produtorId: string;
+        observacoes: string | null;
         unidade: string;
+        unidadeProdutivaId: string | null;
+        mes: number;
         produtoProdutorId: string;
         quantidadePrevista: import("@prisma/client/runtime/library").Decimal;
-        observacoes: string | null;
+        anoReferencia: number | null;
         safraProducaoId: string | null;
-        mes: number;
+        tipoPeriodo: string | null;
     }>;
     disponibilidade(id: string, req: Request): Promise<any[]>;
     criarDisponibilidade(dto: DisponibilidadeDto, id: string, req: Request): Promise<{
@@ -365,15 +565,15 @@ export declare class ProdutorPainelController {
         updatedBy: string | null;
         produtorId: string;
         status: import(".prisma/client").$Enums.StatusDisponibilidadeProducao;
-        unidade: string;
-        produtoProdutorId: string;
         observacoes: string | null;
-        safraProducaoId: string;
         quantidade: import("@prisma/client/runtime/library").Decimal;
+        unidade: string;
         origem: string;
-        origemId: string | null;
         periodoInicio: Date | null;
         periodoFim: Date | null;
+        produtoProdutorId: string;
+        safraProducaoId: string;
+        origemId: string | null;
     }>;
     logistica(id: string, req: Request): Promise<{
         id: string;
@@ -381,10 +581,10 @@ export declare class ProdutorPainelController {
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
-        produtorId: string;
         ativo: boolean;
-        versao: number;
+        produtorId: string;
         observacoes: string | null;
+        versao: number;
         modalidade: string;
         municipiosAtendidos: string | null;
         capacidadeDiaria: import("@prisma/client/runtime/library").Decimal | null;
@@ -397,10 +597,10 @@ export declare class ProdutorPainelController {
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
-        produtorId: string;
         ativo: boolean;
-        versao: number;
+        produtorId: string;
         observacoes: string | null;
+        versao: number;
         modalidade: string;
         municipiosAtendidos: string | null;
         capacidadeDiaria: import("@prisma/client/runtime/library").Decimal | null;
@@ -413,10 +613,10 @@ export declare class ProdutorPainelController {
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
-        produtorId: string;
         ativo: boolean;
-        versao: number;
+        produtorId: string;
         observacoes: string | null;
+        versao: number;
         modalidade: string;
         municipiosAtendidos: string | null;
         capacidadeDiaria: import("@prisma/client/runtime/library").Decimal | null;
@@ -436,12 +636,12 @@ export declare class ProdutorPainelController {
         createdBy: string | null;
         updatedBy: string | null;
         produtorId: string;
-        status: import(".prisma/client").$Enums.StatusAssistenciaTecnica;
-        observacoes: string | null;
-        extensionistaId: string;
-        escopo: string | null;
         vigenciaInicio: Date;
         vigenciaFim: Date | null;
+        status: import(".prisma/client").$Enums.StatusAssistenciaTecnica;
+        observacoes: string | null;
+        escopo: string | null;
+        extensionistaId: string;
     })[]>;
     criarAssistencia(dto: AssistenciaTecnicaDto, req: Request): Promise<{
         id: string;
@@ -450,12 +650,12 @@ export declare class ProdutorPainelController {
         createdBy: string | null;
         updatedBy: string | null;
         produtorId: string;
-        status: import(".prisma/client").$Enums.StatusAssistenciaTecnica;
-        observacoes: string | null;
-        extensionistaId: string;
-        escopo: string | null;
         vigenciaInicio: Date;
         vigenciaFim: Date | null;
+        status: import(".prisma/client").$Enums.StatusAssistenciaTecnica;
+        observacoes: string | null;
+        escopo: string | null;
+        extensionistaId: string;
     }>;
     atualizarAssistencia(id: string, dto: Partial<AssistenciaTecnicaDto>, req: Request): Promise<{
         id: string;
@@ -464,12 +664,12 @@ export declare class ProdutorPainelController {
         createdBy: string | null;
         updatedBy: string | null;
         produtorId: string;
-        status: import(".prisma/client").$Enums.StatusAssistenciaTecnica;
-        observacoes: string | null;
-        extensionistaId: string;
-        escopo: string | null;
         vigenciaInicio: Date;
         vigenciaFim: Date | null;
+        status: import(".prisma/client").$Enums.StatusAssistenciaTecnica;
+        observacoes: string | null;
+        escopo: string | null;
+        extensionistaId: string;
     }>;
     mapear(dto: MapeamentoProdutoEditalDto, id: string, req: Request): Promise<{
         id: string;
@@ -479,9 +679,9 @@ export declare class ProdutorPainelController {
         updatedBy: string | null;
         produtorId: string;
         produtoReferenciaId: string | null;
-        produtoProdutorId: string;
-        justificativa: string | null;
         editalItemId: string;
+        justificativa: string | null;
+        produtoProdutorId: string;
         compatibilidade: import("@prisma/client/runtime/library").Decimal | null;
         revisaoStatus: string;
         revisadoPor: string | null;
@@ -495,9 +695,9 @@ export declare class ProdutorPainelController {
         updatedBy: string | null;
         produtorId: string;
         produtoReferenciaId: string | null;
-        produtoProdutorId: string;
-        justificativa: string | null;
         editalItemId: string;
+        justificativa: string | null;
+        produtoProdutorId: string;
         compatibilidade: import("@prisma/client/runtime/library").Decimal | null;
         revisaoStatus: string;
         revisadoPor: string | null;
@@ -507,7 +707,7 @@ export declare class ProdutorPainelController {
 export declare class CatalogoProdutosController {
     private readonly service;
     constructor(service: ProdutorPainelService);
-    listar(): Promise<({
+    listar(query: CatalogoQueryDto): Promise<({
         informacoesNutricionais: {
             id: string;
             createdAt: Date;
@@ -515,8 +715,8 @@ export declare class CatalogoProdutosController {
             createdBy: string | null;
             updatedBy: string | null;
             status: import(".prisma/client").$Enums.StatusNutricional;
-            produtoReferenciaId: string;
             observacoes: string | null;
+            produtoReferenciaId: string;
             fonte: string;
             versaoFonte: string | null;
             estadoAlimento: string | null;
@@ -532,12 +732,12 @@ export declare class CatalogoProdutosController {
         }[];
     } & {
         id: string;
-        nome: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        nome: string;
         ativo: boolean;
         categoria: string | null;
         subcategoria: string | null;
@@ -545,7 +745,84 @@ export declare class CatalogoProdutosController {
         palavrasChave: string | null;
         sinonimos: string | null;
         agriculturaFamiliar: boolean;
+    })[] | {
+        items: ({
+            informacoesNutricionais: {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                createdBy: string | null;
+                updatedBy: string | null;
+                status: import(".prisma/client").$Enums.StatusNutricional;
+                observacoes: string | null;
+                produtoReferenciaId: string;
+                fonte: string;
+                versaoFonte: string | null;
+                estadoAlimento: string | null;
+                porcao: string | null;
+                energiaKcal: import("@prisma/client/runtime/library").Decimal | null;
+                proteinaG: import("@prisma/client/runtime/library").Decimal | null;
+                carboidratoG: import("@prisma/client/runtime/library").Decimal | null;
+                lipidiosG: import("@prisma/client/runtime/library").Decimal | null;
+                fibraG: import("@prisma/client/runtime/library").Decimal | null;
+                sodioMg: import("@prisma/client/runtime/library").Decimal | null;
+                validadoPor: string | null;
+                validadoEm: Date | null;
+            }[];
+        } & {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
+            nome: string;
+            ativo: boolean;
+            categoria: string | null;
+            subcategoria: string | null;
+            unidadePadrao: string | null;
+            palavrasChave: string | null;
+            sinonimos: string | null;
+            agriculturaFamiliar: boolean;
+        })[];
+        pagina: number;
+        limite: number;
+        total: number;
+    }>;
+    solicitacoes(req: Request): Promise<({
+        solicitante: {
+            id: string;
+            name: string;
+            email: string;
+        };
+    } & {
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        nome: string;
+        status: string;
+        observacoes: string | null;
+        categoria: string | null;
+        unidadePadrao: string | null;
+        analisadoEm: Date | null;
+        analisadoPor: string | null;
+        justificativa: string | null;
+        solicitanteId: string;
     })[]>;
+    revisarSolicitacao(id: string, dto: CatalogoRevisaoDto, req: Request): Promise<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        nome: string;
+        status: string;
+        observacoes: string | null;
+        categoria: string | null;
+        unidadePadrao: string | null;
+        analisadoEm: Date | null;
+        analisadoPor: string | null;
+        justificativa: string | null;
+        solicitanteId: string;
+    }>;
     nutricao(id: string): Promise<{
         id: string;
         createdAt: Date;
@@ -553,8 +830,8 @@ export declare class CatalogoProdutosController {
         createdBy: string | null;
         updatedBy: string | null;
         status: import(".prisma/client").$Enums.StatusNutricional;
-        produtoReferenciaId: string;
         observacoes: string | null;
+        produtoReferenciaId: string;
         fonte: string;
         versaoFonte: string | null;
         estadoAlimento: string | null;
@@ -576,8 +853,8 @@ export declare class CatalogoProdutosController {
             createdBy: string | null;
             updatedBy: string | null;
             status: import(".prisma/client").$Enums.StatusNutricional;
-            produtoReferenciaId: string;
             observacoes: string | null;
+            produtoReferenciaId: string;
             fonte: string;
             versaoFonte: string | null;
             estadoAlimento: string | null;
@@ -593,12 +870,12 @@ export declare class CatalogoProdutosController {
         }[];
     } & {
         id: string;
-        nome: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        nome: string;
         ativo: boolean;
         categoria: string | null;
         subcategoria: string | null;
@@ -609,16 +886,16 @@ export declare class CatalogoProdutosController {
     }>;
     solicitar(dto: CatalogoSolicitacaoDto, req: Request): Promise<{
         id: string;
-        nome: string;
         createdAt: Date;
         updatedAt: Date;
+        nome: string;
         status: string;
+        observacoes: string | null;
         categoria: string | null;
         unidadePadrao: string | null;
-        observacoes: string | null;
-        justificativa: string | null;
-        analisadoPor: string | null;
         analisadoEm: Date | null;
+        analisadoPor: string | null;
+        justificativa: string | null;
         solicitanteId: string;
     }>;
 }

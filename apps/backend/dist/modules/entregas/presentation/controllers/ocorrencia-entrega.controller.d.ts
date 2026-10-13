@@ -36,9 +36,9 @@ export declare class OcorrenciaEntregaController {
             quantidadeAceita: import("@prisma/client/runtime/library").Decimal;
             quantidadeInformada: import("@prisma/client/runtime/library").Decimal;
             quantidadeRejeitada: import("@prisma/client/runtime/library").Decimal;
+            entregaId: string;
             programacaoItemId: string;
             motivoRejeicao: string | null;
-            entregaId: string;
         }) | null;
         entrega: {
             fornecedor: {
@@ -56,8 +56,8 @@ export declare class OcorrenciaEntregaController {
             updatedBy: string | null;
             municipioId: string | null;
             dreId: string;
-            numero: string;
             status: import(".prisma/client").$Enums.StatusEntrega;
+            numero: string;
             observacoes: string | null;
             programacaoId: string;
             fornecedorId: string;
@@ -76,15 +76,15 @@ export declare class OcorrenciaEntregaController {
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        descricao: string;
         status: import(".prisma/client").$Enums.StatusOcorrenciaEntrega;
+        descricao: string;
         tipo: import(".prisma/client").$Enums.TipoOcorrenciaEntrega;
         responsavelId: string | null;
+        entregaId: string;
         entregaItemId: string | null;
+        dataOcorrencia: Date;
         evidencias: string | null;
         tratativa: string | null;
-        entregaId: string;
-        dataOcorrencia: Date;
         dataResolucao: Date | null;
         resolvidaPor: string | null;
     }>;
@@ -121,9 +121,9 @@ export declare class OcorrenciaEntregaController {
             quantidadeAceita: import("@prisma/client/runtime/library").Decimal;
             quantidadeInformada: import("@prisma/client/runtime/library").Decimal;
             quantidadeRejeitada: import("@prisma/client/runtime/library").Decimal;
+            entregaId: string;
             programacaoItemId: string;
             motivoRejeicao: string | null;
-            entregaId: string;
         }) | null;
         entrega: {
             numero: string;
@@ -142,15 +142,15 @@ export declare class OcorrenciaEntregaController {
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        descricao: string;
         status: import(".prisma/client").$Enums.StatusOcorrenciaEntrega;
+        descricao: string;
         tipo: import(".prisma/client").$Enums.TipoOcorrenciaEntrega;
         responsavelId: string | null;
+        entregaId: string;
         entregaItemId: string | null;
+        dataOcorrencia: Date;
         evidencias: string | null;
         tratativa: string | null;
-        entregaId: string;
-        dataOcorrencia: Date;
         dataResolucao: Date | null;
         resolvidaPor: string | null;
     })[]>;
@@ -191,9 +191,9 @@ export declare class OcorrenciaEntregaGlobalController {
             quantidadeAceita: import("@prisma/client/runtime/library").Decimal;
             quantidadeInformada: import("@prisma/client/runtime/library").Decimal;
             quantidadeRejeitada: import("@prisma/client/runtime/library").Decimal;
+            entregaId: string;
             programacaoItemId: string;
             motivoRejeicao: string | null;
-            entregaId: string;
         }) | null;
         entrega: {
             numero: string;
@@ -212,15 +212,15 @@ export declare class OcorrenciaEntregaGlobalController {
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        descricao: string;
         status: import(".prisma/client").$Enums.StatusOcorrenciaEntrega;
+        descricao: string;
         tipo: import(".prisma/client").$Enums.TipoOcorrenciaEntrega;
         responsavelId: string | null;
+        entregaId: string;
         entregaItemId: string | null;
+        dataOcorrencia: Date;
         evidencias: string | null;
         tratativa: string | null;
-        entregaId: string;
-        dataOcorrencia: Date;
         dataResolucao: Date | null;
         resolvidaPor: string | null;
     })[]>;
@@ -257,9 +257,9 @@ export declare class OcorrenciaEntregaGlobalController {
             quantidadeAceita: import("@prisma/client/runtime/library").Decimal;
             quantidadeInformada: import("@prisma/client/runtime/library").Decimal;
             quantidadeRejeitada: import("@prisma/client/runtime/library").Decimal;
+            entregaId: string;
             programacaoItemId: string;
             motivoRejeicao: string | null;
-            entregaId: string;
         }) | null;
         entrega: {
             fornecedor: {
@@ -277,8 +277,8 @@ export declare class OcorrenciaEntregaGlobalController {
             updatedBy: string | null;
             municipioId: string | null;
             dreId: string;
-            numero: string;
             status: import(".prisma/client").$Enums.StatusEntrega;
+            numero: string;
             observacoes: string | null;
             programacaoId: string;
             fornecedorId: string;
@@ -297,15 +297,15 @@ export declare class OcorrenciaEntregaGlobalController {
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        descricao: string;
         status: import(".prisma/client").$Enums.StatusOcorrenciaEntrega;
+        descricao: string;
         tipo: import(".prisma/client").$Enums.TipoOcorrenciaEntrega;
         responsavelId: string | null;
+        entregaId: string;
         entregaItemId: string | null;
+        dataOcorrencia: Date;
         evidencias: string | null;
         tratativa: string | null;
-        entregaId: string;
-        dataOcorrencia: Date;
         dataResolucao: Date | null;
         resolvidaPor: string | null;
     }>;
@@ -342,9 +342,9 @@ export declare class OcorrenciaEntregaGlobalController {
             quantidadeAceita: import("@prisma/client/runtime/library").Decimal;
             quantidadeInformada: import("@prisma/client/runtime/library").Decimal;
             quantidadeRejeitada: import("@prisma/client/runtime/library").Decimal;
+            entregaId: string;
             programacaoItemId: string;
             motivoRejeicao: string | null;
-            entregaId: string;
         }) | null;
         entrega: {
             fornecedor: {
@@ -362,8 +362,8 @@ export declare class OcorrenciaEntregaGlobalController {
             updatedBy: string | null;
             municipioId: string | null;
             dreId: string;
-            numero: string;
             status: import(".prisma/client").$Enums.StatusEntrega;
+            numero: string;
             observacoes: string | null;
             programacaoId: string;
             fornecedorId: string;
@@ -382,15 +382,15 @@ export declare class OcorrenciaEntregaGlobalController {
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        descricao: string;
         status: import(".prisma/client").$Enums.StatusOcorrenciaEntrega;
+        descricao: string;
         tipo: import(".prisma/client").$Enums.TipoOcorrenciaEntrega;
         responsavelId: string | null;
+        entregaId: string;
         entregaItemId: string | null;
+        dataOcorrencia: Date;
         evidencias: string | null;
         tratativa: string | null;
-        entregaId: string;
-        dataOcorrencia: Date;
         dataResolucao: Date | null;
         resolvidaPor: string | null;
     }>;
@@ -427,9 +427,9 @@ export declare class OcorrenciaEntregaGlobalController {
             quantidadeAceita: import("@prisma/client/runtime/library").Decimal;
             quantidadeInformada: import("@prisma/client/runtime/library").Decimal;
             quantidadeRejeitada: import("@prisma/client/runtime/library").Decimal;
+            entregaId: string;
             programacaoItemId: string;
             motivoRejeicao: string | null;
-            entregaId: string;
         }) | null;
         entrega: {
             fornecedor: {
@@ -447,8 +447,8 @@ export declare class OcorrenciaEntregaGlobalController {
             updatedBy: string | null;
             municipioId: string | null;
             dreId: string;
-            numero: string;
             status: import(".prisma/client").$Enums.StatusEntrega;
+            numero: string;
             observacoes: string | null;
             programacaoId: string;
             fornecedorId: string;
@@ -467,15 +467,15 @@ export declare class OcorrenciaEntregaGlobalController {
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        descricao: string;
         status: import(".prisma/client").$Enums.StatusOcorrenciaEntrega;
+        descricao: string;
         tipo: import(".prisma/client").$Enums.TipoOcorrenciaEntrega;
         responsavelId: string | null;
+        entregaId: string;
         entregaItemId: string | null;
+        dataOcorrencia: Date;
         evidencias: string | null;
         tratativa: string | null;
-        entregaId: string;
-        dataOcorrencia: Date;
         dataResolucao: Date | null;
         resolvidaPor: string | null;
     }>;

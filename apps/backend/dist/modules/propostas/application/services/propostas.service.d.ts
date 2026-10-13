@@ -31,15 +31,15 @@ export declare class PropostasService {
                 updatedBy: string | null;
                 escolaId: string | null;
                 municipioId: string | null;
-                numero: string;
-                ano: number;
                 titulo: string;
-                descricao: string | null;
                 status: import(".prisma/client").$Enums.StatusEdital;
-                dataPublicacao: Date | null;
+                ano: number;
+                numero: string;
+                descricao: string | null;
                 objeto: string | null;
                 arquivoFonte: string | null;
                 observacoes: string | null;
+                dataPublicacao: Date | null;
             };
             produtor: ({
                 municipio: {
@@ -95,8 +95,8 @@ export declare class PropostasService {
             createdBy: string | null;
             updatedBy: string | null;
             produtorId: string | null;
-            numero: string | null;
             status: import(".prisma/client").$Enums.StatusProposta;
+            numero: string | null;
             editalId: string;
             valorTotal: Prisma.Decimal | null;
             observacao: string | null;
@@ -143,15 +143,15 @@ export declare class PropostasService {
             updatedBy: string | null;
             escolaId: string | null;
             municipioId: string | null;
-            numero: string;
-            ano: number;
             titulo: string;
-            descricao: string | null;
             status: import(".prisma/client").$Enums.StatusEdital;
-            dataPublicacao: Date | null;
+            ano: number;
+            numero: string;
+            descricao: string | null;
             objeto: string | null;
             arquivoFonte: string | null;
             observacoes: string | null;
+            dataPublicacao: Date | null;
         };
         produtor: ({
             municipio: {
@@ -207,8 +207,8 @@ export declare class PropostasService {
         createdBy: string | null;
         updatedBy: string | null;
         produtorId: string | null;
-        numero: string | null;
         status: import(".prisma/client").$Enums.StatusProposta;
+        numero: string | null;
         editalId: string;
         valorTotal: Prisma.Decimal | null;
         observacao: string | null;
@@ -251,15 +251,15 @@ export declare class PropostasService {
             updatedBy: string | null;
             escolaId: string | null;
             municipioId: string | null;
-            numero: string;
-            ano: number;
             titulo: string;
-            descricao: string | null;
             status: import(".prisma/client").$Enums.StatusEdital;
-            dataPublicacao: Date | null;
+            ano: number;
+            numero: string;
+            descricao: string | null;
             objeto: string | null;
             arquivoFonte: string | null;
             observacoes: string | null;
+            dataPublicacao: Date | null;
         };
         produtor: ({
             municipio: {
@@ -315,8 +315,8 @@ export declare class PropostasService {
         createdBy: string | null;
         updatedBy: string | null;
         produtorId: string | null;
-        numero: string | null;
         status: import(".prisma/client").$Enums.StatusProposta;
+        numero: string | null;
         editalId: string;
         valorTotal: Prisma.Decimal | null;
         observacao: string | null;
@@ -358,15 +358,15 @@ export declare class PropostasService {
             updatedBy: string | null;
             escolaId: string | null;
             municipioId: string | null;
-            numero: string;
-            ano: number;
             titulo: string;
-            descricao: string | null;
             status: import(".prisma/client").$Enums.StatusEdital;
-            dataPublicacao: Date | null;
+            ano: number;
+            numero: string;
+            descricao: string | null;
             objeto: string | null;
             arquivoFonte: string | null;
             observacoes: string | null;
+            dataPublicacao: Date | null;
         };
         produtor: ({
             municipio: {
@@ -422,8 +422,8 @@ export declare class PropostasService {
         createdBy: string | null;
         updatedBy: string | null;
         produtorId: string | null;
-        numero: string | null;
         status: import(".prisma/client").$Enums.StatusProposta;
+        numero: string | null;
         editalId: string;
         valorTotal: Prisma.Decimal | null;
         observacao: string | null;
@@ -465,15 +465,15 @@ export declare class PropostasService {
             updatedBy: string | null;
             escolaId: string | null;
             municipioId: string | null;
-            numero: string;
-            ano: number;
             titulo: string;
-            descricao: string | null;
             status: import(".prisma/client").$Enums.StatusEdital;
-            dataPublicacao: Date | null;
+            ano: number;
+            numero: string;
+            descricao: string | null;
             objeto: string | null;
             arquivoFonte: string | null;
             observacoes: string | null;
+            dataPublicacao: Date | null;
         };
         produtor: ({
             municipio: {
@@ -529,8 +529,8 @@ export declare class PropostasService {
         createdBy: string | null;
         updatedBy: string | null;
         produtorId: string | null;
-        numero: string | null;
         status: import(".prisma/client").$Enums.StatusProposta;
+        numero: string | null;
         editalId: string;
         valorTotal: Prisma.Decimal | null;
         observacao: string | null;
@@ -566,15 +566,15 @@ export declare class PropostasService {
             updatedBy: string | null;
             escolaId: string | null;
             municipioId: string | null;
-            numero: string;
-            ano: number;
             titulo: string;
-            descricao: string | null;
             status: import(".prisma/client").$Enums.StatusEdital;
-            dataPublicacao: Date | null;
+            ano: number;
+            numero: string;
+            descricao: string | null;
             objeto: string | null;
             arquivoFonte: string | null;
             observacoes: string | null;
+            dataPublicacao: Date | null;
         };
         produtor: ({
             municipio: {
@@ -630,8 +630,8 @@ export declare class PropostasService {
         createdBy: string | null;
         updatedBy: string | null;
         produtorId: string | null;
-        numero: string | null;
         status: import(".prisma/client").$Enums.StatusProposta;
+        numero: string | null;
         editalId: string;
         valorTotal: Prisma.Decimal | null;
         observacao: string | null;
@@ -657,8 +657,8 @@ export declare class PropostasService {
         createdBy: string | null;
         updatedBy: string | null;
         produtorId: string | null;
-        numero: string | null;
         status: import(".prisma/client").$Enums.StatusProposta;
+        numero: string | null;
         editalId: string;
         valorTotal: Prisma.Decimal | null;
         observacao: string | null;

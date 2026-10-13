@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-10-13T01:13:10.132Z",
+  "status": "PASS_WITH_LIMITATIONS",
+  "database": "merenda_pnae_sdd011_20261012_v2",
+  "scenarioCounts": { "PASS": 15, "FAIL": 0, "BLOCKED": 69, "NOT_APPLICABLE": 0 },
+  "executed": {
+    "databaseMigrationAndIntegrity": { "result": "PASS", "scenarios": 7, "evidence": "output/e2e/sdd011-migrations-last-run.json" },
+    "playwrightChromium": { "result": "PASS", "scenarios": 4, "evidence": "output/e2e/sdd011-mobile/oportunidades-*-chromium.png" },
+    "playwrightWebKit": { "result": "PASS", "scenarios": 4, "evidence": "output/e2e/sdd011-mobile/oportunidades-*-webkit.png" }
+  },
+  "blocked": [
+    { "group": "E2E HTTP completo", "reason": "Não havia backend iniciado com fixture/JWT e criação de edital isolado automatizada neste ambiente." },
+    { "group": "Regressão histórica SDD-005 a SDD-009", "reason": "Harnesses existentes dependem de isolamento/fixtures próprios; não foram tratados como PASS do SDD-011." },
+    { "group": "Build oficial Nest/frontend", "reason": "TS5033 ao gravar artefatos em dist/tsbuildinfo; compilação sem emissão incremental passou." }
+  ]
+}

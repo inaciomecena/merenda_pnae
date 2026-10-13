@@ -170,6 +170,12 @@ enum StatusInscricaoChamada {
   CANCELADA
 }
 
+enum StatusInteresseOportunidade {
+  ATIVO
+  ATUALIZADO
+  CANCELADO
+}
+
 enum StatusHabilitacaoChamada {
   PENDENTE
   EM_ANALISE
@@ -368,6 +374,7 @@ model EditalItem {
   contratoItens            ContratoItem[]
   classificacoes           ClassificacaoProjeto[]
   mapeamentosProduto       MapeamentoProdutoEdital[]
+  interessesOportunidade   InteresseOportunidade[] @relation("InteresseEditalItem")
 
   @@map("pnae_edital_itens")
 }
@@ -429,6 +436,7 @@ model Produtor {
   logistica            LogisticaProdutor[]
   assistenciasTecnicas VinculoAssistenciaTecnica[] @relation("AssistenciaProdutor")
   mapeamentosProduto   MapeamentoProdutoEdital[]
+  interessesOportunidade InteresseOportunidade[] @relation("InteresseProdutor")
 
   @@map("produtores")
 }
@@ -462,26 +470,27 @@ model ProdutorProduto {
 }
 
 model UnidadeProdutiva {
-  id           String                 @id @default(uuid())
-  produtorId   String
-  produtor     Produtor               @relation(fields: [produtorId], references: [id], onDelete: Cascade)
-  municipioId  String
-  municipio    Municipio              @relation(fields: [municipioId], references: [id], onDelete: Restrict)
-  nome         String
-  comunidade   String?
-  descricao    String?                @db.Text
-  areaHectares Decimal?               @db.Decimal(12, 4)
-  latitude     Decimal?               @db.Decimal(12, 8)
-  longitude    Decimal?               @db.Decimal(12, 8)
-  status       StatusUnidadeProdutiva @default(ATIVA)
-  versao       Int                    @default(1)
-  createdAt    DateTime               @default(now())
-  updatedAt    DateTime               @updatedAt
-  deletedAt    DateTime?
-  createdBy    String?
-  updatedBy    String?
-  produtos     ProdutorProduto[]
-  safras       SafraProducao[]
+  id            String                 @id @default(uuid())
+  produtorId    String
+  produtor      Produtor               @relation(fields: [produtorId], references: [id], onDelete: Cascade)
+  municipioId   String
+  municipio     Municipio              @relation(fields: [municipioId], references: [id], onDelete: Restrict)
+  nome          String
+  comunidade    String?
+  descricao     String?                @db.Text
+  areaHectares  Decimal?               @db.Decimal(12, 4)
+  latitude      Decimal?               @db.Decimal(12, 8)
+  longitude     Decimal?               @db.Decimal(12, 8)
+  status        StatusUnidadeProdutiva @default(ATIVA)
+  versao        Int                    @default(1)
+  createdAt     DateTime               @default(now())
+  updatedAt     DateTime               @updatedAt
+  deletedAt     DateTime?
+  createdBy     String?
+  updatedBy     String?
+  produtos      ProdutorProduto[]
+  safras        SafraProducao[]
+  sazonalidades SazonalidadeProducao[]
 
   @@index([produtorId, status])
   @@index([municipioId])
@@ -522,24 +531,29 @@ model SafraProducao {
 }
 
 model SazonalidadeProducao {
-  id                 String          @id @default(uuid())
+  id                 String            @id @default(uuid())
   produtorId         String
-  produtor           Produtor        @relation(fields: [produtorId], references: [id], onDelete: Cascade)
+  produtor           Produtor          @relation(fields: [produtorId], references: [id], onDelete: Cascade)
   safraProducaoId    String?
-  safraProducao      SafraProducao?  @relation(fields: [safraProducaoId], references: [id], onDelete: Cascade)
+  safraProducao      SafraProducao?    @relation(fields: [safraProducaoId], references: [id], onDelete: Cascade)
   produtoProdutorId  String
-  produtoProdutor    ProdutorProduto @relation(fields: [produtoProdutorId], references: [id], onDelete: Restrict)
+  produtoProdutor    ProdutorProduto   @relation(fields: [produtoProdutorId], references: [id], onDelete: Restrict)
+  unidadeProdutivaId String?
+  unidadeProdutiva   UnidadeProdutiva? @relation(fields: [unidadeProdutivaId], references: [id], onDelete: SetNull)
+  anoReferencia      Int?
+  tipoPeriodo        String?           @db.VarChar(32)
   mes                Int
-  quantidadePrevista Decimal         @db.Decimal(14, 4)
+  quantidadePrevista Decimal           @db.Decimal(14, 4)
   unidade            String
-  observacoes        String?         @db.Text
-  createdAt          DateTime        @default(now())
-  updatedAt          DateTime        @updatedAt
+  observacoes        String?           @db.Text
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
   createdBy          String?
   updatedBy          String?
 
-  @@unique([produtorId, produtoProdutorId, mes, safraProducaoId])
-  @@index([produtorId, mes])
+  @@unique([produtorId, produtoProdutorId, unidadeProdutivaId, anoReferencia, mes, safraProducaoId])
+  @@index([produtorId, mes, anoReferencia])
+  @@index([unidadeProdutivaId, anoReferencia])
   @@map("sdd010_sazonalidade_producao")
 }
 
@@ -661,6 +675,29 @@ model MapeamentoProdutoEdital {
   @@unique([produtoProdutorId, editalItemId])
   @@index([produtorId, revisaoStatus])
   @@map("sdd010_mapeamentos_produto_edital")
+}
+
+model InteresseOportunidade {
+  id                   String                       @id @default(uuid())
+  produtorId           String
+  chamadaId            String
+  editalItemId         String
+  quantidadePretendida Decimal?                     @db.Decimal(14, 4)
+  observacoes          String?                      @db.Text
+  solicitarAssistencia Boolean                      @default(false)
+  status               StatusInteresseOportunidade @default(ATIVO)
+  createdAt            DateTime                     @default(now())
+  updatedAt            DateTime                     @updatedAt
+  createdBy            String?
+  updatedBy            String?
+  produtor             Produtor                     @relation("InteresseProdutor", fields: [produtorId], references: [id], onDelete: Restrict)
+  chamada              ChamadaPublica               @relation("InteresseChamada", fields: [chamadaId], references: [id], onDelete: Cascade)
+  editalItem           EditalItem                   @relation("InteresseEditalItem", fields: [editalItemId], references: [id], onDelete: Cascade)
+
+  @@unique([produtorId, chamadaId, editalItemId])
+  @@index([produtorId, status, updatedAt])
+  @@index([chamadaId, status])
+  @@map("sdd011_interesses_oportunidade")
 }
 
 model SolicitacaoCatalogoProduto {
@@ -2166,8 +2203,16 @@ model ChamadaPublica {
   resultados          ResultadoChamada[]
   recursos            RecursoChamada[]
   homologacao         HomologacaoChamada?
+  interessesOportunidade InteresseOportunidade[] @relation("InteresseChamada")
 
-  @@unique([numero, exercicio])
+  // Unicidade POR DRE (importação histórica PNAE 2025): o mesmo `numero` pode
+  // existir em DREs diferentes do mesmo `exercicio`. ATENÇÃO: em MySQL um
+  // índice UNIQUE não restringe linhas com a coluna anulável NULL, então este
+  // índice sozinho NÃO impede duplicidade quando `dreId` é nulo — o caso
+  // `dreId = null` é tratado na camada de aplicação (ver
+  // ChamadasPublicasService#verificarUnicidade e
+  // docs/importacao-pnae-2025/AUDITORIA_UNICIDADE_2025.md).
+  @@unique([dreId, numero, exercicio])
   @@index([editalId])
   @@index([dreId, municipioId])
   @@index([status, inscricoesFim])

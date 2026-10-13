@@ -24,8 +24,8 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
             createdBy: string | null;
             vigenciaInicio: Date | null;
             vigenciaFim: Date | null;
-            numero: number;
             titulo: string;
+            numero: number;
             formato: import(".prisma/client").$Enums.FormatoTemplate;
             arquivoBase: string | null;
             conteudo: string | null;
@@ -44,7 +44,6 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
         vigenciaFim: Date | null;
         titulo: string;
         descricao: string | null;
-        versaoAtual: number;
         tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
         numeroAnexo: number | null;
         finalidade: string;
@@ -54,6 +53,7 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
         formato: import(".prisma/client").$Enums.FormatoTemplate;
         arquivoBase: string | null;
         conteudo: string | null;
+        versaoAtual: number;
     })[]>;
     buscar(id: string): Promise<{
         versoes: {
@@ -62,8 +62,8 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
             createdBy: string | null;
             vigenciaInicio: Date | null;
             vigenciaFim: Date | null;
-            numero: number;
             titulo: string;
+            numero: number;
             formato: import(".prisma/client").$Enums.FormatoTemplate;
             arquivoBase: string | null;
             conteudo: string | null;
@@ -95,7 +95,6 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
         vigenciaFim: Date | null;
         titulo: string;
         descricao: string | null;
-        versaoAtual: number;
         tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
         numeroAnexo: number | null;
         finalidade: string;
@@ -105,6 +104,7 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
         formato: import(".prisma/client").$Enums.FormatoTemplate;
         arquivoBase: string | null;
         conteudo: string | null;
+        versaoAtual: number;
     }>;
     garantirPadroes(usuarioId: string): Promise<void>;
     criar(dto: {
@@ -127,8 +127,8 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
             createdBy: string | null;
             vigenciaInicio: Date | null;
             vigenciaFim: Date | null;
-            numero: number;
             titulo: string;
+            numero: number;
             formato: import(".prisma/client").$Enums.FormatoTemplate;
             arquivoBase: string | null;
             conteudo: string | null;
@@ -160,7 +160,6 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
         vigenciaFim: Date | null;
         titulo: string;
         descricao: string | null;
-        versaoAtual: number;
         tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
         numeroAnexo: number | null;
         finalidade: string;
@@ -170,6 +169,7 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
         formato: import(".prisma/client").$Enums.FormatoTemplate;
         arquivoBase: string | null;
         conteudo: string | null;
+        versaoAtual: number;
     }>;
     atualizar(id: string, dto: Record<string, any>, usuarioId: string): Promise<{
         versoes: {
@@ -178,8 +178,8 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
             createdBy: string | null;
             vigenciaInicio: Date | null;
             vigenciaFim: Date | null;
-            numero: number;
             titulo: string;
+            numero: number;
             formato: import(".prisma/client").$Enums.FormatoTemplate;
             arquivoBase: string | null;
             conteudo: string | null;
@@ -211,7 +211,6 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
         vigenciaFim: Date | null;
         titulo: string;
         descricao: string | null;
-        versaoAtual: number;
         tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
         numeroAnexo: number | null;
         finalidade: string;
@@ -221,6 +220,7 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
         formato: import(".prisma/client").$Enums.FormatoTemplate;
         arquivoBase: string | null;
         conteudo: string | null;
+        versaoAtual: number;
     }>;
     duplicar(id: string, usuarioId: string): Promise<{
         versoes: {
@@ -229,8 +229,8 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
             createdBy: string | null;
             vigenciaInicio: Date | null;
             vigenciaFim: Date | null;
-            numero: number;
             titulo: string;
+            numero: number;
             formato: import(".prisma/client").$Enums.FormatoTemplate;
             arquivoBase: string | null;
             conteudo: string | null;
@@ -262,7 +262,6 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
         vigenciaFim: Date | null;
         titulo: string;
         descricao: string | null;
-        versaoAtual: number;
         tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
         numeroAnexo: number | null;
         finalidade: string;
@@ -272,6 +271,7 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
         formato: import(".prisma/client").$Enums.FormatoTemplate;
         arquivoBase: string | null;
         conteudo: string | null;
+        versaoAtual: number;
     }>;
     alterarStatus(id: string, ativo: boolean, usuarioId: string): Promise<{
         id: string;
@@ -285,7 +285,6 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
         vigenciaFim: Date | null;
         titulo: string;
         descricao: string | null;
-        versaoAtual: number;
         tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
         numeroAnexo: number | null;
         finalidade: string;
@@ -295,6 +294,7 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
         formato: import(".prisma/client").$Enums.FormatoTemplate;
         arquivoBase: string | null;
         conteudo: string | null;
+        versaoAtual: number;
     }>;
     remover(id: string, usuarioId: string): Promise<{
         id: string;
@@ -308,7 +308,6 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
         vigenciaFim: Date | null;
         titulo: string;
         descricao: string | null;
-        versaoAtual: number;
         tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
         numeroAnexo: number | null;
         finalidade: string;
@@ -318,6 +317,7 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
         formato: import(".prisma/client").$Enums.FormatoTemplate;
         arquivoBase: string | null;
         conteudo: string | null;
+        versaoAtual: number;
     }>;
     enviarArquivo(id: string, file: Express.Multer.File, usuarioId: string): Promise<{
         versoes: {
@@ -326,8 +326,8 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
             createdBy: string | null;
             vigenciaInicio: Date | null;
             vigenciaFim: Date | null;
-            numero: number;
             titulo: string;
+            numero: number;
             formato: import(".prisma/client").$Enums.FormatoTemplate;
             arquivoBase: string | null;
             conteudo: string | null;
@@ -359,7 +359,6 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
         vigenciaFim: Date | null;
         titulo: string;
         descricao: string | null;
-        versaoAtual: number;
         tipo: import(".prisma/client").$Enums.TipoDocumentoTemplate;
         numeroAnexo: number | null;
         finalidade: string;
@@ -369,6 +368,7 @@ export declare class TemplatesDocumentoService implements OnModuleInit {
         formato: import(".prisma/client").$Enums.FormatoTemplate;
         arquivoBase: string | null;
         conteudo: string | null;
+        versaoAtual: number;
     }>;
     caminhoArquivo(id: string): Promise<{
         caminho: string;

@@ -18,9 +18,9 @@ export declare class GestaoOperacionalService {
         municipioId: string | null;
         ativo: boolean;
         dreId: string | null;
-        origem: import(".prisma/client").$Enums.OrigemConfiguracao;
         chave: string;
         tipo: string;
+        origem: import(".prisma/client").$Enums.OrigemConfiguracao;
         escopo: import(".prisma/client").$Enums.EscopoInstitucional;
         versao: number;
         responsavelId: string | null;
@@ -48,10 +48,10 @@ export declare class GestaoOperacionalService {
         municipioId: string | null;
         ativo: boolean;
         dreId: string | null;
-        origem: import(".prisma/client").$Enums.OrigemConfiguracao;
         chave: string;
         valor: string;
         tipo: string;
+        origem: import(".prisma/client").$Enums.OrigemConfiguracao;
         escopo: import(".prisma/client").$Enums.EscopoInstitucional;
         versao: number;
         responsavelId: string | null;
@@ -82,12 +82,12 @@ export declare class GestaoOperacionalService {
         createdAt: Date;
         updatedAt: Date;
         codigo: string;
-        descricao: string;
         status: import(".prisma/client").$Enums.StatusParametroOperacional;
+        descricao: string;
         unidade: string | null;
-        origem: import(".prisma/client").$Enums.OrigemConfiguracao;
-        versaoAtual: number;
         tipo: string;
+        versaoAtual: number;
+        origem: import(".prisma/client").$Enums.OrigemConfiguracao;
         escopo: import(".prisma/client").$Enums.EscopoInstitucional;
         responsavelId: string | null;
         vigenteDesde: Date | null;
@@ -118,12 +118,12 @@ export declare class GestaoOperacionalService {
         createdAt: Date;
         updatedAt: Date;
         codigo: string;
-        descricao: string;
         status: import(".prisma/client").$Enums.StatusParametroOperacional;
+        descricao: string;
         unidade: string | null;
-        origem: import(".prisma/client").$Enums.OrigemConfiguracao;
-        versaoAtual: number;
         tipo: string;
+        versaoAtual: number;
+        origem: import(".prisma/client").$Enums.OrigemConfiguracao;
         escopo: import(".prisma/client").$Enums.EscopoInstitucional;
         responsavelId: string | null;
         vigenteDesde: Date | null;
@@ -158,8 +158,8 @@ export declare class GestaoOperacionalService {
             link: string | null;
             titulo: string;
             status: import(".prisma/client").$Enums.StatusNotificacaoInterna;
-            origem: string | null;
             tipo: string;
+            origem: string | null;
             escopo: import(".prisma/client").$Enums.EscopoInstitucional;
             mensagem: string;
             referenciaTipo: string | null;
@@ -183,8 +183,8 @@ export declare class GestaoOperacionalService {
         link: string | null;
         titulo: string;
         status: import(".prisma/client").$Enums.StatusNotificacaoInterna;
-        origem: string | null;
         tipo: string;
+        origem: string | null;
         escopo: import(".prisma/client").$Enums.EscopoInstitucional;
         mensagem: string;
         referenciaTipo: string | null;
@@ -202,8 +202,8 @@ export declare class GestaoOperacionalService {
         link: string | null;
         titulo: string;
         status: import(".prisma/client").$Enums.StatusNotificacaoInterna;
-        origem: string | null;
         tipo: string;
+        origem: string | null;
         escopo: import(".prisma/client").$Enums.EscopoInstitucional;
         mensagem: string;
         referenciaTipo: string | null;
@@ -256,10 +256,10 @@ export declare class GestaoOperacionalService {
             status: import(".prisma/client").$Enums.StatusItemChecklistImplantacao;
             observacao: string | null;
             responsavelId: string | null;
+            atualizadoEm: Date;
             evidencia: string | null;
             prazo: Date | null;
             pendencia: string | null;
-            atualizadoEm: Date;
             checklistId: string;
         }[];
     } & {
@@ -283,10 +283,10 @@ export declare class GestaoOperacionalService {
             status: import(".prisma/client").$Enums.StatusItemChecklistImplantacao;
             observacao: string | null;
             responsavelId: string | null;
+            atualizadoEm: Date;
             evidencia: string | null;
             prazo: Date | null;
             pendencia: string | null;
-            atualizadoEm: Date;
             checklistId: string;
         }[];
     } & {
@@ -310,10 +310,10 @@ export declare class GestaoOperacionalService {
             status: import(".prisma/client").$Enums.StatusItemChecklistImplantacao;
             observacao: string | null;
             responsavelId: string | null;
+            atualizadoEm: Date;
             evidencia: string | null;
             prazo: Date | null;
             pendencia: string | null;
-            atualizadoEm: Date;
             checklistId: string;
         }[];
     } & {
@@ -336,10 +336,10 @@ export declare class GestaoOperacionalService {
         status: import(".prisma/client").$Enums.StatusItemChecklistImplantacao;
         observacao: string | null;
         responsavelId: string | null;
+        atualizadoEm: Date;
         evidencia: string | null;
         prazo: Date | null;
         pendencia: string | null;
-        atualizadoEm: Date;
         checklistId: string;
     }>;
     readinessReport(id: string, user: AuthenticatedUser): Promise<{
@@ -356,10 +356,10 @@ export declare class GestaoOperacionalService {
             status: import(".prisma/client").$Enums.StatusItemChecklistImplantacao;
             observacao: string | null;
             responsavelId: string | null;
+            atualizadoEm: Date;
             evidencia: string | null;
             prazo: Date | null;
             pendencia: string | null;
-            atualizadoEm: Date;
             checklistId: string;
         }[];
         bloqueios: {
@@ -369,10 +369,10 @@ export declare class GestaoOperacionalService {
             status: import(".prisma/client").$Enums.StatusItemChecklistImplantacao;
             observacao: string | null;
             responsavelId: string | null;
+            atualizadoEm: Date;
             evidencia: string | null;
             prazo: Date | null;
             pendencia: string | null;
-            atualizadoEm: Date;
             checklistId: string;
         }[];
         situacaoGeral: string;

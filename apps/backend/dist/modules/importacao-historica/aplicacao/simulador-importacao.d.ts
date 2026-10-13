@@ -41,5 +41,6 @@ export interface PlanoImportacao {
         anexosCriados: number;
     };
 }
+export declare function chaveChamada(numero: string | null | undefined, exercicio: number | null | undefined, dreId: string | null | undefined): string;
 export declare function simularImportacao(staging: StagingEdital[], existentes: ChavesExistentes): PlanoImportacao;
 export declare function formatarPlano(plano: PlanoImportacao): string;

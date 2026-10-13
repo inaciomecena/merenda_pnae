@@ -1,6 +1,6 @@
 {
   "schema": "importacao-historica-pnae/1.0",
-  "geradoEm": "2026-10-12T20:15:48.370Z",
+  "geradoEm": "2026-10-12T22:03:07.301Z",
   "idPacote": "ED-0043",
   "dre": "Primavera do Leste",
   "chaveLogica": "bef59e2309ce93144e9ee233725ca2e7",
@@ -92,6 +92,7 @@
     "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
     "documentosValidados": 1,
     "itensDoManifesto": 0,
-    "itensExtraidosPdf": 0
+    "itensExtraidosPdf": 0,
+    "blocosNaoItem": 0
   }
 }

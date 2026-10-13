@@ -1,6 +1,6 @@
 {
   "dre": "Diamantino",
-  "geradoEm": "2026-10-12T20:16:16.948Z",
+  "geradoEm": "2026-10-12T22:03:20.306Z",
   "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
   "procedimentos": [
     {
@@ -9,8 +9,8 @@
       "decisao": "APROVADO",
       "numero": "030/2024",
       "municipio": "Rosário Oeste",
-      "itens": 71,
-      "pendencias": 49,
+      "itens": 50,
+      "pendencias": 31,
       "arquivos": [
         "PNAE_MT_2025/05_DIAMANTINO/DOC-0001_DOC-0001.pdf"
       ]
@@ -33,8 +33,8 @@
       "decisao": "APROVADO",
       "numero": "028/2024",
       "municipio": "Santo Afonso",
-      "itens": 68,
-      "pendencias": 36,
+      "itens": 47,
+      "pendencias": 16,
       "arquivos": [
         "PNAE_MT_2025/05_DIAMANTINO/DOC-0003_DOC-0003.pdf"
       ]
@@ -45,8 +45,8 @@
       "decisao": "APROVADO",
       "numero": "027/2024",
       "municipio": "Nova Marilândia",
-      "itens": 37,
-      "pendencias": 27,
+      "itens": 35,
+      "pendencias": 29,
       "arquivos": [
         "PNAE_MT_2025/05_DIAMANTINO/DOC-0004_DOC-0004.pdf"
       ]
@@ -57,8 +57,8 @@
       "decisao": "APROVADO",
       "numero": "026/2024",
       "municipio": "Nortelândia",
-      "itens": 38,
-      "pendencias": 30,
+      "itens": 35,
+      "pendencias": 43,
       "arquivos": [
         "PNAE_MT_2025/05_DIAMANTINO/DOC-0005_DOC-0005.pdf"
       ]
@@ -69,8 +69,8 @@
       "decisao": "APROVADO",
       "numero": "025/2024",
       "municipio": "Arenápolis",
-      "itens": 31,
-      "pendencias": 29,
+      "itens": 36,
+      "pendencias": 51,
       "arquivos": [
         "PNAE_MT_2025/05_DIAMANTINO/DOC-0006_DOC-0006.pdf"
       ]
@@ -82,7 +82,7 @@
       "numero": "024/2024",
       "municipio": "Alto Paraguai",
       "itens": 36,
-      "pendencias": 31,
+      "pendencias": 46,
       "arquivos": [
         "PNAE_MT_2025/05_DIAMANTINO/DOC-0007_DOC-0007.pdf"
       ]
@@ -93,8 +93,8 @@
       "decisao": "APROVADO",
       "numero": "022/2024",
       "municipio": "Nova Mutum",
-      "itens": 62,
-      "pendencias": 32,
+      "itens": 43,
+      "pendencias": 15,
       "arquivos": [
         "PNAE_MT_2025/05_DIAMANTINO/DOC-0008_DOC-0008.pdf"
       ]
@@ -105,8 +105,8 @@
       "decisao": "APROVADO",
       "numero": "023/2024",
       "municipio": "Nova Mutum",
-      "itens": 52,
-      "pendencias": 29,
+      "itens": 39,
+      "pendencias": 25,
       "arquivos": [
         "PNAE_MT_2025/05_DIAMANTINO/DOC-0009_DOC-0009.pdf"
       ]
@@ -117,8 +117,8 @@
       "decisao": "APROVADO",
       "numero": "021/2024",
       "municipio": "Santa Rita do Trivelato",
-      "itens": 62,
-      "pendencias": 36,
+      "itens": 43,
+      "pendencias": 18,
       "arquivos": [
         "PNAE_MT_2025/05_DIAMANTINO/DOC-0010_DOC-0010.pdf",
         "PNAE_MT_2025/05_DIAMANTINO/DOC-0011_DOC-0011.pdf"
@@ -130,8 +130,8 @@
       "decisao": "APROVADO",
       "numero": "019/2024",
       "municipio": "Alto Paraguai",
-      "itens": 42,
-      "pendencias": 28,
+      "itens": 34,
+      "pendencias": 34,
       "arquivos": [
         "PNAE_MT_2025/05_DIAMANTINO/DOC-0012_DOC-0012.pdf"
       ]
@@ -142,8 +142,8 @@
       "decisao": "APROVADO",
       "numero": "020/2024",
       "municipio": "Diamantino",
-      "itens": 27,
-      "pendencias": 28,
+      "itens": 35,
+      "pendencias": 55,
       "arquivos": [
         "PNAE_MT_2025/05_DIAMANTINO/DOC-0013_DOC-0013.pdf"
       ]
@@ -154,8 +154,8 @@
       "decisao": "APROVADO",
       "numero": "018/2024",
       "municipio": "Nova Maringá",
-      "itens": 34,
-      "pendencias": 35,
+      "itens": 31,
+      "pendencias": 56,
       "arquivos": [
         "PNAE_MT_2025/05_DIAMANTINO/DOC-0014_DOC-0014.pdf"
       ]
@@ -166,8 +166,8 @@
       "decisao": "APROVADO",
       "numero": "017/2024",
       "municipio": "São José do Rio Claro",
-      "itens": 33,
-      "pendencias": 32,
+      "itens": 36,
+      "pendencias": 53,
       "arquivos": [
         "PNAE_MT_2025/05_DIAMANTINO/DOC-0015_DOC-0015.pdf"
       ]

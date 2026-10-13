@@ -1,6 +1,6 @@
 {
   "schema": "importacao-historica-pnae/1.0",
-  "geradoEm": "2026-10-12T20:16:07.556Z",
+  "geradoEm": "2026-10-12T22:03:16.387Z",
   "idPacote": "ED-0089",
   "dre": "Cáceres",
   "chaveLogica": "4efe6d334ebf288cb102d20833d750c6",
@@ -105,6 +105,7 @@
     "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
     "documentosValidados": 2,
     "itensDoManifesto": 0,
-    "itensExtraidosPdf": 0
+    "itensExtraidosPdf": 0,
+    "blocosNaoItem": 0
   }
 }

@@ -1,6 +1,6 @@
 {
   "schema": "importacao-historica-pnae/1.0",
-  "geradoEm": "2026-10-12T20:16:09.098Z",
+  "geradoEm": "2026-10-12T22:03:17.206Z",
   "idPacote": "ED-0093",
   "dre": "Alta Floresta",
   "chaveLogica": "73b5c5802aedc1282cb552e66990396b",
@@ -1397,23 +1397,6 @@
       "metodo": "pdf_texto_regex",
       "statusRevisao": "pendente_conferencia",
       "pendencia": "total informado na fonte difere de quantidade × preço unitário em 0.31"
-    },
-    {
-      "sequencia": 10,
-      "produto": null,
-      "descricaoCompleta": "10. * O preço de aquisição é o estabelecido no Edital da Chamada Pública TOTAL DO PROJETO DE VENDAS => Declaro estar de acordo com as condições estabelecidas neste projeto e que as informações acima conferem com as condições de fornecimento. Local e Data: Nome / Assinatura do Representante do Grupo Formal: Fone ou e-mail: Importante Informar: número do banco, agência e número da conta bancária e chave Pix. DECLARAÇÃO DE PRODUÇÃO PRÓPRIA (Grupo Formal)",
-      "unidadeComercial": null,
-      "embalagem": null,
-      "quantidade": null,
-      "precoUnitario": null,
-      "totalFonte": null,
-      "totalCalculado": null,
-      "divergencia": null,
-      "pagina": 18,
-      "documentoId": "DOC-0103",
-      "metodo": "pdf_texto_regex",
-      "statusRevisao": "pendente_conferencia",
-      "pendencia": "linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado"
     }
   ],
   "anexos": [],
@@ -1574,8 +1557,178 @@
       "origem": "DOC-0103"
     },
     {
-      "tipo": "item_conferencia",
-      "descricao": "item 10 (s/produto): linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero | unidade comercial não identificada | produto não identificado",
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 14 (numeral 1): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"1.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 14 (numeral 2): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"2.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 14 (numeral 3): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"3.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 14 (numeral 4): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"4.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 14 (numeral 5): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"5.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 14 (numeral 6): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"6.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 14 (numeral 7): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"7.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 14 (numeral 8): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"8.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 14 (numeral 9): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"9.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 14 (numeral 10): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"10. * O preço de aquisição é o estabelecido no Edital da Chamada Pública TOTAL DO PROJETO DE VENDAS => III - IDENTIFICAÇÃO DA ENTIDADE EXECUTORA DO PNAE/FNDE/MEC SECRETARIA DE ESTADO DE EDUCAÇÃO CNPJ: 53.291.992/0001-10 CUIABÁ/MT Endereço: \"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 16 (numeral 1): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"1.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 16 (numeral 2): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"2.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 16 (numeral 3): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"3. III- IDENTIFICAÇÃO DA ENTIDADE EXECUTORA DO PNAE/FNDE/MEC SECRETARIA DE ESTADO DE EDUCAÇÃO CNPJ: 53.291.992/0001-10 CUIABÁ/MT Endereço: RUA ENGENHEIRO EDGAR PRADO ARZE, 215 – CENTRO POLÍTICO ADMINISTRATIVO (65) 3613-6300 IV – IDENTIFICAÇ\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 16 (numeral 1): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"1.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 16 (numeral 2): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"2.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 16 (numeral 3): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"3.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 16 (numeral 4): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"4. 5. TOTAL POR PRODUTOR(A) => 2. Nome do(a) fornecedor(a): (digitar o nome completo do/a produtor/a) Assinatura: (assinatura por extenso do/a produtor/a) Nº Produto Unid.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 16 (numeral 1): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"1.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 16 (numeral 2): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"2.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 16 (numeral 3): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"3.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 16 (numeral 4): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"4. 5. TOTAL POR PRODUTOR(A) => 3. Nome do(a) fornecedor(a): (digitar o nome completo do/a produtor/a) Assinatura: (assinatura por extenso do/a produtor/a) Nº Produto Unid.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 16 (numeral 1): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"1.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 16 (numeral 2): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"2.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 16 (numeral 3): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"3.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 16 (numeral 4): cabeçalho de tabela (Nº/PRODUTO/ESPECIFICAÇÃO TÉCNICA/UNIDADE DE MEDIDA/QUANTIDADE/PREÇO/VALOR TOTAL), não uma linha de produto — \"4. 5. TOTAL POR PRODUTOR(A) => * O preço de aquisição é o estabelecido no Edital da Chamada Pública TOTAL GERAL DO PROJETO DE VENDAS DO GRUPO INFORMAL => Declaro estar de acordo com as condições estabelecidas neste projeto e que as informaç\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 18 (numeral 1): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"1.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 18 (numeral 2): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"2.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 18 (numeral 3): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"3.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 18 (numeral 4): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"4.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 18 (numeral 5): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"5.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 18 (numeral 6): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"6.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 18 (numeral 7): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"7.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 18 (numeral 8): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"8.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 18 (numeral 9): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"9.\"",
+      "origem": "DOC-0103"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 18 (numeral 10): cabeçalho de tabela (Nº/PRODUTO/ESPECIFICAÇÃO TÉCNICA/UNIDADE DE MEDIDA/QUANTIDADE/PREÇO/VALOR TOTAL), não uma linha de produto — \"10. * O preço de aquisição é o estabelecido no Edital da Chamada Pública TOTAL DO PROJETO DE VENDAS => Declaro estar de acordo com as condições estabelecidas neste projeto e que as informações acima conferem com as condições de fornecimento\"",
       "origem": "DOC-0103"
     }
   ],
@@ -1583,6 +1736,7 @@
     "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
     "documentosValidados": 1,
     "itensDoManifesto": 0,
-    "itensExtraidosPdf": 33
+    "itensExtraidosPdf": 32,
+    "blocosNaoItem": 35
   }
 }

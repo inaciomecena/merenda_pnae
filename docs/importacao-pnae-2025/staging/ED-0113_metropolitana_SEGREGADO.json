@@ -1,6 +1,6 @@
 {
   "schema": "importacao-historica-pnae/1.0",
-  "geradoEm": "2026-10-12T20:16:14.786Z",
+  "geradoEm": "2026-10-12T22:03:19.208Z",
   "idPacote": "ED-0113",
   "dre": "Metropolitana",
   "chaveLogica": "993bde724fcda124f50f227174a3ecab",
@@ -87,6 +87,7 @@
     "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
     "documentosValidados": 1,
     "itensDoManifesto": 0,
-    "itensExtraidosPdf": 0
+    "itensExtraidosPdf": 0,
+    "blocosNaoItem": 0
   }
 }

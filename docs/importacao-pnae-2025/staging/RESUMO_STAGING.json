@@ -4,8 +4,9 @@
   "segregados": 37,
   "bloqueados": 37,
   "pendentes": 0,
-  "itensExtraidos": 2077,
+  "itensExtraidos": 2652,
   "itensManifesto": 553,
+  "blocosNaoItem": 1020,
   "errosExtracao": [],
   "duplicados": [
     {

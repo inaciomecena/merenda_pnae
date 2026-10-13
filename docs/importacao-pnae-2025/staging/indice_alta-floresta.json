@@ -1,6 +1,6 @@
 {
   "dre": "Alta Floresta",
-  "geradoEm": "2026-10-12T20:16:16.953Z",
+  "geradoEm": "2026-10-12T22:03:20.312Z",
   "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
   "procedimentos": [
     {
@@ -9,8 +9,8 @@
       "decisao": "APROVADO",
       "numero": "012/2024",
       "municipio": "Nova Monte Verde",
-      "itens": 24,
-      "pendencias": 24,
+      "itens": 29,
+      "pendencias": 92,
       "arquivos": [
         "PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0102_EDITAL-CHAMADA-PUBLICA-2025-Nova-Monte-Verde.pdf"
       ]
@@ -21,8 +21,8 @@
       "decisao": "APROVADO",
       "numero": "012/2024",
       "municipio": "Nova Bandeirantes",
-      "itens": 33,
-      "pendencias": 32,
+      "itens": 32,
+      "pendencias": 66,
       "arquivos": [
         "PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0103_EDITAL-CHAMADA-PUBLICA-N.-BANDEIRANTES-014-24-ano-letivo-2025.pdf"
       ]
@@ -33,8 +33,8 @@
       "decisao": "APROVADO",
       "numero": "012/2024",
       "municipio": "APIACÁS",
-      "itens": 4,
-      "pendencias": 4,
+      "itens": 29,
+      "pendencias": 67,
       "arquivos": [
         "PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0104_EDITAL-CHAMADA-PUBLICA-012-24-APIACAS-ano-letivo-2025-1.pdf"
       ]
@@ -45,8 +45,8 @@
       "decisao": "APROVADO",
       "numero": "010/2024",
       "municipio": "Nova Canaã do Norte",
-      "itens": 42,
-      "pendencias": 34,
+      "itens": 32,
+      "pendencias": 87,
       "arquivos": [
         "PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0105_EDITAL-CHAMADA-PUBLICA-NCN-010-24-ano-letivo-2025.pdf"
       ]
@@ -57,8 +57,8 @@
       "decisao": "APROVADO",
       "numero": "012/2024",
       "municipio": "CARLINDA",
-      "itens": 9,
-      "pendencias": 8,
+      "itens": 37,
+      "pendencias": 73,
       "arquivos": [
         "PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0106_EDITAL-CHAMADA-PUBLICA-No-009-24-CARLINDA-Ano-letivo-2025-1.pdf"
       ]
@@ -69,8 +69,8 @@
       "decisao": "APROVADO",
       "numero": "011/2024",
       "municipio": "Paranaíta",
-      "itens": 6,
-      "pendencias": 6,
+      "itens": 32,
+      "pendencias": 70,
       "arquivos": [
         "PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0107_EDITAL-CHAMADA-PUBLICA-011-24-PTA-ano-letivo-2025-1.pdf"
       ]
@@ -81,8 +81,8 @@
       "decisao": "APROVADO",
       "numero": "008/2024",
       "municipio": "Alta Floresta",
-      "itens": 20,
-      "pendencias": 18,
+      "itens": 42,
+      "pendencias": 88,
       "arquivos": [
         "PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0108_EDITAL-CHAMADA-PUBLICA-008-24-AF-ano-letivo-2025.pdf"
       ]

@@ -35,15 +35,15 @@ export declare class ImportacoesRepository {
             updatedBy: string | null;
             escolaId: string | null;
             municipioId: string | null;
-            numero: string;
-            ano: number;
             titulo: string;
-            descricao: string | null;
             status: import(".prisma/client").$Enums.StatusEdital;
-            dataPublicacao: Date | null;
+            ano: number;
+            numero: string;
+            descricao: string | null;
             objeto: string | null;
             arquivoFonte: string | null;
             observacoes: string | null;
+            dataPublicacao: Date | null;
         }) | null;
     } & {
         id: string;
@@ -192,15 +192,15 @@ export declare class ImportacoesRepository {
             updatedBy: string | null;
             escolaId: string | null;
             municipioId: string | null;
-            numero: string;
-            ano: number;
             titulo: string;
-            descricao: string | null;
             status: import(".prisma/client").$Enums.StatusEdital;
-            dataPublicacao: Date | null;
+            ano: number;
+            numero: string;
+            descricao: string | null;
             objeto: string | null;
             arquivoFonte: string | null;
             observacoes: string | null;
+            dataPublicacao: Date | null;
         }) | null;
     } & {
         id: string;
@@ -336,15 +336,15 @@ export declare class ImportacoesRepository {
                 updatedBy: string | null;
                 escolaId: string | null;
                 municipioId: string | null;
-                numero: string;
-                ano: number;
                 titulo: string;
-                descricao: string | null;
                 status: import(".prisma/client").$Enums.StatusEdital;
-                dataPublicacao: Date | null;
+                ano: number;
+                numero: string;
+                descricao: string | null;
                 objeto: string | null;
                 arquivoFonte: string | null;
                 observacoes: string | null;
+                dataPublicacao: Date | null;
             }) | null;
         } & {
             id: string;
@@ -443,15 +443,15 @@ export declare class ImportacoesRepository {
         updatedBy: string | null;
         escolaId: string | null;
         municipioId: string | null;
-        numero: string;
-        ano: number;
         titulo: string;
-        descricao: string | null;
         status: import(".prisma/client").$Enums.StatusEdital;
-        dataPublicacao: Date | null;
+        ano: number;
+        numero: string;
+        descricao: string | null;
         objeto: string | null;
         arquivoFonte: string | null;
         observacoes: string | null;
+        dataPublicacao: Date | null;
     }, never, import("@prisma/client/runtime/library").DefaultArgs>;
     syncEditalEscolas(editalId: string, escolaIds: string[]): Promise<void>;
     getEditalEscolas(editalId: string): Prisma.PrismaPromise<({
@@ -564,15 +564,15 @@ export declare class ImportacoesRepository {
         updatedBy: string | null;
         escolaId: string | null;
         municipioId: string | null;
-        numero: string;
-        ano: number;
         titulo: string;
-        descricao: string | null;
         status: import(".prisma/client").$Enums.StatusEdital;
-        dataPublicacao: Date | null;
+        ano: number;
+        numero: string;
+        descricao: string | null;
         objeto: string | null;
         arquivoFonte: string | null;
         observacoes: string | null;
+        dataPublicacao: Date | null;
     }>;
     createEditalItems(editalId: string, items: Array<Prisma.EditalItemUncheckedCreateInput>): Prisma.PrismaPromise<Prisma.BatchPayload>;
     confirmImportacao(importacaoId: string, editalId: string, items: Array<{
@@ -657,15 +657,15 @@ export declare class ImportacoesRepository {
             updatedBy: string | null;
             escolaId: string | null;
             municipioId: string | null;
-            numero: string;
-            ano: number;
             titulo: string;
-            descricao: string | null;
             status: import(".prisma/client").$Enums.StatusEdital;
-            dataPublicacao: Date | null;
+            ano: number;
+            numero: string;
+            descricao: string | null;
             objeto: string | null;
             arquivoFonte: string | null;
             observacoes: string | null;
+            dataPublicacao: Date | null;
         }) | null;
     } & {
         id: string;

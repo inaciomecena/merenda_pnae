@@ -1,6 +1,6 @@
 {
   "schema": "importacao-historica-pnae/1.0",
-  "geradoEm": "2026-10-12T20:15:46.898Z",
+  "geradoEm": "2026-10-12T22:03:06.592Z",
   "idPacote": "ED-0023",
   "dre": "Juína",
   "chaveLogica": "2a12281bb96c9abcff739b7e8b07b495",
@@ -81,6 +81,23 @@
   },
   "itens": [
     {
+      "sequencia": 2,
+      "produto": "ABACAXI PÉROLA",
+      "descricaoCompleta": "2. ABACAXI PÉROLA, inteiro, livre de sujidades, insetos, larvas, fungos, isento de podridões, não se apresentar desidratado, murcho ou congelado. Consistência firme, cascas intactas, de",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 3,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
       "sequencia": 3,
       "produto": "ABÓBORA CABOTIÃ",
       "descricaoCompleta": "3. ABÓBORA CABOTIÃ, inteira, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. Consistência firme, cascas intactas, de",
@@ -122,9 +139,9 @@
       "pendencia": null
     },
     {
-      "sequencia": 486,
-      "produto": null,
-      "descricaoCompleta": null,
+      "sequencia": 6,
+      "produto": "AÇAFRÃO",
+      "descricaoCompleta": "6. AÇAFRÃO, torrado, em pó fino e homogêneo, com aspecto, cor, cheiro e sabor próprios, isenta de impurezas e umidade. As características deverão atender aos requisitos mínimos de",
       "unidadeComercial": null,
       "embalagem": null,
       "quantidade": {
@@ -160,13 +177,30 @@
       "documentoId": "DOC-0025",
       "metodo": "pdf_texto_regex",
       "statusRevisao": "pendente_conferencia",
-      "pendencia": "unidade comercial não identificada | produto não identificado"
+      "pendencia": "unidade comercial não identificada"
     },
     {
-      "sequencia": 373,
-      "produto": null,
-      "descricaoCompleta": null,
-      "unidadeComercial": null,
+      "sequencia": 7,
+      "produto": "AÇAÍ",
+      "descricaoCompleta": "7. AÇAÍ, fruto, consistência adequada, isento de odores estranho, danos profundo e podridão, livres sujidades, parasitas e larva, tamanho e coloração uniforme. Acondicionado em",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 5,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 8,
+      "produto": "ACELGA",
+      "descricaoCompleta": "8. ACELGA, com folhas inteiras, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. As características deverão atender aos",
+      "unidadeComercial": "KG",
       "embalagem": null,
       "quantidade": {
         "bruto": "373",
@@ -200,8 +234,8 @@
       "pagina": 5,
       "documentoId": "DOC-0025",
       "metodo": "pdf_texto_regex",
-      "statusRevisao": "pendente_conferencia",
-      "pendencia": "unidade comercial não identificada | produto não identificado"
+      "statusRevisao": "extraido",
+      "pendencia": null
     },
     {
       "sequencia": 9,
@@ -245,6 +279,23 @@
       "pendencia": null
     },
     {
+      "sequencia": 11,
+      "produto": "ALFACE CRESPA",
+      "descricaoCompleta": "11. ALFACE CRESPA, com folhas inteiras, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. As características",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 6,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
       "sequencia": 13,
       "produto": "ALMEIRÃO",
       "descricaoCompleta": "13. ALMEIRÃO, com folhas inteiras, livre de sujidades, insetos, larvas, fungos, isento de podridões, não se apresentar desidratado, murcho ou congelado. As características deverão",
@@ -286,6 +337,23 @@
       "pendencia": null
     },
     {
+      "sequencia": 15,
+      "produto": "ARARUTA",
+      "descricaoCompleta": "15. ARARUTA, de primeira qualidade, in natura, tamanho e coloração uniforme, livres de sujidades, parasitas, larvas, resíduo de fertilizante. Acondicionada em embalagem atóxica e resistente.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 7,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
       "sequencia": 19,
       "produto": "BANANA DA TERRA",
       "descricaoCompleta": "19. BANANA DA TERRA, inteira, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. Consistência firme, cascas intactas, de",
@@ -325,6 +393,40 @@
       "metodo": "pdf_texto_regex",
       "statusRevisao": "extraido",
       "pendencia": null
+    },
+    {
+      "sequencia": 21,
+      "produto": "BANANA NANICA",
+      "descricaoCompleta": "21. BANANA NANICA, inteira, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. Consistência firme, cascas intactas, de",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 8,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 22,
+      "produto": "BANANA PACOVAN",
+      "descricaoCompleta": "22. BANANA PACOVAN, inteira, livre de sujidades, consistência adequada, isenta de pragas, apresentando desenvolvimento completo ou maturidade comercial, isenta de",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 9,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
     },
     {
       "sequencia": 23,
@@ -409,6 +511,125 @@
       "pendencia": null
     },
     {
+      "sequencia": 31,
+      "produto": "BOLO DE CHOCOLATE",
+      "descricaoCompleta": "31. BOLO DE CHOCOLATE, caseiro, confeccionado de forma artesanal através da mistura de farinha de trigo, ovos, óleo vegetal, açúcar, cacau em pó, água e fermento químico,",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 11,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 32,
+      "produto": "BOLO DE COCO",
+      "descricaoCompleta": "32. BOLO DE COCO, caseiro, confeccionado de forma artesanal através da mistura de farinha de trigo, ovos, óleo vegetal, açúcar, leite, coco ralado e fermento químico,",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 12,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 34,
+      "produto": "BOLO DE LARANJA",
+      "descricaoCompleta": "34. BOLO DE LARANJA, caseiro, confeccionado de forma artesanal através da mistura de farinha de trigo, ovos, óleo vegetal, açúcar, suco de laranja e fermento químico, sem",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 12,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 36,
+      "produto": "BURITI",
+      "descricaoCompleta": "36. BURITI, in natura, tamanho e coloração uniforme, livres de sujidades, parasitas e larvas. Acondicionado em embalagem atóxica e resistente.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 13,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 39,
+      "produto": "CALDO DE CANA",
+      "descricaoCompleta": "39. CALDO DE CANA, caldo de cana, líquido xaroposo obtido através da cana, elaborado com matéria-prima não fermentada, isenta de matéria terrosa, parasitas e detritos animais ou",
+      "unidadeComercial": "L",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 14,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 42,
+      "produto": "CEBOLINHA",
+      "descricaoCompleta": "42. CEBOLINHA, verde, com folhas inteiras, livre de sujidades, isenta de pragas, odores estranhos, danos profundos, podridões e amarelados, não se apresentar desidratada, murcha",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 14,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 43,
+      "produto": "CENOURA",
+      "descricaoCompleta": "43. CENOURA, inteira, livre de sujidades, insetos, larvas e fungos. Consistência firme, apresentando desenvolvimento completo, isenta de odores estranhos e deformidades,",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 15,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
       "sequencia": 46,
       "produto": "COENTRO",
       "descricaoCompleta": "46. COENTRO, com talos e folhas inteiros, livre de sujidades, isento de pragas, odores estranhos, danos profundos, podridões e amarelados, não se apresentar desidratado, murcho",
@@ -448,6 +669,74 @@
       "metodo": "pdf_texto_regex",
       "statusRevisao": "extraido",
       "pendencia": null
+    },
+    {
+      "sequencia": 48,
+      "produto": "COUVE",
+      "descricaoCompleta": "48. COUVE, manteiga com folhas inteiras, livre de sujidades, insetos, larvas, fungos, isenta de podridões e amarelados, não se apresentar desidratada, murcha ou congelada. As",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 16,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 56,
+      "produto": "FOLHA DE TAIOBA",
+      "descricaoCompleta": "56. FOLHA DE TAIOBA, folhas da planta de taioba comestível, in natura, folhas verdes de boa qualidade, isenta de substâncias terrosas, sujidades ou corpos estranhos, livre de parasitas e",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 19,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 57,
+      "produto": "GERGELIM",
+      "descricaoCompleta": "57. GERGELIM, in natura, tamanho e coloração uniforme, livres de sujidades, parasitas, larvas. Acondicionada em saco plástico atóxico, transparente e resistente.",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 19,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 58,
+      "produto": "GOIABA",
+      "descricaoCompleta": "58. GOIABA, inteira, livre de sujidades, consistência firme, isenta de pragas, apresentando desenvolvimento completo ou maturidade comercial, isento de odores estranhos, não se",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 19,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
     },
     {
       "sequencia": 62,
@@ -491,6 +780,40 @@
       "pendencia": null
     },
     {
+      "sequencia": 65,
+      "produto": "LARANJA PÊRA",
+      "descricaoCompleta": "65. LARANJA PÊRA, inteira, livre de sujidades, insetos, larvas, fungos, isento de podridões, não se apresentar desidratado, murcho ou congelado. Consistência firme, cascas intactas, de",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 21,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 68,
+      "produto": "LIMÃO GALEGO",
+      "descricaoCompleta": "68. LIMÃO GALEGO, inteiro, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratado, murcho ou congelado. Consistência firme, cascas intactas,",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 22,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
       "sequencia": 69,
       "produto": "LIMÃO TAHITI",
       "descricaoCompleta": "69. LIMÃO TAHITI, inteiro, livre de sujidades, insetos, larvas, fungos, isento de podridões, não se apresentar desidratado, murcho ou congelado. Consistência firme, cascas intactas, de",
@@ -530,6 +853,23 @@
       "metodo": "pdf_texto_regex",
       "statusRevisao": "extraido",
       "pendencia": null
+    },
+    {
+      "sequencia": 71,
+      "produto": "MAMÃO FORMOSA",
+      "descricaoCompleta": "71. MAMÃO FORMOSA, livre de sujidades, insetos, larvas, fungos, isento de podridões, não se apresentar desidratado, murcho ou congelado. Consistência firme, cascas intactas, de",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 23,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
     },
     {
       "sequencia": 73,
@@ -574,6 +914,74 @@
       "pendencia": "quantidade ambígua: \"1.039\" | unidade comercial não identificada"
     },
     {
+      "sequencia": 74,
+      "produto": "MANDIOCA MANSA",
+      "descricaoCompleta": "74. MANDIOCA MANSA, livre de sujidades, consistência firme, isenta de pragas, apresentando desenvolvimento completo ou maturidade comercial, isenta de",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 24,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 75,
+      "produto": "MANGA",
+      "descricaoCompleta": "75. MANGA, livre de sujidades, insetos, larvas, fungos, isento de podridões, não se apresentar desidratado, murcho ou congelado. Consistência firme, cascas intactas, de forma que não",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 24,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 76,
+      "produto": "MANGABA",
+      "descricaoCompleta": "76. MANGABA, de boa qualidade, sem escurecimento, com aspecto arredondado, com tamanho, cor e formação uniforme e sem danos físicos e mecânicos oriundos do",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 24,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 77,
+      "produto": "MANGARITO",
+      "descricaoCompleta": "77. MANGARITO, tubérculo da raiz da taioba da família Araceae, gênero Xanthosoma Mafaffa Schott, de boa qualidade, isenta de substâncias terrosas, sujidades ou corpos",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 25,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
       "sequencia": 83,
       "produto": "MELANCIA",
       "descricaoCompleta": "83. MELANCIA, inteira, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. Consistência firme, cascas intactas, de",
@@ -616,6 +1024,40 @@
       "pendencia": "quantidade ambígua: \"1.457\""
     },
     {
+      "sequencia": 84,
+      "produto": "MELÃO",
+      "descricaoCompleta": "84. MELÃO, inteiro, livre de sujidades, insetos, larvas, fungos, isento de podridões, não se apresentar desidratado, murcho ou congelado. Consistência firme, cascas intactas, de",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 27,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 94,
+      "produto": "PÃO CASEIRO",
+      "descricaoCompleta": "94. PÃO CASEIRO, de boa qualidade, com miolo branco e casca de cor dourada brilhante e homogênea. A embalagem deverá conter externamente os dados de",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 30,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
       "sequencia": 107,
       "produto": "PEPINO",
       "descricaoCompleta": "107. PEPINO, inteiro, livre de sujidades, insetos, larvas e fungos. Consistência firme, apresentando desenvolvimento completo, isento de odores estranhos e deformidades, isento de podridões,",
@@ -655,6 +1097,23 @@
       "metodo": "pdf_texto_regex",
       "statusRevisao": "extraido",
       "pendencia": null
+    },
+    {
+      "sequencia": 108,
+      "produto": "PEQUI",
+      "descricaoCompleta": "108. PEQUI, de boa qualidade, in natura, isento de sujidades, substâncias terrosas, apresentando evolução completa de tamanho e maturação. Acondicionado em embalagem",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 34,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
     },
     {
       "sequencia": 109,
@@ -739,6 +1198,23 @@
       "pendencia": null
     },
     {
+      "sequencia": 120,
+      "produto": "QUEIJO MUSSARELA",
+      "descricaoCompleta": "120. QUEIJO MUSSARELA, obtido através do leite de vaca pasteurizado integral, contendo estabilizante, conservador, fermento lácteo e coagulante. Cor branco creme",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 38,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
       "sequencia": 121,
       "produto": "REPOLHO BRANCO/VERDE",
       "descricaoCompleta": "121. REPOLHO BRANCO/VERDE, inteiro, livre de sujidades, insetos, larvas e fungos, apresentando desenvolvimento completo, isento de odores estranhos e deformidades,",
@@ -781,9 +1257,9 @@
       "pendencia": "quantidade ambígua: \"1.543\""
     },
     {
-      "sequencia": 488,
-      "produto": null,
-      "descricaoCompleta": null,
+      "sequencia": 122,
+      "produto": "REQUEIJÃO CREMOSO",
+      "descricaoCompleta": "122. REQUEIJÃO CREMOSO, produzido com creme de leite, leite desnatado, cloreto de sódio, fermento lácteo, estabilizante. As características deverão atender aos requisitos",
       "unidadeComercial": null,
       "embalagem": null,
       "quantidade": {
@@ -819,7 +1295,7 @@
       "documentoId": "DOC-0025",
       "metodo": "pdf_texto_regex",
       "statusRevisao": "pendente_conferencia",
-      "pendencia": "unidade comercial não identificada | produto não identificado"
+      "pendencia": "unidade comercial não identificada"
     },
     {
       "sequencia": 123,
@@ -861,6 +1337,57 @@
       "metodo": "pdf_texto_regex",
       "statusRevisao": "extraido",
       "pendencia": null
+    },
+    {
+      "sequencia": 124,
+      "produto": "SAL INDÍGENA",
+      "descricaoCompleta": "124. SAL INDÍGENA, produto refinado extraído da planta aguapé, composto por cloreto de potássio, nitrogênio, cloro, cal e magnésio. Acondicionado em embalagem atóxica e resistente",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 40,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 125,
+      "produto": "SALSA",
+      "descricaoCompleta": "125. SALSA, com talos e folhas inteiros, livre de sujidades, isenta de pragas, odores estranhos, danos profundos, podridões e amarelados, não se apresentar desidratada, murcha ou",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 40,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
+    },
+    {
+      "sequencia": 127,
+      "produto": "TOMATE CEREJA",
+      "descricaoCompleta": "127. TOMATE CEREJA, inteiros, sem ferimentos ou defeitos, livre de sujidades, insetos, larvas ou fungos, isento de odores estranhos, consistência firme, a pele deve estar",
+      "unidadeComercial": "KG",
+      "embalagem": null,
+      "quantidade": null,
+      "precoUnitario": null,
+      "totalFonte": null,
+      "totalCalculado": null,
+      "divergencia": null,
+      "pagina": 41,
+      "documentoId": "DOC-0025",
+      "metodo": "pdf_texto_regex",
+      "statusRevisao": "pendente_conferencia",
+      "pendencia": "linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero"
     },
     {
       "sequencia": 128,
@@ -955,12 +1482,107 @@
     },
     {
       "tipo": "item_conferencia",
-      "descricao": "item 486 (s/produto): unidade comercial não identificada | produto não identificado",
+      "descricao": "item 2 (ABACAXI PÉROLA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
       "origem": "DOC-0025"
     },
     {
       "tipo": "item_conferencia",
-      "descricao": "item 373 (s/produto): unidade comercial não identificada | produto não identificado",
+      "descricao": "item 6 (AÇAFRÃO): unidade comercial não identificada",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 7 (AÇAÍ): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 11 (ALFACE CRESPA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 15 (ARARUTA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 21 (BANANA NANICA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 22 (BANANA PACOVAN): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 31 (BOLO DE CHOCOLATE): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 32 (BOLO DE COCO): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 34 (BOLO DE LARANJA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 36 (BURITI): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 39 (CALDO DE CANA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 42 (CEBOLINHA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 43 (CENOURA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 48 (COUVE): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 56 (FOLHA DE TAIOBA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 57 (GERGELIM): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 58 (GOIABA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 65 (LARANJA PÊRA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 68 (LIMÃO GALEGO): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 71 (MAMÃO FORMOSA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
       "origem": "DOC-0025"
     },
     {
@@ -970,7 +1592,47 @@
     },
     {
       "tipo": "item_conferencia",
+      "descricao": "item 74 (MANDIOCA MANSA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 75 (MANGA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 76 (MANGABA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 77 (MANGARITO): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
       "descricao": "item 83 (MELANCIA): quantidade ambígua: \"1.457\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 84 (MELÃO): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 94 (PÃO CASEIRO): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 108 (PEQUI): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 120 (QUEIJO MUSSARELA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
       "origem": "DOC-0025"
     },
     {
@@ -980,12 +1642,447 @@
     },
     {
       "tipo": "item_conferencia",
-      "descricao": "item 488 (s/produto): unidade comercial não identificada | produto não identificado",
+      "descricao": "item 122 (REQUEIJÃO CREMOSO): unidade comercial não identificada",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 124 (SAL INDÍGENA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 125 (SALSA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "item_conferencia",
+      "descricao": "item 127 (TOMATE CEREJA): linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero",
       "origem": "DOC-0025"
     },
     {
       "tipo": "item_conferencia",
       "descricao": "item 128 (TOMATE SALADA): quantidade ambígua: \"1.222\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 3 (numeral 1): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"1. ABACATE, inteiro, livre de sujidades, insetos, larvas, fungos, isento de podridões, não se apresentar desidratado, murcho ou congelado. Consistência firme, cascas intactas, de\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 4 (numeral 4): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"4. ABÓBORA PAULISTA, inteira, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. Consistência firme, cascas\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 4 (numeral 5): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"5. ABOBRINHA MENINA, inteira, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. Consistência firme, cascas\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 5 (numeral 10): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"10. ALFACE AMERICANA, com folhas inteiras, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. As\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 6 (numeral 12): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"12. ALFACE LISA, com folhas inteiras, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. As características deverão\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 6 (numeral 14): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"14. AMENDOIM, cru, com pele, constituído de grãos inteiros, limpos e de boa qualidade, isento de sujidades, parasitas e larvas. Acondicionado em embalagem atóxica e resistente.\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 7 (numeral 16): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"16. ARROZ SOCADO, isento de impurezas e matérias estranhas. Acondicionado em embalagem atóxica e resistente. Alimento destinado exclusivamente para o\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 7 (numeral 17): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"17. BABAÇU, inteiro, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. Consistência firme, cascas intactas, de\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 7 (numeral 18): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"18. BACABA, frutos inteiros, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. Consistência firme, cascas intactas, de\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 8 (numeral 20): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"20. BANANA MAÇÃ, inteira, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. Consistência firme, cascas intactas, de\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 9 (numeral 24): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"24. BEBIDA LÁCTEA FERMENTADA SABOR COCO, pasteurizado, podendo ser integral ou não, e/ou leite reconstituído, soro de leite, açúcar, preparado de coco,\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 10 (numeral 25): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"25. BEBIDA LÁCTEA FERMENTADA SABOR MORANGO, pasteurizado, podendo ser integral ou não, e/ou leite reconstituído, soro de leite, açúcar,\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 10 (numeral 27): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"27. BEIJU, seco, de boa qualidade, livre de contaminação física e química, livres de sujidades, parasitas e larvas. Acondicionado em embalagem atóxica e resistente. Alimento\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 11 (numeral 28): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"28. BIRIBÁ/FRUTA DO CONDE, do conde de boa qualidade, sem escurecimento, com aspecto arredondado de tamanho, cor e formação uniformes, livre de\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 11 (numeral 29): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"29. BOCAIÚVA, madura, pequena e arredondada de cor amarelo intenso, livre de sujidades. Acondicionada em embalagem atóxica e resistente. Quilograma --------\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 11 (numeral 30): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"30. BOLO DE CENOURA, caseiro, confeccionado de forma artesanal através da mistura de farinha de trigo, ovos, óleo vegetal, açúcar, cenoura e fermento químico, sem adição de\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 12 (numeral 33): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"33. BOLO DE FUBÁ, caseiro, confeccionado de forma artesanal através da mistura de farinha de trigo, fubá, ovos, óleo vegetal, açúcar, leite e fermento químico, sem adição de\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 12 (numeral 35): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"35. BOLO SIMPLES, caseiro, confeccionado de forma artesanal através da mistura de farinha de trigo, ovos, margarina, açúcar, leite e fermento químico, sem adição de\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 13 (numeral 37): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"37. CAFÉ TORRADO E MOÍDO, 1ª qualidade, tipo tradicional. Pó homogêneo, aroma e sabor característicos de regular a intenso, isento de grãos pretos, verdes ou\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 13 (numeral 38): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"38. CAJU, inteiro, livre de sujidades, consistência firme, isenta de pragas, apresentando desenvolvimento completo ou maturidade comercial, isenta de odores estranhos, não se\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 14 (numeral 40): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"40. CANA, caule em ponto de maturação adequado para o consumo, isento de sujidades, parasitas e larvas. Acondicionada em embalagem atóxica e resistente.\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 14 (numeral 41): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"41. CARÁ, de primeira qualidade, in natura, tamanho e coloração uniforme, livres de sujidades, parasitas, larvas, resíduo de fertilizante. Acondicionado em embalagem atóxica e resistente.\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 15 (numeral 44): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"44. CHUCHU, inteiro, livre de sujidades, insetos, larvas e fungos. Consistência firme, apresentando desenvolvimento completo, isento de odores estranhos e deformidades, isento de podridões,\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 15 (numeral 45): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"45. COCO, inteiro, livre de sujidades, consistência firme, isento de pragas, apresentando desenvolvimento completo ou maturidade comercial, isento de odores estranhos, não se\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 16 (numeral 47): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"47. COLORAU, corante, natural de urucum com aspecto, cor e cheiro próprio, podendo conter fubá de milho e óleo de soja. As características deverão atender aos requisitos\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 16 (numeral 49): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"49. CUPUAÇU, com polpa do fruto em aspecto mucilaginosa, abundante, in natura, ácida, de coloração amarela, creme ou branca, odor ativo e sabor característico da fruta. Livre de\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 17 (numeral 50): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"50. DOCE DE LEITE, pastoso, fabricado com matérias-primas sãs e limpas, isentas de matéria terrosa, parasitas, e em perfeito estado de conservação. O leite empregado\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 17 (numeral 51): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"51. ERVA DE MARCELA, in natura, tamanho e coloração uniforme, livres de sujidades, parasitas, larvas. Acondicionada em saco plástico atóxico, transparente e resistente.\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 18 (numeral 52): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"52. FARINHA DE MANDIOCA, do tipo branca ou amarela, torrada, grupo seco, subgrupo média, classe branca, isenta de matéria terrosa, fungos ou parasitas, umidade e fragmentos\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 18 (numeral 53): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"53. FARINHA DE MANDIOCA TIPO PUBA, do tipo puba, torrada, grupo seco, subgrupo média, isenta de matéria terrosa, fungos, parasitas, umidade e fragmentos estranhos.\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 18 (numeral 54): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"54. FEIJÃO DE CORDA, de primeira qualidade, livre de sujidades, parasitas e larvas. Acondicionado em embalagem atóxica e resistente. Alimento destinado exclusivamente\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 19 (numeral 55): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"55. FEIJÃO EM FAVA, alongada, seca, com sementes no seu interior. Acondicionado em embalagem atóxica e resistente. Alimento destinado exclusivamente para o\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 19 (numeral 59): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"59. GOMA DE MANDIOCA, coloração branca, não devendo estar úmida, fermentada ou rançosa, não apresentar sabor azedo, isento de mofo, pedra, corantes e aditivos químicos ou outras\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 20 (numeral 60): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"60. GRAVIOLA inteira, livre de sujidades, consistência firme, isenta de pragas, apresentando desenvolvimento completo ou maturidade comercial, isento de\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 20 (numeral 61): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"61. INGÁ, in natura, tamanho e coloração uniforme, livres de sujidades, parasitas, larvas. Acondicionado em embalagem atóxica e resistente. Quilograma ---------\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 20 (numeral 63): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"63. IOGURTE SABOR COCO, leite, pasteurizado, podendo ser integral ou não, açúcar, preparado de coco, pode conter pedaços de frutas, espessante, amido modificado,\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 21 (numeral 64): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"64. IOGURTE SABOR MORANGO, sabor morango, leite, pasteurizado podendo ser integral ou não, açúcar, preparado de morango, pode conter pedaços de frutas, espessante, amido\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 21 (numeral 66): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"66. LEITE PASTEURIZADO INTEGRAL leite de vaca integral, fluído, pasteurizado, de cor branca opaca, homogêneo e odor característico. As características de\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 22 (numeral 67): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"67. LEITE UHT INTEGRAL, estabilizantes citrato de sódio, trifosfato de sódio, monofosfato de sódio e difosfato de sódio. Não contém glúten. As características de\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 23 (numeral 70): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"70. MACAÚBA, madura, pequena e arredondada de cor amarelo intenso, livre de sujidades. Acondicionada em embalagem atóxica e resistente. Quilograma ------------\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 23 (numeral 72): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"72. MANDIOCA, in natura, branca ou amarela, inteira, livre de sujidades, insetos, larvas e fungos. Consistência firme, apresentando desenvolvimento completo, isenta de odores estranhos e\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 25 (numeral 78): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"78. MANTEIGA PURA COM SAL, obtida do creme de leite, adicionado de cloreto de sódio e corante natural, SEM ADITIVOS QUÍMICOS. As características deverão atender aos\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 25 (numeral 79): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"79. MARACUJÁ, inteiro, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratado, murcho ou congelado. Consistência firme, cascas intactas, de\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 26 (numeral 80): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"80. MAXIXE, inteiro, livre de sujidades, insetos, larvas, fungos, isento de podridões, não se apresentar desidratado, murcho ou congelado. Consistência firme, cascas intactas, de\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 26 (numeral 81): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"81. MEL, de boa qualidade elaborado a partir de néctar de flores e/ou exsudatos sacarínicicos de plantas, sem adição de corantes, aromatizantes, espessantes,\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 27 (numeral 82): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"82. MELADO DE CANA, de cana, líquido xaroposo obtido através da evaporação do caldo de cana ou a partir da rapadura por processos tecnológicos adequados. Elaborado\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 28 (numeral 85): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"85. MILHO EM GRÃOS PARA CHICHA, livres de sujidades, parasitas larvas e material terroso. Acondicionado em embalagem atóxica e resistente.\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 28 (numeral 86): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"86. MILHO EM GRÃOS SECO, livres de sujidades, parasitas larvas e material terroso. Acondicionado em embalagem atóxica e resistente. Quilograma ------\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 28 (numeral 87): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"87. MILHO EM GRÃOS VERMELHO PARA CANJICA, livres de sujidades, parasitas larvas e material terroso. Acondicionado em embalagem atóxica e resistente.\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 28 (numeral 88): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"88. MILHO FOFO, livres de sujidades, parasitas larvas e material terroso. Acondicionado em embalagem atóxica e resistente. Quilograma ------\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 28 (numeral 89): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"89. MILHO VERDE IN NATURA, espiga sem palha, consistência adequada, isento de odores estranho, danos profundo e podridão, livres sujidades, parasitas e larva, tamanho e\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 28 (numeral 90): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"90. MURICI pequeno e arredondado de cor vermelho-alaranjado quando maduro. Acondicionado em saco plástico atóxico, transparente e resistente. Livre de sujidades.\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 29 (numeral 91): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"91. ÓLEO DE BABAÇU, refinado, fabricado a partir de matérias primas de boa qualidade e limpas. Embalagem de polietileno tereftalado (PET) de 900ml. Alimento destinado\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 29 (numeral 92): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"92. OVO DE GALINHA CAIPIRA, branco ou de cor, classe A casca limpa, íntegra, sem rachaduras, sem manchas ou deformações e acondicionados em bandeja de\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 29 (numeral 93): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"93. PALMITO DE BABAÇU, in natura, consistência adequada, isento de odores estranho, danos profundo e podridão, livres sujidades, parasitas e larva, tamanho e coloração uniforme.\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 30 (numeral 95): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"95. PÃO FRANCÊS, farinha de trigo, sal, óleo, cor do miolo levemente creme, casca de cor dourada, brilhante e crocante de tamanho uniforme, cada unidade deverá ter em média 50g. As\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 30 (numeral 96): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"96. PARIRI, frutos inteiros, isento de odores estranho, danos profundo e podridão, livres sujidades, parasitas e larva, tamanho e coloração uniforme. Acondicionado em embalagem\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 30 (numeral 97): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"97. PATAUÁ, consistência adequada, isento de odores estranho, danos profundo e podridão, livres sujidades, parasitas e larva, tamanho e coloração uniforme. Acondicionado em\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 30 (numeral 98): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"98. PEIXE PINTADO FILÉ, de água doce, pintado, eviscerado, sem cabeça, sem nadadeiras, sem cauda, sem espinha, sem pele, filé espalmado. As características\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 31 (numeral 99): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"99. PEIXE PINTADO FILÉ EM CUBOS, de água doce, eviscerado, sem cabeça, sem nadadeiras, sem cauda, sem espinha, sem pele, filé em cubos. As características deverão\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 31 (numeral 100): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"100. PEIXE PIRARUCU FILÉ, de água doce, pintado, eviscerado, sem cabeça, sem nadadeiras, sem cauda, sem espinha, sem pele, filé espalmado. As características\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 32 (numeral 101): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"101. PEIXE PIRARUCU FILÉ EM CUBOS, de agua doce, eviscerado, sem cabeça, sem nadadeiras, sem cauda, sem espinha, sem pele, filé em cubos. As características deverão\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 32 (numeral 102): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"102. PEIXE REGIONAL, de água doce, devem estar frescos, de pesca recente, odor natural, próprio e suave, isento de sujidades, substâncias terrosas, livres de parasitas e larvas.\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 32 (numeral 103): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"103. PEIXE TAMBAQUI FILÉ, peixe de água doce, tambaqui, eviscerado, sem cabeça, sem nadadeiras, sem cauda, sem espinha, sem pele, filé espalmado. As características\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 33 (numeral 104): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"104. PEIXE TAMBAQUI FILÉ EM CUBOS, peixe de água doce, tambaqui, eviscerado, sem cabeça, sem nadadeiras, sem cauda, sem espinha, sem pele, filé em cubos. As\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 33 (numeral 105): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"105. PEIXE TAMBATINGA FILÉ, peixe de água doce, tambatinga, eviscerado, sem cabeça, sem nadadeiras, sem cauda, sem espinha, sem pele, filé espalmado. As\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 33 (numeral 106): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"106. PEIXE TILÁPIA FILÉ, peixe de água doce, tilápia, eviscerado, sem cabeça, sem nadadeiras, sem cauda, sem espinha, sem pele, filé espalmado. As características\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 35 (numeral 110): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"110. PIMENTA DOCE, livre de sujidades, consistência firme, isento de pragas, apresentando desenvolvimento completo ou maturidade comercial, isento de\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 35 (numeral 112): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"112. POLPA DE ABACAXI, SEM adição de açúcar e ausente de substâncias estranhas. Produto congelado, não fermentado e sem conservantes. As características deverão atender aos\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 35 (numeral 1): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"1 Kg -----\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 36 (numeral 113): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"113. POLPA DE ACEROLA, SEM adição de açúcar e ausente de substâncias estranhas. Produto congelado, não fermentado e sem conservantes. As características\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 36 (numeral 1): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"1 Kg -----\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 36 (numeral 114): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"114. POLPA DE CAJÚ, SEM adição de açúcar e ausente de substâncias estranhas. Produto congelado, não fermentado e sem conservantes. As características deverão atender aos\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 36 (numeral 1): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"1 Kg ------\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 36 (numeral 115): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"115. POLPA DE CUPUAÇU, SEM adição de açúcar e ausente de substâncias estranhas. Produto congelado, não fermentado e sem conservantes. As características\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 36 (numeral 1): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"1 Kg 798 R$ 36,29 R$ 28.959,42\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 37 (numeral 116): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"116. POLPA DE GOIABA, SEM adição de açúcar e ausente de substâncias estranhas. Produto congelado, não fermentado e sem conservantes. As características deverão atender aos\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 37 (numeral 1): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"1 Kg -------\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 37 (numeral 117): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"117. POLPA DE MARACUJÁ, SEM adição de açúcar e ausente de substâncias estranhas. Produto congelado, não fermentado e sem conservantes. As características\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 37 (numeral 1): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"1 Kg 798 R$ 47,35 R$ 37.785,30\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 38 (numeral 118): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"118. POLVILHO DOCE, fécula de mandioca, Grupo I Fécula, tipo1, sem sujidade, umidade e bolor. NÃO CONTÉM GLÚTEN. Acondicionado em embalagem\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 38 (numeral 119): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"119. PONCÃ, inteiro, livre de sujidades, insetos, larvas, fungos, isenta de podridões, não se apresentar desidratada, murcha ou congelada. Consistência firme, cascas intactas, de\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 40 (numeral 126): sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos — \"126. TAPEREBÁ/CAJÁ, inteira, livre de sujidades, consistência firme, isenta de pragas, apresentando desenvolvimento completo ou maturidade comercial, isenta de\"",
+      "origem": "DOC-0025"
+    },
+    {
+      "tipo": "bloco_nao_item",
+      "descricao": "pág. 53 (numeral 53): cabeçalho de tabela (Nº/PRODUTO/ESPECIFICAÇÃO TÉCNICA/UNIDADE DE MEDIDA/QUANTIDADE/PREÇO/VALOR TOTAL), não uma linha de produto — \"53 PROJETO DE VENDA DE GÊNEROS ALIMENTÍCIOS DA AGRICULTURA FAMILIAR PARA ALIMENTAÇÃO ESCOLAR/PNAE IDENTIFICAÇÃO DA PROPOSTA DE ATENDIMENTO AO EDITAL/CHAMADA PÚBLICA Nº I- IDENTIFICAÇÃO DO FORNECEDOR FORNECEDOR (A) INDIVIDUAL 1. Nome do Prop\"",
       "origem": "DOC-0025"
     }
   ],
@@ -993,6 +2090,7 @@
     "manifestoSha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16",
     "documentosValidados": 1,
     "itensDoManifesto": 41,
-    "itensExtraidosPdf": 21
+    "itensExtraidosPdf": 52,
+    "blocosNaoItem": 84
   }
 }

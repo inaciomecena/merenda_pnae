@@ -1,0 +1,1253 @@
+{
+  "gerado_em": "2026-10-12T22:29:15.083Z",
+  "fonte": "docs/importacao-pnae-2025/staging/*.json + snapshot-institucional.json (leitura somente)",
+  "principio": "A resolução institucional NUNCA cria nem atualiza cadastro. Correspondência exata por CNPJ (entidade executora) e por código IBGE (município). AMBIGUO e NAO_ENCONTRADO ficam pendentes para revisão administrativa.",
+  "totais": {
+    "editais": 125,
+    "itensExtraidos": 2652,
+    "itensComValores": 1614,
+    "itensSemValores": 1038,
+    "pendencias": 3275
+  },
+  "pendenciasPorTipo": {
+    "resolucao_entidade_executora": 125,
+    "item_conferencia": 2087,
+    "bloco_nao_item": 1020,
+    "FORMATO_NUMERICO_AMBIGUO": 1,
+    "resolucao_municipio": 6,
+    "FORA_ESCOPO_2026": 9,
+    "CONFLITO_EXERCICIO": 11,
+    "PENDENTE_EDITAL_COMPLETO": 5,
+    "PENDENTE_ARQUIVO": 7,
+    "REFERENCIA_HISTORICA": 4
+  },
+  "por_dre": [
+    {
+      "dre": "Alta Floresta",
+      "aprovados": 7,
+      "segregados": 0,
+      "bloqueados": 0,
+      "pendentes": 0,
+      "resolucaoDre": {
+        "status": "CONFIRMADO",
+        "dreId": "b733bfc6-c5e2-11f1-8f2d-6451061ac5e7",
+        "detalhe": "DRE \"DRE Alta Floresta\" (ATF)"
+      },
+      "municipiosResolvidos": 7,
+      "municipiosNaoResolvidos": [],
+      "entidadesExecutorasResolvidas": 0,
+      "entidadesNaoResolvidas": [
+        {
+          "edital": "ED-0092",
+          "nome": "Alta Floresta",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0093",
+          "nome": "Alta Floresta",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0094",
+          "nome": "Alta Floresta",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0095",
+          "nome": "Alta Floresta",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0096",
+          "nome": "Alta Floresta",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0097",
+          "nome": "Alta Floresta",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0098",
+          "nome": "Alta Floresta",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        }
+      ],
+      "itens": {
+        "extraidos": 233,
+        "comValores": 97,
+        "semValores": 136
+      },
+      "blocosNaoItem": 322,
+      "pendencias": 543
+    },
+    {
+      "dre": "Barra do Garças",
+      "aprovados": 0,
+      "segregados": 0,
+      "bloqueados": 1,
+      "pendentes": 0,
+      "resolucaoDre": {
+        "status": "CONFIRMADO",
+        "dreId": "b7369e83-c5e2-11f1-8f2d-6451061ac5e7",
+        "detalhe": "DRE \"DRE Barra do Garças\" (BGA)"
+      },
+      "municipiosResolvidos": 1,
+      "municipiosNaoResolvidos": [],
+      "entidadesExecutorasResolvidas": 0,
+      "entidadesNaoResolvidas": [
+        {
+          "edital": "ED-0123",
+          "nome": "Barra do Garças",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        }
+      ],
+      "itens": {
+        "extraidos": 0,
+        "comValores": 0,
+        "semValores": 0
+      },
+      "blocosNaoItem": 0,
+      "pendencias": 2
+    },
+    {
+      "dre": "Cáceres",
+      "aprovados": 0,
+      "segregados": 5,
+      "bloqueados": 0,
+      "pendentes": 0,
+      "resolucaoDre": {
+        "status": "CONFIRMADO",
+        "dreId": "b73910dc-c5e2-11f1-8f2d-6451061ac5e7",
+        "detalhe": "DRE \"DRE Cáceres\" (CCR)"
+      },
+      "municipiosResolvidos": 3,
+      "municipiosNaoResolvidos": [
+        {
+          "edital": "ED-0088",
+          "bruto": "Mirassol D’Oeste",
+          "status": "NAO_ENCONTRADO",
+          "detalhe": "nenhum município cadastrado corresponde a \"Mirassol D’Oeste\""
+        },
+        {
+          "edital": "ED-0089",
+          "bruto": "Glória D’Oeste",
+          "status": "NAO_ENCONTRADO",
+          "detalhe": "nenhum município cadastrado corresponde a \"Glória D’Oeste\""
+        }
+      ],
+      "entidadesExecutorasResolvidas": 0,
+      "entidadesNaoResolvidas": [
+        {
+          "edital": "ED-0087",
+          "nome": "Cáceres",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0088",
+          "nome": "Cáceres",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0089",
+          "nome": "Cáceres",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0090",
+          "nome": "Cáceres",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0091",
+          "nome": "Cáceres",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        }
+      ],
+      "itens": {
+        "extraidos": 0,
+        "comValores": 0,
+        "semValores": 0
+      },
+      "blocosNaoItem": 0,
+      "pendencias": 7
+    },
+    {
+      "dre": "Confresa",
+      "aprovados": 0,
+      "segregados": 0,
+      "bloqueados": 1,
+      "pendentes": 0,
+      "resolucaoDre": {
+        "status": "CONFIRMADO",
+        "dreId": "b73a3b01-c5e2-11f1-8f2d-6451061ac5e7",
+        "detalhe": "DRE \"DRE Confresa\" (CFS)"
+      },
+      "municipiosResolvidos": 1,
+      "municipiosNaoResolvidos": [],
+      "entidadesExecutorasResolvidas": 0,
+      "entidadesNaoResolvidas": [
+        {
+          "edital": "ED-0122",
+          "nome": "Confresa",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        }
+      ],
+      "itens": {
+        "extraidos": 0,
+        "comValores": 0,
+        "semValores": 0
+      },
+      "blocosNaoItem": 0,
+      "pendencias": 2
+    },
+    {
+      "dre": "Diamantino",
+      "aprovados": 13,
+      "segregados": 0,
+      "bloqueados": 1,
+      "pendentes": 0,
+      "resolucaoDre": {
+        "status": "CONFIRMADO",
+        "dreId": "b73ccaab-c5e2-11f1-8f2d-6451061ac5e7",
+        "detalhe": "DRE \"DRE Diamantino\" (DMT)"
+      },
+      "municipiosResolvidos": 12,
+      "municipiosNaoResolvidos": [],
+      "entidadesExecutorasResolvidas": 0,
+      "entidadesNaoResolvidas": [
+        {
+          "edital": "ED-0001",
+          "nome": "Diamantino",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0002",
+          "nome": "Diamantino",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0003",
+          "nome": "Diamantino",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0004",
+          "nome": "Diamantino",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0005",
+          "nome": "Diamantino",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0006",
+          "nome": "Diamantino",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0007",
+          "nome": "Diamantino",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0008",
+          "nome": "Diamantino",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0009",
+          "nome": "Diamantino",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0010",
+          "nome": "Diamantino",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0011",
+          "nome": "Diamantino",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0012",
+          "nome": "Diamantino",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0013",
+          "nome": "Diamantino",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0014",
+          "nome": "Diamantino",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        }
+      ],
+      "itens": {
+        "extraidos": 500,
+        "comValores": 275,
+        "semValores": 225
+      },
+      "blocosNaoItem": 154,
+      "pendencias": 474
+    },
+    {
+      "dre": "Juína",
+      "aprovados": 10,
+      "segregados": 0,
+      "bloqueados": 0,
+      "pendentes": 0,
+      "resolucaoDre": {
+        "status": "CONFIRMADO",
+        "dreId": "b73da61d-c5e2-11f1-8f2d-6451061ac5e7",
+        "detalhe": "DRE \"DRE Juína\" (JNA)"
+      },
+      "municipiosResolvidos": 9,
+      "municipiosNaoResolvidos": [],
+      "entidadesExecutorasResolvidas": 0,
+      "entidadesNaoResolvidas": [
+        {
+          "edital": "ED-0015",
+          "nome": "Juína",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0016",
+          "nome": "Juína",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0017",
+          "nome": "Juína",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0018",
+          "nome": "Juína",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0019",
+          "nome": "Juína",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0020",
+          "nome": "Juína",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0021",
+          "nome": "Juína",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0022",
+          "nome": "Juína",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0023",
+          "nome": "Juína",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0024",
+          "nome": "Juína",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        }
+      ],
+      "itens": {
+        "extraidos": 997,
+        "comValores": 421,
+        "semValores": 576
+      },
+      "blocosNaoItem": 341,
+      "pendencias": 1258
+    },
+    {
+      "dre": "Matupá",
+      "aprovados": 0,
+      "segregados": 0,
+      "bloqueados": 1,
+      "pendentes": 0,
+      "resolucaoDre": {
+        "status": "CONFIRMADO",
+        "dreId": "b73e5918-c5e2-11f1-8f2d-6451061ac5e7",
+        "detalhe": "DRE \"DRE Matupá\" (MTP)"
+      },
+      "municipiosResolvidos": 1,
+      "municipiosNaoResolvidos": [],
+      "entidadesExecutorasResolvidas": 0,
+      "entidadesNaoResolvidas": [
+        {
+          "edital": "ED-0125",
+          "nome": "Matupá",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        }
+      ],
+      "itens": {
+        "extraidos": 0,
+        "comValores": 0,
+        "semValores": 0
+      },
+      "blocosNaoItem": 0,
+      "pendencias": 2
+    },
+    {
+      "dre": "Metropolitana",
+      "aprovados": 0,
+      "segregados": 11,
+      "bloqueados": 11,
+      "pendentes": 0,
+      "resolucaoDre": {
+        "status": "CONFIRMADO",
+        "dreId": "b73fc8eb-c5e2-11f1-8f2d-6451061ac5e7",
+        "detalhe": "DRE \"DRE Metropolitana\" (CBA)"
+      },
+      "municipiosResolvidos": 10,
+      "municipiosNaoResolvidos": [
+        {
+          "edital": "ED-0101",
+          "bruto": "Santo Antônio do Leverger",
+          "status": "NAO_ENCONTRADO",
+          "detalhe": "nenhum município cadastrado corresponde a \"Santo Antônio do Leverger\""
+        },
+        {
+          "edital": "ED-0112",
+          "bruto": "Santo Antônio do Leverger",
+          "status": "NAO_ENCONTRADO",
+          "detalhe": "nenhum município cadastrado corresponde a \"Santo Antônio do Leverger\""
+        }
+      ],
+      "entidadesExecutorasResolvidas": 0,
+      "entidadesNaoResolvidas": [
+        {
+          "edital": "ED-0099",
+          "nome": "Metropolitana",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0100",
+          "nome": "Metropolitana",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0101",
+          "nome": "Metropolitana",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0102",
+          "nome": "Metropolitana",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0103",
+          "nome": "Metropolitana",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0104",
+          "nome": "Metropolitana",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0105",
+          "nome": "Metropolitana",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0106",
+          "nome": "Metropolitana",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0107",
+          "nome": "Metropolitana",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0108",
+          "nome": "Metropolitana",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0109",
+          "nome": "Metropolitana",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0110",
+          "nome": "Metropolitana",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0111",
+          "nome": "Metropolitana",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0112",
+          "nome": "Metropolitana",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0113",
+          "nome": "Metropolitana",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0114",
+          "nome": "Metropolitana",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0115",
+          "nome": "Metropolitana",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0116",
+          "nome": "Metropolitana",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0117",
+          "nome": "Metropolitana",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0118",
+          "nome": "Metropolitana",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0119",
+          "nome": "Metropolitana",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0120",
+          "nome": "Metropolitana",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        }
+      ],
+      "itens": {
+        "extraidos": 0,
+        "comValores": 0,
+        "semValores": 0
+      },
+      "blocosNaoItem": 0,
+      "pendencias": 35
+    },
+    {
+      "dre": "Pontes e Lacerda",
+      "aprovados": 1,
+      "segregados": 0,
+      "bloqueados": 0,
+      "pendentes": 0,
+      "resolucaoDre": {
+        "status": "CONFIRMADO",
+        "dreId": "b7409577-c5e2-11f1-8f2d-6451061ac5e7",
+        "detalhe": "DRE \"DRE Pontes e Lacerda\" (PLA)"
+      },
+      "municipiosResolvidos": 1,
+      "municipiosNaoResolvidos": [],
+      "entidadesExecutorasResolvidas": 0,
+      "entidadesNaoResolvidas": [
+        {
+          "edital": "ED-0121",
+          "nome": "Pontes e Lacerda",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        }
+      ],
+      "itens": {
+        "extraidos": 104,
+        "comValores": 35,
+        "semValores": 69
+      },
+      "blocosNaoItem": 106,
+      "pendencias": 196
+    },
+    {
+      "dre": "Primavera do Leste",
+      "aprovados": 2,
+      "segregados": 21,
+      "bloqueados": 14,
+      "pendentes": 0,
+      "resolucaoDre": {
+        "status": "CONFIRMADO",
+        "dreId": "b741d30a-c5e2-11f1-8f2d-6451061ac5e7",
+        "detalhe": "DRE \"DRE Primavera do Leste\" (PVL)"
+      },
+      "municipiosResolvidos": 9,
+      "municipiosNaoResolvidos": [
+        {
+          "edital": "ED-0028",
+          "bruto": "Paranatinga Indígenas",
+          "status": "NAO_ENCONTRADO",
+          "detalhe": "nenhum município cadastrado corresponde a \"Paranatinga Indígenas\""
+        },
+        {
+          "edital": "ED-0033",
+          "bruto": "Poxoréo",
+          "status": "NAO_ENCONTRADO",
+          "detalhe": "nenhum município cadastrado corresponde a \"Poxoréo\""
+        }
+      ],
+      "entidadesExecutorasResolvidas": 0,
+      "entidadesNaoResolvidas": [
+        {
+          "edital": "ED-0025",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0026",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0027",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0028",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0029",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0030",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0031",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0032",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0033",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0034",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0035",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0036",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0037",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0038",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0039",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0040",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0041",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0042",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0043",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0044",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0045",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0046",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0047",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0048",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0049",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0050",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0051",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0052",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0053",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0054",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0055",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0056",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0057",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0058",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0059",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0060",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0061",
+          "nome": "Primavera do Leste",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        }
+      ],
+      "itens": {
+        "extraidos": 55,
+        "comValores": 48,
+        "semValores": 7
+      },
+      "blocosNaoItem": 6,
+      "pendencias": 71
+    },
+    {
+      "dre": "Rondonópolis",
+      "aprovados": 0,
+      "segregados": 0,
+      "bloqueados": 1,
+      "pendentes": 0,
+      "resolucaoDre": {
+        "status": "CONFIRMADO",
+        "dreId": "b742a4de-c5e2-11f1-8f2d-6451061ac5e7",
+        "detalhe": "DRE \"DRE Rondonópolis\" (ROO)"
+      },
+      "municipiosResolvidos": 1,
+      "municipiosNaoResolvidos": [],
+      "entidadesExecutorasResolvidas": 0,
+      "entidadesNaoResolvidas": [
+        {
+          "edital": "ED-0124",
+          "nome": "Rondonópolis",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        }
+      ],
+      "itens": {
+        "extraidos": 0,
+        "comValores": 0,
+        "semValores": 0
+      },
+      "blocosNaoItem": 0,
+      "pendencias": 2
+    },
+    {
+      "dre": "Sinop",
+      "aprovados": 18,
+      "segregados": 0,
+      "bloqueados": 0,
+      "pendentes": 0,
+      "resolucaoDre": {
+        "status": "CONFIRMADO",
+        "dreId": "b7441646-c5e2-11f1-8f2d-6451061ac5e7",
+        "detalhe": "DRE \"DRE Sinop\" (SNP)"
+      },
+      "municipiosResolvidos": 17,
+      "municipiosNaoResolvidos": [],
+      "entidadesExecutorasResolvidas": 0,
+      "entidadesNaoResolvidas": [
+        {
+          "edital": "ED-0062",
+          "nome": "Sinop",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0063",
+          "nome": "Sinop",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0064",
+          "nome": "Sinop",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0065",
+          "nome": "Sinop",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0066",
+          "nome": "Sinop",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0067",
+          "nome": "Sinop",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0068",
+          "nome": "Sinop",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0069",
+          "nome": "Sinop",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0070",
+          "nome": "Sinop",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0071",
+          "nome": "Sinop",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0072",
+          "nome": "Sinop",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0073",
+          "nome": "Sinop",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0074",
+          "nome": "Sinop",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0075",
+          "nome": "Sinop",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0076",
+          "nome": "Sinop",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0077",
+          "nome": "Sinop",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0078",
+          "nome": "Sinop",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0079",
+          "nome": "Sinop",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        }
+      ],
+      "itens": {
+        "extraidos": 763,
+        "comValores": 738,
+        "semValores": 25
+      },
+      "blocosNaoItem": 91,
+      "pendencias": 669
+    },
+    {
+      "dre": "Tangará da Serra",
+      "aprovados": 0,
+      "segregados": 0,
+      "bloqueados": 7,
+      "pendentes": 0,
+      "resolucaoDre": {
+        "status": "CONFIRMADO",
+        "dreId": "b744c17a-c5e2-11f1-8f2d-6451061ac5e7",
+        "detalhe": "DRE \"DRE Tangará da Serra\" (TGA)"
+      },
+      "municipiosResolvidos": 7,
+      "municipiosNaoResolvidos": [],
+      "entidadesExecutorasResolvidas": 0,
+      "entidadesNaoResolvidas": [
+        {
+          "edital": "ED-0080",
+          "nome": "Tangará da Serra",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0081",
+          "nome": "Tangará da Serra",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0082",
+          "nome": "Tangará da Serra",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0083",
+          "nome": "Tangará da Serra",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0084",
+          "nome": "Tangará da Serra",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0085",
+          "nome": "Tangará da Serra",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        },
+        {
+          "edital": "ED-0086",
+          "nome": "Tangará da Serra",
+          "cnpj": null,
+          "status": "PENDENTE",
+          "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        }
+      ],
+      "itens": {
+        "extraidos": 0,
+        "comValores": 0,
+        "semValores": 0
+      },
+      "blocosNaoItem": 0,
+      "pendencias": 14
+    }
+  ],
+  "vinculos_pendentes": []
+}

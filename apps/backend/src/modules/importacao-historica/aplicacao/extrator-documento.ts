@@ -254,20 +254,38 @@ interface BlocoItem {
   linhas: string[];
 }
 
+/**
+ * Linha de valores em layout "resumo R$" onde a QUANTIDADE abre a linha
+ * (ex.: "409 R$ 2,13 R$ 871,17"). Sem esta checagem a linha vira um novo
+ * "item" com sequência = quantidade e o bloco de descrição fica órfão.
+ */
+const EH_LINHA_VALORES_INLINE = /^\d{1,3}\s+R\$\s*\d/;
+
 function blocosDePagina(linhas: string[], pagina: number, atual: BlocoItem | null): { blocos: BlocoItem[]; atual: BlocoItem | null } {
   const blocos: BlocoItem[] = [];
   let corrente = atual;
+  const ultima = linhas.length - 1;
 
-  for (const linha of linhas) {
+  for (let indice = 0; indice < linhas.length; indice++) {
+    const linha = linhas[indice];
     const inline = linha.match(INICIO_ITEM_INLINE);
     const sozinho = linha.match(INICIO_ITEM_SOZINHO);
 
-    if (inline && !/R\$\s*\d/.test(inline[2])) {
+    // Número de página no topo/rodapé (ex.: "4" na 1ª linha da página 4, "3"
+    // na última) não abre nem fecha item — ele viraria um "item" cujo conteúdo
+    // é texto corrido da página (ex.: "39" no topo da página 39 do DOC-0001
+    // virava item "39 DECLARAÇÃO DE PRODUÇÃO PRÓPRIA"). Exige borda de página
+    // e ausência de ponto (item real é "4." / "4 PRODUTO"), então nunca
+    // descarta início de item real.
+    const bordaDePagina = indice === 0 || indice === ultima;
+    if (sozinho && !/\./.test(linha) && Number(sozinho[1]) === pagina && bordaDePagina) continue;
+
+    if (inline && !EH_LINHA_VALORES_INLINE.test(linha)) {
       if (corrente) blocos.push(corrente);
       corrente = { sequencia: Number(inline[1]), paginaInicio: pagina, linhas: [linha] };
       continue;
     }
-    if (sozinho) {
+    if (sozinho && !EH_LINHA_VALORES_INLINE.test(linha)) {
       if (corrente) blocos.push(corrente);
       corrente = { sequencia: Number(sozinho[1]), paginaInicio: pagina, linhas: [linha] };
       continue;
@@ -293,7 +311,7 @@ function finalizarBloco(bloco: BlocoItem, documentoId: string, sha256: string | 
   let totalBruto: string | null = null;
   let unidade: string | null = null;
   let prefixoResumo = '';
-  let layout: 'resumo_r$' | 'colunas' | 'valores_separados' | 'nenhum' = 'nenhum';
+  let layout: 'resumo_r$' | 'colunas' | 'valores_separados' | 'valores_quebrados' | 'nenhum' = 'nenhum';
 
   if (indiceResumo >= 0) {
     const m = texto[indiceResumo].match(LINHA_RESUMO);
@@ -368,6 +386,34 @@ function finalizarBloco(bloco: BlocoItem, documentoId: string, sha256: string | 
         break;
       }
     }
+
+    if (layout === 'nenhum') {
+      // Quarto layout (ex. real: DOC-0070/0071/0072, Sinop): quantidade e
+      // preço unitário numa linha ("426 R$ 5,39"), o "R$" e o total nas
+      // linhas seguintes ("R$" / "2.296,14"). A unidade ("Quilograma") vem
+      // imediatamente antes.
+      for (let i = 0; i < texto.length; i++) {
+        const parcial = texto[i].match(
+          /^(?<q>\d{1,3}(?:\.\d{3})*(?:,\d+)?)\s+R\$\s*(?<p>\d{1,3}(?:\.\d{3})*,\d{2}|\d+,\d{2})\s*$/,
+        );
+        if (!parcial?.groups) continue;
+        // Total: pode estar na mesma linha seguinte já com "R$" ou nas duas
+        // seguintes ("R$" sozinho + número). Nunca se completa por cálculo.
+        let totalBrutoEncontrado: string | null = null;
+        for (let j = i + 1; j < Math.min(i + 4, texto.length); j++) {
+          const t = texto[j].match(/^(?:R\$\s*)?(?<t>\d{1,3}(?:\.\d{3})*,\d{2})\s*$/);
+          if (t?.groups?.t) { totalBrutoEncontrado = t.groups.t; break; }
+        }
+        if (!totalBrutoEncontrado) continue;
+        quantidadeBruta = parcial.groups.q;
+        precoBruto = parcial.groups.p;
+        totalBruto = totalBrutoEncontrado;
+        unidade = buscarUnidadeDeslocada(colunas, -1);
+        prefixoResumo = '';
+        layout = 'valores_quebrados';
+        break;
+      }
+    }
   }
 
   const semResumo = texto.filter((_, i) => i !== indiceResumo);
@@ -381,6 +427,11 @@ function finalizarBloco(bloco: BlocoItem, documentoId: string, sha256: string | 
     const unidadeLinha = texto.find((linha) => new RegExp(`^${UNIDADES}\\s+\\d`, 'i').test(linha));
     if (unidadeLinha) unidade = normalizarUnidade(unidadeLinha.split(/\s+/)[0]);
   }
+  if (!unidade) {
+    // Unidade numa linha isolada (ex.: "Quilograma" antes da linha de valores).
+    const linhaUnidade = texto.find((linha) => ehUnidadeConhecida(linha.trim()) || ehPrefixoUnidade(linha.trim()));
+    if (linhaUnidade) unidade = normalizarUnidade(linhaUnidade.trim());
+  }
 
   const leituraQuantidade = lerPossivel(quantidadeBruta);
   const leituraPreco = lerPossivel(precoBruto);
@@ -388,7 +439,7 @@ function finalizarBloco(bloco: BlocoItem, documentoId: string, sha256: string | 
   const divergencia = compararTotal(leituraQuantidade.centavos, leituraPreco.centavos, leituraTotal);
 
   const pendencias: string[] = [];
-  if (layout === 'nenhum') pendencias.push('linha de valores não reconhecida nos dois layouts suportados (resumo R$ / colunas alinhadas); item mantido sem valores, sem preenchimento por zero');
+  if (layout === 'nenhum') pendencias.push('linha de valores não reconhecida nos quatro layouts suportados (resumo R$ / colunas alinhadas / valores separados por TAB / quantidade-preço com total em linha seguinte); item mantido sem valores, sem preenchimento por zero');
   if (leituraQuantidade.ambiguo && quantidadeBruta) pendencias.push(`quantidade ambígua: "${quantidadeBruta}"`);
   if (leituraPreco.ambiguo && precoBruto) pendencias.push(`preço unitário ambíguo: "${precoBruto}"`);
   if (leituraTotal.ambiguo && totalBruto) pendencias.push(`total ambíguo: "${totalBruto}"`);
@@ -432,19 +483,84 @@ function finalizarBloco(bloco: BlocoItem, documentoId: string, sha256: string | 
 }
 
 /**
- * Bloco extraído que NÃO é um item de produto: texto corrido com numeração
- * de cláusula (ex.: "19. 2. FUNDAMENTAÇÃO LEGAL …"). Não pode virar item —
- * vira pendência de revisão para não contaminar a tabela com zero artificial.
+ * Vocabulário de CABEÇALHO de tabela de editais. O token "UNIDADE" é uma
+ * palavra de cabeçalho, NÃO uma unidade comercial — sem esta checagem o bloco
+ * do cabeçalho virava um "item" com unidadeComercial = "UN".
+ *
+ * Os PDFs quebram o cabeçalho em várias linhas ("UNIDADE" / "DE" / "MEDIDA"),
+ * então a checagem é feita sobre o bloco JUNTO (espaços colapsados).
+ * Exige DOIS ou mais sinais distintos para não descartar um produto legítimo
+ * cuja descrição contenha uma palavra isolada do vocabulário.
  */
-function ehBlocoNaoItem(finalizado: ItemExtraido): boolean {
-  return !finalizado.produto && !finalizado.unidadeComercial && !finalizado.totalFonte && !finalizado.quantidade;
+const SINAIS_CABECALHO: RegExp[] = [
+  /ESPECIFICA[ÇC][ÃA]O\s+T[ÉE]CNICA/i,
+  /UNIDADE\s+(?:DE\s+)?MEDIDA/i,
+  /PRE[ÇC]O\s+(?:DE\s+)?AQUISI[ÇC][ÃA]O/i,
+  /VALOR\s+TOTAL/i,
+  /QUANTIDADE\s+ESTIMADA/i,
+];
+
+function ehBlocoCabecalhoTabela(linhasBrutas: string[]): boolean {
+  const junto = linhasBrutas.join(' ').replace(/\s+/g, ' ');
+  return SINAIS_CABECALHO.filter((re) => re.test(junto)).length >= 2;
+}
+
+/**
+ * Bloco extraído que NÃO é uma linha de tabela de produtos: texto corrido,
+ * cláusula numerada (ex.: "19. 2. FUNDAMENTAÇÃO LEGAL …", "8.1. PARA SELEÇÃO")
+ * ou o próprio CABEÇALHO da tabela.
+ *
+ * Critério deliberadamente conservador: uma linha de tabela precisa de
+ * EVIDÊNCIA de coluna — unidade comercial OU valores (quantidade/preço/total).
+ * Um bloco que só produziu "produto" (nome colado do texto) nunca vira item:
+ * vira bloco descartado com trecho, para revisão — nunca zero artificial e
+ * nunca item contaminando a tabela.
+ */
+function ehBlocoNaoItem(finalizado: ItemExtraido, linhasBrutas: string[]): boolean {
+  const temColuna = Boolean(finalizado.unidadeComercial || finalizado.quantidade || finalizado.precoUnitario || finalizado.totalFonte);
+  if (!temColuna) return true;
+  // Cabeçalho de tabela: tem a palavra "UNIDADE" mas não é uma linha de produto.
+  return ehBlocoCabecalhoTabela(linhasBrutas);
+}
+
+/** Bloco descartado pela extração (não é item de produto) — vira pendência. */
+export interface BlocoDescartado {
+  sequencia: number | null;
+  pagina: number | null;
+  documentoId: string;
+  trecho: string;
+  motivo: string;
+}
+
+export interface ResultadoExtracaoItens {
+  itens: ItemExtraido[];
+  descartados: BlocoDescartado[];
 }
 
 /** Extrai a tabela de itens de um PDF com proveniência por página. */
-export function extrairItens(paginas: PaginaTexto[], documentoId: string, sha256: string | null): ItemExtraido[] {
+export function extrairItens(paginas: PaginaTexto[], documentoId: string, sha256: string | null): ResultadoExtracaoItens {
   const itens: ItemExtraido[] = [];
+  const descartados: BlocoDescartado[] = [];
   let blocoCorrente: BlocoItem | null = null;
   let dentroDaTabela = false;
+
+  /** Item de tabela precisa de EVIDÊNCIA de coluna (unidade/valores). */
+  const registrar = (bloco: BlocoItem): void => {
+    const finalizado = finalizarBloco(bloco, documentoId, sha256);
+    if (ehBlocoNaoItem(finalizado, bloco.linhas)) {
+      descartados.push({
+        sequencia: finalizado.sequencia,
+        pagina: finalizado.pagina,
+        documentoId,
+        trecho: (finalizado.descricaoCompleta || bloco.linhas.map(limparLinha).join(' ').trim()).replace(/\s+/g, ' ').slice(0, 240),
+        motivo: ehBlocoCabecalhoTabela(bloco.linhas)
+          ? 'cabeçalho de tabela (Nº/PRODUTO/ESPECIFICAÇÃO TÉCNICA/UNIDADE DE MEDIDA/QUANTIDADE/PREÇO/VALOR TOTAL), não uma linha de produto'
+          : 'sem unidade comercial e sem valores (quantidade/preço/total): texto corrido ou cláusula numerada, não uma linha de tabela de produtos',
+      });
+      return;
+    }
+    itens.push(finalizado);
+  };
 
   for (const pagina of paginas) {
     // Preserva o espaçamento interno (colunas alinhadas por 2+ espaços);
@@ -462,30 +578,25 @@ export function extrairItens(paginas: PaginaTexto[], documentoId: string, sha256
 
     // Um bloco sem linha-resumo que se esgota marca o fim da tabela.
     const { blocos, atual } = blocosDePagina(linhas, pagina.numero, blocoCorrente);
-    for (const bloco of blocos) {
-      const finalizado = finalizarBloco(bloco, documentoId, sha256);
-      if (finalizado.totalFonte || finalizado.quantidade) itens.push(finalizado);
-    }
+    for (const bloco of blocos) registrar(bloco);
     if (atual && atual.linhas.length > 40) {
-      // Segurança: evita arrastar texto corrido como item eterno.
-      itens.push(finalizarBloco(atual, documentoId, sha256));
+      // Segurança: evita arrastar texto corrido como item eterno. O bloco
+      // passa pelo mesmo crivo de `registrar` (vira pendência se não for item).
+      registrar(atual);
       blocoCorrente = null;
     } else {
       blocoCorrente = atual;
     }
 
     if (blocoCorrente && new RegExp(`^\\d{1,3}\\s+[A-ZÁÀÃÂÉÊÍÓÔÕÚÇ].*R\\$`).test(blocoCorrente.linhas.join(' '))) {
-      itens.push(finalizarBloco(blocoCorrente, documentoId, sha256));
+      registrar(blocoCorrente);
       blocoCorrente = null;
     }
   }
 
-  if (blocoCorrente) {
-    const finalizado = finalizarBloco(blocoCorrente, documentoId, sha256);
-    if (finalizado.totalFonte || finalizado.quantidade) itens.push(finalizado);
-  }
+  if (blocoCorrente) registrar(blocoCorrente);
 
-  return itens;
+  return { itens, descartados };
 }
 
 function normalizarUnidade(valor: string): string {
