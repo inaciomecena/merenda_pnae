@@ -106,10 +106,10 @@ export declare class OportunidadesPnaeService {
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
-        chamadaId: string;
-        editalItemId: string;
         quantidadePretendida: import("@prisma/client/runtime/library").Decimal | null;
         solicitarAssistencia: boolean;
+        chamadaId: string;
+        editalItemId: string;
     })[]>;
     criarInteresse(id: string, dto: InteresseOportunidadeDto, user: AuthenticatedUser, requested?: string): Promise<{
         id: string;
@@ -120,10 +120,10 @@ export declare class OportunidadesPnaeService {
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
-        chamadaId: string;
-        editalItemId: string;
         quantidadePretendida: import("@prisma/client/runtime/library").Decimal | null;
         solicitarAssistencia: boolean;
+        chamadaId: string;
+        editalItemId: string;
     }>;
     atualizarInteresse(id: string, dto: InteresseOportunidadeDto & {
         status?: string;
@@ -136,9 +136,9 @@ export declare class OportunidadesPnaeService {
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
-        chamadaId: string;
-        editalItemId: string;
         quantidadePretendida: import("@prisma/client/runtime/library").Decimal | null;
         solicitarAssistencia: boolean;
+        chamadaId: string;
+        editalItemId: string;
     }>;
 }

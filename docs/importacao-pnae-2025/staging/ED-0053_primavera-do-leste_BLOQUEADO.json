@@ -1,6 +1,6 @@
 {
   "schema": "importacao-historica-pnae/1.0",
-  "geradoEm": "2026-10-12T22:03:07.746Z",
+  "geradoEm": "2026-10-13T01:51:00.471Z",
   "idPacote": "ED-0053",
   "dre": "Primavera do Leste",
   "chaveLogica": "11b4c935255a6b863df1671b24f628d7",
@@ -68,8 +68,9 @@
       {
         "nome": "Primavera do Leste",
         "cnpj": null,
+        "evidenciaCnpj": null,
         "entidadeExecutoraId": null,
-        "status": "PENDENTE",
+        "status": "SEM_EVIDENCIA_DOCUMENTAL",
         "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
       }
     ]
@@ -85,7 +86,7 @@
     {
       "tipo": "resolucao_entidade_executora",
       "descricao": "sem CNPJ nem nome de entidade executora no pacote",
-      "origem": "snapshot institucional"
+      "origem": "manifesto"
     }
   ],
   "metadadoExtracao": {

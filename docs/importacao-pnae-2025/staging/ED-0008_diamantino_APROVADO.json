@@ -1,6 +1,6 @@
 {
   "schema": "importacao-historica-pnae/1.0",
-  "geradoEm": "2026-10-12T22:02:57.642Z",
+  "geradoEm": "2026-10-13T01:50:25.775Z",
   "idPacote": "ED-0008",
   "dre": "Diamantino",
   "chaveLogica": "1e7dc5f9b979dbb35551f102354d5245",
@@ -71,11 +71,21 @@
     "escolas": [],
     "unidadesExecutoras": [
       {
-        "nome": "Diamantino",
-        "cnpj": null,
+        "nome": "SECRETARIA DE ESTADO DE EDUCAÇÃO",
+        "cnpj": "53.291.992/0001-10",
+        "evidenciaCnpj": {
+          "bruto": "53.291.992/0001-10",
+          "normalizado": "53291992000110",
+          "pagina": 29,
+          "documentoId": "DOC-0008",
+          "sha256": "b84d2f79ef3b7fe9947b9f26221bc6b39582c63aa60962d031391bc9edb4e862",
+          "metodo": "pdf_texto_regex",
+          "statusRevisao": "pendente_revisao",
+          "pendencia": "CNPJ da entidade executora extraído do documento; vínculo depende de confirmação administrativa quando o cadastro não tem CNPJ"
+        },
         "entidadeExecutoraId": null,
-        "status": "PENDENTE",
-        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        "status": "PENDENTE_CADASTRO_SEM_CNPJ",
+        "detalhe": "CNPJ 53.291.992/0001-10 (\"SECRETARIA DE ESTADO DE EDUCAÇÃO\", pág. 29) não consta no cadastro; candidato sem CNPJ: \"Secretaria de Estado de Educação de Mato Grosso\". Vínculo PENDENTE: exige preenchimento do CNPJ no cadastro + confirmação administrativa. Associação por nome é PROIBIDA."
       }
     ]
   },
@@ -1824,8 +1834,8 @@
   "pendencias": [
     {
       "tipo": "resolucao_entidade_executora",
-      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
-      "origem": "snapshot institucional"
+      "descricao": "CNPJ 53.291.992/0001-10 extraído do documento (pág. 29) não casou com cadastro; cadastro candidato sem CNPJ — confirmação administrativa pendente",
+      "origem": "DOC-0008"
     },
     {
       "tipo": "item_conferencia",

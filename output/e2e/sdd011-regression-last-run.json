@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-10-13T01:51:00.000Z",
+  "status": "PARTIAL",
+  "suites": [
+    { "sdd": "backend-unit-regression", "command": "npm test -- --runInBand", "result": "PASS", "pass": 453, "fail": 0, "blocked": 0, "evidence": "Jest output desta execução" },
+    { "sdd": "010.1", "command": "npx playwright test playwright/sdd0101-mobile.spec.ts --project=chromium --project=webkit", "result": "PASS", "pass": 8, "fail": 0, "blocked": 0, "evidence": "output/e2e/sdd0101-mobile/" },
+    { "sdd": "005-009", "command": "run-historical-e2e-isolated.js", "result": "BLOCKED", "pass": 0, "fail": 0, "blocked": 5, "evidence": "Harnesses exigem fixtures/bancos próprios e não foram executados contra o banco oficial" }
+  ]
+}

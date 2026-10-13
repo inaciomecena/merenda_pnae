@@ -31,10 +31,10 @@ export declare class OportunidadesPnaeController {
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
-        chamadaId: string;
-        editalItemId: string;
         quantidadePretendida: import("@prisma/client/runtime/library").Decimal | null;
         solicitarAssistencia: boolean;
+        chamadaId: string;
+        editalItemId: string;
     }>;
     atualizar(id: string, dto: InteresseOportunidadeDto & {
         status?: string;
@@ -47,10 +47,10 @@ export declare class OportunidadesPnaeController {
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
-        chamadaId: string;
-        editalItemId: string;
         quantidadePretendida: import("@prisma/client/runtime/library").Decimal | null;
         solicitarAssistencia: boolean;
+        chamadaId: string;
+        editalItemId: string;
     }>;
     interesses(id: string, req: Request): Promise<({
         chamada: {
@@ -128,9 +128,9 @@ export declare class OportunidadesPnaeController {
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
-        chamadaId: string;
-        editalItemId: string;
         quantidadePretendida: import("@prisma/client/runtime/library").Decimal | null;
         solicitarAssistencia: boolean;
+        chamadaId: string;
+        editalItemId: string;
     })[]>;
 }

@@ -1,0 +1,187 @@
+{
+  "generatedAt": "2026-10-13T01:48:52.059Z",
+  "database": "merenda_pnae_e2e_sdd011_1791856081304",
+  "durationMs": 50755,
+  "summary": {
+    "PASS": 13,
+    "FAIL": 0,
+    "BLOCKED": 4,
+    "NOT_APPLICABLE": 0
+  },
+  "scenarios": [
+    {
+      "id": "no-token",
+      "description": "Requisição sem JWT",
+      "result": "PASS",
+      "durationMs": 0,
+      "endpoint": "/produtor/minhas-oportunidades",
+      "expectedHttp": 401,
+      "receivedHttp": 401,
+      "evidenceId": "http-no-token"
+    },
+    {
+      "id": "login-producer",
+      "description": "Login por AuthModule real",
+      "result": "PASS",
+      "durationMs": 0,
+      "endpoint": "/auth/login",
+      "expectedHttp": 201,
+      "receivedHttp": 201,
+      "evidenceId": "http-login"
+    },
+    {
+      "id": "list-opportunity",
+      "description": "Produtor lista oportunidade aberta",
+      "result": "PASS",
+      "durationMs": 0,
+      "endpoint": "/produtor/minhas-oportunidades",
+      "expectedHttp": 200,
+      "receivedHttp": 200,
+      "evidenceId": "http-list"
+    },
+    {
+      "id": "detail-opportunity",
+      "description": "Detalhe da oportunidade",
+      "result": "PASS",
+      "durationMs": 0,
+      "endpoint": "/produtor/minhas-oportunidades/:id",
+      "expectedHttp": 200,
+      "receivedHttp": 200,
+      "evidenceId": "http-detail"
+    },
+    {
+      "id": "create-interest",
+      "description": "Registrar interesse via HTTP",
+      "result": "PASS",
+      "durationMs": 0,
+      "endpoint": "/produtor/minhas-oportunidades/:id/interesse",
+      "expectedHttp": 201,
+      "receivedHttp": 201,
+      "evidenceId": "http-interest"
+    },
+    {
+      "id": "duplicate-interest",
+      "description": "Impedir interesse duplicado",
+      "result": "PASS",
+      "durationMs": 0,
+      "endpoint": "/produtor/minhas-oportunidades/:id/interesse",
+      "expectedHttp": 409,
+      "receivedHttp": 409,
+      "evidenceId": "http-duplicate"
+    },
+    {
+      "id": "list-interests",
+      "description": "Consultar meus interesses",
+      "result": "PASS",
+      "durationMs": 0,
+      "endpoint": "/produtor/meus-interesses",
+      "expectedHttp": 200,
+      "receivedHttp": 200,
+      "evidenceId": "http-interests"
+    },
+    {
+      "id": "cancel-interest",
+      "description": "Atualizar/cancelar interesse",
+      "result": "PASS",
+      "durationMs": 0,
+      "endpoint": "/produtor/minhas-oportunidades/interesse/:id",
+      "expectedHttp": 200,
+      "receivedHttp": 200,
+      "evidenceId": "http-cancel"
+    },
+    {
+      "id": "idor-producer",
+      "description": "Bloquear acesso a outro produtor",
+      "result": "PASS",
+      "durationMs": 0,
+      "endpoint": "/produtor/minhas-oportunidades",
+      "expectedHttp": 403,
+      "receivedHttp": 403,
+      "evidenceId": "http-idor"
+    },
+    {
+      "id": "extensionist-active",
+      "description": "Extensionista com vínculo ativo",
+      "result": "PASS",
+      "durationMs": 0,
+      "endpoint": "/produtor/minhas-oportunidades",
+      "expectedHttp": 200,
+      "receivedHttp": 200,
+      "evidenceId": "http-extensionist"
+    },
+    {
+      "id": "extensionist-revoked",
+      "description": "Bloquear extensionista revogado",
+      "result": "PASS",
+      "durationMs": 0,
+      "endpoint": "/produtor/minhas-oportunidades",
+      "expectedHttp": 403,
+      "receivedHttp": 403,
+      "evidenceId": "http-extensionist-revoked"
+    },
+    {
+      "id": "integrity-no-proposal-reservation",
+      "description": "Interesse não cria proposta/contrato/reserva",
+      "result": "PASS",
+      "durationMs": 0,
+      "endpoint": "database",
+      "expectedHttp": 0,
+      "receivedHttp": 0,
+      "evidenceId": "http-integrity"
+    },
+    {
+      "id": "assistance-notification-audit",
+      "description": "Notificação interna e auditoria",
+      "result": "PASS",
+      "durationMs": 0,
+      "endpoint": "database",
+      "expectedHttp": 0,
+      "receivedHttp": 0,
+      "evidenceId": "http-audit-notification"
+    },
+    {
+      "id": "create-edital-through-dre",
+      "description": "Cenário dependente de fluxo/harness adicional",
+      "result": "BLOCKED",
+      "durationMs": 0,
+      "endpoint": "n/a",
+      "expectedHttp": null,
+      "receivedHttp": null,
+      "evidenceId": "blocked-create-edital-through-dre",
+      "error": "Não executado nesta sessão para não presumir estado institucional ou alterar fixtures oficiais."
+    },
+    {
+      "id": "publish-call-flow",
+      "description": "Cenário dependente de fluxo/harness adicional",
+      "result": "BLOCKED",
+      "durationMs": 0,
+      "endpoint": "n/a",
+      "expectedHttp": null,
+      "receivedHttp": null,
+      "evidenceId": "blocked-publish-call-flow",
+      "error": "Não executado nesta sessão para não presumir estado institucional ou alterar fixtures oficiais."
+    },
+    {
+      "id": "close-call-flow",
+      "description": "Cenário dependente de fluxo/harness adicional",
+      "result": "BLOCKED",
+      "durationMs": 0,
+      "endpoint": "n/a",
+      "expectedHttp": null,
+      "receivedHttp": null,
+      "evidenceId": "blocked-close-call-flow",
+      "error": "Não executado nesta sessão para não presumir estado institucional ou alterar fixtures oficiais."
+    },
+    {
+      "id": "global-historical-regression",
+      "description": "Cenário dependente de fluxo/harness adicional",
+      "result": "BLOCKED",
+      "durationMs": 0,
+      "endpoint": "n/a",
+      "expectedHttp": null,
+      "receivedHttp": null,
+      "evidenceId": "blocked-global-historical-regression",
+      "error": "Não executado nesta sessão para não presumir estado institucional ou alterar fixtures oficiais."
+    }
+  ]
+}

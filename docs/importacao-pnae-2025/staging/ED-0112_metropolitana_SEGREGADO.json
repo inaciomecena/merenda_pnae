@@ -1,6 +1,6 @@
 {
   "schema": "importacao-historica-pnae/1.0",
-  "geradoEm": "2026-10-12T22:03:19.207Z",
+  "geradoEm": "2026-10-13T01:51:13.941Z",
   "idPacote": "ED-0112",
   "dre": "Metropolitana",
   "chaveLogica": "ec331d2f172597d911ff66e070d3f5ca",
@@ -68,8 +68,9 @@
       {
         "nome": "Metropolitana",
         "cnpj": null,
+        "evidenciaCnpj": null,
         "entidadeExecutoraId": null,
-        "status": "PENDENTE",
+        "status": "SEM_EVIDENCIA_DOCUMENTAL",
         "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
       }
     ]
@@ -85,7 +86,7 @@
     {
       "tipo": "resolucao_entidade_executora",
       "descricao": "sem CNPJ nem nome de entidade executora no pacote",
-      "origem": "snapshot institucional"
+      "origem": "manifesto"
     }
   ],
   "metadadoExtracao": {

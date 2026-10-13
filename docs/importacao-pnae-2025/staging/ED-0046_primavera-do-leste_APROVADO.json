@@ -1,6 +1,6 @@
 {
   "schema": "importacao-historica-pnae/1.0",
-  "geradoEm": "2026-10-12T22:03:07.740Z",
+  "geradoEm": "2026-10-13T01:51:00.468Z",
   "idPacote": "ED-0046",
   "dre": "Primavera do Leste",
   "chaveLogica": "c97db1051affb16b6bd4bfb4ff6cbb4d",
@@ -71,11 +71,21 @@
     "escolas": [],
     "unidadesExecutoras": [
       {
-        "nome": "Primavera do Leste",
-        "cnpj": null,
+        "nome": "SECRETARIA DE ESTADO DE EDUCAÇÃO",
+        "cnpj": "53.291.992/0001-10",
+        "evidenciaCnpj": {
+          "bruto": "53.291.992/0001-10",
+          "normalizado": "53291992000110",
+          "pagina": 23,
+          "documentoId": "DOC-0050",
+          "sha256": "b862b9bb9b1e683e4a5a5f387de0322ca0d143c0dc1f06c4ce9aac5a1518b8a8",
+          "metodo": "pdf_texto_regex",
+          "statusRevisao": "pendente_revisao",
+          "pendencia": "CNPJ da entidade executora extraído do documento; vínculo depende de confirmação administrativa quando o cadastro não tem CNPJ"
+        },
         "entidadeExecutoraId": null,
-        "status": "PENDENTE",
-        "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
+        "status": "PENDENTE_CADASTRO_SEM_CNPJ",
+        "detalhe": "CNPJ 53.291.992/0001-10 (\"SECRETARIA DE ESTADO DE EDUCAÇÃO\", pág. 23) não consta no cadastro; candidato sem CNPJ: \"Secretaria de Estado de Educação de Mato Grosso\". Vínculo PENDENTE: exige preenchimento do CNPJ no cadastro + confirmação administrativa. Associação por nome é PROIBIDA."
       }
     ]
   },
@@ -1279,8 +1289,8 @@
   "pendencias": [
     {
       "tipo": "resolucao_entidade_executora",
-      "descricao": "sem CNPJ nem nome de entidade executora no pacote",
-      "origem": "snapshot institucional"
+      "descricao": "CNPJ 53.291.992/0001-10 extraído do documento (pág. 23) não casou com cadastro; cadastro candidato sem CNPJ — confirmação administrativa pendente",
+      "origem": "DOC-0050"
     },
     {
       "tipo": "item_conferencia",

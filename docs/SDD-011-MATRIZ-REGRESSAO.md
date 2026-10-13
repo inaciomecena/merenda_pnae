@@ -8,5 +8,8 @@
 | 011 UI Chromium | 4 | 4 | 0 | 0 | `output/e2e/sdd011-mobile/*chromium.png` |
 | 011 UI WebKit | 4 | 4 | 0 | 0 | `output/e2e/sdd011-mobile/*webkit.png` |
 | SDD-005 a 009 | 0 | 0 | 0 | 1 | Harness histórico não executado com isolamento comprovado nesta sessão |
+| Backend unitário global | 453 | 453 | 0 | 0 | Jest desta execução |
+
+O E2E HTTP/JWT SDD-011 desta execução registrou 13 PASS, 0 FAIL e 4 BLOCKED em `output/e2e/sdd011-http-last-run.json`.
 
 Comandos executados: `npx prisma validate`, `npx prisma migrate deploy` em banco isolado, `node scripts/e2e-sdd011-db.js`, `npx playwright test playwright/sdd011-oportunidades.spec.ts --project=chromium --project=webkit`, `npx playwright test playwright/sdd0101-mobile.spec.ts --project=chromium --project=webkit`, `npx jest --runInBand src/modules/produtor-painel/application/produtor-painel.service.spec.ts`, `npx tsc --noEmit`, `npx tsc --noEmit --incremental false`, `npm run build`, `npx vite build`.

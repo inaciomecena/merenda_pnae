@@ -23,12 +23,12 @@ export declare class ProdutorPainelService {
         produtor: {
             municipio: {
                 id: string;
-                nome: string;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
+                nome: string;
                 ativo: boolean;
                 nomeNormalizado: string | null;
                 uf: string;
@@ -36,18 +36,18 @@ export declare class ProdutorPainelService {
             };
         } & {
             id: string;
-            nome: string;
-            cpfCnpj: string | null;
-            municipioId: string;
-            endereco: string | null;
-            telefone: string | null;
-            dadosDocumentais: Prisma.JsonValue | null;
             active: boolean;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            municipioId: string;
+            nome: string;
+            endereco: string | null;
+            telefone: string | null;
+            cpfCnpj: string | null;
+            dadosDocumentais: Prisma.JsonValue | null;
         };
         indicadores: {
             unidades: number;
@@ -64,12 +64,12 @@ export declare class ProdutorPainelService {
     unidades(user: AuthenticatedUser, requested?: string): Promise<({
         municipio: {
             id: string;
-            nome: string;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            nome: string;
             ativo: boolean;
             nomeNormalizado: string | null;
             uf: string;
@@ -77,57 +77,57 @@ export declare class ProdutorPainelService {
         };
     } & {
         id: string;
-        nome: string;
-        municipioId: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        municipioId: string;
+        nome: string;
         produtorId: string;
-        status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
-        comunidade: string | null;
-        descricao: string | null;
-        areaHectares: Prisma.Decimal | null;
         latitude: Prisma.Decimal | null;
         longitude: Prisma.Decimal | null;
+        status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
+        descricao: string | null;
         versao: number;
+        comunidade: string | null;
+        areaHectares: Prisma.Decimal | null;
     })[]>;
     criarUnidade(dto: UnidadeProdutivaDto, user: AuthenticatedUser, requested?: string): Promise<{
         id: string;
-        nome: string;
-        municipioId: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        municipioId: string;
+        nome: string;
         produtorId: string;
-        status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
-        comunidade: string | null;
-        descricao: string | null;
-        areaHectares: Prisma.Decimal | null;
         latitude: Prisma.Decimal | null;
         longitude: Prisma.Decimal | null;
+        status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
+        descricao: string | null;
         versao: number;
+        comunidade: string | null;
+        areaHectares: Prisma.Decimal | null;
     }>;
     atualizarUnidade(id: string, dto: UnidadeProdutivaDto, user: AuthenticatedUser): Promise<{
         id: string;
-        nome: string;
-        municipioId: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        municipioId: string;
+        nome: string;
         produtorId: string;
-        status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
-        comunidade: string | null;
-        descricao: string | null;
-        areaHectares: Prisma.Decimal | null;
         latitude: Prisma.Decimal | null;
         longitude: Prisma.Decimal | null;
+        status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
+        descricao: string | null;
         versao: number;
+        comunidade: string | null;
+        areaHectares: Prisma.Decimal | null;
     }>;
     produtos(user: AuthenticatedUser, requested?: string, query?: {
         pagina?: number;
@@ -136,32 +136,14 @@ export declare class ProdutorPainelService {
         unidadeProdutivaId?: string;
         status?: string;
     }): Promise<({
-        unidadeProdutiva: {
-            id: string;
-            nome: string;
-            municipioId: string;
-            createdAt: Date;
-            updatedAt: Date;
-            deletedAt: Date | null;
-            createdBy: string | null;
-            updatedBy: string | null;
-            produtorId: string;
-            status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
-            comunidade: string | null;
-            descricao: string | null;
-            areaHectares: Prisma.Decimal | null;
-            latitude: Prisma.Decimal | null;
-            longitude: Prisma.Decimal | null;
-            versao: number;
-        } | null;
         produtoReferencia: {
             id: string;
-            nome: string;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            nome: string;
             ativo: boolean;
             categoria: string | null;
             subcategoria: string | null;
@@ -169,6 +151,24 @@ export declare class ProdutorPainelService {
             palavrasChave: string | null;
             sinonimos: string | null;
             agriculturaFamiliar: boolean;
+        } | null;
+        unidadeProdutiva: {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            deletedAt: Date | null;
+            createdBy: string | null;
+            updatedBy: string | null;
+            municipioId: string;
+            nome: string;
+            produtorId: string;
+            latitude: Prisma.Decimal | null;
+            longitude: Prisma.Decimal | null;
+            status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
+            descricao: string | null;
+            versao: number;
+            comunidade: string | null;
+            areaHectares: Prisma.Decimal | null;
         } | null;
     } & {
         id: string;
@@ -179,41 +179,23 @@ export declare class ProdutorPainelService {
         updatedBy: string | null;
         produtorId: string;
         status: import(".prisma/client").$Enums.StatusProdutoProdutor;
+        unidade: string | null;
+        produtoReferenciaId: string | null;
         produto: string;
         capacidade: string | null;
         periodoProducao: string | null;
         precoSugerido: Prisma.Decimal | null;
-        unidade: string | null;
-        produtoReferenciaId: string | null;
         unidadeProdutivaId: string | null;
     })[] | {
         items: ({
-            unidadeProdutiva: {
-                id: string;
-                nome: string;
-                municipioId: string;
-                createdAt: Date;
-                updatedAt: Date;
-                deletedAt: Date | null;
-                createdBy: string | null;
-                updatedBy: string | null;
-                produtorId: string;
-                status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
-                comunidade: string | null;
-                descricao: string | null;
-                areaHectares: Prisma.Decimal | null;
-                latitude: Prisma.Decimal | null;
-                longitude: Prisma.Decimal | null;
-                versao: number;
-            } | null;
             produtoReferencia: {
                 id: string;
-                nome: string;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
+                nome: string;
                 ativo: boolean;
                 categoria: string | null;
                 subcategoria: string | null;
@@ -221,6 +203,24 @@ export declare class ProdutorPainelService {
                 palavrasChave: string | null;
                 sinonimos: string | null;
                 agriculturaFamiliar: boolean;
+            } | null;
+            unidadeProdutiva: {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                deletedAt: Date | null;
+                createdBy: string | null;
+                updatedBy: string | null;
+                municipioId: string;
+                nome: string;
+                produtorId: string;
+                latitude: Prisma.Decimal | null;
+                longitude: Prisma.Decimal | null;
+                status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
+                descricao: string | null;
+                versao: number;
+                comunidade: string | null;
+                areaHectares: Prisma.Decimal | null;
             } | null;
         } & {
             id: string;
@@ -231,12 +231,12 @@ export declare class ProdutorPainelService {
             updatedBy: string | null;
             produtorId: string;
             status: import(".prisma/client").$Enums.StatusProdutoProdutor;
+            unidade: string | null;
+            produtoReferenciaId: string | null;
             produto: string;
             capacidade: string | null;
             periodoProducao: string | null;
             precoSugerido: Prisma.Decimal | null;
-            unidade: string | null;
-            produtoReferenciaId: string | null;
             unidadeProdutivaId: string | null;
         })[];
         pagina: number;
@@ -252,12 +252,12 @@ export declare class ProdutorPainelService {
         updatedBy: string | null;
         produtorId: string;
         status: import(".prisma/client").$Enums.StatusProdutoProdutor;
+        unidade: string | null;
+        produtoReferenciaId: string | null;
         produto: string;
         capacidade: string | null;
         periodoProducao: string | null;
         precoSugerido: Prisma.Decimal | null;
-        unidade: string | null;
-        produtoReferenciaId: string | null;
         unidadeProdutivaId: string | null;
     }>;
     atualizarProduto(id: string, dto: ProdutoProdutorPainelDto, user: AuthenticatedUser): Promise<{
@@ -269,12 +269,12 @@ export declare class ProdutorPainelService {
         updatedBy: string | null;
         produtorId: string;
         status: import(".prisma/client").$Enums.StatusProdutoProdutor;
+        unidade: string | null;
+        produtoReferenciaId: string | null;
         produto: string;
         capacidade: string | null;
         periodoProducao: string | null;
         precoSugerido: Prisma.Decimal | null;
-        unidade: string | null;
-        produtoReferenciaId: string | null;
         unidadeProdutivaId: string | null;
     }>;
     safras(user: AuthenticatedUser, requested?: string, query?: {
@@ -285,21 +285,21 @@ export declare class ProdutorPainelService {
     }): Promise<({
         unidadeProdutiva: {
             id: string;
-            nome: string;
-            municipioId: string;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            municipioId: string;
+            nome: string;
             produtorId: string;
-            status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
-            comunidade: string | null;
-            descricao: string | null;
-            areaHectares: Prisma.Decimal | null;
             latitude: Prisma.Decimal | null;
             longitude: Prisma.Decimal | null;
+            status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
+            descricao: string | null;
             versao: number;
+            comunidade: string | null;
+            areaHectares: Prisma.Decimal | null;
         } | null;
         produtoProdutor: {
             id: string;
@@ -310,55 +310,55 @@ export declare class ProdutorPainelService {
             updatedBy: string | null;
             produtorId: string;
             status: import(".prisma/client").$Enums.StatusProdutoProdutor;
+            unidade: string | null;
+            produtoReferenciaId: string | null;
             produto: string;
             capacidade: string | null;
             periodoProducao: string | null;
             precoSugerido: Prisma.Decimal | null;
-            unidade: string | null;
-            produtoReferenciaId: string | null;
             unidadeProdutivaId: string | null;
         };
     } & {
         id: string;
-        nome: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        nome: string;
         produtorId: string;
         status: import(".prisma/client").$Enums.StatusSafraProducao;
-        versao: number;
+        observacoes: string | null;
         unidade: string;
         unidadeProdutivaId: string | null;
+        versao: number;
+        quantidadeReservada: Prisma.Decimal;
         produtoProdutorId: string;
         inicio: Date;
         fim: Date;
         quantidadePrevista: Prisma.Decimal;
         quantidadeColhida: Prisma.Decimal;
         perdas: Prisma.Decimal;
-        quantidadeReservada: Prisma.Decimal;
         quantidadeComprometida: Prisma.Decimal;
-        observacoes: string | null;
     })[] | {
         items: ({
             unidadeProdutiva: {
                 id: string;
-                nome: string;
-                municipioId: string;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
+                municipioId: string;
+                nome: string;
                 produtorId: string;
-                status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
-                comunidade: string | null;
-                descricao: string | null;
-                areaHectares: Prisma.Decimal | null;
                 latitude: Prisma.Decimal | null;
                 longitude: Prisma.Decimal | null;
+                status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
+                descricao: string | null;
                 versao: number;
+                comunidade: string | null;
+                areaHectares: Prisma.Decimal | null;
             } | null;
             produtoProdutor: {
                 id: string;
@@ -369,36 +369,36 @@ export declare class ProdutorPainelService {
                 updatedBy: string | null;
                 produtorId: string;
                 status: import(".prisma/client").$Enums.StatusProdutoProdutor;
+                unidade: string | null;
+                produtoReferenciaId: string | null;
                 produto: string;
                 capacidade: string | null;
                 periodoProducao: string | null;
                 precoSugerido: Prisma.Decimal | null;
-                unidade: string | null;
-                produtoReferenciaId: string | null;
                 unidadeProdutivaId: string | null;
             };
         } & {
             id: string;
-            nome: string;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            nome: string;
             produtorId: string;
             status: import(".prisma/client").$Enums.StatusSafraProducao;
-            versao: number;
+            observacoes: string | null;
             unidade: string;
             unidadeProdutivaId: string | null;
+            versao: number;
+            quantidadeReservada: Prisma.Decimal;
             produtoProdutorId: string;
             inicio: Date;
             fim: Date;
             quantidadePrevista: Prisma.Decimal;
             quantidadeColhida: Prisma.Decimal;
             perdas: Prisma.Decimal;
-            quantidadeReservada: Prisma.Decimal;
             quantidadeComprometida: Prisma.Decimal;
-            observacoes: string | null;
         })[];
         pagina: number;
         limite: number;
@@ -406,49 +406,49 @@ export declare class ProdutorPainelService {
     }>;
     criarSafra(dto: SafraProducaoDto, user: AuthenticatedUser, requested?: string): Promise<{
         id: string;
-        nome: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        nome: string;
         produtorId: string;
         status: import(".prisma/client").$Enums.StatusSafraProducao;
-        versao: number;
+        observacoes: string | null;
         unidade: string;
         unidadeProdutivaId: string | null;
+        versao: number;
+        quantidadeReservada: Prisma.Decimal;
         produtoProdutorId: string;
         inicio: Date;
         fim: Date;
         quantidadePrevista: Prisma.Decimal;
         quantidadeColhida: Prisma.Decimal;
         perdas: Prisma.Decimal;
-        quantidadeReservada: Prisma.Decimal;
         quantidadeComprometida: Prisma.Decimal;
-        observacoes: string | null;
     }>;
     atualizarSafra(id: string, dto: SafraProducaoDto, user: AuthenticatedUser): Promise<{
         id: string;
-        nome: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        nome: string;
         produtorId: string;
         status: import(".prisma/client").$Enums.StatusSafraProducao;
-        versao: number;
+        observacoes: string | null;
         unidade: string;
         unidadeProdutivaId: string | null;
+        versao: number;
+        quantidadeReservada: Prisma.Decimal;
         produtoProdutorId: string;
         inicio: Date;
         fim: Date;
         quantidadePrevista: Prisma.Decimal;
         quantidadeColhida: Prisma.Decimal;
         perdas: Prisma.Decimal;
-        quantidadeReservada: Prisma.Decimal;
         quantidadeComprometida: Prisma.Decimal;
-        observacoes: string | null;
     }>;
     sazonalidade(user: AuthenticatedUser, requested?: string, query?: {
         pagina?: number;
@@ -458,21 +458,21 @@ export declare class ProdutorPainelService {
     }): Promise<({
         unidadeProdutiva: {
             id: string;
-            nome: string;
-            municipioId: string;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            municipioId: string;
+            nome: string;
             produtorId: string;
-            status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
-            comunidade: string | null;
-            descricao: string | null;
-            areaHectares: Prisma.Decimal | null;
             latitude: Prisma.Decimal | null;
             longitude: Prisma.Decimal | null;
+            status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
+            descricao: string | null;
             versao: number;
+            comunidade: string | null;
+            areaHectares: Prisma.Decimal | null;
         } | null;
         produtoProdutor: {
             id: string;
@@ -483,12 +483,12 @@ export declare class ProdutorPainelService {
             updatedBy: string | null;
             produtorId: string;
             status: import(".prisma/client").$Enums.StatusProdutoProdutor;
+            unidade: string | null;
+            produtoReferenciaId: string | null;
             produto: string;
             capacidade: string | null;
             periodoProducao: string | null;
             precoSugerido: Prisma.Decimal | null;
-            unidade: string | null;
-            produtoReferenciaId: string | null;
             unidadeProdutivaId: string | null;
         };
     } & {
@@ -498,34 +498,34 @@ export declare class ProdutorPainelService {
         createdBy: string | null;
         updatedBy: string | null;
         produtorId: string;
+        observacoes: string | null;
         unidade: string;
         unidadeProdutivaId: string | null;
+        mes: number;
         produtoProdutorId: string;
         quantidadePrevista: Prisma.Decimal;
-        observacoes: string | null;
-        safraProducaoId: string | null;
         anoReferencia: number | null;
+        safraProducaoId: string | null;
         tipoPeriodo: string | null;
-        mes: number;
     })[] | {
         items: ({
             unidadeProdutiva: {
                 id: string;
-                nome: string;
-                municipioId: string;
                 createdAt: Date;
                 updatedAt: Date;
                 deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
+                municipioId: string;
+                nome: string;
                 produtorId: string;
-                status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
-                comunidade: string | null;
-                descricao: string | null;
-                areaHectares: Prisma.Decimal | null;
                 latitude: Prisma.Decimal | null;
                 longitude: Prisma.Decimal | null;
+                status: import(".prisma/client").$Enums.StatusUnidadeProdutiva;
+                descricao: string | null;
                 versao: number;
+                comunidade: string | null;
+                areaHectares: Prisma.Decimal | null;
             } | null;
             produtoProdutor: {
                 id: string;
@@ -536,12 +536,12 @@ export declare class ProdutorPainelService {
                 updatedBy: string | null;
                 produtorId: string;
                 status: import(".prisma/client").$Enums.StatusProdutoProdutor;
+                unidade: string | null;
+                produtoReferenciaId: string | null;
                 produto: string;
                 capacidade: string | null;
                 periodoProducao: string | null;
                 precoSugerido: Prisma.Decimal | null;
-                unidade: string | null;
-                produtoReferenciaId: string | null;
                 unidadeProdutivaId: string | null;
             };
         } & {
@@ -551,15 +551,15 @@ export declare class ProdutorPainelService {
             createdBy: string | null;
             updatedBy: string | null;
             produtorId: string;
+            observacoes: string | null;
             unidade: string;
             unidadeProdutivaId: string | null;
+            mes: number;
             produtoProdutorId: string;
             quantidadePrevista: Prisma.Decimal;
-            observacoes: string | null;
-            safraProducaoId: string | null;
             anoReferencia: number | null;
+            safraProducaoId: string | null;
             tipoPeriodo: string | null;
-            mes: number;
         })[];
         pagina: number;
         limite: number;
@@ -572,15 +572,15 @@ export declare class ProdutorPainelService {
         createdBy: string | null;
         updatedBy: string | null;
         produtorId: string;
+        observacoes: string | null;
         unidade: string;
         unidadeProdutivaId: string | null;
+        mes: number;
         produtoProdutorId: string;
         quantidadePrevista: Prisma.Decimal;
-        observacoes: string | null;
-        safraProducaoId: string | null;
         anoReferencia: number | null;
+        safraProducaoId: string | null;
         tipoPeriodo: string | null;
-        mes: number;
     }>;
     disponibilidade(user: AuthenticatedUser, requested?: string): Promise<any[]>;
     criarDisponibilidade(dto: DisponibilidadeDto, user: AuthenticatedUser, requested?: string): Promise<{
@@ -591,15 +591,15 @@ export declare class ProdutorPainelService {
         updatedBy: string | null;
         produtorId: string;
         status: import(".prisma/client").$Enums.StatusDisponibilidadeProducao;
-        unidade: string;
-        produtoProdutorId: string;
         observacoes: string | null;
-        safraProducaoId: string;
         quantidade: Prisma.Decimal;
+        unidade: string;
         origem: string;
-        origemId: string | null;
         periodoInicio: Date | null;
         periodoFim: Date | null;
+        produtoProdutorId: string;
+        safraProducaoId: string;
+        origemId: string | null;
     }>;
     logistica(user: AuthenticatedUser, requested?: string): Promise<{
         id: string;
@@ -607,10 +607,10 @@ export declare class ProdutorPainelService {
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
-        produtorId: string;
         ativo: boolean;
-        versao: number;
+        produtorId: string;
         observacoes: string | null;
+        versao: number;
         modalidade: string;
         municipiosAtendidos: string | null;
         capacidadeDiaria: Prisma.Decimal | null;
@@ -623,10 +623,10 @@ export declare class ProdutorPainelService {
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
-        produtorId: string;
         ativo: boolean;
-        versao: number;
+        produtorId: string;
         observacoes: string | null;
+        versao: number;
         modalidade: string;
         municipiosAtendidos: string | null;
         capacidadeDiaria: Prisma.Decimal | null;
@@ -639,10 +639,10 @@ export declare class ProdutorPainelService {
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
-        produtorId: string;
         ativo: boolean;
-        versao: number;
+        produtorId: string;
         observacoes: string | null;
+        versao: number;
         modalidade: string;
         municipiosAtendidos: string | null;
         capacidadeDiaria: Prisma.Decimal | null;
@@ -663,8 +663,8 @@ export declare class ProdutorPainelService {
             createdBy: string | null;
             updatedBy: string | null;
             status: import(".prisma/client").$Enums.StatusNutricional;
-            produtoReferenciaId: string;
             observacoes: string | null;
+            produtoReferenciaId: string;
             fonte: string;
             versaoFonte: string | null;
             estadoAlimento: string | null;
@@ -680,12 +680,12 @@ export declare class ProdutorPainelService {
         }[];
     } & {
         id: string;
-        nome: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        nome: string;
         ativo: boolean;
         categoria: string | null;
         subcategoria: string | null;
@@ -702,8 +702,8 @@ export declare class ProdutorPainelService {
                 createdBy: string | null;
                 updatedBy: string | null;
                 status: import(".prisma/client").$Enums.StatusNutricional;
-                produtoReferenciaId: string;
                 observacoes: string | null;
+                produtoReferenciaId: string;
                 fonte: string;
                 versaoFonte: string | null;
                 estadoAlimento: string | null;
@@ -719,12 +719,12 @@ export declare class ProdutorPainelService {
             }[];
         } & {
             id: string;
-            nome: string;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            nome: string;
             ativo: boolean;
             categoria: string | null;
             subcategoria: string | null;
@@ -745,8 +745,8 @@ export declare class ProdutorPainelService {
             createdBy: string | null;
             updatedBy: string | null;
             status: import(".prisma/client").$Enums.StatusNutricional;
-            produtoReferenciaId: string;
             observacoes: string | null;
+            produtoReferenciaId: string;
             fonte: string;
             versaoFonte: string | null;
             estadoAlimento: string | null;
@@ -762,12 +762,12 @@ export declare class ProdutorPainelService {
         }[];
     } & {
         id: string;
-        nome: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        nome: string;
         ativo: boolean;
         categoria: string | null;
         subcategoria: string | null;
@@ -783,8 +783,8 @@ export declare class ProdutorPainelService {
         createdBy: string | null;
         updatedBy: string | null;
         status: import(".prisma/client").$Enums.StatusNutricional;
-        produtoReferenciaId: string;
         observacoes: string | null;
+        produtoReferenciaId: string;
         fonte: string;
         versaoFonte: string | null;
         estadoAlimento: string | null;
@@ -800,17 +800,17 @@ export declare class ProdutorPainelService {
     }[]>;
     solicitarCatalogo(dto: CatalogoSolicitacaoDto, user: AuthenticatedUser): Promise<{
         id: string;
-        nome: string;
         createdAt: Date;
         updatedAt: Date;
+        nome: string;
         status: string;
+        observacoes: string | null;
         categoria: string | null;
         unidadePadrao: string | null;
-        observacoes: string | null;
+        analisadoEm: Date | null;
+        analisadoPor: string | null;
         justificativa: string | null;
         solicitanteId: string;
-        analisadoPor: string | null;
-        analisadoEm: Date | null;
     }>;
     solicitacoesCatalogo(user: AuthenticatedUser): Promise<({
         solicitante: {
@@ -820,34 +820,34 @@ export declare class ProdutorPainelService {
         };
     } & {
         id: string;
-        nome: string;
         createdAt: Date;
         updatedAt: Date;
+        nome: string;
         status: string;
+        observacoes: string | null;
         categoria: string | null;
         unidadePadrao: string | null;
-        observacoes: string | null;
+        analisadoEm: Date | null;
+        analisadoPor: string | null;
         justificativa: string | null;
         solicitanteId: string;
-        analisadoPor: string | null;
-        analisadoEm: Date | null;
     })[]>;
     revisarSolicitacaoCatalogo(id: string, dto: {
         status: string;
         observacoes?: string;
     }, user: AuthenticatedUser): Promise<{
         id: string;
-        nome: string;
         createdAt: Date;
         updatedAt: Date;
+        nome: string;
         status: string;
+        observacoes: string | null;
         categoria: string | null;
         unidadePadrao: string | null;
-        observacoes: string | null;
+        analisadoEm: Date | null;
+        analisadoPor: string | null;
         justificativa: string | null;
         solicitanteId: string;
-        analisadoPor: string | null;
-        analisadoEm: Date | null;
     }>;
     assistencias(user: AuthenticatedUser, requested?: string): Promise<({
         extensionista: {
@@ -862,12 +862,12 @@ export declare class ProdutorPainelService {
         createdBy: string | null;
         updatedBy: string | null;
         produtorId: string;
-        status: import(".prisma/client").$Enums.StatusAssistenciaTecnica;
-        observacoes: string | null;
-        extensionistaId: string;
-        escopo: string | null;
         vigenciaInicio: Date;
         vigenciaFim: Date | null;
+        status: import(".prisma/client").$Enums.StatusAssistenciaTecnica;
+        observacoes: string | null;
+        escopo: string | null;
+        extensionistaId: string;
     })[]>;
     criarAssistencia(dto: AssistenciaTecnicaDto, user: AuthenticatedUser): Promise<{
         id: string;
@@ -876,12 +876,12 @@ export declare class ProdutorPainelService {
         createdBy: string | null;
         updatedBy: string | null;
         produtorId: string;
-        status: import(".prisma/client").$Enums.StatusAssistenciaTecnica;
-        observacoes: string | null;
-        extensionistaId: string;
-        escopo: string | null;
         vigenciaInicio: Date;
         vigenciaFim: Date | null;
+        status: import(".prisma/client").$Enums.StatusAssistenciaTecnica;
+        observacoes: string | null;
+        escopo: string | null;
+        extensionistaId: string;
     }>;
     atualizarAssistencia(id: string, dto: Partial<AssistenciaTecnicaDto>, user: AuthenticatedUser): Promise<{
         id: string;
@@ -890,12 +890,12 @@ export declare class ProdutorPainelService {
         createdBy: string | null;
         updatedBy: string | null;
         produtorId: string;
-        status: import(".prisma/client").$Enums.StatusAssistenciaTecnica;
-        observacoes: string | null;
-        extensionistaId: string;
-        escopo: string | null;
         vigenciaInicio: Date;
         vigenciaFim: Date | null;
+        status: import(".prisma/client").$Enums.StatusAssistenciaTecnica;
+        observacoes: string | null;
+        escopo: string | null;
+        extensionistaId: string;
     }>;
     criarMapeamento(dto: MapeamentoProdutoEditalDto, user: AuthenticatedUser, requested?: string): Promise<{
         id: string;
@@ -905,10 +905,10 @@ export declare class ProdutorPainelService {
         updatedBy: string | null;
         produtorId: string;
         produtoReferenciaId: string | null;
-        produtoProdutorId: string;
         editalItemId: string;
-        compatibilidade: Prisma.Decimal | null;
         justificativa: string | null;
+        produtoProdutorId: string;
+        compatibilidade: Prisma.Decimal | null;
         revisaoStatus: string;
         revisadoPor: string | null;
         revisadoEm: Date | null;
@@ -921,10 +921,10 @@ export declare class ProdutorPainelService {
         updatedBy: string | null;
         produtorId: string;
         produtoReferenciaId: string | null;
-        produtoProdutorId: string;
         editalItemId: string;
-        compatibilidade: Prisma.Decimal | null;
         justificativa: string | null;
+        produtoProdutorId: string;
+        compatibilidade: Prisma.Decimal | null;
         revisaoStatus: string;
         revisadoPor: string | null;
         revisadoEm: Date | null;

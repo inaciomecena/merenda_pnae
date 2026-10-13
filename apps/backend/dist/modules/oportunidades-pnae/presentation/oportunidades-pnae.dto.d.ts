@@ -1,4 +1,5 @@
 export declare class OportunidadesQueryDto {
+    produtorId?: string;
     produto?: string;
     categoria?: string;
     municipioId?: string;

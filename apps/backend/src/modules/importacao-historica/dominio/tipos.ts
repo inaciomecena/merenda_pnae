@@ -275,5 +275,19 @@ export interface VinculoInstitucional {
   dre: { nomePacote: string; dreId: string | null; codigo: string | null; status: 'CONFIRMADO' | 'AMBIGUO' | 'NAO_ENCONTRADO'; detalhe: string };
   municipio: { nomePacote: string | null; municipioId: string | null; codigoIbge: string | null; status: 'CONFIRMADO' | 'AMBIGUO' | 'NAO_ENCONTRADO'; detalhe: string };
   escolas: Array<{ nome: string; escolaId: string | null; inep: string | null; status: 'CONFIRMADO' | 'AMBIGUO' | 'NAO_ENCONTRADO'; detalhe: string }>;
-  unidadesExecutoras: Array<{ nome: string; cnpj: string | null; entidadeExecutoraId: string | null; status: 'CONFIRMADO' | 'PENDENTE' | 'NAO_ENCONTRADO'; detalhe: string }>;
+  unidadesExecutoras: Array<{
+    nome: string;
+    cnpj: string | null;
+    /** CNPJ conforme declarado no documento (grafia original) + proveniência. */
+    evidenciaCnpj: CampoRastreavel<string> | null;
+    entidadeExecutoraId: string | null;
+    /**
+     * `CONFIRMADO` só quando o CNPJ do documento casou com cadastro que TEM
+     * CNPJ. `PENDENTE_CADASTRO_SEM_CNPJ` marca o caso real do banco (cadastro
+     * estadual com `cnpj = null`): exige decisão administrativa, nunca associa
+     * por semelhança de nome.
+     */
+    status: 'CONFIRMADO' | 'PENDENTE' | 'NAO_ENCONTRADO' | 'PENDENTE_CADASTRO_SEM_CNPJ' | 'PENDENTE_SEM_CNPJ_CADASTRADO' | 'SEM_EVIDENCIA_DOCUMENTAL';
+    detalhe: string;
+  }>;
 }

@@ -42,6 +42,7 @@ const chaves_logicas_1 = require("../dominio/chaves-logicas");
 const classificacao_pacote_2 = require("../dominio/classificacao-pacote");
 const leitor_pacote_1 = require("./leitor-pacote");
 const extrator_documento_1 = require("./extrator-documento");
+const resolucao_entidade_executora_1 = require("./resolucao-entidade-executora");
 const resolucao_institucional_1 = require("./resolucao-institucional");
 function campo(valor, pagina, documentoId, sha256, metodo) {
     return {
@@ -54,11 +55,31 @@ function campo(valor, pagina, documentoId, sha256, metodo) {
         statusRevisao: 'extraido',
     };
 }
-function montarVinculos(editalPacote, snapshot, dataReferencia) {
+function montarVinculos(editalPacote, snapshot, dataReferencia, evidencia = null) {
     const dreResolvida = (0, resolucao_institucional_1.resolverDRE)(editalPacote.dre, snapshot);
     const { municipio: municipioPuro } = (0, chaves_logicas_1.separarMunicipioERecorte)(editalPacote.municipio ?? null);
     const municipioResolvido = (0, resolucao_institucional_1.resolverMunicipio)(municipioPuro, null, snapshot);
-    const entidadeResolvida = (0, resolucao_institucional_1.resolverEntidadeExecutora)(editalPacote.unidade_executora ?? null, editalPacote.cnpj ?? null, snapshot);
+    let entidadeResolvida;
+    if (evidencia) {
+        entidadeResolvida = (0, resolucao_entidade_executora_1.resolverEntidadeExecutoraDocumental)(evidencia, snapshot);
+    }
+    else {
+        const r = (0, resolucao_institucional_1.resolverEntidadeExecutora)(editalPacote.unidade_executora ?? null, editalPacote.cnpj ?? null, snapshot);
+        entidadeResolvida = {
+            status: r.status === 'CONFIRMADO' ? 'CONFIRMADO_POR_CNPJ' : r.status === 'AMBIGUO' ? 'NAO_ENCONTRADO' : 'SEM_EVIDENCIA_DOCUMENTAL',
+            entidadeExecutoraId: r.id,
+            evidencia: null,
+            detalhe: r.detalhe,
+            candidatosInformativos: [],
+            cadastroSemCnpj: [],
+            pendencia: r.status === 'CONFIRMADO' ? null : { tipo: 'resolucao_entidade_executora', descricao: r.detalhe, origem: 'manifesto' },
+        };
+    }
+    const statusUnidade = entidadeResolvida.status === 'CONFIRMADO_POR_CNPJ' ? 'CONFIRMADO'
+        : entidadeResolvida.status === 'PENDENTE_CADASTRO_SEM_CNPJ' ? 'PENDENTE_CADASTRO_SEM_CNPJ'
+            : entidadeResolvida.status === 'PENDENTE_SEM_CNPJ_CADASTRADO' ? 'PENDENTE_SEM_CNPJ_CADASTRADO'
+                : entidadeResolvida.status === 'SEM_EVIDENCIA_DOCUMENTAL' ? 'SEM_EVIDENCIA_DOCUMENTAL'
+                    : 'NAO_ENCONTRADO';
     const vinculos = {
         dre: {
             nomePacote: editalPacote.dre,
@@ -77,10 +98,11 @@ function montarVinculos(editalPacote, snapshot, dataReferencia) {
         escolas: [],
         unidadesExecutoras: [
             {
-                nome: editalPacote.unidade_executora ?? editalPacote.dre,
-                cnpj: editalPacote.cnpj ?? null,
-                entidadeExecutoraId: entidadeResolvida.id,
-                status: entidadeResolvida.status === 'CONFIRMADO' ? 'CONFIRMADO' : entidadeResolvida.status === 'AMBIGUO' ? 'NAO_ENCONTRADO' : 'PENDENTE',
+                nome: evidencia?.nomeBruto ?? editalPacote.unidade_executora ?? editalPacote.dre,
+                cnpj: evidencia?.cnpjBruto ?? editalPacote.cnpj ?? null,
+                evidenciaCnpj: evidencia ? (0, resolucao_entidade_executora_1.evidenciaParaCampo)(evidencia) : null,
+                entidadeExecutoraId: entidadeResolvida.entidadeExecutoraId,
+                status: statusUnidade,
                 detalhe: entidadeResolvida.detalhe,
             },
         ],
@@ -116,18 +138,32 @@ async function gerarStaging(opcoes) {
         });
         const docsDoEdital = manifesto.documentos.filter((d) => d.id_edital === editalPacote.id);
         const pendenciasDoEdital = manifesto.pendencias.filter((p) => p.edital === editalPacote.id);
-        const { vinculos } = montarVinculos(editalPacote, opcoes.snapshot, dataReferencia);
         const aprovado = decisao.decisao === 'APROVADO';
         const docPrincipal = docsDoEdital.find((d) => pacote.validacoesPorId[d.id_documento]?.classificacao === 'INTEIRO');
+        let paginas = [];
+        let shaPrincipal = null;
+        if (aprovado && docPrincipal?.caminho) {
+            const validacao = pacote.validacoesPorId[docPrincipal.id_documento];
+            shaPrincipal = validacao.sha256_calculado ?? null;
+            try {
+                const buffer = fs.readFileSync(validacao.caminho_abs);
+                paginas = await (0, extrator_documento_1.lerPaginasPdf)(buffer);
+            }
+            catch (erro) {
+                errosExtracao.push({ documentoId: docPrincipal.id_documento, erro: erro.message });
+                paginas = [];
+            }
+        }
+        const evidenciaEntidade = paginas.length && docPrincipal
+            ? (0, resolucao_entidade_executora_1.extrairEvidenciaEntidadeExecutora)(paginas, { documentoId: docPrincipal.id_documento, sha256: shaPrincipal })
+            : null;
+        const { vinculos, entidadeResolvida } = montarVinculos(editalPacote, opcoes.snapshot, dataReferencia, evidenciaEntidade);
         let identificacao;
         let itens = [];
         let blocosDescartados = [];
         let anexos = [];
-        if (aprovado && docPrincipal?.caminho) {
-            const validacao = pacote.validacoesPorId[docPrincipal.id_documento];
+        if (paginas.length && docPrincipal) {
             try {
-                const buffer = fs.readFileSync(validacao.caminho_abs);
-                const paginas = await (0, extrator_documento_1.lerPaginasPdf)(buffer);
                 identificacao = (0, extrator_documento_1.extrairIdentificacao)(paginas, {
                     numeroManifesto: editalPacote.numero ?? null,
                     municipioManifesto: municipioPuro,
@@ -135,7 +171,7 @@ async function gerarStaging(opcoes) {
                     exercicioManifesto: editalPacote.exercicio ?? null,
                 });
                 if (opcoes.extrairItensPdf !== false) {
-                    const extraido = (0, extrator_documento_1.extrairItens)(paginas, docPrincipal.id_documento, validacao.sha256_calculado);
+                    const extraido = (0, extrator_documento_1.extrairItens)(paginas, docPrincipal.id_documento, shaPrincipal);
                     itens = extraido.itens;
                     blocosDescartados = extraido.descartados;
                 }
@@ -187,11 +223,13 @@ async function gerarStaging(opcoes) {
         for (const [rótulo, resolucao] of [
             ['dre', (0, resolucao_institucional_1.resolverDRE)(editalPacote.dre, opcoes.snapshot)],
             ['municipio', (0, resolucao_institucional_1.resolverMunicipio)(municipioPuro, null, opcoes.snapshot)],
-            ['entidade_executora', (0, resolucao_institucional_1.resolverEntidadeExecutora)(editalPacote.unidade_executora ?? null, editalPacote.cnpj ?? null, opcoes.snapshot)],
         ]) {
             if (resolucao.status !== 'CONFIRMADO') {
                 pendencias.push({ tipo: `resolucao_${rótulo}`, descricao: resolucao.detalhe, origem: 'snapshot institucional' });
             }
+        }
+        if (entidadeResolvida.pendencia) {
+            pendencias.push(entidadeResolvida.pendencia);
         }
         for (const item of itens) {
             if (item.pendencia) {

@@ -1,0 +1,58 @@
+{
+  "etapas": [
+    {
+      "etapa": "identificacao",
+      "detalhe": "servidor localhost:3306 usuario=root url=mysql://root:****@localhost:3306"
+    },
+    {
+      "etapa": "servidor",
+      "detalhe": "MariaDB/MySQL 10.4.32-MariaDB em HP:3306"
+    },
+    {
+      "etapa": "ativo-protegido",
+      "detalhe": "merenda_pnae detectado; sera usado APENAS como fonte de dump (leitura)"
+    },
+    {
+      "etapa": "identidade-antes",
+      "detalhe": "DATABASE() = NULL (sem base)"
+    },
+    {
+      "etapa": "backup-ativo",
+      "detalhe": "dump C:\\Projetos\\merenda_pnae\\output\\backups\\merenda_pnae-homolog-pnae2025-before-1791857330521.sql (2882183 bytes) — banco ativo NAO alterado"
+    },
+    {
+      "etapa": "criacao",
+      "detalhe": "banco isolado merenda_pnae_homolog_2025 criado"
+    },
+    {
+      "etapa": "conferencia-ativo",
+      "detalhe": "6 ChamadaPublica no banco ativo (preservadas)"
+    },
+    {
+      "etapa": "restauracao",
+      "detalhe": "dump restaurado em merenda_pnae_homolog_2025"
+    },
+    {
+      "etapa": "migrations",
+      "detalhe": "prisma migrate deploy contra merenda_pnae_homolog_2025"
+    },
+    {
+      "etapa": "identidade-final",
+      "detalhe": "conectado a \"merenda_pnae_homolog_2025\" como root@localhost; indices: pnae_chamadas_publicas_dreId_numero_exercicio_key"
+    },
+    {
+      "etapa": "conferencia-isolado",
+      "detalhe": "6 ChamadaPublica restauradas no isolado (iguais ao ativo)"
+    }
+  ],
+  "chamadasNoAtivo": 6,
+  "identidadeFinal": {
+    "database": "merenda_pnae_homolog_2025",
+    "usuario": "root@localhost",
+    "indiceNovo": [
+      "pnae_chamadas_publicas_dreId_numero_exercicio_key"
+    ]
+  },
+  "chamadasNoIsolado": 6,
+  "urlHomolog": "mysql://root:****@localhost:3306"
+}

@@ -239,8 +239,9 @@ export interface VinculoInstitucional {
     unidadesExecutoras: Array<{
         nome: string;
         cnpj: string | null;
+        evidenciaCnpj: CampoRastreavel<string> | null;
         entidadeExecutoraId: string | null;
-        status: 'CONFIRMADO' | 'PENDENTE' | 'NAO_ENCONTRADO';
+        status: 'CONFIRMADO' | 'PENDENTE' | 'NAO_ENCONTRADO' | 'PENDENTE_CADASTRO_SEM_CNPJ' | 'PENDENTE_SEM_CNPJ_CADASTRADO' | 'SEM_EVIDENCIA_DOCUMENTAL';
         detalhe: string;
     }>;
 }

@@ -18,7 +18,14 @@ import { classificarPacote, DecisaoClassificacao } from '../dominio/classificaca
 import { chaveLogicaEdital, chaveVersaoDocumento, classificarPapelDocumento, normalizarRecorte, separarMunicipioERecorte } from '../dominio/chaves-logicas';
 import { normalizarNumeroComJustificativa as normalizarNumeroEdital } from '../dominio/classificacao-pacote';
 import { PacoteCarregado, carregarPacote, agruparDuplicados } from './leitor-pacote';
-import { lerPaginasPdf, extrairItens, extrairIdentificacao, extrairAnexos, BlocoDescartado } from './extrator-documento';
+import { lerPaginasPdf, extrairItens, extrairIdentificacao, extrairAnexos, BlocoDescartado, PaginaTexto } from './extrator-documento';
+import {
+  extrairEvidenciaEntidadeExecutora,
+  resolverEntidadeExecutoraDocumental,
+  evidenciaParaCampo,
+  EvidenciaEntidadeExecutora,
+  ResolucaoEntidadeExecutora,
+} from './resolucao-entidade-executora';
 import {
   SnapshotInstitucional,
   ResultadoResolucao,
@@ -71,15 +78,46 @@ function campo<T extends string>(valor: T | null, pagina: number | null, documen
   };
 }
 
+/**
+ * Monta os vínculos institucionais.
+ *
+ * A entidade executora é resolvida preferencialmente pela EVIDÊNCIA
+ * documental (CNPJ extraído do PDF sob o cabeçalho oficial, com página/hash).
+ * Sem evidência, cai na resolução pelo manifesto (que não tem CNPJ neste
+ * pacote e por isso fica PENDENTE).
+ */
 function montarVinculos(
   editalPacote: { dre: string; municipio?: string | null; cnpj?: string | null; unidade_executora?: string | null },
   snapshot: SnapshotInstitucional,
   dataReferencia: Date,
-): { vinculos: VinculoInstitucional; dreResolvida: ResultadoResolucao<string>; municipioResolvido: ResultadoResolucao<string>; entidadeResolvida: ResultadoResolucao<string> } {
+  evidencia: EvidenciaEntidadeExecutora | null = null,
+): { vinculos: VinculoInstitucional; dreResolvida: ResultadoResolucao<string>; municipioResolvido: ResultadoResolucao<string>; entidadeResolvida: ResolucaoEntidadeExecutora } {
   const dreResolvida = resolverDRE(editalPacote.dre, snapshot);
   const { municipio: municipioPuro } = separarMunicipioERecorte(editalPacote.municipio ?? null);
   const municipioResolvido = resolverMunicipio(municipioPuro, null, snapshot);
-  const entidadeResolvida = resolverEntidadeExecutora(editalPacote.unidade_executora ?? null, editalPacote.cnpj ?? null, snapshot);
+
+  let entidadeResolvida: ResolucaoEntidadeExecutora;
+  if (evidencia) {
+    entidadeResolvida = resolverEntidadeExecutoraDocumental(evidencia, snapshot);
+  } else {
+    const r = resolverEntidadeExecutora(editalPacote.unidade_executora ?? null, editalPacote.cnpj ?? null, snapshot);
+    entidadeResolvida = {
+      status: r.status === 'CONFIRMADO' ? 'CONFIRMADO_POR_CNPJ' : r.status === 'AMBIGUO' ? 'NAO_ENCONTRADO' : 'SEM_EVIDENCIA_DOCUMENTAL',
+      entidadeExecutoraId: r.id,
+      evidencia: null,
+      detalhe: r.detalhe,
+      candidatosInformativos: [],
+      cadastroSemCnpj: [],
+      pendencia: r.status === 'CONFIRMADO' ? null : { tipo: 'resolucao_entidade_executora', descricao: r.detalhe, origem: 'manifesto' },
+    };
+  }
+
+  const statusUnidade: VinculoInstitucional['unidadesExecutoras'][number]['status'] =
+    entidadeResolvida.status === 'CONFIRMADO_POR_CNPJ' ? 'CONFIRMADO'
+    : entidadeResolvida.status === 'PENDENTE_CADASTRO_SEM_CNPJ' ? 'PENDENTE_CADASTRO_SEM_CNPJ'
+    : entidadeResolvida.status === 'PENDENTE_SEM_CNPJ_CADASTRADO' ? 'PENDENTE_SEM_CNPJ_CADASTRADO'
+    : entidadeResolvida.status === 'SEM_EVIDENCIA_DOCUMENTAL' ? 'SEM_EVIDENCIA_DOCUMENTAL'
+    : 'NAO_ENCONTRADO';
 
   const vinculos: VinculoInstitucional = {
     dre: {
@@ -99,10 +137,11 @@ function montarVinculos(
     escolas: [],
     unidadesExecutoras: [
       {
-        nome: editalPacote.unidade_executora ?? editalPacote.dre,
-        cnpj: editalPacote.cnpj ?? null,
-        entidadeExecutoraId: entidadeResolvida.id,
-        status: entidadeResolvida.status === 'CONFIRMADO' ? 'CONFIRMADO' : entidadeResolvida.status === 'AMBIGUO' ? 'NAO_ENCONTRADO' : 'PENDENTE',
+        nome: evidencia?.nomeBruto ?? editalPacote.unidade_executora ?? editalPacote.dre,
+        cnpj: evidencia?.cnpjBruto ?? editalPacote.cnpj ?? null,
+        evidenciaCnpj: evidencia ? evidenciaParaCampo(evidencia) : null,
+        entidadeExecutoraId: entidadeResolvida.entidadeExecutoraId,
+        status: statusUnidade,
         detalhe: entidadeResolvida.detalhe,
       },
     ],
@@ -149,22 +188,42 @@ export async function gerarStaging(opcoes: OpcoesStaging): Promise<ResultadoStag
     const docsDoEdital = manifesto.documentos.filter((d) => d.id_edital === editalPacote.id);
     const pendenciasDoEdital = manifesto.pendencias.filter((p) => p.edital === editalPacote.id);
 
-    const { vinculos } = montarVinculos(editalPacote, opcoes.snapshot, dataReferencia);
-
     // --- identificação e extração (apenas para aprovados com PDF íntegro) ---
     const aprovado = decisao.decisao === 'APROVADO';
     const docPrincipal = docsDoEdital.find((d) => pacote.validacoesPorId[d.id_documento]?.classificacao === 'INTEIRO');
+
+    // Lê as páginas UMA vez e reaproveita para (a) evidência da entidade
+    // executora, (b) identificação, (c) itens e (d) anexos.
+    let paginas: PaginaTexto[] = [];
+    let shaPrincipal: string | null = null;
+
+    if (aprovado && docPrincipal?.caminho) {
+      const validacao = pacote.validacoesPorId[docPrincipal.id_documento];
+      shaPrincipal = validacao.sha256_calculado ?? null;
+      try {
+        const buffer = fs.readFileSync(validacao.caminho_abs as string);
+        paginas = await lerPaginasPdf(buffer);
+      } catch (erro) {
+        errosExtracao.push({ documentoId: docPrincipal.id_documento, erro: (erro as Error).message });
+        paginas = [];
+      }
+    }
+
+    // Fase 3 — evidência documental da entidade executora (CNPJ + página/hash).
+    const evidenciaEntidade =
+      paginas.length && docPrincipal
+        ? extrairEvidenciaEntidadeExecutora(paginas, { documentoId: docPrincipal.id_documento, sha256: shaPrincipal })
+        : null;
+
+    const { vinculos, entidadeResolvida } = montarVinculos(editalPacote, opcoes.snapshot, dataReferencia, evidenciaEntidade);
 
     let identificacao: StagingEdital['identificacao'];
     let itens: ItemExtraido[] = [];
     let blocosDescartados: BlocoDescartado[] = [];
     let anexos: StagingEdital['anexos'] = [];
 
-    if (aprovado && docPrincipal?.caminho) {
-      const validacao = pacote.validacoesPorId[docPrincipal.id_documento];
+    if (paginas.length && docPrincipal) {
       try {
-        const buffer = fs.readFileSync(validacao.caminho_abs as string);
-        const paginas = await lerPaginasPdf(buffer);
         identificacao = extrairIdentificacao(paginas, {
           numeroManifesto: editalPacote.numero ?? null,
           municipioManifesto: municipioPuro,
@@ -172,7 +231,7 @@ export async function gerarStaging(opcoes: OpcoesStaging): Promise<ResultadoStag
           exercicioManifesto: editalPacote.exercicio ?? null,
         });
         if (opcoes.extrairItensPdf !== false) {
-          const extraido = extrairItens(paginas, docPrincipal.id_documento, validacao.sha256_calculado);
+          const extraido = extrairItens(paginas, docPrincipal.id_documento, shaPrincipal);
           itens = extraido.itens;
           blocosDescartados = extraido.descartados;
         }
@@ -228,11 +287,15 @@ export async function gerarStaging(opcoes: OpcoesStaging): Promise<ResultadoStag
     for (const [rótulo, resolucao] of [
       ['dre', resolverDRE(editalPacote.dre, opcoes.snapshot)],
       ['municipio', resolverMunicipio(municipioPuro, null, opcoes.snapshot)],
-      ['entidade_executora', resolverEntidadeExecutora(editalPacote.unidade_executora ?? null, editalPacote.cnpj ?? null, opcoes.snapshot)],
     ] as Array<[string, ResultadoResolucao<string>]>) {
       if (resolucao.status !== 'CONFIRMADO') {
         pendencias.push({ tipo: `resolucao_${rótulo}`, descricao: resolucao.detalhe, origem: 'snapshot institucional' });
       }
+    }
+    // Entidade executora: pendência explícita quando a vinculação não foi
+    // confirmada por CNPJ exato (Fase 3 — nunca associa por semelhança).
+    if (entidadeResolvida.pendencia) {
+      pendencias.push(entidadeResolvida.pendencia);
     }
     for (const item of itens) {
       if (item.pendencia) {

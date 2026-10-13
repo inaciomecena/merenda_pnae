@@ -1,6 +1,6 @@
 {
   "schema": "importacao-historica-pnae/1.0",
-  "geradoEm": "2026-10-12T22:03:16.388Z",
+  "geradoEm": "2026-10-13T01:51:10.751Z",
   "idPacote": "ED-0090",
   "dre": "Cáceres",
   "chaveLogica": "61c528892a02b30aa5375dc724f80222",
@@ -68,8 +68,9 @@
       {
         "nome": "Cáceres",
         "cnpj": null,
+        "evidenciaCnpj": null,
         "entidadeExecutoraId": null,
-        "status": "PENDENTE",
+        "status": "SEM_EVIDENCIA_DOCUMENTAL",
         "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
       }
     ]
@@ -80,7 +81,7 @@
     {
       "tipo": "resolucao_entidade_executora",
       "descricao": "sem CNPJ nem nome de entidade executora no pacote",
-      "origem": "snapshot institucional"
+      "origem": "manifesto"
     }
   ],
   "metadadoExtracao": {

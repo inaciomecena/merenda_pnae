@@ -1,6 +1,7 @@
 import { IsBoolean, IsIn, IsNumber, IsOptional, IsString, Min } from 'class-validator';
 
 export class OportunidadesQueryDto {
+  @IsOptional() @IsString() produtorId?: string;
   @IsOptional() @IsString() produto?: string;
   @IsOptional() @IsString() categoria?: string;
   @IsOptional() @IsString() municipioId?: string;

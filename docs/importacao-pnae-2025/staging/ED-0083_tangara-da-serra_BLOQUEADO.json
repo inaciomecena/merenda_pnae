@@ -1,6 +1,6 @@
 {
   "schema": "importacao-historica-pnae/1.0",
-  "geradoEm": "2026-10-12T22:03:16.384Z",
+  "geradoEm": "2026-10-13T01:51:10.747Z",
   "idPacote": "ED-0083",
   "dre": "Tangará da Serra",
   "chaveLogica": "c2978f9b6cc657d363bc6a10a7be8601",
@@ -68,8 +68,9 @@
       {
         "nome": "Tangará da Serra",
         "cnpj": null,
+        "evidenciaCnpj": null,
         "entidadeExecutoraId": null,
-        "status": "PENDENTE",
+        "status": "SEM_EVIDENCIA_DOCUMENTAL",
         "detalhe": "sem CNPJ nem nome de entidade executora no pacote"
       }
     ]
@@ -85,7 +86,7 @@
     {
       "tipo": "resolucao_entidade_executora",
       "descricao": "sem CNPJ nem nome de entidade executora no pacote",
-      "origem": "snapshot institucional"
+      "origem": "manifesto"
     }
   ],
   "metadadoExtracao": {
