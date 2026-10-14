@@ -15,6 +15,7 @@ const client_1 = require("@prisma/client");
 const prisma_service_1 = require("../../../infrastructure/prisma/prisma.service");
 const policy_service_1 = require("../../../common/auth/policy.service");
 const audit_service_1 = require("../../audit/application/services/audit.service");
+const numero_chamada_1 = require("../../../common/util/numero-chamada");
 const ADMIN = ['ADMIN', 'DRE'];
 let ChamadasPublicasService = class ChamadasPublicasService {
     prisma;
@@ -30,12 +31,27 @@ let ChamadasPublicasService = class ChamadasPublicasService {
         return { dreId: { in: await this.policy.getAuthorizedDREIds(user) } }; if (user.role === 'ESCOLA')
         return { escolas: { some: { escolaId: { in: await this.policy.getAuthorizedEscolaIds(user) } } } }; return { id: { in: [] } }; }
     async verificarUnicidade(numero, exercicio, dreId, excluindoId) {
-        const escopo = { numero, exercicio, dreId: dreId ?? null };
+        const escopo = { numero: (0, numero_chamada_1.normalizarNumeroChamada)(numero), exercicio, dreId: dreId ?? null };
         if (excluindoId)
             escopo.id = { not: excluindoId };
         const existente = await this.prisma.chamadaPublica.findFirst({ where: escopo, select: { id: true } });
         if (existente)
-            throw new common_1.ConflictException('Numero ja utilizado nesta DRE para o exercicio');
+            throw new common_1.ConflictException(this.mensagemDuplicidade(dreId));
+    }
+    mensagemDuplicidade(dreId) {
+        return dreId
+            ? 'Numero ja utilizado nesta DRE para o exercicio'
+            : 'Numero ja utilizado no escopo estadual para o exercicio';
+    }
+    tratarConflitoUnicidade(erro, dreId) {
+        const e = erro;
+        const alvo = Array.isArray(e?.meta?.target) ? e.meta.target.map(String) : [];
+        const violouIndice = e?.code === 'P2002' ||
+            e?.code === 'ER_DUP_ENTRY' ||
+            alvo.some((t) => t.includes('dreEscopo') || t.includes('dreId') || t.includes('numero_exercicio'));
+        if (violouIndice)
+            throw new common_1.ConflictException(this.mensagemDuplicidade(dreId));
+        throw erro;
     }
     async obter(id, user) { const row = await this.prisma.chamadaPublica.findFirst({ where: { id, ...(await this.scope(user)) }, include: { edital: true, escolas: { include: { escola: true } }, inscricoes: true, projetos: { include: { produtor: true, itens: true } }, homologacao: true } }); if (!row)
         throw new common_1.NotFoundException('Chamada publica nao encontrada'); return row; }
@@ -44,11 +60,21 @@ let ChamadasPublicasService = class ChamadasPublicasService {
         throw new common_1.ForbiddenException('Operacao administrativa'); if (new Date(dto.inscricoesFim) <= new Date(dto.inscricoesInicio))
         throw new common_1.BadRequestException('Periodo invalido'); if (user.role === 'DRE' && dto.dreId)
         await this.policy.requireDREAccess(user, dto.dreId); if (!await this.prisma.edital.findFirst({ where: { id: dto.editalId, deletedAt: null } }))
-        throw new common_1.NotFoundException('Edital nao encontrado'); await this.verificarUnicidade(dto.numero, dto.exercicio, dto.dreId); const row = await this.prisma.chamadaPublica.create({ data: { editalId: dto.editalId, numero: dto.numero, exercicio: dto.exercicio, objeto: dto.objeto, entidadeExecutoraId: dto.entidadeExecutoraId, dreId: dto.dreId, municipioId: dto.municipioId, inscricoesInicio: new Date(dto.inscricoesInicio), inscricoesFim: new Date(dto.inscricoesFim), dataAbertura: dto.dataAbertura ? new Date(dto.dataAbertura) : undefined, prazoDocumentos: dto.prazoDocumentos ? new Date(dto.prazoDocumentos) : undefined, localApresentacao: dto.localApresentacao, formaApresentacao: dto.formaApresentacao, observacoes: dto.observacoes, createdBy: user.sub } }); await this.audit.log({ userId: user.sub, userRole: user.role, action: 'CREATE', entity: 'ChamadaPublica', entityId: row.id }); return this.obter(row.id, user); }
+        throw new common_1.NotFoundException('Edital nao encontrado'); await this.verificarUnicidade(dto.numero, dto.exercicio, dto.dreId); let row; try {
+        row = await this.prisma.chamadaPublica.create({ data: { editalId: dto.editalId, numero: (0, numero_chamada_1.normalizarNumeroChamada)(dto.numero), exercicio: dto.exercicio, objeto: dto.objeto, entidadeExecutoraId: dto.entidadeExecutoraId, dreId: dto.dreId, municipioId: dto.municipioId, inscricoesInicio: new Date(dto.inscricoesInicio), inscricoesFim: new Date(dto.inscricoesFim), dataAbertura: dto.dataAbertura ? new Date(dto.dataAbertura) : undefined, prazoDocumentos: dto.prazoDocumentos ? new Date(dto.prazoDocumentos) : undefined, localApresentacao: dto.localApresentacao, formaApresentacao: dto.formaApresentacao, observacoes: dto.observacoes, createdBy: user.sub } });
+    }
+    catch (erro) {
+        this.tratarConflitoUnicidade(erro, dto.dreId);
+    } await this.audit.log({ userId: user.sub, userRole: user.role, action: 'CREATE', entity: 'ChamadaPublica', entityId: row.id }); return this.obter(row.id, user); }
     async atualizar(id, dto, user) { if (!ADMIN.includes(user.role))
         throw new common_1.ForbiddenException('Operacao administrativa'); const row = await this.obter(id, user); if (row.status !== client_1.StatusChamadaPublica.RASCUNHO && row.status !== client_1.StatusChamadaPublica.CANCELADA)
         throw new common_1.BadRequestException('Somente rascunho'); if (dto.versao && dto.versao !== row.versaoPublicada)
-        throw new common_1.ConflictException('Versao desatualizada'); await this.verificarUnicidade(dto.numero, dto.exercicio, dto.dreId, id); await this.prisma.chamadaPublica.update({ where: { id }, data: { numero: dto.numero, exercicio: dto.exercicio, objeto: dto.objeto, dreId: dto.dreId, municipioId: dto.municipioId, entidadeExecutoraId: dto.entidadeExecutoraId, inscricoesInicio: new Date(dto.inscricoesInicio), inscricoesFim: new Date(dto.inscricoesFim), versaoPublicada: { increment: 1 }, updatedBy: user.sub } }); return this.obter(id, user); }
+        throw new common_1.ConflictException('Versao desatualizada'); await this.verificarUnicidade(dto.numero, dto.exercicio, dto.dreId, id); try {
+        await this.prisma.chamadaPublica.update({ where: { id }, data: { numero: (0, numero_chamada_1.normalizarNumeroChamada)(dto.numero), exercicio: dto.exercicio, objeto: dto.objeto, dreId: dto.dreId, municipioId: dto.municipioId, entidadeExecutoraId: dto.entidadeExecutoraId, inscricoesInicio: new Date(dto.inscricoesInicio), inscricoesFim: new Date(dto.inscricoesFim), versaoPublicada: { increment: 1 }, updatedBy: user.sub } });
+    }
+    catch (erro) {
+        this.tratarConflitoUnicidade(erro, dto.dreId);
+    } return this.obter(id, user); }
     async transicionar(id, status, user) { if (!ADMIN.includes(user.role))
         throw new common_1.ForbiddenException('Operacao administrativa'); const row = await this.obter(id, user); const allowed = { RASCUNHO: ['PUBLICADA', 'CANCELADA'], PUBLICADA: ['INSCRICOES_ABERTAS', 'CANCELADA'], INSCRICOES_ABERTAS: ['INSCRICOES_ENCERRADAS', 'CANCELADA'], INSCRICOES_ENCERRADAS: ['EM_HABILITACAO'], EM_HABILITACAO: ['EM_SELECAO'], EM_SELECAO: ['RESULTADO_PRELIMINAR'], RESULTADO_PRELIMINAR: ['EM_RECURSO', 'HOMOLOGADA'], EM_RECURSO: ['HOMOLOGADA'] }; if (!allowed[row.status]?.includes(status))
         throw new common_1.BadRequestException('Transicao invalida'); await this.prisma.chamadaPublica.update({ where: { id }, data: { status, publicadaEm: status === 'PUBLICADA' ? new Date() : undefined, updatedBy: user.sub } }); return this.obter(id, user); }

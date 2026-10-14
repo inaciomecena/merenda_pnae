@@ -1,0 +1,716 @@
+[
+  {
+    "dre": "Alta Floresta",
+    "url": "https://drealtafloresta.com.br/drealtafloresta/",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Barra do Garças",
+    "url": "https://sites.google.com/edu.mt.gov.br/dre-barra-do-garcas",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Cáceres",
+    "url": "https://www.drecaceres.com.br/",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Confresa",
+    "url": "https://dreconfresa.com.br/",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Diamantino",
+    "url": "https://sites.google.com/edu.mt.gov.br/drediamantino/in%C3%ADcio",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Juína",
+    "url": "https://www.drejuina.com.br/",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Matupá",
+    "url": "https://www.drematupa.com.br/",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Metropolitana",
+    "url": "https://www.dmetropolitana.org/",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Pontes e Lacerda",
+    "url": "https://dreponteselacerda.com.br/site/",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Primavera do Leste",
+    "url": "https://sites.google.com/edu.mt.gov.br/drepva/inicio",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Rondonópolis",
+    "url": "https://drerondonopolis.com.br/",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Sinop",
+    "url": "https://dresinop.com.br/",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Tangará da Serra",
+    "url": "https://sites.google.com/edu.mt.gov.br/dre-tangaradaserra/in%C3%ADcio",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Alta Floresta",
+    "url": "https://drealtafloresta.com.br/drealtafloresta/equipe-coadm/",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Alta Floresta",
+    "url": "https://drealtafloresta.com.br/drealtafloresta/produtos-coadm/",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Alta Floresta",
+    "url": "https://drealtafloresta.com.br/drealtafloresta/equipe-coger/",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Alta Floresta",
+    "url": "https://drealtafloresta.com.br/drealtafloresta/produtos-coger/",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Alta Floresta",
+    "url": "https://drealtafloresta.com.br/drealtafloresta/editais/",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Cáceres",
+    "url": "https://www.drecaceres.com.br/coordenadoria.php?slug=coger",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Cáceres",
+    "url": "https://www.drecaceres.com.br/coordenadoria.php?slug=coadm",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Cáceres",
+    "url": "https://www.drecaceres.com.br/noticias.php",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Cáceres",
+    "url": "https://www.drecaceres.com.br/editais.php",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Confresa",
+    "url": "https://dreconfresa.com.br/editais-simplificados.php",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Confresa",
+    "url": "https://dreconfresa.com.br/resultado-de-editais.php",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Confresa",
+    "url": "https://dreconfresa.com.br/coadm-equipe.php",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Confresa",
+    "url": "https://dreconfresa.com.br/coadm-atribuicoes.php",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Confresa",
+    "url": "https://dreconfresa.com.br/coadm-fale-com-a-coordenadoria.php",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Confresa",
+    "url": "https://dreconfresa.com.br/coger-equipe.php",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Confresa",
+    "url": "https://dreconfresa.com.br/coger-atribuicoes.php",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Confresa",
+    "url": "https://dreconfresa.com.br/coger-fale-com-a-coordenadoria.php",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Confresa",
+    "url": "https://dreconfresa.com.br/noticias.php",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Diamantino",
+    "url": "https://sites.google.com/edu.mt.gov.br/drediamantino/pregão",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Diamantino",
+    "url": "https://sites.google.com/edu.mt.gov.br/drediamantino/chamada-pública",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Juína",
+    "url": "https://www.drejuina.com.br/editals",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Juína",
+    "url": "https://www.drejuina.com.br/informativos",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Juína",
+    "url": "https://www.drejuina.com.br/dirigente/3/coadm",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Juína",
+    "url": "https://www.drejuina.com.br/dirigente/1/coger",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Matupá",
+    "url": "https://www.drematupa.com.br/departamentos/COADM",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Matupá",
+    "url": "https://www.drematupa.com.br/departamentos/COGER",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Metropolitana",
+    "url": "https://www.dmetropolitana.org/solicitacaodedocumentoescolar",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Metropolitana",
+    "url": "https://www.dmetropolitana.org/coadm",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Pontes e Lacerda",
+    "url": "https://dreponteselacerda.com.br/site/informativos-geral.php",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Pontes e Lacerda",
+    "url": "https://dreponteselacerda.com.br/site/coord-coadm.php",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Pontes e Lacerda",
+    "url": "https://dreponteselacerda.com.br/site/coord-coger.php",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Primavera do Leste",
+    "url": "https://sites.google.com/edu.mt.gov.br/drepva/editais/editais-e-soliciação-de-documentos/solicitação-de-documentos-escolas-extintas",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Primavera do Leste",
+    "url": "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Primavera do Leste",
+    "url": "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/cofor",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Primavera do Leste",
+    "url": "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/cofor/atestados-de-participação-formação",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Primavera do Leste",
+    "url": "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coped",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Primavera do Leste",
+    "url": "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coped/equipe-coped",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Primavera do Leste",
+    "url": "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coger",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Primavera do Leste",
+    "url": "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coger/equipe-coger",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Primavera do Leste",
+    "url": "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Primavera do Leste",
+    "url": "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/equipe-coadm",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Primavera do Leste",
+    "url": "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2025",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Primavera do Leste",
+    "url": "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coadm/certames-2026",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Primavera do Leste",
+    "url": "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/cogpe",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Primavera do Leste",
+    "url": "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/cogpe/equipe-cogpe",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Primavera do Leste",
+    "url": "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coipt",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Primavera do Leste",
+    "url": "https://sites.google.com/edu.mt.gov.br/drepva/coordenadorias/coipt/equipe-coipt",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Rondonópolis",
+    "url": "https://drerondonopolis.com.br/dre/coadm/",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Rondonópolis",
+    "url": "https://drerondonopolis.com.br/dre/coger/",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Rondonópolis",
+    "url": "https://drerondonopolis.com.br/editais/",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Sinop",
+    "url": "https://dresinop.com.br/departamentos/COADM",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Sinop",
+    "url": "https://dresinop.com.br/departamentos/COGER",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Tangará da Serra",
+    "url": "https://sites.google.com/edu.mt.gov.br/dre-tangaradaserra/institucional/coordenadorias",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Tangará da Serra",
+    "url": "https://sites.google.com/edu.mt.gov.br/dre-tangaradaserra/institucional/coordenadorias/coadm",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Tangará da Serra",
+    "url": "https://sites.google.com/edu.mt.gov.br/dre-tangaradaserra/institucional/coordenadorias/cofor",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Tangará da Serra",
+    "url": "https://sites.google.com/edu.mt.gov.br/dre-tangaradaserra/institucional/coordenadorias/coger",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Tangará da Serra",
+    "url": "https://sites.google.com/edu.mt.gov.br/dre-tangaradaserra/institucional/coordenadorias/cogpe",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Tangará da Serra",
+    "url": "https://sites.google.com/edu.mt.gov.br/dre-tangaradaserra/institucional/coordenadorias/coipt",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Tangará da Serra",
+    "url": "https://sites.google.com/edu.mt.gov.br/dre-tangaradaserra/institucional/coordenadorias/coped",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Tangará da Serra",
+    "url": "https://sites.google.com/edu.mt.gov.br/dre-tangaradaserra/pregão-e-chamada-pública",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Sinop",
+    "url": "https://dresinop.com.br/editais/993c9e6b-8ed8-4697-81b6-2fbf4cfedf2d",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Diamantino",
+    "url": "https://sites.google.com/edu.mt.gov.br/drediamantino/chamada-p%C3%BAblica",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Barra do Garças",
+    "url": "https://sites.google.com/edu.mt.gov.br/dre-barra-do-garcas/editais",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Primavera do Leste",
+    "url": "https://sites.google.com/edu.mt.gov.br/drepva/editais/editais-e-soliciação-de-documentos/editais-2024",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Primavera do Leste",
+    "url": "https://sites.google.com/edu.mt.gov.br/drepva/editais/editais-e-soliciação-de-documentos/editais-2025",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Rondonópolis",
+    "url": "https://drerondonopolis.com.br/escolas/",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Matupá",
+    "url": "https://www.drematupa.com.br/editais/ed51c483-5f37-486e-ab24-5cf32196c4fb",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Tangará da Serra",
+    "url": "https://sites.google.com/edu.mt.gov.br/dre-tangaradaserra/institucional/coordenadorias/coadm/chamada-pública-em-andamento",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Tangará da Serra",
+    "url": "https://sites.google.com/edu.mt.gov.br/dre-tangaradaserra/institucional/coordenadorias/coadm/chamada-pública-concluídas",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Tangará da Serra",
+    "url": "https://sites.google.com/edu.mt.gov.br/dre-tangaradaserra/institucional/coordenadorias/coadm/chamada-pública-arquivadas",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Alta Floresta",
+    "url": "https://drealtafloresta.com.br/drealtafloresta/aviso-de-chamada-publica-no-013-2024-p-o-municipio-de-nova-monte-verde-mt-ano-letivo-de-2025/",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Alta Floresta",
+    "url": "https://drealtafloresta.com.br/drealtafloresta/aviso-de-chamada-publica-no-014-2024-p-o-municipio-de-nova-bandeirantes-ano-letivo-de-2025/",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Alta Floresta",
+    "url": "https://drealtafloresta.com.br/drealtafloresta/aviso-de-chamada-publica-no-012-2024-p-o-municipio-de-apiacas-mt-ano-letivo-de-2025/",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Alta Floresta",
+    "url": "https://drealtafloresta.com.br/drealtafloresta/aviso-de-chamada-publica-no-010-2024-p-o-municipio-de-nova-canaa-do-norte-ano-letivo-2025/",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Alta Floresta",
+    "url": "https://drealtafloresta.com.br/drealtafloresta/aviso-de-chamada-publica-no-009-2024-p-o-municipio-carlinda-mt-ano-letivo-de-2025/",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Alta Floresta",
+    "url": "https://drealtafloresta.com.br/drealtafloresta/aviso-de-chamada-publica-no-011-2024-paranaita-2/",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Alta Floresta",
+    "url": "https://drealtafloresta.com.br/drealtafloresta/aviso-de-chamada-publica-no-008-2024-alta-floresta/",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Metropolitana",
+    "url": "https://www.dmetropolitana.org/pregao-2025",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Cáceres",
+    "url": "https://www.drecaceres.com.br/edital.php?id=233",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Confresa",
+    "url": "https://www.iomat.mt.gov.br/legislacao/diario_oficial/detalhes/873816",
+    "status": "200",
+    "categoria": "Fonte oficial alternativa"
+  },
+  {
+    "dre": "Barra do Garças",
+    "url": "https://www.iomat.mt.gov.br/legislacao/diario_oficial/detalhes/884194",
+    "status": "200",
+    "categoria": "Fonte oficial alternativa"
+  },
+  {
+    "dre": "Rondonópolis",
+    "url": "https://www.iomat.mt.gov.br/legislacao/diario_oficial/detalhes/902650",
+    "status": "200",
+    "categoria": "Fonte oficial alternativa"
+  },
+  {
+    "dre": "Matupá",
+    "url": "https://www.iomat.mt.gov.br/legislacao/diario_oficial/detalhes/885190",
+    "status": "200",
+    "categoria": "Fonte oficial alternativa"
+  },
+  {
+    "dre": "Pontes e Lacerda",
+    "url": "https://dreponteselacerda.com.br/site/informativo.php?ID=19",
+    "status": "200",
+    "categoria": "Fonte oficial alternativa"
+  },
+  {
+    "dre": "Alta Floresta",
+    "url": "https://drealtafloresta.com.br/drealtafloresta/escolas-alta-floresta/",
+    "status": "200",
+    "categoria": "Unidades escolares"
+  },
+  {
+    "dre": "Cáceres",
+    "url": "https://www.drecaceres.com.br/municipio.php?slug=sede-da-dre-caceres",
+    "status": "200",
+    "categoria": "Unidades escolares"
+  },
+  {
+    "dre": "Cáceres",
+    "url": "https://www.drecaceres.com.br/municipio.php?slug=araputanga",
+    "status": "200",
+    "categoria": "Unidades escolares"
+  },
+  {
+    "dre": "Cáceres",
+    "url": "https://www.drecaceres.com.br/municipio.php?slug=curvelandia",
+    "status": "200",
+    "categoria": "Unidades escolares"
+  },
+  {
+    "dre": "Cáceres",
+    "url": "https://www.drecaceres.com.br/municipio.php?slug=gloria-do-oeste",
+    "status": "200",
+    "categoria": "Unidades escolares"
+  },
+  {
+    "dre": "Cáceres",
+    "url": "https://www.drecaceres.com.br/municipio.php?slug=indiavai",
+    "status": "200",
+    "categoria": "Unidades escolares"
+  },
+  {
+    "dre": "Cáceres",
+    "url": "https://www.drecaceres.com.br/municipio.php?slug=lambari-do-oeste",
+    "status": "200",
+    "categoria": "Unidades escolares"
+  },
+  {
+    "dre": "Cáceres",
+    "url": "https://www.drecaceres.com.br/municipio.php?slug=mirassol-do-oeste",
+    "status": "200",
+    "categoria": "Unidades escolares"
+  },
+  {
+    "dre": "Cáceres",
+    "url": "https://www.drecaceres.com.br/municipio.php?slug=porto-esperidiao",
+    "status": "200",
+    "categoria": "Unidades escolares"
+  },
+  {
+    "dre": "Cáceres",
+    "url": "https://www.drecaceres.com.br/municipio.php?slug=reserva-do-cabacal",
+    "status": "200",
+    "categoria": "Unidades escolares"
+  },
+  {
+    "dre": "Cáceres",
+    "url": "https://www.drecaceres.com.br/municipio.php?slug=rio-branco",
+    "status": "200",
+    "categoria": "Unidades escolares"
+  },
+  {
+    "dre": "Cáceres",
+    "url": "https://www.drecaceres.com.br/municipio.php?slug=salto-do-ceu",
+    "status": "200",
+    "categoria": "Unidades escolares"
+  },
+  {
+    "dre": "Cáceres",
+    "url": "https://www.drecaceres.com.br/municipio.php?slug=sao-jose-dos-iv+marcos",
+    "status": "200",
+    "categoria": "Unidades escolares"
+  },
+  {
+    "dre": "Confresa",
+    "url": "https://dreconfresa.com.br/escolas.php",
+    "status": "200",
+    "categoria": "Unidades escolares"
+  },
+  {
+    "dre": "Juína",
+    "url": "https://www.drejuina.com.br/escolas",
+    "status": "200",
+    "categoria": "Unidades escolares"
+  },
+  {
+    "dre": "Juína",
+    "url": "https://www.drejuina.com.br/institucional_conta.php?id=8&link=https://www.drejuina.com.br/escolas",
+    "status": "200",
+    "categoria": "Unidades escolares"
+  },
+  {
+    "dre": "Matupá",
+    "url": "https://www.drematupa.com.br/unidades",
+    "status": "200",
+    "categoria": "Unidades escolares"
+  },
+  {
+    "dre": "Pontes e Lacerda",
+    "url": "https://dreponteselacerda.com.br/site/escolas.php",
+    "status": "200",
+    "categoria": "Unidades escolares"
+  },
+  {
+    "dre": "Sinop",
+    "url": "https://dresinop.com.br/unidades",
+    "status": "200",
+    "categoria": "Unidades escolares"
+  },
+  {
+    "dre": "Tangará da Serra",
+    "url": "https://sites.google.com/edu.mt.gov.br/dre-tangaradaserra/institucional/unidades-escolares",
+    "status": "200",
+    "categoria": "Unidades escolares"
+  },
+  {
+    "dre": "Alta Floresta",
+    "url": "https://drealtafloresta.com.br/drealtafloresta/category/editais/page/14/",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  },
+  {
+    "dre": "Alta Floresta",
+    "url": "https://drealtafloresta.com.br/drealtafloresta/category/editais/page/15/",
+    "status": "200",
+    "categoria": "Portal / seção documental"
+  }
+]

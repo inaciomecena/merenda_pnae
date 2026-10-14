@@ -7,8 +7,8 @@
   "decisao": "APROVADO",
   "motivosBloqueio": [],
   "identificacao": {
-    "numeroBruto": "012/2024",
-    "numeroNormalizado": "012/2024",
+    "numeroBruto": "014/2024",
+    "numeroNormalizado": "014/2024",
     "anoNumeracao": 2024,
     "exercicio": 2025,
     "exercicioEvidencia": [
@@ -21,13 +21,13 @@
         "trecho": "ano\nletivo de 2025"
       }
     ],
-    "processoAdministrativo": "SEDUC-PRO-2024",
+    "processoAdministrativo": "SEDUC-PRO-2024/177169",
     "dreNome": "Alta Floresta",
-    "camaraNegocios": "Cáceres",
+    "camaraNegocios": "DRE Alta Floresta",
     "municipioAtendido": "Nova Bandeirantes",
     "recorte": "NAO_IDENTIFICADO",
     "dataPublicacao": null,
-    "dataSessao": "14 de janeiro de 2025",
+    "dataSessao": null,
     "objeto": "Aquisição de gêneros alimentícios",
     "fundamentacaoLegal": "Resolução/FNDE/CD nº 06 de 08/05/2020",
     "prazos": null,
@@ -37,7 +37,7 @@
     "condicoesPagamento": null,
     "valorEstimado": null,
     "observacoes": [
-      "número lido no PDF (\"012/2024\", página 1) difere do manifesto (\"014/2024\"); grafia original preservada"
+      "Correção contextual do PDF: a página 181 do Diário Oficial nº 28.892 contém vários avisos em colunas; o aviso SEDUC-PRO-2024/177169 identifica Nova Bandeirantes como nº 014/2024; classificação e julgamento em 16/01/2025. A extração linear havia atribuído o nº 012/2024, que pertence ao aviso de Apiacás. Manifesto nº 014/2024 preservado; número oficial do PDF usado. A data de sessão não está explícita e permanece ausente."
     ]
   },
   "documentos": [

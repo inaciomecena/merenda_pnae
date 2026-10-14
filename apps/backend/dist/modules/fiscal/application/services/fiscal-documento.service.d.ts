@@ -26,11 +26,11 @@ export declare class FiscalDocumentoService {
         id: string;
         createdAt: Date;
         titulo: string;
+        versao: number;
         tipo: string;
         arquivoNome: string;
-        versao: number;
         mimeType: string | null;
-        tamanhoBytes: number;
         hashSha256: string;
+        tamanhoBytes: number;
     }[]>;
 }

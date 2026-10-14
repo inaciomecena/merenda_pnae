@@ -1,0 +1,1412 @@
+{
+  "formato": "pnae-backup-files/1",
+  "banco": "merenda_pnae",
+  "geradoEm": "2026-10-14T02:22:24.899Z",
+  "arquivos": [
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/CONTROLE_INTEGRIDADE.md",
+      "bytes": 864,
+      "sha256": "61e4eb099b0b032ebcd1e4f2ce79d79f38631604f4308456e658f9a1271c59e4"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0109_2004f4_a29852589efd42ed8e069f3abcffbbc7.pdf",
+      "bytes": 1648846,
+      "sha256": "0b3d41f027b1f2e96ce2884195d6ea51e673758db4ad84273c80ccdea4cb3a4e"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0109_2004f4_a29852589efd42ed8e069f3abcffbbc7.txt",
+      "bytes": 244025,
+      "sha256": "82918d54aaf29692511e1be0f4c9ee7b53ad26882d495512b70fbd9be5983af1"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0110_2004f4_d275f8ff4df34f22aac00f2ef72077a1.pdf",
+      "bytes": 1714892,
+      "sha256": "178cb745712794fc6b7d9aa62d7e60ff7b33841ff7d8fa00cf0e68894a2bc427"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0110_2004f4_d275f8ff4df34f22aac00f2ef72077a1.txt",
+      "bytes": 238530,
+      "sha256": "c0bb9b2103d2074b0a15b3ddd32be90492819ba084d92c04176df91af97b9a76"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0111_2004f4_7e7f9188a88349d28235ca65582376ca.pdf",
+      "bytes": 1520457,
+      "sha256": "55fffc3a9c16e0bf4150d5c9914d6133f8c0d4e58f0e321083887203fcb05152"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0111_2004f4_7e7f9188a88349d28235ca65582376ca.txt",
+      "bytes": 235502,
+      "sha256": "3bca8e321c117bd2fe102a9f635589913112bf41e5c072ffa25047cf89577c84"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0112_2004f4_e84cb3a0d1f64507beff5c292c9fac5e.pdf",
+      "bytes": 1743631,
+      "sha256": "3620f611b5684e2c85ecd6933d69d9491b226b4954f7d7813c94c79adf2ba124"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0112_2004f4_e84cb3a0d1f64507beff5c292c9fac5e.txt",
+      "bytes": 232924,
+      "sha256": "42f7f96f7a9e1be66d9495eaaa68bb8b1bb4ea5b23b5e349a70ae82478281369"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0113_2004f4_88a5d1caedc34dde8c02a2ce8321076d.pdf",
+      "bytes": 1682236,
+      "sha256": "c92ffe495c947f52fb3306db7285bf0c6da2496ed8ca0b0180199c0497de4441"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0113_2004f4_88a5d1caedc34dde8c02a2ce8321076d.txt",
+      "bytes": 231833,
+      "sha256": "46871f06c8a5cfd552a1fc3cdbdfd9e00368cb6d45bf0dcff68eead3c1ae8631"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0114_2004f4_42c1768cd2454f29a14f5e8b51c5c509.pdf",
+      "bytes": 1523686,
+      "sha256": "e612a34d58d5e6a33d18a853e833ccaa71320c96404469573499e2b7ec6e8bdc"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0114_2004f4_42c1768cd2454f29a14f5e8b51c5c509.txt",
+      "bytes": 231111,
+      "sha256": "793a393aedc334858f072e581531721d4ef21fb396730dad1297a011e537cfa9"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0115_2004f4_fcf2491bb40c4f5ca34e34cc02490f53.pdf",
+      "bytes": 1506288,
+      "sha256": "5697bf2099732b859d48ab8ac2bbcafc50ffc9d3ee455ede464c4892b7100a5a"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0115_2004f4_fcf2491bb40c4f5ca34e34cc02490f53.txt",
+      "bytes": 212992,
+      "sha256": "b200a6f33ab46b16be54f8cd98e630da40fcf90ce66ac58276a976924803d8fc"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0116_2004f4_c48619e9ff29426d9ad5922b1a9474d8.pdf",
+      "bytes": 1498066,
+      "sha256": "3bd44fbf7598c964a729ca150444bd335213650494e26293412cd6abea4d6fb8"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0116_2004f4_c48619e9ff29426d9ad5922b1a9474d8.txt",
+      "bytes": 217088,
+      "sha256": "40c0af179eaacc2b4446f0d5721ed559248f657fd238a26cf891a1ab8e9439a2"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0117_2004f4_a40cb2d0ef534c7d8b8153fb4c5c9697.pdf",
+      "bytes": 1515235,
+      "sha256": "89c326babdc02973be897aed40480258fdcf5a2f568df123c0f5c915b961912a"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0117_2004f4_a40cb2d0ef534c7d8b8153fb4c5c9697.txt",
+      "bytes": 188416,
+      "sha256": "c32a871c58d640d81a8ffbd609e5c115a53ed98327894ac674a3dec72b192673"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0118_2004f4_c959216226f846ae8cd20addd9412c18.pdf",
+      "bytes": 1489133,
+      "sha256": "a9471b853ff76b0e56025345569e5e480b46106034dbd93548697b0a349db060"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0118_2004f4_c959216226f846ae8cd20addd9412c18.txt",
+      "bytes": 225280,
+      "sha256": "e84e71aad8e4d66658486f8847425c00474907d268930d91aabb5239ad813162"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0119_2004f4_bd417cb1a36a4509975aedce74924758.pdf",
+      "bytes": 1513401,
+      "sha256": "c4b087e06a58c44293cab6df797c02167300f11ceffeb43b89f9346c19e5bcfc"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/08_METROPOLITANA/DOC-0119_2004f4_bd417cb1a36a4509975aedce74924758.txt",
+      "bytes": 217088,
+      "sha256": "4e755138db6bb4408c3b1a0666185a59b253462145e06ed9c25d1a4e934cc5f8"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0028_DOC-0028.pdf",
+      "bytes": 150482,
+      "sha256": "b89f2279f80028d475b46ee683fd57ef67da21adb8c6d22bafce8048ef78987e"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0028_DOC-0028.txt",
+      "bytes": 3521,
+      "sha256": "d1fb67ad01f28169dd2afdf196de63b8307715f1d7ff4c37bee774f3726b22ce"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0029_DOC-0029.pdf",
+      "bytes": 1608826,
+      "sha256": "73588ec3c99df49d57ed49e9ebf3faa18edafc3a4930496c34c94809c0879f08"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0029_DOC-0029.txt",
+      "bytes": 554211,
+      "sha256": "6df4ee2347a590db985a0fe8f03a4ed001e7d2f689755af74a80429ebe57eb8d"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0030_DOC-0030.pdf",
+      "bytes": 1868460,
+      "sha256": "b95e2630b4bfabf5aafcef9506d8a04991de92ab77dd9213d1405a1e15fbefd9"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0030_DOC-0030.txt",
+      "bytes": 581905,
+      "sha256": "341b7407a7571cc02c14dd5b31f34915e3ff8db8958b18b289d257f3068131a0"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0031_DOC-0031.pdf",
+      "bytes": 180563,
+      "sha256": "20219b8e5a7863c79b363828286669dcc445a228ebe99ed25a0ec88ae323e2af"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0031_DOC-0031.txt",
+      "bytes": 14366,
+      "sha256": "4692020c9aebdd6f48c5d6770af17148a2e8356e01d1266ac95b389d081df304"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0032_DOC-0032.pdf",
+      "bytes": 1629603,
+      "sha256": "e6c3731e7996166587f4f7fdd8e044b04d5ed5be5c63f85f3f78e8e8f5744e8f"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0032_DOC-0032.txt",
+      "bytes": 561076,
+      "sha256": "e832cc8cb6adda89f1667d2475d36580ecaf774dea3e3088f6b178ab722b821c"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0033_DOC-0033.pdf",
+      "bytes": 202604,
+      "sha256": "547804d53d4503a3d06ad238423375982899acb24d8b4d8aaf6fc37668ec7b56"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0033_DOC-0033.txt",
+      "bytes": 16538,
+      "sha256": "6de79921c0defd3bd137f8bbaa2cb93c4dc250d72a28cb2284fca45ce3f0ed3e"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0034_DOC-0034.pdf",
+      "bytes": 1681046,
+      "sha256": "0a935a8d38b9077dc2d449fdd4bb8f079a4e080d6d164b3823a40b7c98e1d5ce"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0034_DOC-0034.txt",
+      "bytes": 586498,
+      "sha256": "96b569bc8f52e28b9210f0dcc3b51fb23831c8840d58cc34558babcaa77fcc4a"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0035_DOC-0035.pdf",
+      "bytes": 1655337,
+      "sha256": "3e120754bbad3a3d5114de0c177e140274fbf80a7388d17fed5462c5598e4506"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0035_DOC-0035.txt",
+      "bytes": 578085,
+      "sha256": "8d717a4ad75015772c86eb6f1d97dccb8dcdea9c3f07fb32f5b8b647d0b80d1f"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0036_DOC-0036.pdf",
+      "bytes": 1805448,
+      "sha256": "3917b4aa6064d9e95ca2a928ed0908ea206897c2be3d4bbca0b8a6d144de4366"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0036_DOC-0036.txt",
+      "bytes": 584541,
+      "sha256": "8b4ec3281d411590d58e681f287e1cf02921805fb6e6d16cb266268baa8b72f5"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0037_DOC-0037.pdf",
+      "bytes": 1609656,
+      "sha256": "5c72f050499eb47361aa1cfee4d5c2e1f1b9698a87fb2b20a02ace7348350d89"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0037_DOC-0037.txt",
+      "bytes": 547787,
+      "sha256": "84e42b4af756eda6ff15648d4054352817217206ebfb8e778da37cc66ce97c37"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0038_DOC-0038.pdf",
+      "bytes": 1685531,
+      "sha256": "04d3b4c9b4083ee4a8f5a5b52668ba321b5f1e4bcf29089f35b2a181be19c7aa"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0038_DOC-0038.txt",
+      "bytes": 588484,
+      "sha256": "1fed5f3a7863650249fb188bd5528019549674d137fe639bacc62e62707b3073"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0039_DOC-0039.pdf",
+      "bytes": 1011266,
+      "sha256": "bf3a95c181f75f8d79289949a37c546de19e22845bb10b2f254859ebde7a1671"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0039_DOC-0039.txt",
+      "bytes": 154162,
+      "sha256": "a7f5eeb6e5177af6490bca7fc4ce2ceae7dddbc5ab27c6b1eb0d29d2f966ad2a"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0040_DOC-0040.pdf",
+      "bytes": 1047379,
+      "sha256": "c2abdcce3e0f37de8af544c47b7bddfa1ff6d91896aea75c0ea1b58e28340c4e"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0040_DOC-0040.txt",
+      "bytes": 159321,
+      "sha256": "6aff7f4b35f0a8d4463e5b071c9f432eebbd51a57d321e8c43239344f7b609ab"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0041_DOC-0041.pdf",
+      "bytes": 1295773,
+      "sha256": "b055034df0034f6ca3b89758d87c492d5b35050f82cb217e21c11ab249688165"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0041_DOC-0041.txt",
+      "bytes": 161689,
+      "sha256": "2877d26949611f52f1d9159333bd1a0baabe9441e20a015669d1a03ab5dbe523"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0042_DOC-0042.pdf",
+      "bytes": 1249473,
+      "sha256": "8622d5556025564a971714e5e64f8bb831b25c238d3501dc85f5c82edf731651"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0042_DOC-0042.txt",
+      "bytes": 158638,
+      "sha256": "c5ee12dc7df52a89f1296bdc6c6fbe40874ef64d9ec776b2b29614685452dacb"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0043_DOC-0043.pdf",
+      "bytes": 1280510,
+      "sha256": "20df9ec0dacf9b5c51c40ffaa94250ef7d4c42ba88209ab137350ac596f705da"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0043_DOC-0043.txt",
+      "bytes": 184200,
+      "sha256": "d8634d8cc741fecd6d095b2292c8a8d932d9677b421de46762967f5e26873c16"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0044_DOC-0044.pdf",
+      "bytes": 185561,
+      "sha256": "b65307bfc6fb008614d27fc9d12c8d2441081bd1eb6944655e36f32bb5805853"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0044_DOC-0044.txt",
+      "bytes": 14686,
+      "sha256": "c82221c3a7ec0ab1155d23c401c20907883cabbfaab0a832854e885f0f138efc"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0045_DOC-0045.pdf",
+      "bytes": 1313035,
+      "sha256": "d15b8d007cfaf5116f1a1d60baa17390e24b422bb020db36ccfa21c2ae5585a8"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0045_DOC-0045.txt",
+      "bytes": 189255,
+      "sha256": "896c1228c24816bb31045b62234b3eb32ae21f37f1788ce2d9dd2b62c9896483"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0046_DOC-0046.pdf",
+      "bytes": 1366221,
+      "sha256": "503102052917fabba7d82dee60743c78fcf36602824394f1b128cfe6c5b15ca7"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0046_DOC-0046.txt",
+      "bytes": 191197,
+      "sha256": "6f838774106aeca55d3061aa5f31662dc07d278fc4338edb3a9dd00750585006"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0047_DOC-0047.pdf",
+      "bytes": 1310299,
+      "sha256": "0c45db6fea6314c9820932f067a135aff1af0eeb4a1f112e3126955f3b6faf67"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0047_DOC-0047.txt",
+      "bytes": 207147,
+      "sha256": "a3eb00fd894a770c416fbd077d516f29018d9b8713153f1cfb94547f4c2be01c"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/EVIDENCIAS_ACESSO_PORTAIS.json",
+      "bytes": 21817,
+      "sha256": "8508ccf71ea90bd8db0664d70ae222e786faa466003346a4fda83158baa04811"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/INVENTARIO_EDITAIS_PNAE_MT_2025.xlsx",
+      "bytes": 135886,
+      "sha256": "b4fac28ac6db4882cf5138add82fabc3756a6ca3826eba622745e4d4d729f387"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/LEIA_ME.md",
+      "bytes": 613,
+      "sha256": "794eae103a72d4776f447d0aa613ec0cea73fb2a2220ae611856b3fbab8d49ee"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/MANIFESTO_DOCUMENTOS.json",
+      "bytes": 864285,
+      "sha256": "800d0f833c16b102a723abccd27c583e98ba1dc5b3b4fd5d65ab3b2836d72f16"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/MAPEAMENTO_TERRITORIAL_PARCIAL.md",
+      "bytes": 5313,
+      "sha256": "ec69948815ca5caac989a5c069c0bc8111491292598f4fa6bec028efa95c2531"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PENDENCIAS_PESQUISA.md",
+      "bytes": 20514,
+      "sha256": "a263215e05ecfe16d5b695c4ba4f705bed942fa32444d79d24ae31a2ba93d589"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0102_EDITAL-CHAMADA-PUBLICA-2025-Nova-Monte-Verde.pdf",
+      "bytes": 471741,
+      "sha256": "8fa60f754eec343f868e45d2bf4880a58bbe6ed997b8a5d4186a8c6abc2af0ed"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0102_EDITAL-CHAMADA-PUBLICA-2025-Nova-Monte-Verde.txt",
+      "bytes": 136965,
+      "sha256": "67e04c18ef7d2e8733dd0670632f66cc006f2119b5c8cdd12fc660971f989916"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0103_EDITAL-CHAMADA-PUBLICA-N.-BANDEIRANTES-014-24-ano-letivo-2025.pdf",
+      "bytes": 473757,
+      "sha256": "cecb1b75625b6af7b74086d871d5eb1d4a44a186d324ef50ca3eec8228f8c39e"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0103_EDITAL-CHAMADA-PUBLICA-N.-BANDEIRANTES-014-24-ano-letivo-2025.txt",
+      "bytes": 133924,
+      "sha256": "2699bbcdaccc3675bc59e90f3fc97c255882e25ef69477524be7ce5a5d40d989"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0104_EDITAL-CHAMADA-PUBLICA-012-24-APIACAS-ano-letivo-2025-1.pdf",
+      "bytes": 511573,
+      "sha256": "1a24966f54e1d488794a12ae0f1a8a6e3300d563ba17606ac50d943b995b2d97"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0104_EDITAL-CHAMADA-PUBLICA-012-24-APIACAS-ano-letivo-2025-1.txt",
+      "bytes": 139149,
+      "sha256": "5aef9365a2147243569cb58c5d5ff58e070f4b9869b26471dbf5199245938eac"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0105_EDITAL-CHAMADA-PUBLICA-NCN-010-24-ano-letivo-2025.pdf",
+      "bytes": 476863,
+      "sha256": "ff9472a959ebe19868079701f912ddc8dfe69692b8c11edd2ae12ac68fe8a0bf"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0105_EDITAL-CHAMADA-PUBLICA-NCN-010-24-ano-letivo-2025.txt",
+      "bytes": 138639,
+      "sha256": "b5924a66ee6e768586c5058dd823dd9d8b9389c19a27613d37519ab7d0bc55c9"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0106_EDITAL-CHAMADA-PUBLICA-No-009-24-CARLINDA-Ano-letivo-2025-1.pdf",
+      "bytes": 481283,
+      "sha256": "612af8380b6cf5c454384d432bd671f6ed9da90152fcf5518db57c8f5f6d38fe"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0106_EDITAL-CHAMADA-PUBLICA-No-009-24-CARLINDA-Ano-letivo-2025-1.txt",
+      "bytes": 142330,
+      "sha256": "1bf89cd590d9dd7717cfd87d57a567499b6bced8c3ac5c31c268c22f689585cb"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0107_EDITAL-CHAMADA-PUBLICA-011-24-PTA-ano-letivo-2025-1.pdf",
+      "bytes": 364533,
+      "sha256": "45a017a877f7fcc5abe704cc89351b8cc85181434f62ed5f3f20fd1126137eb4"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0107_EDITAL-CHAMADA-PUBLICA-011-24-PTA-ano-letivo-2025-1.txt",
+      "bytes": 130812,
+      "sha256": "82a3e6f8238436db08c6afb9e9363bceff7093f5119d49c40e4b437ca140d3d2"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0108_EDITAL-CHAMADA-PUBLICA-008-24-AF-ano-letivo-2025.pdf",
+      "bytes": 560775,
+      "sha256": "95ba50e2826937b99aa12fcf87f3eebd6f098f11bde0563299e0a1b662f95608"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/01_ALTA_FLORESTA/DOC-0108_EDITAL-CHAMADA-PUBLICA-008-24-AF-ano-letivo-2025.txt",
+      "bytes": 156223,
+      "sha256": "d344c76523f9b8cae6e9bb513472a8045ebc7b65ec14f25ba0ea68f4c02c5613"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/02_BARRA_DO_GARCAS/DOC-0133_884194.pdf",
+      "bytes": 72512,
+      "sha256": "1d1f52c1948d3c318b0245dfe9ca80afbd8293be36b95ee4c57a012ea8dadeff"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/02_BARRA_DO_GARCAS/DOC-0133_884194.txt",
+      "bytes": 152,
+      "sha256": "3e62ea68ae331647a11b8d3147f19354d1778f86180564192c226f9d1f51a6c5"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/03_CACERES/DOC-0095_DOC-0095.pdf",
+      "bytes": 1545479,
+      "sha256": "8445360ae81c8f4e864a8de533d56a25ceecb491c8a9f18590f646866dee7a9b"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/03_CACERES/DOC-0095_DOC-0095.txt",
+      "bytes": 570258,
+      "sha256": "4b2d1a1b8d09a6a2487ac4315326d5eb77de5f1b3707597eb14b437e846e7f83"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/03_CACERES/DOC-0096_DOC-0096.pdf",
+      "bytes": 1450394,
+      "sha256": "d3c93e9005ded8ff810bafe2be1cb4f82e56da9076fc81641a3eb05c69fcc030"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/03_CACERES/DOC-0096_DOC-0096.txt",
+      "bytes": 574546,
+      "sha256": "2004fb56331269c64e08458be9f0fe2c9eb12fcaec14322341f0499824657178"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/03_CACERES/DOC-0097_DOC-0097.pdf",
+      "bytes": 1495146,
+      "sha256": "886a8ccd47a8216fb4e5bd2302889412d10ec58fa9fe002030df358c5ba032a4"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/03_CACERES/DOC-0097_DOC-0097.txt",
+      "bytes": 563076,
+      "sha256": "9b53009c649e0133048d755c1b1f692153bbfad7aac802e9117cadbf8a4b59dc"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/03_CACERES/DOC-0098_DOC-0098.pdf",
+      "bytes": 1464288,
+      "sha256": "d574e764d69d716290c27d79ec53c88461d6cc32fae95d363fd989923ba682ca"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/03_CACERES/DOC-0098_DOC-0098.txt",
+      "bytes": 572225,
+      "sha256": "5f244ff134f7e11199abdcc8942a04c6ad07f5268bc14d2d7800a31388455a5a"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/03_CACERES/DOC-0099_DOC-0099.pdf",
+      "bytes": 1450761,
+      "sha256": "90512d41981b8e362e096c8c257ac8cb5a6d37a8e64695381098bcf22880d3a2"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/03_CACERES/DOC-0099_DOC-0099.txt",
+      "bytes": 574487,
+      "sha256": "24a59180b7d9cce682138c350f6f72e608b90680dff92c2129db496f8fc70925"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/03_CACERES/DOC-0100_DOC-0100.pdf",
+      "bytes": 1495947,
+      "sha256": "13a71d868e7393ffb2d84ad922b170f469ebf41fda7533cb7a6410448fb4e2d7"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/03_CACERES/DOC-0100_DOC-0100.txt",
+      "bytes": 563006,
+      "sha256": "78c36519a9dda6751f07332515ade9f1751a9464b9e7dc8ea52d56cbd2212bac"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/03_CACERES/DOC-0101_DOC-0101.pdf",
+      "bytes": 1455566,
+      "sha256": "13bdedd466e9f2471ee8e18c8ac5ff2322f319975e3ae5175d065a7aa330451f"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/03_CACERES/DOC-0101_DOC-0101.txt",
+      "bytes": 565537,
+      "sha256": "397c9022df4be6fc9906b2a7ae8eafeb4f0c21c7280d4f999ea2a8e9b0c4c86f"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/04_CONFRESA/DOC-0132_873816.pdf",
+      "bytes": 57699,
+      "sha256": "4303ee72424a39be5db7b0283d037f02265695638b539b8a89e458922d7b2c05"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/04_CONFRESA/DOC-0132_873816.txt",
+      "bytes": 152,
+      "sha256": "3e1860a5014bb268316e871f62cc444a002d3349bf4907f350accedc2d3bc4d1"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0001_DOC-0001.pdf",
+      "bytes": 498042,
+      "sha256": "36fc7bd46c53ab4012b7b287ada26d1cacf2e6aab10fe5705a0aa83e7f7319db"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0001_DOC-0001.txt",
+      "bytes": 138868,
+      "sha256": "a51d446bd9f942e0de2619148858ed35ef13680ab1da1ea8c6e03a896a8e59e5"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0002_DOC-0002.pdf",
+      "bytes": 552328,
+      "sha256": "233b2234e647f3dd94f95a61692e56602fba235f4ca11fc26be738b21647dd1e"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0002_DOC-0002.txt",
+      "bytes": 139996,
+      "sha256": "d43bd73c2d0815681dcdb4bbd25a4aaffa84bea60e831af0c1ef9500d47db957"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0003_DOC-0003.pdf",
+      "bytes": 522598,
+      "sha256": "d2173033704b06f61407f183b076ce7d759aa4eedab4f61c94b995d829f94189"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0003_DOC-0003.txt",
+      "bytes": 136916,
+      "sha256": "28b8ed94049d7e34c59c4ec05c92dc7a4085181eef5ad4e8436bc2d89902b895"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0004_DOC-0004.pdf",
+      "bytes": 480305,
+      "sha256": "14af5f5ac60ae02a81154723a757623e02a36d47ceffaeccd23bab31d89f78e7"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0004_DOC-0004.txt",
+      "bytes": 131958,
+      "sha256": "c356e2bf039598c559c639e9ce21481e7c8b5585c43de2aa46e0caa951f3211c"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0005_DOC-0005.pdf",
+      "bytes": 482644,
+      "sha256": "da6449cbfd5a1dfc459111b12e6b6b090eca35c8a31da7a240e52bcc524e5e9c"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0005_DOC-0005.txt",
+      "bytes": 135436,
+      "sha256": "6c798fd5bc7ff9fa8c36fced2669995829d83460fc2ef778cb7c297aa441f765"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0006_DOC-0006.pdf",
+      "bytes": 489580,
+      "sha256": "6688938e5647fc8318935199990a3044db61c8d3a9dfbf55f60c0c7484f3656d"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0006_DOC-0006.txt",
+      "bytes": 137587,
+      "sha256": "9e1caaaf02899536ae7c23aa184fa698746f38150026bb6bf43b12631152fea0"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0007_DOC-0007.pdf",
+      "bytes": 487164,
+      "sha256": "1301ce85f28bb9ea23af3ddd55213ce6f2938177ad043753522b9fa550f4627a"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0007_DOC-0007.txt",
+      "bytes": 136681,
+      "sha256": "7697f79d3a74b978039d6b134c578d5563f65fb4b4b6281089894f3be58529a3"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0008_DOC-0008.pdf",
+      "bytes": 568514,
+      "sha256": "b84d2f79ef3b7fe9947b9f26221bc6b39582c63aa60962d031391bc9edb4e862"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0008_DOC-0008.txt",
+      "bytes": 134648,
+      "sha256": "4219c634a8d620df440e132bbc46a0bc2d2f9df2c8bd4a0a3a4d97d7c0659411"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0009_DOC-0009.pdf",
+      "bytes": 542687,
+      "sha256": "61274e1aca16a7d166998e500da8aecfde5b5c273218fd0e7693f8b983c9ef9a"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0009_DOC-0009.txt",
+      "bytes": 132684,
+      "sha256": "6d06a8f4f529086cb3cb4d87b4ebf5276f92e867f0bbbd263253ae4ced8a47ad"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0010_DOC-0010.pdf",
+      "bytes": 504058,
+      "sha256": "a0774d41a83df07b45f3756c368471a12c22cc4544fa624d914c220e74626ea0"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0010_DOC-0010.txt",
+      "bytes": 69632,
+      "sha256": "1a32541954e5cac73b488ce13e11e1bdf06ff15134eed9f0bc8ad1d4824e8bf7"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0011_DOC-0011.pdf",
+      "bytes": 504100,
+      "sha256": "3a846eb4175d4d30712e15819ddd22c40fde8b44df6dd51796b1121bff3b2182"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0011_DOC-0011.txt",
+      "bytes": 133254,
+      "sha256": "ad30a31350ed8f16e9064a6e1859373ac77e4e96d117c005bcb7e48db3f614e8"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0012_DOC-0012.pdf",
+      "bytes": 483318,
+      "sha256": "c907f31ca15340543392c90cd9bb78cfecb305defeb3cdccfeec4feb23b9b932"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0012_DOC-0012.txt",
+      "bytes": 110592,
+      "sha256": "0e074942eb7b94fc9628d2aa1baf1c55eceeed087006a977e02d065ce8da2845"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0013_DOC-0013.pdf",
+      "bytes": 496426,
+      "sha256": "e6cfd02cefffce60b09a71174d3237748d64ed360c6ace39e1b1c5d91d43f1a9"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0013_DOC-0013.txt",
+      "bytes": 140582,
+      "sha256": "05ae0706a61c7ed8035073341353d93dd5c4ae92b11418dceee76dc16ae8267b"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0014_DOC-0014.pdf",
+      "bytes": 535107,
+      "sha256": "cd0dfff0a6098a16a44dda3d44b3e0a8aa69733220d149d25bf05efdfcec9806"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0014_DOC-0014.txt",
+      "bytes": 136590,
+      "sha256": "f1875d200932cd185e7f52fa9cf66e406f343cafcacdb6e1206f22bf33cb1979"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0015_DOC-0015.pdf",
+      "bytes": 489547,
+      "sha256": "869f159fb1f3ec762bbc359fd984f7779529b48a250ce5b841888f4cd0c00569"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/05_DIAMANTINO/DOC-0015_DOC-0015.txt",
+      "bytes": 137448,
+      "sha256": "3cc7c8c7ef864b59adba643986f656efd33474fb5a3c7198e2256ba9b855c29d"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/06_JUINA/DOC-0016_castanheiraedital--chamada-pUblica-2025docx-PO0m.pdf",
+      "bytes": 667446,
+      "sha256": "5dee0ffc29892b8a578828478fa6641600815dd316d4f6ac4312399bd51087e3"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/06_JUINA/DOC-0016_castanheiraedital--chamada-pUblica-2025docx-PO0m.txt",
+      "bytes": 178534,
+      "sha256": "5ce8d8f8808b734af5d3392bc6855acea01f0f99347db6375438f0e70caf4fbd"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/06_JUINA/DOC-0017_brasnorteedital--chamada-pUblica-2025docx-ZQmt.pdf",
+      "bytes": 704883,
+      "sha256": "894afa7f38679a3c8e5d2216d8c0f9d0e3f1b0ebf7f64c4502f7d18c86c48ba3"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/06_JUINA/DOC-0017_brasnorteedital--chamada-pUblica-2025docx-ZQmt.txt",
+      "bytes": 151552,
+      "sha256": "69aefe7bb0f36fa11722de8566dd900ec9c3d2a01e3dff890c855770aff824ad"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/06_JUINA/DOC-0018_juinaedital--chamada-pUblica-2025-juinadocx-d5go.pdf",
+      "bytes": 710359,
+      "sha256": "16dd9336f6f19c5b11a6fd96f910d3f33b57fcfbade7ac004c52765f8f4606ab"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/06_JUINA/DOC-0018_juinaedital--chamada-pUblica-2025-juinadocx-d5go.txt",
+      "bytes": 180078,
+      "sha256": "b4cae212bc50d6800eb8d4c1501823aef06152849910f9cb17b94ac3e88c124a"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/06_JUINA/DOC-0019_cotriguacuedital--chamada-pUblica-2025-t7Br.pdf",
+      "bytes": 664105,
+      "sha256": "625e24224b3632854e6df1c9a2a8afc8ed76d64a4cb3f09b898f254d48ce5dab"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/06_JUINA/DOC-0019_cotriguacuedital--chamada-pUblica-2025-t7Br.txt",
+      "bytes": 175355,
+      "sha256": "c7cd7808ebee05b8cdc5dae401f8c572b9659e7f253f2932ce11d7054316c99e"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/06_JUINA/DOC-0020_cotriguacuedital--chamada-pUblica-2025-2-MbYw.pdf",
+      "bytes": 664105,
+      "sha256": "625e24224b3632854e6df1c9a2a8afc8ed76d64a4cb3f09b898f254d48ce5dab"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/06_JUINA/DOC-0020_cotriguacuedital--chamada-pUblica-2025-2-MbYw.txt",
+      "bytes": 175355,
+      "sha256": "c7cd7808ebee05b8cdc5dae401f8c572b9659e7f253f2932ce11d7054316c99e"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/06_JUINA/DOC-0021_novo-horizonte-edital--chamada-pUblica-2025pos-parecer-2docx-FGAB.pdf",
+      "bytes": 681031,
+      "sha256": "d9bee417ecfd9df0a6ed136b767cd52dd08733f7825bcd17185ffea8d30a603c"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/06_JUINA/DOC-0021_novo-horizonte-edital--chamada-pUblica-2025pos-parecer-2docx-FGAB.txt",
+      "bytes": 178031,
+      "sha256": "5131d167fbff0f6776aef38b81332da6e17ef731b342216f85355d166e779302"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/06_JUINA/DOC-0022_porto-edital--chamada-pUblica-2025docx-1-zvmJ.pdf",
+      "bytes": 657226,
+      "sha256": "cb73a7ee80accbded632f1357516bb6157c9d163716e68675608a75386d8b185"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/06_JUINA/DOC-0022_porto-edital--chamada-pUblica-2025docx-1-zvmJ.txt",
+      "bytes": 178545,
+      "sha256": "95b41f934ffac080b7faeec8356ee6be11dfba393a564eaf2b9739d530d58bda"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/06_JUINA/DOC-0023_juara-indigenaedital--chamada-pUblica-2025pos-parecer-1docx-5sZw.pdf",
+      "bytes": 742542,
+      "sha256": "74d97afe3db7b00b0b11f43d1aac9b8c93ab9efca8f2423f654f0a473b2cd977"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/06_JUINA/DOC-0023_juara-indigenaedital--chamada-pUblica-2025pos-parecer-1docx-5sZw.txt",
+      "bytes": 181389,
+      "sha256": "a6a60e8550893503c04dc5fd84f36c9fb2807602b9c6f3f5d9c5ca89274f5ba2"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/06_JUINA/DOC-0024_juaraedital-docx-atRm.pdf",
+      "bytes": 693894,
+      "sha256": "ce762815c672efc76f002354e776ca31f18ebf409ae8e7b5fc50abf3ac9173ef"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/06_JUINA/DOC-0024_juaraedital-docx-atRm.txt",
+      "bytes": 179620,
+      "sha256": "e0ad2ec45e79c5a47ad78caf562b00e9488b0739a0738e177d99c7834970fa7d"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/06_JUINA/DOC-0025_colniza-chamada-pUblica-2025pos-parecer1docx-Wh1j.pdf",
+      "bytes": 673950,
+      "sha256": "455f5658d11535a87865b000bee11b77317e3cda41af87a3c646323d9906971d"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/06_JUINA/DOC-0025_colniza-chamada-pUblica-2025pos-parecer1docx-Wh1j.txt",
+      "bytes": 182073,
+      "sha256": "bc1ef5c93e02907b547ac39e7d251d8f09e8752f27b586a655d2824cf877ff25"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/06_JUINA/DOC-0026_aripuana-edital--chamada-pUblica-2025pos-parecerdocx-1-gKjW.pdf",
+      "bytes": 705081,
+      "sha256": "a3e9ff86e055e0baecd4ba22e1b7736d0d2969b707d3e44c70aa7526ba65af21"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/06_JUINA/DOC-0026_aripuana-edital--chamada-pUblica-2025pos-parecerdocx-1-gKjW.txt",
+      "bytes": 179827,
+      "sha256": "724fb68b6895de7da8aa857779705f7b4e09e0ee93da0f0d9d6a9a7d4bce1e04"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/06_JUINA/DOC-0027_aripuana-edital--chamada-pUblica-2025pos-parecerdocx-1-xI4f.pdf",
+      "bytes": 705081,
+      "sha256": "a3e9ff86e055e0baecd4ba22e1b7736d0d2969b707d3e44c70aa7526ba65af21"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/06_JUINA/DOC-0027_aripuana-edital--chamada-pUblica-2025pos-parecerdocx-1-xI4f.txt",
+      "bytes": 179827,
+      "sha256": "724fb68b6895de7da8aa857779705f7b4e09e0ee93da0f0d9d6a9a7d4bce1e04"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/07_MATUPA/DOC-0135_885190.pdf",
+      "bytes": 79599,
+      "sha256": "0e6ca13db611dbd459784de98c39e48d69ffe4912afd45aa49a37840bbb1049b"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/07_MATUPA/DOC-0135_885190.txt",
+      "bytes": 152,
+      "sha256": "8527309942101faf13e41eda86493628c097675314707890cbdbd181cf9bfa7a"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/08_METROPOLITANA/DOC-0120_2004f4_dea8716823c14c04a061631b6fd19025.pdf",
+      "bytes": 1529550,
+      "sha256": "4f0f01e6c7b809ca046238ba61dbda5a225d534eb565848b14576b72ef6debcd"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/08_METROPOLITANA/DOC-0120_2004f4_dea8716823c14c04a061631b6fd19025.txt",
+      "bytes": 581452,
+      "sha256": "2c571d1905091e0eddbc7cec02c71bc91eb8717d74d34e28ff205a7354d34029"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/08_METROPOLITANA/DOC-0121_2004f4_8bb54366edc047cc91e143616c8418c9.pdf",
+      "bytes": 1281294,
+      "sha256": "e51703b65bb9031d4702e9810aeaad119c9758740d32f6a1616ced83486c9ef3"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/08_METROPOLITANA/DOC-0121_2004f4_8bb54366edc047cc91e143616c8418c9.txt",
+      "bytes": 567277,
+      "sha256": "6e15ad31e0e4639631eab19800b599fc79a36297da1f06603c646dad4b54d33c"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/08_METROPOLITANA/DOC-0122_2004f4_87ed7fac89b54734a58548ab9bf6741b.pdf",
+      "bytes": 1178426,
+      "sha256": "0873439e7b272eac7c06c243b025d3ea0c623bb48e7564abe12a7989210ca3ae"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/08_METROPOLITANA/DOC-0122_2004f4_87ed7fac89b54734a58548ab9bf6741b.txt",
+      "bytes": 569673,
+      "sha256": "dae0632e7eb133ae4750dbf605db54c68b63e663bb299f15824df36fadcce418"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/08_METROPOLITANA/DOC-0123_2004f4_f869b5af3e7a42e58206e5a5f70a15f0.pdf",
+      "bytes": 1545392,
+      "sha256": "6d708f227fbda446c892ad1ca60a5e370cde12f5be69f5757de2525c0ee7fcd2"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/08_METROPOLITANA/DOC-0123_2004f4_f869b5af3e7a42e58206e5a5f70a15f0.txt",
+      "bytes": 528384,
+      "sha256": "93fbe11c012766f33c2163287e3b3e2185b642f04d75fb55c1bc2bfe3930e432"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/08_METROPOLITANA/DOC-0124_2004f4_a8813c38b6e34b8880bad6dada1b622d.pdf",
+      "bytes": 1187399,
+      "sha256": "afd1259846733c7454cf5084e0325ba0458db643bf9ad4225c2bc43197a6fa29"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/08_METROPOLITANA/DOC-0124_2004f4_a8813c38b6e34b8880bad6dada1b622d.txt",
+      "bytes": 579203,
+      "sha256": "376a810081bd032f728df41404ab64b5f17eea8c0b131c8efdf05f3fde1fad37"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/08_METROPOLITANA/DOC-0125_2004f4_df2e8ee18b594ee6a5b25064c8856c92.pdf",
+      "bytes": 1222033,
+      "sha256": "6694e135995ae261fdd6bc32b626959dfdf4f7548593f6bcf714086f3712517b"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/08_METROPOLITANA/DOC-0125_2004f4_df2e8ee18b594ee6a5b25064c8856c92.txt",
+      "bytes": 564969,
+      "sha256": "849eed5565d9a6207f36a637ebcda23575621732003ffe19f5cf5f9b4e0e1ff2"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/08_METROPOLITANA/DOC-0126_2004f4_3c327a18a5fc41f89b2df665bfad91f9.pdf",
+      "bytes": 1206689,
+      "sha256": "f5488e9579970cb9eed7512dc5d02846859ae3613a2b0db2126aa1112ea71b7a"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/08_METROPOLITANA/DOC-0126_2004f4_3c327a18a5fc41f89b2df665bfad91f9.txt",
+      "bytes": 582790,
+      "sha256": "3ade2ee758e215dddd0367ae3c64a3929433c5f2711f662bb63f8f413689cfb1"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/08_METROPOLITANA/DOC-0127_2004f4_0c038f727d3b419d8213275738c38c2c.pdf",
+      "bytes": 1407732,
+      "sha256": "f7c9c31ca5c278bf0db9adc3b958af9f0d8a5bb7ca253e468e06207f80f69c18"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/08_METROPOLITANA/DOC-0127_2004f4_0c038f727d3b419d8213275738c38c2c.txt",
+      "bytes": 570515,
+      "sha256": "b66b831949121db3a450d8d24bb25785e95ad0b36028488a4fe6ef54f4c40330"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/08_METROPOLITANA/DOC-0128_2004f4_ee4640c9dee7474fafbf9b9e6778221a.pdf",
+      "bytes": 1097235,
+      "sha256": "41e2761043f7ab1c380d5274126b7383cee296063c94e335dbc2eaeb2ee20ca3"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/08_METROPOLITANA/DOC-0128_2004f4_ee4640c9dee7474fafbf9b9e6778221a.txt",
+      "bytes": 567419,
+      "sha256": "f31610d717107b71a71a7eee0ae43fcc47f109cced0f08c940c149229a9be1e2"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/08_METROPOLITANA/DOC-0129_2004f4_32158461ac7442b09680f673b655e0c5.pdf",
+      "bytes": 1429561,
+      "sha256": "9e91842d316730a83ddc88b4f73570a926994eec03d04f6d01967e5e21847213"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/08_METROPOLITANA/DOC-0129_2004f4_32158461ac7442b09680f673b655e0c5.txt",
+      "bytes": 568646,
+      "sha256": "47e84f425bcd9061edc46536569d0b43619e0e8e5ebbd54961c25ad4e1777f07"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/08_METROPOLITANA/DOC-0130_2004f4_34e70caf91d04da28c0b0e2a68144bc3.pdf",
+      "bytes": 1404297,
+      "sha256": "e2a04e9cfab020ec18535bcd73fed8da7331bd1902a1fb0652c6818cf2b7a97d"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/08_METROPOLITANA/DOC-0130_2004f4_34e70caf91d04da28c0b0e2a68144bc3.txt",
+      "bytes": 569014,
+      "sha256": "e92237838d25ae99b785dd4a5a54721a1109c464c50be8235da3b34b6616595b"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/09_PONTES_E_LACERDA/DOC-0131_edital-downloadPDF.php.pdf",
+      "bytes": 1968275,
+      "sha256": "09f6e58aa4a8f24a6097fc5e2cfdad15a19b73ff8fcc79373bab2955bf3856f3"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/09_PONTES_E_LACERDA/DOC-0131_edital-downloadPDF.php.txt",
+      "bytes": 192575,
+      "sha256": "909f929f1594b18ce50a1f4bb64a2668c1c0fa3718af25436d8cb7b3ef1e251f"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0048_DOC-0048.pdf",
+      "bytes": 1217445,
+      "sha256": "03c2ad83a8fd167318ca1ee30fe507926074d38bb4a813baa2fc5db7cf9bf546"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0048_DOC-0048.txt",
+      "bytes": 459963,
+      "sha256": "3777f58fec69dc2cc6ae5b933d85ebdcafac0a641fe1397cb5db298898b400ea"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0049_DOC-0049.pdf",
+      "bytes": 178156,
+      "sha256": "fea64ebb5fcb580073d538122351deda929eff68f1116fef50bb7dfc2f6e8173"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0049_DOC-0049.txt",
+      "bytes": 2489,
+      "sha256": "4eecfe1cf80f6ca31af22fd18ab6b1f0eb26c08d63feb8e731d43be8f7f49762"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0050_DOC-0050.pdf",
+      "bytes": 552954,
+      "sha256": "b862b9bb9b1e683e4a5a5f387de0322ca0d143c0dc1f06c4ce9aac5a1518b8a8"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0050_DOC-0050.txt",
+      "bytes": 122185,
+      "sha256": "634b2dcdbbb2670edda08257144b0137152806e045fafad4be1903f2aededfa5"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0051_DOC-0051.pdf",
+      "bytes": 1379195,
+      "sha256": "8fb5bbb11f47cee6c300e6b88f88d614c0ee5d8a9a303ab984a8dbe454a1b0d8"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0051_DOC-0051.txt",
+      "bytes": 464423,
+      "sha256": "da25cbe32fdd39b1ef64cd66b7c486d51a86c95e94e67a1f7d704f5627c22d4e"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0052_DOC-0052.pdf",
+      "bytes": 1217782,
+      "sha256": "7f7440235786f99f27231d9bc552119b2d32f9c345552d23609af401ba33a549"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0052_DOC-0052.txt",
+      "bytes": 444972,
+      "sha256": "8a1dd2ce16b8afebbaa6516d97b17c0d29e2a278284e818c3e5270dbec0e066b"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0053_DOC-0053.pdf",
+      "bytes": 176214,
+      "sha256": "47fa2257ce1fc068e977226f152e17110108eda8537bc8fcab6f78c5cbba2afa"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0053_DOC-0053.txt",
+      "bytes": 14711,
+      "sha256": "8eff095c48e6b68518fa21295f15b1eedc92d6d0eac142e781654261379d8450"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0054_DOC-0054.pdf",
+      "bytes": 1330772,
+      "sha256": "61ba989e6aa96ef533f8dd3ac54482fe0aa4cd5ad58e68480e9176826b3ca576"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0054_DOC-0054.txt",
+      "bytes": 496954,
+      "sha256": "b27204fe0831a396645a1413ded140d7e865596728b1bc9f926c2ef215d3aa8b"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0055_DOC-0055.pdf",
+      "bytes": 174861,
+      "sha256": "9add7924e69099a37e4f5a208489e533a5d9216891ad604d81e51184feb0745e"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0055_DOC-0055.txt",
+      "bytes": 15120,
+      "sha256": "e7b97950731c076e645dc3c4c69e4354e39d8866c2a043545178862c7cf4d61e"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0056_DOC-0056.pdf",
+      "bytes": 174982,
+      "sha256": "f54c7bef910089b0188853f7a3c3c0dd41dcb031b379eb58d5c3d2adbc2c35fb"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0056_DOC-0056.txt",
+      "bytes": 14303,
+      "sha256": "44b3defd11a93265dc5383b4915cede8ef06da2cea3518dfccf2c1d087d33abc"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0057_DOC-0057.pdf",
+      "bytes": 174982,
+      "sha256": "f54c7bef910089b0188853f7a3c3c0dd41dcb031b379eb58d5c3d2adbc2c35fb"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0057_DOC-0057.txt",
+      "bytes": 14303,
+      "sha256": "44b3defd11a93265dc5383b4915cede8ef06da2cea3518dfccf2c1d087d33abc"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0058_DOC-0058.pdf",
+      "bytes": 174982,
+      "sha256": "f54c7bef910089b0188853f7a3c3c0dd41dcb031b379eb58d5c3d2adbc2c35fb"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0058_DOC-0058.txt",
+      "bytes": 14303,
+      "sha256": "44b3defd11a93265dc5383b4915cede8ef06da2cea3518dfccf2c1d087d33abc"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0059_DOC-0059.pdf",
+      "bytes": 174861,
+      "sha256": "9add7924e69099a37e4f5a208489e533a5d9216891ad604d81e51184feb0745e"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0059_DOC-0059.txt",
+      "bytes": 15120,
+      "sha256": "e7b97950731c076e645dc3c4c69e4354e39d8866c2a043545178862c7cf4d61e"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0060_DOC-0060.pdf",
+      "bytes": 174861,
+      "sha256": "9add7924e69099a37e4f5a208489e533a5d9216891ad604d81e51184feb0745e"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0060_DOC-0060.txt",
+      "bytes": 15120,
+      "sha256": "e7b97950731c076e645dc3c4c69e4354e39d8866c2a043545178862c7cf4d61e"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0061_DOC-0061.pdf",
+      "bytes": 2230984,
+      "sha256": "581b745d79aa058f49880b605a5fbb173370d2fbfcac3d70efc0be1fe1bc44a9"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0061_DOC-0061.txt",
+      "bytes": 505361,
+      "sha256": "605a5afe0540fcec7a83720e5216ba60021366d62da33646d495ff456d75e42c"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0062_DOC-0062.pdf",
+      "bytes": 2268157,
+      "sha256": "1ee3b4b03bb4bb879a21e2da6a48392f560178ad2d8a9aa127299c68fcfaa284"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0062_DOC-0062.txt",
+      "bytes": 512218,
+      "sha256": "b13dc78e0c508ab171a03721f01a4126a1164e62d196ce8438417a332b396051"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0063_DOC-0063.pdf",
+      "bytes": 2269079,
+      "sha256": "607c56ba70d0464706a09766f0d06ff11251377ce0eb31e4d3eae7fdd2a25ae1"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0063_DOC-0063.txt",
+      "bytes": 508844,
+      "sha256": "cc5c98915532df5d51c2be4fdea47bb8dec0fdcb093d502740c053eaad777956"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0064_DOC-0064.pdf",
+      "bytes": 218153,
+      "sha256": "4d1c8c34b261b2f1d4cc49d9bba95b96a459635809d1be7017a5e360f7c70ce7"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0064_DOC-0064.txt",
+      "bytes": 961,
+      "sha256": "1b7875685c1fa2005a78d0dc4935d0381c14e2af0ec5f1123186a70f3b94454a"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0065_DOC-0065.pdf",
+      "bytes": 1339392,
+      "sha256": "9e9cce92e2f1af5ed987925f966272f2bd670ef2e28e4f88a393dbf029c89901"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0065_DOC-0065.txt",
+      "bytes": 512549,
+      "sha256": "52653ae663e4c0e7945fbd107a35c30bc3767efd32ec89aad2315e63808c35d5"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0066_DOC-0066.pdf",
+      "bytes": 1346149,
+      "sha256": "b691d4486cf0ae6796be44f590dd994126b84498cccbae160deaf8dddc7baab4"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0066_DOC-0066.txt",
+      "bytes": 503136,
+      "sha256": "6ab19fe68742fc1faf9732a1b46c4a2cfec7c9e1c51104443676fc17c0cfdfc8"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0067_DOC-0067.pdf",
+      "bytes": 1374160,
+      "sha256": "822f7a5c0dac1f03c47fd8dbdcc1d0e720c512a8b5e6aeab939124ff42ceb8bb"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0067_DOC-0067.txt",
+      "bytes": 504224,
+      "sha256": "3d5cd6e94ca47e757c38b89c55c73b8700c2c91bf4e1da69308483432e915446"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0068_DOC-0068.pdf",
+      "bytes": 2417635,
+      "sha256": "1b773a5f9549228757412b3fd2301f7cd3356a19c9347a6a9060682e8c4fb6c2"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0068_DOC-0068.txt",
+      "bytes": 450560,
+      "sha256": "b166a00330f405be0c8a94e4fc7845fb408c6af76672388381b532aecca1bae8"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0069_DOC-0069.pdf",
+      "bytes": 623383,
+      "sha256": "9f319240ac4c2227935199b0a48138da5e03b3d40ac0ff141aa4e90707abedb6"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0069_DOC-0069.txt",
+      "bytes": 119529,
+      "sha256": "daecaf6a05891dc0b21e54c74b0d41d8e397b2e7ae2198636ff34c10d4ab7f46"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/11_RONDONOPOLIS/DOC-0134_902650.pdf",
+      "bytes": 328908,
+      "sha256": "d24278ecb0055227d7eac8f8baf8e3212ed1a963bf8a4bb4ab01567405bf1807"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/11_RONDONOPOLIS/DOC-0134_902650.txt",
+      "bytes": 456,
+      "sha256": "2ed516cdb15bb72df9ed9937682948da49739a3b520e9344e6f9faf2c4f24697"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0070_f8345a8a-c33f-4788-bfe9-fb15c23010b8.pdf",
+      "bytes": 681235,
+      "sha256": "0f76a0d34c00d2fdf780548cdaa05691d368b978dcd9e9429a3728598f046494"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0070_f8345a8a-c33f-4788-bfe9-fb15c23010b8.txt",
+      "bytes": 140559,
+      "sha256": "62a5dc6d0c5c0c969a6f79ba0ee41263ae3c2e790af71324daf21de3d0c1b90a"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0071_d239737c-aa5b-4aa5-8c4f-98a1c89d4007.pdf",
+      "bytes": 608896,
+      "sha256": "03d9964a6bd6cc13756a96b30ff95942ae1314120fa11d858b1741171cf8e146"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0071_d239737c-aa5b-4aa5-8c4f-98a1c89d4007.txt",
+      "bytes": 140383,
+      "sha256": "cbd587e32f0fb8afe750e9cb617c1cec0dfb083b9eaf4b21bb180b7b0fc2d41b"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0072_d8539333-10b0-436d-be50-4bc6b6c5b940.pdf",
+      "bytes": 603490,
+      "sha256": "ab31c1578f0b29725cf7a7b1eb9435e5623a4e7b84e60ea0e722650a226a0905"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0072_d8539333-10b0-436d-be50-4bc6b6c5b940.txt",
+      "bytes": 134193,
+      "sha256": "71b62efc9dac152034e3eea862dfbe8b9f1298fbc50b9ca8cd45d9d304bd4771"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0073_61522d8f-5478-4cdb-b7cf-0d7a17c56a27.pdf",
+      "bytes": 603712,
+      "sha256": "b1cc29648d514a1a665a3ba66fbae5ba99b9a466a340741cbad378bf447eb4e4"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0073_61522d8f-5478-4cdb-b7cf-0d7a17c56a27.txt",
+      "bytes": 134346,
+      "sha256": "ae1a8c2a21bf8f529bb4e2373dcb42b3c0820acf8d8a91c17ffcc578e86a4a88"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0074_1291cecc-6aa7-43bb-a549-a33b65843df9.pdf",
+      "bytes": 607662,
+      "sha256": "bf22942ca40be8732567c762127f2468a42e6bbf1abe39fe8e0630302eb4d01c"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0074_1291cecc-6aa7-43bb-a549-a33b65843df9.txt",
+      "bytes": 136006,
+      "sha256": "15e59f45fd1999b62ce588079cf891b206eae39fea0db2260bef58ef6c5274e1"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0075_bd759726-7290-4133-976b-096fd05bfc1b.pdf",
+      "bytes": 605166,
+      "sha256": "8a16d34f9ab4358b448079e5cf6f7490f0ccb102dea7f378ec212ab7b888ce8a"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0075_bd759726-7290-4133-976b-096fd05bfc1b.txt",
+      "bytes": 134293,
+      "sha256": "b85076fb685fb8961bd119c0830c9870d7ae93275a6099a0aecb3fda87d809f1"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0076_807e87cd-6ca6-45b4-be56-587562a0b377.pdf",
+      "bytes": 620165,
+      "sha256": "6b9bdbd7f008c80d6a506143849121a8d0d8ab8156b85a011d75f6219d377d3c"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0076_807e87cd-6ca6-45b4-be56-587562a0b377.txt",
+      "bytes": 139503,
+      "sha256": "3aadb8233edb88e3645fed72e10e9d3d1e637742c12e1da76e34d09ab6565f68"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0077_762c78d9-033d-49a2-81cc-9952333825e8.pdf",
+      "bytes": 609332,
+      "sha256": "ba01eeef6af084c0305148438e934110c4bdbe2dfd8d09cf0df871ae0e423417"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0077_762c78d9-033d-49a2-81cc-9952333825e8.txt",
+      "bytes": 134994,
+      "sha256": "8ba135832b578651a535a40b7fc64083037a3d90d2708e8c86682b79e4a79884"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0078_7272d1c5-14fa-4d35-9416-fa978aae122e.pdf",
+      "bytes": 603624,
+      "sha256": "40119a8a2cee41428e560c9eed04dc13357e112d1c104e7b8167acc4cd71a074"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0078_7272d1c5-14fa-4d35-9416-fa978aae122e.txt",
+      "bytes": 134897,
+      "sha256": "98ba65fbb8ff2498cf6807395f951c38b8a33e6a9ca5043c46bf8102c64d1e10"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0079_dc2650b4-75f5-4259-83e4-67d7ac91d586.pdf",
+      "bytes": 601410,
+      "sha256": "977796e27d450458f19961befa7b22d21abfc60dc95b48f23eef9e7c10d188b3"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0079_dc2650b4-75f5-4259-83e4-67d7ac91d586.txt",
+      "bytes": 134584,
+      "sha256": "9fca70d6f51f31b43a684f5b1d8c50cc87dd6a0310b0acb46dd0b0aa72b4f188"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0080_912f5800-b74c-4a39-8a20-e86bacc363b1.pdf",
+      "bytes": 602325,
+      "sha256": "221c671594b305a966ac3aa37341db920f36b30b0e6c7bdf7f5c8ded760d81bb"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0080_912f5800-b74c-4a39-8a20-e86bacc363b1.txt",
+      "bytes": 135101,
+      "sha256": "9297bde221c5c86b7d18203ac73d087d515448101b601d59f907ac39a9103458"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0081_bd8b8e50-3336-4f3c-b477-295a07c42a73.pdf",
+      "bytes": 613539,
+      "sha256": "eedadd961f9129edd005e460367735429c76ca279d077b0bbb32d137def036de"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0081_bd8b8e50-3336-4f3c-b477-295a07c42a73.txt",
+      "bytes": 136220,
+      "sha256": "189dd097bb27370b5b07f367f94f9db2181e29b4257427b5707a647863a7fb21"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0082_b3b243ae-9c6f-465d-b616-bbe843f76a0a.pdf",
+      "bytes": 620827,
+      "sha256": "8ce6ca5cd9c8b5ece6340d72b6beb8925aec01825e57cf3b61f7907c17c6c4a8"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0082_b3b243ae-9c6f-465d-b616-bbe843f76a0a.txt",
+      "bytes": 139085,
+      "sha256": "eabba5dde7261b23a9069050cbb8b1bcdec5edbc5b89eb589e5692de5503ca68"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0083_60ecd063-24c4-4325-8689-129e23d2e25b.pdf",
+      "bytes": 601188,
+      "sha256": "e28cd7d28dce86a97d3fc6bdd1bff2d0e0a30b7a7ad519c78d97870d5663e2b7"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0083_60ecd063-24c4-4325-8689-129e23d2e25b.txt",
+      "bytes": 134259,
+      "sha256": "fe99ea241a6ce346444cc7ea1e47215ee58cf2d872019d0fbd3c5abfecb997b2"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0084_a27aaf3d-adc9-4b34-ba88-5755ae46e194.pdf",
+      "bytes": 602390,
+      "sha256": "263ac10389d8e45d378b8a41a32d6f148c08a4307d77a52cb1f529dfb60cf6b5"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0084_a27aaf3d-adc9-4b34-ba88-5755ae46e194.txt",
+      "bytes": 135856,
+      "sha256": "b73e5781210d0fe8859f3ec11a1fa4af6473d7db27a97d4b68733073bfbc18e3"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0085_754dca13-1a2d-4733-83a5-4bde5f1235ff.pdf",
+      "bytes": 600835,
+      "sha256": "0c72f3954b2570d240e7eb95620d340d5ccb266f3515f950de31e5ed5a981454"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0085_754dca13-1a2d-4733-83a5-4bde5f1235ff.txt",
+      "bytes": 134967,
+      "sha256": "b0328d2cffaa9f0130d2e0805398ab70807404d638c812e974555bd15183e1b9"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0086_8fdbdccf-4aac-4d5d-ab2a-951abaf48b1a.pdf",
+      "bytes": 600886,
+      "sha256": "12a864c79d6d329a76dcf25b6e8a9b648d5adb9c6d0e497e0c7a4a5c3e740006"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0086_8fdbdccf-4aac-4d5d-ab2a-951abaf48b1a.txt",
+      "bytes": 133908,
+      "sha256": "28542a518725568e27e6230798c3f8fe8439693ce0c058029ec14762927af389"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0087_ef4983ae-d7b6-4e0d-85e2-21406a4505c3.pdf",
+      "bytes": 600046,
+      "sha256": "12a7f0e02d237989baf558887cd545044fc89c4c03af6c1132942e935b12fdcf"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/12_SINOP/DOC-0087_ef4983ae-d7b6-4e0d-85e2-21406a4505c3.txt",
+      "bytes": 133731,
+      "sha256": "f62eaf33d9806db0b1ffc2443c30529663d5e8ce0e25c1e118eefd72940221c7"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PROMPTS_POR_DRE/01_ALTA_FLORESTA.md",
+      "bytes": 4283,
+      "sha256": "2659786ec5f4f9804abdbcaa3603b3a8f28906c5f374a82989d610c7c011215f"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PROMPTS_POR_DRE/02_BARRA_DO_GARCAS.md",
+      "bytes": 1788,
+      "sha256": "c0abbdfa36a7beab934891f34746dcb69115c76cf678c021647831c6e386f517"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PROMPTS_POR_DRE/03_CACERES.md",
+      "bytes": 3010,
+      "sha256": "000b0a0df2adfdac4b7b6ea7b8d41d543ea9ed2ea7b3481db2610a51fc9e3ecf"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PROMPTS_POR_DRE/04_CONFRESA.md",
+      "bytes": 1743,
+      "sha256": "29dbf82b97a7370cbe64269a4242d7d26026245ba25133aa6497976146ede722"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PROMPTS_POR_DRE/05_DIAMANTINO.md",
+      "bytes": 6139,
+      "sha256": "5406fbb80b254b363f5a64b27a06c0d08206422ec0146d410448972f6b8e840b"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PROMPTS_POR_DRE/06_JUINA.md",
+      "bytes": 5132,
+      "sha256": "058296e596c4c921beb3d43f0c72e20680914ca5fc4dd4faea0226fc73725552"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PROMPTS_POR_DRE/07_MATUPA.md",
+      "bytes": 1730,
+      "sha256": "126c6712bf0e59a07c4643470fa78cdc3c3d9754188d3d6fdf9c3452398a55f8"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PROMPTS_POR_DRE/08_METROPOLITANA.md",
+      "bytes": 10878,
+      "sha256": "0b34943e51b882059028e7d31d28d8d36d352ba6d2a958b8f412574bf5030dfc"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PROMPTS_POR_DRE/09_PONTES_E_LACERDA.md",
+      "bytes": 1511,
+      "sha256": "02954481d43b420f37cd2ddc20b7f54f2b6a80b0d9b7fb8895ef934447853ea6"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PROMPTS_POR_DRE/10_PRIMAVERA_DO_LESTE.md",
+      "bytes": 16193,
+      "sha256": "a27df6a6921ff370e3f26261cd5a094ef28a1686b3c4391247dd1e1391afe451"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PROMPTS_POR_DRE/11_RONDONOPOLIS.md",
+      "bytes": 1756,
+      "sha256": "ac260a9461fad729e134fdfa6282d782ff6f36f56c0543ed3a137d7cadcabbb0"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PROMPTS_POR_DRE/12_SINOP.md",
+      "bytes": 7729,
+      "sha256": "9d387460335dad394c8731de87ac03a534e628a267bad4e3b03cba9da1416482"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PROMPTS_POR_DRE/13_TANGARA_DA_SERRA.md",
+      "bytes": 3804,
+      "sha256": "e8674f8c6dc2cff0745d77053ff63f3edc7469cf0dae019b77b188f562d7f70d"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PROMPT_MIMO_2_6_IMPORTACAO_PNAE_2025.md",
+      "bytes": 26223,
+      "sha256": "474e382a9296c193c921e221df558389a04545900c678da954552ddf03507430"
+    },
+    {
+      "caminho": "documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/RELATORIO_PESQUISA_PNAE_MT_2025.md",
+      "bytes": 58141,
+      "sha256": "0dc615dd321d33e6eee69ab0482fc9d99356ffc17a2b03add56a17dc3082d9b4"
+    },
+    {
+      "caminho": "merenda_pnae_com_editais_2025_2026.sql",
+      "bytes": 7372288,
+      "sha256": "a6ea0f6d6db380cd4e9bd4f65108ef21df61a4eb127f1b4e09d7dd6d903e28ed"
+    },
+    {
+      "caminho": "RESTAURACAO.txt",
+      "bytes": 633,
+      "sha256": "a7f4051af2c076f928aed0887d74d543aa3a61fe1eec74b6a3b8a926d7885466"
+    },
+    {
+      "caminho": "validacao-restauracao.json",
+      "bytes": 278,
+      "sha256": "fc3f5293aa19eee4ae4ed71214570cbe7a11fd2dc991f02480446936c0d8a1ca"
+    }
+  ]
+}

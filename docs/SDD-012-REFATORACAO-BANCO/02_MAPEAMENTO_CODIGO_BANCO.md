@@ -1,0 +1,98 @@
+# Mapeamento codigo-banco
+
+Busca em `apps/backend/src`, `apps/backend/scripts` e `apps/frontend/src`; lidas tambem as migrations sem alterar seu historico. Gerado em 2026-10-14T03:09:12.529Z.
+
+A coluna de arquivos e uma busca textual de apoio, nao criterio unico de classificacao. Chamadas Prisma podem ser indiretas por repositories, services e relacoes.
+
+| Model | Propriedade Prisma | Tabela atual | Tabela-alvo | Uso direto encontrado | Arquivos (ate 3) |
+|---|---|---|---|---:|---|
+| DRE | `dRE` | `dres` | `dres` | 10 | `apps/backend/scripts/sdd012-gerar-inventario.js`, `apps/backend/scripts/sdd005-listar-cadastros.js`, `apps/backend/scripts/sdd005-ativacao-etapa5.js` |
+| EntidadeExecutora | `entidadeExecutora` | `entidades_executoras` | `entidades_executoras` | 15 | `apps/frontend/src/pages/DreEscolasPage.tsx`, `apps/backend/scripts/sdd005-listar-cadastros.js`, `apps/backend/scripts/importacao-historica-pnae-2025.ts` |
+| Escola | `escola` | `escolas` | `escolas` | 143 | `apps/frontend/src/types.ts`, `apps/backend/src/reference-data.spec.ts`, `apps/frontend/src/config/screens.config.ts` |
+| Municipio | `municipio` | `municipios` | `municipios` | 145 | `apps/frontend/src/App.tsx`, `apps/frontend/src/types.ts`, `apps/frontend/src/config/screens.config.ts` |
+| AnaliseHabilitacao | `analiseHabilitacao` | `pnae_analises_habilitacao` | `pnae_analises_habilitacao` | 1 | `apps/backend/src/modules/chamadas-publicas/application/chamadas-publicas.service.ts` |
+| Atesto | `atesto` | `pnae_atestos` | `pnae_atestos` | 44 | `apps/backend/scripts/sdd012-gerar-inventario.js`, `apps/backend/scripts/sdd005-verificar-schema.js`, `apps/backend/scripts/sdd005-listar-cadastros.js` |
+| AuditLog | `auditLog` | `pnae_audit_logs` | `pnae_audit_logs` | 11 | `apps/backend/scripts/sdd005-verificar-bootstrap.js`, `apps/backend/scripts/sdd005-listar-cadastros.js`, `apps/backend/scripts/sdd005-ativacao-etapa5.js` |
+| CampoTemplate | `campoTemplate` | `pnae_campos_template` | `pnae_campos_template` | 3 | `apps/backend/scripts/smoke-fluxo-dre.cjs`, `apps/backend/scripts/smoke-editor-dre.cjs`, `apps/backend/src/modules/composicao-editais/application/services/templates-documento.service.ts` |
+| ChamadaPublica | `chamadaPublica` | `pnae_chamadas_publicas` | `pnae_chamadas_publicas` | 10 | `apps/backend/scripts/importacao-historica-pnae-2025.ts`, `apps/backend/scripts/e2e-sdd011-http.js`, `apps/backend/scripts/e2e-sdd011-db.js` |
+| ChamadaPublicaDocumento | `chamadaPublicaDocumento` | `pnae_chamadas_publicas_documentos` | `pnae_chamadas_publicas_documentos` | 2 | `apps/backend/scripts/importacao-historica-pnae-2025.ts`, `apps/backend/src/modules/importacao-historica/persistencia/executor-importacao-historica.ts` |
+| ChamadaPublicaEscola | `chamadaPublicaEscola` | `pnae_chamadas_publicas_escolas` | `pnae_chamadas_publicas_escolas` | 0 | nao localizado |
+| ChecklistImplantacao | `checklistImplantacao` | `pnae_checklists_implantacao` | `pnae_checklists_implantacao` | 1 | `apps/backend/src/modules/gestao-operacional/gestao-operacional.service.ts` |
+| ClassificacaoProjeto | `classificacaoProjeto` | `pnae_classificacoes_projetos` | `pnae_classificacoes_projetos` | 1 | `apps/backend/src/modules/chamadas-publicas/application/chamadas-publicas.service.ts` |
+| ConferenciaFiscal | `conferenciaFiscal` | `pnae_conferencias_fiscais` | `pnae_conferencias_fiscais` | 3 | `apps/backend/src/modules/fiscal/application/services/conferencia-fiscal.service.ts`, `apps/backend/src/modules/fiscal/application/services/conferencia-fiscal.service.spec.ts`, `apps/backend/src/modules/fiscal/application/services/fiscal-validacao-cobertura.service.spec.ts` |
+| ConfiguracaoInstitucional | `configuracaoInstitucional` | `pnae_configuracoes_institucionais` | `pnae_configuracoes_institucionais` | 1 | `apps/backend/src/modules/gestao-operacional/gestao-operacional.service.ts` |
+| ConfiguracaoInstitucionalHistorico | `configuracaoInstitucionalHistorico` | `pnae_configuracoes_institucionais_historico` | `pnae_configuracoes_institucionais_historico` | 1 | `apps/backend/src/modules/gestao-operacional/gestao-operacional.service.ts` |
+| Contrato | `contrato` | `pnae_contratos` | `pnae_contratos` | 107 | `apps/frontend/src/App.tsx`, `apps/frontend/src/config/screens.config.ts`, `apps/frontend/src/config/menu.config.tsx` |
+| AditivoContrato | `aditivoContrato` | `pnae_contrato_aditivos` | `pnae_contrato_aditivos` | 1 | `apps/backend/src/modules/contratos/application/services/contratos.service.ts` |
+| AditivoItem | `aditivoItem` | `pnae_contrato_aditivo_itens` | `pnae_contrato_aditivo_itens` | 1 | `apps/backend/src/modules/contratos/application/services/contratos.service.ts` |
+| ContratoDocumento | `contratoDocumento` | `pnae_contrato_documentos` | `pnae_contrato_documentos` | 2 | `apps/backend/src/modules/contratos/application/services/contratos.service.ts`, `apps/backend/src/modules/prestacao-contas/application/prestacao-contas.service.ts` |
+| ContratoItem | `contratoItem` | `pnae_contrato_itens` | `pnae_contrato_itens` | 31 | `apps/frontend/src/pages/ContratoDetalhesPage.tsx`, `apps/frontend/src/pages/EntregasPage.tsx`, `apps/frontend/src/pages/NotaFiscalFormPage.tsx` |
+| ContratoSignatario | `contratoSignatario` | `pnae_contrato_signatarios` | `pnae_contrato_signatarios` | 1 | `apps/backend/src/modules/contratos/application/services/contratos.service.ts` |
+| DivergenciaFiscal | `divergenciaFiscal` | `pnae_divergencias_fiscais` | `pnae_divergencias_fiscais` | 14 | `apps/backend/scripts/sdd005-verificar-homologacao.js`, `apps/backend/src/modules/prestacao-contas/application/prestacao-contas.service.ts`, `apps/backend/src/modules/fiscal/application/services/conciliacao-fiscal.service.spec.ts` |
+| Edital | `edital` | `pnae_editais` | `pnae_editais` | 117 | `apps/frontend/src/types.ts`, `apps/backend/src/reference-data.spec.ts`, `apps/backend/scripts/sync-import-products.ts` |
+| EditalAnexo | `editalAnexo` | `pnae_edital_anexos` | `pnae_edital_anexos` | 6 | `apps/backend/scripts/smoke-geracao-edital.cjs`, `apps/backend/scripts/smoke-criar-edital-importacao.cjs`, `apps/backend/src/modules/contratos/application/services/contratos.service.ts` |
+| EditalDocumento | `editalDocumento` | `pnae_edital_documentos` | `pnae_edital_documentos` | 5 | `apps/backend/scripts/smoke-geracao-edital.cjs`, `apps/backend/scripts/smoke-criar-edital-importacao.cjs`, `apps/backend/src/modules/composicao-editais/application/services/geracao-edital.service.ts` |
+| EditalEscola | `editalEscola` | `pnae_edital_escolas` | `pnae_edital_escolas` | 4 | `apps/backend/scripts/smoke-geracao-edital.cjs`, `apps/backend/scripts/smoke-criar-edital-importacao.cjs`, `apps/backend/src/modules/importador-editais/application/repositories/importacoes.repository.ts` |
+| EditalItem | `editalItem` | `pnae_edital_itens` | `pnae_edital_itens` | 31 | `apps/frontend/src/pages/BalizamentoPageV2.tsx`, `apps/backend/scripts/sync-import-products.ts`, `apps/backend/scripts/smoke-geracao-edital.cjs` |
+| EditalVariavel | `editalVariavel` | `pnae_edital_variaveis` | `pnae_edital_variaveis` | 4 | `apps/backend/scripts/smoke-geracao-edital.cjs`, `apps/backend/scripts/smoke-criar-edital-importacao.cjs`, `apps/backend/src/modules/composicao-editais/application/services/composicao-edital.service.ts` |
+| EditalVersao | `editalVersao` | `pnae_edital_versoes` | `pnae_edital_versoes` | 4 | `apps/backend/scripts/smoke-geracao-edital.cjs`, `apps/backend/scripts/smoke-criar-edital-importacao.cjs`, `apps/backend/src/modules/composicao-editais/application/services/geracao-edital.service.ts` |
+| Entrega | `entrega` | `pnae_entregas` | `pnae_entregas` | 69 | `apps/frontend/src/config/screens.config.ts`, `apps/frontend/src/config/menu.config.tsx`, `apps/backend/scripts/sdd012-gerar-inventario.js` |
+| EntregaDocumento | `entregaDocumento` | `pnae_entrega_documentos` | `pnae_entrega_documentos` | 1 | `apps/backend/src/modules/entregas/application/services/entrega-documento.service.ts` |
+| EntregaEstorno | `entregaEstorno` | `pnae_entrega_estornos` | `pnae_entrega_estornos` | 2 | `apps/backend/src/modules/entregas/application/services/entrega.service.ts`, `apps/backend/src/modules/entregas/application/services/entrega-estorno.service.spec.ts` |
+| EntregaItem | `entregaItem` | `pnae_entrega_itens` | `pnae_entrega_itens` | 23 | `apps/backend/scripts/sdd005-verificar-homologacao.js`, `apps/backend/scripts/sdd005-listar-cadastros.js`, `apps/backend/scripts/sdd005-ativacao-etapa5.js` |
+| HabilitacaoDocumento | `habilitacaoDocumento` | `pnae_habilitacao_documentos` | `pnae_habilitacao_documentos` | 0 | nao localizado |
+| HistoricoGeracaoDocumento | `historicoGeracaoDocumento` | `pnae_historico_geracao_documento` | `pnae_historico_geracao_documento` | 3 | `apps/backend/scripts/smoke-geracao-edital.cjs`, `apps/backend/scripts/smoke-criar-edital-importacao.cjs`, `apps/backend/src/modules/composicao-editais/application/services/geracao-edital.service.ts` |
+| HomologacaoChamada | `homologacaoChamada` | `pnae_homologacoes_chamadas` | `pnae_homologacoes_chamadas` | 1 | `apps/backend/src/modules/chamadas-publicas/application/chamadas-publicas.service.ts` |
+| IdempotenciaOperacao | `idempotenciaOperacao` | `pnae_idempotencia_operacoes` | `pnae_idempotencia_operacoes` | 5 | `apps/backend/scripts/importacao-historica-pnae-2025.ts`, `apps/backend/src/modules/importacao-historica/persistencia/executor-importacao-historica.ts`, `apps/backend/src/modules/contratos/application/services/contratos.service.ts` |
+| ImportacaoCampo | `importacaoCampo` | `pnae_importacao_campos` | `pnae_importacao_campos` | 2 | `apps/backend/scripts/smoke-criar-edital-importacao.cjs`, `apps/backend/src/modules/composicao-editais/application/services/engenharia-reversa-importacao.service.ts` |
+| ImportacaoEstrutura | `importacaoEstrutura` | `pnae_importacao_estruturas` | `pnae_importacao_estruturas` | 2 | `apps/backend/scripts/smoke-criar-edital-importacao.cjs`, `apps/backend/src/modules/composicao-editais/application/services/engenharia-reversa-importacao.service.ts` |
+| ImportLog | `importLog` | `pnae_import_logs` | `pnae_import_logs` | 10 | `apps/backend/scripts/sync-import-products.ts`, `apps/backend/scripts/smoke-excluir-importacao.cjs`, `apps/backend/scripts/smoke-criar-edital-importacao.cjs` |
+| InscricaoChamada | `inscricaoChamada` | `pnae_inscricoes_chamadas` | `pnae_inscricoes_chamadas` | 1 | `apps/backend/src/modules/chamadas-publicas/application/chamadas-publicas.service.ts` |
+| ItemChecklistImplantacao | `itemChecklistImplantacao` | `pnae_itens_checklist_implantacao` | `pnae_itens_checklist_implantacao` | 1 | `apps/backend/src/modules/gestao-operacional/gestao-operacional.service.ts` |
+| Liquidacao | `liquidacao` | `pnae_liquidacoes` | `pnae_liquidacoes` | 24 | `apps/frontend/src/lib/display-text.ts`, `apps/frontend/src/pages/LiquidacaoPage.tsx`, `apps/backend/scripts/sdd005-verificar-homologacao.js` |
+| Match | `match` | `pnae_matches` | `pnae_matches` | 44 | `apps/frontend/src/components/PropostaDocumentosDialog.tsx`, `apps/frontend/src/pages/BalizamentoPage.tsx`, `apps/backend/src/modules/reports/application/services/reports.service.ts` |
+| NotaFiscal | `notaFiscal` | `pnae_notas_fiscais` | `pnae_notas_fiscais` | 42 | `apps/backend/scripts/e2e-sdd005-run.ts`, `apps/backend/scripts/sdd005-verificar-homologacao.js`, `apps/backend/scripts/sdd005-listar-cadastros.js` |
+| NotaFiscalDocumento | `notaFiscalDocumento` | `pnae_nota_fiscal_documentos` | `pnae_nota_fiscal_documentos` | 2 | `apps/backend/src/modules/fiscal/application/services/fiscal-documento.service.ts`, `apps/backend/src/modules/fiscal/application/services/fiscal-documento.service.spec.ts` |
+| NotaFiscalItem | `notaFiscalItem` | `pnae_nota_fiscal_itens` | `pnae_nota_fiscal_itens` | 15 | `apps/backend/scripts/sdd005-verificar-homologacao.js`, `apps/backend/scripts/sdd005-listar-cadastros.js`, `apps/backend/scripts/sdd005-ativacao-etapa5.js` |
+| NotificacaoInterna | `notificacaoInterna` | `pnae_notificacoes_internas` | `pnae_notificacoes_internas` | 3 | `apps/backend/scripts/e2e-sdd011-http.js`, `apps/backend/src/modules/oportunidades-pnae/application/oportunidades-pnae.service.ts`, `apps/backend/src/modules/gestao-operacional/gestao-operacional.service.ts` |
+| OcorrenciaEntrega | `ocorrenciaEntrega` | `pnae_ocorrencias_entrega` | `pnae_ocorrencias_entrega` | 3 | `apps/frontend/src/pages/EntregasPage.tsx`, `apps/backend/src/modules/entregas/application/services/saldo-contrato.service.ts`, `apps/backend/src/modules/entregas/application/services/ocorrencia-entrega.service.ts` |
+| Pagamento | `pagamento` | `pnae_pagamentos` | `pnae_pagamentos` | 37 | `apps/frontend/src/config/screens.config.ts`, `apps/frontend/src/config/menu.config.tsx`, `apps/frontend/src/App.tsx` |
+| ParametroOperacional | `parametroOperacional` | `pnae_parametros_operacionais` | `pnae_parametros_operacionais` | 1 | `apps/backend/src/modules/gestao-operacional/gestao-operacional.service.ts` |
+| ParametroOperacionalVersao | `parametroOperacionalVersao` | `pnae_parametros_operacionais_versoes` | `pnae_parametros_operacionais_versoes` | 1 | `apps/backend/src/modules/gestao-operacional/gestao-operacional.service.ts` |
+| PrestacaoContas | `prestacaoContas` | `pnae_prestacoes_contas` | `pnae_prestacoes_contas` | 2 | `apps/backend/src/modules/prestacao-contas/application/prestacao-contas.service.ts`, `apps/backend/src/modules/gestao-operacional/gestao-operacional.service.ts` |
+| PrestacaoContasDocumento | `prestacaoContasDocumento` | `pnae_prestacoes_contas_documentos` | `pnae_prestacoes_contas_documentos` | 0 | nao localizado |
+| ProdutoReferencia | `produtoReferencia` | `pnae_produtos_referencia` | `pnae_produtos_referencia` | 15 | `apps/backend/scripts/sync-import-products.ts`, `apps/backend/scripts/e2e-sdd011-http.js`, `apps/backend/scripts/e2e-sdd010.js` |
+| ProgramacaoEntregaItem | `programacaoEntregaItem` | `pnae_programacao_entrega_itens` | `pnae_programacao_entrega_itens` | 7 | `apps/backend/scripts/sdd005-ativacao-etapa5.js`, `apps/backend/scripts/e2e-sdd005-seed.ts`, `apps/backend/src/modules/contratos/application/services/contratos.service.ts` |
+| ProgramacaoEntrega | `programacaoEntrega` | `pnae_programacoes_entrega` | `pnae_programacoes_entrega` | 8 | `apps/backend/scripts/sdd005-listar-cadastros.js`, `apps/backend/scripts/sdd005-ativacao-etapa5.js`, `apps/backend/scripts/e2e-sdd005-seed.ts` |
+| Proposta | `proposta` | `pnae_propostas` | `pnae_propostas` | 60 | `apps/frontend/src/config/screens.config.ts`, `apps/frontend/src/config/menu.config.tsx`, `apps/frontend/src/components/PropostaDocumentosDialog.tsx` |
+| PropostaItem | `propostaItem` | `pnae_proposta_itens` | `pnae_proposta_itens` | 10 | `apps/backend/scripts/smoke-fluxo-dre.cjs`, `apps/backend/scripts/sdd005-ativacao-etapa5.js`, `apps/frontend/src/pages/ContratoFormPage.tsx` |
+| RecursoChamada | `recursoChamada` | `pnae_recursos_chamadas` | `pnae_recursos_chamadas` | 1 | `apps/backend/src/modules/chamadas-publicas/application/chamadas-publicas.service.ts` |
+| RequisitoHabilitacao | `requisitoHabilitacao` | `pnae_requisitos_habilitacao` | `pnae_requisitos_habilitacao` | 0 | nao localizado |
+| ResultadoChamada | `resultadoChamada` | `pnae_resultados_chamadas` | `pnae_resultados_chamadas` | 1 | `apps/backend/src/modules/chamadas-publicas/application/chamadas-publicas.service.ts` |
+| sem model | `-` | `pnae_system_config` | `pnae_configuracoes_sistema` | 0 | nao localizado |
+| TemplateDocumento | `templateDocumento` | `pnae_templates_documento` | `pnae_templates_documento` | 8 | `apps/backend/scripts/smoke-modelos-dre.cjs`, `apps/backend/scripts/smoke-fluxo-dre.cjs`, `apps/backend/scripts/smoke-editor-dre.cjs` |
+| TemplateVersao | `templateVersao` | `pnae_template_versoes` | `pnae_template_versoes` | 10 | `apps/backend/scripts/smoke-fluxo-dre.cjs`, `apps/backend/scripts/smoke-editor-dre.cjs`, `apps/backend/src/modules/propostas/application/services/proposta-documentos.service.ts` |
+| VinculoRecebimentoFiscal | `vinculoRecebimentoFiscal` | `pnae_vinculo_recebimento_fiscal` | `pnae_vinculo_recebimento_fiscal` | 3 | `apps/backend/scripts/sdd005-verificar-homologacao.js`, `apps/backend/src/modules/fiscal/application/services/nota-fiscal-manual-recebimentos.service.spec.ts`, `apps/backend/src/modules/fiscal/application/services/nota-fiscal.service.ts` |
+| Produtor | `produtor` | `produtores` | `produtores` | 127 | `apps/frontend/src/types.ts`, `apps/frontend/src/config/screens.config.ts`, `apps/frontend/src/config/menu.config.tsx` |
+| ProdutorProduto | `produtorProduto` | `produtor_produtos` | `produtor_produtos` | 10 | `apps/frontend/src/pages/BalizamentoPageV2.tsx`, `apps/backend/src/modules/reports/application/services/reports.service.ts`, `apps/backend/scripts/e2e-sdd011-http.js` |
+| RepresentacaoFornecedor | `representacaoFornecedor` | `representacoes_fornecedor` | `representacoes_fornecedor` | 4 | `apps/backend/src/modules/vinculos/application/services/vinculos.service.ts`, `apps/backend/src/modules/users/users.service.ts`, `apps/backend/src/common/auth/policy.service.ts` |
+| sem model | `-` | `sdd010_assistencia_tecnica` | `pnae_assistencias_tecnicas` | 0 | nao localizado |
+| sem model | `-` | `sdd010_disponibilidades_producao` | `pnae_disponibilidades_producao` | 0 | nao localizado |
+| sem model | `-` | `sdd010_informacoes_nutricionais` | `pnae_informacoes_nutricionais` | 0 | nao localizado |
+| sem model | `-` | `sdd010_logistica_produtor` | `pnae_logistica_produtores` | 0 | nao localizado |
+| sem model | `-` | `sdd010_mapeamentos_produto_edital` | `pnae_mapeamentos_produto_edital` | 0 | nao localizado |
+| sem model | `-` | `sdd010_safras_producao` | `pnae_safras_producao` | 0 | nao localizado |
+| sem model | `-` | `sdd010_sazonalidade_producao` | `pnae_sazonalidade_producao` | 0 | nao localizado |
+| sem model | `-` | `sdd010_solicitacoes_catalogo` | `pnae_solicitacoes_catalogo` | 0 | nao localizado |
+| sem model | `-` | `sdd010_unidades_produtivas` | `pnae_unidades_produtivas` | 0 | nao localizado |
+| sem model | `-` | `sdd011_interesses_oportunidade` | `pnae_interesses_oportunidades` | 0 | nao localizado |
+| User | `user` | `users` | `users` | 148 | `apps/frontend/src/types.ts`, `apps/frontend/src/contexts/AuthContext.tsx`, `apps/frontend/src/config/menu.config.tsx` |
+| VinculoUsuario | `vinculoUsuario` | `vinculos_usuario` | `vinculos_usuario` | 14 | `apps/backend/src/modules/vinculos/application/services/vinculos.service.ts`, `apps/backend/scripts/sdd005-verificar-bootstrap.js`, `apps/backend/scripts/sdd005-listar-cadastros.js` |
+| VinculoEscolaDRE | `vinculoEscolaDRE` | `vinculo_escola_dre` | `vinculo_escola_dre` | 6 | `apps/backend/scripts/e2e-sdd008-seed.ts`, `apps/backend/src/modules/entregas/application/services/programacao-entrega.service.ts`, `apps/backend/src/modules/dre/application/services/dre.service.ts` |
+| Prisma (interno) | `-` | `_prisma_migrations` | `_prisma_migrations` | 0 | nao localizado |
+
+## SQL e migrations
+
+- SQL dinamico e consultas brutas foram pesquisados em backend, scripts e frontend; as referencias de migrations historicas sao intencionalmente preservadas.
+- Referencias literais antigas em identificadores `sdd010_*`, `sdd011_*` e `pnae_system_config` limitam-se a migrations historicas, schema Prisma e ao verificador SDD-005 atualizado.
+- Nenhum PDF, documento de importacao ou nome de arquivo foi renomeado.

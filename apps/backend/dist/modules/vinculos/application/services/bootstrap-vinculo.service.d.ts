@@ -9,10 +9,10 @@ export declare class BootstrapVinculoService {
     constructor(prisma: PrismaService, audit: AuditService);
     executar(tokenInformado: string | undefined, user: AuthenticatedUser): Promise<{
         id: string;
+        vigenciaInicio: Date;
         ativo: boolean;
         userId: string;
         funcao: import(".prisma/client").$Enums.Role;
-        vigenciaInicio: Date;
     }>;
     private tokenConfere;
 }

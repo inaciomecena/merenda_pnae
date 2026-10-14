@@ -1,0 +1,8 @@
+BACKUP MERENDA PNAE - EDITAIS 2025/2026
+
+1. Crie um schema vazio compatível no MySQL/MariaDB.
+2. Restaure merenda_pnae_com_editais_2025_2026.sql usando mysql --database=<schema> <arquivo.sql>.
+3. Preserve _prisma_migrations; não execute migrations automaticamente durante a restauração.
+4. Os caminhos de ChamadaPublicaDocumento são relativos a PNAE_MT_2025/. Os arquivos originais estão em documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/PNAE_MT_2025/.
+5. Reponha essa pasta na raiz de documentos do sistema ou configure o storage para resolver os caminhos relativos.
+6. Confira manifesto-arquivos.json e manifesto-arquivos.sha256.

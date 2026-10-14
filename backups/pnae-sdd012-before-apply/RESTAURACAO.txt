@@ -1,0 +1,7 @@
+BACKUP PNAE SDD-012
+
+1. Crie um schema vazio compativel no MariaDB 10.4.32.
+2. Restaure merenda_pnae_sdd012_before.sql com mysql --database=<schema> <arquivo.sql>.
+3. Preserve _prisma_migrations e nao execute migrations automaticamente.
+4. Os arquivos fisicos originais estao em documentos/PNAE_MT_2025_PACOTE_IMPORTACAO/.
+5. Verifique manifesto-arquivos.json e manifesto-arquivos.sha256.

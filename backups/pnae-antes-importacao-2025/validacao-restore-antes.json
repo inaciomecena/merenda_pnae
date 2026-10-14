@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "schema": "pnae_restore_check_1791944512493",
+  "valores": [
+    6,
+    3,
+    171,
+    29
+  ],
+  "dumpSha256": "3b42eee09fdd475adfca252ace9e48c76a9a5c9571f03cbb2f37da453ae57582"
+}

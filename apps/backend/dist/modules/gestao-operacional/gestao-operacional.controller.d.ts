@@ -15,7 +15,7 @@ export declare class GestaoOperacionalController {
             entregasPendentes: any;
             prestacoesContasPendentes: any;
         };
-        escopo: "ADMIN" | "ESCOLA" | "EXTENSIONISTA" | "DRE" | "PRODUTOR" | "REPRESENTANTE";
+        escopo: "ADMIN" | "DRE" | "ESCOLA" | "PRODUTOR" | "REPRESENTANTE" | "EXTENSIONISTA";
         atualizadoEm: string;
     }>;
     dashboard(req: Request): Promise<{
@@ -28,7 +28,7 @@ export declare class GestaoOperacionalController {
             entregasPendentes: any;
             prestacoesContasPendentes: any;
         };
-        escopo: "ADMIN" | "ESCOLA" | "EXTENSIONISTA" | "DRE" | "PRODUTOR" | "REPRESENTANTE";
+        escopo: "ADMIN" | "DRE" | "ESCOLA" | "PRODUTOR" | "REPRESENTANTE" | "EXTENSIONISTA";
         atualizadoEm: string;
     }>;
     pendencias(req: Request): Promise<{
@@ -47,18 +47,18 @@ export declare class GestaoOperacionalController {
     configuracoes(req: Request): Promise<{
         valor: any;
         id: string;
+        dreId: string | null;
+        municipioId: string | null;
+        responsavelId: string | null;
         createdAt: Date;
         updatedAt: Date;
         escolaId: string | null;
-        municipioId: string | null;
-        ativo: boolean;
-        dreId: string | null;
-        chave: string;
-        tipo: string;
-        origem: import(".prisma/client").$Enums.OrigemConfiguracao;
-        escopo: import(".prisma/client").$Enums.EscopoInstitucional;
         versao: number;
-        responsavelId: string | null;
+        tipo: string;
+        ativo: boolean;
+        origem: import(".prisma/client").$Enums.OrigemConfiguracao;
+        chave: string;
+        escopo: import(".prisma/client").$Enums.EscopoInstitucional;
         permiteSobrescrita: boolean;
         vigenteDesde: Date;
         vigenteAte: Date | null;
@@ -73,38 +73,38 @@ export declare class GestaoOperacionalController {
     } | null>;
     criarConfiguracao(dto: ConfiguracaoInstitucionalDto, req: Request): Promise<{
         id: string;
+        dreId: string | null;
+        municipioId: string | null;
+        responsavelId: string | null;
         createdAt: Date;
         updatedAt: Date;
         escolaId: string | null;
-        municipioId: string | null;
+        versao: number;
+        tipo: string;
         ativo: boolean;
-        dreId: string | null;
+        origem: import(".prisma/client").$Enums.OrigemConfiguracao;
         chave: string;
         valor: string;
-        tipo: string;
-        origem: import(".prisma/client").$Enums.OrigemConfiguracao;
         escopo: import(".prisma/client").$Enums.EscopoInstitucional;
-        versao: number;
-        responsavelId: string | null;
         permiteSobrescrita: boolean;
         vigenteDesde: Date;
         vigenteAte: Date | null;
     }>;
     atualizarConfiguracao(dto: ConfiguracaoInstitucionalDto, req: Request): Promise<{
         id: string;
+        dreId: string | null;
+        municipioId: string | null;
+        responsavelId: string | null;
         createdAt: Date;
         updatedAt: Date;
         escolaId: string | null;
-        municipioId: string | null;
+        versao: number;
+        tipo: string;
         ativo: boolean;
-        dreId: string | null;
+        origem: import(".prisma/client").$Enums.OrigemConfiguracao;
         chave: string;
         valor: string;
-        tipo: string;
-        origem: import(".prisma/client").$Enums.OrigemConfiguracao;
         escopo: import(".prisma/client").$Enums.EscopoInstitucional;
-        versao: number;
-        responsavelId: string | null;
         permiteSobrescrita: boolean;
         vigenteDesde: Date;
         vigenteAte: Date | null;
@@ -112,16 +112,16 @@ export declare class GestaoOperacionalController {
     parametros(req: Request): Promise<({
         versoes: {
             id: string;
+            dreId: string | null;
+            municipioId: string | null;
+            status: import(".prisma/client").$Enums.StatusParametroOperacional;
+            responsavelId: string | null;
             createdAt: Date;
             escolaId: string | null;
-            municipioId: string | null;
-            dreId: string | null;
-            status: import(".prisma/client").$Enums.StatusParametroOperacional;
+            justificativa: string | null;
+            versao: number;
             valor: string;
             escopo: import(".prisma/client").$Enums.EscopoInstitucional;
-            versao: number;
-            responsavelId: string | null;
-            justificativa: string | null;
             vigenteDesde: Date;
             vigenteAte: Date | null;
             fonteNormativa: string | null;
@@ -129,17 +129,17 @@ export declare class GestaoOperacionalController {
         }[];
     } & {
         id: string;
+        status: import(".prisma/client").$Enums.StatusParametroOperacional;
+        responsavelId: string | null;
         createdAt: Date;
         updatedAt: Date;
-        codigo: string;
-        status: import(".prisma/client").$Enums.StatusParametroOperacional;
         descricao: string;
         unidade: string | null;
         tipo: string;
-        versaoAtual: number;
+        codigo: string;
         origem: import(".prisma/client").$Enums.OrigemConfiguracao;
+        versaoAtual: number;
         escopo: import(".prisma/client").$Enums.EscopoInstitucional;
-        responsavelId: string | null;
         vigenteDesde: Date | null;
         vigenteAte: Date | null;
         fonteNormativa: string | null;
@@ -148,16 +148,16 @@ export declare class GestaoOperacionalController {
     criarParametro(dto: ParametroOperacionalDto, req: Request): Promise<{
         versoes: {
             id: string;
+            dreId: string | null;
+            municipioId: string | null;
+            status: import(".prisma/client").$Enums.StatusParametroOperacional;
+            responsavelId: string | null;
             createdAt: Date;
             escolaId: string | null;
-            municipioId: string | null;
-            dreId: string | null;
-            status: import(".prisma/client").$Enums.StatusParametroOperacional;
+            justificativa: string | null;
+            versao: number;
             valor: string;
             escopo: import(".prisma/client").$Enums.EscopoInstitucional;
-            versao: number;
-            responsavelId: string | null;
-            justificativa: string | null;
             vigenteDesde: Date;
             vigenteAte: Date | null;
             fonteNormativa: string | null;
@@ -165,17 +165,17 @@ export declare class GestaoOperacionalController {
         }[];
     } & {
         id: string;
+        status: import(".prisma/client").$Enums.StatusParametroOperacional;
+        responsavelId: string | null;
         createdAt: Date;
         updatedAt: Date;
-        codigo: string;
-        status: import(".prisma/client").$Enums.StatusParametroOperacional;
         descricao: string;
         unidade: string | null;
         tipo: string;
-        versaoAtual: number;
+        codigo: string;
         origem: import(".prisma/client").$Enums.OrigemConfiguracao;
+        versaoAtual: number;
         escopo: import(".prisma/client").$Enums.EscopoInstitucional;
-        responsavelId: string | null;
         vigenteDesde: Date | null;
         vigenteAte: Date | null;
         fonteNormativa: string | null;
@@ -183,16 +183,16 @@ export declare class GestaoOperacionalController {
     }>;
     versionarParametro(id: string, dto: ParametroOperacionalDto, req: Request): Promise<{
         id: string;
+        dreId: string | null;
+        municipioId: string | null;
+        status: import(".prisma/client").$Enums.StatusParametroOperacional;
+        responsavelId: string | null;
         createdAt: Date;
         escolaId: string | null;
-        municipioId: string | null;
-        dreId: string | null;
-        status: import(".prisma/client").$Enums.StatusParametroOperacional;
+        justificativa: string | null;
+        versao: number;
         valor: string;
         escopo: import(".prisma/client").$Enums.EscopoInstitucional;
-        versao: number;
-        responsavelId: string | null;
-        justificativa: string | null;
         vigenteDesde: Date;
         vigenteAte: Date | null;
         fonteNormativa: string | null;
@@ -201,15 +201,15 @@ export declare class GestaoOperacionalController {
     notificacoes(page: string, limit: string, req: Request): Promise<{
         items: {
             id: string;
-            escolaId: string | null;
-            municipioId: string | null;
-            userId: string;
             dreId: string | null;
-            link: string | null;
-            titulo: string;
+            municipioId: string | null;
             status: import(".prisma/client").$Enums.StatusNotificacaoInterna;
+            titulo: string;
+            escolaId: string | null;
             tipo: string;
+            link: string | null;
             origem: string | null;
+            userId: string;
             escopo: import(".prisma/client").$Enums.EscopoInstitucional;
             mensagem: string;
             referenciaTipo: string | null;
@@ -226,15 +226,15 @@ export declare class GestaoOperacionalController {
     }>;
     criarNotificacao(dto: NotificacaoDto, req: Request): Promise<{
         id: string;
-        escolaId: string | null;
-        municipioId: string | null;
-        userId: string;
         dreId: string | null;
-        link: string | null;
-        titulo: string;
+        municipioId: string | null;
         status: import(".prisma/client").$Enums.StatusNotificacaoInterna;
+        titulo: string;
+        escolaId: string | null;
         tipo: string;
+        link: string | null;
         origem: string | null;
+        userId: string;
         escopo: import(".prisma/client").$Enums.EscopoInstitucional;
         mensagem: string;
         referenciaTipo: string | null;
@@ -245,15 +245,15 @@ export declare class GestaoOperacionalController {
     }>;
     marcarLida(id: string, req: Request): Promise<{
         id: string;
-        escolaId: string | null;
-        municipioId: string | null;
-        userId: string;
         dreId: string | null;
-        link: string | null;
-        titulo: string;
+        municipioId: string | null;
         status: import(".prisma/client").$Enums.StatusNotificacaoInterna;
+        titulo: string;
+        escolaId: string | null;
         tipo: string;
+        link: string | null;
         origem: string | null;
+        userId: string;
         escopo: import(".prisma/client").$Enums.EscopoInstitucional;
         mensagem: string;
         referenciaTipo: string | null;
@@ -265,95 +265,95 @@ export declare class GestaoOperacionalController {
     checklists(req: Request): Promise<({
         itens: {
             id: string;
-            codigo: string;
-            titulo: string;
             status: import(".prisma/client").$Enums.StatusItemChecklistImplantacao;
-            observacao: string | null;
             responsavelId: string | null;
+            titulo: string;
+            observacao: string | null;
+            codigo: string;
+            pendencia: string | null;
             atualizadoEm: Date;
             evidencia: string | null;
             prazo: Date | null;
-            pendencia: string | null;
             checklistId: string;
         }[];
     } & {
         id: string;
-        escolaId: string | null;
-        municipioId: string | null;
-        nome: string;
         dreId: string | null;
+        municipioId: string | null;
         status: import(".prisma/client").$Enums.StatusChecklistImplantacao;
+        responsavelId: string | null;
+        escolaId: string | null;
+        nome: string;
         observacao: string | null;
         escopo: import(".prisma/client").$Enums.EscopoInstitucional;
-        responsavelId: string | null;
         criadoEm: Date;
         atualizadoEm: Date;
     })[]>;
     criarChecklist(dto: ChecklistDto, req: Request): Promise<{
         itens: {
             id: string;
-            codigo: string;
-            titulo: string;
             status: import(".prisma/client").$Enums.StatusItemChecklistImplantacao;
-            observacao: string | null;
             responsavelId: string | null;
+            titulo: string;
+            observacao: string | null;
+            codigo: string;
+            pendencia: string | null;
             atualizadoEm: Date;
             evidencia: string | null;
             prazo: Date | null;
-            pendencia: string | null;
             checklistId: string;
         }[];
     } & {
         id: string;
-        escolaId: string | null;
-        municipioId: string | null;
-        nome: string;
         dreId: string | null;
+        municipioId: string | null;
         status: import(".prisma/client").$Enums.StatusChecklistImplantacao;
+        responsavelId: string | null;
+        escolaId: string | null;
+        nome: string;
         observacao: string | null;
         escopo: import(".prisma/client").$Enums.EscopoInstitucional;
-        responsavelId: string | null;
         criadoEm: Date;
         atualizadoEm: Date;
     }>;
     atualizarChecklist(id: string, dto: ChecklistStatusDto, req: Request): Promise<{
         itens: {
             id: string;
-            codigo: string;
-            titulo: string;
             status: import(".prisma/client").$Enums.StatusItemChecklistImplantacao;
-            observacao: string | null;
             responsavelId: string | null;
+            titulo: string;
+            observacao: string | null;
+            codigo: string;
+            pendencia: string | null;
             atualizadoEm: Date;
             evidencia: string | null;
             prazo: Date | null;
-            pendencia: string | null;
             checklistId: string;
         }[];
     } & {
         id: string;
-        escolaId: string | null;
-        municipioId: string | null;
-        nome: string;
         dreId: string | null;
+        municipioId: string | null;
         status: import(".prisma/client").$Enums.StatusChecklistImplantacao;
+        responsavelId: string | null;
+        escolaId: string | null;
+        nome: string;
         observacao: string | null;
         escopo: import(".prisma/client").$Enums.EscopoInstitucional;
-        responsavelId: string | null;
         criadoEm: Date;
         atualizadoEm: Date;
     }>;
     itemChecklist(id: string, dto: ChecklistItemDto, req: Request): Promise<{
         id: string;
-        codigo: string;
-        titulo: string;
         status: import(".prisma/client").$Enums.StatusItemChecklistImplantacao;
-        observacao: string | null;
         responsavelId: string | null;
+        titulo: string;
+        observacao: string | null;
+        codigo: string;
+        pendencia: string | null;
         atualizadoEm: Date;
         evidencia: string | null;
         prazo: Date | null;
-        pendencia: string | null;
         checklistId: string;
     }>;
     relatorioChecklist(id: string, req: Request): Promise<{
@@ -365,28 +365,28 @@ export declare class GestaoOperacionalController {
         concluidos: number;
         pendentes: {
             id: string;
-            codigo: string;
-            titulo: string;
             status: import(".prisma/client").$Enums.StatusItemChecklistImplantacao;
-            observacao: string | null;
             responsavelId: string | null;
+            titulo: string;
+            observacao: string | null;
+            codigo: string;
+            pendencia: string | null;
             atualizadoEm: Date;
             evidencia: string | null;
             prazo: Date | null;
-            pendencia: string | null;
             checklistId: string;
         }[];
         bloqueios: {
             id: string;
-            codigo: string;
-            titulo: string;
             status: import(".prisma/client").$Enums.StatusItemChecklistImplantacao;
-            observacao: string | null;
             responsavelId: string | null;
+            titulo: string;
+            observacao: string | null;
+            codigo: string;
+            pendencia: string | null;
             atualizadoEm: Date;
             evidencia: string | null;
             prazo: Date | null;
-            pendencia: string | null;
             checklistId: string;
         }[];
         situacaoGeral: string;

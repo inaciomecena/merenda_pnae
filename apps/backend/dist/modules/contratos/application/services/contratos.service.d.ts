@@ -48,13 +48,13 @@ export declare class ContratosService {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
+                deletedAt: Date | null;
                 nome: string;
+                uf: string;
                 ativo: boolean;
                 nomeNormalizado: string | null;
-                uf: string;
                 codigoIbge: string | null;
             } | null;
             escolas: {
@@ -69,15 +69,15 @@ export declare class ContratosService {
                 };
             } & {
                 id: string;
+                dreId: string;
                 createdAt: Date;
                 updatedAt: Date;
                 createdBy: string | null;
                 updatedBy: string | null;
                 escolaId: string;
-                ativo: boolean;
-                dreId: string;
                 vigenciaInicio: Date;
                 vigenciaFim: Date | null;
+                ativo: boolean;
             })[];
         };
         propostas: {
@@ -139,19 +139,19 @@ export declare class ContratosService {
         createdAt: Date;
         createdBy: string | null;
         titulo: string;
-        tipo: import(".prisma/client").$Enums.TipoDocumentoContrato;
         observacao: string | null;
-        arquivoNome: string | null;
         versao: number;
-        contratoId: string;
-        aditivoId: string | null;
-        mimeType: string | null;
-        tamanhoBytes: number | null;
-        hashSha256: string | null;
-        formalizado: boolean;
-        origemAssinatura: import(".prisma/client").$Enums.OrigemAssinaturaContrato | null;
+        tipo: import(".prisma/client").$Enums.TipoDocumentoContrato;
         geradoEm: Date | null;
         geradoPor: string | null;
+        arquivoNome: string | null;
+        mimeType: string | null;
+        hashSha256: string | null;
+        contratoId: string;
+        aditivoId: string | null;
+        tamanhoBytes: number | null;
+        formalizado: boolean;
+        origemAssinatura: import(".prisma/client").$Enums.OrigemAssinaturaContrato | null;
     }[]>;
     anexar(id: string, arquivo: Express.Multer.File, dto: AnexoDocumentoDto, ctx: ContextoOperacao): Promise<{
         id: string;
@@ -211,21 +211,21 @@ export declare class ContratosService {
         }[];
     } & {
         id: string;
+        status: import(".prisma/client").$Enums.StatusAditivoContrato;
+        responsavelId: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        deletedAt: Date | null;
+        data: Date | null;
+        justificativa: string;
+        tipo: import(".prisma/client").$Enums.TipoAditivoContrato;
         vigenciaInicio: Date | null;
         vigenciaFim: Date | null;
-        status: import(".prisma/client").$Enums.StatusAditivoContrato;
-        data: Date | null;
-        tipo: import(".prisma/client").$Enums.TipoAditivoContrato;
-        responsavelId: string | null;
         numeroSequencial: number;
         contratoId: string;
         tipoOutro: string | null;
-        justificativa: string;
         valorAlteracao: Prisma.Decimal;
         formalizadoEm: Date | null;
     }>;

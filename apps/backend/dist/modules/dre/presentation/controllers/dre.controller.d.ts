@@ -14,16 +14,16 @@ export declare class DREController {
         };
     } & {
         id: string;
+        entidadeExecutoraId: string;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        deletedAt: Date | null;
         nome: string;
-        codigo: string | null;
-        entidadeExecutoraId: string;
-        municipioSede: string | null;
         ativo: boolean;
+        codigo: string | null;
+        municipioSede: string | null;
     }>;
     findAll(req: Request): Promise<({
         entidadeExecutora: {
@@ -35,16 +35,16 @@ export declare class DREController {
         };
     } & {
         id: string;
+        entidadeExecutoraId: string;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        deletedAt: Date | null;
         nome: string;
-        codigo: string | null;
-        entidadeExecutoraId: string;
-        municipioSede: string | null;
         ativo: boolean;
+        codigo: string | null;
+        municipioSede: string | null;
     })[]>;
     findOne(id: string, req: Request): Promise<{
         entidadeExecutora: {
@@ -54,37 +54,37 @@ export declare class DREController {
         };
         vinculosEscolas: ({
             escola: {
+                id: string;
                 municipio: {
                     nome: string;
                 };
-                id: string;
                 nome: string;
                 codigo: string | null;
             };
         } & {
             id: string;
+            dreId: string;
             createdAt: Date;
             updatedAt: Date;
             createdBy: string | null;
             updatedBy: string | null;
             escolaId: string;
-            ativo: boolean;
-            dreId: string;
             vigenciaInicio: Date;
             vigenciaFim: Date | null;
+            ativo: boolean;
         })[];
     } & {
         id: string;
+        entidadeExecutoraId: string;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        deletedAt: Date | null;
         nome: string;
-        codigo: string | null;
-        entidadeExecutoraId: string;
-        municipioSede: string | null;
         ativo: boolean;
+        codigo: string | null;
+        municipioSede: string | null;
     }>;
     update(id: string, dto: UpdateDREDto, req: Request): Promise<{
         entidadeExecutora: {
@@ -93,16 +93,16 @@ export declare class DREController {
         };
     } & {
         id: string;
+        entidadeExecutoraId: string;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        deletedAt: Date | null;
         nome: string;
-        codigo: string | null;
-        entidadeExecutoraId: string;
-        municipioSede: string | null;
         ativo: boolean;
+        codigo: string | null;
+        municipioSede: string | null;
     }>;
     delete(id: string, req: Request): Promise<{
         message: string;
@@ -112,25 +112,25 @@ export declare class EscolaVinculoDREController {
     private readonly dreService;
     constructor(dreService: DREService);
     vincularDRE(escolaId: string, dto: VincularEscolaDto, req: Request): Promise<{
-        escola: {
+        dre: {
             id: string;
             nome: string;
         };
-        dre: {
+        escola: {
             id: string;
             nome: string;
         };
     } & {
         id: string;
+        dreId: string;
         createdAt: Date;
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
         escolaId: string;
-        ativo: boolean;
-        dreId: string;
         vigenciaInicio: Date;
         vigenciaFim: Date | null;
+        ativo: boolean;
     }>;
     desvincularDRE(vinculoId: string, req: Request): Promise<{
         message: string;
@@ -141,44 +141,44 @@ export declare class EntidadesExecutorasController {
     constructor(service: DREService);
     listar(): Promise<{
         id: string;
+        municipioId: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        municipioId: string | null;
+        deletedAt: Date | null;
         nome: string;
-        ativo: boolean;
-        uf: string;
         tipo: string;
         cnpj: string | null;
+        uf: string;
+        ativo: boolean;
     }[]>;
     criar(dto: CreateEntidadeDto, req: Request): Promise<{
         id: string;
+        municipioId: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        municipioId: string | null;
+        deletedAt: Date | null;
         nome: string;
-        ativo: boolean;
-        uf: string;
         tipo: string;
         cnpj: string | null;
+        uf: string;
+        ativo: boolean;
     }>;
     atualizar(id: string, dto: UpdateEntidadeDto, req: Request): Promise<{
         id: string;
+        municipioId: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        municipioId: string | null;
+        deletedAt: Date | null;
         nome: string;
-        ativo: boolean;
-        uf: string;
         tipo: string;
         cnpj: string | null;
+        uf: string;
+        ativo: boolean;
     }>;
 }

@@ -3,7 +3,7 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 const FISCAL = ['pnae_notas_fiscais', 'pnae_nota_fiscal_itens', 'pnae_nota_fiscal_documentos', 'pnae_vinculo_recebimento_fiscal', 'pnae_divergencias_fiscais', 'pnae_conferencias_fiscais', 'pnae_atestos', 'pnae_liquidacoes', 'pnae_pagamentos'];
-const SDD001_004 = ['pnae_contratos', 'pnae_contrato_itens', 'pnae_entregas', 'pnae_entrega_itens', 'pnae_programacoes_entrega', 'pnae_programacao_entrega_itens', 'pnae_editais', 'pnae_propostas', 'produtores', 'users', 'vinculos_usuario', 'dres', 'escolas', 'municipios', 'pnae_entrega_estornos', 'pnae_audit_logs', 'pnae_system_config'];
+const SDD001_004 = ['pnae_contratos', 'pnae_contrato_itens', 'pnae_entregas', 'pnae_entrega_itens', 'pnae_programacoes_entrega', 'pnae_programacao_entrega_itens', 'pnae_editais', 'pnae_propostas', 'produtores', 'users', 'vinculos_usuario', 'dres', 'escolas', 'municipios', 'pnae_entrega_estornos', 'pnae_audit_logs', 'pnae_configuracoes_sistema'];
 
 (async () => {
   const tabelas = await prisma.$queryRawUnsafe(

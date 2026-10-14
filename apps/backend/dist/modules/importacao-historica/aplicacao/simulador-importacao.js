@@ -4,8 +4,9 @@ exports.chaveChamada = chaveChamada;
 exports.simularImportacao = simularImportacao;
 exports.formatarPlano = formatarPlano;
 const chaves_logicas_1 = require("../dominio/chaves-logicas");
+const numero_chamada_1 = require("../../../common/util/numero-chamada");
 function chaveChamada(numero, exercicio, dreId) {
-    return `${(dreId || 'SEM_DRE').trim()}|${(numero || '').trim().toUpperCase()}|${exercicio ?? 's/exercicio'}`;
+    return `${(dreId || 'SEM_DRE').trim()}|${(0, numero_chamada_1.normalizarNumeroChamada)(numero).toUpperCase()}|${exercicio ?? 's/exercicio'}`;
 }
 function simularImportacao(staging, existentes) {
     const acoes = [];
@@ -25,12 +26,13 @@ function simularImportacao(staging, existentes) {
         }
         const dreId = s.vinculosInstitucionais.dre.dreId;
         const municipioId = s.vinculosInstitucionais.municipio.municipioId;
-        if (!dreId || !municipioId) {
+        const escopoEstadual = !dreId && !(s.vinculosInstitucionais.dre.nomePacote ?? '').trim();
+        if ((!dreId && !escopoEstadual) || !municipioId) {
             bloqueios.push({
                 idPacote: s.idPacote,
                 decisao: s.decisao,
                 motivos: [
-                    !dreId ? `DRE não resolvida: ${s.vinculosInstitucionais.dre.detalhe}` : '',
+                    !dreId && !escopoEstadual ? `DRE não resolvida: ${s.vinculosInstitucionais.dre.detalhe}` : '',
                     !municipioId ? `Município não resolvido: ${s.vinculosInstitucionais.municipio.detalhe}` : '',
                 ].filter(Boolean),
             });
@@ -38,7 +40,7 @@ function simularImportacao(staging, existentes) {
         }
         const numero = s.identificacao.numeroNormalizado;
         const exercicio = s.identificacao.exercicio;
-        const chave = chaveChamada(numero, exercicio, dreId);
+        const chave = chaveChamada(numero, exercicio, dreId ?? null);
         const idempotencia = (0, chaves_logicas_1.chaveIdempotenciaOperacao)('importacao-historica-pnae-2025', s.chaveLogica);
         if (idempotenciasExistentes.has(idempotencia)) {
             jaExistentes.push({ idPacote: s.idPacote, chave: idempotencia, motivo: 'IdempotenciaOperacao já registrada' });
@@ -56,11 +58,11 @@ function simularImportacao(staging, existentes) {
             model: 'ChamadaPublica',
             operacao: 'CREATE',
             chaveLogica: s.chaveLogica,
-            resumo: `ChamadaPublica ${numero} (${exercicio}) — DRE ${s.vinculosInstitucionais.dre.nomePacote} / município ${s.vinculosInstitucionais.municipio.nomePacote}`,
+            resumo: `ChamadaPublica ${numero} (${exercicio}) — ${escopoEstadual ? 'escopo ESTADUAL (sem DRE)' : `DRE ${s.vinculosInstitucionais.dre.nomePacote}`} / município ${s.vinculosInstitucionais.municipio.nomePacote}`,
             payload: {
                 numero,
                 exercicio,
-                dreId,
+                dreId: dreId ?? null,
                 municipioId,
                 entidadeExecutoraId: s.vinculosInstitucionais.unidadesExecutoras[0]?.entidadeExecutoraId ?? null,
                 objeto: s.identificacao.objeto,

@@ -1,0 +1,164 @@
+# Execução por DRE — Primavera do Leste — PNAE 2025
+
+Leia primeiro `PROMPT_MIMO_2_6_IMPORTACAO_PNAE_2025.md`. Todas as regras de preservação, dry-run, idempotência, RBAC e bloqueio de importação definitiva aplicam-se integralmente.
+
+Restrinja este lote a `dre == "Primavera do Leste"` no manifesto. Portal de origem: https://sites.google.com/edu.mt.gov.br/drepva/inicio.
+
+Faça uma etapa por vez: validar hashes → conferir exercício → completar extração → resolver vínculos → simular → testar → relatar → atualizar checkpoint. Não repetir pesquisa se os arquivos já estão disponíveis e íntegros.
+
+Chamadas com PDF integral elegíveis neste pacote: 2. Zero não significa inexistência. Documentos baixados: 42. Não importar pregões, referências, arquivos 404 ou exercícios conflitantes como chamada pública confirmada.
+
+## Lista real do lote
+
+- **ED-0025 — 011/2025 — Primavera do Leste — Pregão — CONFLITO_EXERCICIO**
+  - Arquivo: `DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0029_DOC-0029.pdf`
+  - Fonte: https://drive.google.com/file/d/1U2KHE7gQmPFL3AjpT0_koB6xrzva2Djq/view?usp=drive_link
+  - Decisão: Publicação de novembro/dezembro de 2025 preparada para 2026; alguns textos reutilizam ano 2025. Bloquear importação até revisão documental.
+- **ED-0026 — 010/2025 — Gaúcha do Norte — Pregão — CONFLITO_EXERCICIO**
+  - Arquivo: `DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0030_DOC-0030.pdf`
+  - Fonte: https://drive.google.com/file/d/1u4viDkeR13vC8sY0_b83YVsERdtqQcdI/view?usp=drive_link
+  - Decisão: Publicação de novembro/dezembro de 2025 preparada para 2026; alguns textos reutilizam ano 2025. Bloquear importação até revisão documental.
+- **ED-0027 — número pendente — Nova Nazaré — Pregão — FORA_ESCOPO_2026**
+  - Arquivo: `DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0031_DOC-0031.pdf`
+  - Fonte: https://drive.google.com/file/d/11P2vQe6LDaw094XxMFfarykQGzPGw2RZ/view?usp=drive_link
+  - Decisão: Publicação de novembro/dezembro de 2025 preparada para 2026; alguns textos reutilizam ano 2025. Bloquear importação até revisão documental.
+- **ED-0028 — 009/2025 — Paranatinga Indígenas — Pregão — CONFLITO_EXERCICIO**
+  - Arquivo: `DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0032_DOC-0032.pdf`
+  - Fonte: https://drive.google.com/file/d/1IaKsTwt6oygKi3cNcuJiDBxHBm93HsGi/view?usp=drive_link
+  - Decisão: Publicação de novembro/dezembro de 2025 preparada para 2026; alguns textos reutilizam ano 2025. Bloquear importação até revisão documental.
+- **ED-0029 — 009/2025 — Brasnorte — Pregão — FORA_ESCOPO_2026**
+  - Arquivo: `DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0033_DOC-0033.pdf`
+  - Fonte: https://drive.google.com/file/d/1A6ksWJbqRQdM9DkKbuW6ozKcjjJ_hm-B/view?usp=drive_link
+  - Decisão: Publicação de novembro/dezembro de 2025 preparada para 2026; alguns textos reutilizam ano 2025. Bloquear importação até revisão documental.
+- **ED-0030 — 008/2025 — Paranatinga — Pregão — CONFLITO_EXERCICIO**
+  - Arquivo: `DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0034_DOC-0034.pdf`
+  - Fonte: https://drive.google.com/file/d/1N2WYR06Qz76_58Ty5MbZL19ILFVeY6Cr/view?usp=drive_link
+  - Decisão: Publicação de novembro/dezembro de 2025 preparada para 2026; alguns textos reutilizam ano 2025. Bloquear importação até revisão documental.
+- **ED-0031 — 007/2025 — Santo Antônio do Leste — Pregão — CONFLITO_EXERCICIO**
+  - Arquivo: `DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0035_DOC-0035.pdf`
+  - Fonte: https://drive.google.com/file/d/1FOq4Eay9AaNQgqG3jtX1drPKFEYW_rQU/view?usp=drive_link
+  - Decisão: Publicação de novembro/dezembro de 2025 preparada para 2026; alguns textos reutilizam ano 2025. Bloquear importação até revisão documental.
+- **ED-0032 — 006/2025 — Campo Verde — Pregão — CONFLITO_EXERCICIO**
+  - Arquivo: `DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0036_DOC-0036.pdf`
+  - Fonte: https://drive.google.com/file/d/1uOCEwWVJSG8frRHa4VJcf7GuS_oI-bUl/view?usp=drive_link
+  - Decisão: Publicação de novembro/dezembro de 2025 preparada para 2026; alguns textos reutilizam ano 2025. Bloquear importação até revisão documental.
+- **ED-0033 — 005/2025 — Poxoréo — Pregão — CONFLITO_EXERCICIO**
+  - Arquivo: `DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0037_DOC-0037.pdf`
+  - Fonte: https://drive.google.com/file/d/194zImK1prHxYLWtetHtbTQO2o1cblCEj/view?usp=drive_link
+  - Decisão: Publicação de novembro/dezembro de 2025 preparada para 2026; alguns textos reutilizam ano 2025. Bloquear importação até revisão documental.
+- **ED-0034 — 004/2025 — Primavera do Leste — Pregão — CONFLITO_EXERCICIO**
+  - Arquivo: `DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0038_DOC-0038.pdf`
+  - Fonte: https://drive.google.com/file/d/1GL-3TufRhzRAwncgIuYj5z4ejvyNIBrF/view?usp=drive_link
+  - Decisão: Publicação de novembro/dezembro de 2025 preparada para 2026; alguns textos reutilizam ano 2025. Bloquear importação até revisão documental.
+- **ED-0035 — 009/2025 — Primavera do Leste — Chamada pública — FORA_ESCOPO_2026**
+  - Arquivo: `DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0039_DOC-0039.pdf`
+  - Fonte: https://drive.google.com/file/d/1_KMjEXJP4BdZk3uMexh4DOKOKY8WQF4X/view?usp=sharing
+  - Decisão: Publicação de novembro/dezembro de 2025 preparada para 2026; alguns textos reutilizam ano 2025. Bloquear importação até revisão documental.
+- **ED-0036 — 008/2025 — Primavera do Leste — Chamada pública — FORA_ESCOPO_2026**
+  - Arquivo: `DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0040_DOC-0040.pdf`
+  - Fonte: https://drive.google.com/file/d/1hKjjjUAavvzqwoLRUv5XFkyE7VZ0tmp4/view?usp=drive_link
+  - Decisão: Publicação de novembro/dezembro de 2025 preparada para 2026; alguns textos reutilizam ano 2025. Bloquear importação até revisão documental.
+- **ED-0037 — 007/2025 — Primavera do Leste — Chamada pública — CONFLITO_EXERCICIO**
+  - Arquivo: `DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0041_DOC-0041.pdf`
+  - Fonte: https://drive.google.com/file/d/11WTxQ7cYjRQ36rin-umxWwmZPZRcj-QU/view?usp=sharing
+  - Decisão: Publicação de novembro/dezembro de 2025 preparada para 2026; alguns textos reutilizam ano 2025. Bloquear importação até revisão documental.
+- **ED-0038 — 006/2025 — Primavera do Leste — Chamada pública — CONFLITO_EXERCICIO**
+  - Arquivo: `DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0042_DOC-0042.pdf`
+  - Fonte: https://drive.google.com/file/d/1oshlg6_JFjkOBsfOCm9iThMWUKROxpXS/view?usp=drive_link
+  - Decisão: Publicação de novembro/dezembro de 2025 preparada para 2026; alguns textos reutilizam ano 2025. Bloquear importação até revisão documental.
+- **ED-0039 — 005/2025 — Primavera do Leste — Chamada pública — FORA_ESCOPO_2026**
+  - Arquivo: `DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0043_DOC-0043.pdf`
+  - Fonte: https://drive.google.com/file/d/1dJSfMI4DTtzf0iEWyeJgPXuJjGThhhQn/view?usp=drive_link
+  - Decisão: Publicação de novembro/dezembro de 2025 preparada para 2026; alguns textos reutilizam ano 2025. Bloquear importação até revisão documental.
+- **ED-0040 — 003/2025 — Carlinda — Chamada pública — FORA_ESCOPO_2026**
+  - Arquivo: `DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0044_DOC-0044.pdf`
+  - Fonte: https://drive.google.com/file/d/1Apt0mpLmRSon4T6wJTwCpQLheRbVx5Bv/view?usp=drive_link
+  - Decisão: Publicação de novembro/dezembro de 2025 preparada para 2026; alguns textos reutilizam ano 2025. Bloquear importação até revisão documental.
+- **ED-0041 — 004/2025 — Primavera do Leste — Chamada pública — FORA_ESCOPO_2026**
+  - Arquivo: `DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0045_DOC-0045.pdf`
+  - Fonte: https://drive.google.com/file/d/155Ya79RS0h0Phrfr8W2FUMLSk25SUBUZ/view?usp=drive_link
+  - Decisão: Publicação de novembro/dezembro de 2025 preparada para 2026; alguns textos reutilizam ano 2025. Bloquear importação até revisão documental.
+- **ED-0042 — 003/2025 — Primavera do Leste — Chamada pública — FORA_ESCOPO_2026**
+  - Arquivo: `DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0046_DOC-0046.pdf`
+  - Fonte: https://drive.google.com/file/d/1FeVRDtsX6IrvS2jZ8OjU87z4A2pwQyRA/view?usp=drive_link
+  - Decisão: Publicação de novembro/dezembro de 2025 preparada para 2026; alguns textos reutilizam ano 2025. Bloquear importação até revisão documental.
+- **ED-0043 — 002/2025 — Primavera do Leste — Chamada pública — FORA_ESCOPO_2026**
+  - Arquivo: `DOCUMENTOS_FORA_ESCOPO_OU_CONFLITANTES/10_PRIMAVERA_DO_LESTE/DOC-0047_DOC-0047.pdf`
+  - Fonte: https://drive.google.com/file/d/1vUp5LfrsB_Cz_szM9Zhpg-5oO7XckfF0/view?usp=sharing
+  - Decisão: Publicação de novembro/dezembro de 2025 preparada para 2026; alguns textos reutilizam ano 2025. Bloquear importação até revisão documental.
+- **ED-0044 — 003/2025 — Paranatinga - urbana — Pregão — PREGAO_2025**
+  - Arquivo: `PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0048_DOC-0048.pdf`
+  - Fonte: https://drive.google.com/file/d/1ROfDZgd_0HFbAs_zga1X4lpu8wdWyKIb/view?usp=drive_link
+  - Decisão: Categoria separada da agricultura familiar. Não importar no módulo de chamadas públicas.
+- **ED-0045 — número pendente — Primavera do Leste — Pregão — PREGAO_2025**
+  - Arquivo: `PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0049_DOC-0049.pdf`
+  - Fonte: https://drive.google.com/file/d/1Ff8DJ5Z458Y-Pqp5bTpMz-t_j4oUmEpn/view?usp=drive_link
+  - Decisão: Categoria separada da agricultura familiar. Não importar no módulo de chamadas públicas.
+- **ED-0046 — 001/2025 — Poxoréu — Chamada pública — ELEGIVEL_2025**
+  - Arquivo: `PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0050_DOC-0050.pdf`
+  - Fonte: https://drive.google.com/file/d/1ankz-P-NgVCs0DfIGJVEswIzkyqATLOt/view?usp=drive_link
+  - Decisão: Ano letivo de 2025 confirmado no PDF; dados extraídos sujeitos à conferência administrativa.
+- **ED-0047 — 002/2025 — Primavera do Leste — Pregão — PREGAO_2025**
+  - Arquivo: `PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0051_DOC-0051.pdf`
+  - Fonte: https://drive.google.com/file/d/16n6QQItwSAsgwoe4dX5Lovqa5cS8EOLe/view?usp=drive_link
+  - Decisão: Categoria separada da agricultura familiar. Não importar no módulo de chamadas públicas.
+- **ED-0048 — 001/2025 — Santo Antônio do Leste — Pregão — PREGAO_2025**
+  - Arquivo: `PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0052_DOC-0052.pdf`
+  - Fonte: https://drive.google.com/file/d/1lmzHuVSvCENKWZqtCnxoLugonYRk5q4b/view?usp=drive_link
+  - Decisão: Categoria separada da agricultura familiar. Não importar no módulo de chamadas públicas.
+- **ED-0049 — 012/2024 — Santo Antônio do Leste — Pregão — PREGAO_2025**
+  - Arquivo: `PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0065_DOC-0065.pdf`
+  - Fonte: https://drive.google.com/file/d/1jvcAeDDGc-PaBDXrTRLiD2QbzJjaOhvE/view?usp=drive_link
+  - Decisão: Categoria separada da agricultura familiar. Não importar no módulo de chamadas públicas.
+- **ED-0050 — 009/2024 — Santo Antônio do Leste — Chamada pública — PENDENTE_EDITAL_COMPLETO**
+  - Arquivo: `PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0055_DOC-0055.pdf`
+  - Fonte: https://drive.google.com/file/d/1ZOyOp4RM83qtRR9bmDlTKbPBme1_gTQH/view?usp=drive_link
+  - Decisão: Página do Diário Oficial com múltiplos avisos. Vínculo vem do contexto da publicação; falta conferir o edital integral.
+- **ED-0051 — 014/2024 — Paranatinga - urbana — Pregão — PREGAO_2025**
+  - Arquivo: `PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0066_DOC-0066.pdf`
+  - Fonte: https://drive.google.com/file/d/10Goz6E9hSipACxJ1artyZEApT2JJcnuW/view?usp=drive_link
+  - Decisão: Aviso em página do Diário Oficial; edital completo disponível em outro arquivo.
+- **ED-0052 — 013/2024 — Paranatinga - urbana — Chamada pública — PENDENTE_EDITAL_COMPLETO**
+  - Arquivo: `PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0057_DOC-0057.pdf`
+  - Fonte: https://drive.google.com/file/d/1FTJ9Bu_XxE5WkradLZtsquDo3YF36RU2/view?usp=drive_link
+  - Decisão: Página do Diário Oficial com múltiplos avisos. Vínculo vem do contexto da publicação; falta conferir o edital integral.
+- **ED-0053 — 010/2024 — Primavera do Leste — Chamada pública — PENDENTE_EDITAL_COMPLETO**
+  - Arquivo: `PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0058_DOC-0058.pdf`
+  - Fonte: https://drive.google.com/file/d/1dtNrtzLzqkJuIbrhMuc4slA3lF2xIX5M/view?usp=drive_link
+  - Decisão: Página do Diário Oficial com múltiplos avisos. Vínculo vem do contexto da publicação; falta conferir o edital integral.
+- **ED-0054 — 011/2024 — Poxoréu — Chamada pública — PENDENTE_EDITAL_COMPLETO**
+  - Arquivo: `PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0059_DOC-0059.pdf`
+  - Fonte: https://drive.google.com/file/d/1Wjo67zqWJI8qfXZK9Y2pW5gBldH0eelK/view?usp=drive_link
+  - Decisão: Página do Diário Oficial com múltiplos avisos. Vínculo vem do contexto da publicação; falta conferir o edital integral.
+- **ED-0055 — 012/2024 — Campo Verde — Chamada pública — PENDENTE_EDITAL_COMPLETO**
+  - Arquivo: `PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0060_DOC-0060.pdf`
+  - Fonte: https://drive.google.com/file/d/1g3_xIr5sW6SvM_nkHxgpULhhPnpQb0Us/view?usp=drive_link
+  - Decisão: Página do Diário Oficial com múltiplos avisos. Vínculo vem do contexto da publicação; falta conferir o edital integral.
+- **ED-0056 — 009/2024 — Gaúcha do Norte — Pregão — PREGAO_2025**
+  - Arquivo: `PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0061_DOC-0061.pdf`
+  - Fonte: https://drive.google.com/file/d/1ItBdCrs3RwVBz8I9cZelgals7sts8Xpo/view?usp=drive_link
+  - Decisão: Categoria separada da agricultura familiar. Não importar no módulo de chamadas públicas.
+- **ED-0057 — 010/2024 — Primavera do Leste — Pregão — PREGAO_2025**
+  - Arquivo: `PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0062_DOC-0062.pdf`
+  - Fonte: https://drive.google.com/file/d/1yVgl9BY0Wz6uLFZVFZ4dkGo9ce0Y5Rws/view?usp=drive_link
+  - Decisão: Categoria separada da agricultura familiar. Não importar no módulo de chamadas públicas.
+- **ED-0058 — 011/2024 — Poxoréu — Pregão — PREGAO_2025**
+  - Arquivo: `PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0063_DOC-0063.pdf`
+  - Fonte: https://drive.google.com/file/d/1emDxv5nWFjaoF8by6LBj_bf-V7XRkhWI/view?usp=drive_link
+  - Decisão: Categoria separada da agricultura familiar. Não importar no módulo de chamadas públicas.
+- **ED-0059 — 015/2024 — Paranatinga - indígena — Pregão — PREGAO_2025**
+  - Arquivo: `PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0067_DOC-0067.pdf`
+  - Fonte: https://drive.google.com/file/d/1v1ohSPNAWg3LbfVB1Cm6fjMFnLOaAlkF/view?usp=drive_link
+  - Decisão: Categoria separada da agricultura familiar. Não importar no módulo de chamadas públicas.
+- **ED-0060 — 013/2024 — Campo Verde — Pregão — PREGAO_2025**
+  - Arquivo: `PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0068_DOC-0068.pdf`
+  - Fonte: https://drive.google.com/file/d/1c3mdaljKRtqfPkjJRLTdcDZ-poyAHTU6/view?usp=drive_link
+  - Decisão: Categoria separada da agricultura familiar. Não importar no módulo de chamadas públicas.
+- **ED-0061 — 016/2024 — Gaúcha do Norte - urbana — Chamada pública — ELEGIVEL_2025**
+  - Arquivo: `PNAE_MT_2025/10_PRIMAVERA_DO_LESTE/DOC-0069_DOC-0069.pdf`
+  - Fonte: https://drive.google.com/file/d/1t7mFIHJ17ZYchybLD1G5tdI7ckEUD56E/view?usp=drive_link
+  - Decisão: Ano letivo de 2025 confirmado no PDF; dados extraídos sujeitos à conferência administrativa.
+
+## Aceite
+
+Relatório regional com quantidade de candidatos confirmados/bloqueados, hashes, versões, fontes por campo, vínculos resolvidos e pendências. Dry-run repetido sem crescimento, nenhum registro operacional de 2026 alterado e nenhuma escrita definitiva no banco ativo.

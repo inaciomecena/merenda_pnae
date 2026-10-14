@@ -37,6 +37,8 @@ __decorate([
 ], CreateChamadaDto.prototype, "editalId", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.Length)(1, 191),
     __metadata("design:type", String)
 ], CreateChamadaDto.prototype, "numero", void 0);
 __decorate([

@@ -91,14 +91,14 @@ export declare class NotaFiscalService {
     transicionar(id: string, para: StatusNotaFiscal, motivo: string | undefined, userId: string, userRole: string): Promise<import("./fiscal-presenter").NotaFiscalDetail>;
     conciliar(id: string, user: AuthenticatedUser): Promise<{
         id: string;
+        numero: string;
+        status: import(".prisma/client").$Enums.StatusNotaFiscal;
+        observacoes: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        status: import(".prisma/client").$Enums.StatusNotaFiscal;
-        numero: string;
-        observacoes: string | null;
+        deletedAt: Date | null;
         valorTotal: Prisma.Decimal;
         dataRecebimento: Date;
         contratoId: string;

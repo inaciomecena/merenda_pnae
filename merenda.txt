@@ -1,0 +1,2335 @@
+-- --------------------------------------------------------
+-- Servidor:                     localhost
+-- Versão do servidor:           10.4.32-MariaDB - mariadb.org binary distribution
+-- OS do Servidor:               Win64
+-- HeidiSQL Versão:              12.15.0.7171
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+-- Copiando estrutura do banco de dados para merenda_pnae
+CREATE DATABASE IF NOT EXISTS `merenda_pnae` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+USE `merenda_pnae`;
+
+-- Copiando estrutura para tabela merenda_pnae._prisma_migrations
+DROP TABLE IF EXISTS `_prisma_migrations`;
+CREATE TABLE IF NOT EXISTS `_prisma_migrations` (
+  `id` varchar(36) NOT NULL,
+  `checksum` varchar(64) NOT NULL,
+  `finished_at` datetime(3) DEFAULT NULL,
+  `migration_name` varchar(255) NOT NULL,
+  `logs` text DEFAULT NULL,
+  `rolled_back_at` datetime(3) DEFAULT NULL,
+  `started_at` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `applied_steps_count` int(10) unsigned NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.dres
+DROP TABLE IF EXISTS `dres`;
+CREATE TABLE IF NOT EXISTS `dres` (
+  `id` varchar(191) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `codigo` varchar(50) DEFAULT NULL,
+  `entidadeExecutoraId` varchar(191) NOT NULL,
+  `municipioSede` varchar(191) DEFAULT NULL,
+  `ativo` tinyint(1) NOT NULL DEFAULT 1,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `deletedAt` datetime(3) DEFAULT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `codigo` (`codigo`),
+  KEY `dres_entidadeExecutoraId_idx` (`entidadeExecutoraId`),
+  CONSTRAINT `dres_entidadeExecutoraId_fkey` FOREIGN KEY (`entidadeExecutoraId`) REFERENCES `entidades_executoras` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.entidades_executoras
+DROP TABLE IF EXISTS `entidades_executoras`;
+CREATE TABLE IF NOT EXISTS `entidades_executoras` (
+  `id` varchar(191) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `cnpj` varchar(18) DEFAULT NULL,
+  `tipo` varchar(50) NOT NULL DEFAULT 'PREFEITURA',
+  `uf` varchar(2) NOT NULL,
+  `municipioId` varchar(191) DEFAULT NULL,
+  `ativo` tinyint(1) NOT NULL DEFAULT 1,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `deletedAt` datetime(3) DEFAULT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `cnpj` (`cnpj`),
+  KEY `entidades_executoras_uf_idx` (`uf`),
+  KEY `entidades_executoras_municipioId_idx` (`municipioId`),
+  CONSTRAINT `entidades_executoras_municipioId_fkey` FOREIGN KEY (`municipioId`) REFERENCES `municipios` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.escolas
+DROP TABLE IF EXISTS `escolas`;
+CREATE TABLE IF NOT EXISTS `escolas` (
+  `id` varchar(191) NOT NULL,
+  `nome` varchar(191) NOT NULL,
+  `codigo` varchar(191) DEFAULT NULL,
+  `municipioId` varchar(191) NOT NULL,
+  `endereco` varchar(191) DEFAULT NULL,
+  `telefone` varchar(191) DEFAULT NULL,
+  `responsavel` varchar(191) DEFAULT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT 1,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `deletedAt` datetime(3) DEFAULT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  `restricaoAtendimento` varchar(191) DEFAULT NULL,
+  `localizacao` varchar(191) DEFAULT NULL,
+  `localidadeDiferenciada` varchar(191) DEFAULT NULL,
+  `categoriaAdministrativa` varchar(191) DEFAULT NULL,
+  `dependenciaAdministrativa` varchar(191) DEFAULT NULL,
+  `categoriaEscolaPrivada` varchar(191) DEFAULT NULL,
+  `conveniadaPoderPublico` varchar(191) DEFAULT NULL,
+  `regulamentacaoConselho` varchar(191) DEFAULT NULL,
+  `porteEscola` varchar(191) DEFAULT NULL,
+  `etapasModalidades` text DEFAULT NULL,
+  `outrasOfertasEducacionais` varchar(191) DEFAULT NULL,
+  `latitude` decimal(12,8) DEFAULT NULL,
+  `longitude` decimal(12,8) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `escolas_codigo_key` (`codigo`),
+  KEY `escolas_municipioId_fkey` (`municipioId`),
+  CONSTRAINT `escolas_municipioId_fkey` FOREIGN KEY (`municipioId`) REFERENCES `municipios` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.municipios
+DROP TABLE IF EXISTS `municipios`;
+CREATE TABLE IF NOT EXISTS `municipios` (
+  `id` varchar(191) NOT NULL,
+  `nome` varchar(191) NOT NULL,
+  `uf` varchar(191) NOT NULL,
+  `codigoIbge` varchar(191) DEFAULT NULL,
+  `ativo` tinyint(1) NOT NULL DEFAULT 1,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `deletedAt` datetime(3) DEFAULT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  `nomeNormalizado` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `municipios_codigoIbge_key` (`codigoIbge`),
+  KEY `municipios_uf_nomeNormalizado_idx` (`uf`,`nomeNormalizado`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_analises_habilitacao
+DROP TABLE IF EXISTS `pnae_analises_habilitacao`;
+CREATE TABLE IF NOT EXISTS `pnae_analises_habilitacao` (
+  `id` varchar(191) NOT NULL,
+  `propostaId` varchar(191) NOT NULL,
+  `status` enum('PENDENTE','EM_ANALISE','HABILITADO','INABILITADO','PENDENTE_CORRECAO') NOT NULL DEFAULT 'PENDENTE',
+  `parecer` text DEFAULT NULL,
+  `pendencias` text DEFAULT NULL,
+  `analisadoEm` datetime(3) DEFAULT NULL,
+  `analisadoPor` varchar(191) DEFAULT NULL,
+  `versao` int(11) NOT NULL DEFAULT 1,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pnae_analises_habilitacao_propostaId_key` (`propostaId`),
+  CONSTRAINT `pnae_analises_habilitacao_propostaId_fkey` FOREIGN KEY (`propostaId`) REFERENCES `pnae_propostas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_assistencias_tecnicas
+DROP TABLE IF EXISTS `pnae_assistencias_tecnicas`;
+CREATE TABLE IF NOT EXISTS `pnae_assistencias_tecnicas` (
+  `id` varchar(191) NOT NULL,
+  `produtorId` varchar(191) NOT NULL,
+  `extensionistaId` varchar(191) NOT NULL,
+  `escopo` varchar(191) DEFAULT NULL,
+  `vigenciaInicio` datetime(3) NOT NULL,
+  `vigenciaFim` datetime(3) DEFAULT NULL,
+  `status` enum('PENDENTE','ATIVA','SUSPENSA','ENCERRADA') NOT NULL DEFAULT 'PENDENTE',
+  `observacoes` text DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `sdd010_assistencia_tecnica_produtorId_status_idx` (`produtorId`,`status`),
+  KEY `sdd010_assistencia_tecnica_extensionistaId_status_idx` (`extensionistaId`,`status`),
+  CONSTRAINT `sdd010_assistencia_tecnica_extensionistaId_fkey` FOREIGN KEY (`extensionistaId`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `sdd010_assistencia_tecnica_produtorId_fkey` FOREIGN KEY (`produtorId`) REFERENCES `produtores` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_atestos
+DROP TABLE IF EXISTS `pnae_atestos`;
+CREATE TABLE IF NOT EXISTS `pnae_atestos` (
+  `id` varchar(191) NOT NULL,
+  `notaFiscalId` varchar(191) NOT NULL,
+  `contratoId` varchar(191) NOT NULL,
+  `responsavelId` varchar(191) NOT NULL,
+  `dataAtesto` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `valorAtestado` decimal(14,2) NOT NULL,
+  `status` enum('RASCUNHO','AGUARDANDO_VALIDACAO','ATESTADO','RETIFICADO','CANCELADO') NOT NULL DEFAULT 'RASCUNHO',
+  `justificativa` text DEFAULT NULL,
+  `documentoId` varchar(191) DEFAULT NULL,
+  `documentoPath` varchar(191) DEFAULT NULL,
+  `hashSha256` varchar(191) DEFAULT NULL,
+  `versao` int(11) NOT NULL DEFAULT 1,
+  `atestoAnteriorId` varchar(191) DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_atestos_notaFiscalId_idx` (`notaFiscalId`),
+  KEY `pnae_atestos_contratoId_idx` (`contratoId`),
+  KEY `pnae_atestos_responsavelId_idx` (`responsavelId`),
+  KEY `pnae_atestos_status_idx` (`status`),
+  KEY `pnae_atestos_dataAtesto_idx` (`dataAtesto`),
+  KEY `pnae_atestos_atestoAnteriorId_idx` (`atestoAnteriorId`),
+  CONSTRAINT `pnae_atestos_atestoAnteriorId_fkey` FOREIGN KEY (`atestoAnteriorId`) REFERENCES `pnae_atestos` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_atestos_contratoId_fkey` FOREIGN KEY (`contratoId`) REFERENCES `pnae_contratos` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_atestos_notaFiscalId_fkey` FOREIGN KEY (`notaFiscalId`) REFERENCES `pnae_notas_fiscais` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_audit_logs
+DROP TABLE IF EXISTS `pnae_audit_logs`;
+CREATE TABLE IF NOT EXISTS `pnae_audit_logs` (
+  `id` varchar(191) NOT NULL,
+  `userId` varchar(191) DEFAULT NULL,
+  `userName` varchar(191) DEFAULT NULL,
+  `userEmail` varchar(191) DEFAULT NULL,
+  `userRole` varchar(191) DEFAULT NULL,
+  `action` varchar(191) NOT NULL,
+  `entity` varchar(191) NOT NULL,
+  `entityId` varchar(191) DEFAULT NULL,
+  `entityLabel` varchar(191) DEFAULT NULL,
+  `oldValues` text DEFAULT NULL,
+  `newValues` text DEFAULT NULL,
+  `ipAddress` varchar(191) DEFAULT NULL,
+  `userAgent` varchar(191) DEFAULT NULL,
+  `endpoint` varchar(191) DEFAULT NULL,
+  `method` varchar(191) DEFAULT NULL,
+  `statusCode` int(11) DEFAULT NULL,
+  `durationMs` int(11) DEFAULT NULL,
+  `metadata` text DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  PRIMARY KEY (`id`),
+  KEY `pnae_audit_logs_userId_idx` (`userId`),
+  KEY `pnae_audit_logs_action_idx` (`action`),
+  KEY `pnae_audit_logs_entity_idx` (`entity`),
+  KEY `pnae_audit_logs_createdAt_idx` (`createdAt`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_campos_template
+DROP TABLE IF EXISTS `pnae_campos_template`;
+CREATE TABLE IF NOT EXISTS `pnae_campos_template` (
+  `id` varchar(191) NOT NULL,
+  `templateId` varchar(191) NOT NULL,
+  `chave` varchar(191) NOT NULL,
+  `rotulo` varchar(191) NOT NULL,
+  `tipo` varchar(191) NOT NULL DEFAULT 'texto',
+  `obrigatorio` tinyint(1) NOT NULL DEFAULT 0,
+  `valorPadrao` text DEFAULT NULL,
+  `repetitivo` tinyint(1) NOT NULL DEFAULT 0,
+  `anexoTipo` enum('EDITAL_PRINCIPAL','ANEXO_I','ANEXO_II','ANEXO_III','ANEXO_IV','ANEXO_V','ANEXO_VI','ANEXO_VII') DEFAULT NULL,
+  `ordem` int(11) NOT NULL DEFAULT 0,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  PRIMARY KEY (`id`),
+  KEY `pnae_campos_template_templateId_chave_idx` (`templateId`,`chave`),
+  CONSTRAINT `pnae_campos_template_templateId_fkey` FOREIGN KEY (`templateId`) REFERENCES `pnae_templates_documento` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_chamadas_publicas
+DROP TABLE IF EXISTS `pnae_chamadas_publicas`;
+CREATE TABLE IF NOT EXISTS `pnae_chamadas_publicas` (
+  `id` varchar(191) NOT NULL,
+  `editalId` varchar(191) NOT NULL,
+  `numero` varchar(191) NOT NULL,
+  `exercicio` int(11) NOT NULL,
+  `objeto` text NOT NULL,
+  `entidadeExecutoraId` varchar(191) DEFAULT NULL,
+  `dreId` varchar(191) DEFAULT NULL,
+  `municipioId` varchar(191) DEFAULT NULL,
+  `inscricoesInicio` datetime(3) NOT NULL,
+  `inscricoesFim` datetime(3) NOT NULL,
+  `dataAbertura` datetime(3) DEFAULT NULL,
+  `prazoDocumentos` datetime(3) DEFAULT NULL,
+  `localApresentacao` varchar(191) DEFAULT NULL,
+  `formaApresentacao` varchar(191) DEFAULT NULL,
+  `status` enum('RASCUNHO','PUBLICADA','INSCRICOES_ABERTAS','INSCRICOES_ENCERRADAS','EM_HABILITACAO','EM_SELECAO','RESULTADO_PRELIMINAR','EM_RECURSO','HOMOLOGADA','CANCELADA') NOT NULL DEFAULT 'RASCUNHO',
+  `versaoPublicada` int(11) NOT NULL DEFAULT 1,
+  `publicadaEm` datetime(3) DEFAULT NULL,
+  `responsavelId` varchar(191) DEFAULT NULL,
+  `observacoes` text DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  `dreEscopo` varchar(191) GENERATED ALWAYS AS (ifnull(`dreId`,'ESTADUAL')) STORED,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pnae_chamadas_publicas_dreId_numero_exercicio_key` (`dreId`,`numero`,`exercicio`),
+  UNIQUE KEY `pnae_chamadas_publicas_dreEscopo_numero_exercicio_key` (`dreEscopo`,`numero`,`exercicio`),
+  KEY `pnae_chamadas_publicas_editalId_idx` (`editalId`),
+  KEY `pnae_chamadas_publicas_dreId_municipioId_idx` (`dreId`,`municipioId`),
+  KEY `pnae_chamadas_publicas_status_inscricoesFim_idx` (`status`,`inscricoesFim`),
+  KEY `pnae_chamadas_publicas_entidadeExecutoraId_fkey` (`entidadeExecutoraId`),
+  KEY `pnae_chamadas_publicas_municipioId_fkey` (`municipioId`),
+  CONSTRAINT `pnae_chamadas_publicas_dreId_fkey` FOREIGN KEY (`dreId`) REFERENCES `dres` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_chamadas_publicas_editalId_fkey` FOREIGN KEY (`editalId`) REFERENCES `pnae_editais` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_chamadas_publicas_entidadeExecutoraId_fkey` FOREIGN KEY (`entidadeExecutoraId`) REFERENCES `entidades_executoras` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_chamadas_publicas_municipioId_fkey` FOREIGN KEY (`municipioId`) REFERENCES `municipios` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_chamadas_publicas_documentos
+DROP TABLE IF EXISTS `pnae_chamadas_publicas_documentos`;
+CREATE TABLE IF NOT EXISTS `pnae_chamadas_publicas_documentos` (
+  `id` varchar(191) NOT NULL,
+  `chamadaId` varchar(191) NOT NULL,
+  `versao` int(11) NOT NULL DEFAULT 1,
+  `tipo` varchar(191) NOT NULL,
+  `titulo` varchar(191) NOT NULL,
+  `arquivoPath` varchar(191) DEFAULT NULL,
+  `arquivoNome` varchar(191) DEFAULT NULL,
+  `mimeType` varchar(191) DEFAULT NULL,
+  `hashSha256` varchar(64) DEFAULT NULL,
+  `publicado` tinyint(1) NOT NULL DEFAULT 0,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `createdBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_chamadas_publicas_documentos_chamadaId_versao_idx` (`chamadaId`,`versao`),
+  CONSTRAINT `pnae_chamadas_publicas_documentos_chamadaId_fkey` FOREIGN KEY (`chamadaId`) REFERENCES `pnae_chamadas_publicas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_chamadas_publicas_escolas
+DROP TABLE IF EXISTS `pnae_chamadas_publicas_escolas`;
+CREATE TABLE IF NOT EXISTS `pnae_chamadas_publicas_escolas` (
+  `id` varchar(191) NOT NULL,
+  `chamadaId` varchar(191) NOT NULL,
+  `escolaId` varchar(191) NOT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pnae_chamadas_publicas_escolas_chamadaId_escolaId_key` (`chamadaId`,`escolaId`),
+  KEY `pnae_chamadas_publicas_escolas_escolaId_idx` (`escolaId`),
+  CONSTRAINT `pnae_chamadas_publicas_escolas_chamadaId_fkey` FOREIGN KEY (`chamadaId`) REFERENCES `pnae_chamadas_publicas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `pnae_chamadas_publicas_escolas_escolaId_fkey` FOREIGN KEY (`escolaId`) REFERENCES `escolas` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_checklists_implantacao
+DROP TABLE IF EXISTS `pnae_checklists_implantacao`;
+CREATE TABLE IF NOT EXISTS `pnae_checklists_implantacao` (
+  `id` varchar(191) NOT NULL,
+  `nome` varchar(191) NOT NULL,
+  `escopo` enum('GLOBAL','DRE','ESCOLA','MUNICIPIO') NOT NULL DEFAULT 'GLOBAL',
+  `dreId` varchar(191) DEFAULT NULL,
+  `escolaId` varchar(191) DEFAULT NULL,
+  `municipioId` varchar(191) DEFAULT NULL,
+  `status` enum('NAO_INICIADO','EM_CONFIGURACAO','PENDENTE_VALIDACAO','APTO_PARA_HOMOLOGACAO','HOMOLOGADO_OPERACIONALMENTE','BLOQUEADO') NOT NULL DEFAULT 'NAO_INICIADO',
+  `observacao` text DEFAULT NULL,
+  `responsavelId` varchar(191) DEFAULT NULL,
+  `criadoEm` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `atualizadoEm` datetime(3) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `checklist_status_escopo_idx` (`status`,`escopo`),
+  KEY `checklist_scope_idx` (`dreId`,`escolaId`,`municipioId`),
+  KEY `checklist_user_fk` (`responsavelId`),
+  KEY `checklist_escola_fk` (`escolaId`),
+  KEY `checklist_municipio_fk` (`municipioId`),
+  CONSTRAINT `checklist_dre_fk` FOREIGN KEY (`dreId`) REFERENCES `dres` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `checklist_escola_fk` FOREIGN KEY (`escolaId`) REFERENCES `escolas` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `checklist_municipio_fk` FOREIGN KEY (`municipioId`) REFERENCES `municipios` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `checklist_user_fk` FOREIGN KEY (`responsavelId`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_classificacoes_projetos
+DROP TABLE IF EXISTS `pnae_classificacoes_projetos`;
+CREATE TABLE IF NOT EXISTS `pnae_classificacoes_projetos` (
+  `id` varchar(191) NOT NULL,
+  `propostaId` varchar(191) NOT NULL,
+  `editalItemId` varchar(191) NOT NULL,
+  `prioridade` int(11) NOT NULL,
+  `criterio` varchar(191) NOT NULL,
+  `valorConsiderado` decimal(14,4) DEFAULT NULL,
+  `justificativa` text DEFAULT NULL,
+  `quantidadeSelecionada` decimal(14,4) NOT NULL DEFAULT 0.0000,
+  `valorSelecionado` decimal(14,2) NOT NULL DEFAULT 0.00,
+  `status` enum('PENDENTE','CLASSIFICADO','SELECIONADO','NAO_SELECIONADO') NOT NULL DEFAULT 'PENDENTE',
+  `criadoPor` varchar(191) DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pnae_classificacoes_projetos_propostaId_editalItemId_key` (`propostaId`,`editalItemId`),
+  KEY `pnae_classificacoes_projetos_editalItemId_prioridade_idx` (`editalItemId`,`prioridade`),
+  CONSTRAINT `pnae_classificacoes_projetos_editalItemId_fkey` FOREIGN KEY (`editalItemId`) REFERENCES `pnae_edital_itens` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_classificacoes_projetos_propostaId_fkey` FOREIGN KEY (`propostaId`) REFERENCES `pnae_propostas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_conferencias_fiscais
+DROP TABLE IF EXISTS `pnae_conferencias_fiscais`;
+CREATE TABLE IF NOT EXISTS `pnae_conferencias_fiscais` (
+  `id` varchar(191) NOT NULL,
+  `notaFiscalId` varchar(191) NOT NULL,
+  `responsavelId` varchar(191) NOT NULL,
+  `responsavelNome` varchar(191) DEFAULT NULL,
+  `dataConferencia` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `status` enum('APROVADA','REJEITADA','PENDENTE_CORRECAO','COM_RESSALVAS') NOT NULL,
+  `observacoes` text DEFAULT NULL,
+  `divergenciasJson` text DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `createdBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_conferencias_fiscais_notaFiscalId_idx` (`notaFiscalId`),
+  KEY `pnae_conferencias_fiscais_responsavelId_idx` (`responsavelId`),
+  KEY `pnae_conferencias_fiscais_status_idx` (`status`),
+  KEY `pnae_conferencias_fiscais_dataConferencia_idx` (`dataConferencia`),
+  CONSTRAINT `pnae_conferencias_fiscais_notaFiscalId_fkey` FOREIGN KEY (`notaFiscalId`) REFERENCES `pnae_notas_fiscais` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_configuracoes_institucionais
+DROP TABLE IF EXISTS `pnae_configuracoes_institucionais`;
+CREATE TABLE IF NOT EXISTS `pnae_configuracoes_institucionais` (
+  `id` varchar(191) NOT NULL,
+  `chave` varchar(191) NOT NULL,
+  `valor` text NOT NULL,
+  `tipo` varchar(191) NOT NULL DEFAULT 'texto',
+  `escopo` enum('GLOBAL','DRE','ESCOLA','MUNICIPIO') NOT NULL DEFAULT 'GLOBAL',
+  `origem` enum('ADMINISTRATIVA','NORMATIVA','SISTEMA') NOT NULL DEFAULT 'ADMINISTRATIVA',
+  `permiteSobrescrita` tinyint(1) NOT NULL DEFAULT 1,
+  `ativo` tinyint(1) NOT NULL DEFAULT 1,
+  `versao` int(11) NOT NULL DEFAULT 1,
+  `vigenteDesde` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `vigenteAte` datetime(3) DEFAULT NULL,
+  `responsavelId` varchar(191) DEFAULT NULL,
+  `dreId` varchar(191) DEFAULT NULL,
+  `escolaId` varchar(191) DEFAULT NULL,
+  `municipioId` varchar(191) DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `config_chave_escopo_ativo_idx` (`chave`,`escopo`,`ativo`),
+  KEY `config_scope_idx` (`dreId`,`escolaId`,`municipioId`),
+  KEY `config_responsavel_fk` (`responsavelId`),
+  KEY `config_escola_fk` (`escolaId`),
+  KEY `config_municipio_fk` (`municipioId`),
+  CONSTRAINT `config_dre_fk` FOREIGN KEY (`dreId`) REFERENCES `dres` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `config_escola_fk` FOREIGN KEY (`escolaId`) REFERENCES `escolas` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `config_municipio_fk` FOREIGN KEY (`municipioId`) REFERENCES `municipios` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `config_responsavel_fk` FOREIGN KEY (`responsavelId`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_configuracoes_institucionais_historico
+DROP TABLE IF EXISTS `pnae_configuracoes_institucionais_historico`;
+CREATE TABLE IF NOT EXISTS `pnae_configuracoes_institucionais_historico` (
+  `id` varchar(191) NOT NULL,
+  `configuracaoId` varchar(191) NOT NULL,
+  `versao` int(11) NOT NULL,
+  `valor` text NOT NULL,
+  `responsavelId` varchar(191) DEFAULT NULL,
+  `alteradoEm` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `observacao` text DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `config_historico_versao_key` (`configuracaoId`,`versao`),
+  KEY `config_historico_data_idx` (`alteradoEm`),
+  KEY `config_historico_user_fk` (`responsavelId`),
+  CONSTRAINT `config_historico_config_fk` FOREIGN KEY (`configuracaoId`) REFERENCES `pnae_configuracoes_institucionais` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `config_historico_user_fk` FOREIGN KEY (`responsavelId`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_configuracoes_sistema
+DROP TABLE IF EXISTS `pnae_configuracoes_sistema`;
+CREATE TABLE IF NOT EXISTS `pnae_configuracoes_sistema` (
+  `id` varchar(191) NOT NULL,
+  `chave` varchar(191) NOT NULL,
+  `valor` text NOT NULL,
+  `descricao` varchar(191) DEFAULT NULL,
+  `tipo` varchar(191) NOT NULL DEFAULT 'texto',
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pnae_system_config_chave_key` (`chave`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_contrato_aditivo_itens
+DROP TABLE IF EXISTS `pnae_contrato_aditivo_itens`;
+CREATE TABLE IF NOT EXISTS `pnae_contrato_aditivo_itens` (
+  `id` varchar(191) NOT NULL,
+  `aditivoId` varchar(191) NOT NULL,
+  `contratoItemId` varchar(191) NOT NULL,
+  `quantidadeAnterior` decimal(14,4) NOT NULL,
+  `quantidadeNova` decimal(14,4) NOT NULL,
+  `valorUnitarioAnterior` decimal(14,4) NOT NULL,
+  `valorUnitarioNovo` decimal(14,4) NOT NULL,
+  `valorTotalAnterior` decimal(14,2) NOT NULL,
+  `valorTotalNovo` decimal(14,2) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_contrato_aditivo_itens_aditivoId_idx` (`aditivoId`),
+  KEY `pnae_contrato_aditivo_itens_contratoItemId_idx` (`contratoItemId`),
+  CONSTRAINT `pnae_contrato_aditivo_itens_aditivoId_fkey` FOREIGN KEY (`aditivoId`) REFERENCES `pnae_contrato_aditivos` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_contrato_aditivo_itens_item_fkey` FOREIGN KEY (`contratoItemId`) REFERENCES `pnae_contrato_itens` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_contrato_aditivos
+DROP TABLE IF EXISTS `pnae_contrato_aditivos`;
+CREATE TABLE IF NOT EXISTS `pnae_contrato_aditivos` (
+  `id` varchar(191) NOT NULL,
+  `contratoId` varchar(191) NOT NULL,
+  `numeroSequencial` int(11) NOT NULL,
+  `tipo` enum('PRAZO','VALOR','QUANTIDADE','RETIFICACAO','OUTRO') NOT NULL,
+  `tipoOutro` varchar(191) DEFAULT NULL,
+  `justificativa` text NOT NULL,
+  `data` datetime(3) DEFAULT NULL,
+  `vigenciaInicio` datetime(3) DEFAULT NULL,
+  `vigenciaFim` datetime(3) DEFAULT NULL,
+  `valorAlteracao` decimal(14,2) NOT NULL DEFAULT 0.00,
+  `status` enum('RASCUNHO','EM_CONFERENCIA','AGUARDANDO_FORMALIZACAO','FORMALIZADO','CANCELADO') NOT NULL DEFAULT 'RASCUNHO',
+  `formalizadoEm` datetime(3) DEFAULT NULL,
+  `responsavelId` varchar(191) DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `deletedAt` datetime(3) DEFAULT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pnae_contrato_aditivos_contratoId_numeroSequencial_key` (`contratoId`,`numeroSequencial`),
+  KEY `pnae_contrato_aditivos_contratoId_idx` (`contratoId`),
+  KEY `pnae_contrato_aditivos_status_idx` (`status`),
+  CONSTRAINT `pnae_contrato_aditivos_contratoId_fkey` FOREIGN KEY (`contratoId`) REFERENCES `pnae_contratos` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_contrato_documentos
+DROP TABLE IF EXISTS `pnae_contrato_documentos`;
+CREATE TABLE IF NOT EXISTS `pnae_contrato_documentos` (
+  `id` varchar(191) NOT NULL,
+  `contratoId` varchar(191) NOT NULL,
+  `aditivoId` varchar(191) DEFAULT NULL,
+  `tipo` enum('MINUTA','CONTRATO_ASSINADO','ADITIVO','COMPLEMENTAR') NOT NULL,
+  `versao` int(11) NOT NULL,
+  `titulo` varchar(191) NOT NULL,
+  `arquivoPath` varchar(191) DEFAULT NULL,
+  `arquivoNome` varchar(191) DEFAULT NULL,
+  `mimeType` varchar(191) DEFAULT NULL,
+  `tamanhoBytes` int(11) DEFAULT NULL,
+  `hashSha256` varchar(64) DEFAULT NULL,
+  `formalizado` tinyint(1) NOT NULL DEFAULT 0,
+  `assinaturaDigital` tinyint(1) NOT NULL DEFAULT 0,
+  `origemAssinatura` enum('EXTERNA_DOCUMENTAL') DEFAULT NULL,
+  `geradoEm` datetime(3) DEFAULT NULL,
+  `geradoPor` varchar(191) DEFAULT NULL,
+  `observacao` text DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `createdBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_contrato_documentos_contratoId_idx` (`contratoId`),
+  KEY `pnae_contrato_documentos_aditivoId_idx` (`aditivoId`),
+  CONSTRAINT `pnae_contrato_documentos_aditivoId_fkey` FOREIGN KEY (`aditivoId`) REFERENCES `pnae_contrato_aditivos` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_contrato_documentos_contratoId_fkey` FOREIGN KEY (`contratoId`) REFERENCES `pnae_contratos` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_contrato_documentos_sem_icp` CHECK (`assinaturaDigital` = 0)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_contrato_itens
+DROP TABLE IF EXISTS `pnae_contrato_itens`;
+CREATE TABLE IF NOT EXISTS `pnae_contrato_itens` (
+  `id` varchar(191) NOT NULL,
+  `contratoId` varchar(191) NOT NULL,
+  `editalItemId` varchar(191) DEFAULT NULL,
+  `propostaItemId` varchar(191) NOT NULL,
+  `produto` varchar(191) NOT NULL,
+  `descricao` text DEFAULT NULL,
+  `unidade` varchar(191) DEFAULT NULL,
+  `quantidadeContratada` decimal(14,4) NOT NULL,
+  `valorUnitario` decimal(14,4) NOT NULL,
+  `valorTotal` decimal(14,2) NOT NULL,
+  `quantidadeAditivada` decimal(14,4) NOT NULL DEFAULT 0.0000,
+  `quantidadeDisponivel` decimal(14,4) NOT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `deletedAt` datetime(3) DEFAULT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_contrato_itens_contratoId_idx` (`contratoId`),
+  KEY `pnae_contrato_itens_editalItemId_idx` (`editalItemId`),
+  KEY `pnae_contrato_itens_propostaItemId_idx` (`propostaItemId`),
+  CONSTRAINT `pnae_contrato_itens_contratoId_fkey` FOREIGN KEY (`contratoId`) REFERENCES `pnae_contratos` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_contrato_itens_editalItemId_fkey` FOREIGN KEY (`editalItemId`) REFERENCES `pnae_edital_itens` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_contrato_itens_propostaItemId_fkey` FOREIGN KEY (`propostaItemId`) REFERENCES `pnae_proposta_itens` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_contrato_signatarios
+DROP TABLE IF EXISTS `pnae_contrato_signatarios`;
+CREATE TABLE IF NOT EXISTS `pnae_contrato_signatarios` (
+  `id` varchar(191) NOT NULL,
+  `contratoId` varchar(191) NOT NULL,
+  `aditivoId` varchar(191) DEFAULT NULL,
+  `nome` varchar(191) NOT NULL,
+  `cargo` varchar(191) DEFAULT NULL,
+  `papel` varchar(191) NOT NULL,
+  `enviadoEm` datetime(3) DEFAULT NULL,
+  `documentoRegistradoEm` datetime(3) DEFAULT NULL,
+  `documentoId` varchar(191) DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `createdBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_contrato_signatarios_contratoId_idx` (`contratoId`),
+  KEY `pnae_contrato_signatarios_aditivoId_idx` (`aditivoId`),
+  CONSTRAINT `pnae_contrato_signatarios_aditivoId_fkey` FOREIGN KEY (`aditivoId`) REFERENCES `pnae_contrato_aditivos` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_contrato_signatarios_contratoId_fkey` FOREIGN KEY (`contratoId`) REFERENCES `pnae_contratos` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_contratos
+DROP TABLE IF EXISTS `pnae_contratos`;
+CREATE TABLE IF NOT EXISTS `pnae_contratos` (
+  `id` varchar(191) NOT NULL,
+  `numero` varchar(191) NOT NULL,
+  `exercicio` int(11) NOT NULL,
+  `editalId` varchar(191) NOT NULL,
+  `chamadaPublica` varchar(191) DEFAULT NULL,
+  `propostaId` varchar(191) NOT NULL,
+  `produtorId` varchar(191) NOT NULL,
+  `escolaId` varchar(191) DEFAULT NULL,
+  `dreId` varchar(191) DEFAULT NULL,
+  `municipioId` varchar(191) DEFAULT NULL,
+  `valorInicial` decimal(14,2) NOT NULL,
+  `valorAtualizado` decimal(14,2) NOT NULL,
+  `dataAssinatura` datetime(3) DEFAULT NULL,
+  `vigenciaInicio` datetime(3) DEFAULT NULL,
+  `vigenciaFim` datetime(3) DEFAULT NULL,
+  `status` enum('RASCUNHO','EM_CONFERENCIA','AGUARDANDO_ASSINATURA','VIGENTE','SUSPENSO','ENCERRADO','RESCINDIDO','CANCELADO') NOT NULL DEFAULT 'RASCUNHO',
+  `objeto` text DEFAULT NULL,
+  `observacoes` text DEFAULT NULL,
+  `condicoesFornecimento` text DEFAULT NULL,
+  `condicoesPagamento` text DEFAULT NULL,
+  `fiscalizacao` text DEFAULT NULL,
+  `instrumentoExternoRegistrado` tinyint(1) NOT NULL DEFAULT 0,
+  `instrumentoRegistradoEm` datetime(3) DEFAULT NULL,
+  `versao` int(11) NOT NULL DEFAULT 1,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `deletedAt` datetime(3) DEFAULT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pnae_contratos_numero_exercicio_key` (`numero`,`exercicio`),
+  KEY `pnae_contratos_status_idx` (`status`),
+  KEY `pnae_contratos_editalId_idx` (`editalId`),
+  KEY `pnae_contratos_propostaId_idx` (`propostaId`),
+  KEY `pnae_contratos_produtorId_idx` (`produtorId`),
+  KEY `pnae_contratos_dreId_idx` (`dreId`),
+  KEY `pnae_contratos_escolaId_idx` (`escolaId`),
+  KEY `pnae_contratos_municipioId_idx` (`municipioId`),
+  KEY `pnae_contratos_vigenciaFim_idx` (`vigenciaFim`),
+  CONSTRAINT `pnae_contratos_dreId_fkey` FOREIGN KEY (`dreId`) REFERENCES `dres` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_contratos_editalId_fkey` FOREIGN KEY (`editalId`) REFERENCES `pnae_editais` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_contratos_escolaId_fkey` FOREIGN KEY (`escolaId`) REFERENCES `escolas` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_contratos_municipioId_fkey` FOREIGN KEY (`municipioId`) REFERENCES `municipios` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_contratos_produtorId_fkey` FOREIGN KEY (`produtorId`) REFERENCES `produtores` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_contratos_propostaId_fkey` FOREIGN KEY (`propostaId`) REFERENCES `pnae_propostas` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_disponibilidades_producao
+DROP TABLE IF EXISTS `pnae_disponibilidades_producao`;
+CREATE TABLE IF NOT EXISTS `pnae_disponibilidades_producao` (
+  `id` varchar(191) NOT NULL,
+  `produtorId` varchar(191) NOT NULL,
+  `safraProducaoId` varchar(191) NOT NULL,
+  `produtoProdutorId` varchar(191) NOT NULL,
+  `quantidade` decimal(14,4) NOT NULL,
+  `unidade` varchar(191) NOT NULL,
+  `status` enum('PREVISTA','CONFIRMADA','COMPROMETIDA','ENCERRADA') NOT NULL DEFAULT 'PREVISTA',
+  `origem` varchar(191) NOT NULL,
+  `origemId` varchar(191) DEFAULT NULL,
+  `periodoInicio` datetime(3) DEFAULT NULL,
+  `periodoFim` datetime(3) DEFAULT NULL,
+  `observacoes` text DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `sdd010_disponibilidades_producao_produtorId_status_idx` (`produtorId`,`status`),
+  KEY `sdd010_disponibilidades_producao_safraProducaoId_idx` (`safraProducaoId`),
+  KEY `sdd010_disponibilidades_producao_produtoProdutorId_fkey` (`produtoProdutorId`),
+  CONSTRAINT `sdd010_disponibilidades_producao_produtoProdutorId_fkey` FOREIGN KEY (`produtoProdutorId`) REFERENCES `produtor_produtos` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `sdd010_disponibilidades_producao_produtorId_fkey` FOREIGN KEY (`produtorId`) REFERENCES `produtores` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `sdd010_disponibilidades_producao_safraProducaoId_fkey` FOREIGN KEY (`safraProducaoId`) REFERENCES `pnae_safras_producao` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_divergencias_fiscais
+DROP TABLE IF EXISTS `pnae_divergencias_fiscais`;
+CREATE TABLE IF NOT EXISTS `pnae_divergencias_fiscais` (
+  `id` varchar(191) NOT NULL,
+  `notaFiscalId` varchar(191) NOT NULL,
+  `notaFiscalItemId` varchar(191) DEFAULT NULL,
+  `tipo` enum('CPF_CNPJ_INCOMPATIVEL','PRODUTO_DIVERGENTE','QUANTIDADE_ACIMA_ACEITA','VALOR_UNITARIO_DIVERGENTE','VALOR_TOTAL_DIVERGENTE','NOTA_DUPLICADA','DOCUMENTO_AUSENTE','RECEBIMENTO_NAO_CONFIRMADO','CONTRATO_INCOMPATIVEL','UNIDADE_MEDIDA_INCOMPATIVEL','DESTINATARIO_INCOMPATIVEL','OUTRA') NOT NULL,
+  `severidade` enum('BAIXA','MEDIA','ALTA','IMPEDITIVA') NOT NULL DEFAULT 'MEDIA',
+  `descricao` text NOT NULL,
+  `valorEsperado` text DEFAULT NULL,
+  `valorEncontrado` text DEFAULT NULL,
+  `status` enum('ABERTA','EM_ANALISE','CORRIGIDA','JUSTIFICADA','REJEITADA','ENCERRADA') NOT NULL DEFAULT 'ABERTA',
+  `responsavelId` varchar(191) DEFAULT NULL,
+  `justificativa` text DEFAULT NULL,
+  `evidenciaPath` varchar(191) DEFAULT NULL,
+  `dataResolucao` datetime(3) DEFAULT NULL,
+  `resolvidoPor` varchar(191) DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_divergencias_fiscais_notaFiscalId_idx` (`notaFiscalId`),
+  KEY `pnae_divergencias_fiscais_notaFiscalItemId_idx` (`notaFiscalItemId`),
+  KEY `pnae_divergencias_fiscais_tipo_idx` (`tipo`),
+  KEY `pnae_divergencias_fiscais_severidade_idx` (`severidade`),
+  KEY `pnae_divergencias_fiscais_status_idx` (`status`),
+  CONSTRAINT `pnae_divergencias_fiscais_notaFiscalId_fkey` FOREIGN KEY (`notaFiscalId`) REFERENCES `pnae_notas_fiscais` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_divergencias_fiscais_notaFiscalItemId_fkey` FOREIGN KEY (`notaFiscalItemId`) REFERENCES `pnae_nota_fiscal_itens` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_editais
+DROP TABLE IF EXISTS `pnae_editais`;
+CREATE TABLE IF NOT EXISTS `pnae_editais` (
+  `id` varchar(191) NOT NULL,
+  `numero` varchar(191) NOT NULL,
+  `ano` int(11) NOT NULL,
+  `titulo` varchar(191) NOT NULL,
+  `descricao` text DEFAULT NULL,
+  `status` enum('RASCUNHO','ATIVO','FECHADO','CANCELADO') NOT NULL DEFAULT 'RASCUNHO',
+  `escolaId` varchar(191) DEFAULT NULL,
+  `dataPublicacao` datetime(3) DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `deletedAt` datetime(3) DEFAULT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  `arquivoFonte` varchar(191) DEFAULT NULL,
+  `municipioId` varchar(191) DEFAULT NULL,
+  `objeto` text DEFAULT NULL,
+  `observacoes` text DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_editais_escolaId_fkey` (`escolaId`),
+  KEY `pnae_editais_municipioId_fkey` (`municipioId`),
+  CONSTRAINT `pnae_editais_escolaId_fkey` FOREIGN KEY (`escolaId`) REFERENCES `escolas` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `pnae_editais_municipioId_fkey` FOREIGN KEY (`municipioId`) REFERENCES `municipios` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_edital_anexos
+DROP TABLE IF EXISTS `pnae_edital_anexos`;
+CREATE TABLE IF NOT EXISTS `pnae_edital_anexos` (
+  `id` varchar(191) NOT NULL,
+  `documentoId` varchar(191) NOT NULL,
+  `templateId` varchar(191) DEFAULT NULL,
+  `templateVersaoId` varchar(191) DEFAULT NULL,
+  `tipo` enum('EDITAL_PRINCIPAL','ANEXO_I','ANEXO_II','ANEXO_III','ANEXO_IV','ANEXO_V','ANEXO_VI','ANEXO_VII') NOT NULL,
+  `ordem` int(11) NOT NULL DEFAULT 0,
+  `titulo` varchar(191) NOT NULL,
+  `incluido` tinyint(1) NOT NULL DEFAULT 1,
+  `conteudoManual` longtext DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_edital_anexos_documentoId_ordem_idx` (`documentoId`,`ordem`),
+  KEY `pnae_edital_anexos_templateId_fkey` (`templateId`),
+  KEY `pnae_edital_anexos_templateVersaoId_fkey` (`templateVersaoId`),
+  CONSTRAINT `pnae_edital_anexos_documentoId_fkey` FOREIGN KEY (`documentoId`) REFERENCES `pnae_edital_documentos` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_edital_anexos_templateId_fkey` FOREIGN KEY (`templateId`) REFERENCES `pnae_templates_documento` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_edital_anexos_templateVersaoId_fkey` FOREIGN KEY (`templateVersaoId`) REFERENCES `pnae_template_versoes` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_edital_documentos
+DROP TABLE IF EXISTS `pnae_edital_documentos`;
+CREATE TABLE IF NOT EXISTS `pnae_edital_documentos` (
+  `id` varchar(191) NOT NULL,
+  `editalId` varchar(191) NOT NULL,
+  `statusComposicao` enum('RASCUNHO','EM_CONFERENCIA','PRONTO_PARA_GERAR','GERADO','PUBLICADO','CANCELADO') NOT NULL DEFAULT 'RASCUNHO',
+  `processoAdministrativo` varchar(191) DEFAULT NULL,
+  `localRecebimento` text DEFAULT NULL,
+  `dataRecebimento` datetime(3) DEFAULT NULL,
+  `horarioRecebimento` varchar(191) DEFAULT NULL,
+  `comissao` text DEFAULT NULL,
+  `legislacaoAplicavel` text DEFAULT NULL,
+  `prazoVigencia` varchar(191) DEFAULT NULL,
+  `condicoesParticipacao` longtext DEFAULT NULL,
+  `criteriosHabilitacao` longtext DEFAULT NULL,
+  `regrasEntrega` text DEFAULT NULL,
+  `formaPagamento` text DEFAULT NULL,
+  `penalidades` text DEFAULT NULL,
+  `foro` varchar(191) DEFAULT NULL,
+  `observacoesDocumento` text DEFAULT NULL,
+  `origem` varchar(191) NOT NULL DEFAULT 'MANUAL',
+  `arquivoFonte` varchar(191) DEFAULT NULL,
+  `importacaoId` varchar(191) DEFAULT NULL,
+  `conteudoManual` longtext DEFAULT NULL,
+  `versaoAtual` int(11) NOT NULL DEFAULT 1,
+  `publicadoEm` datetime(3) DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pnae_edital_documentos_editalId_key` (`editalId`),
+  KEY `pnae_edital_documentos_statusComposicao_idx` (`statusComposicao`),
+  KEY `pnae_edital_documentos_importacaoId_idx` (`importacaoId`),
+  CONSTRAINT `pnae_edital_documentos_editalId_fkey` FOREIGN KEY (`editalId`) REFERENCES `pnae_editais` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_edital_escolas
+DROP TABLE IF EXISTS `pnae_edital_escolas`;
+CREATE TABLE IF NOT EXISTS `pnae_edital_escolas` (
+  `id` varchar(191) NOT NULL,
+  `editalId` varchar(191) NOT NULL,
+  `escolaId` varchar(191) NOT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pnae_edital_escolas_editalId_escolaId_key` (`editalId`,`escolaId`),
+  KEY `pnae_edital_escolas_escolaId_fkey` (`escolaId`),
+  CONSTRAINT `pnae_edital_escolas_editalId_fkey` FOREIGN KEY (`editalId`) REFERENCES `pnae_editais` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_edital_escolas_escolaId_fkey` FOREIGN KEY (`escolaId`) REFERENCES `escolas` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_edital_itens
+DROP TABLE IF EXISTS `pnae_edital_itens`;
+CREATE TABLE IF NOT EXISTS `pnae_edital_itens` (
+  `id` varchar(191) NOT NULL,
+  `editalId` varchar(191) NOT NULL,
+  `produtoOriginal` varchar(191) NOT NULL,
+  `especificacao` text DEFAULT NULL,
+  `quantidade` decimal(10,2) DEFAULT NULL,
+  `unidade` varchar(191) DEFAULT NULL,
+  `precoUnitario` decimal(10,2) DEFAULT NULL,
+  `valorTotal` decimal(10,2) DEFAULT NULL,
+  `produtoReferenciaId` varchar(191) DEFAULT NULL,
+  `status` enum('PENDENTE','IMPORTADO','CONFIRMADO','PENDENTE_EDICAO','PENDENTE_CONFERENCIA') NOT NULL DEFAULT 'PENDENTE',
+  `pendenteEdicao` tinyint(1) NOT NULL DEFAULT 0,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `deletedAt` datetime(3) DEFAULT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  `importadoAutomaticamente` tinyint(1) NOT NULL DEFAULT 0,
+  `numeroItem` int(11) DEFAULT NULL,
+  `observacoes` text DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_edital_itens_editalId_fkey` (`editalId`),
+  KEY `pnae_edital_itens_produtoReferenciaId_fkey` (`produtoReferenciaId`),
+  CONSTRAINT `pnae_edital_itens_editalId_fkey` FOREIGN KEY (`editalId`) REFERENCES `pnae_editais` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_edital_itens_produtoReferenciaId_fkey` FOREIGN KEY (`produtoReferenciaId`) REFERENCES `pnae_produtos_referencia` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_edital_variaveis
+DROP TABLE IF EXISTS `pnae_edital_variaveis`;
+CREATE TABLE IF NOT EXISTS `pnae_edital_variaveis` (
+  `id` varchar(191) NOT NULL,
+  `documentoId` varchar(191) NOT NULL,
+  `chave` varchar(191) NOT NULL,
+  `valor` longtext DEFAULT NULL,
+  `valorExtraido` longtext DEFAULT NULL,
+  `origem` varchar(191) NOT NULL DEFAULT 'manual',
+  `confianca` varchar(191) DEFAULT NULL,
+  `paginaOrigem` int(11) DEFAULT NULL,
+  `obrigatorio` tinyint(1) NOT NULL DEFAULT 0,
+  `sensivel` tinyint(1) NOT NULL DEFAULT 0,
+  `escopo` varchar(191) NOT NULL DEFAULT '',
+  `statusRevisao` varchar(191) NOT NULL DEFAULT 'confirmado',
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pnae_edital_variaveis_documentoId_chave_escopo_key` (`documentoId`,`chave`,`escopo`),
+  CONSTRAINT `pnae_edital_variaveis_documentoId_fkey` FOREIGN KEY (`documentoId`) REFERENCES `pnae_edital_documentos` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_edital_versoes
+DROP TABLE IF EXISTS `pnae_edital_versoes`;
+CREATE TABLE IF NOT EXISTS `pnae_edital_versoes` (
+  `id` varchar(191) NOT NULL,
+  `documentoId` varchar(191) NOT NULL,
+  `numero` int(11) NOT NULL,
+  `statusComposicao` enum('RASCUNHO','EM_CONFERENCIA','PRONTO_PARA_GERAR','GERADO','PUBLICADO','CANCELADO') NOT NULL,
+  `snapshot` longtext NOT NULL,
+  `motivo` text DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `createdBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pnae_edital_versoes_documentoId_numero_key` (`documentoId`,`numero`),
+  CONSTRAINT `pnae_edital_versoes_documentoId_fkey` FOREIGN KEY (`documentoId`) REFERENCES `pnae_edital_documentos` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_entrega_documentos
+DROP TABLE IF EXISTS `pnae_entrega_documentos`;
+CREATE TABLE IF NOT EXISTS `pnae_entrega_documentos` (
+  `id` varchar(191) NOT NULL,
+  `entregaId` varchar(191) NOT NULL,
+  `tipo` enum('COMPROVANTE_ENTREGA','NOTA_FISCAL','RECIBO','TERMO_RECEBIMENTO','EVIDENCIA_FOTOGRAFICA','OUTRO') NOT NULL,
+  `versao` int(11) NOT NULL DEFAULT 1,
+  `titulo` varchar(191) NOT NULL,
+  `arquivoPath` varchar(191) DEFAULT NULL,
+  `arquivoNome` varchar(191) DEFAULT NULL,
+  `mimeType` varchar(191) DEFAULT NULL,
+  `tamanhoBytes` int(11) DEFAULT NULL,
+  `hashSha256` varchar(64) DEFAULT NULL,
+  `formalizado` tinyint(1) NOT NULL DEFAULT 0,
+  `assinaturaDigital` tinyint(1) NOT NULL DEFAULT 0,
+  `origemAssinatura` enum('EXTERNA_DOCUMENTAL') DEFAULT NULL,
+  `geradoEm` datetime(3) DEFAULT NULL,
+  `geradoPor` varchar(191) DEFAULT NULL,
+  `observacao` text DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `createdBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_entrega_documentos_entregaId_idx` (`entregaId`),
+  CONSTRAINT `pnae_entrega_documentos_entregaId_fkey` FOREIGN KEY (`entregaId`) REFERENCES `pnae_entregas` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_entrega_documentos_sem_icp` CHECK (`assinaturaDigital` = 0)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_entrega_estornos
+DROP TABLE IF EXISTS `pnae_entrega_estornos`;
+CREATE TABLE IF NOT EXISTS `pnae_entrega_estornos` (
+  `id` varchar(191) NOT NULL,
+  `entregaId` varchar(191) NOT NULL,
+  `motivo` text NOT NULL,
+  `itensJson` text NOT NULL,
+  `efetuadoPor` varchar(191) NOT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pnae_entrega_estornos_entregaId_key` (`entregaId`),
+  CONSTRAINT `pnae_entrega_estornos_entregaId_fkey` FOREIGN KEY (`entregaId`) REFERENCES `pnae_entregas` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_entrega_itens
+DROP TABLE IF EXISTS `pnae_entrega_itens`;
+CREATE TABLE IF NOT EXISTS `pnae_entrega_itens` (
+  `id` varchar(191) NOT NULL,
+  `entregaId` varchar(191) NOT NULL,
+  `programacaoItemId` varchar(191) NOT NULL,
+  `quantidadeInformada` decimal(14,4) NOT NULL,
+  `quantidadeAceita` decimal(14,4) NOT NULL,
+  `quantidadeRejeitada` decimal(14,4) NOT NULL,
+  `motivoRejeicao` varchar(191) DEFAULT NULL,
+  `observacoes` text DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `deletedAt` datetime(3) DEFAULT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_entrega_itens_entregaId_idx` (`entregaId`),
+  KEY `pnae_entrega_itens_programacaoItemId_idx` (`programacaoItemId`),
+  CONSTRAINT `pnae_entrega_itens_entregaId_fkey` FOREIGN KEY (`entregaId`) REFERENCES `pnae_entregas` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_entrega_itens_programacaoItemId_fkey` FOREIGN KEY (`programacaoItemId`) REFERENCES `pnae_programacao_entrega_itens` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_entregas
+DROP TABLE IF EXISTS `pnae_entregas`;
+CREATE TABLE IF NOT EXISTS `pnae_entregas` (
+  `id` varchar(191) NOT NULL,
+  `numero` varchar(191) NOT NULL,
+  `programacaoId` varchar(191) NOT NULL,
+  `fornecedorId` varchar(191) NOT NULL,
+  `unidadeEscolarId` varchar(191) NOT NULL,
+  `dreId` varchar(191) NOT NULL,
+  `municipioId` varchar(191) DEFAULT NULL,
+  `dataEntrega` datetime(3) NOT NULL,
+  `numeroDocumento` varchar(191) DEFAULT NULL,
+  `observacoes` text DEFAULT NULL,
+  `status` enum('REGISTRADA','EM_CONFERENCIA','CONFERIDA','ACEITA','COM_DIVERGENCIA','CANCELADA') NOT NULL DEFAULT 'REGISTRADA',
+  `conferidaEm` datetime(3) DEFAULT NULL,
+  `conferidaPor` varchar(191) DEFAULT NULL,
+  `aceitaEm` datetime(3) DEFAULT NULL,
+  `aceitaPor` varchar(191) DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `deletedAt` datetime(3) DEFAULT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pnae_entregas_numero_key` (`numero`),
+  KEY `pnae_entregas_programacaoId_idx` (`programacaoId`),
+  KEY `pnae_entregas_fornecedorId_idx` (`fornecedorId`),
+  KEY `pnae_entregas_unidadeEscolarId_idx` (`unidadeEscolarId`),
+  KEY `pnae_entregas_dreId_idx` (`dreId`),
+  KEY `pnae_entregas_municipioId_idx` (`municipioId`),
+  KEY `pnae_entregas_dataEntrega_idx` (`dataEntrega`),
+  KEY `pnae_entregas_status_idx` (`status`),
+  CONSTRAINT `pnae_entregas_dreId_fkey` FOREIGN KEY (`dreId`) REFERENCES `dres` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_entregas_fornecedorId_fkey` FOREIGN KEY (`fornecedorId`) REFERENCES `produtores` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_entregas_municipioId_fkey` FOREIGN KEY (`municipioId`) REFERENCES `municipios` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_entregas_programacaoId_fkey` FOREIGN KEY (`programacaoId`) REFERENCES `pnae_programacoes_entrega` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_entregas_unidadeEscolarId_fkey` FOREIGN KEY (`unidadeEscolarId`) REFERENCES `escolas` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_habilitacao_documentos
+DROP TABLE IF EXISTS `pnae_habilitacao_documentos`;
+CREATE TABLE IF NOT EXISTS `pnae_habilitacao_documentos` (
+  `id` varchar(191) NOT NULL,
+  `propostaId` varchar(191) NOT NULL,
+  `requisitoId` varchar(191) DEFAULT NULL,
+  `versao` int(11) NOT NULL DEFAULT 1,
+  `tipo` varchar(191) NOT NULL,
+  `titulo` varchar(191) NOT NULL,
+  `arquivoPath` varchar(191) DEFAULT NULL,
+  `arquivoNome` varchar(191) DEFAULT NULL,
+  `mimeType` varchar(191) DEFAULT NULL,
+  `tamanhoBytes` int(11) DEFAULT NULL,
+  `hashSha256` varchar(64) DEFAULT NULL,
+  `validadeAte` datetime(3) DEFAULT NULL,
+  `status` enum('PENDENTE','EM_ANALISE','HABILITADO','INABILITADO','PENDENTE_CORRECAO') NOT NULL DEFAULT 'PENDENTE',
+  `parecer` text DEFAULT NULL,
+  `conferidoEm` datetime(3) DEFAULT NULL,
+  `conferidoPor` varchar(191) DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `createdBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_habilitacao_documentos_propostaId_tipo_versao_idx` (`propostaId`,`tipo`,`versao`),
+  KEY `pnae_habilitacao_documentos_requisitoId_idx` (`requisitoId`),
+  CONSTRAINT `pnae_habilitacao_documentos_propostaId_fkey` FOREIGN KEY (`propostaId`) REFERENCES `pnae_propostas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `pnae_habilitacao_documentos_requisitoId_fkey` FOREIGN KEY (`requisitoId`) REFERENCES `pnae_requisitos_habilitacao` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_historico_geracao_documento
+DROP TABLE IF EXISTS `pnae_historico_geracao_documento`;
+CREATE TABLE IF NOT EXISTS `pnae_historico_geracao_documento` (
+  `id` varchar(191) NOT NULL,
+  `documentoId` varchar(191) NOT NULL,
+  `editalId` varchar(191) NOT NULL,
+  `versaoId` varchar(191) DEFAULT NULL,
+  `versaoNumero` int(11) NOT NULL,
+  `usuarioId` varchar(191) DEFAULT NULL,
+  `usuarioNome` varchar(191) DEFAULT NULL,
+  `formato` varchar(191) NOT NULL,
+  `arquivoPath` varchar(191) DEFAULT NULL,
+  `status` enum('SUCESSO','ERRO','VALIDACAO') NOT NULL,
+  `mensagem` text DEFAULT NULL,
+  `ipAddress` varchar(191) DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  PRIMARY KEY (`id`),
+  KEY `pnae_historico_geracao_documento_editalId_createdAt_idx` (`editalId`,`createdAt`),
+  KEY `pnae_historico_geracao_documento_documentoId_idx` (`documentoId`),
+  KEY `pnae_historico_geracao_documento_versaoId_fkey` (`versaoId`),
+  CONSTRAINT `pnae_historico_geracao_documento_documentoId_fkey` FOREIGN KEY (`documentoId`) REFERENCES `pnae_edital_documentos` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_historico_geracao_documento_versaoId_fkey` FOREIGN KEY (`versaoId`) REFERENCES `pnae_edital_versoes` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_homologacoes_chamadas
+DROP TABLE IF EXISTS `pnae_homologacoes_chamadas`;
+CREATE TABLE IF NOT EXISTS `pnae_homologacoes_chamadas` (
+  `id` varchar(191) NOT NULL,
+  `chamadaId` varchar(191) NOT NULL,
+  `resultadoId` varchar(191) DEFAULT NULL,
+  `homologadoEm` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `homologadoPor` varchar(191) NOT NULL,
+  `fundamentacao` text NOT NULL,
+  `documentoId` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pnae_homologacoes_chamadas_chamadaId_key` (`chamadaId`),
+  CONSTRAINT `pnae_homologacoes_chamadas_chamadaId_fkey` FOREIGN KEY (`chamadaId`) REFERENCES `pnae_chamadas_publicas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_idempotencia_operacoes
+DROP TABLE IF EXISTS `pnae_idempotencia_operacoes`;
+CREATE TABLE IF NOT EXISTS `pnae_idempotencia_operacoes` (
+  `chave` varchar(191) NOT NULL,
+  `operacao` varchar(191) NOT NULL,
+  `recursoId` varchar(191) DEFAULT NULL,
+  `resposta` longtext DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  PRIMARY KEY (`chave`),
+  KEY `pnae_idempotencia_operacoes_operacao_idx` (`operacao`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_import_logs
+DROP TABLE IF EXISTS `pnae_import_logs`;
+CREATE TABLE IF NOT EXISTS `pnae_import_logs` (
+  `id` varchar(191) NOT NULL,
+  `editalId` varchar(191) DEFAULT NULL,
+  `arquivoNome` varchar(191) NOT NULL,
+  `status` enum('AGUARDANDO_PROCESSAMENTO','PROCESSANDO','PROCESSADO','PENDENTE_CONFERENCIA','CONFIRMADO','ERRO') NOT NULL DEFAULT 'AGUARDANDO_PROCESSAMENTO',
+  `resumo` text DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `deletedAt` datetime(3) DEFAULT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  `anoExtraido` int(11) DEFAULT NULL,
+  `arquivoCaminho` varchar(191) NOT NULL,
+  `confirmadoEm` datetime(3) DEFAULT NULL,
+  `escolaNome` varchar(191) DEFAULT NULL,
+  `mensagemErro` text DEFAULT NULL,
+  `municipioNome` varchar(191) DEFAULT NULL,
+  `numeroExtraido` varchar(191) DEFAULT NULL,
+  `objeto` text DEFAULT NULL,
+  `origem` varchar(191) NOT NULL,
+  `processadoEm` datetime(3) DEFAULT NULL,
+  `quantidadeItens` int(11) NOT NULL DEFAULT 0,
+  `tempoProcessamentoMs` int(11) DEFAULT NULL,
+  `tituloExtraido` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_import_logs_editalId_fkey` (`editalId`),
+  CONSTRAINT `pnae_import_logs_editalId_fkey` FOREIGN KEY (`editalId`) REFERENCES `pnae_editais` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_importacao_campos
+DROP TABLE IF EXISTS `pnae_importacao_campos`;
+CREATE TABLE IF NOT EXISTS `pnae_importacao_campos` (
+  `id` varchar(191) NOT NULL,
+  `estruturaId` varchar(191) NOT NULL,
+  `chave` varchar(191) NOT NULL,
+  `rotulo` varchar(191) NOT NULL,
+  `valor` text DEFAULT NULL,
+  `valorExtraido` text DEFAULT NULL,
+  `trecho` text DEFAULT NULL,
+  `origem` varchar(191) NOT NULL DEFAULT 'extraido_automaticamente',
+  `confianca` varchar(191) DEFAULT NULL,
+  `paginaOrigem` int(11) DEFAULT NULL,
+  `secao` varchar(191) DEFAULT NULL,
+  `editavel` tinyint(1) NOT NULL DEFAULT 1,
+  `sensivel` tinyint(1) NOT NULL DEFAULT 0,
+  `statusRevisao` varchar(191) NOT NULL DEFAULT 'pendente_revisao',
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_importacao_campos_estruturaId_chave_idx` (`estruturaId`,`chave`),
+  CONSTRAINT `pnae_importacao_campos_estruturaId_fkey` FOREIGN KEY (`estruturaId`) REFERENCES `pnae_importacao_estruturas` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_importacao_estruturas
+DROP TABLE IF EXISTS `pnae_importacao_estruturas`;
+CREATE TABLE IF NOT EXISTS `pnae_importacao_estruturas` (
+  `id` varchar(191) NOT NULL,
+  `importLogId` varchar(191) NOT NULL,
+  `editalId` varchar(191) DEFAULT NULL,
+  `textoExtraido` longtext DEFAULT NULL,
+  `secoesJson` longtext DEFAULT NULL,
+  `anexosJson` longtext DEFAULT NULL,
+  `tabelasJson` longtext DEFAULT NULL,
+  `assinaturasJson` longtext DEFAULT NULL,
+  `confiancaGeral` varchar(191) DEFAULT NULL,
+  `parametrizado` longtext DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pnae_importacao_estruturas_importLogId_key` (`importLogId`),
+  CONSTRAINT `pnae_importacao_estruturas_importLogId_fkey` FOREIGN KEY (`importLogId`) REFERENCES `pnae_import_logs` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_informacoes_nutricionais
+DROP TABLE IF EXISTS `pnae_informacoes_nutricionais`;
+CREATE TABLE IF NOT EXISTS `pnae_informacoes_nutricionais` (
+  `id` varchar(191) NOT NULL,
+  `produtoReferenciaId` varchar(191) NOT NULL,
+  `fonte` varchar(191) NOT NULL,
+  `versaoFonte` varchar(191) DEFAULT NULL,
+  `estadoAlimento` varchar(191) DEFAULT NULL,
+  `porcao` varchar(191) DEFAULT NULL,
+  `energiaKcal` decimal(12,4) DEFAULT NULL,
+  `proteinaG` decimal(12,4) DEFAULT NULL,
+  `carboidratoG` decimal(12,4) DEFAULT NULL,
+  `lipidiosG` decimal(12,4) DEFAULT NULL,
+  `fibraG` decimal(12,4) DEFAULT NULL,
+  `sodioMg` decimal(12,4) DEFAULT NULL,
+  `status` enum('PENDENTE_VALIDACAO','VALIDADA','INATIVA') NOT NULL DEFAULT 'PENDENTE_VALIDACAO',
+  `validadoPor` varchar(191) DEFAULT NULL,
+  `validadoEm` datetime(3) DEFAULT NULL,
+  `observacoes` text DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `sdd010_informacoes_nutricionais_produtoReferenciaId_status_idx` (`produtoReferenciaId`,`status`),
+  CONSTRAINT `sdd010_informacoes_nutricionais_produtoReferenciaId_fkey` FOREIGN KEY (`produtoReferenciaId`) REFERENCES `pnae_produtos_referencia` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_inscricoes_chamadas
+DROP TABLE IF EXISTS `pnae_inscricoes_chamadas`;
+CREATE TABLE IF NOT EXISTS `pnae_inscricoes_chamadas` (
+  `id` varchar(191) NOT NULL,
+  `chamadaId` varchar(191) NOT NULL,
+  `produtorId` varchar(191) NOT NULL,
+  `categoria` enum('INDIVIDUAL','GRUPO_INFORMAL','GRUPO_FORMAL','OUTRA') NOT NULL,
+  `representante` varchar(191) DEFAULT NULL,
+  `contato` varchar(191) DEFAULT NULL,
+  `status` enum('ATIVA','CANCELADA') NOT NULL DEFAULT 'ATIVA',
+  `inscritoEm` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `observacoes` text DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pnae_inscricoes_chamadas_chamadaId_produtorId_key` (`chamadaId`,`produtorId`),
+  KEY `pnae_inscricoes_chamadas_produtorId_idx` (`produtorId`),
+  CONSTRAINT `pnae_inscricoes_chamadas_chamadaId_fkey` FOREIGN KEY (`chamadaId`) REFERENCES `pnae_chamadas_publicas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `pnae_inscricoes_chamadas_produtorId_fkey` FOREIGN KEY (`produtorId`) REFERENCES `produtores` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_interesses_oportunidades
+DROP TABLE IF EXISTS `pnae_interesses_oportunidades`;
+CREATE TABLE IF NOT EXISTS `pnae_interesses_oportunidades` (
+  `id` varchar(191) NOT NULL,
+  `produtorId` varchar(191) NOT NULL,
+  `chamadaId` varchar(191) NOT NULL,
+  `editalItemId` varchar(191) NOT NULL,
+  `quantidadePretendida` decimal(14,4) DEFAULT NULL,
+  `observacoes` text DEFAULT NULL,
+  `solicitarAssistencia` tinyint(1) NOT NULL DEFAULT 0,
+  `status` enum('ATIVO','ATUALIZADO','CANCELADO') NOT NULL DEFAULT 'ATIVO',
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `sdd011_interesse_unique` (`produtorId`,`chamadaId`,`editalItemId`),
+  KEY `sdd011_interesses_oportunidade_produtorId_status_updatedAt_idx` (`produtorId`,`status`,`updatedAt`),
+  KEY `sdd011_interesses_oportunidade_chamadaId_status_idx` (`chamadaId`,`status`),
+  KEY `sdd011_interesse_item_fkey` (`editalItemId`),
+  CONSTRAINT `sdd011_interesse_chamada_fkey` FOREIGN KEY (`chamadaId`) REFERENCES `pnae_chamadas_publicas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `sdd011_interesse_item_fkey` FOREIGN KEY (`editalItemId`) REFERENCES `pnae_edital_itens` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `sdd011_interesse_produtor_fkey` FOREIGN KEY (`produtorId`) REFERENCES `produtores` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_itens_checklist_implantacao
+DROP TABLE IF EXISTS `pnae_itens_checklist_implantacao`;
+CREATE TABLE IF NOT EXISTS `pnae_itens_checklist_implantacao` (
+  `id` varchar(191) NOT NULL,
+  `checklistId` varchar(191) NOT NULL,
+  `codigo` varchar(191) NOT NULL,
+  `titulo` varchar(191) NOT NULL,
+  `status` enum('PENDENTE','EM_ANALISE','CONCLUIDO','BLOQUEADO') NOT NULL DEFAULT 'PENDENTE',
+  `evidencia` text DEFAULT NULL,
+  `responsavelId` varchar(191) DEFAULT NULL,
+  `prazo` datetime(3) DEFAULT NULL,
+  `observacao` text DEFAULT NULL,
+  `pendencia` text DEFAULT NULL,
+  `atualizadoEm` datetime(3) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `checklist_item_codigo_key` (`checklistId`,`codigo`),
+  KEY `checklist_item_status_prazo_idx` (`status`,`prazo`),
+  KEY `checklist_item_user_fk` (`responsavelId`),
+  CONSTRAINT `checklist_item_checklist_fk` FOREIGN KEY (`checklistId`) REFERENCES `pnae_checklists_implantacao` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `checklist_item_user_fk` FOREIGN KEY (`responsavelId`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_liquidacoes
+DROP TABLE IF EXISTS `pnae_liquidacoes`;
+CREATE TABLE IF NOT EXISTS `pnae_liquidacoes` (
+  `id` varchar(191) NOT NULL,
+  `contratoId` varchar(191) NOT NULL,
+  `notaFiscalId` varchar(191) DEFAULT NULL,
+  `numeroProcesso` varchar(191) DEFAULT NULL,
+  `numeroLiquidacao` varchar(191) DEFAULT NULL,
+  `dataLiquidacao` datetime(3) NOT NULL,
+  `valorLiquidado` decimal(14,2) NOT NULL,
+  `status` enum('REGISTRADA','CONFIRMADA','RETIFICADA','CANCELADA') NOT NULL DEFAULT 'REGISTRADA',
+  `sistemaOrigem` varchar(191) DEFAULT NULL,
+  `referenciaExterna` varchar(191) DEFAULT NULL,
+  `documentoComprobatorioId` varchar(191) DEFAULT NULL,
+  `documentoPath` varchar(191) DEFAULT NULL,
+  `hashSha256` varchar(191) DEFAULT NULL,
+  `observacoes` text DEFAULT NULL,
+  `registradoPor` varchar(191) NOT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_liquidacoes_contratoId_idx` (`contratoId`),
+  KEY `pnae_liquidacoes_notaFiscalId_idx` (`notaFiscalId`),
+  KEY `pnae_liquidacoes_numeroLiquidacao_idx` (`numeroLiquidacao`),
+  KEY `pnae_liquidacoes_dataLiquidacao_idx` (`dataLiquidacao`),
+  KEY `pnae_liquidacoes_status_idx` (`status`),
+  CONSTRAINT `pnae_liquidacoes_contratoId_fkey` FOREIGN KEY (`contratoId`) REFERENCES `pnae_contratos` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_liquidacoes_notaFiscalId_fkey` FOREIGN KEY (`notaFiscalId`) REFERENCES `pnae_notas_fiscais` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_logistica_produtores
+DROP TABLE IF EXISTS `pnae_logistica_produtores`;
+CREATE TABLE IF NOT EXISTS `pnae_logistica_produtores` (
+  `id` varchar(191) NOT NULL,
+  `produtorId` varchar(191) NOT NULL,
+  `modalidade` varchar(191) NOT NULL,
+  `municipiosAtendidos` text DEFAULT NULL,
+  `capacidadeDiaria` decimal(14,4) DEFAULT NULL,
+  `unidadeCapacidade` varchar(191) DEFAULT NULL,
+  `raioKm` decimal(10,2) DEFAULT NULL,
+  `ativo` tinyint(1) NOT NULL DEFAULT 1,
+  `observacoes` text DEFAULT NULL,
+  `versao` int(11) NOT NULL DEFAULT 1,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `sdd010_logistica_produtor_produtorId_ativo_idx` (`produtorId`,`ativo`),
+  CONSTRAINT `sdd010_logistica_produtor_produtorId_fkey` FOREIGN KEY (`produtorId`) REFERENCES `produtores` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_mapeamentos_produto_edital
+DROP TABLE IF EXISTS `pnae_mapeamentos_produto_edital`;
+CREATE TABLE IF NOT EXISTS `pnae_mapeamentos_produto_edital` (
+  `id` varchar(191) NOT NULL,
+  `produtorId` varchar(191) NOT NULL,
+  `produtoProdutorId` varchar(191) NOT NULL,
+  `produtoReferenciaId` varchar(191) DEFAULT NULL,
+  `editalItemId` varchar(191) NOT NULL,
+  `compatibilidade` decimal(5,2) DEFAULT NULL,
+  `justificativa` text DEFAULT NULL,
+  `revisaoStatus` varchar(191) NOT NULL DEFAULT 'PENDENTE_REVISAO',
+  `revisadoPor` varchar(191) DEFAULT NULL,
+  `revisadoEm` datetime(3) DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `sdd010_mapeamentos_produto_edital_produtoProdutorId_editalIt_key` (`produtoProdutorId`,`editalItemId`),
+  KEY `sdd010_mapeamentos_produto_edital_produtorId_revisaoStatus_idx` (`produtorId`,`revisaoStatus`),
+  KEY `sdd010_mapeamentos_produto_edital_produtoReferenciaId_fkey` (`produtoReferenciaId`),
+  KEY `sdd010_mapeamentos_produto_edital_editalItemId_fkey` (`editalItemId`),
+  CONSTRAINT `sdd010_mapeamentos_produto_edital_editalItemId_fkey` FOREIGN KEY (`editalItemId`) REFERENCES `pnae_edital_itens` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `sdd010_mapeamentos_produto_edital_produtoProdutorId_fkey` FOREIGN KEY (`produtoProdutorId`) REFERENCES `produtor_produtos` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `sdd010_mapeamentos_produto_edital_produtoReferenciaId_fkey` FOREIGN KEY (`produtoReferenciaId`) REFERENCES `pnae_produtos_referencia` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `sdd010_mapeamentos_produto_edital_produtorId_fkey` FOREIGN KEY (`produtorId`) REFERENCES `produtores` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_matches
+DROP TABLE IF EXISTS `pnae_matches`;
+CREATE TABLE IF NOT EXISTS `pnae_matches` (
+  `id` varchar(191) NOT NULL,
+  `editalItemId` varchar(191) NOT NULL,
+  `produtoReferenciaId` varchar(191) DEFAULT NULL,
+  `produtorId` varchar(191) DEFAULT NULL,
+  `escolaId` varchar(191) DEFAULT NULL,
+  `score` int(11) NOT NULL DEFAULT 0,
+  `status` enum('MATCH_AUTOMATICO','SUGESTAO','PENDENTE','SEM_MATCH','APROVADO','REJEITADO') NOT NULL DEFAULT 'PENDENTE',
+  `observacao` text DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `deletedAt` datetime(3) DEFAULT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  `editalId` varchar(191) DEFAULT NULL,
+  `produtorProdutoId` varchar(191) DEFAULT NULL,
+  `origemMatch` enum('AUTOMATICO','MANUAL') NOT NULL DEFAULT 'AUTOMATICO',
+  `motivoScore` text DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_matches_editalItemId_fkey` (`editalItemId`),
+  KEY `pnae_matches_escolaId_fkey` (`escolaId`),
+  KEY `pnae_matches_produtoReferenciaId_fkey` (`produtoReferenciaId`),
+  KEY `pnae_matches_produtorId_fkey` (`produtorId`),
+  KEY `pnae_matches_editalId_fkey` (`editalId`),
+  KEY `pnae_matches_produtorProdutoId_fkey` (`produtorProdutoId`),
+  CONSTRAINT `pnae_matches_editalId_fkey` FOREIGN KEY (`editalId`) REFERENCES `pnae_editais` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `pnae_matches_editalItemId_fkey` FOREIGN KEY (`editalItemId`) REFERENCES `pnae_edital_itens` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_matches_escolaId_fkey` FOREIGN KEY (`escolaId`) REFERENCES `escolas` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `pnae_matches_produtoReferenciaId_fkey` FOREIGN KEY (`produtoReferenciaId`) REFERENCES `pnae_produtos_referencia` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `pnae_matches_produtorId_fkey` FOREIGN KEY (`produtorId`) REFERENCES `produtores` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `pnae_matches_produtorProdutoId_fkey` FOREIGN KEY (`produtorProdutoId`) REFERENCES `produtor_produtos` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_nota_fiscal_documentos
+DROP TABLE IF EXISTS `pnae_nota_fiscal_documentos`;
+CREATE TABLE IF NOT EXISTS `pnae_nota_fiscal_documentos` (
+  `id` varchar(191) NOT NULL,
+  `notaFiscalId` varchar(191) NOT NULL,
+  `tipo` varchar(191) NOT NULL,
+  `versao` int(11) NOT NULL DEFAULT 1,
+  `titulo` varchar(191) NOT NULL,
+  `arquivoPath` varchar(191) NOT NULL,
+  `arquivoNome` varchar(191) NOT NULL,
+  `mimeType` varchar(191) DEFAULT NULL,
+  `tamanhoBytes` int(11) NOT NULL,
+  `hashSha256` varchar(191) NOT NULL,
+  `observacao` text DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `createdBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_nota_fiscal_documentos_notaFiscalId_idx` (`notaFiscalId`),
+  KEY `pnae_nota_fiscal_documentos_tipo_idx` (`tipo`),
+  CONSTRAINT `pnae_nota_fiscal_documentos_notaFiscalId_fkey` FOREIGN KEY (`notaFiscalId`) REFERENCES `pnae_notas_fiscais` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_nota_fiscal_itens
+DROP TABLE IF EXISTS `pnae_nota_fiscal_itens`;
+CREATE TABLE IF NOT EXISTS `pnae_nota_fiscal_itens` (
+  `id` varchar(191) NOT NULL,
+  `notaFiscalId` varchar(191) NOT NULL,
+  `numeroItem` int(11) NOT NULL,
+  `codigoProduto` varchar(191) DEFAULT NULL,
+  `descricao` varchar(191) NOT NULL,
+  `ncm` varchar(191) DEFAULT NULL,
+  `cfop` varchar(191) DEFAULT NULL,
+  `unidadeComercial` varchar(191) DEFAULT NULL,
+  `quantidade` decimal(14,4) NOT NULL,
+  `valorUnitario` decimal(14,4) NOT NULL,
+  `valorTotal` decimal(14,2) NOT NULL,
+  `contratoItemId` varchar(191) DEFAULT NULL,
+  `observacoes` text DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_nota_fiscal_itens_notaFiscalId_idx` (`notaFiscalId`),
+  KEY `pnae_nota_fiscal_itens_contratoItemId_idx` (`contratoItemId`),
+  CONSTRAINT `pnae_nota_fiscal_itens_contratoItemId_fkey` FOREIGN KEY (`contratoItemId`) REFERENCES `pnae_contrato_itens` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_nota_fiscal_itens_notaFiscalId_fkey` FOREIGN KEY (`notaFiscalId`) REFERENCES `pnae_notas_fiscais` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_notas_fiscais
+DROP TABLE IF EXISTS `pnae_notas_fiscais`;
+CREATE TABLE IF NOT EXISTS `pnae_notas_fiscais` (
+  `id` varchar(191) NOT NULL,
+  `fornecedorId` varchar(191) NOT NULL,
+  `contratoId` varchar(191) NOT NULL,
+  `numero` varchar(191) NOT NULL,
+  `serie` varchar(191) DEFAULT NULL,
+  `modelo` varchar(191) DEFAULT NULL,
+  `chaveAcesso` varchar(191) DEFAULT NULL,
+  `dataEmissao` datetime(3) NOT NULL,
+  `dataRecebimento` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `cnpjEmitente` varchar(191) DEFAULT NULL,
+  `cpfEmitente` varchar(191) DEFAULT NULL,
+  `documentoDestinatario` varchar(191) DEFAULT NULL,
+  `valorProdutos` decimal(14,2) NOT NULL,
+  `valorTotal` decimal(14,2) NOT NULL,
+  `valorDesconto` decimal(14,2) NOT NULL DEFAULT 0.00,
+  `valorFrete` decimal(14,2) NOT NULL DEFAULT 0.00,
+  `valorOutrasDespesas` decimal(14,2) NOT NULL DEFAULT 0.00,
+  `status` enum('PENDENTE_PROCESSAMENTO','PROCESSADA','PENDENTE_CONFERENCIA','EM_CONFERENCIA','CONFERIDA','AGUARDANDO_ATESTO','ATESTADA','REJEITADA','CANCELADA') NOT NULL DEFAULT 'PENDENTE_PROCESSAMENTO',
+  `resultadoConciliacao` enum('CONCILIADA','CONCILIADA_COM_RESSALVAS','DIVERGENTE','PENDENTE','NAO_CONCILIADA') DEFAULT NULL,
+  `xmlDocumentoId` varchar(191) DEFAULT NULL,
+  `pdfDocumentoId` varchar(191) DEFAULT NULL,
+  `observacoes` text DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `deletedAt` datetime(3) DEFAULT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pnae_notas_fiscais_chaveAcesso_key` (`chaveAcesso`),
+  KEY `pnae_notas_fiscais_fornecedorId_idx` (`fornecedorId`),
+  KEY `pnae_notas_fiscais_contratoId_idx` (`contratoId`),
+  KEY `pnae_notas_fiscais_status_idx` (`status`),
+  KEY `pnae_notas_fiscais_dataEmissao_idx` (`dataEmissao`),
+  KEY `pnae_notas_fiscais_resultadoConciliacao_idx` (`resultadoConciliacao`),
+  KEY `pnae_notas_fiscais_xmlDocumentoId_fkey` (`xmlDocumentoId`),
+  KEY `pnae_notas_fiscais_pdfDocumentoId_fkey` (`pdfDocumentoId`),
+  CONSTRAINT `pnae_notas_fiscais_contratoId_fkey` FOREIGN KEY (`contratoId`) REFERENCES `pnae_contratos` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_notas_fiscais_fornecedorId_fkey` FOREIGN KEY (`fornecedorId`) REFERENCES `produtores` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_notas_fiscais_pdfDocumentoId_fkey` FOREIGN KEY (`pdfDocumentoId`) REFERENCES `pnae_nota_fiscal_documentos` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_notas_fiscais_xmlDocumentoId_fkey` FOREIGN KEY (`xmlDocumentoId`) REFERENCES `pnae_nota_fiscal_documentos` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_notificacoes_internas
+DROP TABLE IF EXISTS `pnae_notificacoes_internas`;
+CREATE TABLE IF NOT EXISTS `pnae_notificacoes_internas` (
+  `id` varchar(191) NOT NULL,
+  `userId` varchar(191) NOT NULL,
+  `tipo` varchar(191) NOT NULL,
+  `titulo` varchar(191) NOT NULL,
+  `mensagem` text NOT NULL,
+  `status` enum('NAO_LIDA','LIDA') NOT NULL DEFAULT 'NAO_LIDA',
+  `referenciaTipo` varchar(191) DEFAULT NULL,
+  `referenciaId` varchar(191) DEFAULT NULL,
+  `link` varchar(191) DEFAULT NULL,
+  `origem` varchar(191) DEFAULT NULL,
+  `dedupeKey` varchar(191) NOT NULL,
+  `escopo` enum('GLOBAL','DRE','ESCOLA','MUNICIPIO') NOT NULL DEFAULT 'GLOBAL',
+  `dreId` varchar(191) DEFAULT NULL,
+  `escolaId` varchar(191) DEFAULT NULL,
+  `municipioId` varchar(191) DEFAULT NULL,
+  `criadoEm` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `lidaEm` datetime(3) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `notificacao_dedupe_key` (`dedupeKey`),
+  KEY `notificacao_user_status_idx` (`userId`,`status`,`criadoEm`),
+  KEY `notificacao_scope_idx` (`escopo`,`dreId`,`escolaId`,`municipioId`),
+  CONSTRAINT `notificacao_user_fk` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_ocorrencias_entrega
+DROP TABLE IF EXISTS `pnae_ocorrencias_entrega`;
+CREATE TABLE IF NOT EXISTS `pnae_ocorrencias_entrega` (
+  `id` varchar(191) NOT NULL,
+  `entregaId` varchar(191) NOT NULL,
+  `entregaItemId` varchar(191) DEFAULT NULL,
+  `tipo` enum('ENTREGA_INCOMPLETA','PRODUTO_DIVERGENTE','QUANTIDADE_DIVERGENTE','PRODUTO_DANIFICADO','PROBLEMA_QUALIDADE','PRODUTO_VENCIDO','ENTREGA_FORA_PRAZO','RECUSA_RECEBIMENTO','OUTRA') NOT NULL,
+  `descricao` text NOT NULL,
+  `responsavelId` varchar(191) DEFAULT NULL,
+  `dataOcorrencia` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `evidencias` text DEFAULT NULL,
+  `status` enum('ABERTA','EM_TRATATIVA','RESOLVIDA','NAO_APLICAVEL') NOT NULL DEFAULT 'ABERTA',
+  `tratativa` text DEFAULT NULL,
+  `dataResolucao` datetime(3) DEFAULT NULL,
+  `resolvidaPor` varchar(191) DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `deletedAt` datetime(3) DEFAULT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_ocorrencias_entrega_entregaId_idx` (`entregaId`),
+  KEY `pnae_ocorrencias_entrega_entregaItemId_idx` (`entregaItemId`),
+  KEY `pnae_ocorrencias_entrega_tipo_idx` (`tipo`),
+  KEY `pnae_ocorrencias_entrega_status_idx` (`status`),
+  CONSTRAINT `pnae_ocorrencias_entrega_entregaId_fkey` FOREIGN KEY (`entregaId`) REFERENCES `pnae_entregas` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_ocorrencias_entrega_entregaItemId_fkey` FOREIGN KEY (`entregaItemId`) REFERENCES `pnae_entrega_itens` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_pagamentos
+DROP TABLE IF EXISTS `pnae_pagamentos`;
+CREATE TABLE IF NOT EXISTS `pnae_pagamentos` (
+  `id` varchar(191) NOT NULL,
+  `contratoId` varchar(191) NOT NULL,
+  `liquidacaoId` varchar(191) NOT NULL,
+  `notaFiscalId` varchar(191) DEFAULT NULL,
+  `numeroOrdemPagamento` varchar(191) DEFAULT NULL,
+  `dataPagamento` datetime(3) NOT NULL,
+  `valorPago` decimal(14,2) NOT NULL,
+  `status` enum('REGISTRADO','CONFIRMADO','PARCIAL','ESTORNADO','CANCELADO') NOT NULL DEFAULT 'REGISTRADO',
+  `referenciaExterna` varchar(191) DEFAULT NULL,
+  `sistemaOrigem` varchar(191) DEFAULT NULL,
+  `comprovanteId` varchar(191) DEFAULT NULL,
+  `comprovantePath` varchar(191) DEFAULT NULL,
+  `hashSha256` varchar(191) DEFAULT NULL,
+  `observacoes` text DEFAULT NULL,
+  `registradoPor` varchar(191) NOT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_pagamentos_contratoId_idx` (`contratoId`),
+  KEY `pnae_pagamentos_liquidacaoId_idx` (`liquidacaoId`),
+  KEY `pnae_pagamentos_notaFiscalId_idx` (`notaFiscalId`),
+  KEY `pnae_pagamentos_numeroOrdemPagamento_idx` (`numeroOrdemPagamento`),
+  KEY `pnae_pagamentos_dataPagamento_idx` (`dataPagamento`),
+  KEY `pnae_pagamentos_status_idx` (`status`),
+  CONSTRAINT `pnae_pagamentos_contratoId_fkey` FOREIGN KEY (`contratoId`) REFERENCES `pnae_contratos` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_pagamentos_liquidacaoId_fkey` FOREIGN KEY (`liquidacaoId`) REFERENCES `pnae_liquidacoes` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_pagamentos_notaFiscalId_fkey` FOREIGN KEY (`notaFiscalId`) REFERENCES `pnae_notas_fiscais` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_parametros_operacionais
+DROP TABLE IF EXISTS `pnae_parametros_operacionais`;
+CREATE TABLE IF NOT EXISTS `pnae_parametros_operacionais` (
+  `id` varchar(191) NOT NULL,
+  `codigo` varchar(191) NOT NULL,
+  `descricao` text NOT NULL,
+  `tipo` varchar(191) NOT NULL DEFAULT 'texto',
+  `escopo` enum('GLOBAL','DRE','ESCOLA','MUNICIPIO') NOT NULL DEFAULT 'GLOBAL',
+  `unidade` varchar(191) DEFAULT NULL,
+  `origem` enum('ADMINISTRATIVA','NORMATIVA','SISTEMA') NOT NULL DEFAULT 'ADMINISTRATIVA',
+  `fonteNormativa` varchar(191) DEFAULT NULL,
+  `permiteAlteracao` tinyint(1) NOT NULL DEFAULT 1,
+  `status` enum('ATIVO','PENDENTE_VALIDACAO','INATIVO') NOT NULL DEFAULT 'PENDENTE_VALIDACAO',
+  `versaoAtual` int(11) NOT NULL DEFAULT 0,
+  `responsavelId` varchar(191) DEFAULT NULL,
+  `vigenteDesde` datetime(3) DEFAULT NULL,
+  `vigenteAte` datetime(3) DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `parametro_codigo_key` (`codigo`),
+  KEY `parametro_status_escopo_idx` (`status`,`escopo`),
+  KEY `parametro_user_fk` (`responsavelId`),
+  CONSTRAINT `parametro_user_fk` FOREIGN KEY (`responsavelId`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_parametros_operacionais_versoes
+DROP TABLE IF EXISTS `pnae_parametros_operacionais_versoes`;
+CREATE TABLE IF NOT EXISTS `pnae_parametros_operacionais_versoes` (
+  `id` varchar(191) NOT NULL,
+  `parametroId` varchar(191) NOT NULL,
+  `versao` int(11) NOT NULL,
+  `valor` text NOT NULL,
+  `escopo` enum('GLOBAL','DRE','ESCOLA','MUNICIPIO') NOT NULL DEFAULT 'GLOBAL',
+  `dreId` varchar(191) DEFAULT NULL,
+  `escolaId` varchar(191) DEFAULT NULL,
+  `municipioId` varchar(191) DEFAULT NULL,
+  `status` enum('ATIVO','PENDENTE_VALIDACAO','INATIVO') NOT NULL DEFAULT 'PENDENTE_VALIDACAO',
+  `justificativa` text DEFAULT NULL,
+  `fonteNormativa` varchar(191) DEFAULT NULL,
+  `vigenteDesde` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `vigenteAte` datetime(3) DEFAULT NULL,
+  `responsavelId` varchar(191) DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `parametro_versao_key` (`parametroId`,`versao`),
+  KEY `parametro_versao_scope_idx` (`escopo`,`dreId`,`escolaId`,`municipioId`),
+  KEY `parametro_versao_user_fk` (`responsavelId`),
+  CONSTRAINT `parametro_versao_parametro_fk` FOREIGN KEY (`parametroId`) REFERENCES `pnae_parametros_operacionais` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `parametro_versao_user_fk` FOREIGN KEY (`responsavelId`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_prestacoes_contas
+DROP TABLE IF EXISTS `pnae_prestacoes_contas`;
+CREATE TABLE IF NOT EXISTS `pnae_prestacoes_contas` (
+  `id` varchar(191) NOT NULL,
+  `exercicio` int(11) NOT NULL,
+  `periodoInicio` datetime(3) NOT NULL,
+  `periodoFim` datetime(3) NOT NULL,
+  `dreId` varchar(191) DEFAULT NULL,
+  `escolaId` varchar(191) DEFAULT NULL,
+  `observacoes` text DEFAULT NULL,
+  `status` enum('RASCUNHO','EM_CONFERENCIA','ENVIADA','EM_ANALISE','DEVOLVIDA','APROVADA','CANCELADA') NOT NULL DEFAULT 'RASCUNHO',
+  `versao` int(11) NOT NULL DEFAULT 1,
+  `enviadoEm` datetime(3) DEFAULT NULL,
+  `analisadoEm` datetime(3) DEFAULT NULL,
+  `aprovadoEm` datetime(3) DEFAULT NULL,
+  `devolvidoEm` datetime(3) DEFAULT NULL,
+  `justificativa` text DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `createdBy` varchar(191) NOT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_prestacoes_contas_exercicio_periodoInicio_periodoFim_idx` (`exercicio`,`periodoInicio`,`periodoFim`),
+  KEY `pnae_prestacoes_contas_dreId_idx` (`dreId`),
+  KEY `pnae_prestacoes_contas_escolaId_idx` (`escolaId`),
+  KEY `pnae_prestacoes_contas_status_idx` (`status`),
+  CONSTRAINT `pnae_prestacoes_contas_dreId_fkey` FOREIGN KEY (`dreId`) REFERENCES `dres` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_prestacoes_contas_escolaId_fkey` FOREIGN KEY (`escolaId`) REFERENCES `escolas` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_prestacoes_contas_documentos
+DROP TABLE IF EXISTS `pnae_prestacoes_contas_documentos`;
+CREATE TABLE IF NOT EXISTS `pnae_prestacoes_contas_documentos` (
+  `id` varchar(191) NOT NULL,
+  `prestacaoContasId` varchar(191) NOT NULL,
+  `tipo` varchar(191) NOT NULL,
+  `titulo` varchar(191) NOT NULL,
+  `arquivoPath` varchar(191) NOT NULL,
+  `arquivoNome` varchar(191) NOT NULL,
+  `mimeType` varchar(191) DEFAULT NULL,
+  `tamanhoBytes` int(11) NOT NULL,
+  `hashSha256` varchar(64) NOT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `createdBy` varchar(191) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_prestacoes_contas_documentos_prestacaoContasId_idx` (`prestacaoContasId`),
+  KEY `pnae_prestacoes_contas_documentos_tipo_idx` (`tipo`),
+  CONSTRAINT `pnae_prestacoes_contas_documentos_prestacaoContasId_fkey` FOREIGN KEY (`prestacaoContasId`) REFERENCES `pnae_prestacoes_contas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_produtos_referencia
+DROP TABLE IF EXISTS `pnae_produtos_referencia`;
+CREATE TABLE IF NOT EXISTS `pnae_produtos_referencia` (
+  `id` varchar(191) NOT NULL,
+  `nome` varchar(191) NOT NULL,
+  `categoria` varchar(191) DEFAULT NULL,
+  `subcategoria` varchar(191) DEFAULT NULL,
+  `unidadePadrao` varchar(191) DEFAULT NULL,
+  `palavrasChave` varchar(191) DEFAULT NULL,
+  `sinonimos` varchar(191) DEFAULT NULL,
+  `agriculturaFamiliar` tinyint(1) NOT NULL DEFAULT 1,
+  `ativo` tinyint(1) NOT NULL DEFAULT 1,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `deletedAt` datetime(3) DEFAULT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_programacao_entrega_itens
+DROP TABLE IF EXISTS `pnae_programacao_entrega_itens`;
+CREATE TABLE IF NOT EXISTS `pnae_programacao_entrega_itens` (
+  `id` varchar(191) NOT NULL,
+  `programacaoId` varchar(191) NOT NULL,
+  `contratoItemId` varchar(191) NOT NULL,
+  `produto` varchar(191) NOT NULL,
+  `unidadeMedida` varchar(191) DEFAULT NULL,
+  `quantidadeProgramada` decimal(14,4) NOT NULL,
+  `valorUnitarioContratual` decimal(14,4) NOT NULL,
+  `valorTotalPrevisto` decimal(14,2) NOT NULL,
+  `quantidadeReservada` decimal(14,4) NOT NULL DEFAULT 0.0000,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `deletedAt` datetime(3) DEFAULT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_programacao_entrega_itens_programacaoId_idx` (`programacaoId`),
+  KEY `pnae_programacao_entrega_itens_contratoItemId_idx` (`contratoItemId`),
+  CONSTRAINT `pnae_programacao_entrega_itens_contratoItemId_fkey` FOREIGN KEY (`contratoItemId`) REFERENCES `pnae_contrato_itens` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_programacao_entrega_itens_programacaoId_fkey` FOREIGN KEY (`programacaoId`) REFERENCES `pnae_programacoes_entrega` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_programacoes_entrega
+DROP TABLE IF EXISTS `pnae_programacoes_entrega`;
+CREATE TABLE IF NOT EXISTS `pnae_programacoes_entrega` (
+  `id` varchar(191) NOT NULL,
+  `numero` varchar(191) NOT NULL,
+  `contratoId` varchar(191) NOT NULL,
+  `fornecedorId` varchar(191) NOT NULL,
+  `unidadeEscolarId` varchar(191) NOT NULL,
+  `dreId` varchar(191) NOT NULL,
+  `municipioId` varchar(191) DEFAULT NULL,
+  `dataPrevista` datetime(3) NOT NULL,
+  `periodoEntrega` varchar(191) DEFAULT NULL,
+  `status` enum('RASCUNHO','PROGRAMADA','CONFIRMADA','EM_ENTREGA','PARCIALMENTE_RECEBIDA','RECEBIDA','CANCELADA') NOT NULL DEFAULT 'RASCUNHO',
+  `observacoes` text DEFAULT NULL,
+  `confirmadaEm` datetime(3) DEFAULT NULL,
+  `confirmadaPor` varchar(191) DEFAULT NULL,
+  `canceladaEm` datetime(3) DEFAULT NULL,
+  `canceladaPor` varchar(191) DEFAULT NULL,
+  `motivoCancelamento` text DEFAULT NULL,
+  `versao` int(11) NOT NULL DEFAULT 1,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `deletedAt` datetime(3) DEFAULT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pnae_programacoes_entrega_numero_key` (`numero`),
+  KEY `pnae_programacoes_entrega_contratoId_idx` (`contratoId`),
+  KEY `pnae_programacoes_entrega_fornecedorId_idx` (`fornecedorId`),
+  KEY `pnae_programacoes_entrega_unidadeEscolarId_idx` (`unidadeEscolarId`),
+  KEY `pnae_programacoes_entrega_dreId_idx` (`dreId`),
+  KEY `pnae_programacoes_entrega_municipioId_idx` (`municipioId`),
+  KEY `pnae_programacoes_entrega_dataPrevista_idx` (`dataPrevista`),
+  KEY `pnae_programacoes_entrega_status_idx` (`status`),
+  CONSTRAINT `pnae_programacoes_entrega_contratoId_fkey` FOREIGN KEY (`contratoId`) REFERENCES `pnae_contratos` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_programacoes_entrega_dreId_fkey` FOREIGN KEY (`dreId`) REFERENCES `dres` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_programacoes_entrega_fornecedorId_fkey` FOREIGN KEY (`fornecedorId`) REFERENCES `produtores` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_programacoes_entrega_municipioId_fkey` FOREIGN KEY (`municipioId`) REFERENCES `municipios` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_programacoes_entrega_unidadeEscolarId_fkey` FOREIGN KEY (`unidadeEscolarId`) REFERENCES `escolas` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_proposta_itens
+DROP TABLE IF EXISTS `pnae_proposta_itens`;
+CREATE TABLE IF NOT EXISTS `pnae_proposta_itens` (
+  `id` varchar(191) NOT NULL,
+  `propostaId` varchar(191) NOT NULL,
+  `produto` varchar(191) NOT NULL,
+  `especificacao` varchar(191) DEFAULT NULL,
+  `quantidade` decimal(10,2) DEFAULT NULL,
+  `unidade` varchar(191) DEFAULT NULL,
+  `precoUnitario` decimal(10,2) DEFAULT NULL,
+  `valorTotal` decimal(10,2) DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `deletedAt` datetime(3) DEFAULT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  `matchId` varchar(191) DEFAULT NULL,
+  `marca` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_proposta_itens_propostaId_fkey` (`propostaId`),
+  KEY `pnae_proposta_itens_matchId_fkey` (`matchId`),
+  CONSTRAINT `pnae_proposta_itens_matchId_fkey` FOREIGN KEY (`matchId`) REFERENCES `pnae_matches` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `pnae_proposta_itens_propostaId_fkey` FOREIGN KEY (`propostaId`) REFERENCES `pnae_propostas` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_propostas
+DROP TABLE IF EXISTS `pnae_propostas`;
+CREATE TABLE IF NOT EXISTS `pnae_propostas` (
+  `id` varchar(191) NOT NULL,
+  `editalId` varchar(191) NOT NULL,
+  `numero` varchar(191) DEFAULT NULL,
+  `status` enum('RASCUNHO','GERADA','FINALIZADA','CANCELADA') NOT NULL DEFAULT 'RASCUNHO',
+  `observacao` varchar(191) DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `deletedAt` datetime(3) DEFAULT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  `produtorId` varchar(191) DEFAULT NULL,
+  `tipoDocumento` enum('ANEXO_III','PROJETO_VENDA') NOT NULL DEFAULT 'ANEXO_III',
+  `validadeDias` int(11) NOT NULL DEFAULT 30,
+  `prazoEntrega` int(11) NOT NULL DEFAULT 15,
+  `valorTotal` decimal(12,2) DEFAULT NULL,
+  `arquivoPdfPath` varchar(191) DEFAULT NULL,
+  `arquivoDocxPath` varchar(191) DEFAULT NULL,
+  `documentosJson` longtext DEFAULT NULL,
+  `categoriaParticipante` enum('INDIVIDUAL','GRUPO_INFORMAL','GRUPO_FORMAL','OUTRA') DEFAULT NULL,
+  `chamadaPublicaId` varchar(191) DEFAULT NULL,
+  `enviadoEm` datetime(3) DEFAULT NULL,
+  `identificacaoProjeto` varchar(191) DEFAULT NULL,
+  `statusHabilitacao` enum('PENDENTE','EM_ANALISE','HABILITADO','INABILITADO','PENDENTE_CORRECAO') NOT NULL DEFAULT 'PENDENTE',
+  `statusSelecao` enum('PENDENTE','CLASSIFICADO','SELECIONADO','NAO_SELECIONADO') NOT NULL DEFAULT 'PENDENTE',
+  `versaoProjeto` int(11) NOT NULL DEFAULT 1,
+  PRIMARY KEY (`id`),
+  KEY `pnae_propostas_editalId_fkey` (`editalId`),
+  KEY `pnae_propostas_produtorId_fkey` (`produtorId`),
+  KEY `pnae_propostas_chamadaPublicaId_idx` (`chamadaPublicaId`),
+  KEY `pnae_propostas_statusHabilitacao_statusSelecao_idx` (`statusHabilitacao`,`statusSelecao`),
+  CONSTRAINT `pnae_propostas_chamadaPublicaId_fkey` FOREIGN KEY (`chamadaPublicaId`) REFERENCES `pnae_chamadas_publicas` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_propostas_editalId_fkey` FOREIGN KEY (`editalId`) REFERENCES `pnae_editais` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_propostas_produtorId_fkey` FOREIGN KEY (`produtorId`) REFERENCES `produtores` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_recursos_chamadas
+DROP TABLE IF EXISTS `pnae_recursos_chamadas`;
+CREATE TABLE IF NOT EXISTS `pnae_recursos_chamadas` (
+  `id` varchar(191) NOT NULL,
+  `chamadaId` varchar(191) NOT NULL,
+  `propostaId` varchar(191) DEFAULT NULL,
+  `produtorId` varchar(191) NOT NULL,
+  `fundamentacao` text NOT NULL,
+  `anexosJson` longtext DEFAULT NULL,
+  `prazoFinal` datetime(3) DEFAULT NULL,
+  `status` enum('PENDENTE','DEFERIDO','INDEFERIDO','PARCIALMENTE_DEFERIDO') NOT NULL DEFAULT 'PENDENTE',
+  `decisao` text DEFAULT NULL,
+  `decididoEm` datetime(3) DEFAULT NULL,
+  `decididoPor` varchar(191) DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `createdBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_recursos_chamadas_chamadaId_status_idx` (`chamadaId`,`status`),
+  KEY `pnae_recursos_chamadas_produtorId_idx` (`produtorId`),
+  KEY `pnae_recursos_chamadas_propostaId_fkey` (`propostaId`),
+  CONSTRAINT `pnae_recursos_chamadas_chamadaId_fkey` FOREIGN KEY (`chamadaId`) REFERENCES `pnae_chamadas_publicas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `pnae_recursos_chamadas_produtorId_fkey` FOREIGN KEY (`produtorId`) REFERENCES `produtores` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_recursos_chamadas_propostaId_fkey` FOREIGN KEY (`propostaId`) REFERENCES `pnae_propostas` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_requisitos_habilitacao
+DROP TABLE IF EXISTS `pnae_requisitos_habilitacao`;
+CREATE TABLE IF NOT EXISTS `pnae_requisitos_habilitacao` (
+  `id` varchar(191) NOT NULL,
+  `chamadaId` varchar(191) NOT NULL,
+  `categoria` enum('INDIVIDUAL','GRUPO_INFORMAL','GRUPO_FORMAL','OUTRA') DEFAULT NULL,
+  `tipo` varchar(191) NOT NULL,
+  `descricao` varchar(191) NOT NULL,
+  `obrigatorio` tinyint(1) NOT NULL DEFAULT 1,
+  `validadeDias` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_requisitos_habilitacao_chamadaId_categoria_idx` (`chamadaId`,`categoria`),
+  CONSTRAINT `pnae_requisitos_habilitacao_chamadaId_fkey` FOREIGN KEY (`chamadaId`) REFERENCES `pnae_chamadas_publicas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_resultados_chamadas
+DROP TABLE IF EXISTS `pnae_resultados_chamadas`;
+CREATE TABLE IF NOT EXISTS `pnae_resultados_chamadas` (
+  `id` varchar(191) NOT NULL,
+  `chamadaId` varchar(191) NOT NULL,
+  `versao` int(11) NOT NULL DEFAULT 1,
+  `tipo` varchar(191) NOT NULL,
+  `geradoEm` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `geradoPor` varchar(191) DEFAULT NULL,
+  `justificativa` text DEFAULT NULL,
+  `dadosJson` longtext NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pnae_resultados_chamadas_chamadaId_versao_key` (`chamadaId`,`versao`),
+  KEY `pnae_resultados_chamadas_chamadaId_tipo_idx` (`chamadaId`,`tipo`),
+  CONSTRAINT `pnae_resultados_chamadas_chamadaId_fkey` FOREIGN KEY (`chamadaId`) REFERENCES `pnae_chamadas_publicas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_safras_producao
+DROP TABLE IF EXISTS `pnae_safras_producao`;
+CREATE TABLE IF NOT EXISTS `pnae_safras_producao` (
+  `id` varchar(191) NOT NULL,
+  `produtorId` varchar(191) NOT NULL,
+  `unidadeProdutivaId` varchar(191) DEFAULT NULL,
+  `produtoProdutorId` varchar(191) NOT NULL,
+  `nome` varchar(191) NOT NULL,
+  `inicio` datetime(3) NOT NULL,
+  `fim` datetime(3) NOT NULL,
+  `quantidadePrevista` decimal(14,4) NOT NULL,
+  `quantidadeColhida` decimal(14,4) NOT NULL DEFAULT 0.0000,
+  `perdas` decimal(14,4) NOT NULL DEFAULT 0.0000,
+  `quantidadeReservada` decimal(14,4) NOT NULL DEFAULT 0.0000,
+  `quantidadeComprometida` decimal(14,4) NOT NULL DEFAULT 0.0000,
+  `unidade` varchar(191) NOT NULL,
+  `status` enum('PLANEJADA','EM_PRODUCAO','EM_COLHEITA','COLHIDA','ENCERRADA','CANCELADA') NOT NULL DEFAULT 'PLANEJADA',
+  `versao` int(11) NOT NULL DEFAULT 1,
+  `observacoes` text DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `deletedAt` datetime(3) DEFAULT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `sdd010_safras_producao_produtorId_status_idx` (`produtorId`,`status`),
+  KEY `sdd010_safras_producao_produtoProdutorId_inicio_fim_idx` (`produtoProdutorId`,`inicio`,`fim`),
+  KEY `sdd010_safras_producao_unidadeProdutivaId_fkey` (`unidadeProdutivaId`),
+  CONSTRAINT `sdd010_safras_producao_produtoProdutorId_fkey` FOREIGN KEY (`produtoProdutorId`) REFERENCES `produtor_produtos` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `sdd010_safras_producao_produtorId_fkey` FOREIGN KEY (`produtorId`) REFERENCES `produtores` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `sdd010_safras_producao_unidadeProdutivaId_fkey` FOREIGN KEY (`unidadeProdutivaId`) REFERENCES `pnae_unidades_produtivas` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_sazonalidade_producao
+DROP TABLE IF EXISTS `pnae_sazonalidade_producao`;
+CREATE TABLE IF NOT EXISTS `pnae_sazonalidade_producao` (
+  `id` varchar(191) NOT NULL,
+  `produtorId` varchar(191) NOT NULL,
+  `safraProducaoId` varchar(191) DEFAULT NULL,
+  `produtoProdutorId` varchar(191) NOT NULL,
+  `mes` int(11) NOT NULL,
+  `quantidadePrevista` decimal(14,4) NOT NULL,
+  `unidade` varchar(191) NOT NULL,
+  `observacoes` text DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  `unidadeProdutivaId` varchar(191) DEFAULT NULL,
+  `anoReferencia` int(11) DEFAULT NULL,
+  `tipoPeriodo` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `sdd010_sazonalidade_temporal_key` (`produtorId`,`produtoProdutorId`,`unidadeProdutivaId`,`anoReferencia`,`mes`,`safraProducaoId`),
+  KEY `sdd010_sazonalidade_producao_produtorId_mes_idx` (`produtorId`,`mes`),
+  KEY `sdd010_sazonalidade_producao_safraProducaoId_fkey` (`safraProducaoId`),
+  KEY `sdd010_sazonalidade_producao_produtoProdutorId_fkey` (`produtoProdutorId`),
+  KEY `sdd010_sazonalidade_unidade_ano_idx` (`unidadeProdutivaId`,`anoReferencia`),
+  KEY `sdd010_sazonalidade_produtor_mes_ano_idx` (`produtorId`,`mes`,`anoReferencia`),
+  CONSTRAINT `sdd010_sazonalidade_producao_produtoProdutorId_fkey` FOREIGN KEY (`produtoProdutorId`) REFERENCES `produtor_produtos` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `sdd010_sazonalidade_producao_produtorId_fkey` FOREIGN KEY (`produtorId`) REFERENCES `produtores` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `sdd010_sazonalidade_producao_safraProducaoId_fkey` FOREIGN KEY (`safraProducaoId`) REFERENCES `pnae_safras_producao` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `sdd010_sazonalidade_unidade_fk` FOREIGN KEY (`unidadeProdutivaId`) REFERENCES `pnae_unidades_produtivas` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_solicitacoes_catalogo
+DROP TABLE IF EXISTS `pnae_solicitacoes_catalogo`;
+CREATE TABLE IF NOT EXISTS `pnae_solicitacoes_catalogo` (
+  `id` varchar(191) NOT NULL,
+  `nome` varchar(191) NOT NULL,
+  `categoria` varchar(191) DEFAULT NULL,
+  `unidadePadrao` varchar(191) DEFAULT NULL,
+  `justificativa` text DEFAULT NULL,
+  `status` varchar(191) NOT NULL DEFAULT 'PENDENTE',
+  `solicitanteId` varchar(191) NOT NULL,
+  `analisadoPor` varchar(191) DEFAULT NULL,
+  `analisadoEm` datetime(3) DEFAULT NULL,
+  `observacoes` text DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `sdd010_solicitacoes_catalogo_status_createdAt_idx` (`status`,`createdAt`),
+  KEY `sdd010_solicitacoes_catalogo_solicitanteId_fkey` (`solicitanteId`),
+  CONSTRAINT `sdd010_solicitacoes_catalogo_solicitanteId_fkey` FOREIGN KEY (`solicitanteId`) REFERENCES `users` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_template_versoes
+DROP TABLE IF EXISTS `pnae_template_versoes`;
+CREATE TABLE IF NOT EXISTS `pnae_template_versoes` (
+  `id` varchar(191) NOT NULL,
+  `templateId` varchar(191) NOT NULL,
+  `numero` int(11) NOT NULL,
+  `titulo` varchar(191) NOT NULL,
+  `conteudo` longtext DEFAULT NULL,
+  `formato` enum('HTML','DOCX','TEXTO','PDF') NOT NULL,
+  `arquivoBase` varchar(191) DEFAULT NULL,
+  `vigenciaInicio` datetime(3) DEFAULT NULL,
+  `vigenciaFim` datetime(3) DEFAULT NULL,
+  `observacao` text DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `createdBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pnae_template_versoes_templateId_numero_key` (`templateId`,`numero`),
+  CONSTRAINT `pnae_template_versoes_templateId_fkey` FOREIGN KEY (`templateId`) REFERENCES `pnae_templates_documento` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_templates_documento
+DROP TABLE IF EXISTS `pnae_templates_documento`;
+CREATE TABLE IF NOT EXISTS `pnae_templates_documento` (
+  `id` varchar(191) NOT NULL,
+  `tipo` enum('EDITAL_PRINCIPAL','ANEXO_I','ANEXO_II','ANEXO_III','ANEXO_IV','ANEXO_V','ANEXO_VI','ANEXO_VII') NOT NULL,
+  `numeroAnexo` int(11) DEFAULT NULL,
+  `titulo` varchar(191) NOT NULL,
+  `descricao` text DEFAULT NULL,
+  `ordem` int(11) NOT NULL DEFAULT 0,
+  `ativo` tinyint(1) NOT NULL DEFAULT 1,
+  `formato` enum('HTML','DOCX','TEXTO','PDF') NOT NULL DEFAULT 'HTML',
+  `vigenciaInicio` datetime(3) DEFAULT NULL,
+  `vigenciaFim` datetime(3) DEFAULT NULL,
+  `arquivoBase` varchar(191) DEFAULT NULL,
+  `conteudo` longtext DEFAULT NULL,
+  `versaoAtual` int(11) NOT NULL DEFAULT 1,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `deletedAt` datetime(3) DEFAULT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  `finalidade` varchar(191) NOT NULL DEFAULT 'EDITAL',
+  `perfilFornecedor` varchar(191) DEFAULT NULL,
+  `codigoModelo` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pnae_templates_documento_codigoModelo_key` (`codigoModelo`),
+  KEY `pnae_templates_documento_tipo_ativo_idx` (`tipo`,`ativo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_unidades_produtivas
+DROP TABLE IF EXISTS `pnae_unidades_produtivas`;
+CREATE TABLE IF NOT EXISTS `pnae_unidades_produtivas` (
+  `id` varchar(191) NOT NULL,
+  `produtorId` varchar(191) NOT NULL,
+  `municipioId` varchar(191) NOT NULL,
+  `nome` varchar(191) NOT NULL,
+  `comunidade` varchar(191) DEFAULT NULL,
+  `descricao` text DEFAULT NULL,
+  `areaHectares` decimal(12,4) DEFAULT NULL,
+  `latitude` decimal(12,8) DEFAULT NULL,
+  `longitude` decimal(12,8) DEFAULT NULL,
+  `status` enum('ATIVA','INATIVA') NOT NULL DEFAULT 'ATIVA',
+  `versao` int(11) NOT NULL DEFAULT 1,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `deletedAt` datetime(3) DEFAULT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `sdd010_unidades_produtivas_produtorId_status_idx` (`produtorId`,`status`),
+  KEY `sdd010_unidades_produtivas_municipioId_idx` (`municipioId`),
+  CONSTRAINT `sdd010_unidades_produtivas_municipioId_fkey` FOREIGN KEY (`municipioId`) REFERENCES `municipios` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `sdd010_unidades_produtivas_produtorId_fkey` FOREIGN KEY (`produtorId`) REFERENCES `produtores` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.pnae_vinculo_recebimento_fiscal
+DROP TABLE IF EXISTS `pnae_vinculo_recebimento_fiscal`;
+CREATE TABLE IF NOT EXISTS `pnae_vinculo_recebimento_fiscal` (
+  `id` varchar(191) NOT NULL,
+  `notaFiscalId` varchar(191) NOT NULL,
+  `notaFiscalItemId` varchar(191) NOT NULL,
+  `contratoId` varchar(191) NOT NULL,
+  `contratoItemId` varchar(191) NOT NULL,
+  `entregaId` varchar(191) NOT NULL,
+  `entregaItemId` varchar(191) NOT NULL,
+  `quantidadeVinculada` decimal(14,4) NOT NULL,
+  `valorUnitarioFiscal` decimal(14,4) NOT NULL,
+  `valorTotalVinculado` decimal(14,2) NOT NULL,
+  `observacoes` text DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `createdBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pnae_vinculo_recebimento_fiscal_notaFiscalId_idx` (`notaFiscalId`),
+  KEY `pnae_vinculo_recebimento_fiscal_notaFiscalItemId_idx` (`notaFiscalItemId`),
+  KEY `pnae_vinculo_recebimento_fiscal_contratoId_idx` (`contratoId`),
+  KEY `pnae_vinculo_recebimento_fiscal_entregaId_idx` (`entregaId`),
+  KEY `pnae_vinculo_recebimento_fiscal_entregaItemId_idx` (`entregaItemId`),
+  KEY `pnae_vinculo_recebimento_fiscal_contratoItemId_fkey` (`contratoItemId`),
+  CONSTRAINT `pnae_vinculo_recebimento_fiscal_contratoId_fkey` FOREIGN KEY (`contratoId`) REFERENCES `pnae_contratos` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_vinculo_recebimento_fiscal_contratoItemId_fkey` FOREIGN KEY (`contratoItemId`) REFERENCES `pnae_contrato_itens` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_vinculo_recebimento_fiscal_entregaId_fkey` FOREIGN KEY (`entregaId`) REFERENCES `pnae_entregas` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_vinculo_recebimento_fiscal_entregaItemId_fkey` FOREIGN KEY (`entregaItemId`) REFERENCES `pnae_entrega_itens` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_vinculo_recebimento_fiscal_notaFiscalId_fkey` FOREIGN KEY (`notaFiscalId`) REFERENCES `pnae_notas_fiscais` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `pnae_vinculo_recebimento_fiscal_notaFiscalItemId_fkey` FOREIGN KEY (`notaFiscalItemId`) REFERENCES `pnae_nota_fiscal_itens` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.produtor_produtos
+DROP TABLE IF EXISTS `produtor_produtos`;
+CREATE TABLE IF NOT EXISTS `produtor_produtos` (
+  `id` varchar(191) NOT NULL,
+  `produtorId` varchar(191) NOT NULL,
+  `produto` varchar(191) NOT NULL,
+  `capacidade` varchar(191) DEFAULT NULL,
+  `periodoProducao` varchar(191) DEFAULT NULL,
+  `precoSugerido` decimal(10,2) DEFAULT NULL,
+  `unidade` varchar(191) DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `deletedAt` datetime(3) DEFAULT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  `produtoReferenciaId` varchar(191) DEFAULT NULL,
+  `status` enum('ATIVO','INATIVO') NOT NULL DEFAULT 'ATIVO',
+  `unidadeProdutivaId` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `produtor_produtos_produtorId_fkey` (`produtorId`),
+  KEY `produtor_produtos_produtoReferenciaId_fkey` (`produtoReferenciaId`),
+  KEY `produtor_produtos_unidadeProdutivaId_fkey` (`unidadeProdutivaId`),
+  CONSTRAINT `produtor_produtos_produtoReferenciaId_fkey` FOREIGN KEY (`produtoReferenciaId`) REFERENCES `pnae_produtos_referencia` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `produtor_produtos_produtorId_fkey` FOREIGN KEY (`produtorId`) REFERENCES `produtores` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `produtor_produtos_unidadeProdutivaId_fkey` FOREIGN KEY (`unidadeProdutivaId`) REFERENCES `pnae_unidades_produtivas` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.produtores
+DROP TABLE IF EXISTS `produtores`;
+CREATE TABLE IF NOT EXISTS `produtores` (
+  `id` varchar(191) NOT NULL,
+  `nome` varchar(191) NOT NULL,
+  `cpfCnpj` varchar(191) DEFAULT NULL,
+  `municipioId` varchar(191) NOT NULL,
+  `endereco` varchar(191) DEFAULT NULL,
+  `telefone` varchar(191) DEFAULT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT 1,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `deletedAt` datetime(3) DEFAULT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  `dadosDocumentais` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`dadosDocumentais`)),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `produtores_cpfCnpj_key` (`cpfCnpj`),
+  KEY `produtores_municipioId_fkey` (`municipioId`),
+  CONSTRAINT `produtores_municipioId_fkey` FOREIGN KEY (`municipioId`) REFERENCES `municipios` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.representacoes_fornecedor
+DROP TABLE IF EXISTS `representacoes_fornecedor`;
+CREATE TABLE IF NOT EXISTS `representacoes_fornecedor` (
+  `id` varchar(191) NOT NULL,
+  `userId` varchar(191) NOT NULL,
+  `produtorId` varchar(191) NOT NULL,
+  `tipoRepresentacao` varchar(50) NOT NULL DEFAULT 'REPRESENTANTE',
+  `autorizacaoDocumento` varchar(500) DEFAULT NULL,
+  `vigenciaInicio` datetime(3) NOT NULL,
+  `vigenciaFim` datetime(3) DEFAULT NULL,
+  `ativo` tinyint(1) NOT NULL DEFAULT 1,
+  `revogadoEm` datetime(3) DEFAULT NULL,
+  `revogadoPor` varchar(191) DEFAULT NULL,
+  `motivoRevogacao` text DEFAULT NULL,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  `permissoes` varchar(191) NOT NULL DEFAULT 'CONSULTAR',
+  PRIMARY KEY (`id`),
+  KEY `representacoes_fornecedor_userId_idx` (`userId`),
+  KEY `representacoes_fornecedor_produtorId_idx` (`produtorId`),
+  KEY `representacoes_fornecedor_vigencia_idx` (`vigenciaInicio`,`vigenciaFim`),
+  CONSTRAINT `representacoes_fornecedor_produtorId_fkey` FOREIGN KEY (`produtorId`) REFERENCES `produtores` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `representacoes_fornecedor_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.users
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` varchar(191) NOT NULL,
+  `name` varchar(191) NOT NULL,
+  `email` varchar(191) NOT NULL,
+  `passwordHash` varchar(191) NOT NULL,
+  `role` enum('ADMIN','ESCOLA','EXTENSIONISTA','DRE','PRODUTOR') NOT NULL DEFAULT 'ADMIN',
+  `active` tinyint(1) NOT NULL DEFAULT 1,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `deletedAt` datetime(3) DEFAULT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  `escolaId` varchar(191) DEFAULT NULL,
+  `municipioId` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_key` (`email`),
+  KEY `users_escolaId_idx` (`escolaId`),
+  KEY `users_municipioId_idx` (`municipioId`),
+  CONSTRAINT `users_escolaId_fkey` FOREIGN KEY (`escolaId`) REFERENCES `escolas` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `users_municipioId_fkey` FOREIGN KEY (`municipioId`) REFERENCES `municipios` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.vinculo_escola_dre
+DROP TABLE IF EXISTS `vinculo_escola_dre`;
+CREATE TABLE IF NOT EXISTS `vinculo_escola_dre` (
+  `id` varchar(191) NOT NULL,
+  `escolaId` varchar(191) NOT NULL,
+  `dreId` varchar(191) NOT NULL,
+  `vigenciaInicio` datetime(3) NOT NULL,
+  `vigenciaFim` datetime(3) DEFAULT NULL,
+  `ativo` tinyint(1) NOT NULL DEFAULT 1,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `vinculo_escola_dre_escolaId_idx` (`escolaId`),
+  KEY `vinculo_escola_dre_dreId_idx` (`dreId`),
+  KEY `vinculo_escola_dre_vigencia_idx` (`vigenciaInicio`,`vigenciaFim`),
+  CONSTRAINT `vinculo_escola_dre_dreId_fkey` FOREIGN KEY (`dreId`) REFERENCES `dres` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `vinculo_escola_dre_escolaId_fkey` FOREIGN KEY (`escolaId`) REFERENCES `escolas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela merenda_pnae.vinculos_usuario
+DROP TABLE IF EXISTS `vinculos_usuario`;
+CREATE TABLE IF NOT EXISTS `vinculos_usuario` (
+  `id` varchar(191) NOT NULL,
+  `userId` varchar(191) NOT NULL,
+  `funcao` enum('ADMIN','ESCOLA','EXTENSIONISTA','DRE','PRODUTOR') NOT NULL,
+  `dreId` varchar(191) DEFAULT NULL,
+  `escolaId` varchar(191) DEFAULT NULL,
+  `municipioId` varchar(191) DEFAULT NULL,
+  `vigenciaInicio` datetime(3) NOT NULL,
+  `vigenciaFim` datetime(3) DEFAULT NULL,
+  `ativo` tinyint(1) NOT NULL DEFAULT 1,
+  `createdAt` datetime(3) NOT NULL DEFAULT current_timestamp(3),
+  `updatedAt` datetime(3) NOT NULL,
+  `createdBy` varchar(191) DEFAULT NULL,
+  `updatedBy` varchar(191) DEFAULT NULL,
+  `produtorId` varchar(191) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `vinculos_usuario_userId_idx` (`userId`),
+  KEY `vinculos_usuario_dreId_idx` (`dreId`),
+  KEY `vinculos_usuario_escolaId_idx` (`escolaId`),
+  KEY `vinculos_usuario_vigencia_idx` (`vigenciaInicio`,`vigenciaFim`),
+  KEY `vinculos_usuario_municipioId_fkey` (`municipioId`),
+  KEY `vinculos_usuario_produtorId_idx` (`produtorId`),
+  CONSTRAINT `vinculos_usuario_dreId_fkey` FOREIGN KEY (`dreId`) REFERENCES `dres` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `vinculos_usuario_escolaId_fkey` FOREIGN KEY (`escolaId`) REFERENCES `escolas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `vinculos_usuario_municipioId_fkey` FOREIGN KEY (`municipioId`) REFERENCES `municipios` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `vinculos_usuario_produtorId_fkey` FOREIGN KEY (`produtorId`) REFERENCES `produtores` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `vinculos_usuario_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Exportação de dados foi desmarcado.
+
+/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

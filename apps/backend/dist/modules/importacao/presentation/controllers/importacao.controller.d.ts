@@ -5,17 +5,17 @@ export declare class ImportacaoController {
     findAll(query: any): Promise<{
         items: {
             id: string;
+            editalId: string | null;
+            objeto: string | null;
+            status: import(".prisma/client").$Enums.StatusImportacao;
             createdAt: Date;
             updatedAt: Date;
-            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            status: import(".prisma/client").$Enums.StatusImportacao;
-            objeto: string | null;
-            editalId: string | null;
-            origem: string;
+            deletedAt: Date | null;
             arquivoNome: string;
             arquivoCaminho: string;
+            origem: string;
             tituloExtraido: string | null;
             numeroExtraido: string | null;
             anoExtraido: number | null;
@@ -41,17 +41,17 @@ export declare class ImportacaoController {
         createdBy?: string;
     }): Promise<{
         id: string;
+        editalId: string | null;
+        objeto: string | null;
+        status: import(".prisma/client").$Enums.StatusImportacao;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        status: import(".prisma/client").$Enums.StatusImportacao;
-        objeto: string | null;
-        editalId: string | null;
-        origem: string;
+        deletedAt: Date | null;
         arquivoNome: string;
         arquivoCaminho: string;
+        origem: string;
         tituloExtraido: string | null;
         numeroExtraido: string | null;
         anoExtraido: number | null;

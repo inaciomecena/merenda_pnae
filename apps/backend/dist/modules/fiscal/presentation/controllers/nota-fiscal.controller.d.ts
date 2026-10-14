@@ -52,14 +52,14 @@ export declare class NotaFiscalController {
     findOne(id: string, req: Request): Promise<import("../../application/services/fiscal-presenter").NotaFiscalDetail>;
     conciliar(id: string, req: Request): Promise<{
         id: string;
+        numero: string;
+        status: import(".prisma/client").$Enums.StatusNotaFiscal;
+        observacoes: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        status: import(".prisma/client").$Enums.StatusNotaFiscal;
-        numero: string;
-        observacoes: string | null;
+        deletedAt: Date | null;
         valorTotal: import("@prisma/client/runtime/library").Decimal;
         dataRecebimento: Date;
         contratoId: string;

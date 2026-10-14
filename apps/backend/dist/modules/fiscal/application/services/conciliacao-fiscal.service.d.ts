@@ -11,14 +11,14 @@ export declare class ConciliacaoFiscalService {
     constructor(prisma: PrismaService, audit: AuditService, acesso: FiscalAcessoService);
     conciliar(notaFiscalId: string, user: AuthenticatedUser): Promise<{
         id: string;
+        numero: string;
+        status: import(".prisma/client").$Enums.StatusNotaFiscal;
+        observacoes: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        status: import(".prisma/client").$Enums.StatusNotaFiscal;
-        numero: string;
-        observacoes: string | null;
+        deletedAt: Date | null;
         valorTotal: Prisma.Decimal;
         dataRecebimento: Date;
         contratoId: string;

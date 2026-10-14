@@ -23,7 +23,7 @@ export interface ResultadoHomologacao {
     itensComPendencia: number;
     procedimentos: ResultadoProcedimento[];
 }
-export declare function decidirEscritaHomologacao(databaseConectado: string | null | undefined): {
+export declare function decidirEscritaImportacao(databaseConectado: string | null | undefined, hostname: string | null | undefined, porta: number, urlBruta: string | undefined, confirmacao: string | undefined): {
     permitido: boolean;
     motivo: string;
 };
@@ -37,9 +37,10 @@ export declare class ExecutorImportacaoHistorica {
     private readonly policy;
     private readonly audit;
     constructor(prisma: PrismaService, policy: PolicyService, audit: AuditService);
-    private exigirAmbienteIsolado;
+    private exigirDestinoConfirmado;
     executar(staging: StagingEdital[], user: AuthenticatedUser, opcoes?: {
         aplicarPendencias?: boolean;
+        confirmacaoDestino?: string;
     }): Promise<ResultadoHomologacao>;
     private importarProcedimento;
     private montarItem;

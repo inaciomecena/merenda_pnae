@@ -26,30 +26,50 @@ export declare class EntregaController {
     }>;
     arquivo(id: string, documentoId: string, req: any, res: Response): Promise<void>;
     create(dto: CreateEntregaDto, req: any): Promise<{
-        municipio: {
-            id: string;
-            nome: string;
-            uf: string;
-        } | null;
         dre: {
             id: string;
             nome: string;
             codigo: string | null;
         };
+        municipio: {
+            id: string;
+            nome: string;
+            uf: string;
+        } | null;
+        documentos: {
+            id: string;
+            createdAt: Date;
+            createdBy: string | null;
+            titulo: string;
+            observacao: string | null;
+            versao: number;
+            tipo: import(".prisma/client").$Enums.TipoDocumentoEntrega;
+            geradoEm: Date | null;
+            geradoPor: string | null;
+            arquivoNome: string | null;
+            arquivoPath: string | null;
+            mimeType: string | null;
+            hashSha256: string | null;
+            tamanhoBytes: number | null;
+            formalizado: boolean;
+            assinaturaDigital: boolean;
+            origemAssinatura: import(".prisma/client").$Enums.OrigemAssinaturaEntrega | null;
+            entregaId: string;
+        }[];
         itens: ({
             programacaoItem: {
                 contratoItem: {
-                    unidade: string | null;
                     produto: string;
+                    unidade: string | null;
                     valorUnitario: import("@prisma/client/runtime/library").Decimal;
                 };
             } & {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
+                deletedAt: Date | null;
                 produto: string;
                 contratoItemId: string;
                 programacaoId: string;
@@ -61,12 +81,12 @@ export declare class EntregaController {
             };
         } & {
             id: string;
+            observacoes: string | null;
             createdAt: Date;
             updatedAt: Date;
-            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            observacoes: string | null;
+            deletedAt: Date | null;
             quantidadeAceita: import("@prisma/client/runtime/library").Decimal;
             quantidadeInformada: import("@prisma/client/runtime/library").Decimal;
             quantidadeRejeitada: import("@prisma/client/runtime/library").Decimal;
@@ -74,26 +94,6 @@ export declare class EntregaController {
             programacaoItemId: string;
             motivoRejeicao: string | null;
         })[];
-        documentos: {
-            id: string;
-            createdAt: Date;
-            createdBy: string | null;
-            titulo: string;
-            tipo: import(".prisma/client").$Enums.TipoDocumentoEntrega;
-            observacao: string | null;
-            arquivoNome: string | null;
-            arquivoPath: string | null;
-            versao: number;
-            mimeType: string | null;
-            tamanhoBytes: number | null;
-            hashSha256: string | null;
-            formalizado: boolean;
-            assinaturaDigital: boolean;
-            origemAssinatura: import(".prisma/client").$Enums.OrigemAssinaturaEntrega | null;
-            geradoEm: Date | null;
-            geradoPor: string | null;
-            entregaId: string;
-        }[];
         programacao: {
             contrato: {
                 numero: string;
@@ -101,16 +101,16 @@ export declare class EntregaController {
             };
         } & {
             id: string;
+            numero: string;
+            dreId: string;
+            municipioId: string | null;
+            status: import(".prisma/client").$Enums.StatusProgramacaoEntrega;
+            observacoes: string | null;
             createdAt: Date;
             updatedAt: Date;
-            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            municipioId: string | null;
-            dreId: string;
-            status: import(".prisma/client").$Enums.StatusProgramacaoEntrega;
-            numero: string;
-            observacoes: string | null;
+            deletedAt: Date | null;
             versao: number;
             contratoId: string;
             fornecedorId: string;
@@ -135,15 +135,15 @@ export declare class EntregaController {
         };
         ocorrencias: {
             id: string;
+            status: import(".prisma/client").$Enums.StatusOcorrenciaEntrega;
+            responsavelId: string | null;
             createdAt: Date;
             updatedAt: Date;
-            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            status: import(".prisma/client").$Enums.StatusOcorrenciaEntrega;
             descricao: string;
+            deletedAt: Date | null;
             tipo: import(".prisma/client").$Enums.TipoOcorrenciaEntrega;
-            responsavelId: string | null;
             entregaId: string;
             entregaItemId: string | null;
             dataOcorrencia: Date;
@@ -154,16 +154,16 @@ export declare class EntregaController {
         }[];
     } & {
         id: string;
+        numero: string;
+        dreId: string;
+        municipioId: string | null;
+        status: import(".prisma/client").$Enums.StatusEntrega;
+        observacoes: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        municipioId: string | null;
-        dreId: string;
-        status: import(".prisma/client").$Enums.StatusEntrega;
-        numero: string;
-        observacoes: string | null;
+        deletedAt: Date | null;
         programacaoId: string;
         fornecedorId: string;
         unidadeEscolarId: string;
@@ -179,6 +179,13 @@ export declare class EntregaController {
             dre: {
                 nome: string;
             };
+            documentos: {
+                id: string;
+                titulo: string;
+                versao: number;
+                tipo: import(".prisma/client").$Enums.TipoDocumentoEntrega;
+                assinaturaDigital: boolean;
+            }[];
             itens: {
                 id: string;
                 quantidadeAceita: import("@prisma/client/runtime/library").Decimal;
@@ -188,19 +195,12 @@ export declare class EntregaController {
                     produto: string;
                 };
             }[];
-            documentos: {
-                id: string;
-                titulo: string;
-                tipo: import(".prisma/client").$Enums.TipoDocumentoEntrega;
-                versao: number;
-                assinaturaDigital: boolean;
-            }[];
             programacao: {
+                numero: string;
                 contrato: {
                     numero: string;
                     exercicio: number;
                 };
-                numero: string;
             };
             fornecedor: {
                 nome: string;
@@ -216,16 +216,16 @@ export declare class EntregaController {
             }[];
         } & {
             id: string;
+            numero: string;
+            dreId: string;
+            municipioId: string | null;
+            status: import(".prisma/client").$Enums.StatusEntrega;
+            observacoes: string | null;
             createdAt: Date;
             updatedAt: Date;
-            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            municipioId: string | null;
-            dreId: string;
-            status: import(".prisma/client").$Enums.StatusEntrega;
-            numero: string;
-            observacoes: string | null;
+            deletedAt: Date | null;
             programacaoId: string;
             fornecedorId: string;
             unidadeEscolarId: string;
@@ -242,30 +242,50 @@ export declare class EntregaController {
         totalPages: number;
     }>;
     findById(id: string, req: any): Promise<{
-        municipio: {
-            id: string;
-            nome: string;
-            uf: string;
-        } | null;
         dre: {
             id: string;
             nome: string;
             codigo: string | null;
         };
+        municipio: {
+            id: string;
+            nome: string;
+            uf: string;
+        } | null;
+        documentos: {
+            id: string;
+            createdAt: Date;
+            createdBy: string | null;
+            titulo: string;
+            observacao: string | null;
+            versao: number;
+            tipo: import(".prisma/client").$Enums.TipoDocumentoEntrega;
+            geradoEm: Date | null;
+            geradoPor: string | null;
+            arquivoNome: string | null;
+            arquivoPath: string | null;
+            mimeType: string | null;
+            hashSha256: string | null;
+            tamanhoBytes: number | null;
+            formalizado: boolean;
+            assinaturaDigital: boolean;
+            origemAssinatura: import(".prisma/client").$Enums.OrigemAssinaturaEntrega | null;
+            entregaId: string;
+        }[];
         itens: ({
             programacaoItem: {
                 contratoItem: {
-                    unidade: string | null;
                     produto: string;
+                    unidade: string | null;
                     valorUnitario: import("@prisma/client/runtime/library").Decimal;
                 };
             } & {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
+                deletedAt: Date | null;
                 produto: string;
                 contratoItemId: string;
                 programacaoId: string;
@@ -277,12 +297,12 @@ export declare class EntregaController {
             };
         } & {
             id: string;
+            observacoes: string | null;
             createdAt: Date;
             updatedAt: Date;
-            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            observacoes: string | null;
+            deletedAt: Date | null;
             quantidadeAceita: import("@prisma/client/runtime/library").Decimal;
             quantidadeInformada: import("@prisma/client/runtime/library").Decimal;
             quantidadeRejeitada: import("@prisma/client/runtime/library").Decimal;
@@ -290,26 +310,6 @@ export declare class EntregaController {
             programacaoItemId: string;
             motivoRejeicao: string | null;
         })[];
-        documentos: {
-            id: string;
-            createdAt: Date;
-            createdBy: string | null;
-            titulo: string;
-            tipo: import(".prisma/client").$Enums.TipoDocumentoEntrega;
-            observacao: string | null;
-            arquivoNome: string | null;
-            arquivoPath: string | null;
-            versao: number;
-            mimeType: string | null;
-            tamanhoBytes: number | null;
-            hashSha256: string | null;
-            formalizado: boolean;
-            assinaturaDigital: boolean;
-            origemAssinatura: import(".prisma/client").$Enums.OrigemAssinaturaEntrega | null;
-            geradoEm: Date | null;
-            geradoPor: string | null;
-            entregaId: string;
-        }[];
         programacao: {
             contrato: {
                 numero: string;
@@ -317,16 +317,16 @@ export declare class EntregaController {
             };
         } & {
             id: string;
+            numero: string;
+            dreId: string;
+            municipioId: string | null;
+            status: import(".prisma/client").$Enums.StatusProgramacaoEntrega;
+            observacoes: string | null;
             createdAt: Date;
             updatedAt: Date;
-            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            municipioId: string | null;
-            dreId: string;
-            status: import(".prisma/client").$Enums.StatusProgramacaoEntrega;
-            numero: string;
-            observacoes: string | null;
+            deletedAt: Date | null;
             versao: number;
             contratoId: string;
             fornecedorId: string;
@@ -351,15 +351,15 @@ export declare class EntregaController {
         };
         ocorrencias: {
             id: string;
+            status: import(".prisma/client").$Enums.StatusOcorrenciaEntrega;
+            responsavelId: string | null;
             createdAt: Date;
             updatedAt: Date;
-            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            status: import(".prisma/client").$Enums.StatusOcorrenciaEntrega;
             descricao: string;
+            deletedAt: Date | null;
             tipo: import(".prisma/client").$Enums.TipoOcorrenciaEntrega;
-            responsavelId: string | null;
             entregaId: string;
             entregaItemId: string | null;
             dataOcorrencia: Date;
@@ -370,16 +370,16 @@ export declare class EntregaController {
         }[];
     } & {
         id: string;
+        numero: string;
+        dreId: string;
+        municipioId: string | null;
+        status: import(".prisma/client").$Enums.StatusEntrega;
+        observacoes: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        municipioId: string | null;
-        dreId: string;
-        status: import(".prisma/client").$Enums.StatusEntrega;
-        numero: string;
-        observacoes: string | null;
+        deletedAt: Date | null;
         programacaoId: string;
         fornecedorId: string;
         unidadeEscolarId: string;
@@ -393,30 +393,50 @@ export declare class EntregaController {
     conferir(id: string, dto: ConferirEntregaDto, req: any): Promise<any>;
     aceitar(id: string, dto: AceitarEntregaDto, req: any): Promise<any>;
     estornar(id: string, dto: EstornarEntregaDto, req: any): Promise<{
-        municipio: {
-            id: string;
-            nome: string;
-            uf: string;
-        } | null;
         dre: {
             id: string;
             nome: string;
             codigo: string | null;
         };
+        municipio: {
+            id: string;
+            nome: string;
+            uf: string;
+        } | null;
+        documentos: {
+            id: string;
+            createdAt: Date;
+            createdBy: string | null;
+            titulo: string;
+            observacao: string | null;
+            versao: number;
+            tipo: import(".prisma/client").$Enums.TipoDocumentoEntrega;
+            geradoEm: Date | null;
+            geradoPor: string | null;
+            arquivoNome: string | null;
+            arquivoPath: string | null;
+            mimeType: string | null;
+            hashSha256: string | null;
+            tamanhoBytes: number | null;
+            formalizado: boolean;
+            assinaturaDigital: boolean;
+            origemAssinatura: import(".prisma/client").$Enums.OrigemAssinaturaEntrega | null;
+            entregaId: string;
+        }[];
         itens: ({
             programacaoItem: {
                 contratoItem: {
-                    unidade: string | null;
                     produto: string;
+                    unidade: string | null;
                     valorUnitario: import("@prisma/client/runtime/library").Decimal;
                 };
             } & {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
+                deletedAt: Date | null;
                 produto: string;
                 contratoItemId: string;
                 programacaoId: string;
@@ -428,12 +448,12 @@ export declare class EntregaController {
             };
         } & {
             id: string;
+            observacoes: string | null;
             createdAt: Date;
             updatedAt: Date;
-            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            observacoes: string | null;
+            deletedAt: Date | null;
             quantidadeAceita: import("@prisma/client/runtime/library").Decimal;
             quantidadeInformada: import("@prisma/client/runtime/library").Decimal;
             quantidadeRejeitada: import("@prisma/client/runtime/library").Decimal;
@@ -441,26 +461,6 @@ export declare class EntregaController {
             programacaoItemId: string;
             motivoRejeicao: string | null;
         })[];
-        documentos: {
-            id: string;
-            createdAt: Date;
-            createdBy: string | null;
-            titulo: string;
-            tipo: import(".prisma/client").$Enums.TipoDocumentoEntrega;
-            observacao: string | null;
-            arquivoNome: string | null;
-            arquivoPath: string | null;
-            versao: number;
-            mimeType: string | null;
-            tamanhoBytes: number | null;
-            hashSha256: string | null;
-            formalizado: boolean;
-            assinaturaDigital: boolean;
-            origemAssinatura: import(".prisma/client").$Enums.OrigemAssinaturaEntrega | null;
-            geradoEm: Date | null;
-            geradoPor: string | null;
-            entregaId: string;
-        }[];
         programacao: {
             contrato: {
                 numero: string;
@@ -468,16 +468,16 @@ export declare class EntregaController {
             };
         } & {
             id: string;
+            numero: string;
+            dreId: string;
+            municipioId: string | null;
+            status: import(".prisma/client").$Enums.StatusProgramacaoEntrega;
+            observacoes: string | null;
             createdAt: Date;
             updatedAt: Date;
-            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            municipioId: string | null;
-            dreId: string;
-            status: import(".prisma/client").$Enums.StatusProgramacaoEntrega;
-            numero: string;
-            observacoes: string | null;
+            deletedAt: Date | null;
             versao: number;
             contratoId: string;
             fornecedorId: string;
@@ -502,15 +502,15 @@ export declare class EntregaController {
         };
         ocorrencias: {
             id: string;
+            status: import(".prisma/client").$Enums.StatusOcorrenciaEntrega;
+            responsavelId: string | null;
             createdAt: Date;
             updatedAt: Date;
-            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            status: import(".prisma/client").$Enums.StatusOcorrenciaEntrega;
             descricao: string;
+            deletedAt: Date | null;
             tipo: import(".prisma/client").$Enums.TipoOcorrenciaEntrega;
-            responsavelId: string | null;
             entregaId: string;
             entregaItemId: string | null;
             dataOcorrencia: Date;
@@ -521,16 +521,16 @@ export declare class EntregaController {
         }[];
     } & {
         id: string;
+        numero: string;
+        dreId: string;
+        municipioId: string | null;
+        status: import(".prisma/client").$Enums.StatusEntrega;
+        observacoes: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        municipioId: string | null;
-        dreId: string;
-        status: import(".prisma/client").$Enums.StatusEntrega;
-        numero: string;
-        observacoes: string | null;
+        deletedAt: Date | null;
         programacaoId: string;
         fornecedorId: string;
         unidadeEscolarId: string;
@@ -542,30 +542,50 @@ export declare class EntregaController {
         aceitaPor: string | null;
     }>;
     transicionar(id: string, dto: TransicaoEntregaDto, req: any): Promise<{
-        municipio: {
-            id: string;
-            nome: string;
-            uf: string;
-        } | null;
         dre: {
             id: string;
             nome: string;
             codigo: string | null;
         };
+        municipio: {
+            id: string;
+            nome: string;
+            uf: string;
+        } | null;
+        documentos: {
+            id: string;
+            createdAt: Date;
+            createdBy: string | null;
+            titulo: string;
+            observacao: string | null;
+            versao: number;
+            tipo: import(".prisma/client").$Enums.TipoDocumentoEntrega;
+            geradoEm: Date | null;
+            geradoPor: string | null;
+            arquivoNome: string | null;
+            arquivoPath: string | null;
+            mimeType: string | null;
+            hashSha256: string | null;
+            tamanhoBytes: number | null;
+            formalizado: boolean;
+            assinaturaDigital: boolean;
+            origemAssinatura: import(".prisma/client").$Enums.OrigemAssinaturaEntrega | null;
+            entregaId: string;
+        }[];
         itens: ({
             programacaoItem: {
                 contratoItem: {
-                    unidade: string | null;
                     produto: string;
+                    unidade: string | null;
                     valorUnitario: import("@prisma/client/runtime/library").Decimal;
                 };
             } & {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                deletedAt: Date | null;
                 createdBy: string | null;
                 updatedBy: string | null;
+                deletedAt: Date | null;
                 produto: string;
                 contratoItemId: string;
                 programacaoId: string;
@@ -577,12 +597,12 @@ export declare class EntregaController {
             };
         } & {
             id: string;
+            observacoes: string | null;
             createdAt: Date;
             updatedAt: Date;
-            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            observacoes: string | null;
+            deletedAt: Date | null;
             quantidadeAceita: import("@prisma/client/runtime/library").Decimal;
             quantidadeInformada: import("@prisma/client/runtime/library").Decimal;
             quantidadeRejeitada: import("@prisma/client/runtime/library").Decimal;
@@ -590,26 +610,6 @@ export declare class EntregaController {
             programacaoItemId: string;
             motivoRejeicao: string | null;
         })[];
-        documentos: {
-            id: string;
-            createdAt: Date;
-            createdBy: string | null;
-            titulo: string;
-            tipo: import(".prisma/client").$Enums.TipoDocumentoEntrega;
-            observacao: string | null;
-            arquivoNome: string | null;
-            arquivoPath: string | null;
-            versao: number;
-            mimeType: string | null;
-            tamanhoBytes: number | null;
-            hashSha256: string | null;
-            formalizado: boolean;
-            assinaturaDigital: boolean;
-            origemAssinatura: import(".prisma/client").$Enums.OrigemAssinaturaEntrega | null;
-            geradoEm: Date | null;
-            geradoPor: string | null;
-            entregaId: string;
-        }[];
         programacao: {
             contrato: {
                 numero: string;
@@ -617,16 +617,16 @@ export declare class EntregaController {
             };
         } & {
             id: string;
+            numero: string;
+            dreId: string;
+            municipioId: string | null;
+            status: import(".prisma/client").$Enums.StatusProgramacaoEntrega;
+            observacoes: string | null;
             createdAt: Date;
             updatedAt: Date;
-            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            municipioId: string | null;
-            dreId: string;
-            status: import(".prisma/client").$Enums.StatusProgramacaoEntrega;
-            numero: string;
-            observacoes: string | null;
+            deletedAt: Date | null;
             versao: number;
             contratoId: string;
             fornecedorId: string;
@@ -651,15 +651,15 @@ export declare class EntregaController {
         };
         ocorrencias: {
             id: string;
+            status: import(".prisma/client").$Enums.StatusOcorrenciaEntrega;
+            responsavelId: string | null;
             createdAt: Date;
             updatedAt: Date;
-            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            status: import(".prisma/client").$Enums.StatusOcorrenciaEntrega;
             descricao: string;
+            deletedAt: Date | null;
             tipo: import(".prisma/client").$Enums.TipoOcorrenciaEntrega;
-            responsavelId: string | null;
             entregaId: string;
             entregaItemId: string | null;
             dataOcorrencia: Date;
@@ -670,16 +670,16 @@ export declare class EntregaController {
         }[];
     } & {
         id: string;
+        numero: string;
+        dreId: string;
+        municipioId: string | null;
+        status: import(".prisma/client").$Enums.StatusEntrega;
+        observacoes: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        municipioId: string | null;
-        dreId: string;
-        status: import(".prisma/client").$Enums.StatusEntrega;
-        numero: string;
-        observacoes: string | null;
+        deletedAt: Date | null;
         programacaoId: string;
         fornecedorId: string;
         unidadeEscolarId: string;

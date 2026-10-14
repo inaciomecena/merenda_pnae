@@ -35,9 +35,6 @@ export declare class PrestacaoContasController {
     }>;
     exportar(formato: 'csv' | 'xlsx' | 'pdf', query: any, req: Request, res: Response): Promise<Response<any, Record<string, any>>>;
     listar(req: Request): Promise<({
-        escola: {
-            nome: string;
-        } | null;
         dre: {
             nome: string;
         } | null;
@@ -47,21 +44,24 @@ export declare class PrestacaoContasController {
             titulo: string;
             tipo: string;
         }[];
+        escola: {
+            nome: string;
+        } | null;
     } & {
         id: string;
+        exercicio: number;
+        dreId: string | null;
+        status: import(".prisma/client").$Enums.StatusPrestacaoContas;
+        observacoes: string | null;
         createdAt: Date;
         updatedAt: Date;
         createdBy: string;
         updatedBy: string | null;
         escolaId: string | null;
-        dreId: string | null;
-        status: import(".prisma/client").$Enums.StatusPrestacaoContas;
-        observacoes: string | null;
-        versao: number;
         enviadoEm: Date | null;
-        exercicio: number;
-        analisadoEm: Date | null;
         justificativa: string | null;
+        versao: number;
+        analisadoEm: Date | null;
         periodoInicio: Date;
         periodoFim: Date;
         aprovadoEm: Date | null;
@@ -69,19 +69,19 @@ export declare class PrestacaoContasController {
     })[]>;
     criar(body: any, req: Request): Promise<{
         id: string;
+        exercicio: number;
+        dreId: string | null;
+        status: import(".prisma/client").$Enums.StatusPrestacaoContas;
+        observacoes: string | null;
         createdAt: Date;
         updatedAt: Date;
         createdBy: string;
         updatedBy: string | null;
         escolaId: string | null;
-        dreId: string | null;
-        status: import(".prisma/client").$Enums.StatusPrestacaoContas;
-        observacoes: string | null;
-        versao: number;
         enviadoEm: Date | null;
-        exercicio: number;
-        analisadoEm: Date | null;
         justificativa: string | null;
+        versao: number;
+        analisadoEm: Date | null;
         periodoInicio: Date;
         periodoFim: Date;
         aprovadoEm: Date | null;
@@ -89,19 +89,19 @@ export declare class PrestacaoContasController {
     }>;
     atualizar(id: string, body: any, req: Request): Promise<{
         id: string;
+        exercicio: number;
+        dreId: string | null;
+        status: import(".prisma/client").$Enums.StatusPrestacaoContas;
+        observacoes: string | null;
         createdAt: Date;
         updatedAt: Date;
         createdBy: string;
         updatedBy: string | null;
         escolaId: string | null;
-        dreId: string | null;
-        status: import(".prisma/client").$Enums.StatusPrestacaoContas;
-        observacoes: string | null;
-        versao: number;
         enviadoEm: Date | null;
-        exercicio: number;
-        analisadoEm: Date | null;
         justificativa: string | null;
+        versao: number;
+        analisadoEm: Date | null;
         periodoInicio: Date;
         periodoFim: Date;
         aprovadoEm: Date | null;
@@ -109,19 +109,19 @@ export declare class PrestacaoContasController {
     } | null>;
     transicionar(id: string, status: any, justificativa: string, req: Request): Promise<{
         id: string;
+        exercicio: number;
+        dreId: string | null;
+        status: import(".prisma/client").$Enums.StatusPrestacaoContas;
+        observacoes: string | null;
         createdAt: Date;
         updatedAt: Date;
         createdBy: string;
         updatedBy: string | null;
         escolaId: string | null;
-        dreId: string | null;
-        status: import(".prisma/client").$Enums.StatusPrestacaoContas;
-        observacoes: string | null;
-        versao: number;
         enviadoEm: Date | null;
-        exercicio: number;
-        analisadoEm: Date | null;
         justificativa: string | null;
+        versao: number;
+        analisadoEm: Date | null;
         periodoInicio: Date;
         periodoFim: Date;
         aprovadoEm: Date | null;

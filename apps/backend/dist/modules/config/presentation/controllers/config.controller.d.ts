@@ -7,9 +7,9 @@ export declare class ConfigController {
         createdAt: Date;
         updatedAt: Date;
         descricao: string | null;
+        tipo: string;
         chave: string;
         valor: string;
-        tipo: string;
     }[]>;
     get(chave: string): Promise<string | null>;
     set(chave: string, body: {
@@ -21,9 +21,9 @@ export declare class ConfigController {
         createdAt: Date;
         updatedAt: Date;
         descricao: string | null;
+        tipo: string;
         chave: string;
         valor: string;
-        tipo: string;
     }>;
     setMany(body: Array<{
         chave: string;
@@ -35,17 +35,17 @@ export declare class ConfigController {
         createdAt: Date;
         updatedAt: Date;
         descricao: string | null;
+        tipo: string;
         chave: string;
         valor: string;
-        tipo: string;
     }[]>;
     initDefaults(): Promise<{
         id: string;
         createdAt: Date;
         updatedAt: Date;
         descricao: string | null;
+        tipo: string;
         chave: string;
         valor: string;
-        tipo: string;
     }[]>;
 }

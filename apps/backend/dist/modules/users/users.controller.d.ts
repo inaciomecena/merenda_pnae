@@ -6,12 +6,12 @@ export declare class UsersController {
     findAll(query: any): Promise<{
         items: {
             id: string;
+            municipioId: string | null;
             name: string;
+            escolaId: string | null;
+            active: boolean;
             email: string;
             role: import(".prisma/client").$Enums.Role;
-            active: boolean;
-            escolaId: string | null;
-            municipioId: string | null;
         }[];
         total: number;
         page: number;
@@ -20,35 +20,35 @@ export declare class UsersController {
     }>;
     create(body: any): Promise<{
         id: string;
+        municipioId: string | null;
         name: string;
+        escolaId: string | null;
+        active: boolean;
         email: string;
         role: import(".prisma/client").$Enums.Role;
-        active: boolean;
-        escolaId: string | null;
-        municipioId: string | null;
     }>;
     update(id: string, body: any, req: Request): Promise<{
         id: string;
+        municipioId: string | null;
         name: string;
+        escolaId: string | null;
+        active: boolean;
         email: string;
         role: import(".prisma/client").$Enums.Role;
-        active: boolean;
-        escolaId: string | null;
-        municipioId: string | null;
     }>;
     remove(id: string, req: Request): Promise<{
         id: string;
+        municipioId: string | null;
+        createdAt: Date;
+        updatedAt: Date;
+        createdBy: string | null;
+        updatedBy: string | null;
         name: string;
+        escolaId: string | null;
+        deletedAt: Date | null;
+        active: boolean;
         email: string;
         passwordHash: string;
         role: import(".prisma/client").$Enums.Role;
-        active: boolean;
-        createdAt: Date;
-        updatedAt: Date;
-        deletedAt: Date | null;
-        createdBy: string | null;
-        updatedBy: string | null;
-        escolaId: string | null;
-        municipioId: string | null;
     }>;
 }

@@ -24,47 +24,47 @@ export declare class OportunidadesPnaeController {
     obter(id: string, req: Request): Promise<any>;
     interesse(id: string, dto: InteresseOportunidadeDto, req: Request): Promise<{
         id: string;
-        produtorId: string;
         status: import(".prisma/client").$Enums.StatusInteresseOportunidade;
         observacoes: string | null;
         createdAt: Date;
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
+        chamadaId: string;
+        produtorId: string;
+        editalItemId: string;
         quantidadePretendida: import("@prisma/client/runtime/library").Decimal | null;
         solicitarAssistencia: boolean;
-        chamadaId: string;
-        editalItemId: string;
     }>;
     atualizar(id: string, dto: InteresseOportunidadeDto & {
         status?: string;
     }, req: Request): Promise<{
         id: string;
-        produtorId: string;
         status: import(".prisma/client").$Enums.StatusInteresseOportunidade;
         observacoes: string | null;
         createdAt: Date;
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
+        chamadaId: string;
+        produtorId: string;
+        editalItemId: string;
         quantidadePretendida: import("@prisma/client/runtime/library").Decimal | null;
         solicitarAssistencia: boolean;
-        chamadaId: string;
-        editalItemId: string;
     }>;
     interesses(id: string, req: Request): Promise<({
         chamada: {
             edital: {
                 id: string;
+                numero: string;
+                objeto: string | null;
+                municipioId: string | null;
                 status: import(".prisma/client").$Enums.StatusEdital;
                 observacoes: string | null;
                 createdAt: Date;
                 updatedAt: Date;
                 createdBy: string | null;
                 updatedBy: string | null;
-                numero: string;
-                objeto: string | null;
-                municipioId: string | null;
                 ano: number;
                 titulo: string;
                 descricao: string | null;
@@ -75,12 +75,6 @@ export declare class OportunidadesPnaeController {
             };
         } & {
             id: string;
-            status: import(".prisma/client").$Enums.StatusChamadaPublica;
-            observacoes: string | null;
-            createdAt: Date;
-            updatedAt: Date;
-            createdBy: string | null;
-            updatedBy: string | null;
             editalId: string;
             numero: string;
             exercicio: number;
@@ -94,43 +88,49 @@ export declare class OportunidadesPnaeController {
             prazoDocumentos: Date | null;
             localApresentacao: string | null;
             formaApresentacao: string | null;
+            status: import(".prisma/client").$Enums.StatusChamadaPublica;
             versaoPublicada: number;
             publicadaEm: Date | null;
             responsavelId: string | null;
+            observacoes: string | null;
+            createdAt: Date;
+            updatedAt: Date;
+            createdBy: string | null;
+            updatedBy: string | null;
         };
         editalItem: {
             id: string;
+            editalId: string;
             status: import(".prisma/client").$Enums.StatusItemEdital;
             observacoes: string | null;
             createdAt: Date;
             updatedAt: Date;
             createdBy: string | null;
             updatedBy: string | null;
-            editalId: string;
             deletedAt: Date | null;
-            numeroItem: number | null;
-            produtoOriginal: string;
+            valorTotal: import("@prisma/client/runtime/library").Decimal | null;
             especificacao: string | null;
             quantidade: import("@prisma/client/runtime/library").Decimal | null;
             unidade: string | null;
             precoUnitario: import("@prisma/client/runtime/library").Decimal | null;
-            valorTotal: import("@prisma/client/runtime/library").Decimal | null;
+            numeroItem: number | null;
+            produtoOriginal: string;
             produtoReferenciaId: string | null;
             pendenteEdicao: boolean;
             importadoAutomaticamente: boolean;
         };
     } & {
         id: string;
-        produtorId: string;
         status: import(".prisma/client").$Enums.StatusInteresseOportunidade;
         observacoes: string | null;
         createdAt: Date;
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
+        chamadaId: string;
+        produtorId: string;
+        editalItemId: string;
         quantidadePretendida: import("@prisma/client/runtime/library").Decimal | null;
         solicitarAssistencia: boolean;
-        chamadaId: string;
-        editalItemId: string;
     })[]>;
 }

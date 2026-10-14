@@ -1,9 +1,9 @@
 /**
- * EXECUTOR DE HOMOLOGAÇÃO da importação histórica PNAE MT 2025.
+ * EXECUTOR da importação histórica PNAE MT 2025.
  *
  * Este arquivo é a ÚNICA parte da importação histórica que escreve no banco,
- * e só fazê-lo num banco ISOLADO de homologação, validado por identidade real
- * (`SELECT DATABASE()`), nunca pelo nome do `.env` nem por `NODE_ENV`.
+ * e só fazê-lo no destino explicitamente confirmado, validado por identidade
+ * real (`SELECT DATABASE()`), host e porta; nunca pelo `.env` isoladamente.
  *
  * REUTILIZAÇÃO (nada de sistema paralelo):
  *  - `ImportacoesRepository`  → ImportLog, Edital e EditalItem.
@@ -65,23 +65,44 @@ export interface ResultadoHomologacao {
  *
  * Função pura (testável sem banco): recebe o resultado de `SELECT DATABASE()`
  * e devolve a decisão. Regras:
- *  - o nome do banco precisa conter `homolog` (identidade, não configuração);
- *  - o banco ativo `merenda_pnae` é sempre recusado, mesmo que a URL diga
- *    outra coisa;
- *  - nome vazio/indefinido é recusado (sem identidade, sem escrita).
+ *  - somente `merenda_pnae` local na porta 3306 é permitido;
+ *  - a confirmação textual deve repetir a identidade efetiva;
+ *  - nome vazio/indefinido ou URL não-loopback é recusado.
  */
-export function decidirEscritaHomologacao(databaseConectado: string | null | undefined): { permitido: boolean; motivo: string } {
+export function decidirEscritaImportacao(
+  databaseConectado: string | null | undefined,
+  hostname: string | null | undefined,
+  porta: number,
+  urlBruta: string | undefined,
+  confirmacao: string | undefined,
+): { permitido: boolean; motivo: string } {
   const nome = (databaseConectado || '').trim().toLowerCase();
   if (!nome) {
     return { permitido: false, motivo: 'sem identidade de banco (SELECT DATABASE() vazio) — escrita recusada' };
   }
-  if (nome === 'merenda_pnae') {
-    return { permitido: false, motivo: `conectado ao banco ATIVO "${databaseConectado}" — escrita recusada` };
+  if (nome !== 'merenda_pnae') {
+    return { permitido: false, motivo: `banco "${databaseConectado}" não é o destino autorizado merenda_pnae` };
   }
-  if (!nome.includes('homolog')) {
-    return { permitido: false, motivo: `banco "${databaseConectado}" não é de homologação (esperado nome contendo "homolog") — escrita recusada` };
+  if (!hostname || porta !== 3306) {
+    return { permitido: false, motivo: `identidade local inesperada (${hostname || 'host vazio'}:${porta})` };
   }
-  return { permitido: true, motivo: `banco de homologação identificado: "${databaseConectado}"` };
+  let alvoUrl: URL;
+  try {
+    if (!urlBruta) throw new Error('DATABASE_URL ausente');
+    alvoUrl = new URL(urlBruta);
+  } catch {
+    return { permitido: false, motivo: 'DATABASE_URL inválida ou ausente' };
+  }
+  const loopbacks = new Set(['localhost', '127.0.0.1', '::1']);
+  const schemaUrl = decodeURIComponent(alvoUrl.pathname.replace(/^\//, '')).toLowerCase();
+  if (alvoUrl.protocol !== 'mysql:' || !loopbacks.has(alvoUrl.hostname.toLowerCase()) || schemaUrl !== nome || Number(alvoUrl.port || 3306) !== porta) {
+    return { permitido: false, motivo: 'DATABASE_URL não identifica o schema e a instância local efetivamente conectados' };
+  }
+  const identidade = `${databaseConectado}@${hostname}:${porta}`;
+  if (confirmacao !== identidade) {
+    return { permitido: false, motivo: `confirmação obrigatória: --confirmar-destino=${identidade}` };
+  }
+  return { permitido: true, motivo: `destino local confirmado: ${identidade}` };
 }
 
 /**
@@ -112,13 +133,15 @@ export class ExecutorImportacaoHistorica {
     private readonly audit: AuditService,
   ) {}
 
-  /** Garante, na hora, que o PrismaService aponta para um banco de homologação. */
-  private async exigirAmbienteIsolado(): Promise<string> {
-    const linhas = await this.prisma.$queryRawUnsafe<Array<{ db: string | null }>>('SELECT DATABASE() AS db');
-    const database = Array.isArray(linhas) && linhas.length ? linhas[0].db : null;
-    const decisao = decidirEscritaHomologacao(database);
-    if (!decisao.permitido) throw new BadRequestException(`HOMOLOGACAO_BLOQUEADA: ${decisao.motivo}`);
-    return database as string;
+  /** Confere a identidade efetiva imediatamente antes de qualquer DML. */
+  private async exigirDestinoConfirmado(confirmacao?: string): Promise<string> {
+    const linhas = await this.prisma.$queryRawUnsafe<Array<{ db: string | null; host: string; porta: number }>>(
+      'SELECT DATABASE() AS db, @@hostname AS host, @@port AS porta',
+    );
+    const info = Array.isArray(linhas) && linhas.length ? linhas[0] : null;
+    const decisao = decidirEscritaImportacao(info?.db, info?.host, Number(info?.porta), process.env.DATABASE_URL, confirmacao);
+    if (!decisao.permitido) throw new BadRequestException(`IMPORTACAO_BLOQUEADA: ${decisao.motivo}`);
+    return info!.db!;
   }
 
   /**
@@ -129,13 +152,13 @@ export class ExecutorImportacaoHistorica {
   async executar(
     staging: StagingEdital[],
     user: AuthenticatedUser,
-    opcoes: { aplicarPendencias?: boolean } = {},
+    opcoes: { aplicarPendencias?: boolean; confirmacaoDestino?: string } = {},
   ): Promise<ResultadoHomologacao> {
     if (user.role !== 'ADMIN') {
       throw new ForbiddenException('Importação histórica exige papel administrativo');
     }
 
-    const database = await this.exigirAmbienteIsolado();
+    const database = await this.exigirDestinoConfirmado(opcoes.confirmacaoDestino);
 
     const resultado: ResultadoHomologacao = {
       banco: database,
@@ -336,7 +359,13 @@ export class ExecutorImportacaoHistorica {
         };
       });
     } catch (e) {
-      return { idPacote: s.idPacote, decisao: 'BLOQUEADO', motivos: [(e as Error).message] };
+      // Only data-level Prisma constraint failures are isolated to this procedure.
+      // Connection, transaction, schema, and unexpected failures abort the batch.
+      const errosDeDados = new Set(['P2000', 'P2002', 'P2003', 'P2004', 'P2005', 'P2006', 'P2011', 'P2012', 'P2014', 'P2025']);
+      if (!(e instanceof Prisma.PrismaClientKnownRequestError) || !errosDeDados.has(e.code)) {
+        throw e;
+      }
+      return { idPacote: s.idPacote, decisao: 'BLOQUEADO', motivos: [`${e.code}: ${e.message}`] };
     }
   }
 

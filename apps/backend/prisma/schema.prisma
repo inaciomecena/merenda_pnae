@@ -494,7 +494,7 @@ model UnidadeProdutiva {
 
   @@index([produtorId, status])
   @@index([municipioId])
-  @@map("sdd010_unidades_produtivas")
+  @@map("pnae_unidades_produtivas")
 }
 
 model SafraProducao {
@@ -527,7 +527,7 @@ model SafraProducao {
 
   @@index([produtorId, status])
   @@index([produtoProdutorId, inicio, fim])
-  @@map("sdd010_safras_producao")
+  @@map("pnae_safras_producao")
 }
 
 model SazonalidadeProducao {
@@ -554,7 +554,7 @@ model SazonalidadeProducao {
   @@unique([produtorId, produtoProdutorId, unidadeProdutivaId, anoReferencia, mes, safraProducaoId])
   @@index([produtorId, mes, anoReferencia])
   @@index([unidadeProdutivaId, anoReferencia])
-  @@map("sdd010_sazonalidade_producao")
+  @@map("pnae_sazonalidade_producao")
 }
 
 model DisponibilidadeProducao {
@@ -580,7 +580,7 @@ model DisponibilidadeProducao {
 
   @@index([produtorId, status])
   @@index([safraProducaoId])
-  @@map("sdd010_disponibilidades_producao")
+  @@map("pnae_disponibilidades_producao")
 }
 
 model LogisticaProdutor {
@@ -601,7 +601,7 @@ model LogisticaProdutor {
   updatedBy           String?
 
   @@index([produtorId, ativo])
-  @@map("sdd010_logistica_produtor")
+  @@map("pnae_logistica_produtores")
 }
 
 model InformacaoNutricional {
@@ -628,7 +628,7 @@ model InformacaoNutricional {
   updatedBy           String?
 
   @@index([produtoReferenciaId, status])
-  @@map("sdd010_informacoes_nutricionais")
+  @@map("pnae_informacoes_nutricionais")
 }
 
 model VinculoAssistenciaTecnica {
@@ -649,7 +649,7 @@ model VinculoAssistenciaTecnica {
 
   @@index([produtorId, status])
   @@index([extensionistaId, status])
-  @@map("sdd010_assistencia_tecnica")
+  @@map("pnae_assistencias_tecnicas")
 }
 
 model MapeamentoProdutoEdital {
@@ -674,7 +674,7 @@ model MapeamentoProdutoEdital {
 
   @@unique([produtoProdutorId, editalItemId])
   @@index([produtorId, revisaoStatus])
-  @@map("sdd010_mapeamentos_produto_edital")
+  @@map("pnae_mapeamentos_produto_edital")
 }
 
 model InteresseOportunidade {
@@ -697,7 +697,7 @@ model InteresseOportunidade {
   @@unique([produtorId, chamadaId, editalItemId])
   @@index([produtorId, status, updatedAt])
   @@index([chamadaId, status])
-  @@map("sdd011_interesses_oportunidade")
+  @@map("pnae_interesses_oportunidades")
 }
 
 model SolicitacaoCatalogoProduto {
@@ -716,7 +716,7 @@ model SolicitacaoCatalogoProduto {
   updatedAt     DateTime  @updatedAt
 
   @@index([status, createdAt])
-  @@map("sdd010_solicitacoes_catalogo")
+  @@map("pnae_solicitacoes_catalogo")
 }
 
 model Match {
@@ -879,7 +879,7 @@ model SystemConfig {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  @@map("pnae_system_config")
+  @@map("pnae_configuracoes_sistema")
 }
 
 enum TipoDocumentoTemplate {

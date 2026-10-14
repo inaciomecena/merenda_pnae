@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "schema": "pnae_restore_check_1791944532777",
+  "valores": [
+    51,
+    2652,
+    54,
+    6,
+    29
+  ],
+  "resumo": {
+    "chamadas2025": 51,
+    "itensImportados": 2652,
+    "documentosVinculados": 54,
+    "chamadas2026": 6,
+    "migrations": 29
+  }
+}

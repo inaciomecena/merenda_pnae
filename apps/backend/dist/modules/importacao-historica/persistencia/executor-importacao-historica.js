@@ -10,9 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ExecutorImportacaoHistorica = exports.PRODUTO_NAO_IDENTIFICADO = exports.OPERACAO_HISTORICA = void 0;
-exports.decidirEscritaHomologacao = decidirEscritaHomologacao;
+exports.decidirEscritaImportacao = decidirEscritaImportacao;
 exports.montarPeriodoInscricoes = montarPeriodoInscricoes;
 const common_1 = require("@nestjs/common");
+const client_1 = require("@prisma/client");
 const prisma_service_1 = require("../../../infrastructure/prisma/prisma.service");
 const audit_service_1 = require("../../audit/application/services/audit.service");
 const policy_service_1 = require("../../../common/auth/policy.service");
@@ -21,18 +22,36 @@ const chamadas_publicas_service_1 = require("../../chamadas-publicas/application
 const chaves_logicas_1 = require("../dominio/chaves-logicas");
 exports.OPERACAO_HISTORICA = 'importacao-historica-pnae-2025';
 exports.PRODUTO_NAO_IDENTIFICADO = '(PRODUTO_NAO_IDENTIFICADO_NO_DOCUMENTO)';
-function decidirEscritaHomologacao(databaseConectado) {
+function decidirEscritaImportacao(databaseConectado, hostname, porta, urlBruta, confirmacao) {
     const nome = (databaseConectado || '').trim().toLowerCase();
     if (!nome) {
         return { permitido: false, motivo: 'sem identidade de banco (SELECT DATABASE() vazio) — escrita recusada' };
     }
-    if (nome === 'merenda_pnae') {
-        return { permitido: false, motivo: `conectado ao banco ATIVO "${databaseConectado}" — escrita recusada` };
+    if (nome !== 'merenda_pnae') {
+        return { permitido: false, motivo: `banco "${databaseConectado}" não é o destino autorizado merenda_pnae` };
     }
-    if (!nome.includes('homolog')) {
-        return { permitido: false, motivo: `banco "${databaseConectado}" não é de homologação (esperado nome contendo "homolog") — escrita recusada` };
+    if (!hostname || porta !== 3306) {
+        return { permitido: false, motivo: `identidade local inesperada (${hostname || 'host vazio'}:${porta})` };
     }
-    return { permitido: true, motivo: `banco de homologação identificado: "${databaseConectado}"` };
+    let alvoUrl;
+    try {
+        if (!urlBruta)
+            throw new Error('DATABASE_URL ausente');
+        alvoUrl = new URL(urlBruta);
+    }
+    catch {
+        return { permitido: false, motivo: 'DATABASE_URL inválida ou ausente' };
+    }
+    const loopbacks = new Set(['localhost', '127.0.0.1', '::1']);
+    const schemaUrl = decodeURIComponent(alvoUrl.pathname.replace(/^\//, '')).toLowerCase();
+    if (alvoUrl.protocol !== 'mysql:' || !loopbacks.has(alvoUrl.hostname.toLowerCase()) || schemaUrl !== nome || Number(alvoUrl.port || 3306) !== porta) {
+        return { permitido: false, motivo: 'DATABASE_URL não identifica o schema e a instância local efetivamente conectados' };
+    }
+    const identidade = `${databaseConectado}@${hostname}:${porta}`;
+    if (confirmacao !== identidade) {
+        return { permitido: false, motivo: `confirmação obrigatória: --confirmar-destino=${identidade}` };
+    }
+    return { permitido: true, motivo: `destino local confirmado: ${identidade}` };
 }
 function montarPeriodoInscricoes(dataSessao) {
     const base = dataSessao ? new Date(dataSessao) : null;
@@ -54,19 +73,19 @@ let ExecutorImportacaoHistorica = class ExecutorImportacaoHistorica {
         this.policy = policy;
         this.audit = audit;
     }
-    async exigirAmbienteIsolado() {
-        const linhas = await this.prisma.$queryRawUnsafe('SELECT DATABASE() AS db');
-        const database = Array.isArray(linhas) && linhas.length ? linhas[0].db : null;
-        const decisao = decidirEscritaHomologacao(database);
+    async exigirDestinoConfirmado(confirmacao) {
+        const linhas = await this.prisma.$queryRawUnsafe('SELECT DATABASE() AS db, @@hostname AS host, @@port AS porta');
+        const info = Array.isArray(linhas) && linhas.length ? linhas[0] : null;
+        const decisao = decidirEscritaImportacao(info?.db, info?.host, Number(info?.porta), process.env.DATABASE_URL, confirmacao);
         if (!decisao.permitido)
-            throw new common_1.BadRequestException(`HOMOLOGACAO_BLOQUEADA: ${decisao.motivo}`);
-        return database;
+            throw new common_1.BadRequestException(`IMPORTACAO_BLOQUEADA: ${decisao.motivo}`);
+        return info.db;
     }
     async executar(staging, user, opcoes = {}) {
         if (user.role !== 'ADMIN') {
             throw new common_1.ForbiddenException('Importação histórica exige papel administrativo');
         }
-        const database = await this.exigirAmbienteIsolado();
+        const database = await this.exigirDestinoConfirmado(opcoes.confirmacaoDestino);
         const resultado = {
             banco: database,
             importados: 0,
@@ -105,7 +124,8 @@ let ExecutorImportacaoHistorica = class ExecutorImportacaoHistorica {
     async importarProcedimento(s, user, opcoes) {
         const dreId = s.vinculosInstitucionais.dre.dreId;
         const municipioId = s.vinculosInstitucionais.municipio.municipioId;
-        if (!dreId || !municipioId) {
+        const escopoEstadual = !dreId && !(s.vinculosInstitucionais.dre.nomePacote ?? '').trim();
+        if ((!dreId && !escopoEstadual) || !municipioId) {
             return {
                 idPacote: s.idPacote,
                 decisao: 'BLOQUEADO',
@@ -124,13 +144,13 @@ let ExecutorImportacaoHistorica = class ExecutorImportacaoHistorica {
                 if (jaProcessado) {
                     return { idPacote: s.idPacote, decisao: 'JA_EXISTENTE', motivos: [`idempotencia ja registrada: ${chaveOperacao}`] };
                 }
-                const colisao = await tx.chamadaPublica.findFirst({ where: { dreId, numero, exercicio } });
+                const colisao = await tx.chamadaPublica.findFirst({ where: { dreId: dreId ?? null, numero, exercicio } });
                 if (colisao) {
                     return {
                         idPacote: s.idPacote,
                         decisao: 'JA_EXISTENTE',
                         chamadaPublicaId: colisao.id,
-                        motivos: [`ChamadaPublica (dreId=${dreId}, numero=${numero}, exercicio=${exercicio}) ja existe: ${colisao.id}`],
+                        motivos: [`ChamadaPublica (dreId=${dreId ?? 'ESTADUAL'}, numero=${numero}, exercicio=${exercicio}) ja existe: ${colisao.id}`],
                     };
                 }
                 const importacoes = new importacoes_repository_1.ImportacoesRepository(tx);
@@ -228,7 +248,11 @@ let ExecutorImportacaoHistorica = class ExecutorImportacaoHistorica {
             });
         }
         catch (e) {
-            return { idPacote: s.idPacote, decisao: 'BLOQUEADO', motivos: [e.message] };
+            const errosDeDados = new Set(['P2000', 'P2002', 'P2003', 'P2004', 'P2005', 'P2006', 'P2011', 'P2012', 'P2014', 'P2025']);
+            if (!(e instanceof client_1.Prisma.PrismaClientKnownRequestError) || !errosDeDados.has(e.code)) {
+                throw e;
+            }
+            return { idPacote: s.idPacote, decisao: 'BLOQUEADO', motivos: [`${e.code}: ${e.message}`] };
         }
     }
     montarItem(i, aplicarPendencias) {

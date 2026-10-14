@@ -11,41 +11,29 @@ export declare class ProgramacaoEntregaService {
     private readonly acesso;
     constructor(prisma: PrismaService, audit: AuditService, acesso: EntregaAcessoService);
     create(dto: CreateProgramacaoEntregaDto, userId: string, userRole: string): Promise<{
-        municipio: {
-            id: string;
-            nome: string;
-            uf: string;
-        } | null;
-        contrato: {
-            status: import(".prisma/client").$Enums.StatusContrato;
-            numero: string;
-            objeto: string | null;
-            exercicio: number;
-        };
-        entregas: {
-            id: string;
-            status: import(".prisma/client").$Enums.StatusEntrega;
-            numero: string;
-            dataEntrega: Date;
-        }[];
         dre: {
             id: string;
             nome: string;
             codigo: string | null;
         };
+        municipio: {
+            id: string;
+            nome: string;
+            uf: string;
+        } | null;
         itens: ({
             contratoItem: {
-                unidade: string | null;
                 produto: string;
+                unidade: string | null;
                 valorUnitario: Prisma.Decimal;
             };
         } & {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            deletedAt: Date | null;
             produto: string;
             contratoItemId: string;
             programacaoId: string;
@@ -55,6 +43,18 @@ export declare class ProgramacaoEntregaService {
             valorTotalPrevisto: Prisma.Decimal;
             quantidadeReservada: Prisma.Decimal;
         })[];
+        entregas: {
+            id: string;
+            numero: string;
+            status: import(".prisma/client").$Enums.StatusEntrega;
+            dataEntrega: Date;
+        }[];
+        contrato: {
+            numero: string;
+            exercicio: number;
+            objeto: string | null;
+            status: import(".prisma/client").$Enums.StatusContrato;
+        };
         fornecedor: {
             id: string;
             nome: string;
@@ -67,16 +67,16 @@ export declare class ProgramacaoEntregaService {
         };
     } & {
         id: string;
+        numero: string;
+        dreId: string;
+        municipioId: string | null;
+        status: import(".prisma/client").$Enums.StatusProgramacaoEntrega;
+        observacoes: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        municipioId: string | null;
-        dreId: string;
-        status: import(".prisma/client").$Enums.StatusProgramacaoEntrega;
-        numero: string;
-        observacoes: string | null;
+        deletedAt: Date | null;
         versao: number;
         contratoId: string;
         fornecedorId: string;
@@ -90,41 +90,29 @@ export declare class ProgramacaoEntregaService {
         motivoCancelamento: string | null;
     }>;
     findById(id: string, user?: AuthenticatedUser): Promise<{
-        municipio: {
-            id: string;
-            nome: string;
-            uf: string;
-        } | null;
-        contrato: {
-            status: import(".prisma/client").$Enums.StatusContrato;
-            numero: string;
-            objeto: string | null;
-            exercicio: number;
-        };
-        entregas: {
-            id: string;
-            status: import(".prisma/client").$Enums.StatusEntrega;
-            numero: string;
-            dataEntrega: Date;
-        }[];
         dre: {
             id: string;
             nome: string;
             codigo: string | null;
         };
+        municipio: {
+            id: string;
+            nome: string;
+            uf: string;
+        } | null;
         itens: ({
             contratoItem: {
-                unidade: string | null;
                 produto: string;
+                unidade: string | null;
                 valorUnitario: Prisma.Decimal;
             };
         } & {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            deletedAt: Date | null;
             produto: string;
             contratoItemId: string;
             programacaoId: string;
@@ -134,6 +122,18 @@ export declare class ProgramacaoEntregaService {
             valorTotalPrevisto: Prisma.Decimal;
             quantidadeReservada: Prisma.Decimal;
         })[];
+        entregas: {
+            id: string;
+            numero: string;
+            status: import(".prisma/client").$Enums.StatusEntrega;
+            dataEntrega: Date;
+        }[];
+        contrato: {
+            numero: string;
+            exercicio: number;
+            objeto: string | null;
+            status: import(".prisma/client").$Enums.StatusContrato;
+        };
         fornecedor: {
             id: string;
             nome: string;
@@ -146,16 +146,16 @@ export declare class ProgramacaoEntregaService {
         };
     } & {
         id: string;
+        numero: string;
+        dreId: string;
+        municipioId: string | null;
+        status: import(".prisma/client").$Enums.StatusProgramacaoEntrega;
+        observacoes: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        municipioId: string | null;
-        dreId: string;
-        status: import(".prisma/client").$Enums.StatusProgramacaoEntrega;
-        numero: string;
-        observacoes: string | null;
+        deletedAt: Date | null;
         versao: number;
         contratoId: string;
         fornecedorId: string;
@@ -179,8 +179,8 @@ export declare class ProgramacaoEntregaService {
     calendario(mes: string, user: AuthenticatedUser): Promise<{
         items: {
             id: string;
-            status: import(".prisma/client").$Enums.StatusProgramacaoEntrega;
             numero: string;
+            status: import(".prisma/client").$Enums.StatusProgramacaoEntrega;
             fornecedor: {
                 nome: string;
             };
@@ -206,10 +206,6 @@ export declare class ProgramacaoEntregaService {
         limit?: string;
     }, user?: AuthenticatedUser): Promise<{
         items: ({
-            contrato: {
-                numero: string;
-                exercicio: number;
-            };
             dre: {
                 nome: string;
             };
@@ -218,6 +214,10 @@ export declare class ProgramacaoEntregaService {
                 unidadeMedida: string | null;
                 quantidadeProgramada: Prisma.Decimal;
             }[];
+            contrato: {
+                numero: string;
+                exercicio: number;
+            };
             fornecedor: {
                 nome: string;
             };
@@ -226,16 +226,16 @@ export declare class ProgramacaoEntregaService {
             };
         } & {
             id: string;
+            numero: string;
+            dreId: string;
+            municipioId: string | null;
+            status: import(".prisma/client").$Enums.StatusProgramacaoEntrega;
+            observacoes: string | null;
             createdAt: Date;
             updatedAt: Date;
-            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
-            municipioId: string | null;
-            dreId: string;
-            status: import(".prisma/client").$Enums.StatusProgramacaoEntrega;
-            numero: string;
-            observacoes: string | null;
+            deletedAt: Date | null;
             versao: number;
             contratoId: string;
             fornecedorId: string;
@@ -254,41 +254,29 @@ export declare class ProgramacaoEntregaService {
         totalPages: number;
     }>;
     update(id: string, dto: UpdateProgramacaoEntregaDto, userId: string, userRole: string): Promise<{
-        municipio: {
-            id: string;
-            nome: string;
-            uf: string;
-        } | null;
-        contrato: {
-            status: import(".prisma/client").$Enums.StatusContrato;
-            numero: string;
-            objeto: string | null;
-            exercicio: number;
-        };
-        entregas: {
-            id: string;
-            status: import(".prisma/client").$Enums.StatusEntrega;
-            numero: string;
-            dataEntrega: Date;
-        }[];
         dre: {
             id: string;
             nome: string;
             codigo: string | null;
         };
+        municipio: {
+            id: string;
+            nome: string;
+            uf: string;
+        } | null;
         itens: ({
             contratoItem: {
-                unidade: string | null;
                 produto: string;
+                unidade: string | null;
                 valorUnitario: Prisma.Decimal;
             };
         } & {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            deletedAt: Date | null;
             produto: string;
             contratoItemId: string;
             programacaoId: string;
@@ -298,6 +286,18 @@ export declare class ProgramacaoEntregaService {
             valorTotalPrevisto: Prisma.Decimal;
             quantidadeReservada: Prisma.Decimal;
         })[];
+        entregas: {
+            id: string;
+            numero: string;
+            status: import(".prisma/client").$Enums.StatusEntrega;
+            dataEntrega: Date;
+        }[];
+        contrato: {
+            numero: string;
+            exercicio: number;
+            objeto: string | null;
+            status: import(".prisma/client").$Enums.StatusContrato;
+        };
         fornecedor: {
             id: string;
             nome: string;
@@ -310,16 +310,16 @@ export declare class ProgramacaoEntregaService {
         };
     } & {
         id: string;
+        numero: string;
+        dreId: string;
+        municipioId: string | null;
+        status: import(".prisma/client").$Enums.StatusProgramacaoEntrega;
+        observacoes: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        municipioId: string | null;
-        dreId: string;
-        status: import(".prisma/client").$Enums.StatusProgramacaoEntrega;
-        numero: string;
-        observacoes: string | null;
+        deletedAt: Date | null;
         versao: number;
         contratoId: string;
         fornecedorId: string;
@@ -333,41 +333,29 @@ export declare class ProgramacaoEntregaService {
         motivoCancelamento: string | null;
     }>;
     transicionar(id: string, para: StatusProgramacao, motivo: string | undefined, userId: string, userRole: string): Promise<{
-        municipio: {
-            id: string;
-            nome: string;
-            uf: string;
-        } | null;
-        contrato: {
-            status: import(".prisma/client").$Enums.StatusContrato;
-            numero: string;
-            objeto: string | null;
-            exercicio: number;
-        };
-        entregas: {
-            id: string;
-            status: import(".prisma/client").$Enums.StatusEntrega;
-            numero: string;
-            dataEntrega: Date;
-        }[];
         dre: {
             id: string;
             nome: string;
             codigo: string | null;
         };
+        municipio: {
+            id: string;
+            nome: string;
+            uf: string;
+        } | null;
         itens: ({
             contratoItem: {
-                unidade: string | null;
                 produto: string;
+                unidade: string | null;
                 valorUnitario: Prisma.Decimal;
             };
         } & {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            deletedAt: Date | null;
             produto: string;
             contratoItemId: string;
             programacaoId: string;
@@ -377,6 +365,18 @@ export declare class ProgramacaoEntregaService {
             valorTotalPrevisto: Prisma.Decimal;
             quantidadeReservada: Prisma.Decimal;
         })[];
+        entregas: {
+            id: string;
+            numero: string;
+            status: import(".prisma/client").$Enums.StatusEntrega;
+            dataEntrega: Date;
+        }[];
+        contrato: {
+            numero: string;
+            exercicio: number;
+            objeto: string | null;
+            status: import(".prisma/client").$Enums.StatusContrato;
+        };
         fornecedor: {
             id: string;
             nome: string;
@@ -389,16 +389,16 @@ export declare class ProgramacaoEntregaService {
         };
     } & {
         id: string;
+        numero: string;
+        dreId: string;
+        municipioId: string | null;
+        status: import(".prisma/client").$Enums.StatusProgramacaoEntrega;
+        observacoes: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        municipioId: string | null;
-        dreId: string;
-        status: import(".prisma/client").$Enums.StatusProgramacaoEntrega;
-        numero: string;
-        observacoes: string | null;
+        deletedAt: Date | null;
         versao: number;
         contratoId: string;
         fornecedorId: string;
@@ -413,41 +413,29 @@ export declare class ProgramacaoEntregaService {
     }>;
     confirmar(id: string, idempotencyKey: string | undefined, userId: string, userRole: string): Promise<any>;
     cancelar(id: string, motivo: string, userId: string, userRole: string): Promise<{
-        municipio: {
-            id: string;
-            nome: string;
-            uf: string;
-        } | null;
-        contrato: {
-            status: import(".prisma/client").$Enums.StatusContrato;
-            numero: string;
-            objeto: string | null;
-            exercicio: number;
-        };
-        entregas: {
-            id: string;
-            status: import(".prisma/client").$Enums.StatusEntrega;
-            numero: string;
-            dataEntrega: Date;
-        }[];
         dre: {
             id: string;
             nome: string;
             codigo: string | null;
         };
+        municipio: {
+            id: string;
+            nome: string;
+            uf: string;
+        } | null;
         itens: ({
             contratoItem: {
-                unidade: string | null;
                 produto: string;
+                unidade: string | null;
                 valorUnitario: Prisma.Decimal;
             };
         } & {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            deletedAt: Date | null;
             createdBy: string | null;
             updatedBy: string | null;
+            deletedAt: Date | null;
             produto: string;
             contratoItemId: string;
             programacaoId: string;
@@ -457,6 +445,18 @@ export declare class ProgramacaoEntregaService {
             valorTotalPrevisto: Prisma.Decimal;
             quantidadeReservada: Prisma.Decimal;
         })[];
+        entregas: {
+            id: string;
+            numero: string;
+            status: import(".prisma/client").$Enums.StatusEntrega;
+            dataEntrega: Date;
+        }[];
+        contrato: {
+            numero: string;
+            exercicio: number;
+            objeto: string | null;
+            status: import(".prisma/client").$Enums.StatusContrato;
+        };
         fornecedor: {
             id: string;
             nome: string;
@@ -469,16 +469,16 @@ export declare class ProgramacaoEntregaService {
         };
     } & {
         id: string;
+        numero: string;
+        dreId: string;
+        municipioId: string | null;
+        status: import(".prisma/client").$Enums.StatusProgramacaoEntrega;
+        observacoes: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        municipioId: string | null;
-        dreId: string;
-        status: import(".prisma/client").$Enums.StatusProgramacaoEntrega;
-        numero: string;
-        observacoes: string | null;
+        deletedAt: Date | null;
         versao: number;
         contratoId: string;
         fornecedorId: string;

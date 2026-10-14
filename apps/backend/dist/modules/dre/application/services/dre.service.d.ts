@@ -21,17 +21,17 @@ export declare class DREService {
     constructor(prisma: PrismaService, auditService: AuditService, policyService: PolicyService);
     listarEntidades(): Promise<{
         id: string;
+        municipioId: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        municipioId: string | null;
+        deletedAt: Date | null;
         nome: string;
-        ativo: boolean;
-        uf: string;
         tipo: string;
         cnpj: string | null;
+        uf: string;
+        ativo: boolean;
     }[]>;
     criarEntidade(data: {
         nome: string;
@@ -41,17 +41,17 @@ export declare class DREService {
         cnpj?: string;
     }, user: AuthenticatedUser): Promise<{
         id: string;
+        municipioId: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        municipioId: string | null;
+        deletedAt: Date | null;
         nome: string;
-        ativo: boolean;
-        uf: string;
         tipo: string;
         cnpj: string | null;
+        uf: string;
+        ativo: boolean;
     }>;
     atualizarEntidade(id: string, data: {
         nome?: string;
@@ -62,17 +62,17 @@ export declare class DREService {
         ativo?: boolean;
     }, user: AuthenticatedUser): Promise<{
         id: string;
+        municipioId: string | null;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
-        municipioId: string | null;
+        deletedAt: Date | null;
         nome: string;
-        ativo: boolean;
-        uf: string;
         tipo: string;
         cnpj: string | null;
+        uf: string;
+        ativo: boolean;
     }>;
     create(data: CreateDREDto, user: AuthenticatedUser): Promise<{
         entidadeExecutora: {
@@ -84,16 +84,16 @@ export declare class DREService {
         };
     } & {
         id: string;
+        entidadeExecutoraId: string;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        deletedAt: Date | null;
         nome: string;
-        codigo: string | null;
-        entidadeExecutoraId: string;
-        municipioSede: string | null;
         ativo: boolean;
+        codigo: string | null;
+        municipioSede: string | null;
     }>;
     findAll(user: AuthenticatedUser): Promise<({
         entidadeExecutora: {
@@ -105,16 +105,16 @@ export declare class DREService {
         };
     } & {
         id: string;
+        entidadeExecutoraId: string;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        deletedAt: Date | null;
         nome: string;
-        codigo: string | null;
-        entidadeExecutoraId: string;
-        municipioSede: string | null;
         ativo: boolean;
+        codigo: string | null;
+        municipioSede: string | null;
     })[]>;
     findOne(id: string, user: AuthenticatedUser): Promise<{
         entidadeExecutora: {
@@ -124,37 +124,37 @@ export declare class DREService {
         };
         vinculosEscolas: ({
             escola: {
+                id: string;
                 municipio: {
                     nome: string;
                 };
-                id: string;
                 nome: string;
                 codigo: string | null;
             };
         } & {
             id: string;
+            dreId: string;
             createdAt: Date;
             updatedAt: Date;
             createdBy: string | null;
             updatedBy: string | null;
             escolaId: string;
-            ativo: boolean;
-            dreId: string;
             vigenciaInicio: Date;
             vigenciaFim: Date | null;
+            ativo: boolean;
         })[];
     } & {
         id: string;
+        entidadeExecutoraId: string;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        deletedAt: Date | null;
         nome: string;
-        codigo: string | null;
-        entidadeExecutoraId: string;
-        municipioSede: string | null;
         ativo: boolean;
+        codigo: string | null;
+        municipioSede: string | null;
     }>;
     update(id: string, data: UpdateDREDto, user: AuthenticatedUser): Promise<{
         entidadeExecutora: {
@@ -163,40 +163,40 @@ export declare class DREService {
         };
     } & {
         id: string;
+        entidadeExecutoraId: string;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
         createdBy: string | null;
         updatedBy: string | null;
+        deletedAt: Date | null;
         nome: string;
-        codigo: string | null;
-        entidadeExecutoraId: string;
-        municipioSede: string | null;
         ativo: boolean;
+        codigo: string | null;
+        municipioSede: string | null;
     }>;
     delete(id: string, user: AuthenticatedUser): Promise<{
         message: string;
     }>;
     vincularEscola(escolaId: string, dreId: string, vigenciaInicio: Date, vigenciaFim: Date | null, user: AuthenticatedUser): Promise<{
-        escola: {
+        dre: {
             id: string;
             nome: string;
         };
-        dre: {
+        escola: {
             id: string;
             nome: string;
         };
     } & {
         id: string;
+        dreId: string;
         createdAt: Date;
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
         escolaId: string;
-        ativo: boolean;
-        dreId: string;
         vigenciaInicio: Date;
         vigenciaFim: Date | null;
+        ativo: boolean;
     }>;
     desvincularEscola(vinculoId: string, user: AuthenticatedUser): Promise<{
         message: string;

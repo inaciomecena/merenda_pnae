@@ -25,40 +25,45 @@ export declare class VinculosService {
     private readonly auditService;
     constructor(prisma: PrismaService, auditService: AuditService);
     createVinculo(data: CreateVinculoDto, actor: AuthenticatedUser): Promise<{
+        dre: {
+            id: string;
+            nome: string;
+        } | null;
+        municipio: {
+            id: string;
+            nome: string;
+        } | null;
+        escola: {
+            id: string;
+            nome: string;
+        } | null;
         user: {
             id: string;
             name: string;
             email: string;
         };
-        municipio: {
-            id: string;
-            nome: string;
-        } | null;
-        escola: {
-            id: string;
-            nome: string;
-        } | null;
-        dre: {
-            id: string;
-            nome: string;
-        } | null;
     } & {
         id: string;
+        dreId: string | null;
+        municipioId: string | null;
         createdAt: Date;
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
         escolaId: string | null;
-        municipioId: string | null;
-        ativo: boolean;
-        userId: string;
-        funcao: import(".prisma/client").$Enums.Role;
-        dreId: string | null;
         produtorId: string | null;
         vigenciaInicio: Date;
         vigenciaFim: Date | null;
+        ativo: boolean;
+        userId: string;
+        funcao: import(".prisma/client").$Enums.Role;
     }>;
     getVinculosUsuario(userId: string): Promise<({
+        dre: {
+            id: string;
+            nome: string;
+            codigo: string | null;
+        } | null;
         municipio: {
             id: string;
             nome: string;
@@ -68,40 +73,35 @@ export declare class VinculosService {
             nome: string;
             codigo: string | null;
         } | null;
-        dre: {
-            id: string;
-            nome: string;
-            codigo: string | null;
-        } | null;
     } & {
         id: string;
+        dreId: string | null;
+        municipioId: string | null;
         createdAt: Date;
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
         escolaId: string | null;
-        municipioId: string | null;
-        ativo: boolean;
-        userId: string;
-        funcao: import(".prisma/client").$Enums.Role;
-        dreId: string | null;
         produtorId: string | null;
         vigenciaInicio: Date;
         vigenciaFim: Date | null;
+        ativo: boolean;
+        userId: string;
+        funcao: import(".prisma/client").$Enums.Role;
     })[]>;
     revokeVinculo(vinculoId: string, actor: AuthenticatedUser): Promise<{
         message: string;
     }>;
     createRepresentacao(data: CreateRepresentacaoDto, actor: AuthenticatedUser): Promise<{
-        user: {
-            id: string;
-            name: string;
-            email: string;
-        };
         produtor: {
             id: string;
             nome: string;
             cpfCnpj: string | null;
+        };
+        user: {
+            id: string;
+            name: string;
+            email: string;
         };
     } & {
         id: string;
@@ -109,11 +109,11 @@ export declare class VinculosService {
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
-        ativo: boolean;
-        userId: string;
         produtorId: string;
         vigenciaInicio: Date;
         vigenciaFim: Date | null;
+        ativo: boolean;
+        userId: string;
         tipoRepresentacao: string;
         permissoes: string;
         autorizacaoDocumento: string | null;
@@ -133,11 +133,11 @@ export declare class VinculosService {
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
-        ativo: boolean;
-        userId: string;
         produtorId: string;
         vigenciaInicio: Date;
         vigenciaFim: Date | null;
+        ativo: boolean;
+        userId: string;
         tipoRepresentacao: string;
         permissoes: string;
         autorizacaoDocumento: string | null;
@@ -159,11 +159,11 @@ export declare class VinculosService {
         updatedAt: Date;
         createdBy: string | null;
         updatedBy: string | null;
-        ativo: boolean;
-        userId: string;
         produtorId: string;
         vigenciaInicio: Date;
         vigenciaFim: Date | null;
+        ativo: boolean;
+        userId: string;
         tipoRepresentacao: string;
         permissoes: string;
         autorizacaoDocumento: string | null;
